@@ -143,28 +143,28 @@ git push -u origin main
 ```
 *(Eslatma: `.env` fayli `.gitignore` orqali himoyalangan, u repoga kirmaydi).*
 
-### 2. Render.com da Web Service yaratish
-1. [Render Dashboard](https://dashboard.render.com) ga kiring va **New +** -> **Web Service** tugmasini bosing.
-2. Yuqorida ochilgan GitHub repongizni tanlang (**Connect**).
-3. Asosiy parametrlarni to'ldiring:
+### 2. Render.com da Blueprint orqali xizmat yaratish
+1. [Render Dashboard](https://dashboard.render.com) ga kiring va **New +** -> **Blueprint** ni tanlang. `render.yaml` faqat Blueprint orqali avtomatik qo'llanadi.
+2. GitHub repongizni tanlang (**Connect**) va `main` branchidagi `render.yaml` ni ko'rib chiqing.
+3. Blueprint quyidagi parametrlarni o'rnatadi:
    - **Name**: `jda-kimyo-quiz` (yoki o'zingiz istagan nom)
    - **Region**: Frankfurt (Yevropa — O'zbekistonga eng yaqin va tez)
    - **Branch**: `main`
    - **Runtime**: `Node`
-   - **Build Command**: `npm run build`
+   - **Build Command**: `npm ci && npm run build`
    - **Start Command**: `npm run start`
    - **Instance Type**: `Free` (bepul)
 
 ### 3. Muhit o'zgaruvchilarini (Environment Variables) sozlash
-Render Web Service sahifasidagi **Environment Variables** bo'limida quyidagilarni kiriting:
-- `BOT_TOKEN`: `@BotFather` bergan token (masalan: `8771542358:AAFS9GXzFrBVpP6v6gQoMb0rzpo2rFwlSW4`)
+Blueprint yaratish bosqichida quyidagilarni kiriting:
+- `BOT_TOKEN`: `@BotFather` bergan yangi token; uni README, hisobot yoki chatga yozmang.
 - `NODE_ENV`: `production`
-- `WEBHOOK_URL`: `https://<sizning-xizmat-nomingiz>.onrender.com` (Render taqdim etgan to'liq domen)
-- `WEBHOOK_SECRET`: ixtiyoriy maxfiy kalit (masalan: `jda_quiz_secret_secure_key`)
+- `WEBHOOK_URL`: xizmatning yakuniy `https://...onrender.com` domeni. Domen yaratilgandan keyin ma'lum bo'lsa, Render Environment bo'limida kiriting va xizmatni qayta deploy qiling.
+- `WEBHOOK_SECRET`: Blueprint `render.yaml` orqali tasodifiy qiymat yaratadi; uni ommaga chiqarmang.
 
 ### 4. Deploy va Webhook faollashishi
-- **Deploy Web Service** tugmasini bosing.
-- Render avtomatik ravishda `npm install`, so'ng `npm run build` bajaradi va `node dist/index.js` ni ishga tushiradi.
+- **Deploy Blueprint** tugmasini bosing.
+- Render `npm ci && npm run build` bajaradi va `node dist/index.js` ni ishga tushiradi.
 - Server ishga tushishi bilan `src/index.ts` Telegram API'ga avtomatik ravishda HTTPS Webhook'ni (`${WEBHOOK_URL}/webhook`) o'rnatadi.
 - Render **Logs** bo'limida quyidagi yozuvlar chiqadi:
   ```
@@ -178,4 +178,3 @@ Render Web Service sahifasidagi **Environment Variables** bo'limida quyidagilarn
 - **Loglarni ko'rish**: Render Dashboard -> Web Service -> **Logs** oynasida har bir savol, javoblar va reyting jarayoni real vaqtda ko'rinadi.
 - **Botni yangilash**: Loyihada o'zgarish qilib, GitHub'ga `git push` qilishingiz bilan Render avtomatik yangi versiyani quradi va deploy qiladi (Auto-Deploy yoqilgan bo'lsa).
 - **Bepul tarif va uyg'onish kechikishi**: Bepul Render Web Service 15 daqiqa faoliyatsizlikdan keyin uyqu rejimiga (spin down) o'tadi. Birinchi yangi so'rov yoki buyruq kelganda server taxminan 30–50 soniyada uyg'onadi. Doimiy kechikishsiz ishlashi uchun [cron-job.org](https://cron-job.org) yoki [UptimeRobot](https://uptimerobot.com) orqali `https://<service>.onrender.com/health` manziliga har 10 daqiqada bepul ping yuborishni sozlash mumkin.
-

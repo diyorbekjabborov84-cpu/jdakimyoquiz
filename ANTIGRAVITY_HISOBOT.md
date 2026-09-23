@@ -73,7 +73,7 @@
    - **Start Command**: `npm run start`
    - **Plan**: `Free`
 4. **Environment Variables (Muhit o'zgaruvchilari)**:
-   - `BOT_TOKEN`: Telegram botingiz tokeni (masalan: `8771542358:AAFS9GXzFrBVpP6v6gQoMb0rzpo2rFwlSW4`)
+   - `BOT_TOKEN`: Telegram botingiz tokeni (masalan: `<BOT_TOKEN>`)
    - `NODE_ENV`: `production`
    - `WEBHOOK_URL`: `https://<render-bergan-nom>.onrender.com` (Render sahifasi yuqorisida ko'rsatilgan xizmat domeni)
    - `WEBHOOK_SECRET`: ixtiyoriy sirli so'z (masalan: `jda_quiz_super_secret_2026`)
