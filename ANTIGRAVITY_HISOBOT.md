@@ -51,43 +51,45 @@
 ## 3. Render deploy holati (3-bosqich)
 
 - **GitHub repo URL’i**: `https://github.com/diyorbekjabborov84-cpu/jdakimyoquiz`
-  - Barcha fayllar va `render.yaml` `main` branchiga to'liq yuklandi.
-  - `.env` va boshqa maxfiy fayllar Git tarixiga kirmaganligi qat'iy tekshirildi.
+  - Barcha fayllar va yangilangan `render.yaml` `main` branchiga yuklandi.
+  - **Token xavfsizligi bo'yicha qayd**: Eski bot tokeni avvalgi Git commitlarida (tarixida) qayd etilganligi sababli, foydalanuvchi tomonidan yangi Telegram bot tokeni olindi. Yangi token **faqat lokal `.env`** fayliga joylashtirildi va Render Environment sozlamalariga kiritiladi. `README.md` va hisobot fayllaridan barcha haqiqiy tokenlar to'liq chiqarib tashlandi va GitHub'ga yangi xavfsiz holatda push qilindi.
+- **`render.yaml` (Blueprint) yangilanishi**:
+  - `buildCommand` ga dependency o'rnatish buyrug'i qo'shildi: `buildCommand: npm install && npm run build`. Bu orqali Render bulutida TypeScript va kutubxonalar (`grammy`, `express`, `zod` va h.k.) to'liq o'rnatilib, keyin kompilatsiya qilinishi kafolatlandi.
 - **Lokal bot holati**: **To'xtatildi** (`task-477` o'chirildi). Lokal jarayon to'xtatilib, Render'dagi webhook ishlashi uchun yo'l bo'shatildi.
-- **Render Web Service URL’i**: [Foydalanuvchi Render hisobida xizmatni yaratgach aniqlanadi]
+- **Render Web Service URL’i**: [Foydalanuvchi Render hisobida Blueprint yaratgach aniqlanadi]
 - **Render deploy holati**: **Kutilmoqda / Foydalanuvchi harakati zarur** (Deploy to'liq tugadi deb belgilanmadi).
 - **Sabab**: Tizimda Render CLI yoki `RENDER_API_KEY` mavjud emasligi sababli agent to'g'ridan-to'g'ri Render hisobiga kira olmaydi.
 
-### Foydalanuvchi Render'da bajarishi kerak bo‘lgan aniq qadamlar:
+### Render uchun to‘g‘ri Blueprint yo‘riqnomasi:
 
-1. **Render'ga kirish**: Brauzerda [dashboard.render.com](https://dashboard.render.com) ga kiring.
-2. **Yangi Web Service ochish**:
-   - **New +** tugmasini bosing va **Web Service** ni tanlang;
+1. **Render Dashboard'ga kirish**: Brauzerda [dashboard.render.com](https://dashboard.render.com) ga kiring.
+2. **Yangi Blueprint ochish**:
+   - Yuqori o'ng burchakdagi **New +** tugmasini bosing va **Blueprint** ni tanlang (Eslatma: `render.yaml` aynan Blueprint orqali avtomatik o'qiladi);
    - `diyorbekjabborov84-cpu/jdakimyoquiz` GitHub omborini tanlang (**Connect**).
-3. **Sozlamalarni tekshirish** (loyihadagi `render.yaml` tufayli avtomatik to'ldiriladi):
-   - **Name**: `jda-kimyo-quiz`
-   - **Region**: `Frankfurt (EU Central)`
-   - **Branch**: `main`
-   - **Runtime**: `Node`
-   - **Build Command**: `npm run build`
-   - **Start Command**: `npm run start`
-   - **Plan**: `Free`
-4. **Environment Variables (Muhit o'zgaruvchilari)**:
-   - `BOT_TOKEN`: Telegram botingiz tokeni (masalan: `<BOT_TOKEN>`)
-   - `NODE_ENV`: `production`
-   - `WEBHOOK_URL`: `https://<render-bergan-nom>.onrender.com` (Render sahifasi yuqorisida ko'rsatilgan xizmat domeni)
-   - `WEBHOOK_SECRET`: ixtiyoriy sirli so'z (masalan: `jda_quiz_super_secret_2026`)
-5. **Deploy qilish**:
-   - **Deploy Web Service** tugmasini bosing.
-   - Render build va start jarayonini boshlaydi.
-   - Xizmat ishga tushgach, sahifaning yuqorisidagi Render URL manzilini oling (masalan, `https://jda-kimyo-quiz.onrender.com`).
+3. **Sozlamalarni tasdiqlash**:
+   - Render avtomatik tarzda `render.yaml` faylini aniqlaydi va quyidagi parametrlarni o'rnatadi:
+     - Service: `jda-kimyo-quiz` (Web Service, Node)
+     - Plan: `Free`
+     - Region: `Frankfurt`
+     - Build Command: `npm install && npm run build`
+     - Start Command: `npm run start`
+     - Health Check Path: `/health`
+4. **Environment Variables (Muhit o'zgaruvchilarini kiritish)**:
+   - `BOT_TOKEN`: `@BotFather` bergan yangi tokeningizni kiriting (faqat Render'da saqlanadi);
+   - `NODE_ENV`: `production` (avtomatik);
+   - `WEBHOOK_SECRET`: Render tomonidan avtomatik tasodifiy xavfsiz kalit yaratiladi;
+   - `WEBHOOK_URL`: Render dastlab xizmat nomini belgilaydi. Xizmat ishga tushgach uning domeni (masalan: `https://jda-kimyo-quiz.onrender.com`) hosil bo'ladi. Agar Blueprint so'rasa, xizmat nomiga mos qilib `https://jda-kimyo-quiz.onrender.com` kiriting, yoki deploy tugagach Environment bo'limida yangilang.
+5. **Apply / Deploy Blueprint**:
+   - **Apply** tugmasini bosing.
+   - Render avtomatik tarzda paketlarni o'rnatadi, loyihani build qiladi va serverni ishga tushiradi.
 
 ---
 
 ## 4. Xulosa va keyingi qadam
 
 - **2-bosqich**: **To'liq yakunlandi.**
-- **GitHub ombori**: **Muvaffaqiyatli yaratildi va push qilindi.**
+- **GitHub ombori**: **Muvaffaqiyatli yangilandi va push qilindi.**
+- **Token xavfsizligi**: Yangi token faqat lokal `.env` ga saqlandi, GitHub tarixidagi holat qayd etildi.
 - **Lokal bot**: **To'xtatildi.**
-- **Render deploy holati**: **Foydalanuvchi Render Dashboard'da Web Service yaratishi kutilmoqda.**
-- **Keyingi qadam**: Render xizmati ishga tushgach, foydalanuvchi o'zining Render URL manzilini taqdim etadi. Agent darhol `https://<render-url>/health` va Telegram webhook statusini tekshiradi hamda guruhdagi yakuniy sinovni tasdiqlaydi.
+- **Render deploy holati**: **Foydalanuvchi Render Dashboard'da Blueprint yaratishi kutilmoqda.**
+- **Keyingi qadam**: Render xizmati ishga tushgach, Render bergan URL manzilini taqdim eting. Agent darhol `https://<render-url>/health` (200 OK) va Telegram webhook holatini tekshirib beradi.

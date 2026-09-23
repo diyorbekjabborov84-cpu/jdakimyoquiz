@@ -151,7 +151,7 @@ git push -u origin main
    - **Region**: Frankfurt (Yevropa — O'zbekistonga eng yaqin va tez)
    - **Branch**: `main`
    - **Runtime**: `Node`
-   - **Build Command**: `npm ci && npm run build`
+   - **Build Command**: `npm install && npm run build`
    - **Start Command**: `npm run start`
    - **Instance Type**: `Free` (bepul)
 
@@ -164,7 +164,7 @@ Blueprint yaratish bosqichida quyidagilarni kiriting:
 
 ### 4. Deploy va Webhook faollashishi
 - **Deploy Blueprint** tugmasini bosing.
-- Render `npm ci && npm run build` bajaradi va `node dist/index.js` ni ishga tushiradi.
+- Render `npm install && npm run build` bajaradi va `node dist/index.js` ni ishga tushiradi.
 - Server ishga tushishi bilan `src/index.ts` Telegram API'ga avtomatik ravishda HTTPS Webhook'ni (`${WEBHOOK_URL}/webhook`) o'rnatadi.
 - Render **Logs** bo'limida quyidagi yozuvlar chiqadi:
   ```
