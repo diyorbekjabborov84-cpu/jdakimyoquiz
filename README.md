@@ -160,7 +160,7 @@ Blueprint yaratish bosqichida quyidagilarni kiriting:
 - `BOT_TOKEN`: `@BotFather` bergan yangi token; uni README, hisobot yoki chatga yozmang.
 - `NODE_ENV`: `production`
 - `WEBHOOK_URL`: xizmatning yakuniy `https://...onrender.com` domeni. Domen yaratilgandan keyin ma'lum bo'lsa, Render Environment bo'limida kiriting va xizmatni qayta deploy qiling.
-- `WEBHOOK_SECRET`: Blueprint `render.yaml` orqali tasodifiy qiymat yaratadi; uni ommaga chiqarmang.
+- `WEBHOOK_SECRET`: Render Environment bo‘limida maxfiy qiymat sifatida kiriting. 32–64 ta tasodifiy `A-Z`, `a-z`, `0-9`, `_` yoki `-` belgisidan foydalaning; uni ommaga chiqarmang. Telegram boshqa belgilarni qabul qilmaydi.
 
 ### 4. Deploy va Webhook faollashishi
 - **Deploy Blueprint** tugmasini bosing.
