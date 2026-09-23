@@ -77,40 +77,37 @@ Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va
 - **`render.yaml` (Blueprint) yangilanishi**:
   - `buildCommand: npm install && npm run build` orqali Render bulutida barcha paketlar o'rnatilib, TypeScript kompilatsiyasi amalga oshirilishi ta'minlandi.
 - **Lokal bot holati**: **To'xtatildi**. Render'dagi webhook ishlashi uchun yo'l bo'shatilgan.
-- **Render Web Service URL’i**: [Foydalanuvchi Render hisobida Blueprint yaratgach aniqlanadi]
-- **Render deploy holati**: **Kutilmoqda / Foydalanuvchi harakati zarur** (Deploy to'liq tugadi deb belgilanmadi).
-- **Sabab**: Tizimda Render CLI yoki `RENDER_API_KEY` mavjud emasligi sababli agent to'g'ridan-to'g'ri Render hisobiga kira olmaydi.
-
-### Render uchun to‘g‘ri Blueprint yo‘riqnomasi:
-
-1. **Render Dashboard'ga kirish**: Brauzerda [dashboard.render.com](https://dashboard.render.com) ga kiring.
-2. **Yangi Blueprint ochish**:
-   - Yuqori o'ng burchakdagi **New +** tugmasini bosing va **Blueprint** ni tanlang (Eslatma: `render.yaml` aynan Blueprint orqali avtomatik o'qiladi);
-   - `diyorbekjabborov84-cpu/jdakimyoquiz` GitHub omborini tanlang (**Connect**).
-3. **Sozlamalarni tasdiqlash**:
-   - Render avtomatik tarzda `render.yaml` faylini aniqlaydi va quyidagi parametrlarni o'rnatadi:
-     - Service: `jda-kimyo-quiz` (Web Service, Node)
-     - Plan: `Free`
-     - Region: `Frankfurt`
-     - Build Command: `npm install && npm run build`
-     - Start Command: `npm run start`
-     - Health Check Path: `/health`
-4. **Environment Variables (Muhit o'zgaruvchilarini kiritish)**:
-   - `BOT_TOKEN`: `@BotFather` bergan yangi tokeningizni kiriting (faqat Render'da saqlanadi);
-   - `NODE_ENV`: `production` (avtomatik);
-   - `WEBHOOK_SECRET`: Render avtomatik tasodifiy xavfsiz kalit yaratadi;
-   - `WEBHOOK_URL`: Render dastlab xizmat nomini belgilaydi. Xizmat ishga tushgach uning domeni (masalan: `https://jda-kimyo-quiz.onrender.com`) hosil bo'ladi. Agar Blueprint so'rasa, xizmat nomiga mos qilib `https://jda-kimyo-quiz.onrender.com` kiriting, yoki deploy tugagach Environment bo'limida yangilang.
-5. **Apply / Deploy Blueprint**:
-   - **Apply** tugmasini bosing.
-   - Render avtomatik tarzda paketlarni o'rnatadi, loyihani build qiladi va serverni ishga tushiradi.
+- **Render Web Service URL’i**: `https://jda-kimyo-quiz.onrender.com`
+- **Render deploy holati**: **Muvaffaqiyatli yakunlandi (Live / Active)**.
+- **Render Health Check tekshiruvi (`/health`)**:
+  - So'rov: `GET https://jda-kimyo-quiz.onrender.com/health`
+  - Natija: HTTP 200 OK
+  - Javob tanasi:
+    ```json
+    {
+      "status": "ok",
+      "service": "jda-kimyo-quiz",
+      "uptime": 337,
+      "timestamp": "2026-09-23T18:39:06.198Z"
+    }
+    ```
+- **Telegram Bot Webhook tekshiruvi (`getWebhookInfo`)**:
+  - `url`: `https://jda-kimyo-quiz.onrender.com/webhook`
+  - `has_custom_certificate`: `false`
+  - `pending_update_count`: `0`
+  - `ip_address`: `216.24.57.16`
+  - `allowed_updates`: `["message", "poll", "poll_answer", "chat_member"]`
+  - Xatolik: Hech qanday xatolik qayd etilmagan (`last_error_date` / `last_error_message` mavjud emas).
 
 ---
 
 ## 4. Xulosa va keyingi qadam
 
 - **21 ta savolli kimyo quizi**: **To'liq yaratildi, 21 ta savol va 4 ta unikal variant tekshirildi va barcha testlar muvaffaqiyatli o'tdi.**
-- **GitHub ombori**: **Barcha o'zgarishlar GitHub'ga push qilindi.**
-- **Token xavfsizligi**: Yangi token faqat lokal `.env` ga saqlandi, GitHub tarixidagi holat qayd etildi.
-- **Lokal bot**: **To'xtatildi.**
-- **Render deploy holati**: **Foydalanuvchi Render Dashboard'da Blueprint yaratishi kutilmoqda.**
-- **Keyingi qadam**: Render xizmati ishga tushgach, Render bergan URL manzilini taqdim eting. Agent darhol `https://<render-url>/health` (200 OK) va Telegram webhook holatini tekshirib beradi.
+- **GitHub ombori**: **Barcha o'zgarishlar GitHub'ga push qilindi (`main` branchi).**
+- **Token xavfsizligi**: Yangi token faqat lokal `.env` va Render Environment sozlamalariga joylashtirildi, hisobot va koddagi tokenlar to'liq himoyalandi.
+- **Lokal bot**: To'xtatilgan, webhook bilan to'qnashuv yo'q.
+- **Render Deploy (3-bosqich)**: **To'liq va muvaffaqiyatli yakunlandi**. Servis jonli rejimda Telegram webhook'ini qabul qilmoqda.
+- **Keyingi qadam**: 
+  1. Telegram guruhida `/quiz` yuborib, 21 ta savolli yangi «Aminokislotalar — suyuqlanish temperaturasi» quizini jonli Render bot orqali sinab ko'rish.
+  2. YOL_XARITASI.md bo'yicha **4-bosqich — doimiy ma'lumotlar bazasi (PostgreSQL)** ga o'tish.
