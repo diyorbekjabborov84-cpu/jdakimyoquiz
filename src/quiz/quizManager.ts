@@ -92,13 +92,15 @@ export class QuizManager {
 
     this.sessions.set(chatId, session);
 
+    const timePerQuestion = quiz.questions[0]?.timeLimitSeconds || 20;
+
     // Guruhga e'lon xabari
     await api.sendMessage(
       chatId,
       `🧪 <b>«${escapeHtml(quiz.title)}» boshlandi!</b>\n\n` +
         `📝 ${escapeHtml(quiz.description)}\n` +
         `❓ Savollar soni: <b>${quiz.questions.length} ta</b>\n` +
-        `⏱ Har bir savolga: <b>15 soniya</b>\n\n` +
+        `⏱ Har bir savolga: <b>${timePerQuestion} soniya</b>\n\n` +
         `<i>Tayyor turing, 1-savol 3 soniyadan so'ng yuboriladi...</i>`,
       { parse_mode: "HTML" }
     );

@@ -25,22 +25,22 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 
 ---
 
-## Quiz Xususiyatlari va Qoidalari (2-bosqich)
+## Quiz Xususiyatlari va Qoidalari
 
 1. **Telegram Quiz Poll formati**: Savollar oddiy matn yoki inline tugma emas, Telegramning rasmiy `type: "quiz"`, `is_anonymous: false` so'rovnomalari ko'rinishida yuboriladi.
-2. **5 ta haqiqiy kimyo savoli** (`JDA Kimyo — namuna`):
-   - Molar massa (H₂O)
-   - Elementning davriy jadvaldagi o'rni (Uglerod)
-   - Mineral va moddalar formulalari (NaCl)
-   - Atmosfera havosi tarkibi (Azot N₂)
-   - Kimyoviy indikatorlar (Lakmus kislotada)
-3. **Avtomatik taymer**: Har bir savol uchun 15 soniya vaqt beriladi. Telegramning rasmiy taymeri bilan birga ichki nazorat taymeri ishlaydi.
-4. **Ko'p ishtirokchili baholash**: Guruhdagi har bir a'zoning javobi qabul qilinadi.
-5. **Takroriy javoblarni elash (Deduplication)**: Bitta ishtirokchining bir savolga bergan javobi faqat bir marta hisoblanadi (takroriy Telegram update-lar ballni oshirmaydi).
-6. **Reyting va Tay-breyk (Tie-breaking)**:
-   - 1-mezon: To'g'ri javoblar soni bo'yicha kamayish tartibida;
-   - 2-mezon: Teng ball to'plangan taqdirda, javob berishga sarflangan umumiy vaqt (ms) bo'yicha o'sish tartibida (tezroq javob bergan ishtirokchi yuqorida turadi).
-7. **Multi-group qo'llab-quvvatlash**: Bir nechta guruh bir vaqtning o'zida mustaqil ravishda o'z quizlarini o'tkaza oladi.
+2. **21 ta haqiqiy kimyo savoli** («Aminokislotalar — suyuqlanish temperaturasi»):
+   - 329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning har biri uchun suyuqlanish temperaturasi bo'yicha savol;
+   - Har bir savolda 4 ta turli sonli variant va bitta to'g'ri javob;
+   - Har bir savol uchun 20 soniya rasmiy vaqt beriladi;
+   - Sistein (178 °C) va Sistin (260 °C) alohida moddalar sifatida kiritilgan;
+   - Asparagin kislota va Oksiprolin (ikkalasi 270 °C) nomdan temperaturaga qarab tuzilgan.
+3. **Ko'p ishtirokchili baholash va reyting**:
+   - Natija 21 tadan hisoblanadi (masalan: `21/21 ball`);
+   - Umumiy javob vaqti faqat ishtirokchi bosgan javoblarning vaqtlaridan yig'iladi; javobsiz qolgan savollar vaqtga qo'shilmaydi;
+   - Noto'g'ri bosilgan javobning vaqti ham sarflangan vaqtga qo'shiladi;
+   - Teng ball to'planganda, qisqaroq umumiy javob vaqti ustunlik qiladi.
+4. **Takroriy javoblarni elash (Deduplication)**: Bitta ishtirokchining bir savolga bergan javobi faqat bir marta hisoblanadi.
+5. **Multi-group qo'llab-quvvatlash**: Bir nechta guruh bir vaqtning o'zida mustaqil ravishda o'z quizlarini o'tkaza oladi.
 
 ---
 

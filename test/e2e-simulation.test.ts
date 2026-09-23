@@ -57,7 +57,7 @@ async function runE2ESimulation() {
   console.log("1-qadam: Guruh admini tomonidan quiz boshlanishi...");
   const startResult = await qm.startQuiz(testChatId, sampleChemistryQuiz, api);
   assert.strictEqual(startResult.success, true);
-  assert.ok(api.messages[0].includes("JDA Kimyo — namuna"));
+  assert.ok(api.messages[0].includes("Aminokislotalar — suyuqlanish temperaturasi"));
   console.log("✅ Quiz e'loni guruhga yuborildi.\n");
 
   // 2. Savollarni ketma-ket o'tkazish va 2 ishtirokchi javob berishi
@@ -73,7 +73,7 @@ async function runE2ESimulation() {
     assert.ok(currentPoll, "Poll yuborildi");
     assert.deepStrictEqual(currentPoll.correctOptionIds, [q.correctOptionId]);
 
-    // Ishtirokchi 1 (Ali) to'g'ri javob beradi
+    // Ishtirokchi 1 (Ali) barcha 21 ta savolga to'g'ri javob beradi
     const a1 = qm.handlePollAnswer({
       pollId: currentPoll.pollId,
       user: user1,
@@ -89,8 +89,8 @@ async function runE2ESimulation() {
     });
     assert.strictEqual(a1Dup, false, "Ali'ning takroriy javobi rad etildi");
 
-    // Ishtirokchi 2 (Vali): 4 ta to'g'ri, 1 ta noto'g'ri beradi
-    const isValiCorrect = i !== 2; // 3-savolda Vali adashadi
+    // Ishtirokchi 2 (Vali): 18 ta to'g'ri, 3 ta noto'g'ri (i === 2, 8, 15 larda adashadi)
+    const isValiCorrect = i !== 2 && i !== 8 && i !== 15;
     const valiOption = isValiCorrect ? q.correctOptionId : (q.correctOptionId + 1) % q.options.length;
 
     const a2 = qm.handlePollAnswer({
@@ -115,16 +115,16 @@ async function runE2ESimulation() {
   console.log("------------------------------------\n");
 
   // Reytingni tekshirish
-  assert.ok(finalMessage.includes("«JDA Kimyo — namuna» yakunlandi!"));
-  assert.ok(finalMessage.includes("🥇 <b>@ali_chem</b>: 5/5 ball"));
+  assert.ok(finalMessage.includes("«Aminokislotalar — suyuqlanish temperaturasi» yakunlandi!"));
+  assert.ok(finalMessage.includes("🥇 <b>@ali_chem</b>: 21/21 ball"));
   assert.ok(
-    finalMessage.includes("🥈 <b>Vali &amp; Do&#039;stlar</b>: 4/5 ball"),
+    finalMessage.includes("🥈 <b>Vali &amp; Do&#039;stlar</b>: 18/21 ball"),
     "HTML xavfsiz escape qilingan bo'lishi kerak"
   );
   assert.ok(finalMessage.includes("jami javob vaqti:"));
   assert.ok(!finalMessage.includes("<Kimyogar>"), "Xom HTML teglari xabarga kirmagan bo'lishi kerak");
 
-  console.log("🎉 2 ISHTIROKCHILI BOSHDAN-OXIRIGACHA SINOV 100% MUVAFFAQIYATLI O'TDI!");
+  console.log("🎉 21 SAVOLLI 2 ISHTIROKCHILI BOSHDAN-OXIRIGACHA SINOV 100% MUVAFFAQIYATLI O'TDI!");
 }
 
 runE2ESimulation().catch((err) => {

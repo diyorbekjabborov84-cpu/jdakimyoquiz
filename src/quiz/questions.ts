@@ -1,49 +1,184 @@
 import { Quiz } from "./types.js";
 
-export const sampleChemistryQuiz: Quiz = {
-  id: "jda-chem-sample-1",
-  title: "JDA Kimyo — namuna",
-  description: "Kimyo fanidan boshlang'ich bilimlar bo'yicha 5 savolli sinov quizi",
+/**
+ * 329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning
+ * suyuqlanish temperaturasi bo'yicha birinchi haqiqiy kimyo quizi.
+ */
+export const aminoAcidsQuiz: Quiz = {
+  id: "jda-chem-amino-acids",
+  title: "Aminokislotalar — suyuqlanish temperaturasi",
+  description: "329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning suyuqlanish temperaturasi bo'yicha interaktiv quiz",
   questions: [
     {
-      id: "q1",
-      question: "1. Suvning (H₂O) molar massasi qancha?",
-      options: ["16 g/mol", "18 g/mol", "20 g/mol", "22 g/mol"],
-      correctOptionId: 1, // "18 g/mol"
-      explanation: "Vodorod (H) = 1 g/mol, Kislorod (O) = 16 g/mol. H₂O = 1×2 + 16 = 18 g/mol.",
-      timeLimitSeconds: 15,
+      id: "aa_1",
+      question: "Jadvalga ko‘ra, Glitsinning suyuqlanish temperaturasi qancha?",
+      options: ["284 °C", "292 °C", "297 °C", "315 °C"],
+      correctOptionId: 1, // 292 °C
+      explanation: "Glitsin (Gli.) ning suyuqlanish temperaturasi: 292 °C.",
+      timeLimitSeconds: 20,
     },
     {
-      id: "q2",
-      question: "2. Davriy jadvalda tartib raqami 6 bo'lgan kimyoviy element qaysi?",
-      options: ["Azot (N)", "Kislorod (O)", "Uglerod (C)", "Bor (B)"],
-      correctOptionId: 2, // "Uglerod (C)"
-      explanation: "Uglerodning atom raqami 6 bo'lib, davriy jadvalning 2-davr, IV guruhida joylashgan.",
-      timeLimitSeconds: 15,
+      id: "aa_2",
+      question: "Jadvalga ko‘ra, Alaninning suyuqlanish temperaturasi qancha?",
+      options: ["297 °C", "275 °C", "283 °C", "292 °C"],
+      correctOptionId: 0, // 297 °C
+      explanation: "Alanin (Ala.) ning suyuqlanish temperaturasi: 297 °C.",
+      timeLimitSeconds: 20,
     },
     {
-      id: "q3",
-      question: "3. Osh tuzining kimyoviy formulasi qaysi?",
-      options: ["NaCl", "KCl", "NaOH", "CaCO₃"],
-      correctOptionId: 0, // "NaCl"
-      explanation: "Osh tuzi — natriy xlorid (NaCl) ning maishiy nomidir.",
-      timeLimitSeconds: 15,
+      id: "aa_3",
+      question: "Jadvalga ko‘ra, Valinning suyuqlanish temperaturasi qancha?",
+      options: ["299 °C", "315 °C", "337 °C", "344 °C"],
+      correctOptionId: 1, // 315 °C
+      explanation: "Valin (Val.) ning suyuqlanish temperaturasi: 315 °C.",
+      timeLimitSeconds: 20,
     },
     {
-      id: "q4",
-      question: "4. Yer atmosferasi havosining taxminan 78% qismini qaysi gaz tashkil qiladi?",
-      options: ["Kislorod (O₂)", "Azot (N₂)", "Karbonat angidrid (CO₂)", "Argon (Ar)"],
-      correctOptionId: 1, // "Azot (N₂)"
-      explanation: "Havo tarkibining taxminan 78% qismini azot (N₂), 21% qismini kislorod (O₂) tashkil qiladi.",
-      timeLimitSeconds: 15,
+      id: "aa_4",
+      question: "Jadvalga ko‘ra, Leysinning suyuqlanish temperaturasi qancha?",
+      options: ["315 °C", "325 °C", "337 °C", "382 °C"],
+      correctOptionId: 2, // 337 °C
+      explanation: "Leysin (Ley.) ning suyuqlanish temperaturasi: 337 °C.",
+      timeLimitSeconds: 20,
     },
     {
-      id: "q5",
-      question: "5. Kislotali muhitda lakmus indikatori qanday rangga kiradi?",
-      options: ["Ko'k", "Yashil", "Qizil", "Binafsha"],
-      correctOptionId: 2, // "Qizil"
-      explanation: "Lakmus kislotali muhitda qizil rangga, ishqoriy muhitda esa ko'k rangga o'zgaradi.",
-      timeLimitSeconds: 15,
+      id: "aa_5",
+      question: "Jadvalga ko‘ra, Izoleysinning suyuqlanish temperaturasi qancha?",
+      options: ["270 °C", "283 °C", "284 °C", "292 °C"],
+      correctOptionId: 2, // 284 °C
+      explanation: "Izoleysin (Iley.) ning suyuqlanish temperaturasi: 284 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_6",
+      question: "Jadvalga ko‘ra, Asparagin kislotaning suyuqlanish temperaturasi qancha?",
+      options: ["249 °C", "260 °C", "270 °C", "277 °C"],
+      correctOptionId: 2, // 270 °C
+      explanation: "Asparagin kislota (Asp.) ning suyuqlanish temperaturasi: 270 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_7",
+      question: "Jadvalga ko‘ra, Glutamin kislotaning suyuqlanish temperaturasi qancha?",
+      options: ["238 °C", "249 °C", "253 °C", "270 °C"],
+      correctOptionId: 1, // 249 °C
+      explanation: "Glutamin kislota (Glu.) ning suyuqlanish temperaturasi: 249 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_8",
+      question: "Jadvalga ko‘ra, Ornitinning suyuqlanish temperaturasi qancha?",
+      options: ["140 °C", "160 °C", "178 °C", "224 °C"],
+      correctOptionId: 0, // 140 °C
+      explanation: "Ornitin (Ori.) ning suyuqlanish temperaturasi: 140 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_9",
+      question: "Jadvalga ko‘ra, Lizinning suyuqlanish temperaturasi qancha?",
+      options: ["210 °C", "224 °C", "228 °C", "238 °C"],
+      correctOptionId: 1, // 224 °C
+      explanation: "Lizin (Liz.) ning suyuqlanish temperaturasi: 224 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_10",
+      question: "Jadvalga ko‘ra, Serinning suyuqlanish temperaturasi qancha?",
+      options: ["224 °C", "228 °C", "249 °C", "260 °C"],
+      correctOptionId: 1, // 228 °C
+      explanation: "Serin (Ser.) ning suyuqlanish temperaturasi: 228 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_11",
+      question: "Jadvalga ko‘ra, Treoninning suyuqlanish temperaturasi qancha?",
+      options: ["238 °C", "249 °C", "253 °C", "275 °C"],
+      correctOptionId: 2, // 253 °C
+      explanation: "Treonin (Tre.) ning suyuqlanish temperaturasi: 253 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_12",
+      question: "Jadvalga ko‘ra, Sisteinning suyuqlanish temperaturasi qancha?",
+      options: ["140 °C", "165 °C", "178 °C", "260 °C"],
+      correctOptionId: 2, // 178 °C
+      explanation: "Sistein (Sis.-n) ning suyuqlanish temperaturasi: 178 °C (Sistin bilan adashtirmang).",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_13",
+      question: "Jadvalga ko‘ra, Sistinning suyuqlanish temperaturasi qancha?",
+      options: ["178 °C", "253 °C", "260 °C", "270 °C"],
+      correctOptionId: 2, // 260 °C
+      explanation: "Sistin (Sis.) ning suyuqlanish temperaturasi: 260 °C (Sistein 178 °C).",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_14",
+      question: "Jadvalga ko‘ra, Metioninning suyuqlanish temperaturasi qancha?",
+      options: ["275 °C", "283 °C", "284 °C", "292 °C"],
+      correctOptionId: 1, // 283 °C
+      explanation: "Metionin (Met.) ning suyuqlanish temperaturasi: 283 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_15",
+      question: "Jadvalga ko‘ra, Fenilalaninning suyuqlanish temperaturasi qancha?",
+      options: ["270 °C", "275 °C", "277 °C", "297 °C"],
+      correctOptionId: 1, // 275 °C
+      explanation: "Fenilalanin (Fen.) ning suyuqlanish temperaturasi: 275 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_16",
+      question: "Jadvalga ko‘ra, Tirozinning suyuqlanish temperaturasi qancha?",
+      options: ["315 °C", "337 °C", "344 °C", "382 °C"],
+      correctOptionId: 2, // 344 °C
+      explanation: "Tirozin (Tir.) ning suyuqlanish temperaturasi: 344 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_17",
+      question: "Jadvalga ko‘ra, Triptofanning suyuqlanish temperaturasi qancha?",
+      options: ["337 °C", "344 °C", "370 °C", "382 °C"],
+      correctOptionId: 3, // 382 °C
+      explanation: "Triptofan (Tri.) ning suyuqlanish temperaturasi: 382 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_18",
+      question: "Jadvalga ko‘ra, Prolinning suyuqlanish temperaturasi qancha?",
+      options: ["270 °C", "284 °C", "297 °C", "299 °C"],
+      correctOptionId: 3, // 299 °C
+      explanation: "Prolin (Pro.) ning suyuqlanish temperaturasi: 299 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_19",
+      question: "Jadvalga ko‘ra, Oksiprolinning suyuqlanish temperaturasi qancha?",
+      options: ["260 °C", "270 °C", "277 °C", "299 °C"],
+      correctOptionId: 1, // 270 °C
+      explanation: "Oksiprolin (Pro-OH) ning suyuqlanish temperaturasi: 270 °C (Asparagin kislota bilan bir xil).",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_20",
+      question: "Jadvalga ko‘ra, Gistidinning suyuqlanish temperaturasi qancha?",
+      options: ["270 °C", "275 °C", "277 °C", "283 °C"],
+      correctOptionId: 2, // 277 °C
+      explanation: "Gistidin (Gis.) ning suyuqlanish temperaturasi: 277 °C.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "aa_21",
+      question: "Jadvalga ko‘ra, Argininning suyuqlanish temperaturasi qancha?",
+      options: ["224 °C", "228 °C", "238 °C", "249 °C"],
+      correctOptionId: 2, // 238 °C
+      explanation: "Arginin (Arg.) ning suyuqlanish temperaturasi: 238 °C.",
+      timeLimitSeconds: 20,
     },
   ],
 };
+
+// Orqaga moslik uchun sampleChemistryQuiz nomi ham saqlanadi
+export const sampleChemistryQuiz = aminoAcidsQuiz;

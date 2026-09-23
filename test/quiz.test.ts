@@ -55,20 +55,71 @@ class MockTelegramApi implements TelegramApiSender {
 async function runQuizTests() {
   console.log("🧪 2-BOSQICH: QUIZ TIZIMI TESTLARI BOSHLANDI...\n");
 
-  // TEST 1: Savollar to'plami va talablar
-  console.log("Test 1: Kimyo savollari to'plami va tarkibi...");
-  assert.ok(sampleChemistryQuiz.questions.length >= 5, "Kamida 5 ta savol bo'lishi kerak");
+  // TEST 1: Savollar to'plami va talablar (21 ta aminokislota)
+  console.log("Test 1: 21 ta aminokislota savollari to'plami va 4 ta unikal variant tekshiruvi...");
+  assert.strictEqual(
+    sampleChemistryQuiz.questions.length,
+    21,
+    "Aynan 21 ta aminokislota savoli bo'lishi kerak"
+  );
+
+  const expectedTemperatures: Record<string, string> = {
+    Glitsin: "292 °C",
+    Alanin: "297 °C",
+    Valin: "315 °C",
+    Leysin: "337 °C",
+    Izoleysin: "284 °C",
+    "Asparagin kislota": "270 °C",
+    "Glutamin kislota": "249 °C",
+    Ornitin: "140 °C",
+    Lizin: "224 °C",
+    Serin: "228 °C",
+    Treonin: "253 °C",
+    Sistein: "178 °C",
+    Sistin: "260 °C",
+    Metionin: "283 °C",
+    Fenilalanin: "275 °C",
+    Tirozin: "344 °C",
+    Triptofan: "382 °C",
+    Prolin: "299 °C",
+    Oksiprolin: "270 °C",
+    Gistidin: "277 °C",
+    Arginin: "238 °C",
+  };
+
   for (const q of sampleChemistryQuiz.questions) {
     assert.ok(q.id, "Har bir savol id ga ega bo'lishi kerak");
-    assert.ok(q.question.length > 5, "Savol matni mavjud bo'lishi kerak");
-    assert.ok(q.options.length >= 2 && q.options.length <= 4, "Variantlar soni 2-4 ta bo'lishi kerak");
-    assert.ok(
-      q.correctOptionId >= 0 && q.correctOptionId < q.options.length,
-      "To'g'ri javob indeksi variantlar ichida bo'lishi kerak"
+    assert.ok(q.question.includes("suyuqlanish temperaturasi"), "Savol matni to'g'ri bo'lishi kerak");
+    assert.strictEqual(q.options.length, 4, "Har savolda aynan 4 ta variant bo'lishi kerak");
+    assert.strictEqual(
+      new Set(q.options).size,
+      4,
+      `Savol variantlari bir-biridan farq qilishi kerak: ${q.question}`
     );
-    assert.ok(q.timeLimitSeconds > 0, "Vaqt chegarasi bo'lishi kerak");
+    assert.strictEqual(q.timeLimitSeconds, 20, "Har bir savolga 20 soniya vaqt bo'lishi kerak");
+    assert.ok(
+      q.correctOptionId >= 0 && q.correctOptionId < 4,
+      "To'g'ri javob indeksi 0-3 oralig'ida bo'lishi kerak"
+    );
+
+    // Kislota nomi va uning to'g'ri temperaturasi mosligini tekshirish
+    let matchedName = "";
+    for (const name of Object.keys(expectedTemperatures)) {
+      if (q.question.includes(name)) {
+        matchedName = name;
+        break;
+      }
+    }
+    assert.ok(matchedName.length > 0, `Noma'lum aminokislota savoli: ${q.question}`);
+    const expectedTemp = expectedTemperatures[matchedName];
+    const actualCorrectOption = q.options[q.correctOptionId];
+    assert.strictEqual(
+      actualCorrectOption,
+      expectedTemp,
+      `${matchedName} uchun to'g'ri temperatura ${expectedTemp} bo'lishi kerak, lekin ${actualCorrectOption} ko'rsatilgan`
+    );
   }
-  console.log(`✅ Test 1 muvaffaqiyatli o'tdi. (${sampleChemistryQuiz.questions.length} ta haqiqiy kimyo savoli mavjud)\n`);
+  console.log(`✅ Test 1 muvaffaqiyatli o'tdi. (21 ta aminokislota savoli va to'g'ri javoblari 100% tasdiqlandi)\n`);
 
   // TEST 2: HTML Escape xavfsizligi
   console.log("Test 2: Foydalanuvchi ismlari va matnlarni HTML uchun xavfsiz escape qilish...");
@@ -124,7 +175,7 @@ async function runQuizTests() {
     undefined,
     "Eski correct_option_id maydoni endi uzatilmasligi kerak"
   );
-  assert.strictEqual(sentPoll.other?.open_period, 15, "open_period 15 soniya bo'lishi kerak");
+  assert.strictEqual(sentPoll.other?.open_period, 20, "open_period 20 soniya bo'lishi kerak");
   console.log("✅ Test 5 muvaffaqiyatli o'tdi.\n");
 
   // TEST 6: Takroriy javoblarni elash (Deduplication)
