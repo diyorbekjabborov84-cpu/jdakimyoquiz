@@ -179,3 +179,148 @@ Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va
 - Oddiy shaxsiy `/start` endi ikkala kanal a'zoligini tekshiradi. A'zo bo'lmaganlarga kanal tugmalari va `check_sub_start` qayta tekshirish tugmasi chiqadi; tekshiruvdan o'tganlarga botdan foydalanish xabari chiqadi.
 - Guruhdagi `/start` obuna talab qilmaydi. Test deep linklari tanlangan test ID sini saqlashda davom etadi.
 - TypeScript tekshiruvi va `test/subscription.test.ts` dagi 11/11 holat o'tdi. Render deploy va haqiqiy Telegram sinovi alohida tekshiriladi.
+
+---
+
+## 7. Kolloid Kimyo (KK_M1) — 60 ta Savol, 3 ta Yangi Quiz va Dinamik Aralashtirish
+
+- **Manba fayl**: `KK_M1_QUIZ_SAVOLLAR.txt` (KK_M1 taqdimotining 60 ta savoli).
+- **3 ta mustaqil Telegram quiz shakllantirildi**:
+  1. `KK1_1`: 01–20-savollar — *Kolloid kimyo — 1-qism (KK1_1)* (Kolloid kimyo asoslari, dispers sistemalar va sirt hodisalari).
+  2. `KK1_2`: 21–40-savollar — *Kolloid kimyo — 2-qism (KK1_2)* (Sirt energiyasi, adsorbsiya va dispers sistemalar xossalari).
+  3. `KK1_3`: 41–60-savollar — *Kolloid kimyo — 3-qism (KK1_3)* (Zol va gellar, optik va kinetik xossalar, koagulyatsiya).
+  - Har bir to'plamda roppa-rosa 20 tadan savol, jami 60 ta unikal savol.
+  - Har bir savolda aynan 4 ta turli javob varianti va 20 soniyalik Telegram rasmiy taymeri (`timeLimitSeconds: 20`).
+- **Dinamik Aralashtirish (Dynamic Shuffling & Recalculation)**:
+  - Har safar quiz boshlanganda savollar tartibi tasodifiy aralashtiriladi (`shuffleArray`);
+  - Har bir savolning 4 ta javob varianti alohida mustaqil aralashtiriladi;
+  - Variantlar aralashgach, to‘g‘ri javob indeksi (`correctOptionId`) yangi variant tartibiga mos ravishda 100% aniq qayta hisoblanadi (`shuffledOptions.indexOf(correctOptionText)`);
+  - Asl `Quiz` obyekti va savollar master-to'plami o'zgarmas (`immutable`) qoladi;
+  - Bitta quiz ichida hech bir savol takrorlanmaydi.
+- **Guruhlar Mustaqilligi va Konkurrentlik**:
+  - Har bir chat va guruh o'z alohida `QuizSession` nusxasiga ega;
+  - Turli guruhlarda bir vaqtda boshlangan quizlar bir-biriga, ularning savollar tartibiga, ballariga yoki taymerlariga umuman ta'sir qilmaydi.
+- **Guruh Buyruqlari va Guruh Havolalari**:
+  - Guruhda ishlash buyruqlari: `/quiz_KK1_1`, `/quiz_KK1_2`, `/quiz_KK1_3`;
+  - Guruhga qo'shish va boshlash uchun to'g'ridan-to'g'ri havolalar:
+    - **KK1_1**: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK1_1` (yoki `https://t.me/jdakimyoquizbot?startgroup=KK1_1`)
+    - **KK1_2**: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK1_2` (yoki `https://t.me/jdakimyoquizbot?startgroup=KK1_2`)
+    - **KK1_3**: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK1_3` (yoki `https://t.me/jdakimyoquizbot?startgroup=KK1_3`)
+- **Shaxsiy Chat Cheklovi (`groupOnly: true`)**:
+  - KK1 quizlari jamoaviy musobaqa bo'lgani sababli, shaxsiy chatda boshlanmaydi;
+  - Agar foydalanuvchi shaxsiy chatda `/quiz_KK1_1`, `/quiz_KK1_2`, `/quiz_KK1_3` yoki ularning havolasini ochsa, bot tushunarli xabar beradi: *«Ushbu quiz faqat Telegram guruhlarida o'tkaziladi»* va guruhga qo'shish uchun tugma (`➕ Guruhga qo'shish va boshlash`) chiqaradi.
+- **Mavjud Quizlar va /stop**:
+  - Mavjud `amino_acids` (21 savol) va `kimyo_asoslari` (5 savol) quizlari to'liq o'z kuchida saqlandi;
+  - `/stop` va `/stopquiz` buyruqlari guruhda admin tomonidan faol KK1 quizini ham to'xtata oladi.
+- **Yaratilgan va o'zgartirilgan fayllar**:
+  - `src/quiz/types.ts`: `Quiz` interfeysiga `groupOnly?: boolean` va `shuffle?: boolean` qo'shildi;
+  - `src/quiz/kk1Questions.ts`: 60 ta savol 3 ta to'plamga (`kk1Quiz1`, `kk1Quiz2`, `kk1Quiz3`) ajratilgan holda yaratildi;
+  - `src/quiz/questions.ts`: KK1 quizlari ro'yxatga olindi va `getQuizById` da `KK1_1`, `KK1_2`, `KK1_3` hamda mos sinonimlar qo'llab-quvvatlandi;
+  - `src/quiz/quizManager.ts`: `shuffleArray` va `prepareSessionQuiz` funksiyalari yaratilib, `startQuiz` da dinamik aralashtirish va `correctOptionId` qayta hisoblash integratsiya qilindi;
+  - `src/bot/handlers/quiz.ts`: `startQuizById` va obuna callbacklarida `groupOnly` guruh tekshiruvi qo'shildi;
+  - `src/bot/handlers/start.ts`: Deep link parametrlarini (`?startgroup=KK1_1` va `?startgroup=quiz_KK1_1`) tanib olish kengaytirildi;
+  - `test/kk1-quiz.test.ts`: Barcha talablar (aralashtirish, to'g'ri baholash, 20/20 ball aniqligi, groupOnly, parallel guruhlar, deep linking, stop) bo'yicha 9 ta to'liq test yozildi;
+  - `package.json`: `npm test` ga `test/kk1-quiz.test.ts` ulandi.
+- **Tekshiruv natijalari**:
+  - `npm.cmd run build`: **Exit code 0** (Xatoliksiz kompilyatsiya bo'ldi);
+  - `npm.cmd test`: **Exit code 0** (Barcha 6 ta test to'plami va 46 ta avtomatlashtirilgan test 100% muvaffaqiyatli o'tdi):
+    - `test/index.test.ts`: 4/4 ✅
+    - `test/quiz.test.ts`: 11/11 ✅
+    - `test/e2e-simulation.test.ts`: 1/1 ✅
+    - `test/multi-quiz.test.ts`: 10/10 ✅
+    - `test/subscription.test.ts`: 11/11 ✅
+    - `test/kk1-quiz.test.ts`: 9/9 ✅
+- **Deploy cheklovi**: Foydalanuvchi talabi bo'yicha **deploy qilinmadi**. Barcha o'zgarishlar lokal tekshiruv uchun saqlandi. Maxfiy tokenlar yozilmadi.
+
+---
+
+## 8. Yakuniy Natija Xabariga Muallif, Manba va «Qayta yechish» Tugmalarining Qo‘shilishi
+
+- **Test yaratuvchisi ko‘rsatilishi**:
+  - Barcha quizlarning (`amino_acids`, `kimyo_asoslari`, `KK1_1`, `KK1_2`, `KK1_3`) yakuniy natija xabari tagiga doimiy bir xil shaklda qo‘shildi:
+    `Test yaratuvchisi: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`
+  - Foydalanuvchi profiliga bevosita bosib o‘tish imkoniyati ta'minlandi.
+- **Savollar manbasi (`source`) va uning saqlanishi**:
+  - `Quiz` interfeysiga `source?: string;` maydoni kiritildi (kelajakdagi testlar uchun mustaqil konfiguratsiya);
+  - Faqat `KK1_1`, `KK1_2` va `KK1_3` uchun `source: "Bahora Nayimova slaydlaridan"` belgilandi va xabarda `Savollar manbasi: Bahora Nayimova slaydlaridan` ko'rinishida chiqadi;
+  - **Manbasi noma'lum/yetishmaydigan eski quizlar (qayd)**:
+    1. `amino_acids`: Faqat 17-jadval (329–330-betlar) ma'lumoti kiritilgan, kitob nomi va darslik muallifi dastlabki manbada keltirilmagan;
+    2. `kimyo_asoslari`: Namunaviy savollar to‘plami bo‘lib, rasmiy manba ko‘rsatilmagan;
+    - Shuning uchun bu ikkita eski quizda **Bahora Nayimova nomi aslo ko‘rsatilmaydi** (faqat test yaratuvchisi ko‘rsatiladi).
+- **Ishtirokchi bo‘lmagan holat**:
+  - Hech kim javob bermagan holatda ham (`leaderboard.length === 0`) yakuniy xabarda yaratuvchi, manba va ikkala harakat tugmasi to‘liq chiqishi ta'minlandi.
+- **Natija xabari ostidagi ikkita tugma**:
+  1. `📢 Quiz kodlari` → `https://t.me/jdaquizkod` (Kanalga o'tish URL tugmasi);
+  2. `🔄 Qayta yechish` → `callback_data: restart_quiz_<quizId>` (Aynan shu quizni shu chatda qayta boshlash).
+- **«🔄 Qayta yechish» tugmasi xavfsizligi va qoidalari**:
+  - **Faqat guruh admini**: Guruhda oddiy foydalanuvchi tugmani bossa, xabar alert bilan rad etiladi: *«⚠️ Quizni faqat guruh adminlari qayta boshlashi mumkin»*;
+  - **Boshqa faol quiz davom etayotganda bloklash**: Agar chatda allaqachon boshqa quiz davom etayotgan bo'lsa, ikkinchisi boshlanmaydi va alert beriladi: *«⚠️ Bu chatda allaqachon faol quiz davom etmoqda»*;
+  - **Qayta aralashtirish**: Qayta boshlangan har safar `prepareSessionQuiz` ishga tushib, 20 ta savol va har bir savolning 4 ta varianti mustaqil yangidan aralashtiriladi va to‘g‘ri javob indeksi qayta hisoblanadi;
+  - **Obuna talabi yo'qligi**: Guruhdagi admin va ishtirokchilar uchun kanal obunasi umuman talab qilinmaydi.
+- **Yaratilgan va o'zgartirilgan fayllar**:
+  - `src/quiz/types.ts`: `Quiz` ga `source?: string` qo'shildi;
+  - `src/quiz/kk1Questions.ts`: `KK1_1`, `KK1_2`, `KK1_3` ga `source: "Bahora Nayimova slaydlaridan"` kiritildi;
+  - `src/quiz/quizManager.ts`: `finishQuiz` ga profil havolasi, manba va ikkita tugma (`reply_markup`) qo'shildi (ishtirokchi bor va yo'q holatlar uchun);
+  - `src/bot/handlers/quiz.ts`: `handleRestartQuizCallback` qo'shildi (admin tekshiruvi, faol quiz tekshiruvi, xavfsiz qayta boshlash);
+  - `src/bot/bot.ts`: `restart_quiz_` callback hodisasi ulandi;
+  - `test/kk1-quiz.test.ts`: Test 6 kengaytirildi, Test 10 (ishtirokchisiz holat), Test 11 (eski quizlarda Bahora Nayimova chiqmasligi), Test 12 (qayta yechish ruxsatlari, rad etish va aralashtirish) qo'shildi.
+- **Kompilyatsiya va Test natijalari**:
+  - `npm.cmd run build`: **Exit code 0** (Xatoliksiz kompilyatsiya bo'ldi);
+  - `npm.cmd test`: **Exit code 0** (Barcha 6 ta to'plam va 49 ta avtomatlashtirilgan test 100% muvaffaqiyatli o'tdi):
+    - `test/index.test.ts`: 4/4 ✅
+    - `test/quiz.test.ts`: 11/11 ✅
+    - `test/e2e-simulation.test.ts`: 1/1 ✅
+    - `test/multi-quiz.test.ts`: 10/10 ✅
+    - `test/subscription.test.ts`: 11/11 ✅
+    - `test/kk1-quiz.test.ts`: 12/12 ✅ (Aralashtirish, baholash, yaratuvchi linki, manba, ishtirokchisiz holat, eski quizlar xavfsizligi, qayta yechish admin tekshiruvi).
+- **Deploy cheklovi**: Foydalanuvchi ko'rsatmasiga asosan **deploy qilinmadi**. Barcha o'zgarishlar tekshiruv uchun lokal muhitda tayyor holatda saqlandi. Maxfiy tokenlar yozilmadi.
+
+---
+
+## 9. Barcha Quizlarning Shaxsiy Chatda Bloklanishi va Faqat Guruhlarga Cheklanishi
+
+- **Talab mohiyati**:
+  - Dastlab faqat KK1 quizlari (`KK1_1`, `KK1_2`, `KK1_3`) shaxsiy chatda bloklangan edi, biroq `amino_acids` va `kimyo_asoslari` shaxsiy chatda ishlashda davom etayotgan edi;
+  - Foydalanuvchi ko'rsatmasiga asosan **botdagi barcha quizlar (hech qanday istisnosiz)** shaxsiy chatda boshlanishi butunlay taqiqlandi va faqat Telegram guruhlari bilan cheklandi;
+  - Barcha quiz boshlash usullari:
+    1. `/quiz_<ID>` yoki `/quiz <ID>` buyruqlari;
+    2. Deep link havolalari (`?start=quiz_<ID>` yoki `?start=<ID>`);
+    3. `🔄 Qayta yechish` (`restart_quiz_<quizId>`) tugmasi;
+    4. Obunani tekshirish (`check_sub_<quizId>`) tugmasi orqali qayta boshlash;
+    to'liq guruh formati bilan cheklandi.
+- **Shaxsiy chatdagi harakatlar va xabarlar**:
+  - Agar foydalanuvchi shaxsiy chatda biror quizni boshlashga urinsa (buyruq yoki havola orqali), unga guruhga o'tish xabari chiqariladi:
+    `ℹ️ «${quiz.title}» faqat Telegram guruhlarida o'tkaziladi.`
+    `Ushbu test jamoaviy musobaqa formatida tuzilgan bo'lib, uni faqat guruhlarda o'ynash mumkin.`
+    va pastida inline tugma taqdim etiladi:
+    `➕ Guruhga qo'shish va boshlash` (`url: https://t.me/<bot_username>?startgroup=quiz_<quizId>`);
+  - `🔄 Qayta yechish` tugmasi shaxsiy chatda bosilsa:
+    `ℹ️ Quizlar faqat Telegram guruhlarida o'tkaziladi.` alert ko'rsatiladi va hech qanday test boshlanmaydi;
+  - `check_sub_<quizId>` tugmasi bosilganda:
+    Obuna tasdiqlanadi va bevosita guruhga yo'naltirish xabari chiqariladi, shaxsiy chatda hech qanday poll yuborilmaydi.
+- **Kanal obunasi va guruh qoidalari**:
+  - Shaxsiy chatda `/start` yuborilganda ikki kanalga (`@jdaquizkod` va `@jdakimyouz`) majburiy a'zolik tekshirilishi saqlandi;
+  - Guruhlarda kanal a'zoligi talabi umuman yo'q (admin quizni erkin boshlaydi, qatnashchilar javob beradi);
+  - Guruhda quizni faqat guruh admini boshlashi, to'xtatishi va qayta yechishi mumkin.
+- **O'zgartirilgan fayllar**:
+  - `src/quiz/questions.ts`: `aminoAcidsQuiz` va `chemistryBasicsQuiz` ga `groupOnly: true` kiritildi (barcha 5 ta quiz endi `groupOnly: true`);
+  - `src/bot/handlers/quiz.ts`: `startQuizById` da `!isGroup` bo'lsa darhol guruhga yo'naltirish xabari va `startgroup` havolasi berilishi ta'minlandi; keraksiz o'lik kodlar tozalandi;
+  - `test/multi-quiz.test.ts`:
+    - Test 5: Shaxsiy chatda `amino_acids` va `kimyo_asoslari` bloklanishi va guruhga yo'naltirish xabari tekshiruvi;
+    - Test 6: Guruhda faol quiz paytida ikkinchisini boshlashni bloklash;
+    - Test 7: Guruhda faqat admin `/stop` qila olishi va yakuniy reyting yuborilmasligi;
+    - Test 8: Deep link shaxsiyda guruhga yo'naltirishi, guruhda admin orqali to'g'ri boshlanishi;
+    - Test 9: Ikkita mustaqil guruhda parallel quizlar;
+    - Test 10: Guruhda `/quiz_<ID>` regex buyrug'i orqali boshlash va shaxsiyda rad etilishi.
+  - `test/subscription.test.ts`:
+    - Test 1, Test 2, Test 3, Test 4 va Test 6 yangilandi; obuna tasdiqlangach shaxsiy chatda quiz boshlanmasligi, guruhga yo'naltirish xabari chiqishi va guruhda deep link obunasiz to'g'ridan-to'g'ri boshlanishi tasdiqlandi.
+- **Kompilyatsiya va Test natijalari**:
+  - `npm.cmd run build`: **Exit code 0** (Xatoliksiz kompilyatsiya bo'ldi);
+  - `npm.cmd test`: **Exit code 0** (Barcha 6 ta to'plam va 49 ta test 100% muvaffaqiyatli o'tdi):
+    - `test/index.test.ts`: 4/4 ✅
+    - `test/quiz.test.ts`: 11/11 ✅
+    - `test/e2e-simulation.test.ts`: 1/1 ✅
+    - `test/multi-quiz.test.ts`: 10/10 ✅
+    - `test/subscription.test.ts`: 11/11 ✅
+    - `test/kk1-quiz.test.ts`: 12/12 ✅
+- **Deploy holati**: Foydalanuvchining qat'iy ko'rsatmasiga binoan **deploy qilinmadi**. Barcha o'zgarishlar lokal muhitda tekshiruv uchun to'liq tayyor holatda turibdi. Maxfiy tokenlar yozilmadi.

@@ -9,6 +9,59 @@ export function escapeHtml(text: string): string {
     .replace(/'/g, "&#039;");
 }
 
+/**
+ * Elementlarni tasodifiy aralashtirish (Fisher-Yates algoritmi)
+ */
+export function shuffleArray<T>(array: T[]): T[] {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+/**
+ * Quiz sessiyasi uchun savollar va variantlarni tayyorlash.
+ * Agar quiz.shuffle bo'lsa:
+ * 1. Har bir savolning 4 ta javob varianti mustaqil aralashtiriladi.
+ * 2. To'g'ri javob indeksi (correctOptionId) yangi tartibga mos qayta hisoblanadi.
+ * 3. Savollar tartibi ham butunlay tasodifiy aralashtiriladi.
+ * 4. Asl Quiz obyekti aslo o'zgarmasdan (immutable) qoladi.
+ */
+export function prepareSessionQuiz(quiz: Quiz): Quiz {
+  if (!quiz.shuffle) {
+    return {
+      ...quiz,
+      questions: quiz.questions.map((q) => ({
+        ...q,
+        options: [...q.options],
+      })),
+    };
+  }
+
+  // 1. Variantlarni aralashtirish va to'g'ri indeksni qayta hisoblash
+  const preparedQuestions = quiz.questions.map((q) => {
+    const correctText = q.options[q.correctOptionId];
+    const shuffledOptions = shuffleArray(q.options);
+    const newCorrectOptionId = shuffledOptions.indexOf(correctText);
+
+    return {
+      ...q,
+      options: shuffledOptions,
+      correctOptionId: newCorrectOptionId,
+    };
+  });
+
+  // 2. Savollar tartibini ham aralashtirish
+  const shuffledQuestions = shuffleArray(preparedQuestions);
+
+  return {
+    ...quiz,
+    questions: shuffledQuestions,
+  };
+}
+
 export interface TelegramApiSender {
   sendPoll(
     chatId: number | string,
@@ -78,9 +131,12 @@ export class QuizManager {
       };
     }
 
+    // Sessiya uchun quizni tayyorlash (aralashtirish va indekslarni qayta hisoblash)
+    const sessionQuiz = prepareSessionQuiz(quiz);
+
     const session: QuizSession = {
       chatId,
-      quiz,
+      quiz: sessionQuiz,
       status: "running",
       currentQuestionIndex: -1,
       currentPollId: null,
@@ -341,7 +397,32 @@ export class QuizManager {
       text += `\nBarcha ishtirokchilarga qatnashganlari uchun tashakkur! 👏`;
     }
 
-    await api.sendMessage(chatId, text, { parse_mode: "HTML" });
+    // Mualliflik va manba ma'lumotlari (ishtirokchi bo'lgan yoki bo'lmaganida ham ko'rinadi)
+    text += `\n\nTest yaratuvchisi: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`;
+    if (session.quiz.source) {
+      text += `\nSavollar manbasi: ${escapeHtml(session.quiz.source)}`;
+    }
+
+    // Yakuniy xabar ostidagi tugmalar
+    const replyMarkup = {
+      inline_keyboard: [
+        [
+          {
+            text: "📢 Quiz kodlari",
+            url: "https://t.me/jdaquizkod",
+          },
+          {
+            text: "🔄 Qayta yechish",
+            callback_data: `restart_quiz_${session.quiz.id}`,
+          },
+        ],
+      ],
+    };
+
+    await api.sendMessage(chatId, text, {
+      parse_mode: "HTML",
+      reply_markup: replyMarkup,
+    });
 
     // Sessiyani tozalash
     this.sessions.delete(chatId);

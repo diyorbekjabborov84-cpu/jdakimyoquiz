@@ -1,9 +1,6 @@
 import { CommandContext, Context } from "grammy";
 import { isGroupAdmin } from "../guards/adminGuard.js";
-import {
-  checkChannelSubscriptions,
-  buildSubscriptionMessageAndKeyboard,
-} from "../guards/subscriptionGuard.js";
+import { checkChannelSubscriptions } from "../guards/subscriptionGuard.js";
 import { quizManager, escapeHtml } from "../../quiz/quizManager.js";
 import { getQuizById } from "../../quiz/questions.js";
 
@@ -24,6 +21,31 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
   }
 
   const isGroup = ctx.chat?.type === "group" || ctx.chat?.type === "supergroup";
+
+  // Shaxsiy chatda hech qanday quiz boshlanmasin: Barcha quizlar faqat Telegram guruhlari uchun!
+  if (!isGroup) {
+    const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
+    const groupLink = `https://t.me/${botUsername}?startgroup=quiz_${quiz.id}`;
+    await ctx.reply(
+      `ℹ️ <b>«${escapeHtml(quiz.title)}» faqat Telegram guruhlarida o'tkaziladi.</b>\n\n` +
+        `Ushbu test jamoaviy musobaqa formatida tuzilgan bo'lib, uni faqat guruhlarda o'ynash mumkin.\n\n` +
+        `Botni o'z guruhingizga qo'shing va guruh admini sifatida <code>/quiz_${quiz.id}</code> buyrug'ini yuboring:`,
+      {
+        parse_mode: "HTML",
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: "➕ Guruhga qo'shish va boshlash",
+                url: groupLink,
+              },
+            ],
+          ],
+        },
+      }
+    );
+    return;
+  }
 
   // Guruhda: faqat guruh admini boshlashi mumkin, LEKIN kanal obunasi talab qilinmaydi!
   if (isGroup) {
@@ -52,36 +74,6 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
     return;
   }
 
-  // Shaxsiy chatda: ikkala kanalga ham majburiy obunani tekshirish
-  const userId = ctx.from?.id;
-  if (userId) {
-    const subResult = await checkChannelSubscriptions(ctx.api, userId);
-
-    if (subResult.status === "error") {
-      await ctx.reply(subResult.message, { parse_mode: "HTML" });
-      return;
-    }
-
-    if (subResult.status === "not_subscribed") {
-      const { text, reply_markup } = buildSubscriptionMessageAndKeyboard(quiz.id);
-      await ctx.reply(text, { parse_mode: "HTML", reply_markup });
-      return;
-    }
-  }
-
-  // Bitta chatda faol quiz turganda ikkinchisini boshlashga yo'l qo'ymaslik
-  if (ctx.chat && quizManager.isQuizRunning(ctx.chat.id)) {
-    await ctx.reply(
-      "⚠️ <b>Bu chatda allaqachon faol quiz davom etmoqda.</b>\n\n" +
-        "Iltimos, avval joriy quiz yakunlanishini kuting yoki uni /stop buyrug'i bilan to'xtating.",
-      { parse_mode: "HTML" }
-    );
-    return;
-  }
-
-  if (ctx.chat) {
-    await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
-  }
 }
 
 /**
@@ -149,21 +141,27 @@ export async function handleCheckSubscriptionCallback(ctx: Context): Promise<voi
 
   if (!quiz) return;
 
-  if (ctx.chat && quizManager.isQuizRunning(ctx.chat.id)) {
-    await ctx.reply(
-      "⚠️ <b>Bu chatda allaqachon faol quiz davom etmoqda.</b>\n\n" +
-        "Iltimos, avval joriy quiz yakunlanishini kuting yoki uni /stop buyrug'i bilan to'xtating.",
-      { parse_mode: "HTML" }
-    );
-    return;
-  }
-
-  if (ctx.chat) {
-    await ctx.reply("🎉 <b>Obuna tasdiqlandi!</b> Tanlangan quiz boshlanmoqda...", {
+  // Shaxsiy chatda hech qanday quiz boshlanmaydi: Barcha quizlar faqat guruhlar uchun!
+  const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
+  const groupLink = `https://t.me/${botUsername}?startgroup=quiz_${quiz.id}`;
+  await ctx.reply(
+    `ℹ️ <b>«${escapeHtml(quiz.title)}» faqat Telegram guruhlarida o'tkaziladi.</b>\n\n` +
+      `Ushbu test jamoaviy musobaqa formatida tuzilgan bo'lib, uni faqat guruhlarda o'ynash mumkin.\n\n` +
+      `Botni o'z guruhingizga qo'shing va guruh admini sifatida <code>/quiz_${quiz.id}</code> buyrug'ini yuboring:`,
+    {
       parse_mode: "HTML",
-    });
-    await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
-  }
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "➕ Guruhga qo'shish va boshlash",
+              url: groupLink,
+            },
+          ],
+        ],
+      },
+    }
+  );
 }
 
 /**
@@ -241,4 +239,65 @@ export async function handleStopQuizCommand(ctx: CommandContext<Context>): Promi
   }
 
   await quizManager.stopQuiz(ctx.chat.id, ctx.api);
+}
+
+/**
+ * «🔄 Qayta yechish» callback query hodisasi
+ * - Faqat guruh admini bosa oladi (oddiy a'zo rad etiladi)
+ * - Faol quiz davom etayotgan bo'lsa yangisi boshlanmaydi
+ * - Guruhda kanal obunasi talab qilinmaydi
+ * - Savollar va variantlar qayta aralashtiriladi
+ */
+export async function handleRestartQuizCallback(ctx: Context): Promise<void> {
+  const data = ctx.callbackQuery?.data;
+  if (!data || !data.startsWith("restart_quiz_")) return;
+
+  const quizId = data.replace(/^restart_quiz_/, "").trim();
+  const quiz = getQuizById(quizId);
+
+  if (!quiz) {
+    await ctx.answerCallbackQuery({
+      text: "❌ Bunday quiz topilmadi.",
+      show_alert: true,
+    });
+    return;
+  }
+
+  const isGroup = ctx.chat?.type === "group" || ctx.chat?.type === "supergroup";
+
+  // Shaxsiy chatda hech qanday quiz qayta boshlanmaydi!
+  if (!isGroup) {
+    await ctx.answerCallbackQuery({
+      text: "ℹ️ Quizlar faqat Telegram guruhlarida o'tkaziladi.",
+      show_alert: true,
+    });
+    return;
+  }
+
+  // Guruhda: faqat guruh admini bosa oladi
+  const isAdmin = await isGroupAdmin(ctx);
+  if (!isAdmin) {
+    await ctx.answerCallbackQuery({
+      text: "⚠️ Quizni faqat guruh adminlari qayta boshlashi mumkin.",
+      show_alert: true,
+    });
+    return;
+  }
+
+  // Boshqa quiz davom etayotgan bo'lsa, yangisini boshlamasin
+  if (ctx.chat && quizManager.isQuizRunning(ctx.chat.id)) {
+    await ctx.answerCallbackQuery({
+      text: "⚠️ Bu chatda allaqachon faol quiz davom etmoqda.",
+      show_alert: true,
+    });
+    return;
+  }
+
+  await ctx.answerCallbackQuery({
+    text: "🔄 Quiz qayta boshlanmoqda...",
+  });
+
+  if (ctx.chat) {
+    await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
+  }
 }

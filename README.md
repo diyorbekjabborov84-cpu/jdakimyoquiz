@@ -18,20 +18,20 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 
 ## Mavjud Buyruqlar
 
-- `/start` — Shaxsiy chatda kanal obunasini tekshirib botni ishga tushirish (yoki maxsus havola orqali quizni ochish: `?start=quiz_<ID>`). Guruhda obuna tekshirilmaydi.
+- `/start` — Shaxsiy chatda kanal obunasini tekshiradi. Quiz havolasi shaxsiy chatda ochilsa, guruhga o'tish tugmasini beradi; guruhda obuna tekshirilmaydi.
 - `/help` — Yo'riqnoma va buyruqlar ro'yxatini ko'rish.
 - `/quiz` — Asosiy quiz kodlarini olish xabari va `@jdaquizkod` kanaliga o'tish tugmasi (guruhda ham, shaxsiyda ham erkin ishlaydi, hech kimdan obuna talab qilinmaydi).
-- `/quiz_<ID>` — Tanlangan quizni boshlash (masalan: `/quiz_amino_acids` yoki `/quiz_kimyo_asoslari`). Guruhda faqat guruh admini, shaxsiy chatda majburiy kanal obunasidan o'tgan foydalanuvchi boshlay oladi.
-- `/stop` yoki `/stopquiz` — Faol quizni to'xtatish (guruhda faqat admin, shaxsiy chatda foydalanuvchi). Stop bosilganda savol va taymer to'xtaydi, yakuniy natija yuborilmaydi.
+- `/quiz_<ID>` — Tanlangan quizni guruhda faqat guruh admini boshlaydi (masalan: `/quiz_KK1_1`). Shaxsiy chatda guruhga o'tish tugmasi chiqadi.
+- `/stop` yoki `/stopquiz` — Guruhdagi faol quizni faqat admin to'xtatadi. Stop bosilganda savol va taymer to'xtaydi, yakuniy natija yuborilmaydi.
 
 ---
 
 ## Majburiy Kanal Obunasi (Faqat Shaxsiy Chatlar Uchun)
 
 - **Majburiy kanallar**: [@jdaquizkod](https://t.me/jdaquizkod) va [@jdakimyouz](https://t.me/jdakimyouz).
-- **Qayerda tekshiriladi**: Faqat shaxsiy chatda (`private`) oddiy `/start`, `/quiz_<ID>` yoki shaxsiy deep link (`?start=quiz_<ID>`) orqali kirishda.
-- **Obunasiz holatda**: Foydalanuvchiga ikkala kanalga a'zo bo'lish havolalari va «✅ A’zo bo‘ldim — tekshirish» tugmasi ko'rsatiladi. Test havolasi bilan kirsa tanlangan quiz IDsi saqlanadi.
-- **Obunadan so'ng**: Oddiy `/start` tekshiruvida botdan foydalanish xabari chiqadi; test havolasi bilan kirgan foydalanuvchida aynan tanlangan quiz boshlanadi.
+- **Qayerda tekshiriladi**: Faqat shaxsiy chatda (`private`) oddiy `/start` va eski obunani tekshirish tugmasi orqali. Guruhda obuna talab qilinmaydi.
+- **Obunasiz holatda**: Oddiy `/start` da foydalanuvchiga ikkala kanalga a'zo bo'lish havolalari va «✅ A’zo bo‘ldim — tekshirish» tugmasi ko'rsatiladi.
+- **Obunadan so'ng**: Oddiy `/start` tekshiruvida botdan foydalanish xabari chiqadi. Quizlar shaxsiy chatda boshlanmaydi; quiz havolasi guruhga o'tish tugmasini beradi.
 - **Xatolik xavfsizligi**: Telegram `getChatMember` API xatolik berganda foydalanuvchini noto'g'ri "a'zo emas" deb ko'rsatmaydi; tushunarli vaqtinchalik xato xabarini beradi.
 - **Guruhlarda obuna talab qilinmaydi**: Guruhda quiz boshlashda va javob berishda hech qanday kanal obunasi so'ralmaydi; admin boshlaydi, qatnashchilar javob beradi va reyting hisoblanadi.
 
@@ -40,27 +40,33 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 ## Ko'p Quizli Tizim va Qoidalar
 
 1. **O'zgarmas va Takrorlanmas IDlar**: Har bir quiz koddagi stabil, doimiy IDga ega:
-   - `amino_acids`: «Aminokislotalar — suyuqlanish temperaturasi» (21 ta savol)
-   - `kimyo_asoslari`: «Kimyo asoslari — namuna» (5 ta savol)
-2. **Shaxsiy Havolalar (Deep Linking)**:
-   - Har bir quiz uchun maxsus havola mavjud: `https://t.me/<bot_username>?start=quiz_<ID>`
-   - Havolani bosgan foydalanuvchi shaxsiy chatida to'g'ridan-to'g'ri o'sha quizga yo'naltiriladi.
-3. **Telegram Quiz Poll formati**: Savollar oddiy matn yoki inline tugma emas, Telegramning rasmiy `type: "quiz"`, `is_anonymous: false` so'rovnomalari ko'rinishida yuboriladi.
-4. **Chat Sessiyalari Izolyatsiyasi**:
-   - Har bir chat (shaxsiy yoki guruh) boshqa chatlardan mutlaqo mustaqil o'z sessiyasiga, savollar holatiga, vaqt va ballar hisobiga ega.
+   - `amino_acids`: «Aminokislotalar — suyuqlanish temperaturasi» (21 ta savol, 20s/savol)
+   - `kimyo_asoslari`: «Kimyo asoslari — namuna» (5 ta savol, 20s/savol)
+   - `KK1_1`: «Kolloid kimyo — 1-qism (KK1_1)» (01–20-savollar: Kolloid kimyo asoslari, dispers sistemalar, 20s/savol)
+   - `KK1_2`: «Kolloid kimyo — 2-qism (KK1_2)» (21–40-savollar: Sirt energiyasi, adsorbsiya, 20s/savol)
+   - `KK1_3`: «Kolloid kimyo — 3-qism (KK1_3)» (41–60-savollar: Zol va gellar, optik va kinetik xossalar, 20s/savol)
+2. **Guruh Havolalari (Deep Linking)**:
+   - **Shaxsiy chatda ochilgan eski havola**: `https://t.me/<bot_username>?start=quiz_<ID>` — test boshlanmaydi, guruhga o'tish tugmasi chiqadi.
+   - **Guruhga qo'shish va to'g'ridan-to'g'ri boshlash uchun**: `https://t.me/<bot_username>?startgroup=quiz_<ID>`
+     - *KK1_1 guruh havolasi*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK1_1`
+     - *KK1_2 guruh havolasi*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK1_2`
+     - *KK1_3 guruh havolasi*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK1_3`
+3. **Dinamik Aralashtirish (Dynamic Shuffling)**:
+   - KK1 quizlari boshlangan har safar savollar ketma-ketligi va har bir savolning 4 ta javob varianti mustaqil tasodifiy aralashtiriladi.
+   - Variantlar aralashgach, to‘g‘ri javob indeksi (`correctOptionId`) yangi o'rniga mos ravishda avtomatik qayta hisoblanadi.
+   - Bitta quiz ichida savol takrorlanmaydi; parallel guruhlardagi testlar bir-biriga aslo ta'sir qilmaydi.
+4. **Faqat Guruh Cheklovi (`groupOnly`)**:
+   - Barcha quizlar faqat Telegram guruhlarida o'tkaziladi. Shaxsiy chatda quiz buyrug'i yoki havolasi yuborilsa, bot guruhga qo'shish tugmasini chiqaradi.
+5. **Telegram Quiz Poll formati**: Savollar oddiy matn yoki inline tugma emas, Telegramning rasmiy `type: "quiz"`, `is_anonymous: false` so'rovnomalari ko'rinishida yuboriladi.
+6. **Chat Sessiyalari Izolyatsiyasi**:
+   - Har bir guruh boshqa guruhlardan mutlaqo mustaqil o'z sessiyasiga, savollar holatiga, vaqt va ballar hisobiga ega.
    - Bitta chatda faol quiz davom etayotganda ikkinchi quiz boshlanishi bloklanadi.
-5. **21 ta haqiqiy kimyo savoli** («Aminokislotalar — suyuqlanish temperaturasi»):
-   - 329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning har biri uchun suyuqlanish temperaturasi bo'yicha savol;
-   - Har bir savolda 4 ta turli sonli variant va bitta to'g'ri javob;
-   - Har bir savol uchun 20 soniya rasmiy vaqt beriladi;
-   - Sistein (178 °C) va Sistin (260 °C) alohida moddalar;
-   - Asparagin kislota va Oksiprolin (ikkalasi 270 °C) nomdan temperaturaga qarab tuzilgan.
-6. **Ko'p ishtirokchili baholash va reyting**:
-   - Natija savollar sonidan hisoblanadi (masalan: `21/21 ball` yoki `5/5 ball`);
+7. **Ko'p ishtirokchili baholash va reyting**:
+   - Natija savollar sonidan hisoblanadi (masalan: `20/20 ball` yoki `21/21 ball`);
    - Umumiy javob vaqti faqat ishtirokchi bosgan javoblarning vaqtlaridan yig'iladi; javobsiz qolgan savollar vaqtga qo'shilmaydi;
    - Noto'g'ri bosilgan javobning vaqti ham sarflangan vaqtga qo'shiladi;
    - Teng ball to'planganda, qisqaroq umumiy javob vaqti ustunlik qiladi.
-7. **Takroriy javoblarni elash (Deduplication)**: Bitta ishtirokchining bir savolga bergan javobi faqat bir marta hisoblanadi.
+8. **Takroriy javoblarni elash (Deduplication)**: Bitta ishtirokchining bir savolga bergan javobi faqat bir marta hisoblanadi.
 
 ---
 

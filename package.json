@@ -7,7 +7,7 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "tsx test/index.test.ts && tsx test/quiz.test.ts && tsx test/e2e-simulation.test.ts && tsx test/multi-quiz.test.ts && tsx test/subscription.test.ts"
+    "test": "tsx test/index.test.ts && tsx test/quiz.test.ts && tsx test/e2e-simulation.test.ts && tsx test/multi-quiz.test.ts && tsx test/subscription.test.ts && tsx test/kk1-quiz.test.ts"
   },
   "keywords": [
     "telegram",

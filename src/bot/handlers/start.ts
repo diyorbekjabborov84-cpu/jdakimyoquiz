@@ -1,5 +1,6 @@
 import { CommandContext, Context } from "grammy";
 import { startQuizById } from "./quiz.js";
+import { getQuizById } from "../../quiz/questions.js";
 import {
   checkChannelSubscriptions,
   buildSubscriptionMessageAndKeyboard,
@@ -10,11 +11,13 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
   const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
   const payload = ctx.match?.trim();
 
-  // Agar havola orqali quiz ID uzatilgan bo'lsa (masalan: ?start=quiz_amino_acids)
-  if (payload && payload.startsWith("quiz_")) {
-    const quizId = payload.replace(/^quiz_/, "").trim();
-    await startQuizById(ctx, quizId);
-    return;
+  // Agar havola orqali quiz ID uzatilgan bo'lsa (masalan: ?start=quiz_KK1_1 yoki ?startgroup=KK1_1)
+  if (payload) {
+    const rawQuizId = payload.startsWith("quiz_") ? payload.replace(/^quiz_/, "").trim() : payload.trim();
+    if (getQuizById(rawQuizId)) {
+      await startQuizById(ctx, rawQuizId);
+      return;
+    }
   }
 
   if (isGroup) {

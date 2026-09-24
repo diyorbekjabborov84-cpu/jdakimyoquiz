@@ -1,0 +1,555 @@
+KK_M1 — KOLLOID KIMYO: TELEGRAM QUIZ SAVOLLARI
+Manba: KK_M1.pdf (slayd raqamlari har savolda ko‘rsatilgan)
+Format: har savolda 4 variant va bitta to‘g‘ri javob.
+Eslatma: olimlar, sanalar va kashfiyot mualliflari haqidagi savollar kiritilmadi.
+"Slayd" va "Izoh" qatorlari tekshirish uchun; ularni Telegram quiz matniga qo‘shish shart emas.
+To‘plamlar: KK1_1 = 01–20; KK1_2 = 21–40; KK1_3 = 41–60.
+Har bir to‘plamda 20 ta savol bor. Har savol uchun vaqt: 20 soniya.
+Quiz boshlanganda to‘plam ichidagi savollar va har savolning 4 javob varianti aralashtiriladi.
+Aralashtirilgandan keyin to‘g‘ri javob indeksi yangi variant tartibiga mos qayta hisoblanadi.
+
+=== KK1_1: SAVOLLAR 01–20 ===
+
+01. Kolloid kimyo asosan nimani o‘rganadi?
+A) Yuqori dispers sistemalar va sirt hodisalarini
+B) Faqat atom yadrosidagi reaksiyalarni
+C) Faqat gazlarning ideal qonunlarini
+D) Faqat kristall panjaralarini
+Javob: A
+Slayd: 4
+Izoh: Fan yuqori dispers sistemalar va fazalararo sirt bilan bog‘liq hodisalarni o‘rganadi.
+
+02. Quyidagilardan qaysi biri dispers sistema tarkibidagi ikki asosiy qism?
+A) Kation va anion
+B) Dispers faza va dispersion muhit
+C) Erituvchi va katalizator
+D) Metall va nometall
+Javob: B
+Slayd: 7
+Izoh: Dispers sistema tarqalgan modda va uni o‘rab turgan uzluksiz muhitdan iborat.
+
+03. Dispers faza deb nimaga aytiladi?
+A) Faqat idish devoriga
+B) Faqat eritmadagi ionlarga
+C) Muhitda mayda zarrachalar holida tarqalgan moddaga
+D) Faqat gaz holatdagi moddaga
+Javob: C
+Slayd: 8
+Izoh: Dispers faza dispersion muhit ichida taqsimlangan modda hisoblanadi.
+
+04. Dispersion muhit qanday qism?
+A) Faqat cho‘kmadan iborat qism
+B) Faqat qattiq zarracha
+C) Zarrachalar sirtidagi ion
+D) Dispers fazani o‘rab turgan uzluksiz faza
+Javob: D
+Slayd: 9
+Izoh: Dispers faza aynan dispersion muhit ichida tarqaladi.
+
+05. Sutdagi yog‘ tomchilari nimaga misol bo‘ladi?
+A) Dispers fazaga
+B) Yarim o‘tkazuvchi membranaga
+C) Cho‘kmaga
+D) Gaz muhitiga
+Javob: A
+Slayd: 8
+Izoh: Sutdagi yog‘ tomchilari suyuq muhitda tarqalgan fazadir.
+
+06. Tuman tarkibidagi suv tomchilari uchun dispersion muhit nima?
+A) Suv
+B) Havo
+C) Tuproq
+D) Yog‘
+Javob: B
+Slayd: 9, 24
+Izoh: Suv tomchilari havoda tarqalgan suyuq aerozolni hosil qiladi.
+
+07. Disperslik darajasi D zarracha o‘lchami a orqali qanday ifodalanadi?
+A) D = a²
+B) D = a + 1
+C) D = 1/a
+D) D = a/2
+Javob: C
+Slayd: 10
+Izoh: Zarracha o‘lchami kamaygan sari disperslik ortadi.
+
+08. Zarracha o‘lchami kichrayganda, disperslik darajasi qanday o‘zgaradi?
+A) Nolga tenglashadi
+B) O‘zgarmaydi
+C) Kamayadi
+D) Ortadi
+Javob: D
+Slayd: 10
+Izoh: D = 1/a munosabatiga ko‘ra a kamayishi D ni oshiradi.
+
+09. Kolloid zarrachalarning slaydda berilgan o‘lcham oralig‘i qaysi?
+A) 1–100 nm
+B) 0,001–0,1 nm
+C) 1–100 mm
+D) 100–1000 mkm
+Javob: A
+Slayd: 11, 13
+Izoh: Taqdimotda kolloid dispers faza uchun 1–100 nm oralig‘i berilgan.
+
+10. Slayddagi tasnifga ko‘ra chin eritmadagi zarrachalar o‘lchami qanday?
+A) 100 nm dan katta
+B) 1 nm dan kichik
+C) 1–100 mkm
+D) 1–100 mm
+Javob: B
+Slayd: 11, 12
+Izoh: Chin eritmada modda molekula yoki ion darajasida tarqaladi.
+
+11. Slayddagi tasnifga ko‘ra dag‘al dispers sistemada zarracha o‘lchami qancha?
+A) 1 nm dan kichik
+B) Aynan 1 nm
+C) 100 nm dan katta
+D) 1–10 nm
+Javob: C
+Slayd: 11, 14
+Izoh: Dag‘al dispers sistemaning zarrachalari kolloid zarrachalardan yirikroq.
+
+12. Qaysi sistemada Tindal effekti odatda kuzatilmaydi?
+A) Kraxmal zolida
+B) Kolloid oltin zolida
+C) Sutda
+D) Chin eritmada
+Javob: D
+Slayd: 11, 12, 30
+Izoh: Chin eritma zarrachalari yorug‘likni sezilarli sochmaydi.
+
+13. Tindal effekti nimani anglatadi?
+A) Kolloid eritmada yorug‘lik nurining yo‘li ko‘rinishini
+B) Qattiq moddaning erib ketishini
+C) Eritmaning qaynashini
+D) Gazning siqilishini
+Javob: A
+Slayd: 13, 30
+Izoh: Kolloid zarrachalar nurni sochgani uchun nur yo‘li ko‘rinadi.
+
+14. Kolloid eritma tashqi ko‘rinishidan bir jinsli tuyulsa ham, aslida qanday sistema?
+A) Elementar
+B) Geterogen
+C) Faqat gazsimon
+D) Mutlaqo zarrachasiz
+Javob: B
+Slayd: 13
+Izoh: Unda dispers faza va dispersion muhit mavjud.
+
+15. Qaysi usul kolloid eritmadagi kichik molekulalarni membrana orqali ajratishga xizmat qiladi?
+A) Bug‘latish
+B) Kristallash
+C) Dializ
+D) Eritish
+Javob: C
+Slayd: 13
+Izoh: Kolloid zarrachalar yarim o‘tkazuvchi membranadan odatda o‘tmaydi.
+
+16. Loyqa suvdagi yirik zarrachalar vaqt o‘tishi bilan nega cho‘kadi?
+A) Yorug‘lik ta’sirida parchalangani uchun
+B) Har doim bug‘langani uchun
+C) Barchasi membranadan o‘tgani uchun
+D) Og‘irlik kuchi ta’sirida sedimentatsiyalangani uchun
+Javob: D
+Slayd: 14, 28
+Izoh: Dag‘al dispers zarrachalar cho‘kma hosil qilishi mumkin.
+
+17. Dag‘al dispers sistemadagi qattiq zarrachalarni ko‘pincha qaysi usul bilan ajratish mumkin?
+A) Oddiy filtrlash
+B) Faqat dializ
+C) Faqat optik o‘lchash
+D) Faqat adsorbsiya
+Javob: A
+Slayd: 14, 28
+Izoh: Yirik dispers faza zarrachalari filtrda ushlanadi.
+
+18. Solishtirma sirtning massa bo‘yicha ifodasi qaysi?
+A) S = m/A
+B) S = A/m
+C) S = A × m
+D) S = A + m
+Javob: B
+Slayd: 16
+Izoh: A — umumiy sirt maydoni, m — modda massasi.
+
+19. Bir xil hajmdagi kub 27 ta teng kichik kubga ajratilsa, umumiy sirt maydoni qanday o‘zgaradi?
+A) 27 marta kamayadi
+B) O‘zgarmaydi
+C) 3 marta ortadi
+D) 3 marta kamayadi
+Javob: C
+Slayd: 16
+Izoh: Slayddagi misolda 6a² yuzadan 18a² yuzaga o‘tiladi.
+
+20. Zarralarni maydalash natijasida nima ortadi?
+A) Faqat moddaning massasi
+B) Faqat moddaning hajmi
+C) Faqat atomlar soni
+D) Umumiy sirt maydoni
+Javob: D
+Slayd: 16
+Izoh: Maydalash bir xil massadagi moddaning ochiq sirtini kattalashtiradi.
+
+=== KK1_2: SAVOLLAR 21–40 ===
+
+21. Sirt qatlamidagi molekulalar nega ortiqcha energiyaga ega?
+A) Ularga ta’sir etuvchi kuchlar muvozanatlashmagani uchun
+B) Ularning massasi doimo ortgani uchun
+C) Ular kimyoviy elementga aylangani uchun
+D) Ular harakatsiz bo‘lgani uchun
+Javob: A
+Slayd: 17
+Izoh: Ichki qatlamdan farqli ravishda sirt molekulalariga kuchlar bir xil ta’sir etmaydi.
+
+22. Slaydda sirt energiyasi qanday ifodalangan?
+A) Gs = S/σ
+B) Gs = σS
+C) Gs = m/σ
+D) Gs = σ + m
+Javob: B
+Slayd: 17
+Izoh: σ — sirt tarangligi, S — sirt maydoni.
+
+23. Nima sababdan erkin suyuqlik tomchisi shar shakliga yaqinlashadi?
+A) Uning zichligi nol bo‘lgani uchun
+B) Uning massasi ortgani uchun
+C) Sirt maydonini kamaytirishga intilgani uchun
+D) Doimo muzlagani uchun
+Javob: C
+Slayd: 17
+Izoh: Sirt tarangligi sirt energiyasini kamaytirishga xizmat qiladi.
+
+24. Adsorbsiya nima?
+A) Moddaning faqat bug‘lanishi
+B) Molekulalarning faqat cho‘kishi
+C) Qattiq moddaning erishi
+D) Moddaning boshqa modda sirtida to‘planishi
+Javob: D
+Slayd: 18, 19
+Izoh: Adsorbsiya fazalararo sirtda sodir bo‘ladigan to‘planish jarayonidir.
+
+25. Adsorbsiyada yutuvchi sirt nima deb ataladi?
+A) Adsorbent
+B) Adsorbat
+C) Dispers faza
+D) Emulgator
+Javob: A
+Slayd: 19
+Izoh: Adsorbent — yutuvchi modda yoki sirt.
+
+26. Adsorbsiyada yutilayotgan modda nima deb ataladi?
+A) Koagulyant
+B) Adsorbat
+C) Gel
+D) Elektrod
+Javob: B
+Slayd: 19
+Izoh: Adsorbat adsorbent sirtida to‘planadi.
+
+27. Quyidagilardan qaysi biri samarali adsorbent sifatida keltirilgan?
+A) Toza shisha
+B) Distillangan suv
+C) Aktivlangan ko‘mir
+D) Osh tuzining chin eritmasi
+Javob: C
+Slayd: 19
+Izoh: Aktivlangan ko‘mir katta solishtirma sirtga ega.
+
+28. Adsorbsiya muvozanati qachon qaror topadi?
+A) Harorat mutlaqo nolga tushganda
+B) Dispers faza bug‘langanda
+C) Adsorbent erib ketganda
+D) Adsorbsiya va desorbsiya tezliklari tenglashganda
+Javob: D
+Slayd: 19
+Izoh: Muvozanatda sirtga kelish va sirtdan ketish tezliklari teng bo‘ladi.
+
+29. Namlanish yoki ho‘llanish nimani bildiradi?
+A) Suyuqlikning qattiq sirt bo‘ylab tarqalish qobiliyatini
+B) Zarrachalarning gravitatsion cho‘kishini
+C) Gazning suyuqlikdan chiqishini
+D) Tuzning kristallanishini
+Javob: A
+Slayd: 18
+Izoh: Ho‘llanish suyuqlik va qattiq sirt orasidagi hodisadir.
+
+30. Kapillyarlik nima?
+A) Qattiq moddaning yonishi
+B) Ingichka naychada suyuqlik sathining ko‘tarilishi yoki pasayishi
+C) Eritmada kristallarning paydo bo‘lishi
+D) Zarralarning elektr maydonida harakati
+Javob: B
+Slayd: 18
+Izoh: Kapillyarlik sirt hodisalaridan biridir.
+
+31. Qattiq zarrachalar gaz muhitida tarqalsa, sistema qanday ataladi?
+A) Emulsiya
+B) Suyuq ko‘pik
+C) Qattiq aerozol
+D) Qattiq zol
+Javob: C
+Slayd: 23, 24
+Izoh: Tutun va chang qattiq aerozolga misol bo‘ladi.
+
+32. Suyuq tomchilar gaz muhitida tarqalsa, qanday sistema hosil bo‘ladi?
+A) Suspenziya
+B) Gel
+C) Qattiq ko‘pik
+D) Suyuq aerozol
+Javob: D
+Slayd: 23, 24
+Izoh: Tuman va purkagich tomchilari suyuq aerozoldir.
+
+33. Havodagi chang qanday dispers sistemaga misol?
+A) Qattiq aerozolga
+B) Emulsiyaga
+C) Suyuq ko‘pikka
+D) Chin eritmaga
+Javob: A
+Slayd: 23, 24
+Izoh: Changning qattiq zarrachalari gaz muhitida tarqalgan.
+
+34. Sovun ko‘pigida qaysi faza qaysi muhitda tarqalgan?
+A) Suyuqlik qattiq muhitda
+B) Gaz suyuqlik muhitida
+C) Qattiq modda gaz muhitida
+D) Qattiq modda suyuqlik muhitida
+Javob: B
+Slayd: 23, 26
+Izoh: Suyuq ko‘pikda gaz pufakchalari suyuqlik ichida bo‘ladi.
+
+35. Emulsiya qanday dispers sistema?
+A) Gazning gazdagi eritmasi
+B) Qattiq moddaning qattiqdagi aralashmasi
+C) Bir-birida erimaydigan ikki suyuqlikdan iborat sistema
+D) Ionlarning suvdagi chin eritmasi
+Javob: C
+Slayd: 25
+Izoh: Bir suyuqlik ikkinchisida mayda tomchilar holida tarqaladi.
+
+36. “Moy suvda” emulsiyasida dispers faza qaysi?
+A) Havo
+B) Suv
+C) Emulgatorning qattiq qatlami
+D) Moy tomchilari
+Javob: D
+Slayd: 25
+Izoh: Moy tomchilari suvli dispersion muhitda tarqaladi.
+
+37. “Suv moyda” emulsiyasida dispersion muhit qaysi?
+A) Moy
+B) Suv
+C) Havo
+D) Tuz
+Javob: A
+Slayd: 25
+Izoh: Suv tomchilari moyli muhit ichida tarqaladi.
+
+38. Emulgatorning asosiy vazifasi nima?
+A) Zarrachalarni qizdirish
+B) Sirt tarangligini kamaytirib, tomchilarning birikishini sekinlashtirish
+C) Suyuqlikni butunlay bug‘latish
+D) Barcha tomchilarni darhol cho‘ktirish
+Javob: B
+Slayd: 25
+Izoh: Emulgator fazalararo sirtda emulsiyani barqarorlashtiradi.
+
+39. Emulsiya buzilib, mayda tomchilar yiriklashsa, bu jarayon nima deyiladi?
+A) Dializ
+B) Diffuziya
+C) Koalessensiya
+D) Elektroosmos
+Javob: C
+Slayd: 25
+Izoh: Tomchilar birikib, yirik tomchilar va ajralgan fazalarni hosil qiladi.
+
+40. Suyuq ko‘pikda gaz pufakchalari nimaning yordamida bir-biridan ajralgan?
+A) Qattiq kristallar bilan
+B) Elektr simlar bilan
+C) Vakuum bilan
+D) Yupqa suyuqlik pardalari bilan
+Javob: D
+Slayd: 26
+Izoh: Pufakchalar orasida suyuq pardalar mavjud.
+
+=== KK1_3: SAVOLLAR 41–60 ===
+
+41. Zol va gelning asosiy farqi qaysi?
+A) Zol oqimchan, gel esa fazoviy to‘r hosil qilgan
+B) Zol doimo gaz, gel doimo metall
+C) Zolda hech qanday zarracha bo‘lmaydi
+D) Gel faqat chin eritmadan iborat
+Javob: A
+Slayd: 27
+Izoh: Gelda dispers faza strukturasi sabab oqimchanlik past bo‘ladi.
+
+42. Zolning gelga aylanishi nima deyiladi?
+A) Adsorbsiya
+B) Gelatsiya
+C) Sedimentatsiya
+D) Dializ
+Javob: B
+Slayd: 27
+Izoh: Slaydda zol–gel o‘tishi gelatsiya deb atalgan.
+
+43. Suspenziyada qaysi faza qaysi muhitda tarqaladi?
+A) Gaz qattiq muhitda
+B) Suyuqlik gaz muhitida
+C) Qattiq zarrachalar suyuqlik muhitida
+D) Gaz gaz muhitida
+Javob: C
+Slayd: 28
+Izoh: Suspenziya dag‘al dispers sistemadir.
+
+44. Suspenziya zarrachalarining cho‘kishi nima deyiladi?
+A) Ho‘llanish
+B) Adsorbsiya
+C) Peptizatsiya
+D) Sedimentatsiya
+Javob: D
+Slayd: 28, 29
+Izoh: Og‘irlik kuchi ta’sirida zarralar pastga siljiydi.
+
+45. Suspenziya turg‘unligini oshirish uchun slaydda qaysi usul keltirilgan?
+A) Zarrachalar o‘lchamini kamaytirish
+B) Zarrachalarni yanada yiriklashtirish
+C) Muhitni to‘liq bug‘latish
+D) Idishni ochiq qoldirish
+Javob: A
+Slayd: 28
+Izoh: Mayda zarrachalar sekinroq cho‘kadi.
+
+46. Braun harakatining bevosita sababi nima?
+A) Faqat yorug‘lik nuri
+B) Dispersion muhit molekulalarining zarrachaga zarbalari
+C) Faqat elektr toki
+D) Idishning rangi
+Javob: B
+Slayd: 29
+Izoh: Notekis molekulyar zarbalar tartibsiz harakatni keltirib chiqaradi.
+
+47. Braun harakati qaysi holatda kuchayadi?
+A) Harorat pasayib, zarracha yiriklashganda
+B) Zarracha harakatsiz qotganda
+C) Harorat oshib, zarracha kichrayganda
+D) Faqat eritma rangsizlanganda
+Javob: C
+Slayd: 29
+Izoh: Slaydda kichikroq zarracha va yuqoriroq harorat harakatni kuchaytirishi aytilgan.
+
+48. Diffuziya qaysi yo‘nalishda sodir bo‘ladi?
+A) Past konsentratsiyadan yuqoriga
+B) Faqat pastdan yuqoriga
+C) Faqat qattiq sirtda
+D) Yuqori konsentratsiyadan past konsentratsiyaga
+Javob: D
+Slayd: 29
+Izoh: Modda o‘z-o‘zidan konsentratsiya farqi bo‘yicha tarqaladi.
+
+49. Elektroforez nima?
+A) Zaryadlangan zarrachalarning elektr maydonida harakatlanishi
+B) Gazning suyuqlikka yutilishi
+C) Emulsiya tomchilarining birikishi
+D) Membrana orqali suvning o‘tishi
+Javob: A
+Slayd: 31
+Izoh: Elektr maydoni zaryadlangan kolloid zarrachalarni siljitadi.
+
+50. Elektroosmos nima?
+A) Zarrachaning filtrda ushlanishi
+B) Suyuqlikning g‘ovak muhit yoki kapillyarda elektr maydoni ta’sirida siljishi
+C) Suyuqlikning qaynashi
+D) Yorug‘likning kolloid eritmada sochilishi
+Javob: B
+Slayd: 31
+Izoh: Elektroosmosda siljiydigan qism suyuqlikdir.
+
+51. Zeta-potensial qiymati katta bo‘lganda zarrachalar odatda qanday ta’sirlashadi?
+A) Bir zumda bug‘lanadi
+B) Barchasi elektrsizlanadi
+C) Bir-birini kuchliroq itaradi
+D) Darhol kristallanadi
+Javob: C
+Slayd: 31, 32
+Izoh: Elektr itarilish kuchi agregatsiyani qiyinlashtiradi.
+
+52. Sedimentatsion barqarorlik nimani bildiradi?
+A) Zarralarning tez birikishini
+B) Faqat sirtning ho‘llanishini
+C) Yorug‘lik yutilishini
+D) Zarrachalarning cho‘kmasdan muhitda saqlanishini
+Javob: D
+Slayd: 32
+Izoh: Bu barqarorlik cho‘kishga qarshi turish qobiliyatidir.
+
+53. Agregativ barqarorlik nimani bildiradi?
+A) Zarrachalarning birikib yirik agregat hosil qilmasligini
+B) Zarralarning faqat rangini saqlashini
+C) Suyuqlikning muzlamasligini
+D) Faqat gazning siqilishini
+Javob: A
+Slayd: 32
+Izoh: Agregativ barqaror sistema zarrachalari bir-biriga yopishib ketmaydi.
+
+54. Koagulyatsiya natijasida qanday o‘zgarish yuz beradi?
+A) Har bir zarracha molekulaga parchalanadi
+B) Kolloid zarrachalar birikib yirik agregatlar hosil qiladi
+C) Barcha zarralar membranadan o‘tadi
+D) Sirt maydoni cheksiz ortadi
+Javob: B
+Slayd: 33
+Izoh: Agregatlar hosil bo‘lishi kolloid sistema barqarorligini buzadi.
+
+55. Elektrolit qo‘shilishi koagulyatsiyani nega tezlashtirishi mumkin?
+A) Zarralarni doimo qizdirgani uchun
+B) Suvni butunlay yo‘qotgani uchun
+C) Qo‘sh elektr qavatni siqib, itarilish kuchini kamaytirgani uchun
+D) Tindal effektini kuchaytirgani uchun
+Javob: C
+Slayd: 33
+Izoh: Zarrachalar orasidagi elektr itarilish kamayganda ular yaqinlashadi.
+
+56. Peptizatsiya qanday jarayon?
+A) Gazning ko‘pikka aylanishi
+B) Zarrachalarning gravitatsion cho‘kishi
+C) Eritmaning qaynashi
+D) Koagulyatsiyaga teskari, agregatlarning qayta maydalanishi
+Javob: D
+Slayd: 33
+Izoh: Peptizatsiya birikkan zarrachalarni qayta disperslaydi.
+
+57. Oqava suvni tozalashda qaysi kolloid kimyo jarayonlari qo‘llanadi?
+A) Koagulyatsiya, flokulyatsiya va adsorbsiya
+B) Faqat sublimatsiya
+C) Faqat kristallanish
+D) Faqat yonish
+Javob: A
+Slayd: 22
+Izoh: Slaydda shu usullar oqava suvni tozalash uchun berilgan.
+
+58. Kolloid tizimning barqarorligiga qaysi tashqi omillar ta’sir qilishi mumkin?
+A) Faqat idishning shakli
+B) pH, ion kuchi, harorat va elektrolit konsentratsiyasi
+C) Faqat yorliqning rangi
+D) Faqat laboratoriya manzili
+Javob: B
+Slayd: 32
+Izoh: Muhit sharoiti zarrachalararo ta’sirni o‘zgartiradi.
+
+59. Kolloid zarrachalarning optik xossalari asosan nimaga bog‘liq?
+A) Faqat idish hajmiga
+B) Faqat eritma yorlig‘iga
+C) Yorug‘likni sochishi va yutishiga
+D) Faqat cho‘kish tezligiga
+Javob: C
+Slayd: 30
+Izoh: Tindal effekti aynan yorug‘lik sochilishi bilan bog‘liq.
+
+60. Suvdagi rangli ifloslantiruvchini adsorbsiyalab ajratishda qaysi modda mos?
+A) Faqat toza suv
+B) Faqat osh tuzi
+C) Faqat havo
+D) Aktivlangan ko‘mir
+Javob: D
+Slayd: 19, 22
+Izoh: Aktivlangan ko‘mir sirtida erigan moddalar to‘planishi mumkin.

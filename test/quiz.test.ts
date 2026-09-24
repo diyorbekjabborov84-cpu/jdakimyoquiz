@@ -364,9 +364,10 @@ async function runQuizTests() {
 
   assert.strictEqual(participant.score, 7, "To'g'ri javoblar soni 7 bo'lishi kerak");
   assert.strictEqual(participant.answersCount, 15, "Bosilgan javoblar soni 15 bo'lishi kerak");
-  assert.strictEqual(
-    participant.totalTimeMs,
-    totalCalculatedTimeMs,
+  // Date.now() ketma-ket chaqirilgani uchun har javobda bir necha ms farq bo'lishi mumkin.
+  // 100 ms tolerans 5 ta javobsiz savolning 15 soniyalik vaqtini yashira olmaydi.
+  assert.ok(
+    Math.abs(participant.totalTimeMs - totalCalculatedTimeMs) <= 100,
     "Faqat bosilgan 15 ta javobning vaqti yig'ilishi kerak (javobsiz 5 ta savol vaqti qo'shilmaydi)"
   );
 

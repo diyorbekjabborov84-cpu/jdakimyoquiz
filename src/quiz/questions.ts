@@ -8,6 +8,7 @@ export const aminoAcidsQuiz: Quiz = {
   id: "amino_acids",
   title: "Aminokislotalar — suyuqlanish temperaturasi",
   description: "329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning suyuqlanish temperaturasi bo'yicha interaktiv quiz",
+  groupOnly: true,
   questions: [
     {
       id: "aa_1",
@@ -190,6 +191,7 @@ export const chemistryBasicsQuiz: Quiz = {
   id: "kimyo_asoslari",
   title: "Kimyo asoslari — namuna",
   description: "Elementlar, suv formulasi va asosiy kimyoviy tushunchalar bo'yicha test",
+  groupOnly: true,
   questions: [
     {
       id: "chem_1",
@@ -234,10 +236,16 @@ export const chemistryBasicsQuiz: Quiz = {
   ],
 };
 
+import { kk1Quiz1, kk1Quiz2, kk1Quiz3 } from "./kk1Questions.js";
+export { kk1Quiz1, kk1Quiz2, kk1Quiz3 };
+
 // Barcha mavjud quizlar ro'yxati (o'zgarmas ID lar bilan)
 export const allQuizzes: Quiz[] = [
   aminoAcidsQuiz,
   chemistryBasicsQuiz,
+  kk1Quiz1,
+  kk1Quiz2,
+  kk1Quiz3,
 ];
 
 /**
@@ -254,7 +262,7 @@ export function getQuizById(id: string): Quiz | undefined {
   if (!id) return undefined;
   const normalized = id.trim().toLowerCase();
 
-  // Aniq ID bo'yicha
+  // Aniq ID bo'yicha (masalan KK1_1, kk1_1, amino_acids)
   const directMatch = allQuizzes.find((q) => q.id.toLowerCase() === normalized);
   if (directMatch) return directMatch;
 
@@ -275,6 +283,30 @@ export function getQuizById(id: string): Quiz | undefined {
     normalized === "2"
   ) {
     return chemistryBasicsQuiz;
+  }
+
+  if (
+    normalized === "kk1-1" ||
+    normalized === "kk_1_1" ||
+    normalized === "kk11"
+  ) {
+    return kk1Quiz1;
+  }
+
+  if (
+    normalized === "kk1-2" ||
+    normalized === "kk_1_2" ||
+    normalized === "kk12"
+  ) {
+    return kk1Quiz2;
+  }
+
+  if (
+    normalized === "kk1-3" ||
+    normalized === "kk_1_3" ||
+    normalized === "kk13"
+  ) {
+    return kk1Quiz3;
   }
 
   return undefined;

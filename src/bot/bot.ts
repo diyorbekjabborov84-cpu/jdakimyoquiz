@@ -6,6 +6,7 @@ import {
   handleQuizByIdCommand,
   handleStopQuizCommand,
   handleCheckSubscriptionCallback,
+  handleRestartQuizCallback,
 } from "./handlers/quiz.js";
 import { handlePollAnswer } from "./handlers/pollAnswer.js";
 
@@ -27,6 +28,9 @@ export function createBot(token: string): Bot {
 
   // Obunani qayta tekshirish («✅ A’zo bo‘ldim — tekshirish» callback query)
   bot.callbackQuery(/^check_sub_(.+)$/, handleCheckSubscriptionCallback);
+
+  // Quizni qayta boshlash («🔄 Qayta yechish» callback query)
+  bot.callbackQuery(/^restart_quiz_(.+)$/, handleRestartQuizCallback);
 
   // Telegram Quiz Poll javoblarini eshitish
   bot.on("poll_answer", handlePollAnswer);

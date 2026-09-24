@@ -134,29 +134,14 @@ async function runSubscriptionTests() {
   const api = new SubscriptionMockApi();
 
   // ========================================================
-  // TEST 1: Obunasiz foydalanuvchi shaxsiy chatda quiz boshlashga uringanda
+  // TEST 1: Obuna xabari va tugmalari formati to'g'riligi
   // ========================================================
-  console.log("Test 1: Obunasiz foydalanuvchiga shaxsiy chatda kanal tugmalari va tekshirish tugmasi ko'rsatilishi...");
-  const unsubscribedUserId = 888111;
-  const ctxUnsubPrivate = createMockContext({
-    chatId: unsubscribedUserId,
-    chatType: "private",
-    userId: unsubscribedUserId,
-    api,
-  });
+  console.log("Test 1: Obuna xabari va tugmalari formati to'g'riligi...");
+  const subMsg = buildSubscriptionMessageAndKeyboard("amino_acids");
+  assert.ok(subMsg.text.includes("@jdaquizkod"), "Xabarda @jdaquizkod bo'lishi kerak");
+  assert.ok(subMsg.text.includes("@jdakimyouz"), "Xabarda @jdakimyouz bo'lishi kerak");
 
-  // /quiz_amino_acids yuborildi
-  await startQuizById(ctxUnsubPrivate as any, "amino_acids");
-
-  // Quiz boshlanmagan bo'lishi kerak!
-  assert.strictEqual(api.sentPolls.length, 0, "Obunasiz foydalanuvchiga poll yuborilmasligi kerak");
-  assert.strictEqual(ctxUnsubPrivate.replies.length, 1, "Obuna talabi xabari yuborilishi kerak");
-
-  const subReply = ctxUnsubPrivate.replies[0];
-  assert.ok(subReply.text.includes("@jdaquizkod"), "Xabarda @jdaquizkod bo'lishi kerak");
-  assert.ok(subReply.text.includes("@jdakimyouz"), "Xabarda @jdakimyouz bo'lishi kerak");
-
-  const keyboard = subReply.other?.reply_markup?.inline_keyboard;
+  const keyboard = subMsg.reply_markup.inline_keyboard;
   assert.ok(keyboard, "Inline keyboard mavjud bo'lishi kerak");
   assert.strictEqual(keyboard.length, 3, "3 qatorli tugmalar bo'lishi kerak");
   assert.strictEqual(keyboard[0][0].url, "https://t.me/jdaquizkod");
@@ -169,6 +154,7 @@ async function runSubscriptionTests() {
   // TEST 2: Obuna bo'lmasdan «✅ A’zo bo‘ldim — tekshirish» bosilganda ogohlantirish
   // ========================================================
   console.log("Test 2: Obuna bo'lmasdan tekshirish tugmasi bosilganda rad etish...");
+  const unsubscribedUserId = 888111;
   const ctxCheckFail = createMockContext({
     chatId: unsubscribedUserId,
     chatType: "private",
@@ -187,9 +173,10 @@ async function runSubscriptionTests() {
   console.log("✅ Test 2 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 3: Ikkala kanalga ham a'zo bo'lgach, «✅ A’zo bo‘ldim — tekshirish» bosilganda quiz boshlanishi
+  // TEST 3: Ikkala kanalga ham a'zo bo'lgach, «✅ A’zo bo‘ldim — tekshirish» bosilganda
+  // Shaxsiy chatda quiz boshlanmasligi va guruhga yo'naltirish xabari chiqishi
   // ========================================================
-  console.log("Test 3: Obunadan keyingi qayta tekshiruvda tanlangan quiz (ID saqlangan holda) boshlanishi...");
+  console.log("Test 3: Obuna tasdiqlangach shaxsiy chatda quiz boshlanmasligi, guruhga yo'naltirish chiqishi...");
   api.memberships.set(`@jdaquizkod:${unsubscribedUserId}`, true);
   api.memberships.set(`@jdakimyouz:${unsubscribedUserId}`, true);
 
@@ -204,59 +191,66 @@ async function runSubscriptionTests() {
   await handleCheckSubscriptionCallback(ctxCheckSuccess as any);
   assert.ok(ctxCheckSuccess.callbackAlerts.some((a) => a.includes("Obuna tasdiqlandi")));
 
-  // api.sendMessage orqali e'lon xabari chiqishi kerak
-  const startMsg = api.sentMessages.find(
-    (m) => m.chatId === unsubscribedUserId && m.text.includes("Aminokislotalar — suyuqlanish temperaturasi")
-  );
-  assert.ok(startMsg !== undefined, "Tanlangan amino_acids quizi boshlanishi kerak (ID yo'qolmagan)");
+  // Shaxsiy chatda poll yuborilmagan bo'lishi kerak!
+  assert.strictEqual(api.sentPolls.length, 0, "Shaxsiy chatda poll YUBORILMASLIGI shart");
 
-  // To'xtatamiz
-  const ctxStopPrivate = createMockContext({
-    chatId: unsubscribedUserId,
-    chatType: "private",
-    userId: unsubscribedUserId,
-    api,
-  });
-  await handleStopQuizCommand(ctxStopPrivate as any);
+  // Guruhga yo'naltirish xabari chiqishi kerak
+  assert.strictEqual(ctxCheckSuccess.replies.length, 1);
+  assert.ok(
+    ctxCheckSuccess.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    "Guruhga yo'naltirish xabari bo'lishi kerak"
+  );
+  assert.ok(
+    ctxCheckSuccess.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url.includes(
+      "startgroup=quiz_amino_acids"
+    )
+  );
   console.log("✅ Test 3 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 4: Deep link (?start=quiz_<ID>) orqali kirish
+  // TEST 4: Deep link (?start=quiz_<ID>) shaxsiy chatda guruhga yo'naltirishi,
+  // guruhda esa admin orqali to'g'ridan-to'g'ri boshlanishi
   // ========================================================
-  console.log("Test 4: Deep link (?start=quiz_kimyo_asoslari) orqali kirganda obuna tekshiruvi...");
+  console.log("Test 4: Deep link (?start=quiz_kimyo_asoslari) xulqi...");
   const deepLinkUserId = 888222;
-  // Dastlab obunasi yo'q
-  const ctxDeepUnsub = createMockContext({
+  // Shaxsiy chatda deep link
+  const ctxDeepPrivate = createMockContext({
     chatId: deepLinkUserId,
     chatType: "private",
     userId: deepLinkUserId,
     match: "quiz_kimyo_asoslari",
     api,
   });
-  await handleStart(ctxDeepUnsub as any);
-  assert.strictEqual(ctxDeepUnsub.replies.length, 1);
-  const deepKeyboard = ctxDeepUnsub.replies[0].other?.reply_markup?.inline_keyboard;
-  assert.strictEqual(deepKeyboard[2][0].callback_data, "check_sub_kimyo_asoslari", "Deep linkdagi ID saqlangan bo'lishi kerak");
-
-  // Endi a'zo qilamiz va tekshiramiz
-  api.memberships.set(`@jdaquizkod:${deepLinkUserId}`, true);
-  api.memberships.set(`@jdakimyouz:${deepLinkUserId}`, true);
-
-  const ctxDeepSub = createMockContext({
-    chatId: deepLinkUserId,
-    chatType: "private",
-    userId: deepLinkUserId,
-    match: "quiz_kimyo_asoslari",
-    api,
-  });
-  await handleStart(ctxDeepSub as any);
-  const deepStartMsg = api.sentMessages.find(
-    (m) => m.chatId === deepLinkUserId && m.text.includes("Kimyo asoslari — namuna")
+  await handleStart(ctxDeepPrivate as any);
+  assert.strictEqual(ctxDeepPrivate.replies.length, 1);
+  assert.ok(
+    ctxDeepPrivate.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    "Shaxsiy deep link guruhga yo'naltirishi kerak"
   );
-  assert.ok(deepStartMsg !== undefined, "Obunasi bor foydalanuvchida deep link to'g'ridan-to'g'ri quizni boshlashi kerak");
+  assert.ok(
+    ctxDeepPrivate.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url.includes(
+      "startgroup=quiz_kimyo_asoslari"
+    )
+  );
+
+  // Guruhda admin havola orqali ochganda: obuna so'ralmaydi va to'g'ridan-to'g'ri quiz boshlanadi
+  const deepGroupChatId = -1004488;
+  const ctxDeepGroup = createMockContext({
+    chatId: deepGroupChatId,
+    chatType: "supergroup",
+    userId: deepLinkUserId,
+    isAdmin: true,
+    match: "quiz_kimyo_asoslari",
+    api,
+  });
+  await handleStart(ctxDeepGroup as any);
+  const deepStartMsg = api.sentMessages.find(
+    (m) => m.chatId === deepGroupChatId && m.text.includes("Kimyo asoslari — namuna")
+  );
+  assert.ok(deepStartMsg !== undefined, "Guruhda admin uchun quiz to'g'ridan-to'g'ri boshlanishi kerak");
 
   // To'xtatamiz
-  await handleStopQuizCommand(ctxDeepSub as any);
+  await handleStopQuizCommand(ctxDeepGroup as any);
   console.log("✅ Test 4 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
@@ -307,7 +301,7 @@ async function runSubscriptionTests() {
     api,
   });
 
-  await startQuizById(ctxError as any, "amino_acids");
+  await handleStart(ctxError as any);
   assert.strictEqual(ctxError.replies.length, 1);
   const errorReplyText = ctxError.replies[0].text;
   assert.ok(

@@ -12,6 +12,9 @@ export interface Quiz {
   title: string;
   description: string;
   questions: QuizQuestion[];
+  groupOnly?: boolean; // Faqat Telegram guruhlarida o'tkazilishi shart bo'lsa
+  shuffle?: boolean; // Savollar va variantlar har sessiyada aralashtirilishi kerak bo'lsa
+  source?: string; // Savollar manbasi (masalan: "Bahora Nayimova slaydlaridan")
 }
 
 export interface ParticipantScore {

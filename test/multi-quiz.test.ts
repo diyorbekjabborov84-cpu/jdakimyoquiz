@@ -206,118 +206,200 @@ async function runMultiQuizTests() {
   console.log("✅ Test 4 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 5: Shaxsiy chatda foydalanuvchi o'zi boshlay olishi
+  // TEST 5: Shaxsiy chatda barcha quizlar boshlanishi bloklanishi (guruhga yo'naltirish)
   // ========================================================
-  console.log("Test 5: Shaxsiy chatda (private) foydalanuvchi o'zi quizni boshlashi...");
+  console.log("Test 5: Shaxsiy chatda quiz boshlash bloklanishi va guruhga yo'naltirish...");
   const privateChatId = 778899;
   const ctxPrivate = createMockContext({
     chatId: privateChatId,
     chatType: "private",
     userId: 778899,
-    isAdmin: false, // Shaxsiy chatda admin bo'lish shart emas
+    isAdmin: false,
     api,
   });
-  await startQuizById(ctxPrivate as any, "kimyo_asoslari");
-  // startQuiz chaqirildi, api.sendMessage orqali e'lon xabari ketdi
-  const privateStartMsg = api.sentMessages.find(
-    (m) => m.chatId === privateChatId && m.text.includes("Kimyo asoslari — namuna")
-  );
-  assert.ok(privateStartMsg !== undefined, "Shaxsiy chatda quiz e'loni yuborilishi kerak");
-  console.log("✅ Test 5 muvaffaqiyatli o'tdi.\n");
 
-  // ========================================================
-  // TEST 6: Bitta chatda faol quiz turganda ikkinchisini boshlashni bloklash
-  // ========================================================
-  console.log("Test 6: Bitta chatda faol quiz turganda ikkinchisi boshlanmasligi...");
-  const ctxPrivateDuplicate = createMockContext({
+  // kimyo_asoslari shaxsiy chatda
+  await startQuizById(ctxPrivate as any, "kimyo_asoslari");
+  assert.strictEqual(ctxPrivate.replies.length, 1);
+  assert.ok(
+    ctxPrivate.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    "Shaxsiy chatda guruhga yo'naltirish xabari chiqishi kerak"
+  );
+  assert.ok(
+    ctxPrivate.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url.includes(
+      "startgroup=quiz_kimyo_asoslari"
+    ),
+    "startgroup havolasi bo'lishi kerak"
+  );
+
+  // amino_acids shaxsiy chatda
+  const ctxPrivate2 = createMockContext({
     chatId: privateChatId,
     chatType: "private",
     userId: 778899,
     api,
   });
-  await startQuizById(ctxPrivateDuplicate as any, "amino_acids");
-  assert.strictEqual(ctxPrivateDuplicate.replies.length, 1);
+  await startQuizById(ctxPrivate2 as any, "amino_acids");
+  assert.strictEqual(ctxPrivate2.replies.length, 1);
   assert.ok(
-    ctxPrivateDuplicate.replies[0].text.includes("allaqachon faol quiz davom etmoqda"),
-    "Takroriy boshlash bloklanishi kerak"
+    ctxPrivate2.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    "amino_acids ham shaxsiy chatda bloklanishi kerak"
+  );
+  assert.ok(
+    ctxPrivate2.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url.includes(
+      "startgroup=quiz_amino_acids"
+    )
+  );
+
+  // Shaxsiy chatda hech qanday poll yuborilmagan bo'lishi kerak
+  const privatePoll = api.sentPolls.find((p) => p.chatId === privateChatId);
+  assert.strictEqual(privatePoll, undefined, "Shaxsiy chatda poll yuborilmasligi kerak");
+  console.log("✅ Test 5 muvaffaqiyatli o'tdi.\n");
+
+  // ========================================================
+  // TEST 6: Bitta guruhda faol quiz turganda ikkinchisini boshlashni bloklash
+  // ========================================================
+  console.log("Test 6: Bitta guruhda faol quiz turganda ikkinchisi boshlanmasligi...");
+  const testGroupChatId = -1004455;
+  const ctxGroupAdmin1 = createMockContext({
+    chatId: testGroupChatId,
+    chatType: "supergroup",
+    userId: 8881,
+    isAdmin: true,
+    api,
+  });
+  await startQuizById(ctxGroupAdmin1 as any, "kimyo_asoslari");
+  const groupStartMsg = api.sentMessages.find(
+    (m) => m.chatId === testGroupChatId && m.text.includes("Kimyo asoslari — namuna")
+  );
+  assert.ok(groupStartMsg !== undefined, "Guruhda admin quizni boshlay olishi kerak");
+
+  // Shu guruhda yana boshqa quiz boshlashga urinish
+  const ctxGroupDuplicate = createMockContext({
+    chatId: testGroupChatId,
+    chatType: "supergroup",
+    userId: 8881,
+    isAdmin: true,
+    api,
+  });
+  await startQuizById(ctxGroupDuplicate as any, "amino_acids");
+  assert.strictEqual(ctxGroupDuplicate.replies.length, 1);
+  assert.ok(
+    ctxGroupDuplicate.replies[0].text.includes("allaqachon faol quiz davom etmoqda"),
+    "Guruhda takroriy boshlash bloklanishi kerak"
   );
   console.log("✅ Test 6 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
   // TEST 7: /stop va /stopquiz:
-  // - guruhda faqat admin to'xtatishi
-  // - shaxsiy chatda foydalanuvchi to'xtatishi
+  // - guruhda faqat admin to'xtatishi (oddiy a'zo rad etilishi)
   // - taymer to'xtashi, yakuniy natija yuborilmasligi
   // ========================================================
-  console.log("Test 7: /stop faol quizni to'xtatishi va natija yuborilmasligi...");
-  // Shaxsiy chatdagi faol quizni /stop orqali to'xtatamiz
-  const ctxStopPrivate = createMockContext({
-    chatId: privateChatId,
-    chatType: "private",
-    userId: 778899,
+  console.log("Test 7: /stop faqat admin tomonidan to'xtatilishi va yakuniy natija yuborilmasligi...");
+  // Oddiy a'zo to'xtatishga uringanda
+  const ctxStopNonAdmin = createMockContext({
+    chatId: testGroupChatId,
+    chatType: "supergroup",
+    userId: 9992,
+    isAdmin: false,
     api,
   });
-  await handleStopQuizCommand(ctxStopPrivate as any);
+  await handleStopQuizCommand(ctxStopNonAdmin as any);
+  assert.strictEqual(ctxStopNonAdmin.replies.length, 1);
+  assert.ok(
+    ctxStopNonAdmin.replies[0].text.includes("faqat guruh adminlariga berilgan"),
+    "Oddiy a'zo /stop qila olmasligi kerak"
+  );
+
+  // Admin to'xtatganda
+  const ctxStopAdmin = createMockContext({
+    chatId: testGroupChatId,
+    chatType: "supergroup",
+    userId: 8881,
+    isAdmin: true,
+    api,
+  });
+  await handleStopQuizCommand(ctxStopAdmin as any);
   const stopMsg = api.sentMessages.find(
-    (m) => m.chatId === privateChatId && m.text.includes("Quiz to'xtatildi")
+    (m) => m.chatId === testGroupChatId && m.text.includes("Quiz to'xtatildi")
   );
   assert.ok(stopMsg !== undefined, "Quiz to'xtatildi xabari yuborilishi kerak");
 
   // Yakuniy reyting natijasi yuborilmaganligini tekshiramiz!
   const hasFinishedMsg = api.sentMessages.some(
-    (m) => m.chatId === privateChatId && m.text.includes("Yakuniy Natijalar va Reyting")
+    (m) => m.chatId === testGroupChatId && m.text.includes("Yakuniy Natijalar va Reyting")
   );
   assert.strictEqual(hasFinishedMsg, false, "To'xtatilganda yakuniy natija YUBORILMASLIGI shart");
 
   // Qaytadan /stop bosilganda faol quiz yo'qligi xabari
-  await handleStopQuizCommand(ctxStopPrivate as any);
-  assert.strictEqual(ctxStopPrivate.replies.length, 1);
-  assert.ok(ctxStopPrivate.replies[0].text.includes("faol quiz mavjud emas"));
+  await handleStopQuizCommand(ctxStopAdmin as any);
+  assert.strictEqual(ctxStopAdmin.replies.length, 1);
+  assert.ok(ctxStopAdmin.replies[0].text.includes("faol quiz mavjud emas"));
   console.log("✅ Test 7 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
   // TEST 8: Shaxsiy havola orqali ochish (?start=quiz_<ID>)
   // ========================================================
-  console.log("Test 8: Shaxsiy havola orqali deep linking (?start=quiz_<ID>)...");
+  console.log("Test 8: Havola orqali deep linking (?start=quiz_<ID>)...");
   const deepLinkChatId = 554433;
-  const ctxDeepLink = createMockContext({
+  // Shaxsiy chatda deep link ochilganda guruhga yo'naltirish
+  const ctxDeepLinkPrivate = createMockContext({
     chatId: deepLinkChatId,
     chatType: "private",
     userId: 554433,
     match: "quiz_amino_acids",
     api,
   });
-  await handleStart(ctxDeepLink as any);
-  const deepLinkStartMsg = api.sentMessages.find(
-    (m) => m.chatId === deepLinkChatId && m.text.includes("Aminokislotalar — suyuqlanish temperaturasi")
+  await handleStart(ctxDeepLinkPrivate as any);
+  assert.strictEqual(ctxDeepLinkPrivate.replies.length, 1);
+  assert.ok(
+    ctxDeepLinkPrivate.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    "Shaxsiy deep link guruhga yo'naltirishi kerak"
   );
-  assert.ok(deepLinkStartMsg !== undefined, "Deep link orqali to'g'ri quiz boshlanishi kerak");
 
-  // To'xtatamiz
+  // Guruhda admin deep link orqali ochganda quiz boshlanishi
+  const deepGroupChatId = -1006677;
+  const ctxDeepLinkGroup = createMockContext({
+    chatId: deepGroupChatId,
+    chatType: "supergroup",
+    userId: 7771,
+    isAdmin: true,
+    match: "quiz_amino_acids",
+    api,
+  });
+  await handleStart(ctxDeepLinkGroup as any);
+  const deepLinkStartMsg = api.sentMessages.find(
+    (m) => m.chatId === deepGroupChatId && m.text.includes("Aminokislotalar — suyuqlanish temperaturasi")
+  );
+  assert.ok(deepLinkStartMsg !== undefined, "Guruhda deep link orqali quiz boshlanishi kerak");
+
+  // Guruhdagi quizni to'xtatamiz
   const ctxDeepLinkStop = createMockContext({
-    chatId: deepLinkChatId,
-    chatType: "private",
-    userId: 554433,
+    chatId: deepGroupChatId,
+    chatType: "supergroup",
+    userId: 7771,
+    isAdmin: true,
     api,
   });
   await handleStopQuizCommand(ctxDeepLinkStop as any);
   console.log("✅ Test 8 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 9: Bir vaqtning o'zida ikkita chat (shaxsiy va guruh) mustaqil ishlashi
+  // TEST 9: Bir vaqtning o'zida ikkita guruhda mustaqil quizlar ishlashi
   // ========================================================
-  console.log("Test 9: Bir vaqtning o'zida ikki chatda mustaqil quizlar ishlashi...");
-  const chat1 = 1111; // Shaxsiy chat
-  const chat2 = -2222; // Guruh
+  console.log("Test 9: Bir vaqtning o'zida ikki guruhda mustaqil quizlar ishlashi...");
+  const group1 = -1001111;
+  const group2 = -1002222;
 
   const ctxChat1 = createMockContext({
-    chatId: chat1,
-    chatType: "private",
+    chatId: group1,
+    chatType: "supergroup",
     userId: 1111,
+    isAdmin: true,
     api,
   });
   const ctxChat2 = createMockContext({
-    chatId: chat2,
+    chatId: group2,
     chatType: "supergroup",
     userId: 2222,
     isAdmin: true,
@@ -327,32 +409,50 @@ async function runMultiQuizTests() {
   await startQuizById(ctxChat1 as any, "kimyo_asoslari");
   await startQuizById(ctxChat2 as any, "amino_acids");
 
-  const chat1Msg = api.sentMessages.find((m) => m.chatId === chat1 && m.text.includes("Kimyo asoslari"));
-  const chat2Msg = api.sentMessages.find((m) => m.chatId === chat2 && m.text.includes("Aminokislotalar"));
+  const chat1Msg = api.sentMessages.find((m) => m.chatId === group1 && m.text.includes("Kimyo asoslari"));
+  const chat2Msg = api.sentMessages.find((m) => m.chatId === group2 && m.text.includes("Aminokislotalar"));
 
-  assert.ok(chat1Msg !== undefined, "Chat 1 da 5 savolli quiz boshlanishi kerak");
-  assert.ok(chat2Msg !== undefined, "Chat 2 da 21 savolli quiz boshlanishi kerak");
+  assert.ok(chat1Msg !== undefined, "Guruh 1 da 5 savolli quiz boshlanishi kerak");
+  assert.ok(chat2Msg !== undefined, "Guruh 2 da 21 savolli quiz boshlanishi kerak");
 
-  // Ikkala chatni alohida to'xtatish
+  // Ikkala guruhni alohida to'xtatish
   await handleStopQuizCommand(ctxChat1 as any);
   await handleStopQuizCommand(ctxChat2 as any);
   console.log("✅ Test 9 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 10: /quiz_<ID> regex buyrug'i orqali boshlash
+  // TEST 10: /quiz_<ID> buyrug'i orqali boshlash
   // ========================================================
-  console.log("Test 10: /quiz_<ID> regex match orqali boshlash...");
-  const ctxRegex = createMockContext({
+  console.log("Test 10: /quiz_<ID> buyrug'i (shaxsiyda rad etish, guruhda admin orqali boshlash)...");
+  // Shaxsiy chatda rad etilishi
+  const ctxRegexPrivate = createMockContext({
     chatId: 9999,
     chatType: "private",
     userId: 9999,
     match: ["/quiz_kimyo_asoslari", "kimyo_asoslari"],
     api,
   });
-  await handleQuizByIdCommand(ctxRegex as any);
-  const regexMsg = api.sentMessages.find((m) => m.chatId === 9999 && m.text.includes("Kimyo asoslari"));
-  assert.ok(regexMsg !== undefined, "/quiz_<ID> buyrug'i quizni boshlashi kerak");
-  await handleStopQuizCommand(ctxRegex as any);
+  await handleQuizByIdCommand(ctxRegexPrivate as any);
+  assert.strictEqual(ctxRegexPrivate.replies.length, 1);
+  assert.ok(
+    ctxRegexPrivate.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    "Shaxsiy chatda /quiz_<ID> rad etilishi kerak"
+  );
+
+  // Guruhda admin yuborganda boshlanishi
+  const regexGroupChatId = -1009988;
+  const ctxRegexGroup = createMockContext({
+    chatId: regexGroupChatId,
+    chatType: "supergroup",
+    userId: 9999,
+    isAdmin: true,
+    match: ["/quiz_kimyo_asoslari", "kimyo_asoslari"],
+    api,
+  });
+  await handleQuizByIdCommand(ctxRegexGroup as any);
+  const regexMsg = api.sentMessages.find((m) => m.chatId === regexGroupChatId && m.text.includes("Kimyo asoslari"));
+  assert.ok(regexMsg !== undefined, "Guruhda admin yuborgan /quiz_<ID> buyrug'i quizni boshlashi kerak");
+  await handleStopQuizCommand(ctxRegexGroup as any);
   console.log("✅ Test 10 muvaffaqiyatli o'tdi.\n");
 
   console.log("🎉 BARCHA KO'P QUIZLI TIZIM TESTLARI (10/10) MUVAFFAQIYATLI O'TDI!");
