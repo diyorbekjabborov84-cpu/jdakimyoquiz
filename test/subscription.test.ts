@@ -1,0 +1,386 @@
+import assert from "node:assert";
+import {
+  checkChannelSubscriptions,
+  buildSubscriptionMessageAndKeyboard,
+  REQUIRED_CHANNELS,
+} from "../src/bot/guards/subscriptionGuard.js";
+import {
+  handleQuizCommand,
+  handleQuizByIdCommand,
+  handleStopQuizCommand,
+  handleCheckSubscriptionCallback,
+  startQuizById,
+} from "../src/bot/handlers/quiz.js";
+import { handleStart } from "../src/bot/handlers/start.js";
+import { QuizManager, TelegramApiSender } from "../src/quiz/quizManager.js";
+import { getQuizById } from "../src/quiz/questions.js";
+
+// Mock Telegram API Sender
+class SubscriptionMockApi implements TelegramApiSender {
+  public sentMessages: Array<{ chatId: number | string; text: string; other?: any }> = [];
+  public sentPolls: Array<{
+    chatId: number | string;
+    question: string;
+    options: string[];
+    other?: Record<string, any>;
+    messageId: number;
+    pollId: string;
+  }> = [];
+  public stoppedPolls: Array<{ chatId: number | string; messageId: number }> = [];
+
+  // Channel memberships: map of "username:userId" -> boolean
+  public memberships = new Map<string, boolean>();
+  public shouldFailChannel: string | null = null;
+
+  private nextMessageId = 1000;
+  private nextPollId = 1;
+
+  async getChatMember(chatId: number | string, userId: number) {
+    if (this.shouldFailChannel === chatId) {
+      throw new Error(`Telegram API Error for channel ${chatId}`);
+    }
+    const key = `${chatId}:${userId}`;
+    const isMember = this.memberships.get(key) ?? false;
+    if (isMember) {
+      return { status: "member", user: { id: userId } };
+    }
+    return { status: "left", user: { id: userId } };
+  }
+
+  async sendPoll(
+    chatId: number | string,
+    question: string,
+    options: string[],
+    other?: Record<string, any>
+  ) {
+    const messageId = this.nextMessageId++;
+    const pollId = `poll_${this.nextPollId++}`;
+    this.sentPolls.push({
+      chatId,
+      question,
+      options,
+      other,
+      messageId,
+      pollId,
+    });
+    return {
+      message_id: messageId,
+      poll: { id: pollId },
+    };
+  }
+
+  async stopPoll(chatId: number | string, messageId: number) {
+    this.stoppedPolls.push({ chatId, messageId });
+    return { id: `poll_stopped_${messageId}`, is_closed: true };
+  }
+
+  async sendMessage(chatId: number | string, text: string, other?: Record<string, any>) {
+    this.sentMessages.push({ chatId, text, other });
+    return { message_id: this.nextMessageId++, text };
+  }
+}
+
+function createMockContext(options: {
+  chatId: number;
+  chatType: "private" | "group" | "supergroup";
+  userId: number;
+  firstName?: string;
+  username?: string;
+  isAdmin?: boolean;
+  match?: any;
+  text?: string;
+  callbackData?: string;
+  api: SubscriptionMockApi;
+}) {
+  const replies: Array<{ text: string; other?: any }> = [];
+  const callbackAlerts: string[] = [];
+
+  return {
+    chat: { id: options.chatId, type: options.chatType },
+    from: {
+      id: options.userId,
+      first_name: options.firstName || "TestUser",
+      username: options.username || "testuser",
+    },
+    me: { username: "jdakimyoquizbot" },
+    match: options.match ?? "",
+    message: { text: options.text ?? "" },
+    callbackQuery: options.callbackData ? { data: options.callbackData } : undefined,
+    api: options.api,
+    replies,
+    callbackAlerts,
+    reply: async (text: string, other?: any) => {
+      replies.push({ text, other });
+      return { message_id: 999, text };
+    },
+    answerCallbackQuery: async (params?: { text?: string; show_alert?: boolean }) => {
+      if (params?.text) {
+        callbackAlerts.push(params.text);
+      }
+      return true;
+    },
+    getChatMember: async (userId: number) => {
+      if (options.isAdmin) {
+        return { status: "administrator", user: { id: userId } };
+      }
+      return { status: "member", user: { id: userId } };
+    },
+  };
+}
+
+async function runSubscriptionTests() {
+  console.log("🧪 MAJBURIY KANAL OBUNASI VA GURUH XULQI TESTLARI BOSHLANDI...\n");
+
+  const api = new SubscriptionMockApi();
+
+  // ========================================================
+  // TEST 1: Obunasiz foydalanuvchi shaxsiy chatda quiz boshlashga uringanda
+  // ========================================================
+  console.log("Test 1: Obunasiz foydalanuvchiga shaxsiy chatda kanal tugmalari va tekshirish tugmasi ko'rsatilishi...");
+  const unsubscribedUserId = 888111;
+  const ctxUnsubPrivate = createMockContext({
+    chatId: unsubscribedUserId,
+    chatType: "private",
+    userId: unsubscribedUserId,
+    api,
+  });
+
+  // /quiz_amino_acids yuborildi
+  await startQuizById(ctxUnsubPrivate as any, "amino_acids");
+
+  // Quiz boshlanmagan bo'lishi kerak!
+  assert.strictEqual(api.sentPolls.length, 0, "Obunasiz foydalanuvchiga poll yuborilmasligi kerak");
+  assert.strictEqual(ctxUnsubPrivate.replies.length, 1, "Obuna talabi xabari yuborilishi kerak");
+
+  const subReply = ctxUnsubPrivate.replies[0];
+  assert.ok(subReply.text.includes("@jdaquizkod"), "Xabarda @jdaquizkod bo'lishi kerak");
+  assert.ok(subReply.text.includes("@jdakimyouz"), "Xabarda @jdakimyouz bo'lishi kerak");
+
+  const keyboard = subReply.other?.reply_markup?.inline_keyboard;
+  assert.ok(keyboard, "Inline keyboard mavjud bo'lishi kerak");
+  assert.strictEqual(keyboard.length, 3, "3 qatorli tugmalar bo'lishi kerak");
+  assert.strictEqual(keyboard[0][0].url, "https://t.me/jdaquizkod");
+  assert.strictEqual(keyboard[1][0].url, "https://t.me/jdakimyouz");
+  assert.strictEqual(keyboard[2][0].text, "✅ A’zo bo‘ldim — tekshirish");
+  assert.strictEqual(keyboard[2][0].callback_data, "check_sub_amino_acids", "Quiz ID saqlangan bo'lishi kerak");
+  console.log("✅ Test 1 muvaffaqiyatli o'tdi.\n");
+
+  // ========================================================
+  // TEST 2: Obuna bo'lmasdan «✅ A’zo bo‘ldim — tekshirish» bosilganda ogohlantirish
+  // ========================================================
+  console.log("Test 2: Obuna bo'lmasdan tekshirish tugmasi bosilganda rad etish...");
+  const ctxCheckFail = createMockContext({
+    chatId: unsubscribedUserId,
+    chatType: "private",
+    userId: unsubscribedUserId,
+    callbackData: "check_sub_amino_acids",
+    api,
+  });
+
+  await handleCheckSubscriptionCallback(ctxCheckFail as any);
+  assert.ok(ctxCheckFail.callbackAlerts.length > 0, "Alert yuborilishi kerak");
+  assert.ok(
+    ctxCheckFail.callbackAlerts[0].includes("hali barcha kanallarga a'zo bo'lmadingiz"),
+    "Hali a'zo bo'lmaganligi aytilishi kerak"
+  );
+  assert.strictEqual(api.sentPolls.length, 0, "Quiz boshlanmasligi kerak");
+  console.log("✅ Test 2 muvaffaqiyatli o'tdi.\n");
+
+  // ========================================================
+  // TEST 3: Ikkala kanalga ham a'zo bo'lgach, «✅ A’zo bo‘ldim — tekshirish» bosilganda quiz boshlanishi
+  // ========================================================
+  console.log("Test 3: Obunadan keyingi qayta tekshiruvda tanlangan quiz (ID saqlangan holda) boshlanishi...");
+  api.memberships.set(`@jdaquizkod:${unsubscribedUserId}`, true);
+  api.memberships.set(`@jdakimyouz:${unsubscribedUserId}`, true);
+
+  const ctxCheckSuccess = createMockContext({
+    chatId: unsubscribedUserId,
+    chatType: "private",
+    userId: unsubscribedUserId,
+    callbackData: "check_sub_amino_acids",
+    api,
+  });
+
+  await handleCheckSubscriptionCallback(ctxCheckSuccess as any);
+  assert.ok(ctxCheckSuccess.callbackAlerts.some((a) => a.includes("Obuna tasdiqlandi")));
+
+  // api.sendMessage orqali e'lon xabari chiqishi kerak
+  const startMsg = api.sentMessages.find(
+    (m) => m.chatId === unsubscribedUserId && m.text.includes("Aminokislotalar — suyuqlanish temperaturasi")
+  );
+  assert.ok(startMsg !== undefined, "Tanlangan amino_acids quizi boshlanishi kerak (ID yo'qolmagan)");
+
+  // To'xtatamiz
+  const ctxStopPrivate = createMockContext({
+    chatId: unsubscribedUserId,
+    chatType: "private",
+    userId: unsubscribedUserId,
+    api,
+  });
+  await handleStopQuizCommand(ctxStopPrivate as any);
+  console.log("✅ Test 3 muvaffaqiyatli o'tdi.\n");
+
+  // ========================================================
+  // TEST 4: Deep link (?start=quiz_<ID>) orqali kirish
+  // ========================================================
+  console.log("Test 4: Deep link (?start=quiz_kimyo_asoslari) orqali kirganda obuna tekshiruvi...");
+  const deepLinkUserId = 888222;
+  // Dastlab obunasi yo'q
+  const ctxDeepUnsub = createMockContext({
+    chatId: deepLinkUserId,
+    chatType: "private",
+    userId: deepLinkUserId,
+    match: "quiz_kimyo_asoslari",
+    api,
+  });
+  await handleStart(ctxDeepUnsub as any);
+  assert.strictEqual(ctxDeepUnsub.replies.length, 1);
+  const deepKeyboard = ctxDeepUnsub.replies[0].other?.reply_markup?.inline_keyboard;
+  assert.strictEqual(deepKeyboard[2][0].callback_data, "check_sub_kimyo_asoslari", "Deep linkdagi ID saqlangan bo'lishi kerak");
+
+  // Endi a'zo qilamiz va tekshiramiz
+  api.memberships.set(`@jdaquizkod:${deepLinkUserId}`, true);
+  api.memberships.set(`@jdakimyouz:${deepLinkUserId}`, true);
+
+  const ctxDeepSub = createMockContext({
+    chatId: deepLinkUserId,
+    chatType: "private",
+    userId: deepLinkUserId,
+    match: "quiz_kimyo_asoslari",
+    api,
+  });
+  await handleStart(ctxDeepSub as any);
+  const deepStartMsg = api.sentMessages.find(
+    (m) => m.chatId === deepLinkUserId && m.text.includes("Kimyo asoslari — namuna")
+  );
+  assert.ok(deepStartMsg !== undefined, "Obunasi bor foydalanuvchida deep link to'g'ridan-to'g'ri quizni boshlashi kerak");
+
+  // To'xtatamiz
+  await handleStopQuizCommand(ctxDeepSub as any);
+  console.log("✅ Test 4 muvaffaqiyatli o'tdi.\n");
+
+  // ========================================================
+  // TEST 5: Guruhda obuna tekshiruvi UMUMAN BO'LMASLIGI
+  // ========================================================
+  console.log("Test 5: Guruhda hech kimdan obuna talab qilinmasligi (admin boshlaydi, qatnashchilar javob beradi)...");
+  const groupChatId = -10077777;
+  const groupAdminUserId = 999111; // Bu admin biror kanalga a'zo EMAS!
+  const groupMemberUserId = 999222; // Bu qatnashchi ham biror kanalga a'zo EMAS!
+
+  // Admin kanallarga a'zo emasligini tasdiqlaymiz
+  assert.strictEqual(api.memberships.get(`@jdaquizkod:${groupAdminUserId}`), undefined);
+  assert.strictEqual(api.memberships.get(`@jdakimyouz:${groupAdminUserId}`), undefined);
+
+  const ctxGroupAdmin = createMockContext({
+    chatId: groupChatId,
+    chatType: "supergroup",
+    userId: groupAdminUserId,
+    isAdmin: true,
+    api,
+  });
+
+  // Guruh admini quizni boshlaydi
+  await startQuizById(ctxGroupAdmin as any, "amino_acids");
+
+  // Guruhda e'lon xabari darhol chiqishi kerak (obuna so'ralmasdan!)
+  const groupStartMsg = api.sentMessages.find(
+    (m) => m.chatId === groupChatId && m.text.includes("Aminokislotalar — suyuqlanish temperaturasi")
+  );
+  assert.ok(groupStartMsg !== undefined, "Guruhda obunasiz admin quizni to'g'ridan-to'g'ri boshlay olishi kerak");
+  assert.strictEqual(ctxGroupAdmin.replies.length, 0, "Guruhda obuna talabi xabari chiqmasligi kerak");
+
+  // Qatnashchi ham javob bera olishi
+  // Guruhdagi quizni /stop bilan to'xtatamiz
+  await handleStopQuizCommand(ctxGroupAdmin as any);
+  console.log("✅ Test 5 muvaffaqiyatli o'tdi.\n");
+
+  // ========================================================
+  // TEST 6: getChatMember Telegram API xatosi berganda
+  // ========================================================
+  console.log("Test 6: Telegram getChatMember xatolik berganda tushunarli vaqtinchalik xato qaytarish...");
+  api.shouldFailChannel = "@jdaquizkod";
+  const errorUserId = 444555;
+  const ctxError = createMockContext({
+    chatId: errorUserId,
+    chatType: "private",
+    userId: errorUserId,
+    api,
+  });
+
+  await startQuizById(ctxError as any, "amino_acids");
+  assert.strictEqual(ctxError.replies.length, 1);
+  const errorReplyText = ctxError.replies[0].text;
+  assert.ok(
+    errorReplyText.includes("vaqtinchalik xatolik"),
+    "API xatosida vaqtinchalik xato xabari berilishi kerak"
+  );
+  assert.strictEqual(
+    errorReplyText.includes("a'zo bo'ling"),
+    false,
+    "API xatosida foydalanuvchini 'a'zo emas' deb noto'g'ri ko'rsatmaslik kerak"
+  );
+  api.shouldFailChannel = null; // Qayta tiklaymiz
+  console.log("✅ Test 6 muvaffaqiyatli o'tdi.\n");
+
+  // ========================================================
+  // TEST 7: /quiz buyrug'i @jdaquizkod kanaliga yo'naltirishi (guruhda ham, shaxsiyda ham)
+  // ========================================================
+  console.log("Test 7: /quiz buyrug'i guruhda ham, shaxsiyda ham kanal xabarini ko'rsatishi va obuna talab qilmasligi...");
+  // Guruhda /quiz
+  const ctxQuizGroup = createMockContext({
+    chatId: -1005555,
+    chatType: "group",
+    userId: 112233,
+    isAdmin: false, // Hatto admin bo'lmagan a'zo yuborsa ham
+    api,
+  });
+  await handleQuizCommand(ctxQuizGroup as any);
+  assert.strictEqual(ctxQuizGroup.replies.length, 1);
+  assert.ok(
+    ctxQuizGroup.replies[0].text.includes("Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz"),
+    "Guruhda kanal xabari chiqishi kerak"
+  );
+  assert.strictEqual(
+    ctxQuizGroup.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url,
+    "https://t.me/jdaquizkod"
+  );
+
+  // Shaxsiy chatda /quiz (obunasiz bo'lsa ham xabar chiqadi, obuna majburlanmaydi)
+  const ctxQuizPrivate = createMockContext({
+    chatId: 112233,
+    chatType: "private",
+    userId: 112233,
+    api,
+  });
+  await handleQuizCommand(ctxQuizPrivate as any);
+  assert.strictEqual(ctxQuizPrivate.replies.length, 1);
+  assert.ok(
+    ctxQuizPrivate.replies[0].text.includes("Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz")
+  );
+  console.log("✅ Test 7 muvaffaqiyatli o'tdi.\n");
+
+  // Obuna tugmasi guruhga ko'chirilsa, admin huquqini chetlab o'tmasin.
+  console.log("Test 8: Guruhdagi obuna tugmasi quizni boshlamasligi...");
+  const pollsBeforeGroupCallback = api.sentPolls.length;
+  const messagesBeforeGroupCallback = api.sentMessages.length;
+  const ctxGroupCallback = createMockContext({
+    chatId: -1005555,
+    chatType: "group",
+    userId: unsubscribedUserId,
+    isAdmin: false,
+    callbackData: "check_sub_amino_acids",
+    api,
+  });
+  await handleCheckSubscriptionCallback(ctxGroupCallback as any);
+  assert.strictEqual(api.sentPolls.length, pollsBeforeGroupCallback);
+  assert.strictEqual(api.sentMessages.length, messagesBeforeGroupCallback);
+  assert.ok(ctxGroupCallback.callbackAlerts[0]?.includes("shaxsiy chatida"));
+  console.log("✅ Test 8 muvaffaqiyatli o'tdi.\n");
+
+  console.log("🎉 BARCHA MAJBURIY OBUNA VA KANAL INTEGRATSIYASI TESTLARI (8/8) MUVAFFAQIYATLI O'TDI!");
+}
+
+runSubscriptionTests().catch((err) => {
+  console.error("❌ Testda xatolik:", err);
+  process.exit(1);
+});

@@ -29,6 +29,14 @@ class MockTelegramApi implements TelegramApiSender {
 
   private nextMessageId = 100;
   private nextPollId = 1;
+  public subscribedUsers = new Set<number>([778899, 554433, 1111, 9999]);
+
+  async getChatMember(_chatId: number | string, userId: number) {
+    if (this.subscribedUsers.has(userId)) {
+      return { status: "member", user: { id: userId } };
+    }
+    return { status: "left", user: { id: userId } };
+  }
 
   async sendPoll(
     chatId: number | string,
@@ -135,9 +143,9 @@ async function runMultiQuizTests() {
   console.log("✅ Test 1 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 2: /quiz buyrug'i mavjud quizlar ro'yxatini chiqarishi
+  // TEST 2: /quiz buyrug'i @jdaquizkod kanaliga yo'naltirishi
   // ========================================================
-  console.log("Test 2: /quiz buyrug'i ro'yxatni, savollar sonini va havolalarni ko'rsatishi...");
+  console.log("Test 2: /quiz buyrug'i @jdaquizkod kanaliga yo'naltiruvchi xabar va tugmani ko'rsatishi...");
   const ctxQuizList = createMockContext({
     chatId: -1001,
     chatType: "supergroup",
@@ -147,15 +155,15 @@ async function runMultiQuizTests() {
   await handleQuizCommand(ctxQuizList as any);
   assert.strictEqual(ctxQuizList.replies.length, 1);
   const quizListText = ctxQuizList.replies[0].text;
-  assert.ok(quizListText.includes("Mavjud quizlar ro‘yxati:"), "Ro'yxat sarlavhasi bo'lishi kerak");
-  assert.ok(quizListText.includes("Aminokislotalar — suyuqlanish temperaturasi"));
-  assert.ok(quizListText.includes("21 ta"));
-  assert.ok(quizListText.includes("/quiz_amino_acids"));
-  assert.ok(quizListText.includes("https://t.me/jdakimyoquizbot?start=quiz_amino_acids"));
-  assert.ok(quizListText.includes("Kimyo asoslari — namuna"));
-  assert.ok(quizListText.includes("5 ta"));
-  assert.ok(quizListText.includes("/quiz_kimyo_asoslari"));
-  assert.ok(quizListText.includes("https://t.me/jdakimyoquizbot?start=quiz_kimyo_asoslari"));
+  assert.ok(
+    quizListText.includes("Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz"),
+    "Kanal xabari bo'lishi kerak"
+  );
+  assert.ok(
+    ctxQuizList.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url ===
+      "https://t.me/jdaquizkod",
+    "Kanalga havola tugmasi bo'lishi kerak"
+  );
   console.log("✅ Test 2 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================

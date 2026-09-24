@@ -1,7 +1,11 @@
 import { CommandContext, Context } from "grammy";
 import { isGroupAdmin } from "../guards/adminGuard.js";
+import {
+  checkChannelSubscriptions,
+  buildSubscriptionMessageAndKeyboard,
+} from "../guards/subscriptionGuard.js";
 import { quizManager, escapeHtml } from "../../quiz/quizManager.js";
-import { getAllQuizzes, getQuizById } from "../../quiz/questions.js";
+import { getQuizById } from "../../quiz/questions.js";
 
 /**
  * Quizni ID bo'yicha boshlashning umumiy yordamchi funksiyasi
@@ -13,7 +17,7 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
   if (!quiz) {
     await ctx.reply(
       `❌ <b>Bunday IDga ega quiz topilmadi:</b> <code>${escapeHtml(quizId)}</code>\n\n` +
-        `Mavjud quizlar ro'yxatini ko'rish uchun /quiz buyrug'ini yuboring.`,
+        `Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz yoki /quiz buyrug'ini yuboring.`,
       { parse_mode: "HTML" }
     );
     return;
@@ -21,7 +25,7 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
 
   const isGroup = ctx.chat?.type === "group" || ctx.chat?.type === "supergroup";
 
-  // Guruhda faqat guruh admini boshlashi mumkin
+  // Guruhda: faqat guruh admini boshlashi mumkin, LEKIN kanal obunasi talab qilinmaydi!
   if (isGroup) {
     const isAdmin = await isGroupAdmin(ctx);
     if (!isAdmin) {
@@ -29,6 +33,38 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
         "⚠️ <b>Kechirasiz!</b> Guruhda quizni faqat guruh adminlari boshlashi mumkin.",
         { parse_mode: "HTML" }
       );
+      return;
+    }
+
+    // Guruhda faol quiz tekshiruvi
+    if (ctx.chat && quizManager.isQuizRunning(ctx.chat.id)) {
+      await ctx.reply(
+        "⚠️ <b>Bu chatda allaqachon faol quiz davom etmoqda.</b>\n\n" +
+          "Iltimos, avval joriy quiz yakunlanishini kuting yoki uni /stop buyrug'i bilan to'xtating.",
+        { parse_mode: "HTML" }
+      );
+      return;
+    }
+
+    if (ctx.chat) {
+      await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
+    }
+    return;
+  }
+
+  // Shaxsiy chatda: ikkala kanalga ham majburiy obunani tekshirish
+  const userId = ctx.from?.id;
+  if (userId) {
+    const subResult = await checkChannelSubscriptions(ctx.api, userId);
+
+    if (subResult.status === "error") {
+      await ctx.reply(subResult.message, { parse_mode: "HTML" });
+      return;
+    }
+
+    if (subResult.status === "not_subscribed") {
+      const { text, reply_markup } = buildSubscriptionMessageAndKeyboard(quiz.id);
+      await ctx.reply(text, { parse_mode: "HTML", reply_markup });
       return;
     }
   }
@@ -49,37 +85,110 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
 }
 
 /**
+ * «✅ A’zo bo‘ldim — tekshirish» callback query hodisasi
+ */
+export async function handleCheckSubscriptionCallback(ctx: Context): Promise<void> {
+  const data = ctx.callbackQuery?.data;
+  if (!data || !data.startsWith("check_sub_")) return;
+
+  // Obuna tugmasi faqat shaxsiy chat uchun: guruhga ko'chirilgan tugma admin tekshiruvini chetlab o'tmasin.
+  if (ctx.chat?.type !== "private") {
+    await ctx.answerCallbackQuery({
+      text: "Bu tugma faqat botning shaxsiy chatida ishlaydi.",
+      show_alert: true,
+    });
+    return;
+  }
+
+  const quizId = data.replace(/^check_sub_/, "").trim();
+  const quiz = getQuizById(quizId);
+  const userId = ctx.from?.id;
+
+  if (!quiz) {
+    await ctx.answerCallbackQuery({
+      text: "❌ Bunday IDga ega quiz topilmadi.",
+      show_alert: true,
+    });
+    return;
+  }
+
+  if (!userId) {
+    await ctx.answerCallbackQuery({ text: "Foydalanuvchi aniqlanmadi." });
+    return;
+  }
+
+  const subResult = await checkChannelSubscriptions(ctx.api, userId);
+
+  if (subResult.status === "error") {
+    await ctx.answerCallbackQuery({
+      text: "Kanal a'zoligini tekshirishda vaqtinchalik xatolik yuz berdi.",
+      show_alert: true,
+    });
+    await ctx.reply(subResult.message, { parse_mode: "HTML" });
+    return;
+  }
+
+  if (subResult.status === "not_subscribed") {
+    await ctx.answerCallbackQuery({
+      text: "❌ Siz hali barcha kanallarga a'zo bo'lmadingiz. Iltimos, ikkala kanalga ham a'zo bo'ling!",
+      show_alert: true,
+    });
+    return;
+  }
+
+  // Obuna tasdiqlandi
+  await ctx.answerCallbackQuery({ text: "✅ Obuna tasdiqlandi!" });
+
+  if (ctx.chat && quizManager.isQuizRunning(ctx.chat.id)) {
+    await ctx.reply(
+      "⚠️ <b>Bu chatda allaqachon faol quiz davom etmoqda.</b>\n\n" +
+        "Iltimos, avval joriy quiz yakunlanishini kuting yoki uni /stop buyrug'i bilan to'xtating.",
+      { parse_mode: "HTML" }
+    );
+    return;
+  }
+
+  if (ctx.chat) {
+    await ctx.reply("🎉 <b>Obuna tasdiqlandi!</b> Tanlangan quiz boshlanmoqda...", {
+      parse_mode: "HTML",
+    });
+    await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
+  }
+}
+
+/**
  * /quiz buyrug'i:
- * - Argumentsiz yoki 'list': mavjud barcha quizlar ro'yxatini ko'rsatadi
- * - Argument berilgan bo'lsa (masalan, /quiz amino_acids): shu quizni boshlaydi
+ * - Argumentsiz yoki 'list': «Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz» xabari va kanal tugmasini chiqaradi.
+ *   Bu xabar guruhda ham, shaxsiy chatda ham chiqadi; guruhda hech kimdan obuna talab qilinmaydi.
+ * - Argument berilgan bo'lsa (masalan: /quiz amino_acids): shu quizni boshlaydi.
  */
 export async function handleQuizCommand(ctx: CommandContext<Context>): Promise<void> {
   const matchArg = ctx.match?.trim();
 
-  // Agar ID berilgan bo'lsa va u "list" bo'lmasa, o'sha quizni boshlash
+  // Agar aniq ID berilgan bo'lsa va u "list" bo'lmasa, o'sha quizni boshlash
   if (matchArg && matchArg.toLowerCase() !== "list") {
     await startQuizById(ctx, matchArg);
     return;
   }
 
-  // Aks holda mavjud quizlar ro'yxatini ko'rsatish
-  const quizzes = getAllQuizzes();
-  const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
+  // /quiz yuborilganda kanalga yo'naltirish
+  const text =
+    `ℹ️ <b>Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz.</b>\n\n` +
+    `Kanalga ulanib, yangi quiz kodlari, testlar va shaxsiy havolalarni kuzatib boring!`;
 
-  let text = `📋 <b>Mavjud quizlar ro‘yxati:</b>\n\n`;
-
-  quizzes.forEach((q, index) => {
-    const timeLimit = q.questions[0]?.timeLimitSeconds || 20;
-    text += `${index + 1}. <b>«${escapeHtml(q.title)}»</b>\n`;
-    text += `   📝 ${escapeHtml(q.description)}\n`;
-    text += `   ❓ Savollar soni: <b>${q.questions.length} ta</b> (har biriga ${timeLimit}s)\n`;
-    text += `   🚀 Boshlash: /quiz_${q.id}\n`;
-    text += `   🔗 Shaxsiy havola: https://t.me/${botUsername}?start=quiz_${q.id}\n\n`;
+  await ctx.reply(text, {
+    parse_mode: "HTML",
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: "📢 @jdaquizkod kanaliga o'tish",
+            url: "https://t.me/jdaquizkod",
+          },
+        ],
+      ],
+    },
   });
-
-  text += `💡 <i>Guruhda quizni faqat admin boshlashi mumkin. Shaxsiy chatda esa istalgan payt o'zingiz boshlay olasiz!</i>`;
-
-  await ctx.reply(text, { parse_mode: "HTML" });
 }
 
 /**

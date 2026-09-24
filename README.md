@@ -20,9 +20,20 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 
 - `/start` — Botni ishga tushirish (yoki maxsus havola orqali quizni ochish: `?start=quiz_<ID>`).
 - `/help` — Yo'riqnoma va buyruqlar ro'yxatini ko'rish.
-- `/quiz` — Mavjud barcha quizlar ro'yxatini ko'rish (nomi, savollar soni va shaxsiy havolalari bilan).
-- `/quiz_<ID>` — Tanlangan quizni boshlash (masalan: `/quiz_amino_acids` yoki `/quiz_kimyo_asoslari`). Guruhda faqat guruh admini, shaxsiy chatda foydalanuvchi o'zi boshlay oladi.
+- `/quiz` — Asosiy quiz kodlarini olish xabari va `@jdaquizkod` kanaliga o'tish tugmasi (guruhda ham, shaxsiyda ham erkin ishlaydi, hech kimdan obuna talab qilinmaydi).
+- `/quiz_<ID>` — Tanlangan quizni boshlash (masalan: `/quiz_amino_acids` yoki `/quiz_kimyo_asoslari`). Guruhda faqat guruh admini, shaxsiy chatda majburiy kanal obunasidan o'tgan foydalanuvchi boshlay oladi.
 - `/stop` yoki `/stopquiz` — Faol quizni to'xtatish (guruhda faqat admin, shaxsiy chatda foydalanuvchi). Stop bosilganda savol va taymer to'xtaydi, yakuniy natija yuborilmaydi.
+
+---
+
+## Majburiy Kanal Obunasi (Faqat Shaxsiy Chatlar Uchun)
+
+- **Majburiy kanallar**: [@jdaquizkod](https://t.me/jdaquizkod) va [@jdakimyouz](https://t.me/jdakimyouz).
+- **Qayerda tekshiriladi**: Faqat shaxsiy chatda (`private`) `/quiz_<ID>` yoki shaxsiy deep link (`?start=quiz_<ID>`) orqali quiz boshlashda.
+- **Obunasiz holatda**: Foydalanuvchiga ikkala kanalga a'zo bo'lish havolalari hamda tanlangan quiz ID sini saqlagan «✅ A’zo bo‘ldim — tekshirish» tugmasi ko'rsatiladi.
+- **Obunadan so'ng**: Tekshiruvdan muvaffaqiyatli o'tgach, foydalanuvchi tanlagan aynan o'sha quiz darhol boshlanadi (ID yo'qolmaydi).
+- **Xatolik xavfsizligi**: Telegram `getChatMember` API xatolik berganda foydalanuvchini noto'g'ri "a'zo emas" deb ko'rsatmaydi; tushunarli vaqtinchalik xato xabarini beradi.
+- **Guruhlarda obuna talab qilinmaydi**: Guruhda quiz boshlashda va javob berishda hech qanday kanal obunasi so'ralmaydi; admin boshlaydi, qatnashchilar javob beradi va reyting hisoblanadi.
 
 ---
 
@@ -32,8 +43,8 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
    - `amino_acids`: «Aminokislotalar — suyuqlanish temperaturasi» (21 ta savol)
    - `kimyo_asoslari`: «Kimyo asoslari — namuna» (5 ta savol)
 2. **Shaxsiy Havolalar (Deep Linking)**:
-   - Har bir quiz uchun maxsus havola generatsiya qilinadi: `https://t.me/<bot_username>?start=quiz_<ID>`
-   - Havolani bosgan foydalanuvchi shaxsiy chatida to'g'ridan-to'g'ri o'sha quiz boshlanadi.
+   - Har bir quiz uchun maxsus havola mavjud: `https://t.me/<bot_username>?start=quiz_<ID>`
+   - Havolani bosgan foydalanuvchi shaxsiy chatida to'g'ridan-to'g'ri o'sha quizga yo'naltiriladi.
 3. **Telegram Quiz Poll formati**: Savollar oddiy matn yoki inline tugma emas, Telegramning rasmiy `type: "quiz"`, `is_anonymous: false` so'rovnomalari ko'rinishida yuboriladi.
 4. **Chat Sessiyalari Izolyatsiyasi**:
    - Har bir chat (shaxsiy yoki guruh) boshqa chatlardan mutlaqo mustaqil o'z sessiyasiga, savollar holatiga, vaqt va ballar hisobiga ega.

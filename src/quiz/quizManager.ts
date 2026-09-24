@@ -18,6 +18,7 @@ export interface TelegramApiSender {
   ): Promise<{ message_id: number; poll: { id: string } }>;
   stopPoll(chatId: number | string, messageId: number): Promise<any>;
   sendMessage(chatId: number | string, text: string, other?: Record<string, any>): Promise<any>;
+  getChatMember?(chatId: number | string, userId: number): Promise<any>;
 }
 
 export interface PollAnswerData {

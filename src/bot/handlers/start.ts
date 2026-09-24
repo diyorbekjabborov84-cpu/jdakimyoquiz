@@ -22,7 +22,7 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
       `• Haqiqiy vaqt chegarasi (taymer) va avtomatik keyingi savolga o'tish\n` +
       `• Barcha qatnashchilar uchun avtomatik ball va vaqt hisobi\n` +
       `• Yakuniy reyting jadvali (eng to'g'ri va tez javob berganlar yuqorida)\n\n` +
-      `Mavjud quizlarni ko'rish uchun /quiz buyrug'ini yuboring.\n` +
+      `Quiz kodlarini olish uchun /quiz buyrug'ini yuboring.\n` +
       `Batafsil ma'lumot va buyruqlar uchun /help buyrug'ini bosing.`;
 
     await ctx.reply(text, { parse_mode: "HTML" });
@@ -34,9 +34,9 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
     `👋 <b>Assalomu alaykum, ${ctx.from?.first_name || "foydalanuvchi"}!</b>\n\n` +
     `Men <b>JDA Kimyo Quiz</b> botiman — kimyo fanidan interaktiv musobaqalar va testlar o'tkazib beraman.\n\n` +
     `🚀 <b>Mendan qanday foydalanish mumkin?</b>\n` +
-    `1. /quiz buyrug'ini yuborib mavjud testlar ro'yxatini ko'ring va shaxsiy testni boshlang;\n` +
+    `1. /quiz buyrug'i orqali @jdaquizkod kanalidan test kodlarini oling;\n` +
     `2. Meni o'z Telegram guruhingizga qo'shing va admin huquqini bering;\n` +
-    `3. Guruhda /quiz buyrug'i orqali jamoaviy quiz musobaqalarini o'tkazing.\n\n` +
+    `3. Guruhda admin /quiz_&lt;ID&gt; buyrug'i orqali jamoaviy quizni boshlaydi.\n\n` +
     `💡 <i>Savollar Telegramning rasmiy Quiz ko'rinishida beriladi va yakunda barcha ishtirokchilar reytingi e'lon qilinadi.</i>`;
 
   await ctx.reply(text, {

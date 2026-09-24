@@ -131,3 +131,44 @@ Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va
   - `test/e2e-simulation.test.ts`: 100% o'tdi;
   - `test/multi-quiz.test.ts`: 10/10 test 100% o'tdi.
 - **Xavfsizlik**: Bot tokeni yoki boshqa maxfiy kalitlar hisobotga va repoga yozilmadi.
+
+---
+
+## 5. Shaxsiy Chatda Majburiy Kanal Obunasi va Yangi /quiz Xulqi
+
+- **Majburiy kanallar**:
+  - [@jdaquizkod](https://t.me/jdaquizkod) — Quiz kodlari kanali;
+  - [@jdakimyouz](https://t.me/jdakimyouz) — JDA Kimyo rasmiy kanali.
+- **Shaxsiy chatda obunani tekshirish**:
+  - `/quiz_<ID>` yoki `?start=quiz_<ID>` orqali shaxsiy test boshlashdan oldin `getChatMember` orqali ikkala kanal a'zoligi tekshiriladi;
+  - A'zo bo'lmagan foydalanuvchiga ikkala kanal tugmasi va `callback_data: check_sub_<quizId>` bilan «✅ A’zo bo‘ldim — tekshirish» tugmasi ko'rsatiladi;
+  - Foydalanuvchi tanlagan quiz ID si yo'qolmaydi va obuna tasdiqlangach o'sha quiz darhol boshlanadi.
+- **Xatolik xavfsizligi (API Error handling)**:
+  - `getChatMember` chaqiruvi Telegram API xatoligi yoki tarmoq uzilishiga uchrasa, foydalanuvchini asossiz "a'zo emas" deb noto'g'ri ko'rsatmaydi;
+  - Tushunarli vaqtinchalik xato xabari beriladi (`⚠️ Kanal a'zoligini tekshirishda vaqtinchalik xatolik yuz berdi...`).
+- **Guruhlarda obuna umuman talab qilinmaydi**:
+  - Guruh admini kanalga a'zo bo'lmasa ham quizni boshlay oladi;
+  - Guruh a'zolari kanalga a'zo bo'lmasa ham savollarga javob bera oladi va ball oladi;
+  - Guruhdagi `/stop` qoidasi o'zgarmasdan saqlanadi.
+- **/quiz buyrug'i yangilandi**:
+  - Quiz kodlarini ro'yxatlash o'rniga «Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz» xabari va kanal tugmasi ko'rsatiladi;
+  - Bu xabar guruhda ham, shaxsiy chatda ham birdek chiqadi va hech kimdan obuna talab qilmaydi.
+- **O'zgargan va qo'shilgan fayllar**:
+  - `src/bot/guards/subscriptionGuard.ts`: Kanal parametrlari, `checkChannelSubscriptions` va tugmalar generatori;
+  - `src/bot/handlers/quiz.ts`: Majburiy obuna tekshiruvi, `handleCheckSubscriptionCallback` va yangi `/quiz` xabari;
+  - `src/bot/bot.ts`: `check_sub_` callbackQuery tinglovchisi ulandi;
+  - `src/quiz/quizManager.ts`: `TelegramApiSender` interfeysiga ixtiyoriy `getChatMember` qo'shildi;
+  - `test/subscription.test.ts`: Barcha holatlar uchun 7 ta qat'iy test;
+  - `test/multi-quiz.test.ts`: Yangi `/quiz` formatiga moslandi;
+  - `package.json`: `npm test` buyrug'iga `test/subscription.test.ts` ulandi;
+  - `README.md`: Majburiy kanal obunasi va yangi buyruqlar yo'riqnomasi qo'shildi.
+- **Avtomatlashtirilgan testlar natijasi**:
+  - `test/subscription.test.ts`: 7/7 test 100% muvaffaqiyatli o'tdi:
+    - ✅ Test 1: Obunasiz foydalanuvchiga kanal tugmalari va tekshirish tugmasi ko'rsatilishi;
+    - ✅ Test 2: Obuna bo'lmasdan tekshirish tugmasi bosilganda rad etish;
+    - ✅ Test 3: Obunadan keyingi qayta tekshiruvda tanlangan quiz (ID saqlangan holda) boshlanishi;
+    - ✅ Test 4: Deep link (`?start=quiz_<ID>`) orqali kirganda obuna tekshiruvi;
+    - ✅ Test 5: Guruhda hech kimdan obuna talab qilinmasligi (admin boshlaydi, qatnashchilar javob beradi);
+    - ✅ Test 6: `getChatMember` xatolik berganda tushunarli vaqtinchalik xato qaytarish;
+    - ✅ Test 7: `/quiz` buyrug'i guruhda ham, shaxsiyda ham kanal xabarini ko'rsatishi va obuna talab qilmasligi.
+- **Xavfsizlik**: Barcha maxfiy kalitlar va tokenlar himoyalangan, fayl va loglarga yozilmadi.
