@@ -377,7 +377,60 @@ async function runSubscriptionTests() {
   assert.ok(ctxGroupCallback.callbackAlerts[0]?.includes("shaxsiy chatida"));
   console.log("✅ Test 8 muvaffaqiyatli o'tdi.\n");
 
-  console.log("🎉 BARCHA MAJBURIY OBUNA VA KANAL INTEGRATSIYASI TESTLARI (8/8) MUVAFFAQIYATLI O'TDI!");
+  // Oddiy /start ham shaxsiy chatda obunani so'rashi kerak.
+  console.log("Test 9: Obunasiz shaxsiy /start kanal tugmalarini ko'rsatishi...");
+  const startUserId = 777111;
+  const ctxStartUnsub = createMockContext({
+    chatId: startUserId,
+    chatType: "private",
+    userId: startUserId,
+    api,
+  });
+  await handleStart(ctxStartUnsub as any);
+  assert.strictEqual(ctxStartUnsub.replies.length, 1);
+  assert.ok(ctxStartUnsub.replies[0].text.includes("@jdaquizkod"));
+  assert.strictEqual(
+    ctxStartUnsub.replies[0].other?.reply_markup?.inline_keyboard?.[2]?.[0]?.callback_data,
+    "check_sub_start"
+  );
+  assert.ok(!ctxStartUnsub.replies[0].text.includes("Assalomu alaykum"));
+  console.log("✅ Test 9 muvaffaqiyatli o'tdi.\n");
+
+  console.log("Test 10: Obuna tasdiqlangach oddiy /start va tekshirish tugmasi ishlashi...");
+  api.memberships.set(`@jdaquizkod:${startUserId}`, true);
+  api.memberships.set(`@jdakimyouz:${startUserId}`, true);
+  const ctxStartCheck = createMockContext({
+    chatId: startUserId,
+    chatType: "private",
+    userId: startUserId,
+    callbackData: "check_sub_start",
+    api,
+  });
+  await handleCheckSubscriptionCallback(ctxStartCheck as any);
+  assert.ok(ctxStartCheck.replies[0]?.text.includes("Obuna tasdiqlandi"));
+  const ctxStartSub = createMockContext({
+    chatId: startUserId,
+    chatType: "private",
+    userId: startUserId,
+    api,
+  });
+  await handleStart(ctxStartSub as any);
+  assert.ok(ctxStartSub.replies[0]?.text.includes("Assalomu alaykum"));
+  console.log("✅ Test 10 muvaffaqiyatli o'tdi.\n");
+
+  console.log("Test 11: Guruhdagi /start obunani tekshirmasligi...");
+  const ctxGroupStart = createMockContext({
+    chatId: -1008888,
+    chatType: "supergroup",
+    userId: 777222,
+    api,
+  });
+  await handleStart(ctxGroupStart as any);
+  assert.ok(ctxGroupStart.replies[0]?.text.includes("JDA Kimyo Quiz Boti faol"));
+  assert.ok(!ctxGroupStart.replies[0]?.text.includes("a'zo bo'ling"));
+  console.log("✅ Test 11 muvaffaqiyatli o'tdi.\n");
+
+  console.log("🎉 BARCHA MAJBURIY OBUNA VA KANAL INTEGRATSIYASI TESTLARI (11/11) MUVAFFAQIYATLI O'TDI!");
 }
 
 runSubscriptionTests().catch((err) => {

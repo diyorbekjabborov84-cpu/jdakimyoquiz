@@ -18,7 +18,7 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 
 ## Mavjud Buyruqlar
 
-- `/start` — Botni ishga tushirish (yoki maxsus havola orqali quizni ochish: `?start=quiz_<ID>`).
+- `/start` — Shaxsiy chatda kanal obunasini tekshirib botni ishga tushirish (yoki maxsus havola orqali quizni ochish: `?start=quiz_<ID>`). Guruhda obuna tekshirilmaydi.
 - `/help` — Yo'riqnoma va buyruqlar ro'yxatini ko'rish.
 - `/quiz` — Asosiy quiz kodlarini olish xabari va `@jdaquizkod` kanaliga o'tish tugmasi (guruhda ham, shaxsiyda ham erkin ishlaydi, hech kimdan obuna talab qilinmaydi).
 - `/quiz_<ID>` — Tanlangan quizni boshlash (masalan: `/quiz_amino_acids` yoki `/quiz_kimyo_asoslari`). Guruhda faqat guruh admini, shaxsiy chatda majburiy kanal obunasidan o'tgan foydalanuvchi boshlay oladi.
@@ -29,9 +29,9 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 ## Majburiy Kanal Obunasi (Faqat Shaxsiy Chatlar Uchun)
 
 - **Majburiy kanallar**: [@jdaquizkod](https://t.me/jdaquizkod) va [@jdakimyouz](https://t.me/jdakimyouz).
-- **Qayerda tekshiriladi**: Faqat shaxsiy chatda (`private`) `/quiz_<ID>` yoki shaxsiy deep link (`?start=quiz_<ID>`) orqali quiz boshlashda.
-- **Obunasiz holatda**: Foydalanuvchiga ikkala kanalga a'zo bo'lish havolalari hamda tanlangan quiz ID sini saqlagan «✅ A’zo bo‘ldim — tekshirish» tugmasi ko'rsatiladi.
-- **Obunadan so'ng**: Tekshiruvdan muvaffaqiyatli o'tgach, foydalanuvchi tanlagan aynan o'sha quiz darhol boshlanadi (ID yo'qolmaydi).
+- **Qayerda tekshiriladi**: Faqat shaxsiy chatda (`private`) oddiy `/start`, `/quiz_<ID>` yoki shaxsiy deep link (`?start=quiz_<ID>`) orqali kirishda.
+- **Obunasiz holatda**: Foydalanuvchiga ikkala kanalga a'zo bo'lish havolalari va «✅ A’zo bo‘ldim — tekshirish» tugmasi ko'rsatiladi. Test havolasi bilan kirsa tanlangan quiz IDsi saqlanadi.
+- **Obunadan so'ng**: Oddiy `/start` tekshiruvida botdan foydalanish xabari chiqadi; test havolasi bilan kirgan foydalanuvchida aynan tanlangan quiz boshlanadi.
 - **Xatolik xavfsizligi**: Telegram `getChatMember` API xatolik berganda foydalanuvchini noto'g'ri "a'zo emas" deb ko'rsatmaydi; tushunarli vaqtinchalik xato xabarini beradi.
 - **Guruhlarda obuna talab qilinmaydi**: Guruhda quiz boshlashda va javob berishda hech qanday kanal obunasi so'ralmaydi; admin boshlaydi, qatnashchilar javob beradi va reyting hisoblanadi.
 

@@ -172,3 +172,10 @@ Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va
     - ✅ Test 6: `getChatMember` xatolik berganda tushunarli vaqtinchalik xato qaytarish;
     - ✅ Test 7: `/quiz` buyrug'i guruhda ham, shaxsiyda ham kanal xabarini ko'rsatishi va obuna talab qilmasligi.
 - **Xavfsizlik**: Barcha maxfiy kalitlar va tokenlar himoyalangan, fayl va loglarga yozilmadi.
+
+## 6. Codex qabul tekshiruvi: shaxsiy /start obunasi
+
+- Foydalanuvchi shaxsiy chatda oddiy `/start` bosganda obuna so'ralmayotganini ko'rsatdi. Sabab: avvalgi tekshiruv faqat test boshlashga ulangan edi.
+- Oddiy shaxsiy `/start` endi ikkala kanal a'zoligini tekshiradi. A'zo bo'lmaganlarga kanal tugmalari va `check_sub_start` qayta tekshirish tugmasi chiqadi; tekshiruvdan o'tganlarga botdan foydalanish xabari chiqadi.
+- Guruhdagi `/start` obuna talab qilmaydi. Test deep linklari tanlangan test ID sini saqlashda davom etadi.
+- TypeScript tekshiruvi va `test/subscription.test.ts` dagi 11/11 holat o'tdi. Render deploy va haqiqiy Telegram sinovi alohida tekshiriladi.

@@ -101,10 +101,10 @@ export async function handleCheckSubscriptionCallback(ctx: Context): Promise<voi
   }
 
   const quizId = data.replace(/^check_sub_/, "").trim();
-  const quiz = getQuizById(quizId);
+  const quiz = quizId === "start" ? undefined : getQuizById(quizId);
   const userId = ctx.from?.id;
 
-  if (!quiz) {
+  if (quizId !== "start" && !quiz) {
     await ctx.answerCallbackQuery({
       text: "❌ Bunday IDga ega quiz topilmadi.",
       show_alert: true,
@@ -138,6 +138,16 @@ export async function handleCheckSubscriptionCallback(ctx: Context): Promise<voi
 
   // Obuna tasdiqlandi
   await ctx.answerCallbackQuery({ text: "✅ Obuna tasdiqlandi!" });
+
+  if (quizId === "start") {
+    await ctx.reply(
+      "✅ <b>Obuna tasdiqlandi!</b> Asosiy quiz kodlarini /quiz orqali @jdaquizkod kanalidan olasiz.",
+      { parse_mode: "HTML" }
+    );
+    return;
+  }
+
+  if (!quiz) return;
 
   if (ctx.chat && quizManager.isQuizRunning(ctx.chat.id)) {
     await ctx.reply(

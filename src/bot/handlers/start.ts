@@ -1,5 +1,9 @@
 import { CommandContext, Context } from "grammy";
 import { startQuizById } from "./quiz.js";
+import {
+  checkChannelSubscriptions,
+  buildSubscriptionMessageAndKeyboard,
+} from "../guards/subscriptionGuard.js";
 
 export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
   const isGroup = ctx.chat.type === "group" || ctx.chat.type === "supergroup";
@@ -30,6 +34,23 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
   }
 
   // Shaxsiy chat (Private)
+  const userId = ctx.from?.id;
+  if (!userId) {
+    await ctx.reply("⚠️ Foydalanuvchi aniqlanmadi. Iltimos, qayta urinib ko'ring.");
+    return;
+  }
+
+  const subscription = await checkChannelSubscriptions(ctx.api, userId);
+  if (subscription.status === "error") {
+    await ctx.reply(subscription.message, { parse_mode: "HTML" });
+    return;
+  }
+  if (subscription.status === "not_subscribed") {
+    const { text, reply_markup } = buildSubscriptionMessageAndKeyboard("start");
+    await ctx.reply(text, { parse_mode: "HTML", reply_markup });
+    return;
+  }
+
   const text =
     `👋 <b>Assalomu alaykum, ${ctx.from?.first_name || "foydalanuvchi"}!</b>\n\n` +
     `Men <b>JDA Kimyo Quiz</b> botiman — kimyo fanidan interaktiv musobaqalar va testlar o'tkazib beraman.\n\n` +

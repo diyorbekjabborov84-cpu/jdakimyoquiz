@@ -36,8 +36,9 @@ async function runTests() {
   let startPrivateMsg = "";
   const mockPrivateCtx: any = {
     chat: { type: "private" },
-    from: { first_name: "Aziz" },
+    from: { id: 12345, first_name: "Aziz" },
     me: { username: "jdakimyoquiz_bot" },
+    api: { getChatMember: async () => ({ status: "member" }) },
     reply: async (text: string) => {
       startPrivateMsg = text;
     },
