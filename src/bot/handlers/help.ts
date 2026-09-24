@@ -3,19 +3,20 @@ import { CommandContext, Context } from "grammy";
 export async function handleHelp(ctx: CommandContext<Context>): Promise<void> {
   const text =
     `📖 <b>JDA Kimyo Quiz Boti — Qo'llanma</b>\n\n` +
-    `Ushbu bot Telegram guruhlarida kimyo fanidan jonli va qiziqarli quiz musobaqalarini tashkil qiladi.\n\n` +
+    `Ushbu bot Telegram guruhlarida va shaxsiy chatda kimyo fanidan ko'p quizli interaktiv test tizimini taqdim etadi.\n\n` +
     `🔹 <b>Mavjud buyruqlar:</b>\n` +
-    `• /start — Botni ishga tushirish va xush kelibsiz xabarini ko'rish\n` +
-    `• /help — Botdan foydalanish yo'riqnomasi va buyruqlar ro'yxati\n` +
-    `• /quiz — Guruhda kimyo quizini boshlash (faqat adminlar uchun)\n` +
-    `• /stopquiz — Faol quizni to'xtatish (faqat adminlar uchun)\n\n` +
-    `🔹 <b>Guruhda qanday ishlaydi?</b>\n` +
-    `1. Bot guruhga qo'shiladi va unga xabarlar hamda so'rovnomalarni (poll) yuborish ruxsati beriladi.\n` +
-    `2. Guruh admini /quiz buyrug'ini yuboradi va savollar ketma-ket rasmiy Telegram <b>Quiz Poll</b> shaklida chiqadi.\n` +
-    `3. Har bir savol uchun vaqt belgilanadi (15 soniya). Vaqt tugagach savol yopiladi va keyingisiga o'tiladi.\n` +
-    `4. Ishtirokchilar to'g'ri javobni tanlaganliklari va qanchalik tez javob berganliklariga qarab ball to'playdilar.\n` +
-    `5. Quiz yakunida guruhga barcha qatnashchilarning umumiy reytingi va to'plangan natijasi chiqariladi.\n\n` +
-    `⚠️ <i>Eslatma: Bir guruhda bir vaqtning o'zida faqat bitta faol quiz o'tkazilishi mumkin.</i>`;
+    `• /start — Botni ishga tushirish yoki shaxsiy havola orqali quizni ochish\n` +
+    `• /help — Botdan foydalanish yo'riqnomasi va buyruqlar\n` +
+    `• /quiz — Mavjud barcha quizlar ro'yxati (nomi, savollar soni va shaxsiy havolalari bilan)\n` +
+    `• /quiz_&lt;ID&gt; — Tanlangan quizni boshlash (masalan: /quiz_amino_acids)\n` +
+    `• /stop yoki /stopquiz — Faol quizni to'xtatish\n\n` +
+    `🔹 <b>Foydalanish tartibi:</b>\n` +
+    `1. <b>Guruhda:</b> Quizni faqat guruh admini /quiz_&lt;ID&gt; orqali boshlashi yoki /stop bilan to'xtatishi mumkin.\n` +
+    `2. <b>Shaxsiy chatda:</b> Foydalanuvchi /quiz orqali ro'yxatni ko'rib, o'zi istagan quizni mustaqil boshlay oladi.\n` +
+    `3. <b>Shaxsiy havolalar:</b> Har bir quizning maxsus havolasi mavjud (masalan: <code>https://t.me/&lt;bot_username&gt;?start=quiz_&lt;ID&gt;</code>).\n` +
+    `4. Savollar rasmiy Telegram <b>Quiz Poll</b> shaklida beriladi, har biriga 20 soniya vaqt ajratiladi.\n` +
+    `5. To'xtatilgan quizning yakuniy natijasi hisoblanmaydi; muvaffaqiyatli yakunlanganda umumiy reyting e'lon qilinadi.\n\n` +
+    `⚠️ <i>Eslatma: Bitta chatda bir vaqtning o'zida faqat bitta faol quiz o'tkazilishi mumkin. Boshqa chatlarning o'yini va natijalari mutlaqo mustaqildir.</i>`;
 
   await ctx.reply(text, { parse_mode: "HTML" });
 }

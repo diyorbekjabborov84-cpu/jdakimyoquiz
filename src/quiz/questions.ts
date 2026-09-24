@@ -5,7 +5,7 @@ import { Quiz } from "./types.js";
  * suyuqlanish temperaturasi bo'yicha birinchi haqiqiy kimyo quizi.
  */
 export const aminoAcidsQuiz: Quiz = {
-  id: "jda-chem-amino-acids",
+  id: "amino_acids",
   title: "Aminokislotalar — suyuqlanish temperaturasi",
   description: "329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning suyuqlanish temperaturasi bo'yicha interaktiv quiz",
   questions: [
@@ -182,3 +182,100 @@ export const aminoAcidsQuiz: Quiz = {
 
 // Orqaga moslik uchun sampleChemistryQuiz nomi ham saqlanadi
 export const sampleChemistryQuiz = aminoAcidsQuiz;
+
+/**
+ * 2-quiz: Kimyo asoslari va elementlar bo'yicha namuna quiz
+ */
+export const chemistryBasicsQuiz: Quiz = {
+  id: "kimyo_asoslari",
+  title: "Kimyo asoslari — namuna",
+  description: "Elementlar, suv formulasi va asosiy kimyoviy tushunchalar bo'yicha test",
+  questions: [
+    {
+      id: "chem_1",
+      question: "Suvning kimyoviy formulasi qaysi?",
+      options: ["H2O", "H2O2", "HO", "CO2"],
+      correctOptionId: 0,
+      explanation: "Suv ikki vodorod va bir kislorod atomidan iborat: H2O.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "chem_2",
+      question: "Suv molekulasida kislorodning valentligi nechaga teng?",
+      options: ["I", "II", "III", "IV"],
+      correctOptionId: 1,
+      explanation: "H2O birikmasida kislorod II valentli, vodorod esa I valentli bo'ladi.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "chem_3",
+      question: "Eng yengil gaz qaysi?",
+      options: ["Geliy (He)", "Azot (N2)", "Vodorod (H2)", "Kislorod (O2)"],
+      correctOptionId: 2,
+      explanation: "Eng yengil gaz vodorod (H2) bo'lib, uning molyar massasi 2 g/mol ga teng.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "chem_4",
+      question: "Kimyoviy elementlar davriy qonunini kim kashf qilgan?",
+      options: ["D.I. Mendeleyev", "A. Lavuazye", "J. Dalton", "E. Rezerford"],
+      correctOptionId: 0,
+      explanation: "Davriy qonun 1869-yilda D.I. Mendeleyev tomonidan kashf qilingan.",
+      timeLimitSeconds: 20,
+    },
+    {
+      id: "chem_5",
+      question: "Xona haroratida sof neytral eritmaning pH qiymati nechaga teng?",
+      options: ["0", "7", "14", "1"],
+      correctOptionId: 1,
+      explanation: "Neytral muhitda pH = 7, kislotali muhitda pH < 7, ishqoriy muhitda pH > 7 bo'ladi.",
+      timeLimitSeconds: 20,
+    },
+  ],
+};
+
+// Barcha mavjud quizlar ro'yxati (o'zgarmas ID lar bilan)
+export const allQuizzes: Quiz[] = [
+  aminoAcidsQuiz,
+  chemistryBasicsQuiz,
+];
+
+/**
+ * Mavjud barcha quizlarni olish
+ */
+export function getAllQuizzes(): Quiz[] {
+  return allQuizzes;
+}
+
+/**
+ * ID bo'yicha quizni qidirib topish
+ */
+export function getQuizById(id: string): Quiz | undefined {
+  if (!id) return undefined;
+  const normalized = id.trim().toLowerCase();
+
+  // Aniq ID bo'yicha
+  const directMatch = allQuizzes.find((q) => q.id.toLowerCase() === normalized);
+  if (directMatch) return directMatch;
+
+  // Qulay sinonim va moslashuvchan IDlar
+  if (
+    normalized === "amino_acids_temp" ||
+    normalized === "jda-chem-amino-acids" ||
+    normalized === "aminoacids" ||
+    normalized === "1"
+  ) {
+    return aminoAcidsQuiz;
+  }
+
+  if (
+    normalized === "kimyo_namuna" ||
+    normalized === "chem_basics" ||
+    normalized === "sample_chemistry" ||
+    normalized === "2"
+  ) {
+    return chemistryBasicsQuiz;
+  }
+
+  return undefined;
+}

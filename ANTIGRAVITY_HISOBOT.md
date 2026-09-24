@@ -101,13 +101,61 @@ Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va
 
 ---
 
-## 4. Xulosa va keyingi qadam
+---
 
-- **21 ta savolli kimyo quizi**: **To'liq yaratildi, 21 ta savol va 4 ta unikal variant tekshirildi va barcha testlar muvaffaqiyatli o'tdi.**
-- **GitHub ombori**: **Barcha o'zgarishlar GitHub'ga push qilindi (`main` branchi).**
-- **Token xavfsizligi**: Yangi token faqat lokal `.env` va Render Environment sozlamalariga joylashtirildi, hisobot va koddagi tokenlar to'liq himoyalandi.
-- **Lokal bot**: To'xtatilgan, webhook bilan to'qnashuv yo'q.
-- **Render Deploy (3-bosqich)**: **To'liq va muvaffaqiyatli yakunlandi**. Servis jonli rejimda Telegram webhook'ini qabul qilmoqda.
-- **Keyingi qadam**: 
-  1. Telegram guruhida `/quiz` yuborib, 21 ta savolli yangi «Aminokislotalar — suyuqlanish temperaturasi» quizini jonli Render bot orqali sinab ko'rish.
-  2. YOL_XARITASI.md bo'yicha **4-bosqich — doimiy ma'lumotlar bazasi (PostgreSQL)** ga o'tish.
+## 4. Render Deploy Dalillari
+
+- **Render Web Service URL’i**: `https://jda-kimyo-quiz.onrender.com`
+- **Render deploy holati**: **Muvaffaqiyatli yakunlandi (Live / Active)**.
+- **Render Health Check tekshiruvi (`/health`)**:
+  - So'rov: `GET https://jda-kimyo-quiz.onrender.com/health`
+  - Natija: HTTP 200 OK (`status: "ok"`, `service: "jda-kimyo-quiz"`)
+- **Telegram Bot Webhook tekshiruvi (`getWebhookInfo`)**:
+  - `url`: `https://jda-kimyo-quiz.onrender.com/webhook`
+  - `has_custom_certificate`: `false`
+  - `pending_update_count`: `0`
+  - `ip_address`: `216.24.57.16`
+  - `allowed_updates`: `["message", "poll", "poll_answer", "chat_member"]`
+  - Xatolik: Mavjud emas (`last_error_message: yo'q`).
+
+---
+
+## 5. Ko‘p quizli tizim va shaxsiy havolalar (Yangi bosqich)
+
+- **O‘zgarmas, takrorlanmas Quiz ID lari**:
+  - `amino_acids`: «Aminokislotalar — suyuqlanish temperaturasi» (21 ta savol, har biriga 20 soniya, 1-quiz sifatida saqlandi).
+  - `kimyo_asoslari`: «Kimyo asoslari — namuna» (5 ta savol, har biriga 20 soniya).
+  - IDlar doimiy va deploydan keyin o'zgarmaydi.
+- **/quiz buyrug'i**:
+  - Mavjud barcha quizlar ro'yxatini, sarlavhasi, tavsifi, savollar soni, boshlash buyrug'i (`/quiz_<ID>`) va maxsus shaxsiy havolasi bilan chiqaradi.
+- **/quiz_<ID> dinamik buyrug'i**:
+  - `/quiz_amino_acids` yoki `/quiz_kimyo_asoslari` orqali tanlangan quiz boshlanadi;
+  - Noma'lum ID kiritilsa (masalan, `/quiz_noma_lum`): «❌ Bunday IDga ega quiz topilmadi...» tushunarli xabari qaytadi.
+- **Shaxsiy havolalar (Deep Linking)**:
+  - `https://t.me/<bot_username>?start=quiz_<ID>` havolasi yaratiladi;
+  - Havolani bosgan foydalanuvchining shaxsiy chatida `/start quiz_<ID>` qabul qilinib, aynan shu quiz darhol ochiladi.
+- **Huquqlar va chatlar izolyatsiyasi**:
+  - **Guruhda**: Quizni faqat guruh admini boshlashi yoki `/stop` qilishi mumkin (oddiy a'zolar rad etiladi);
+  - **Shaxsiy chatda**: Foydalanuvchi o'zi mustaqil boshlay oladi va to'xtata oladi;
+  - **Izolyatsiya**: Har bir chat (shaxsiy yoki guruh) o'z alohida sessiyasi, savollari va natijalariga ega bo'lib, boshqa chatlarga umuman ta'sir qilmaydi;
+  - **Bitta faol quiz qoidasi**: Bitta chatda faol quiz davom etayotganda ikkinchi quiz boshlanishi bloklanadi.
+- **/stop va /stopquiz**:
+  - Guruhda faqat admin, shaxsiy chatda foydalanuvchi faol quizni to'xtata oladi;
+  - Stop bosilganda amaldagi poll yopiladi, taymer bekor qilinadi va **yakuniy natija / reyting yuborilmaydi**.
+- **O'zgargan fayllar**:
+  - `src/quiz/types.ts`: Quiz va Session tiplari;
+  - `src/quiz/questions.ts`: `amino_acids` va `kimyo_asoslari` quizlari, `getAllQuizzes()`, `getQuizById()`;
+  - `src/quiz/quizManager.ts`: Xabarlar guruh va shaxsiy chatlarga moslashtirildi;
+  - `src/bot/handlers/quiz.ts`: `/quiz`, `/quiz_<ID>`, `/stop`, `/stopquiz`, ruxsatlar va takroriy quiz blokirovkasi;
+  - `src/bot/handlers/start.ts`: Deep link (`?start=quiz_<ID>`) orqali shaxsiy chatda quiz ochilishi;
+  - `src/bot/handlers/help.ts`: Ko'p quizli buyruqlar va havolalar tushuntirishi;
+  - `src/bot/bot.ts`: `/quiz_<ID>` regex middleware va buyruqlar ro'yxatga olindi;
+  - `test/multi-quiz.test.ts`: Barcha holatlar uchun 10 ta to'liq avtomatlashtirilgan test;
+  - `package.json`: `npm test` buyrug'iga `multi-quiz.test.ts` qo'shildi;
+  - `README.md`: Yangi buyruqlar va ko'p quizli tizim imkoniyatlari kiritildi.
+- **Avtomatlashtirilgan testlar natijasi**:
+  - `test/index.test.ts`: 100% o'tdi;
+  - `test/quiz.test.ts`: 100% o'tdi;
+  - `test/e2e-simulation.test.ts`: 100% o'tdi;
+  - `test/multi-quiz.test.ts`: 10/10 test 100% o'tdi.
+- **Xavfsizlik**: Bot tokeni yoki boshqa maxfiy kalitlar hisobotga va repoga yozilmadi.

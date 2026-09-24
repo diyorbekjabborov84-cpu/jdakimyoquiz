@@ -1,7 +1,11 @@
 import { Bot } from "grammy";
 import { handleStart } from "./handlers/start.js";
 import { handleHelp } from "./handlers/help.js";
-import { handleQuizCommand, handleStopQuizCommand } from "./handlers/quiz.js";
+import {
+  handleQuizCommand,
+  handleQuizByIdCommand,
+  handleStopQuizCommand,
+} from "./handlers/quiz.js";
 import { handlePollAnswer } from "./handlers/pollAnswer.js";
 
 export function createBot(token: string): Bot {
@@ -10,8 +14,15 @@ export function createBot(token: string): Bot {
   // Buyruqlarni ro'yxatdan o'tkazish
   bot.command("start", handleStart);
   bot.command("help", handleHelp);
+
+  // /quiz_<ID> dinamik buyrug'i (masalan: /quiz_amino_acids)
+  bot.hears(/^\/quiz_([a-zA-Z0-9_]+)(?:@\w+)?(?:\s.*)?$/i, handleQuizByIdCommand);
+
+  // /quiz (argumentsiz ro'yxat ko'rsatadi yoki ID bilan boshlaydi)
   bot.command("quiz", handleQuizCommand);
-  bot.command("stopquiz", handleStopQuizCommand);
+
+  // /stop va /stopquiz (faol quizni to'xtatish)
+  bot.command(["stop", "stopquiz"], handleStopQuizCommand);
 
   // Telegram Quiz Poll javoblarini eshitish
   bot.on("poll_answer", handlePollAnswer);

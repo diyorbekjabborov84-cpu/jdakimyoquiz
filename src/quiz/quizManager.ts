@@ -73,7 +73,7 @@ export class QuizManager {
     if (this.isQuizRunning(chatId)) {
       return {
         success: false,
-        message: "⚠️ Bu guruhda hozirda faol quiz davom etmoqda. Iltimos, u yakunlanishini kuting yoki /stopquiz buyrug'ini bering.",
+        message: "⚠️ Bu chatda allaqachon faol quiz davom etmoqda. Iltimos, u yakunlanishini kuting yoki /stop buyrug'i bilan to'xtating.",
       };
     }
 
@@ -94,7 +94,7 @@ export class QuizManager {
 
     const timePerQuestion = quiz.questions[0]?.timeLimitSeconds || 20;
 
-    // Guruhga e'lon xabari
+    // Chatga e'lon xabari
     await api.sendMessage(
       chatId,
       `🧪 <b>«${escapeHtml(quiz.title)}» boshlandi!</b>\n\n` +
@@ -106,7 +106,7 @@ export class QuizManager {
     );
 
     console.log(
-      `[Quiz] Guruhda yangi quiz boshlandi (chatId: ${chatId}, savollar soni: ${quiz.questions.length})`
+      `[Quiz] Chatda yangi quiz boshlandi (chatId: ${chatId}, savollar soni: ${quiz.questions.length})`
     );
 
     // 3 soniyadan keyin 1-savol yuboriladi

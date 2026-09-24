@@ -18,29 +18,38 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 
 ## Mavjud Buyruqlar
 
-- `/start` — Botni ishga tushirish (shaxsiy va guruh chatlariga moslashgan).
-- `/help` — Yo'riqnoma va qoidalar bilan tanishish.
-- `/quiz` — Guruhda kimyo quizini boshlash (faqat guruh adminlari uchun).
-- `/stopquiz` — Faol quizni to'xtatish (faqat guruh adminlari uchun).
+- `/start` — Botni ishga tushirish (yoki maxsus havola orqali quizni ochish: `?start=quiz_<ID>`).
+- `/help` — Yo'riqnoma va buyruqlar ro'yxatini ko'rish.
+- `/quiz` — Mavjud barcha quizlar ro'yxatini ko'rish (nomi, savollar soni va shaxsiy havolalari bilan).
+- `/quiz_<ID>` — Tanlangan quizni boshlash (masalan: `/quiz_amino_acids` yoki `/quiz_kimyo_asoslari`). Guruhda faqat guruh admini, shaxsiy chatda foydalanuvchi o'zi boshlay oladi.
+- `/stop` yoki `/stopquiz` — Faol quizni to'xtatish (guruhda faqat admin, shaxsiy chatda foydalanuvchi). Stop bosilganda savol va taymer to'xtaydi, yakuniy natija yuborilmaydi.
 
 ---
 
-## Quiz Xususiyatlari va Qoidalari
+## Ko'p Quizli Tizim va Qoidalar
 
-1. **Telegram Quiz Poll formati**: Savollar oddiy matn yoki inline tugma emas, Telegramning rasmiy `type: "quiz"`, `is_anonymous: false` so'rovnomalari ko'rinishida yuboriladi.
-2. **21 ta haqiqiy kimyo savoli** («Aminokislotalar — suyuqlanish temperaturasi»):
+1. **O'zgarmas va Takrorlanmas IDlar**: Har bir quiz koddagi stabil, doimiy IDga ega:
+   - `amino_acids`: «Aminokislotalar — suyuqlanish temperaturasi» (21 ta savol)
+   - `kimyo_asoslari`: «Kimyo asoslari — namuna» (5 ta savol)
+2. **Shaxsiy Havolalar (Deep Linking)**:
+   - Har bir quiz uchun maxsus havola generatsiya qilinadi: `https://t.me/<bot_username>?start=quiz_<ID>`
+   - Havolani bosgan foydalanuvchi shaxsiy chatida to'g'ridan-to'g'ri o'sha quiz boshlanadi.
+3. **Telegram Quiz Poll formati**: Savollar oddiy matn yoki inline tugma emas, Telegramning rasmiy `type: "quiz"`, `is_anonymous: false` so'rovnomalari ko'rinishida yuboriladi.
+4. **Chat Sessiyalari Izolyatsiyasi**:
+   - Har bir chat (shaxsiy yoki guruh) boshqa chatlardan mutlaqo mustaqil o'z sessiyasiga, savollar holatiga, vaqt va ballar hisobiga ega.
+   - Bitta chatda faol quiz davom etayotganda ikkinchi quiz boshlanishi bloklanadi.
+5. **21 ta haqiqiy kimyo savoli** («Aminokislotalar — suyuqlanish temperaturasi»):
    - 329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning har biri uchun suyuqlanish temperaturasi bo'yicha savol;
    - Har bir savolda 4 ta turli sonli variant va bitta to'g'ri javob;
    - Har bir savol uchun 20 soniya rasmiy vaqt beriladi;
-   - Sistein (178 °C) va Sistin (260 °C) alohida moddalar sifatida kiritilgan;
+   - Sistein (178 °C) va Sistin (260 °C) alohida moddalar;
    - Asparagin kislota va Oksiprolin (ikkalasi 270 °C) nomdan temperaturaga qarab tuzilgan.
-3. **Ko'p ishtirokchili baholash va reyting**:
-   - Natija 21 tadan hisoblanadi (masalan: `21/21 ball`);
+6. **Ko'p ishtirokchili baholash va reyting**:
+   - Natija savollar sonidan hisoblanadi (masalan: `21/21 ball` yoki `5/5 ball`);
    - Umumiy javob vaqti faqat ishtirokchi bosgan javoblarning vaqtlaridan yig'iladi; javobsiz qolgan savollar vaqtga qo'shilmaydi;
    - Noto'g'ri bosilgan javobning vaqti ham sarflangan vaqtga qo'shiladi;
    - Teng ball to'planganda, qisqaroq umumiy javob vaqti ustunlik qiladi.
-4. **Takroriy javoblarni elash (Deduplication)**: Bitta ishtirokchining bir savolga bergan javobi faqat bir marta hisoblanadi.
-5. **Multi-group qo'llab-quvvatlash**: Bir nechta guruh bir vaqtning o'zida mustaqil ravishda o'z quizlarini o'tkaza oladi.
+7. **Takroriy javoblarni elash (Deduplication)**: Bitta ishtirokchining bir savolga bergan javobi faqat bir marta hisoblanadi.
 
 ---
 
