@@ -81,16 +81,7 @@ Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va
 - **Render deploy holati**: **Muvaffaqiyatli yakunlandi (Live / Active)**.
 - **Render Health Check tekshiruvi (`/health`)**:
   - So'rov: `GET https://jda-kimyo-quiz.onrender.com/health`
-  - Natija: HTTP 200 OK
-  - Javob tanasi:
-    ```json
-    {
-      "status": "ok",
-      "service": "jda-kimyo-quiz",
-      "uptime": 337,
-      "timestamp": "2026-09-23T18:39:06.198Z"
-    }
-    ```
+  - Natija: HTTP 200 OK (`status: "ok"`, `service: "jda-kimyo-quiz"`)
 - **Telegram Bot Webhook tekshiruvi (`getWebhookInfo`)**:
   - `url`: `https://jda-kimyo-quiz.onrender.com/webhook`
   - `has_custom_certificate`: `false`
@@ -101,26 +92,7 @@ Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va
 
 ---
 
----
-
-## 4. Render Deploy Dalillari
-
-- **Render Web Service URL’i**: `https://jda-kimyo-quiz.onrender.com`
-- **Render deploy holati**: **Muvaffaqiyatli yakunlandi (Live / Active)**.
-- **Render Health Check tekshiruvi (`/health`)**:
-  - So'rov: `GET https://jda-kimyo-quiz.onrender.com/health`
-  - Natija: HTTP 200 OK (`status: "ok"`, `service: "jda-kimyo-quiz"`)
-- **Telegram Bot Webhook tekshiruvi (`getWebhookInfo`)**:
-  - `url`: `https://jda-kimyo-quiz.onrender.com/webhook`
-  - `has_custom_certificate`: `false`
-  - `pending_update_count`: `0`
-  - `ip_address`: `216.24.57.16`
-  - `allowed_updates`: `["message", "poll", "poll_answer", "chat_member"]`
-  - Xatolik: Mavjud emas (`last_error_message: yo'q`).
-
----
-
-## 5. Ko‘p quizli tizim va shaxsiy havolalar (Yangi bosqich)
+## 4. Ko‘p quizli tizim va shaxsiy havolalar (Yangi bosqich)
 
 - **O‘zgarmas, takrorlanmas Quiz ID lari**:
   - `amino_acids`: «Aminokislotalar — suyuqlanish temperaturasi» (21 ta savol, har biriga 20 soniya, 1-quiz sifatida saqlandi).
