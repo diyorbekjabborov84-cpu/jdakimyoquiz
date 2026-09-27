@@ -1,0 +1,554 @@
+KK_M2 — DISPERS SISTEMALARNING TASNIFI VA OLINISHI
+Manba: KK_M2.pdf, Nayimova Baxora Komiljonzoda, 2-ma'ruza.
+Format: 60 ta savol, har birida 4 variant va faqat 1 ta to'g'ri javob.
+To'plamlar: KK2_1 = 01–20; KK2_2 = 21–40; KK2_3 = 41–60.
+Har bir to'plamda 20 ta savol. Tavsiya etilgan vaqt: har savolga 20 soniya.
+Quiz har safar boshlanganda savollar va variantlar alohida aralashtirilsin; to'g'ri javob indeksi qayta hisoblansin.
+"Slayd" va "Izoh" qatorlari tekshiruv uchun, Telegram savol matniga kiritilmaydi.
+Olimlar, sanalar va mualliflar haqidagi savollar kiritilmadi.
+
+=== KK2_1: DISPERS SISTEMA VA ASOSIY TURLARI (01–20) ===
+
+01. Dispers sistema qanday sistema?
+A) Faqat bitta sof moddadan iborat sistema
+B) Bir moddaning mayda zarrachalari boshqa modda hajmida tarqalgan geterogen sistema
+C) Faqat ikki gazning molekulyar aralashmasi
+D) Faqat kristall moddalardan iborat sistema
+Javob: B
+Slayd: 4
+Izoh: Dispers faza zarrachalari dispersion muhit hajmida tarqaladi.
+
+02. Suvda tarqalgan loy zarrachalari sistemaning qaysi qismini tashkil qiladi?
+A) Dispers fazani
+B) Dispersion muhitni
+C) Erituvchining bug'ini
+D) Yarim o'tkazuvchan pardani
+Javob: A
+Slayd: 4–5
+Izoh: Loyning mayda zarrachalari tarqalgan faza, suv esa uzluksiz muhitdir.
+
+03. Dispers fazani o'rab turuvchi uzluksiz qism nima deyiladi?
+A) Adsorbent
+B) Cho'kma
+C) Dispersion muhit
+D) Elektrolit
+Javob: C
+Slayd: 4–5
+Izoh: Dispersion muhit tarqalgan zarrachalarni o'rab turadi.
+
+04. Zarrachalar o'lchami kamayganda disperslik darajasi qanday o'zgaradi?
+A) O'zgarmaydi
+B) Nolga tenglashadi
+C) Kamayadi
+D) Ortadi
+Javob: D
+Slayd: 6
+Izoh: Slaydda disperslik darajasi D = 1/d deb berilgan.
+
+05. Slaydda disperslik darajasi qaysi formula bilan ifodalangan?
+A) D = d²
+B) D = 1/d
+C) D = d + 1
+D) D = d/2
+Javob: B
+Slayd: 6
+Izoh: d — zarracha o'lchami; u kichrayganda D ortadi.
+
+06. Slayd tasnifiga ko'ra zarracha o'lchami 1 nm dan kichik bo'lgan sistema qaysi?
+A) Dag'al dispers sistema
+B) Ko'pik
+C) Molekulyar-dispers sistema
+D) Suspenziya
+Javob: C
+Slayd: 7–8
+Izoh: Molekulyar-dispers sistemalarda zarrachalar molekula yoki ion holatida tarqaladi.
+
+07. Slayd tasnifiga ko'ra 1–1000 nm o'lcham oralig'i qaysi sistemaga tegishli?
+A) Kolloid-dispers sistemaga
+B) Faqat molekulyar eritmaga
+C) Faqat gaz aralashmasiga
+D) Dag'al dispers sistemaga
+Javob: A
+Slayd: 7, 9
+Izoh: Slaydda kolloid-dispers sistema uchun shu oraliq ko'rsatilgan.
+
+08. Slaydda dag'al dispers sistema zarrachalari qanday o'lchamda berilgan?
+A) 1 nm dan kichik
+B) Aynan 1 nm
+C) 1–10 nm
+D) 1000 nm dan katta
+Javob: D
+Slayd: 7, 10
+Izoh: Dag'al dispers sistemalarda zarrachalar nisbatan yirik bo'ladi.
+
+09. Qaysi holat molekulyar-dispers sistemaga xos?
+A) Yorug'likning kuchli sochilishi
+B) Tinch holatda tez cho'kish
+C) Tindal effektining kuzatilmasligi
+D) Zarrachalarning oddiy ko'z bilan ko'rinishi
+Javob: C
+Slayd: 8
+Izoh: Haqiqiy eritmalarda Tindal effekti kuzatilmaydi.
+
+10. Qaysi holat kolloid-dispers sistemaga xos?
+A) Zarrachaning oddiy ko'z bilan aniq ko'rinishi
+B) Yorug'lik sochilishi tufayli Tindal effektining kuzatilishi
+C) Tinch holatda darhol cho'kish
+D) Faqat gaz muhitida mavjud bo'lish
+Javob: B
+Slayd: 9
+Izoh: Kolloid zarrachalar yorug'likni sochadi.
+
+11. Dag'al dispers sistemada tinch holatda ko'pincha qanday jarayon yuz beradi?
+A) Zarrachalar butunlay ionlarga ajraladi
+B) Dispers faza yo'qoladi
+C) Zarralar molekulalarga aylanadi
+D) Zarrachalar cho'kadi
+Javob: D
+Slayd: 10
+Izoh: Yirik zarrachalar tortishish kuchi ta'sirida cho'kishi mumkin.
+
+12. Zarracha o'lchamiga ko'ra to'g'ri ketma-ketlikni toping (kichikdan kattaga).
+A) Molekulyar-dispers → kolloid-dispers → dag'al dispers
+B) Dag'al dispers → molekulyar-dispers → kolloid-dispers
+C) Kolloid-dispers → dag'al dispers → molekulyar-dispers
+D) Molekulyar-dispers → dag'al dispers → kolloid-dispers
+Javob: A
+Slayd: 7
+Izoh: Slaydda chegaralar mos ravishda <1 nm, 1–1000 nm va >1000 nm.
+
+13. Aerozolda dispersion muhit qaysi agregat holatda bo'ladi?
+A) Qattiq
+B) Suyuq
+C) Gaz
+D) Plazma
+Javob: C
+Slayd: 12
+Izoh: Aerozol — suyuq yoki qattiq zarrachalar gazda tarqalgan sistema.
+
+14. Tuman qanday aerozol turiga misol?
+A) Qattiq aerozol
+B) Suyuq aerozol
+C) Gaz-gaz eritmasi
+D) Qattiq zol
+Javob: B
+Slayd: 12–13
+Izoh: Tumanda suyuq suv tomchilari havoda tarqaladi.
+
+15. Chang qaysi aerozol turiga misol?
+A) Qattiq aerozol
+B) Suyuq aerozol
+C) Emulsiya
+D) Gel
+Javob: A
+Slayd: 12, 14
+Izoh: Changda qattiq zarrachalar gaz muhitida tarqalgan.
+
+16. Suyuq aerozolda dispers faza nimadan iborat?
+A) Gaz pufakchalaridan
+B) Qattiq metall bo'laklaridan
+C) Ionlardan
+D) Mayda suyuqlik tomchilaridan
+Javob: D
+Slayd: 13
+Izoh: Tuman va purkagich aerozoli bunga misol.
+
+17. Qattiq aerozolda dispers faza nimadan iborat?
+A) Faqat suv tomchilaridan
+B) Mayda qattiq zarrachalardan
+C) Faqat erigan ionlardan
+D) Gaz pufakchalaridan
+Javob: B
+Slayd: 14
+Izoh: Chang va tutunda qattiq zarrachalar havoda tarqaladi.
+
+18. Zarrachalari 1–1000 nm bo'lgan va dispersion muhiti suyuq sistema nima deyiladi?
+A) Ko'pik
+B) Molekulyar eritma
+C) Zol
+D) Qattiq aerozol
+Javob: C
+Slayd: 15
+Izoh: Slaydda zollar suyuq muhitdagi kolloid-dispers sistemalar deb ta'riflangan.
+
+19. Oltin zoli qaysi sistemaga misol bo'ladi?
+A) Zolga
+B) Ko'pikka
+C) Emulsiyaga
+D) Qattiq aerozolga
+Javob: A
+Slayd: 15
+Izoh: Oltin zoli slayddagi zol misollaridan biri.
+
+20. Loyqa suv qaysi sistemaga misol?
+A) Molekulyar eritma
+B) Gel
+C) Gaz aerozoli
+D) Suspenziya
+Javob: D
+Slayd: 16
+Izoh: Suyuqlik muhitida yirik qattiq zarrachalar tarqalgan.
+
+=== KK2_2: FAZALAR, BARQARORLIK VA TASNIF (21–40) ===
+
+21. Suspenziyada dispers faza va dispersion muhit mos ravishda qanday?
+A) Gaz va suyuqlik
+B) Qattiq modda va suyuqlik
+C) Suyuqlik va gaz
+D) Gaz va qattiq modda
+Javob: B
+Slayd: 16
+Izoh: Suspenziya suyuq muhitda yirik qattiq zarrachalar tarqalishidan hosil bo'ladi.
+
+22. Suspenziya tinch qo'yilganda nima kuzatilishi mumkin?
+A) Gaz pufakchalari paydo bo'ladi
+B) Molekulalar ionlarga bo'linadi
+C) Yirik qattiq zarrachalar cho'kadi
+D) Suyuqlik gazga aylanadi
+Javob: C
+Slayd: 16
+Izoh: Slaydda sedimentatsiya suspenziyaga xos hodisa sifatida berilgan.
+
+23. Emulsiyada dispers faza qanday bo'ladi?
+A) Boshqa suyuqlikdagi mayda suyuqlik tomchilari
+B) Gaz muhitidagi qattiq zarrachalar
+C) Qattiq moddadagi ionlar
+D) Faqat gaz pufakchalari
+Javob: A
+Slayd: 17
+Izoh: O'zaro aralashmaydigan ikki suyuqlikdan biri ikkinchisida tomchi holida tarqaladi.
+
+24. Moy/suv (M/S) emulsiyasida qaysi qism mayda tomchilar holida tarqalgan?
+A) Suv
+B) Havo
+C) Qattiq kukun
+D) Moy
+Javob: D
+Slayd: 17
+Izoh: M/S emulsiyasida moy tomchilari suv muhitida tarqalgan.
+
+25. Suv/moy (S/M) emulsiyasida dispersion muhit nima?
+A) Suv
+B) Gaz
+C) Moy
+D) Qattiq modda
+Javob: C
+Slayd: 17
+Izoh: S/M holatida suv tomchilari moy ichida tarqalgan.
+
+26. Emulgatorning asosiy vazifasi nima?
+A) Tomchilarni yiriklashtirish
+B) Sirt tarangligini kamaytirib emulsiyani barqarorlashtirish
+C) Emulsiyani gazga aylantirish
+D) Barcha tomchilarni kristallantirish
+Javob: B
+Slayd: 18
+Izoh: Emulgator tomchi yuzasida himoya qatlami hosil qilishga yordam beradi.
+
+27. Emulgator molekulasining gidrofil qismi qaysi fazaga yo'naladi?
+A) Suv fazasiga
+B) Moy fazasiga
+C) Gaz fazasiga
+D) Qattiq cho'kmaga
+Javob: A
+Slayd: 18
+Izoh: Gidrofob qism esa moy fazasiga yo'naladi.
+
+28. Ko'pikda dispers faza nima?
+A) Suyuq tomchilar
+B) Qattiq zarrachalar
+C) Molekulyar ionlar
+D) Gaz pufakchalari
+Javob: D
+Slayd: 19
+Izoh: Gaz pufakchalari suyuq muhitda tarqaladi.
+
+29. Ko'pik pufakchalarini bir-biridan nima ajratib turadi?
+A) Qattiq kristallar
+B) Yupqa suyuqlik pardalari
+C) Metall elektrodlar
+D) Yarim o'tkazuvchi membrana
+Javob: B
+Slayd: 19
+Izoh: Gaz pufakchalari yupqa suyuqlik pardalari bilan ajralgan.
+
+30. Gelning muhim tuzilish belgisi qaysi?
+A) Faqat erkin gaz molekulalari mavjudligi
+B) Barcha zarrachalarning cho'kishi
+C) Dispers fazaning fazoviy to'r hosil qilishi
+D) Molekulalarning to'liq bug'lanishi
+Javob: C
+Slayd: 20
+Izoh: Fazoviy to'r suyuqlikni o'zida ushlab turadi.
+
+31. Quyidagilardan qaysi biri gelga misol?
+A) Agar-agar geli
+B) Toza distillangan suv
+C) Quruq havo
+D) Natriy xloridning haqiqiy eritmasi
+Javob: A
+Slayd: 20
+Izoh: Agar-agar gel slaydda misol sifatida keltirilgan.
+
+32. Liofil sistema uchun qaysi belgi xos?
+A) Dispers faza muhit bilan umuman ta'sirlashmaydi
+B) Elektrolit oz miqdorda qo'shilishi bilanoq doim cho'kadi
+C) Faqat qattiq muhitda hosil bo'ladi
+D) Dispers faza dispersion muhit bilan kuchli ta'sirlashadi
+Javob: D
+Slayd: 21
+Izoh: Liofil zarrachalar odatda solvat yoki gidrat qavat bilan qoplanadi.
+
+33. Liofob sistema uchun qaysi belgi xos?
+A) Zarrachalar har doim o'z-o'zidan oson hosil bo'ladi
+B) Dispers faza muhit bilan zaif ta'sirlashadi
+C) Sirt tarangligi mutlaqo nol bo'ladi
+D) Dispers faza faqat gaz bo'ladi
+Javob: B
+Slayd: 21
+Izoh: Liofob zollar ko'pincha qo'shimcha barqarorlashtirishga muhtoj.
+
+34. Gidrofil zollarning zarrachalari suvda qanday qoplama hosil qiladi?
+A) Quruq tuz kristalini
+B) Gaz pardasini
+C) Gidrat qavatini
+D) Metall qobiqni
+Javob: C
+Slayd: 22
+Izoh: Suv molekulalari zarrachalarni solvatlaydi.
+
+35. Gidrofob zolning barqarorligi ko'pincha nimaga bog'liq?
+A) Zarrachalar yuzasidagi bir xil ishorali zaryadga
+B) Faqat idish rangiga
+C) Faqat havoning bosimiga
+D) Suvning to'liq bug'lanishiga
+Javob: A
+Slayd: 23
+Izoh: Bir xil ishorali zaryadli zarrachalar o'zaro itariladi.
+
+36. Gidrofob zolga elektrolit qo'shilganda qanday jarayon yuz berishi mumkin?
+A) Har doim haqiqiy eritma hosil bo'ladi
+B) Suv avtomatik muzlaydi
+C) Zarrachalar molekulaga aylanadi
+D) Qo'sh elektr qavat siqilib, koagulyatsiya kuchayadi
+Javob: D
+Slayd: 23
+Izoh: Elektrolit zarrachalar orasidagi elektrostatik itarilishni susaytirishi mumkin.
+
+37. Monodispers sistemada zarrachalar o'lchami qanday?
+A) Juda keng oraliqda farq qiladi
+B) Faqat 1000 nm dan katta
+C) Bir-biriga juda yaqin
+D) Har biri boshqa agregat holatda
+Javob: C
+Slayd: 24
+Izoh: Monodisperslik — tor o'lcham taqsimoti.
+
+38. Polidispers sistemada zarrachalar o'lchami qanday?
+A) Har doim bir xil
+B) Keng oraliqda farq qiladi
+C) Faqat 1 nm dan kichik
+D) Aniqlab bo'lmaydigan darajada nol
+Javob: B
+Slayd: 24
+Izoh: Polidispers sistemalarda o'lcham taqsimoti keng.
+
+39. Qaysi zarracha shakli uzun, egiluvchan tolasimon ko'rinishga ega?
+A) Tolali zarracha
+B) Sferik zarracha
+C) Plastinkasimon zarracha
+D) Kubik zarracha
+Javob: A
+Slayd: 25
+Izoh: Slaydda tolali zarrachalar alohida shakl guruhi sifatida ko'rsatilgan.
+
+40. Zarrachalar shakli qaysi xossalarga ta'sir qilishi mumkin?
+A) Faqat idish hajmiga
+B) Faqat moddaning nomiga
+C) Faqat rangning yozilishiga
+D) Oqim, cho'kish va sirt xossalariga
+Javob: D
+Slayd: 25
+Izoh: Shakl qovushqoqlik, sedimentatsiya va barqarorlikka ta'sir ko'rsatadi.
+
+=== KK2_3: OLINISH VA TOZALASH USULLARI (41–60) ===
+
+41. Dispers sistemalarni olishning ikki asosiy yo'li qaysi?
+A) Qaynatish va muzlatish
+B) Faqat eritish va bug'latish
+C) Dispersiyalash va kondensatsiya
+D) Filtrlash va sentrifugalash
+Javob: C
+Slayd: 26
+Izoh: Birinchi yo'lda yirik zarracha maydalanadi, ikkinchisida kichik birliklar birikadi.
+
+42. Dispersiyalash usulining mohiyati nima?
+A) Yirik zarrachalarni mayda dispers holatgacha maydalash
+B) Kichik ionlarni to'liq yo'qotish
+C) Faqat suyuqlikni bug'latish
+D) Tayyor zolni dializ qilish
+Javob: A
+Slayd: 26–27
+Izoh: Mexanik, ultratovush va elektr usullari dispersiyalashga kiradi.
+
+43. Kondensatsiya usulida zarrachalar qanday hosil bo'ladi?
+A) Tayyor zarrachalarni filtrlash orqali
+B) Faqat cho'kmalarni ajratish orqali
+C) Faqat yirik zarrachalarni maydalash orqali
+D) Atom, molekula yoki ionlarning birikishi orqali
+Javob: D
+Slayd: 26
+Izoh: Kichik birliklardan mayda yangi zarrachalar hosil bo'ladi.
+
+44. Mexanik dispersiyalashda qaysi jihoz qo'llanishi mumkin?
+A) Dializ xaltachasi
+B) Kolloid tegirmon
+C) Yarim o'tkazuvchi parda
+D) Elektr pech
+Javob: B
+Slayd: 28
+Izoh: Kolloid tegirmon zarrachalarni kuchli siljish ta'sirida maydalaydi.
+
+45. Gomogenizatorning vazifasi nima?
+A) Zarralarni tindirib cho'ktirish
+B) Ionlarni dializ qilish
+C) Tomchilarni mayda holatgacha parchalash
+D) Suyuqlikni kristallantirish
+Javob: C
+Slayd: 28
+Izoh: Gomogenizator yuqori bosim va tez aralashtirishdan foydalanadi.
+
+46. Ultratovush bilan dispersiyalashda suyuqlikda qaysi hodisa yuz beradi?
+A) Kavitatsiya pufakchalari hosil bo'ladi
+B) Zarralar faqat muzlaydi
+C) Membrana ionlarni o'tkazadi
+D) Qattiq zarrachalar faqat cho'kadi
+Javob: A
+Slayd: 29
+Izoh: Pufakchalarning yemirilishi lokal kuchlar hosil qilib zarrachalarni maydalaydi.
+
+47. Elektr usulida dispersiyalash asosan qaysi moddalar zolini olishda ishlatiladi?
+A) Faqat oqsil
+B) Faqat kraxmal
+C) Faqat gazlar
+D) Metalllar
+Javob: D
+Slayd: 30
+Izoh: Slaydda oltin, kumush va platina zollari ko'rsatilgan.
+
+48. Peptizatsiya nima?
+A) Zolni erituvchisiz quritish
+B) Yangi cho'kmani peptizator bilan kolloid zolga o'tkazish
+C) Zolni membranadan filtrlash
+D) Gazni qattiq moddaga aylantirish
+Javob: B
+Slayd: 31
+Izoh: Peptizator ionlari cho'kma zarrachalari sirtiga adsorbsiyalanadi.
+
+49. Peptizatsiyada peptizator ionlari qayerga adsorbsiyalanadi?
+A) Cho'kma zarrachalari sirtiga
+B) Faqat idish devoriga
+C) Faqat gaz fazasiga
+D) Filtr qog'oziga
+Javob: A
+Slayd: 31
+Izoh: Sirt zaryadlanishi zarrachalarning o'zaro itarilishiga yordam beradi.
+
+50. Fizik kondensatsiyaga qaysi jarayon misol bo'la oladi?
+A) Yirik zarrachani tegirmonda maydalash
+B) Zolni sentrifugalash
+C) Bug' sovishi natijasida mayda tomchilar hosil bo'lishi
+D) Ionlarni membranadan ajratish
+Javob: C
+Slayd: 32
+Izoh: Fizik sharoit o'zgarishi tufayli molekulalar birikib zarracha hosil qiladi.
+
+51. Kimyoviy kondensatsiyada zarracha nima natijasida hosil bo'ladi?
+A) Faqat mexanik maydalash
+B) Faqat ultrafiltratsiya
+C) Faqat sentrifugalash
+D) Kimyoviy reaksiya
+Javob: D
+Slayd: 33
+Izoh: Reaksiya natijasida kam eruvchan mahsulotning mayda zarrachalari hosil bo'ladi.
+
+52. Qaysi jarayon kimyoviy kondensatsiya yo'liga kiradi?
+A) Kolloid tegirmonda maydalash
+B) Gidroliz orqali zol olish
+C) Ultrafiltratsiya
+D) Oddiy tindirish
+Javob: B
+Slayd: 33–34
+Izoh: Gidroliz natijasida kam eruvchan gidroksid zarrachalari hosil bo'lishi mumkin.
+
+53. Gidroliz usulida qaysi turdagi zollar olinishi mumkin?
+A) Gidroksid zollari
+B) Faqat gaz aerozollari
+C) Faqat ko'piklar
+D) Faqat haqiqiy eritmalar
+Javob: A
+Slayd: 34
+Izoh: Slaydda Fe(OH)3 va Al(OH)3 zollari misol qilingan.
+
+54. Oksidlanish-qaytarilish orqali zol olishda asosiy hodisa nima?
+A) Membrananing yirtilishi
+B) Qattiq zarrachaning mexanik bo'linishi
+C) Elektron almashinuvi natijasida yangi modda zarrachalarining hosil bo'lishi
+D) Dispers fazaning faqat cho'kishi
+Javob: C
+Slayd: 35
+Izoh: Yangi moddaning mayda zarrachalari dispersion muhitda hosil bo'ladi.
+
+55. Almashinish reaksiyasi orqali zol hosil qilish uchun qaysi shart muhim?
+A) Hosil bo'lgan modda cheksiz eruvchan bo'lishi
+B) Hech qanday reaksiya sodir bo'lmasligi
+C) Faqat gaz fazasi ishlatilishi
+D) Kam eruvchan mahsulotning mayda zarrachalar holida hosil bo'lishi
+Javob: D
+Slayd: 36
+Izoh: Tez aralashtirish va sharoit nazorati mayda zarrachalarni saqlashga yordam beradi.
+
+56. Kolloid zolni tozalashda asosan nimalar ajratib chiqariladi?
+A) Faqat yirik kolloid zarrachalar
+B) Past molekulali ionlar va molekulalar
+C) Faqat dispersion muhitning hammasi
+D) Faqat idish devori
+Javob: B
+Slayd: 37
+Izoh: Kolloid zarrachalar saqlanib, kichik aralashmalar chiqariladi.
+
+57. Dializ qaysi vositaga asoslanadi?
+A) Yarim o'tkazuvchan pardadan kichik zarrachalarning o'tishiga
+B) Faqat yuqori tezlikda aylantirishga
+C) Faqat yirik zarrachalarni maydalashga
+D) Faqat yorug'lik sochilishiga
+Javob: A
+Slayd: 38
+Izoh: Ion va mayda molekulalar diffuziya bilan o'tadi, kolloid zarrachalar ushlanadi.
+
+58. Elektrodializ dializdan nimasi bilan farq qiladi?
+A) Yarim o'tkazuvchan pardadan foydalanmaydi
+B) Faqat qattiq zarrachalarni maydalaydi
+C) Ionlar ajralishini elektr maydoni bilan tezlashtiradi
+D) Faqat emulsiya hosil qiladi
+Javob: C
+Slayd: 38
+Izoh: Elektr maydon ionlarni qarama-qarshi elektrodlarga yo'naltiradi.
+
+59. Ultrafiltratsiyada kolloid zarrachalar qayerda ushlanib qoladi?
+A) Gaz fazasida
+B) Elektrod sirtida
+C) Sentrifuga tagida
+D) Maxsus yarim o'tkazuvchan parda yuzasida
+Javob: D
+Slayd: 39
+Izoh: Parda kichik ion va molekulalarni o'tkazadi, kolloid zarrachalarni ushlaydi.
+
+60. Sentrifugalash komponentlarni qaysi ta'sir bilan ajratadi?
+A) Faqat diffuziya bilan
+B) Markazdan qochma kuch bilan
+C) Faqat yorug'lik bilan
+D) Faqat elektr maydon bilan
+Javob: B
+Slayd: 39
+Izoh: Aylanishda zarrachalar zichligi va o'lchamiga qarab turlicha ajraladi.

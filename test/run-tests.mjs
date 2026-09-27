@@ -11,6 +11,7 @@ const allTestFiles = [
   "multi-quiz.test.ts",
   "subscription.test.ts",
   "kk1-quiz.test.ts",
+  "kk2-quiz.test.ts",
   "russian-quiz.test.ts",
   "smart-pause-welcome.test.ts",
   "phase2-storage.test.ts",

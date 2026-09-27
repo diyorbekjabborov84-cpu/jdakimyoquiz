@@ -237,6 +237,7 @@ export const chemistryBasicsQuiz: Quiz = {
 };
 
 import { kk1Quiz1, kk1Quiz2, kk1Quiz3 } from "./kk1Questions.js";
+import { kk2Quiz1, kk2Quiz2, kk2Quiz3, allKk2Quizzes } from "./kk2Questions.js";
 import {
   russianQuiz1,
   russianQuiz2,
@@ -251,6 +252,10 @@ export {
   kk1Quiz1,
   kk1Quiz2,
   kk1Quiz3,
+  kk2Quiz1,
+  kk2Quiz2,
+  kk2Quiz3,
+  allKk2Quizzes,
   russianQuiz1,
   russianQuiz2,
   russianQuiz3,
@@ -267,6 +272,7 @@ export const allQuizzes: Quiz[] = [
   kk1Quiz1,
   kk1Quiz2,
   kk1Quiz3,
+  ...allKk2Quizzes,
   ...allRussianQuizzes,
 ];
 
@@ -291,7 +297,7 @@ export function getQuizById(id: string): Quiz | undefined {
     normalized = normalized.replace(/^start_/, "");
   }
 
-  // Aniq ID bo'yicha (masalan KK1_1, kk1_1, amino_acids, R1, r1)
+  // Aniq ID bo'yicha (masalan KK1_1, kk1_1, KK2_1, kk2_1, amino_acids, R1, r1)
   const directMatch = allQuizzes.find((q) => q.id.toLowerCase() === normalized);
   if (directMatch) return directMatch;
 
@@ -336,6 +342,30 @@ export function getQuizById(id: string): Quiz | undefined {
     normalized === "kk13"
   ) {
     return kk1Quiz3;
+  }
+
+  if (
+    normalized === "kk2-1" ||
+    normalized === "kk_2_1" ||
+    normalized === "kk21"
+  ) {
+    return kk2Quiz1;
+  }
+
+  if (
+    normalized === "kk2-2" ||
+    normalized === "kk_2_2" ||
+    normalized === "kk22"
+  ) {
+    return kk2Quiz2;
+  }
+
+  if (
+    normalized === "kk2-3" ||
+    normalized === "kk_2_3" ||
+    normalized === "kk23"
+  ) {
+    return kk2Quiz3;
   }
 
   if (normalized === "r_1" || normalized === "r-1") return russianQuiz1;

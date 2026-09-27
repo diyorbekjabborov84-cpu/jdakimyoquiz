@@ -46,6 +46,9 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
    - `KK1_1`: «Kolloid kimyo — 1-qism (KK1_1)» (01–20-savollar: Kolloid kimyo asoslari, dispers sistemalar, 20s/savol)
    - `KK1_2`: «Kolloid kimyo — 2-qism (KK1_2)» (21–40-savollar: Sirt energiyasi, adsorbsiya, 20s/savol)
    - `KK1_3`: «Kolloid kimyo — 3-qism (KK1_3)» (41–60-savollar: Zol va gellar, optik va kinetik xossalar, 20s/savol)
+   - `KK2_1`: «Kolloid kimyo — 2-mavzu 1-qism (KK2_1)» (01–20-savollar: Dispers sistema va asosiy turlari, buyruq: `/quiz_KK2_1` yoki `/start_KK2_1`, 20s/savol)
+   - `KK2_2`: «Kolloid kimyo — 2-mavzu 2-qism (KK2_2)» (21–40-savollar: Fazalar, barqarorlik va tasnif, buyruq: `/quiz_KK2_2` yoki `/start_KK2_2`, 20s/savol)
+   - `KK2_3`: «Kolloid kimyo — 2-mavzu 3-qism (KK2_3)» (41–60-savollar: Olinish va tozalash usullari, buyruq: `/quiz_KK2_3` yoki `/start_KK2_3`, 20s/savol)
    - `R1`: «Rus tili va adabiyoti — 1-qism (1–50)» (1–50-savollar, buyruq: `/start_R1` yoki `/quiz_R1`, 20s/savol)
    - `R2`: «Rus tili va adabiyoti — 2-qism (51–100)» (51–100-savollar, buyruq: `/start_R2` yoki `/quiz_R2`, 20s/savol)
    - `R3`: «Rus tili va adabiyoti — 3-qism (101–150)» (101–150-savollar, buyruq: `/start_R3` yoki `/quiz_R3`, 20s/savol)
@@ -55,6 +58,9 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
 2. **Guruh Havolalari (Deep Linking)**:
    - **Shaxsiy chatda ochilgan eski havola**: `https://t.me/<bot_username>?start=quiz_<ID>` — test boshlanmaydi, guruhga o'tish tugmasi chiqadi.
    - **Guruhga qo'shish va to'g'ridan-to'g'ri boshlash uchun**: `https://t.me/<bot_username>?startgroup=quiz_<ID>` yoki `?startgroup=start_<ID>`
+     - *KK2_1*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_1` (yoki `?startgroup=start_KK2_1`)
+     - *KK2_2*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_2` (yoki `?startgroup=start_KK2_2`)
+     - *KK2_3*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_3` (yoki `?startgroup=start_KK2_3`)
      - *R1*: `https://t.me/jdakimyoquizbot?startgroup=start_R1` (yoki `?startgroup=R1`)
      - *R2*: `https://t.me/jdakimyoquizbot?startgroup=start_R2` (yoki `?startgroup=R2`)
      - *R3*: `https://t.me/jdakimyoquizbot?startgroup=start_R3` (yoki `?startgroup=R3`)
