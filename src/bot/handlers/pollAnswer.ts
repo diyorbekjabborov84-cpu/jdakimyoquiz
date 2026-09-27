@@ -11,7 +11,7 @@ export async function handlePollAnswer(ctx: Context): Promise<void> {
   const { poll_id, user, option_ids } = answer;
   if (!user) return;
 
-  quizManager.handlePollAnswer({
+  await quizManager.handlePollAnswer({
     pollId: poll_id,
     user: {
       id: user.id,

@@ -5,7 +5,7 @@ import {
   aminoAcidsQuiz,
   chemistryBasicsQuiz,
 } from "../src/quiz/questions.js";
-import { QuizManager, TelegramApiSender } from "../src/quiz/quizManager.js";
+import { QuizManager, quizManager, TelegramApiSender } from "../src/quiz/quizManager.js";
 import {
   handleQuizCommand,
   handleQuizByIdCommand,
@@ -187,9 +187,9 @@ async function runMultiQuizTests() {
   console.log("✅ Test 3 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 4: Guruhda quizni faqat admin boshlashi mumkinligi
+  // TEST 4: Guruhda quizni istalgan a'zo (oddiy a'zo) boshlay olishi
   // ========================================================
-  console.log("Test 4: Guruhda faqat admin boshlay olishi (oddiy a'zo rad etilishi)...");
+  console.log("Test 4: Guruhda istalgan a'zo (oddiy a'zo) quizni boshlay olishi...");
   const ctxGroupNonAdmin = createMockContext({
     chatId: -1003,
     chatType: "group",
@@ -198,11 +198,12 @@ async function runMultiQuizTests() {
     api,
   });
   await startQuizById(ctxGroupNonAdmin as any, "amino_acids");
-  assert.strictEqual(ctxGroupNonAdmin.replies.length, 1);
-  assert.ok(
-    ctxGroupNonAdmin.replies[0].text.includes("faqat ushbu guruh adminlari") ||
-    ctxGroupNonAdmin.replies[0].text.includes("faqat guruh adminlari boshlashi mumkin")
+  assert.strictEqual(quizManager.isQuizRunning(-1003), true, "Oddiy a'zo ham guruhda quizni boshlay olishi shart");
+  const memberStartMsg = api.sentMessages.find(
+    (m) => m.chatId === -1003 && m.text.includes("Aminokislotalar — suyuqlanish temperaturasi")
   );
+  assert.ok(memberStartMsg !== undefined, "Quiz boshlanish xabari guruhga yuborilishi kerak");
+  await quizManager.stopQuiz(-1003, api);
   console.log("✅ Test 4 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
@@ -439,20 +440,20 @@ async function runMultiQuizTests() {
     "Shaxsiy chatda /quiz_<ID> rad etilishi kerak"
   );
 
-  // Guruhda admin yuborganda boshlanishi
+  // Guruhda oddiy a'zo yuborganda ham boshlanishi
   const regexGroupChatId = -1009988;
   const ctxRegexGroup = createMockContext({
     chatId: regexGroupChatId,
     chatType: "supergroup",
     userId: 9999,
-    isAdmin: true,
+    isAdmin: false,
     match: ["/quiz_kimyo_asoslari", "kimyo_asoslari"],
     api,
   });
   await handleQuizByIdCommand(ctxRegexGroup as any);
   const regexMsg = api.sentMessages.find((m) => m.chatId === regexGroupChatId && m.text.includes("Kimyo asoslari"));
-  assert.ok(regexMsg !== undefined, "Guruhda admin yuborgan /quiz_<ID> buyrug'i quizni boshlashi kerak");
-  await handleStopQuizCommand(ctxRegexGroup as any);
+  assert.ok(regexMsg !== undefined, "Guruhda oddiy a'zo yuborgan /quiz_<ID> buyrug'i ham quizni boshlashi kerak");
+  await handleStopQuizCommand(createMockContext({ chatId: regexGroupChatId, chatType: "supergroup", userId: 1, isAdmin: true, api }) as any);
   console.log("✅ Test 10 muvaffaqiyatli o'tdi.\n");
 
   console.log("🎉 BARCHA KO'P QUIZLI TIZIM TESTLARI (10/10) MUVAFFAQIYATLI O'TDI!");

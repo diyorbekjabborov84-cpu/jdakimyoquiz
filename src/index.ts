@@ -1,6 +1,9 @@
 import { loadConfig } from "./config/env.js";
 import { createBot } from "./bot/bot.js";
 import { createApp } from "./server/app.js";
+import { quizManager } from "./quiz/quizManager.js";
+import { initFirestore, checkFirestoreHealth } from "./firebase/firestore.js";
+import { initDatabase, checkDatabaseHealth } from "./database/db.js";
 
 async function bootstrap() {
   console.log("🚀 JDA Kimyo Quiz boti ishga tushirilmoqda...");
@@ -9,22 +12,64 @@ async function bootstrap() {
   const config = loadConfig();
   console.log(`[Config] Muhit: ${config.NODE_ENV}, Port: ${config.PORT}`);
 
-  // 2. Telegram Botni yaratish
+  // 2. Cloud Firestore ulanishini tekshirish
+  if (
+    config.NODE_ENV === "production" ||
+    config.FIREBASE_SERVICE_ACCOUNT_JSON ||
+    config.FIREBASE_SERVICE_ACCOUNT_PATH
+  ) {
+    console.log("[Bootstrap] Cloud Firestore ma'lumotlar bazasi ulanishi tekshirilmoqda...");
+    const firestoreOk = await initFirestore();
+    if (!firestoreOk) {
+      if (config.NODE_ENV === "production") {
+        console.error(
+          "❌ [Bootstrap] Productionda Cloud Firestore ulanishi muvaffaqiyatsiz bo'ldi! Webhook/server ishga tushirilmaydi."
+        );
+        process.exit(1);
+      } else {
+        console.warn("⚠️ [Bootstrap] Cloud Firestore ulanishi muvaffaqiyatsiz bo'ldi. Lokal rejimda davom etilmoqda.");
+      }
+    }
+  }
+
+  // PostgreSQL mavjud bo'lsa (ixtiyoriy zaxira)
+  if (config.DATABASE_URL) {
+    console.log("[Bootstrap] PostgreSQL ma'lumotlar bazasi tekshirilmoqda...");
+    await initDatabase();
+  }
+
+  // 3. Telegram Botni yaratish
   const bot = createBot(config.BOT_TOKEN);
 
-  // 3. HTTP Serverni yaratish va ishga tushirish
-  const app = createApp(bot, config);
+  // 4. Avvalgi saqlangan sessiyalarni tiklash (productionda faqat Firestore bazasidan o'qiladi)
+  try {
+    await quizManager.loadPersistedSessions(bot.api);
+  } catch (err) {
+    if (config.NODE_ENV === "production") {
+      console.error(
+        "❌ [Bootstrap] Productionda sessiyalarni bazadan yuklash muvaffaqiyatsiz bo'ldi! Ishga tushirish to'xtatiladi:",
+        err
+      );
+      process.exit(1);
+    }
+    console.warn("⚠️ [Bootstrap] Sessiyalarni yuklashda xatolik:", err);
+  }
+
+  // 5. HTTP Serverni yaratish va ishga tushirish
+  const app = createApp(bot, config, checkFirestoreHealth);
   const server = app.listen(config.PORT, () => {
     console.log(`✅ [HTTP Server] http://localhost:${config.PORT} da tinglamoqda`);
     console.log(`🩺 [Health Check] http://localhost:${config.PORT}/health`);
   });
 
-  // 4. Bot update'larini qabul qilish (poll_answer yangilanishlarini olish uchun allowed_updates shart)
+  // 6. Bot update'larini qabul qilish
   const allowedUpdates = [
     "message",
     "poll",
     "poll_answer",
     "chat_member",
+    "my_chat_member",
+    "callback_query",
   ] as const;
 
   if (config.NODE_ENV === "production" && config.WEBHOOK_URL) {

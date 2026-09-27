@@ -2,6 +2,15 @@
 
 Holat: mahsulot talablari. Ushbu hujjat kod yozish va deploydan oldin Antigravity uchun topshiriq hamda Codex uchun qabul mezoni sifatida ishlatiladi.
 
+Ish tartibi: rus tili quizlari va guruhdagi pauza funksiyasi tekshirilib deploy qilingach, admin panel bosqichlariga o'tiladi. Hozirgi bosqichda panel kodi va panel deployi boshlanmaydi.
+
+## Guruhdagi ruxsatlar (yangilangan qaror)
+
+- Guruhning istalgan a'zosi `/quiz_<ID>`, `/start_<ID>` yoki tegishli tugma orqali quizni boshlashi va yakunlangan quizni qayta boshlashi mumkin. Guruh admini bo'lishi shart emas.
+- Uchta savol ketma-ket javobsiz qolib quiz pauzalansa, istalgan guruh a'zosi davom ettirish tugmasini bosishi mumkin. Bir guruhda faqat bitta faol yoki pauzadagi sessiya bo'lsin; takroriy bosish yangi sessiya yoki ortiqcha savol yubormasin.
+- `/stop` va `/stopquiz` guruh adminlari uchun qoladi. Guruh quizida kanalga majburiy obuna talab qilinmaydi.
+- Botning shaxsiy chatida quiz yechilmaydi. Shaxsiy chatdagi quiz kodi yoki havolasi foydalanuvchini guruhda ishlatishga yo'naltiradi.
+
 ## Asosiy qoida
 
 - Admin panel Vercel'da, bot va xavfsiz API Render'da ishlaydi; ma'lumotlar doimiy bazada saqlanadi. Render qayta ishga tushganda testlar, guruhlar, foydalanuvchilar, bloklar va yuborish tarixi yo'qolmasin.
@@ -22,9 +31,9 @@ Holat: mahsulot talablari. Ushbu hujjat kod yozish va deploydan oldin Antigravit
 
 ## 3. Foydalanuvchilar va blok
 
-- Bot bilan shaxsiy chat boshlagan yoki quizda qatnashgan foydalanuvchilar ro'yxati: Telegram ID, ko'rinadigan ism/username, oxirgi faollik, shaxsiy bot holati va natijalari. Ma'lum bo'lmagan barcha guruh a'zolarini ro'yxatga qo'shilgandek ko'rsatmasin.
+- Bot bilan shaxsiy chat boshlagan yoki guruh quizida qatnashgan foydalanuvchilar ro'yxati: Telegram ID, ko'rinadigan ism/username, oxirgi faollik, shaxsiy bot holati va guruhdagi natijalari. Ma'lum bo'lmagan barcha guruh a'zolarini ro'yxatga qo'shilgandek ko'rsatmasin.
 - Qidirish va foydalanuvchi tafsilotlarini ko'rish bo'lsin.
-- Blok **faqat botning shaxsiy chatdagi funksiyalariga** ta'sir qilsin: shaxsiy testni buyruq yoki havola orqali boshlash to'xtasin; foydalanuvchiga qisqa tushunarli javob qaytsin. Guruh quizidagi ishtiroki va natijasi saqlansin.
+- Blok faqat botning shaxsiy chatida ishlatishga ta'sir qilsin: bloklangan foydalanuvchining `/start`, `/quiz`, `/help`, obuna tekshirish tugmasi va boshqa shaxsiy callbacklari rad etilsin; qisqa tushunarli javob qaytsin. Guruh quizidagi ishtiroki, javoblari va balli saqlansin.
 - Blokni ochish, bloklangan vaqt va sababni ko'rish bo'lsin. Bloklangan foydalanuvchi shaxsiy umumiy xabar oluvchilarga kiritilmasin.
 
 ## 4. Testlar
@@ -37,7 +46,7 @@ Holat: mahsulot talablari. Ushbu hujjat kod yozish va deploydan oldin Antigravit
 
 ## 5. Natijalar
 
-- Sana, test, guruh/shaxsiy chat bo'yicha filtrlash; ishtirokchi, to'g'ri javob/jami savol va jami javob vaqti ko'rinsin.
+- Sana, test va guruh bo'yicha filtrlash; ishtirokchi, to'g'ri javob/jami savol va jami javob vaqti ko'rinsin.
 - Vaqt faqat bosilgan javoblarning vaqtlaridan, shu jumladan noto'g'ri javoblardan yig'ilsin. Javobsiz savollar vaqtga kirmasin. Masalan: 20 savol, 15 javob, 7 to'g'ri natija `7/20`.
 
 ## 6. Umumiy xabarlar
@@ -60,5 +69,5 @@ Ishni tekshiriladigan bo'laklarga ajrat: (1) baza migratsiyasi va faqat egaga ki
 
 1. Har modul bo'yicha ishlaydigan natija, o'zgargan fayllar, migratsiya va deploy holati hisobotga yozilsin.
 2. Codex diff, qurilish, maqsadli testlar va haqiqiy bot/panel oqimini tekshiradi. Kichik xatolarni Codex tuzatadi; arxitektura, ruxsat yoki ma'lumot yo'qolishiga ta'sir qiladigan katta xatolar Antigravityga qayta beriladi.
-3. Obuna tugmasi callback'i guruhga ko'chirilsa ham guruh admini huquqini chetlab o'tmasligi kerak. Shaxsiy blok, majburiy obuna va guruh ruxsatlari barcha kirish yo'llarida bir xil ishlashi tekshirilsin.
+3. Guruhdagi boshlash, qayta boshlash va davom ettirish barcha a'zolarga ochiq bo'lsin; `/stop` esa faqat guruh adminida ishlasin. Shaxsiy blok, majburiy obuna va guruh ruxsatlari barcha kirish yo'llarida bir xil ishlashi tekshirilsin.
 4. Panelni to'liq tayyor deb hisoblash uchun kamida: egadan boshqa login rad etilishi; panelda test nashr etilib botda deploysiz ochilishi; shaxsiy blok guruhni buzmasligi; rasm/matn/havolali xabar tanlangan test manzillariga yuborilishi va yuborish tarixi saqlanishi kerak.

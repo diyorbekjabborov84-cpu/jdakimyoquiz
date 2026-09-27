@@ -3,11 +3,15 @@ node_modules/
 
 # Production build
 dist/
+data/
 
-# Environment files
+# Environment and credential files
 .env
 .env.local
 .env.*.local
+*service-account*.json
+firebase-*.json
+credentials.json
 
 # Logs
 npm-debug.log*

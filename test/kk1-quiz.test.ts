@@ -239,9 +239,9 @@ async function runKK1Tests() {
   console.log("✅ Test 4 muvaffaqiyatli o'tdi (Shaxsiy chatda rad etilib, guruhga qo'shish tugmasi berildi).");
 
   // -------------------------------------------------------------
-  // Test 5: Guruhda admin bo'lmagan foydalanuvchi boshlay olmasligi
+  // Test 5: Guruhda oddiy a'zo ham quizni boshlay olishi
   // -------------------------------------------------------------
-  console.log("\nTest 5: Guruhda admin huquqisiz boshlash rad etilishi...");
+  console.log("\nTest 5: Guruhda oddiy a'zo ham quizni boshlay olishi...");
   api.clear();
 
   const nonAdminGroupCtx = createMockContext({
@@ -254,8 +254,8 @@ async function runKK1Tests() {
   });
 
   await startQuizById(nonAdminGroupCtx as any, "KK1_2");
-  assert.strictEqual(quizManager.isQuizRunning(-10055555), false);
-  assert.ok(nonAdminGroupCtx.replies[0].text.includes("faqat guruh adminlari boshlashi mumkin"));
+  assert.strictEqual(quizManager.isQuizRunning(-10055555), true, "Oddiy a'zo guruhda quizni boshlay olishi shart");
+  await quizManager.stopQuiz(-10055555, api);
   console.log("✅ Test 5 muvaffaqiyatli o'tdi.");
 
   // -------------------------------------------------------------
@@ -286,14 +286,14 @@ async function runKK1Tests() {
     const wrongId = (correctId + 1) % 4;
 
     // Ishtirokchi 1: Har doim to'g'ri variantni bosadi
-    isolatedManager.handlePollAnswer({
+    await isolatedManager.handlePollAnswer({
       pollId: lastPoll.pollId,
       user: { id: 101, first_name: "A'lochi Olim", username: "olim_pro" },
       optionIds: [correctId],
     });
 
     // Ishtirokchi 2: Har doim noto'g'ri variantni bosadi
-    isolatedManager.handlePollAnswer({
+    await isolatedManager.handlePollAnswer({
       pollId: lastPoll.pollId,
       user: { id: 102, first_name: "Yangi O'quvchi", username: "yangi_user" },
       optionIds: [wrongId],
@@ -460,7 +460,7 @@ async function runKK1Tests() {
   api.clear();
   const restartGroupChatId = -1006677;
 
-  // 12.1: Oddiy a'zo bosganda rad etilishi
+  // 12.1: Oddiy a'zo bosganda ham qayta boshlanishi
   const nonAdminRestartCtx = createMockContext({
     chatId: restartGroupChatId,
     chatType: "supergroup",
@@ -471,48 +471,49 @@ async function runKK1Tests() {
   });
 
   await handleRestartQuizCallback(nonAdminRestartCtx as any);
-  assert.strictEqual(quizManager.isQuizRunning(restartGroupChatId), false, "Oddiy a'zo quizni boshlay olmasligi kerak");
+  assert.strictEqual(quizManager.isQuizRunning(restartGroupChatId), true, "Oddiy a'zo bosganda ham quiz qayta boshlanishi kerak");
   assert.strictEqual(nonAdminRestartCtx.answeredCallbacks.length, 1);
-  assert.ok(
-    nonAdminRestartCtx.answeredCallbacks[0].text?.includes("faqat guruh adminlari qayta boshlashi mumkin"),
-    "Admin ogohlantirishi berilishi kerak"
-  );
-  assert.strictEqual(nonAdminRestartCtx.answeredCallbacks[0].show_alert, true);
+  assert.ok(nonAdminRestartCtx.answeredCallbacks[0].text?.includes("qayta boshlanmoqda"));
 
-  // 12.2: Admin bosganda muvaffaqiyatli boshlanishi
-  const adminRestartCtx = createMockContext({
+  // 12.2: Faol quiz ketayotganda ikkinchi marta bosilsa rad etilishi
+  const activeRestartCtx = createMockContext({
     chatId: restartGroupChatId,
     chatType: "supergroup",
     userId: 909,
-    isAdmin: true,
-    callbackData: "restart_quiz_KK1_1",
-    api,
-  });
-
-  await handleRestartQuizCallback(adminRestartCtx as any);
-  assert.strictEqual(quizManager.isQuizRunning(restartGroupChatId), true, "Admin bosganda quiz boshlanishi kerak");
-  assert.ok(adminRestartCtx.answeredCallbacks[0].text?.includes("qayta boshlanmoqda"));
-
-  // 12.3: Faol quiz ketayotganda ikkinchi marta bosilsa rad etilishi
-  const activeAdminRestartCtx = createMockContext({
-    chatId: restartGroupChatId,
-    chatType: "supergroup",
-    userId: 909,
-    isAdmin: true,
+    isAdmin: false,
     callbackData: "restart_quiz_KK1_2",
     api,
   });
 
-  await handleRestartQuizCallback(activeAdminRestartCtx as any);
+  await handleRestartQuizCallback(activeRestartCtx as any);
   assert.ok(
-    activeAdminRestartCtx.answeredCallbacks[0].text?.includes("allaqachon faol quiz davom etmoqda"),
+    activeRestartCtx.answeredCallbacks[0].text?.includes("allaqachon faol quiz davom etmoqda"),
     "Faol quiz paytida qayta boshlash rad etilishi kerak"
   );
-  assert.strictEqual(activeAdminRestartCtx.answeredCallbacks[0].show_alert, true);
+  assert.strictEqual(activeRestartCtx.answeredCallbacks[0].show_alert, true);
 
-  // To'xtatamiz
-  await quizManager.stopQuiz(restartGroupChatId, api);
-  assert.strictEqual(quizManager.isQuizRunning(restartGroupChatId), false);
+  // 12.3: Oddiy a'zo to'xtata olmasligi, faqat admin to'xtatishi
+  const nonAdminStopCtx = createMockContext({
+    chatId: restartGroupChatId,
+    chatType: "supergroup",
+    userId: 202,
+    isAdmin: false,
+    api,
+  });
+  await handleStopQuizCommand(nonAdminStopCtx as any);
+  assert.strictEqual(quizManager.isQuizRunning(restartGroupChatId), true, "Oddiy a'zo to'xtata olmasligi kerak");
+  assert.ok(nonAdminStopCtx.replies[0].text.includes("faqat guruh adminlariga berilgan"));
+
+  // Admin to'xtatadi
+  const adminStopCtx = createMockContext({
+    chatId: restartGroupChatId,
+    chatType: "supergroup",
+    userId: 909,
+    isAdmin: true,
+    api,
+  });
+  await handleStopQuizCommand(adminStopCtx as any);
+  assert.strictEqual(quizManager.isQuizRunning(restartGroupChatId), false, "Admin quizni to'xtata olishi kerak");
 
   console.log("✅ Test 12 muvaffaqiyatli o'tdi (Ruxsatlar, blokirovka va qayta aralashtirish to'liq ishlaydi).");
 

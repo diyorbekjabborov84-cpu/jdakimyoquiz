@@ -11,9 +11,14 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
   const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
   const payload = ctx.match?.trim();
 
-  // Agar havola orqali quiz ID uzatilgan bo'lsa (masalan: ?start=quiz_KK1_1 yoki ?startgroup=KK1_1)
+  // Agar havola orqali quiz ID uzatilgan bo'lsa (masalan: ?start=quiz_KK1_1, ?start=R1, ?startgroup=R1)
   if (payload) {
-    const rawQuizId = payload.startsWith("quiz_") ? payload.replace(/^quiz_/, "").trim() : payload.trim();
+    let rawQuizId = payload.trim();
+    if (rawQuizId.startsWith("quiz_")) {
+      rawQuizId = rawQuizId.replace(/^quiz_/, "").trim();
+    } else if (rawQuizId.startsWith("start_")) {
+      rawQuizId = rawQuizId.replace(/^start_/, "").trim();
+    }
     if (getQuizById(rawQuizId)) {
       await startQuizById(ctx, rawQuizId);
       return;
@@ -60,7 +65,7 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
     `🚀 <b>Mendan qanday foydalanish mumkin?</b>\n` +
     `1. /quiz buyrug'i orqali @jdaquizkod kanalidan test kodlarini oling;\n` +
     `2. Meni o'z Telegram guruhingizga qo'shing va admin huquqini bering;\n` +
-    `3. Guruhda admin /quiz_&lt;ID&gt; buyrug'i orqali jamoaviy quizni boshlaydi.\n\n` +
+    `3. Guruhda istalgan a'zo /quiz_&lt;ID&gt; buyrug'i orqali jamoaviy quizni boshlashi mumkin.\n\n` +
     `💡 <i>Savollar Telegramning rasmiy Quiz ko'rinishida beriladi va yakunda barcha ishtirokchilar reytingi e'lon qilinadi.</i>`;
 
   await ctx.reply(text, {

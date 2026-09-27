@@ -28,9 +28,10 @@ export interface ParticipantScore {
 }
 
 export interface QuizSession {
+  sessionId: string; // Sessiyaning takrorlanmas identifikatori (eski pauza tugmalarini filtrlash uchun)
   chatId: number;
   quiz: Quiz;
-  status: "idle" | "running" | "completed" | "stopped";
+  status: "idle" | "running" | "completed" | "stopped" | "paused" | "finishing";
   currentQuestionIndex: number;
   currentPollId: string | null;
   currentPollMessageId: number | null;
@@ -38,4 +39,9 @@ export interface QuizSession {
   timer: NodeJS.Timeout | null;
   answeredUsers: Set<string>; // `${pollId}_${userId}` takroriy javoblarni elash
   participants: Map<number, ParticipantScore>;
+  consecutiveUnansweredCount: number; // Ketma-ket javobsiz qolgan savollar soni
+  currentQuestionAnswered: boolean; // Joriy savolga kamida 1 kishi javob berdimi
+  version: number; // Sessiya holati versiyasi (per-chat tartibli yozuv va poyga holatlarini oldini olish uchun)
+  finalMessageSent?: boolean; // Yakuniy natija xabari to'liq yuborilganligini tekshirish
+  sentChunksCount?: number; // Yakuniy natija xabaridan necha bo'lak muvaffaqiyatli yuborilganligi progressi (retry/restart davom ettirishi uchun)
 }

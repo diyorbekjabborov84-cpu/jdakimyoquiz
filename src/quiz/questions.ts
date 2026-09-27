@@ -237,7 +237,28 @@ export const chemistryBasicsQuiz: Quiz = {
 };
 
 import { kk1Quiz1, kk1Quiz2, kk1Quiz3 } from "./kk1Questions.js";
-export { kk1Quiz1, kk1Quiz2, kk1Quiz3 };
+import {
+  russianQuiz1,
+  russianQuiz2,
+  russianQuiz3,
+  russianQuiz4,
+  russianQuiz5,
+  russianQuiz6,
+  allRussianQuizzes,
+} from "./russianQuestions.js";
+
+export {
+  kk1Quiz1,
+  kk1Quiz2,
+  kk1Quiz3,
+  russianQuiz1,
+  russianQuiz2,
+  russianQuiz3,
+  russianQuiz4,
+  russianQuiz5,
+  russianQuiz6,
+  allRussianQuizzes,
+};
 
 // Barcha mavjud quizlar ro'yxati (o'zgarmas ID lar bilan)
 export const allQuizzes: Quiz[] = [
@@ -246,6 +267,7 @@ export const allQuizzes: Quiz[] = [
   kk1Quiz1,
   kk1Quiz2,
   kk1Quiz3,
+  ...allRussianQuizzes,
 ];
 
 /**
@@ -260,9 +282,16 @@ export function getAllQuizzes(): Quiz[] {
  */
 export function getQuizById(id: string): Quiz | undefined {
   if (!id) return undefined;
-  const normalized = id.trim().toLowerCase();
+  let normalized = id.trim().toLowerCase();
 
-  // Aniq ID bo'yicha (masalan KK1_1, kk1_1, amino_acids)
+  // Prefikslarni tozalash (masalan: quiz_R1 -> r1, start_r1 -> r1)
+  if (normalized.startsWith("quiz_")) {
+    normalized = normalized.replace(/^quiz_/, "");
+  } else if (normalized.startsWith("start_")) {
+    normalized = normalized.replace(/^start_/, "");
+  }
+
+  // Aniq ID bo'yicha (masalan KK1_1, kk1_1, amino_acids, R1, r1)
   const directMatch = allQuizzes.find((q) => q.id.toLowerCase() === normalized);
   if (directMatch) return directMatch;
 
@@ -308,6 +337,13 @@ export function getQuizById(id: string): Quiz | undefined {
   ) {
     return kk1Quiz3;
   }
+
+  if (normalized === "r_1" || normalized === "r-1") return russianQuiz1;
+  if (normalized === "r_2" || normalized === "r-2") return russianQuiz2;
+  if (normalized === "r_3" || normalized === "r-3") return russianQuiz3;
+  if (normalized === "r_4" || normalized === "r-4") return russianQuiz4;
+  if (normalized === "r_5" || normalized === "r-5") return russianQuiz5;
+  if (normalized === "r_6" || normalized === "r-6") return russianQuiz6;
 
   return undefined;
 }

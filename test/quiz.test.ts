@@ -184,7 +184,7 @@ async function runQuizTests() {
   const correctOption = sampleChemistryQuiz.questions[0].correctOptionId;
 
   // 1-marta ovoz berish
-  const answer1 = qm.handlePollAnswer({
+  const answer1 = await qm.handlePollAnswer({
     pollId,
     user: { id: 101, first_name: "Ali <Tester>", username: "ali_user" },
     optionIds: [correctOption],
@@ -192,7 +192,7 @@ async function runQuizTests() {
   assert.strictEqual(answer1, true, "Birinchi javob qabul qilinishi kerak");
 
   // 2-marta takroriy ovoz berish (Telegram duplicate update simulyatsiyasi)
-  const answerDuplicate = qm.handlePollAnswer({
+  const answerDuplicate = await qm.handlePollAnswer({
     pollId,
     user: { id: 101, first_name: "Ali <Tester>", username: "ali_user" },
     optionIds: [correctOption],
@@ -209,7 +209,7 @@ async function runQuizTests() {
   console.log("Test 7: Eski yoki yopilgan savoldan kech kelgan javob ballga qo'shilmasligi...");
   // Keyingi savolga o'tamiz (bu avvalgi savolni yopadi)
   await qm.sendNextQuestion(group1Id, mockApi);
-  const lateAnswer = qm.handlePollAnswer({
+  const lateAnswer = await qm.handlePollAnswer({
     pollId, // eski pollId
     user: { id: 104, first_name: "Kechikkan Foydalanuvchi" },
     optionIds: [correctOption],
@@ -229,18 +229,18 @@ async function runQuizTests() {
   const poll2Correct = sampleChemistryQuiz.questions[1].correctOptionId;
 
   // Ali va Bobur to'g'ri javob beradi
-  qm.handlePollAnswer({
+  await qm.handlePollAnswer({
     pollId: poll2.pollId,
     user: { id: 101, first_name: "Ali <Tester>", username: "ali_user" },
     optionIds: [poll2Correct],
   });
-  qm.handlePollAnswer({
+  await qm.handlePollAnswer({
     pollId: poll2.pollId,
     user: { id: 102, first_name: "Bobur", username: "bobur_user" },
     optionIds: [poll2Correct],
   });
   // Jamshid noto'g'ri javob beradi
-  qm.handlePollAnswer({
+  await qm.handlePollAnswer({
     pollId: poll2.pollId,
     user: { id: 103, first_name: "Jamshid" },
     optionIds: [(poll2Correct + 1) % 4],
@@ -346,7 +346,7 @@ async function runQuizTests() {
         pollInfo.startTime = Date.now() - simulatedTimeMs;
       }
 
-      qm20.handlePollAnswer({
+      await qm20.handlePollAnswer({
         pollId: lastPoll.pollId,
         user: { id: 777, first_name: "Test Foydalanuvchi", username: "tester777" },
         optionIds: [chosenOption],

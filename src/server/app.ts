@@ -1,17 +1,57 @@
 import express, { Express, Request, Response } from "express";
 import { Bot, webhookCallback } from "grammy";
 import { EnvConfig } from "../config/env.js";
+import { checkFirestoreHealth } from "../firebase/firestore.js";
+import { checkDatabaseHealth } from "../database/db.js";
 
-export function createApp(bot: Bot, config: EnvConfig): Express {
+export function createApp(
+  bot: Bot,
+  config: EnvConfig,
+  customDbHealthCheck?: () => Promise<boolean>
+): Express {
   const app = express();
 
   app.use(express.json());
 
   // Render yoki tashqi monitoring tizimlari uchun Health Check endpointi
-  app.get("/health", (_req: Request, res: Response) => {
-    res.status(200).json({
+  app.get("/health", async (_req: Request, res: Response) => {
+    let dbStatus = "not_configured";
+
+    if (
+      config.NODE_ENV === "production" ||
+      config.FIREBASE_SERVICE_ACCOUNT_JSON ||
+      config.FIREBASE_SERVICE_ACCOUNT_PATH ||
+      config.DATABASE_URL
+    ) {
+      let isDbOk = false;
+      if (customDbHealthCheck) {
+        isDbOk = await customDbHealthCheck();
+      } else {
+        const isFirestoreOk = await checkFirestoreHealth();
+        if (isFirestoreOk) {
+          isDbOk = true;
+        } else if (config.DATABASE_URL) {
+          isDbOk = await checkDatabaseHealth();
+        }
+      }
+
+      dbStatus = isDbOk ? "connected" : "disconnected";
+
+      if (!isDbOk && config.NODE_ENV === "production") {
+        return res.status(503).json({
+          status: "error",
+          service: "jda-kimyo-quiz",
+          database: "disconnected",
+          uptime: Math.floor(process.uptime()),
+          timestamp: new Date().toISOString(),
+        });
+      }
+    }
+
+    return res.status(200).json({
       status: "ok",
       service: "jda-kimyo-quiz",
+      database: dbStatus,
       uptime: Math.floor(process.uptime()),
       timestamp: new Date().toISOString(),
     });

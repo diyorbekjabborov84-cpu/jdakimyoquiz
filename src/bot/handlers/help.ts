@@ -9,9 +9,10 @@ export async function handleHelp(ctx: CommandContext<Context>): Promise<void> {
     `• /help — Botdan foydalanish yo'riqnomasi va buyruqlar\n` +
     `• /quiz — Test kodlarini olish uchun @jdaquizkod kanaliga havola\n` +
     `• /quiz_&lt;ID&gt; — Tanlangan quizni boshlash (masalan: /quiz_amino_acids)\n` +
-    `• /stop yoki /stopquiz — Faol quizni to'xtatish\n\n` +
+    `• /resume — To'xtatilgan yoki pauzada qolgan quizni qolgan joyidan davom ettirish\n` +
+    `• /stop yoki /stopquiz — Faol quizni to'xtatish (faqat guruh admini)\n\n` +
     `🔹 <b>Foydalanish tartibi:</b>\n` +
-    `1. <b>Guruhda:</b> Quizni faqat guruh admini /quiz_&lt;ID&gt; orqali boshlashi yoki /stop bilan to'xtatishi mumkin.\n` +
+    `1. <b>Guruhda:</b> Quizni guruhning istalgan a'zosi /quiz_&lt;ID&gt; orqali boshlashi, qayta yechishi yoki davom ettirishi mumkin. Faol quizni to'xtatish (/stop) esa faqat guruh adminiga berilgan.\n` +
     `2. <b>Shaxsiy chatda:</b> /quiz orqali kodlar kanalini oching. Testlar shaxsiy chatda boshlanmaydi.\n` +
     `3. <b>Guruh havolalari:</b> Har bir quiz uchun guruhga qo'shish havolasi mavjud (masalan: <code>https://t.me/&lt;bot_username&gt;?startgroup=quiz_&lt;ID&gt;</code>).\n` +
     `4. Savollar rasmiy Telegram <b>Quiz Poll</b> shaklida beriladi, har biriga 20 soniya vaqt ajratiladi.\n` +

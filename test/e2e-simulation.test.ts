@@ -74,7 +74,7 @@ async function runE2ESimulation() {
     assert.deepStrictEqual(currentPoll.correctOptionIds, [q.correctOptionId]);
 
     // Ishtirokchi 1 (Ali) barcha 21 ta savolga to'g'ri javob beradi
-    const a1 = qm.handlePollAnswer({
+    const a1 = await qm.handlePollAnswer({
       pollId: currentPoll.pollId,
       user: user1,
       optionIds: [q.correctOptionId],
@@ -82,7 +82,7 @@ async function runE2ESimulation() {
     assert.strictEqual(a1, true, "Ali javobi qabul qilindi");
 
     // Takroriy javob elanishi tekshiriladi
-    const a1Dup = qm.handlePollAnswer({
+    const a1Dup = await qm.handlePollAnswer({
       pollId: currentPoll.pollId,
       user: user1,
       optionIds: [q.correctOptionId],
@@ -93,7 +93,7 @@ async function runE2ESimulation() {
     const isValiCorrect = i !== 2 && i !== 8 && i !== 15;
     const valiOption = isValiCorrect ? q.correctOptionId : (q.correctOptionId + 1) % q.options.length;
 
-    const a2 = qm.handlePollAnswer({
+    const a2 = await qm.handlePollAnswer({
       pollId: currentPoll.pollId,
       user: user2,
       optionIds: [valiOption],
