@@ -1320,3 +1320,68 @@ Foydalanuvchining yangi qarori va Codex talablari asosida guruhdagi yakuniy nati
 - **Git commit va push qilinmadi**.
 - **Render deploy qilinmadi**.
 - Kod va hisobot to'liq tayyor bo'lib, Codex tekshiruvini kutmoqda.
+
+---
+
+## Kolloid kimyo — 3-mavzu (KK_M3) quizlari (2026-09-29) — To'liq bajarildi
+
+`KK_M3_QUIZ_SAVOLLAR.txt` manbasi asosida 40 ta savol 2 ta mustaqil quizga bo'lib bot tizimiga qo'shildi:
+
+### 1. Yangi Quiz To'plamlari va Xususiyatlari
+
+1. **`KK3_1`**: «Kolloid kimyo — 3-mavzu 1-qism (KK3_1)»
+   - Savollar: 01–20 (Sirt energiyasi va tarangligi)
+   - Buyruq: `/quiz_KK3_1` yoki `/start_KK3_1`
+   - Har bir savolga Telegram taymeri: `timeLimitSeconds: 20`
+   - Xususiyatlari: `groupOnly: true`, `shuffle: true`, `source: "Bahora Nayimova slaydlaridan"`
+
+2. **`KK3_2`**: «Kolloid kimyo — 3-mavzu 2-qism (KK3_2)»
+   - Savollar: 21–40 (Adsorbsiya, ho'llanish va kapillyarlik)
+   - Buyruq: `/quiz_KK3_2` yoki `/start_KK3_2`
+   - Har bir savolga Telegram taymeri: `timeLimitSeconds: 20`
+   - Xususiyatlari: `groupOnly: true`, `shuffle: true`, `source: "Bahora Nayimova slaydlaridan"`
+
+---
+
+### 2. Kod va Strukturaviy O'zgarishlar
+
+- **`src/quiz/kk3Questions.ts`**:
+  - 40 ta savol, 4 tadan variant, to'g'ri javob indeksi (0–3) va ilmiy izohlari bilan yaratildi.
+  - Slayd raqamlari, izoh va rasm qatorlari savol matniga kiritilmadi; izohlar `explanation` maydoniga joylashtirildi.
+  - `kk3Quiz1`, `kk3Quiz2` va `allKk3Quizzes` eksport qilindi.
+- **`src/quiz/questions.ts`**:
+  - `allKk3Quizzes` to'plami `allQuizzes` ro'yxatiga qo'shildi.
+  - `getQuizById()` funksiyasiga `KK3_1`, `KK3_2` hamda ularning sinonimlari (`kk3-1`, `kk_3_1`, `kk31`, `kk3-2`, `kk_3_2`, `kk32`) ulandi.
+- **`README.md`**:
+  - Yangi quiz kodlari, 20 soniyalik vaqt chegarasi va deep linking havolalari (`startgroup=quiz_KK3_1`, `startgroup=quiz_KK3_2`) hujjatlashtirildi.
+- **`test/kk3-quiz.test.ts` & `test/run-tests.mjs`**:
+  - Yangi 11 ta maxsus test to'plami yaratildi va test runnerga ulandi.
+  - 40 ta savolning 100% unikalligi, 4 tadan varianti, 20s vaqti, groupOnly va shuffle xususiyatlari, shaxsiy chatda guruh havolasi chiqishi, guruhda admin va oddiy a'zo tomonidan boshlanishi, faol quiz blokirovkasi, admin `/stop`, aqlli pauza va resume, hamda «🔄 Qayta yechish» funksiyalari to'liq tekshirildi.
+
+---
+
+### 3. Kompilyatsiya va To'liq Test Natijalari
+
+- `npm run build`: **Exit code 0** (0 xatolik, TypeScript toza kompilatsiya bo'ldi).
+- `npm test`: **Exit code 0** (Barcha 13 ta test to'plami, jami **133 ta test 100% muvaffaqiyatli o'tdi**):
+  1. `test/index.test.ts`: 4/4 ✅
+  2. `test/quiz.test.ts`: 11/11 ✅
+  3. `test/e2e-simulation.test.ts`: 1/1 ✅
+  4. `test/multi-quiz.test.ts`: 10/10 ✅
+  5. `test/subscription.test.ts`: 11/11 ✅
+  6. `test/kk1-quiz.test.ts`: 12/12 ✅
+  7. `test/kk2-quiz.test.ts`: 11/11 ✅
+  8. `test/kk3-quiz.test.ts`: 11/11 ✅ *(Yangi: 40 ta savol unikalligi, 20s limiti, shaxsiy/guruh cheklovlari, shuffle, admin/a'zo ruxsatlari, aqlli pauza va replay)*
+  9. `test/i3-quiz.test.ts`: 11/11 ✅
+  10. `test/russian-quiz.test.ts`: 11/11 ✅
+  11. `test/smart-pause-welcome.test.ts`: 14/14 ✅
+  12. `test/phase2-storage.test.ts`: 20/20 ✅
+  13. `test/firestore.test.ts`: 6/6 ✅
+
+---
+
+### 4. Holat va Qat'iy Cheklovlar
+
+- **Git commit va push qilinmadi**.
+- **Render deploy qilinmadi**.
+- Kod va hisobot to'liq tayyor bo'lib, Codex tekshiruvini kutmoqda.

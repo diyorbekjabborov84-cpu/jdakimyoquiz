@@ -1,0 +1,378 @@
+KK_M3 — SIRT HODISALARI VA SIRT ENERGIYASI
+Manba: KK_M3.pdf, Bahora Nayimova slaydlaridan (3-ma'ruza).
+Test tuzuvchisi: @diyorbek_jabborov
+Jami: 40 ta mazmunan alohida savol; 60 taga to'ldirish uchun takroriy savol qo'shilmadi.
+To'plamlar: KK3_1 = 01–20; KK3_2 = 21–40. Har birida 20 ta savol.
+Har savol uchun tavsiya etilgan vaqt: 20 soniya.
+Quiz boshlanganda savollar va har savolning 4 varianti alohida aralashtirilsin;
+to'g'ri javob indeksi yangi tartibga mos qayta hisoblansin.
+"Slayd", "Izoh" va "Rasm" qatorlari tekshiruv uchun; quiz savol matniga qo'shilmaydi.
+Rasm tavsiya etilgan joylarda faqat tegishli slaydning aniq diagrammasi yoki
+qayta chizilgan sxemasi ishlatilsin. Rasm topilmasa savol matnining o'zi yetarli.
+Olimlar, sanalar va mualliflar haqidagi trivia savollari kiritilmadi.
+
+=== KK3_1: SIRT ENERGIYASI VA TARANGLIGI (01–20) ===
+
+01. Sirt hodisalari asosan qayerda kuzatiladi?
+A) Faqat moddaning ichki hajmida
+B) Ikki faza chegarasida
+C) Faqat atom yadrosida
+D) Faqat vakuumda
+Javob: B
+Slayd: 4
+Izoh: Sirt hodisalari ikki faza chegarasidagi sirt qatlamiga xos.
+
+02. Suyuqlik–gaz chegarasida qaysi hodisa sirt hodisasiga misol bo'ladi?
+A) Tomchi hosil bo'lishi
+B) Yadroviy parchalanish
+C) Kristall panjara hosil bo'lishi
+D) Metallning magnitlanishi
+Javob: A
+Slayd: 4
+Izoh: Tomchi shakllanishida suyuqlik–gaz chegarasining xossalari muhim.
+
+03. Fazalararo sirt nima?
+A) Faqat qattiq jismning ichki qismi
+B) Ikki fazani ajratib turuvchi chegara qatlami
+C) Har qanday gazning bosimi
+D) Eritmaning umumiy hajmi
+Javob: B
+Slayd: 5
+Izoh: Fazalararo sirt tarkib yoki holati farqli ikki faza orasidagi chegaradir.
+
+04. Sirt qatlami molekulalari hajmiy fazadagilarga nisbatan qanday holatda bo'ladi?
+A) Tortishish kuchlari to'liq muvozanatlangan
+B) Umuman qo'shni molekulalari bo'lmaydi
+C) Tortishish kuchlari muvozanatlanmagan
+D) Potensial energiyasi doim nolga teng
+Javob: C
+Slayd: 5–7
+Izoh: Sirt molekulalarining faza tashqarisi tomonidagi qo'shnilari kamroq.
+
+05. Sirt qatlamidagi molekulalarning potensial energiyasi odatda qanday bo'ladi?
+A) Hajmiy fazadagilarnikidan yuqori
+B) Hajmiy fazadagilarnikidan past
+C) Har doim nol
+D) Faqat haroratga teng
+Javob: A
+Slayd: 6–7
+Izoh: Muvozanatlanmagan tortishish sirtning ortiqcha energiyasini yuzaga keltiradi.
+
+06. Sirt maydoni S ortsa, boshqa sharoitlar bir xil bo'lganda sirt erkin energiyasi qanday o'zgaradi?
+A) Kamayadi
+B) O'zgarmaydi
+C) Ortadi
+D) Manfiy bo'ladi
+Javob: C
+Slayd: 5, 8
+Izoh: G^s = σS; σ o'zgarmasa G^s maydonga to'g'ri proporsional.
+
+07. Sirt erkin energiyasining slaydda berilgan ifodasi qaysi?
+A) G^s = σS
+B) G^s = σ/S
+C) G^s = S/σ
+D) G^s = σ + S
+Javob: A
+Slayd: 5, 8, 37
+Izoh: Sirt erkin energiyasi sirt tarangligi va sirt maydoni ko'paytmasi.
+
+08. Sirt maydonini oshirish uchun sarflangan ish qaysi ifoda bilan bog'langan?
+A) A = σΔS
+B) A = σ/ΔS
+C) A = ΔS/σ
+D) A = σ − ΔS
+Javob: A
+Slayd: 7–8
+Izoh: Yangi sirt hosil qilish uchun tashqi ish talab etiladi.
+
+09. Nega erkin tomchi sharsimon shaklga intiladi?
+A) Hajmini cheksiz oshirish uchun
+B) Berilgan hajmda sirt maydonini kamaytirish uchun
+C) Zichligini nolga tushirish uchun
+D) Sirt tarangligini har doim oshirish uchun
+Javob: B
+Slayd: 7–9
+Izoh: Kichikroq sirt maydoni sirt erkin energiyasini kamaytiradi.
+
+10. Sirt tarangligi fizik jihatdan nimani ifodalaydi?
+A) Suyuqlik massasining hajmga nisbatini
+B) Birlik sirt maydoniga to'g'ri keluvchi sirt erkin energiyasini
+C) Gazning birlik hajmdagi bosimini
+D) Eritmaning elektr o'tkazuvchanligini
+Javob: B
+Slayd: 8–10
+Izoh: Berilgan sharoitda σ sirt erkin energiyasining maydon bo'yicha o'zgarishidir.
+
+11. Sirt tarangligining ekvivalent birliklari qaysilar?
+A) N/m va J/m²
+B) N/m² va J/m
+C) kg/m va J/s
+D) mol/L va Pa
+Javob: A
+Slayd: 9–10
+Izoh: 1 N/m = 1 J/m².
+
+12. σ = F/l ifodada l nimani bildiradi?
+A) Suyuqlikning hajmini
+B) Chegaraviy chiziq uzunligini
+C) Haroratni
+D) Suyuqlik zichligini
+Javob: B
+Slayd: 9
+Izoh: F sirt bo'ylab ta'sir etuvchi kuch, l esa chegara uzunligi.
+
+13. Sirt tarangligi kattaroq bo'lgan suyuqlikda yangi sirt hosil qilish uchun qanday ish kerak bo'ladi?
+A) Kamroq
+B) Ko'proq
+C) Nolga teng
+D) Faqat gaz bosimiga teng
+Javob: B
+Slayd: 9–10
+Izoh: A = σΔS, ya'ni bir xil ΔS uchun σ katta bo'lsa ish ham katta.
+
+14. Stalagmometrik usulda qaysi kattalik kuzatiladi?
+A) Ma'lum hajmdan hosil bo'ladigan tomchilar soni yoki massasi
+B) Suyuqlikning elektr zaryadi
+C) Moddaning spektral chiziqlari
+D) Kristallning qattiqligi
+Javob: A
+Slayd: 11–12
+Izoh: Usul tomchi uzilishiga bog'liq kattaliklarga asoslanadi.
+
+15. Kapillyar ko'tarilish usulida sirt tarangligini baholash uchun qaysi kattalik o'lchanadi?
+A) Eritmaning rangi
+B) Kapillyardagi suyuqlik balandligi
+C) Idishning umumiy massasi
+D) Yorug'lik to'lqin uzunligi
+Javob: B
+Slayd: 11, 13
+Izoh: Ingichka naychadagi ko'tarilish balandligi h ishlatiladi.
+
+16. Halqa usulida qanday kuch o'lchanadi?
+A) Metall halqani suyuqlik sirtidan uzib olish kuchi
+B) Halqani qizdirish kuchi
+C) Suyuqlikni magnitlash kuchi
+D) Idish tubidagi og'irlik kuchi
+Javob: A
+Slayd: 11, 14
+Izoh: Halqani sirtdan uzish uchun zarur kuch sirt tarangligiga bog'liq.
+
+17. Plastinka usulida qaysi kuch o'lchanadi?
+A) Suyuqlikka tegib turgan plastinkaga ta'sir etuvchi ho'llanish kuchi
+B) Gazning elektr kuchi
+C) Qattiq jismning elastiklik kuchi
+D) Suyuqlikning magnit kuchi
+Javob: A
+Slayd: 11, 15
+Izoh: Yupqa plastinka sirt bilan tegishganda unga ho'llanish kuchi ta'sir qiladi.
+
+18. Harorat ortganda ko'pchilik suyuqliklarning sirt tarangligi odatda qanday o'zgaradi?
+A) Ortadi
+B) Kamayadi
+C) Har doim o'zgarmaydi
+D) Darhol cheksiz bo'ladi
+Javob: B
+Slayd: 16–17
+Izoh: Harorat ortishi molekulalarning issiqlik harakatini kuchaytiradi.
+
+19. Kritik haroratga yaqinlashganda suyuqlik–bug' sirt tarangligi nimaga yaqinlashadi?
+A) Nolga
+B) Bir molga
+C) Cheksizlikka
+D) Suyuqlik zichligiga
+Javob: A
+Slayd: 17
+Izoh: Suyuqlik va bug' fazalari orasidagi farq kamayib boradi.
+
+20. Molekulalararo tortishish kuchi kuchliroq bo'lgan suyuqlikda sirt tarangligi odatda qanday bo'ladi?
+A) Pastroq
+B) Yuqoriroq
+C) Har doim nol
+D) Faqat bosimga bog'liq
+Javob: B
+Slayd: 16, 18
+Izoh: Kuchli koheziya yangi sirt hosil qilish uchun ko'proq energiya talab qiladi.
+
+=== KK3_2: ADSORBSIYA, HO'LLANISH VA KAPILLYARLIK (21–40) ===
+
+21. Sirt-faol modda konsentratsiyasi ortganda suyuqlik sirt tarangligi odatda qanday o'zgaradi?
+A) Kamayadi
+B) Ortadi
+C) Har doim o'zgarmaydi
+D) Nolga teng zichlikka aylanadi
+Javob: A
+Slayd: 16, 19–20
+Izoh: Sirt-faol molekulalar sirtga adsorbsiyalanib σ ni kamaytiradi.
+
+22. Sirt-faol molekuladagi gidrofil qism qaysi fazaga yo'naladi?
+A) Suv fazasiga
+B) Faqat gaz fazasiga
+C) Faqat metall fazasiga
+D) Faqat vakuumga
+Javob: A
+Slayd: 19–20
+Izoh: Gidrofil qism suv bilan ta'sirlashishga moyil.
+
+23. Sirt-faol molekuladagi gidrofob qism suv–havo chegarasida odatda qayerga yo'naladi?
+A) Suv hajmining ichkarisiga
+B) Havo tomoniga
+C) Faqat qattiq jism ichiga
+D) Hech qayerga yo'nalmaydi
+Javob: B
+Slayd: 19–20
+Izoh: Gidrofob qism suvdan uzoqlashib, havo yoki yog' fazasi tomon joylashadi.
+
+24. Sirt-faol modda ma'lum konsentratsiyadan keyin mitsellalar hosil qila boshlaydigan chegara nima deyiladi?
+A) Kritik mitsella konsentratsiyasi
+B) Kritik harorat
+C) Osmotik bosim
+D) Eritma zichligi
+Javob: A
+Slayd: 19
+Izoh: Slaydda bu chegara KMK bilan belgilangan.
+
+25. Gibbs adsorbsiya tenglamasi qaysi ikki o'zgarish orasidagi bog'lanishni ifodalaydi?
+A) Konsentratsiya o'zgarishi va sirt qatlamida to'planish
+B) Bosim va elektr kuchlanishi
+C) Harorat va atom raqami
+D) Hajm va rang
+Javob: A
+Slayd: 21
+Izoh: Γ sirt ortiqcha adsorbsiyasini, c esa eritma konsentratsiyasini bildiradi.
+
+26. Gibbs tenglamasiga ko'ra dσ/dc < 0 bo'lsa, adsorbsiya belgisi qanday?
+A) Γ > 0
+B) Γ < 0
+C) Γ = 0 bo'lishi shart
+D) Belgini aniqlab bo'lmaydi
+Javob: A
+Slayd: 21–22
+Izoh: Γ = −(c/RT)(dσ/dc); musbat c, R va T da hosila manfiy bo'lsa Γ musbat.
+
+27. Musbat adsorbsiya nimani bildiradi?
+A) Modda sirt qatlamida to'planishini
+B) Modda sirt qatlamidan butunlay yo'qolishini
+C) Suyuqlikning qaynashini
+D) Sirt maydonining nol bo'lishini
+Javob: A
+Slayd: 22
+Izoh: Γ > 0 bo'lganda sirt qatlamidagi miqdor hajmiy fazaga nisbatan ortiqcha.
+
+28. Manfiy adsorbsiya uchun konsentratsiya oshganda sirt tarangligi odatda qanday o'zgaradi?
+A) Ortadi
+B) Kamayadi
+C) Har doim nolga tushadi
+D) Haroratga teng bo'ladi
+Javob: A
+Slayd: 22
+Izoh: Manfiy adsorbsiyada dσ/dc > 0 deb ko'rsatilgan.
+
+29. Ho'llanish nima?
+A) Suyuqlikning qattiq jism sirtiga tarqalishi yoki u bilan ta'sirlashishi
+B) Suyuqlikning faqat bug'ga aylanishi
+C) Qattiq jismning faqat erishi
+D) Gaz bosimining oshishi
+Javob: A
+Slayd: 23
+Izoh: Ho'llanish tomchining qattiq sirtda yoyilish darajasi bilan namoyon bo'ladi.
+
+30. Kontakt burchagi kichik bo'lsa, suyuqlikning qattiq sirtni ho'llashi qanday bo'ladi?
+A) Kuchliroq
+B) Kuchsizroq
+C) Imkonsiz
+D) Burchakka bog'liq emas
+Javob: A
+Slayd: 23–24
+Izoh: θ kichraygan sari tomchi sirt bo'ylab ko'proq yoyiladi.
+
+31. Kontakt burchagi θ > 90° bo'lsa, slaydga ko'ra holat qanday?
+A) To'liq ho'llanish
+B) Yaxshi ho'llanish
+C) Yomon ho'llanish
+D) Kapillyar ichida qaynash
+Javob: C
+Slayd: 23–24
+Izoh: Katta kontakt burchagi tomchining sferikroq turishiga mos keladi.
+Rasm: 23 yoki 24-slayddagi kontakt burchagi diagrammasi foydali, lekin shart emas.
+
+32. Koheziya va adgeziya orasidagi farq qaysi?
+A) Koheziya bir xil, adgeziya turli modda molekulalari orasidagi tortishish
+B) Ikkalasi faqat bir xil molekulalar orasida
+C) Koheziya faqat gaz, adgeziya faqat suyuqlikda
+D) Ikkalasi ham faqat elektr toki bilan bog'liq
+Javob: A
+Slayd: 26
+Izoh: Koheziya bir xil, adgeziya turli moddalar o'zaro ta'siri.
+
+33. Adgeziya koheziyadan kuchliroq bo'lsa, tomchi qattiq sirtni odatda qanday ho'llaydi?
+A) Kuchli ho'llaydi va yoyiladi
+B) Umuman tegmaydi
+C) Har doim muzlaydi
+D) Faqat bug'lanadi
+Javob: A
+Slayd: 26
+Izoh: Adgeziyaning ustunligi suyuqlikning sirtda yoyilishini kuchaytiradi.
+
+34. Ho'llovchi suyuqlik ingichka kapillyarda qanday harakatlanadi?
+A) Ko'tariladi
+B) Albatta pastga tushadi
+C) Har doim o'zgarmaydi
+D) Gazga aylanadi
+Javob: A
+Slayd: 13, 27
+Izoh: Ho'llovchi suyuqlikda θ < 90° va botiq menisk kuzatiladi.
+Rasm: 27-slayddagi ikki kapillyar taqqoslovi foydali, lekin shart emas.
+
+35. Ho'llamaydigan suyuqlik ingichka kapillyarda qanday holat ko'rsatadi?
+A) Sathi pasayadi
+B) Cheksiz ko'tariladi
+C) Rangi doim o'zgaradi
+D) Muzlaydi
+Javob: A
+Slayd: 27
+Izoh: Ho'llamaydigan suyuqlikda θ > 90° va qavariq menisk kuzatiladi.
+
+36. Boshqa kattaliklar bir xil bo'lganda kapillyar radiusi kichrayishi ko'tarilish balandligiga qanday ta'sir qiladi?
+A) Balandlik ortadi
+B) Balandlik kamayadi
+C) Balandlik o'zgarmaydi
+D) Balandlik nol bo'ladi
+Javob: A
+Slayd: 13, 27
+Izoh: h = 2σcosθ/(ρgr), ya'ni h radiusga teskari proporsional.
+
+37. O'simlik ksilemasida suvning yuqoriga harakatiga yordam beradigan sirt hodisasi qaysi?
+A) Kapillyarlik
+B) Yadroviy parchalanish
+C) Magnit induksiya
+D) Elektroliz
+Javob: A
+Slayd: 28
+Izoh: Slaydda o'simlik ksilemasi kapillyarlikning tabiiy misoli sifatida berilgan.
+
+38. Emulgator emulsiya tomchilariga qanday ta'sir qiladi?
+A) Chegaraviy sirt tarangligini kamaytirib, birikishga qarshilik ko'rsatadi
+B) Tomchilarni darhol qattiq kristallga aylantiradi
+C) Emulsiyadagi suyuqliklarni bitta sof modda qiladi
+D) Faqat haroratni nolga tushiradi
+Javob: A
+Slayd: 29–30
+Izoh: Emulgatorlar tomchi sirtida adsorbsiyalanib emulsiyani barqarorlashtiradi.
+
+39. Ko'pikda qaysi faza pufakchalar shaklida tarqaladi?
+A) Gaz
+B) Qattiq kristall
+C) Suyuq metall
+D) Vakuum
+Javob: A
+Slayd: 31
+Izoh: Ko'pik — gaz pufakchalari suyuq yoki qattiq muhitda tarqalgan sistema.
+
+40. Adsorbent va adsorbatning to'g'ri juft ta'rifi qaysi?
+A) Adsorbent — sirtida modda to'planadigan jism; adsorbat — to'planadigan modda
+B) Adsorbent — gazning bosimi; adsorbat — eritmaning hajmi
+C) Adsorbent — faqat suv; adsorbat — faqat havo
+D) Adsorbent — harorat; adsorbat — vaqt
+Javob: A
+Slayd: 32
+Izoh: Qattiq jism sirtidagi adsorbsiya slaydda shu atamalar bilan berilgan.

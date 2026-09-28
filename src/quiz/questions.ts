@@ -238,6 +238,7 @@ export const chemistryBasicsQuiz: Quiz = {
 
 import { kk1Quiz1, kk1Quiz2, kk1Quiz3 } from "./kk1Questions.js";
 import { kk2Quiz1, kk2Quiz2, kk2Quiz3, allKk2Quizzes } from "./kk2Questions.js";
+import { kk3Quiz1, kk3Quiz2, allKk3Quizzes } from "./kk3Questions.js";
 import { i3Quiz1, i3Quiz2, i3Quiz3, allI3Quizzes } from "./i3Questions.js";
 import {
   russianQuiz1,
@@ -257,6 +258,9 @@ export {
   kk2Quiz2,
   kk2Quiz3,
   allKk2Quizzes,
+  kk3Quiz1,
+  kk3Quiz2,
+  allKk3Quizzes,
   i3Quiz1,
   i3Quiz2,
   i3Quiz3,
@@ -278,6 +282,7 @@ export const allQuizzes: Quiz[] = [
   kk1Quiz2,
   kk1Quiz3,
   ...allKk2Quizzes,
+  ...allKk3Quizzes,
   ...allI3Quizzes,
   ...allRussianQuizzes,
 ];
@@ -372,6 +377,22 @@ export function getQuizById(id: string): Quiz | undefined {
     normalized === "kk23"
   ) {
     return kk2Quiz3;
+  }
+
+  if (
+    normalized === "kk3-1" ||
+    normalized === "kk_3_1" ||
+    normalized === "kk31"
+  ) {
+    return kk3Quiz1;
+  }
+
+  if (
+    normalized === "kk3-2" ||
+    normalized === "kk_3_2" ||
+    normalized === "kk32"
+  ) {
+    return kk3Quiz2;
   }
 
   if (
