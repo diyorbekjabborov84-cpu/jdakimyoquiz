@@ -238,6 +238,7 @@ export const chemistryBasicsQuiz: Quiz = {
 
 import { kk1Quiz1, kk1Quiz2, kk1Quiz3 } from "./kk1Questions.js";
 import { kk2Quiz1, kk2Quiz2, kk2Quiz3, allKk2Quizzes } from "./kk2Questions.js";
+import { i3Quiz1, i3Quiz2, i3Quiz3, allI3Quizzes } from "./i3Questions.js";
 import {
   russianQuiz1,
   russianQuiz2,
@@ -256,6 +257,10 @@ export {
   kk2Quiz2,
   kk2Quiz3,
   allKk2Quizzes,
+  i3Quiz1,
+  i3Quiz2,
+  i3Quiz3,
+  allI3Quizzes,
   russianQuiz1,
   russianQuiz2,
   russianQuiz3,
@@ -273,6 +278,7 @@ export const allQuizzes: Quiz[] = [
   kk1Quiz2,
   kk1Quiz3,
   ...allKk2Quizzes,
+  ...allI3Quizzes,
   ...allRussianQuizzes,
 ];
 
@@ -366,6 +372,30 @@ export function getQuizById(id: string): Quiz | undefined {
     normalized === "kk23"
   ) {
     return kk2Quiz3;
+  }
+
+  if (
+    normalized === "i3-1" ||
+    normalized === "i_3_1" ||
+    normalized === "i31"
+  ) {
+    return i3Quiz1;
+  }
+
+  if (
+    normalized === "i3-2" ||
+    normalized === "i_3_2" ||
+    normalized === "i32"
+  ) {
+    return i3Quiz2;
+  }
+
+  if (
+    normalized === "i3-3" ||
+    normalized === "i_3_3" ||
+    normalized === "i33"
+  ) {
+    return i3Quiz3;
   }
 
   if (normalized === "r_1" || normalized === "r-1") return russianQuiz1;

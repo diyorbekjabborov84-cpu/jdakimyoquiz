@@ -1,0 +1,554 @@
+SLAYD-I-3 — ALKANLAR BO'YICHA TELEGRAM QUIZ SAVOLLARI
+Manba: Abdusalom Saidov slaydlaridan (Slayd-I-3.pdf, 3-ma'ruza).
+Test tuzuvchisi: @diyorbek_jabborov
+Format: 60 ta savol; har birida 4 variant va bitta to'g'ri javob.
+To'plamlar: I3_1 = 01–20; I3_2 = 21–40; I3_3 = 41–60.
+Tavsiya: har savolga 20 soniya. Har safar savollar va variantlar aralashtirilsin; to'g'ri javob indeksi yangi tartibga mos qayta hisoblansin.
+"Slayd" — PDF sahifasi; "Izoh" — tekshirish uchun. Bu qatorlar Telegram savol matniga qo'shilmaydi.
+Olimlar, kashfiyot mualliflari va tarixiy sanalar haqida savollar kiritilmadi.
+
+=== I3_1: TUZILISH, NOMLANISH VA IZOMERIYA (01–20) ===
+
+01. Alkanlar qanday uglevodorodlar?
+A) Ochiq zanjirli, faqat oddiy bog'larga ega to'yingan uglevodorodlar
+B) Faqat halqali aromatik uglevodorodlar
+C) Uch bog'li to'yinmagan uglevodorodlar
+D) Faqat kislorod saqlovchi birikmalar
+Javob: A
+Slayd: 4
+Izoh: Slaydda alkanlar ochiq zanjirli va oddiy sigma bog'li birikmalar deb ta'riflangan.
+
+02. Ochiq zanjirli alkanlarning umumiy formulasi qaysi?
+A) CnH2n
+B) CnH2n-2
+C) CnH2n+2
+D) CnHn
+Javob: C
+Slayd: 4, 6
+Izoh: To'yingan ochiq zanjirli uglevodorodlar CnH2n+2 formulasiga mos keladi.
+
+03. Alkanlarning birinchi vakili qaysi modda?
+A) Etan
+B) Metan
+C) Propan
+D) Butan
+Javob: B
+Slayd: 4
+Izoh: Metan CH4 — alkanlar gomologik qatorining birinchi a'zosi.
+
+04. Metanning molekulyar formulasi qaysi?
+A) C2H6
+B) CH3
+C) C2H4
+D) CH4
+Javob: D
+Slayd: 4, 6
+Izoh: Metan bir uglerod va to'rt vodorod atomidan iborat.
+
+05. Ketma-ket ikki alkan gomologi tarkibi nimaga farq qiladi?
+A) Bitta CH2 guruhiga
+B) Bitta O atomiga
+C) Bitta N atomiga
+D) Bitta H2O molekulasiga
+Javob: A
+Slayd: 4
+Izoh: Gomologik qatorda navbatdagi vakilga o'tishda CH2 qo'shiladi.
+
+06. Normal alkan deganda nima tushuniladi?
+A) Halqali tuzilishga ega alkan
+B) Tarmoqlanmagan uglerod zanjirli alkan
+C) Faqat gaz holatidagi alkan
+D) Tarkibida qo'sh bog' bor alkan
+Javob: B
+Slayd: 4
+Izoh: Normal alkanlarning uglerod skeleti tarmoqlanmagan.
+
+07. Izoalkan nimasi bilan normal alkandan farq qiladi?
+A) Kislorod atomiga ega bo'lishi bilan
+B) Uch bog'ga ega bo'lishi bilan
+C) Tarmoqlangan uglerod zanjiri bilan
+D) Faqat qattiq holatda bo'lishi bilan
+Javob: C
+Slayd: 4
+Izoh: Izoalkanlarda uglerod skeleti tarmoqlangan bo'ladi.
+
+08. Alkan molekulasidagi uglerod atomlari qanday gibridlangan?
+A) sp
+B) sp2
+C) Umuman gibridlanmagan
+D) sp3
+Javob: D
+Slayd: 12
+Izoh: Slaydda barcha uglerod atomlari sp3-gibridlangan deb berilgan.
+
+09. Alkanlarga xos C–C bog'i qaysi turga kiradi?
+A) Oddiy sigma bog'
+B) Ikki pi bog'
+C) Uch bog'
+D) Ion bog'
+Javob: A
+Slayd: 4, 20
+Izoh: Alkanlarda faqat oddiy C–C va C–H bog'lar bo'ladi.
+
+10. Alkil radikallarining umumiy formulasi qaysi?
+A) CnH2n+2
+B) CnH2n-2
+C) CnH2n+1
+D) CnHn+2
+Javob: C
+Slayd: 6
+Izoh: Alkan molekulasidan bitta vodorod ajralsa, CnH2n+1 tarkibli alkil guruhi hosil bo'ladi.
+
+11. CH3 alkil guruhi qanday ataladi?
+A) Etil
+B) Metil
+C) Propil
+D) Butil
+Javob: B
+Slayd: 6
+Izoh: CH3 guruhining nomi metil.
+
+12. C2H5 alkil guruhi qanday ataladi?
+A) Metil
+B) Propil
+C) Pentil
+D) Etil
+Javob: D
+Slayd: 6
+Izoh: C2H5 guruhining nomi etil.
+
+13. C3H8 alkanining nomi nima?
+A) Propan
+B) Etan
+C) Butan
+D) Pentan
+Javob: A
+Slayd: 6
+Izoh: Uchta uglerod atomi saqlagan alkan propan deyiladi.
+
+14. C5H12 alkanining nomi nima?
+A) Geksan
+B) Pentan
+C) Butan
+D) Geptan
+Javob: B
+Slayd: 6
+Izoh: Besh uglerodli alkan pentan.
+
+15. C6H14 qaysi alkanning formulasi?
+A) Pentan
+B) Geptan
+C) Geksan
+D) Oktan
+Javob: C
+Slayd: 6
+Izoh: Oltita uglerodli alkan geksan.
+
+16. Butanning molekulyar formulasi qaysi?
+A) C4H8
+B) C3H8
+C) C5H12
+D) C4H10
+Javob: D
+Slayd: 6
+Izoh: To'rtta uglerodli alkan C4H10 formulasiga ega.
+
+17. C4H10 uchun uglerod skeletiga ko'ra nechta struktur izomer mavjud?
+A) 2 ta
+B) 3 ta
+C) 4 ta
+D) 5 ta
+Javob: A
+Slayd: 9
+Izoh: Butan va 2-metilpropan C4H10 ning ikki struktur izomeridir.
+
+18. C5H12 uchun uglerod skeletiga ko'ra nechta struktur izomer mavjud?
+A) 2 ta
+B) 3 ta
+C) 4 ta
+D) 5 ta
+Javob: B
+Slayd: 9
+Izoh: Pentanning uchta struktur izomeri bor.
+
+19. CH3–CH2–CH2–CH3 tuzilishli alkan qanday ataladi?
+A) 2-metilpropan
+B) Propan
+C) n-butan
+D) n-pentan
+Javob: C
+Slayd: 9
+Izoh: To'rtta uglerodli tarmoqlanmagan zanjir n-butandir.
+
+20. 2-metilpropan qaysi alkanning izomeri?
+A) Metan
+B) Etan
+C) Propan
+D) Butan
+Javob: D
+Slayd: 7, 9
+Izoh: 2-metilpropan ham, butan ham C4H10 formulasiga ega.
+
+=== I3_2: TABIIY MANBALAR, FIZIK XOSSALAR VA OLINISH (21–40) ===
+
+21. Slaydda alkanlarning tabiiy manbalari sifatida qaysi juftlik berilgan?
+A) Dengiz suvi va ohaktosh
+B) Neft va tabiiy gaz
+C) Kvars va osh tuzi
+D) Temir rudasi va qum
+Javob: B
+Slayd: 11, 14
+Izoh: Alkanlar neft va tabiiy gaz tarkibida uchraydi.
+
+22. Tabiiy gazning asosiy uglevodorodi qaysi?
+A) Butan
+B) Pentan
+C) Metan
+D) Geksan
+Javob: C
+Slayd: 11
+Izoh: Slaydda tabiiy gazning asosiy komponenti metan ekani ko'rsatilgan.
+
+23. Ko'mir shaxtalaridan ajraladigan gazning asosiy tarkibiy qismi nima?
+A) Etilen
+B) Azot
+C) Propin
+D) Metan
+Javob: D
+Slayd: 11
+Izoh: Shaxta gazi tarkibida metan mavjud.
+
+24. Botqoqlik gazi asosan qaysi uglevodoroddan iborat?
+A) Metan
+B) Buten
+C) Benzol
+D) Asetilen
+Javob: A
+Slayd: 11
+Izoh: Kislorodsiz chirish jarayonida metan hosil bo'ladi.
+
+25. Neftni fraksion haydashdan nima olinadi?
+A) Faqat bitta sof modda
+B) Turli qaynash oralig'idagi neft mahsulotlari
+C) Faqat kislorod va azot
+D) Faqat osh tuzi
+Javob: B
+Slayd: 11
+Izoh: Benzin, kerosin va dizel yoqilg'isi turli fraksiyalarga misol.
+
+26. Qaysi mahsulot neftni fraksion haydashda ajratiladi?
+A) Oqartirilgan ohak
+B) Mis sulfat
+C) Kerosin
+D) Ammiak
+Javob: C
+Slayd: 11
+Izoh: Kerosin slaydda neft mahsuloti sifatida berilgan.
+
+27. Slayd bo'yicha C1–C4 alkanlari oddiy sharoitda qanday holatda?
+A) Suyuqlik
+B) Qattiq kristall
+C) Gel
+D) Gaz
+Javob: D
+Slayd: 19
+Izoh: Metan, etan, propan va butan gaz holatda bo'ladi.
+
+28. Slayd bo'yicha C5–C16 alkanlari oddiy sharoitda qanday holatda?
+A) Suyuqlik
+B) Gaz
+C) Plazma
+D) Qattiq kristall
+Javob: A
+Slayd: 19
+Izoh: Slaydda C5–C16 vakillari suyuq deb ko'rsatilgan.
+
+29. Slayd bo'yicha C17 dan boshlab alkanlar oddiy sharoitda qanday holatda?
+A) Gaz
+B) Qattiq modda
+C) Plazma
+D) Faqat suvli eritma
+Javob: B
+Slayd: 19
+Izoh: Uzun zanjirli alkanlar qattiq bo'lishi mumkin.
+
+30. Alkanlar suvda qanday eriydi?
+A) Cheksiz yaxshi
+B) Faqat qizdirilganda to'liq
+C) Juda yomon
+D) Kimyoviy parchalanib eriydi
+Javob: C
+Slayd: 19
+Izoh: Alkanlar qutbsiz bo'lgani uchun qutbli suvda yomon eriydi.
+
+31. Alkanlar qaysi erituvchilarda yaxshi eriydi?
+A) Faqat suvda
+B) Faqat suyultirilgan kislotada
+C) Faqat ammiak eritmasida
+D) Qutbsiz organik erituvchilarda
+Javob: D
+Slayd: 19
+Izoh: Slaydda benzol, efir va xloroform misol sifatida keltirilgan.
+
+32. Suyuq alkanlarning suvga nisbatan zichligi qanday?
+A) Odatda suvdan yengil
+B) Har doim suvdan og'ir
+C) Suv bilan aynan teng
+D) Faqat bosimga bog'liq holda nol
+Javob: A
+Slayd: 19
+Izoh: Slaydda alkanlar suvdan yengil ekani qayd etilgan.
+
+33. Bir xil formulali normal va tarmoqlangan alkanlardan qaysisining qaynash harorati odatda yuqoriroq?
+A) Har doim tarmoqlanganniki
+B) Normal zanjirliniki
+C) Har ikkisining mutlaqo bir xil
+D) Faqat halqali izomerniki
+Javob: B
+Slayd: 19
+Izoh: Tarmoqlanmagan izomerda molekulalararo tortishish kuchliroq bo'lishi mumkin.
+
+34. Slaydda n-pentanning qaynash harorati taxminan qancha deb berilgan?
+A) 0°C
+B) 28°C
+C) 36°C
+D) 100°C
+Javob: C
+Slayd: 19
+Izoh: Slaydda n-pentan 36°C, izopentan 28°C deb ko'rsatilgan.
+
+35. Galogenalkanlarni o'zaro biriktirib alkan olishda qaysi metall ishlatiladi?
+A) Temir
+B) Kalsiy
+C) Mis
+D) Natriy
+Javob: D
+Slayd: 16
+Izoh: R–X + 2Na + X–R → R–R + 2NaX ko'rinishidagi reaksiyada natriy ishlatiladi.
+
+36. Natriy asetatni NaOH bilan qizdirib dekarboksillaganda qaysi alkan hosil bo'ladi?
+A) Metan
+B) Etan
+C) Propan
+D) Butan
+Javob: A
+Slayd: 16
+Izoh: CH3COONa + NaOH → CH4 + Na2CO3.
+
+37. Natriy asetat elektrolizida qaysi alkan hosil bo'ladi?
+A) Metan
+B) Etan
+C) Propan
+D) Butan
+Javob: B
+Slayd: 16
+Izoh: Ikki metil radikali birikib C2H6 hosil qiladi.
+
+38. CH3MgI organomagniy birikmasi suv bilan reaksiyaga kirishsa qaysi alkan olinadi?
+A) Etan
+B) Propan
+C) Metan
+D) Butan
+Javob: C
+Slayd: 18
+Izoh: CH3MgI gidrolizida CH4 hosil bo'lishi slaydda ko'rsatilgan.
+
+39. Alkenni katalizator ishtirokida vodorodlash natijasida nima olinadi?
+A) Aromatik kislota
+B) Spirt
+C) Aldegid
+D) Alkan
+Javob: D
+Slayd: 17
+Izoh: Qo'sh bog'ga H2 birikib to'yingan uglevodorod hosil bo'ladi.
+
+40. Al4C3 karbidini suv bilan gidrolizlaganda qaysi gaz hosil bo'ladi?
+A) Metan
+B) Etilen
+C) Asetilen
+D) Vodorod xlorid
+Javob: A
+Slayd: 16
+Izoh: Slayddagi tenglamada Al4C3 + 12H2O → 4Al(OH)3 + 3CH4.
+
+=== I3_3: KIMYOVIY XOSSALAR VA TERMIK O'ZGARISHLAR (41–60) ===
+
+41. Alkan to'liq yonganda asosan qaysi moddalar hosil bo'ladi?
+A) CO va H2
+B) CO2 va H2O
+C) C va NH3
+D) HCl va NaOH
+Javob: B
+Slayd: 21, 31
+Izoh: Kislorod yetarli bo'lganda uglerod CO2 ga, vodorod H2O ga aylanadi.
+
+42. Alkanlarning galogenlanishi odatda qaysi reaksiyalar turiga kiradi?
+A) Polimerlanish
+B) Gidroliz
+C) Almashinish (o'rin olish)
+D) Esterlanish
+Javob: C
+Slayd: 20–21
+Izoh: Galogen alkan molekulasidagi vodorod o'rnini egallaydi.
+
+43. Oddiy sharoitda alkanlarga qaysi kuchli oksidlovchi odatda ta'sir etmaydi?
+A) O2 alangada
+B) Havo yuqori haroratda
+C) O2 katalizator ishtirokida
+D) KMnO4
+Javob: D
+Slayd: 20
+Izoh: Slaydda oddiy sharoitda KMnO4 alkanlarga ta'sir etmasligi aytilgan.
+
+44. Metanni xlorlashda yorug'lik ta'sirida Cl2 dan dastlab nima hosil bo'ladi?
+A) Ikki xlor radikali
+B) Ikki metan molekulasi
+C) Karbonat angidrid
+D) Natriy xlorid
+Javob: A
+Slayd: 21
+Izoh: Cl2 ning gomolitik uzilishi zanjirli reaksiyani boshlaydi.
+
+45. Metanni xlorlash zanjiri davomida Cl radikali CH4 dan nimani ajratib oladi?
+A) Uglerod atomini
+B) Vodorod atomini
+C) Kislorod atomini
+D) Xlor atomini
+Javob: B
+Slayd: 21
+Izoh: Cl· + CH4 → HCl + CH3·.
+
+46. CH3 radikali Cl2 bilan reaksiyaga kirishganda asosiy qaysi organik mahsulot hosil bo'ladi?
+A) C2H4
+B) CH3OH
+C) CH3Cl
+D) CCl4
+Javob: C
+Slayd: 21
+Izoh: CH3· + Cl2 → CH3Cl + Cl·.
+
+47. Ikki CH3 radikali birikishi zanjir reaksiyasining qaysi bosqichiga misol?
+A) Initsirlash
+B) Gidroliz
+C) Kondensatsiya
+D) Zanjirning uzilishi
+Javob: D
+Slayd: 21
+Izoh: 2CH3· → C2H6 bosqichida radikallar yo'qoladi.
+
+48. Slaydda galogenlarning alkanlar bilan reaksion faollik tartibi qanday berilgan?
+A) F > Cl > Br > I
+B) I > Br > Cl > F
+C) Br > F > I > Cl
+D) Cl > I > F > Br
+Javob: A
+Slayd: 22
+Izoh: Slaydda yod J belgisi bilan yozilgan; bu yerda I xalqaro belgi ishlatilgan.
+
+49. Slaydga ko'ra qaysi galogenlash ko'proq regioselektiv?
+A) Ftorlash
+B) Bromlash
+C) Xlorlash
+D) Barchasi teng
+Javob: B
+Slayd: 38
+Izoh: Bromlash xlorlashga nisbatan ma'lum o'rindagi C–H bog'iga tanlovchanroq.
+
+50. Alkanni nitrolash natijasida qaysi turdagi organik modda hosil bo'ladi?
+A) Spirt
+B) Alken
+C) Nitroalkan
+D) Efir
+Javob: C
+Slayd: 27–28
+Izoh: Nitrolanishda vodorod o'rniga NO2 guruhi kiradi.
+
+51. Alkanlarning sulfoxlorlanishida hosil bo'ladigan mahsulot qaysi turga kiradi?
+A) Alken
+B) Keton
+C) Spirt
+D) Alkilsulfonilxlorid
+Javob: D
+Slayd: 29
+Izoh: Mahsulotning umumiy ko'rinishi R–SO2Cl.
+
+52. Alkanlarning sulfooksidlanishida qaysi birikmalar hosil bo'lishi mumkin?
+A) Alkansulfon kislotalar
+B) Faqat alkenlar
+C) Faqat aminlar
+D) Faqat alkilgalogenidlar
+Javob: A
+Slayd: 30
+Izoh: Slaydda R–SO3H turidagi mahsulotlar berilgan.
+
+53. Freonlar kimyoviy jihatdan qanday birikmalar?
+A) Alkanlarning faqat kislorodli hosilalari
+B) Quyi alkanlarning ftorxlorli hosilalari
+C) Faqat alkinlarning bromli hosilalari
+D) Faqat aromatik uglevodorodlar
+Javob: B
+Slayd: 23
+Izoh: Slaydda freonlar quyi alkanlarning ftorxlorli hosilalari deb ta'riflangan.
+
+54. Piroliz atamasi nimani anglatadi?
+A) Sovitib kristallantirishni
+B) Filtrlashni
+C) Qizdirilganda moddaning parchalanishini
+D) Suvda eritishni
+Javob: C
+Slayd: 34
+Izoh: Alkanlar yuqori haroratda parchalanishi mumkin.
+
+55. Alkanning degidrogenlanishida nima ajralib chiqadi?
+A) H2O
+B) CO2
+C) HCl
+D) H2
+Javob: D
+Slayd: 34, 39
+Izoh: CnH2n+2 → CnH2n + H2.
+
+56. Alkanning degidrogenlanishi natijasida organik mahsulot sifatida nima hosil bo'lishi mumkin?
+A) Alken
+B) Karbonat kislota
+C) Oqsil
+D) Tuz
+Javob: A
+Slayd: 39
+Izoh: Vodorod ajralishi natijasida alkan alken tarkibiga o'tadi.
+
+57. Kreking jarayonining asosiy maqsadi nima?
+A) Kichik molekulalarni faqat polimerlash
+B) Og'ir uglevodorodlarni kichikroq molekulalarga parchalash
+C) Suvni elektroliz qilish
+D) Tuzlarni kristallantirish
+Javob: B
+Slayd: 35
+Izoh: Neftning og'ir fraksiyalaridan yengil uglevodorodlar olinadi.
+
+58. Slayddagi oktan krekingi misolida C8H18 qaysi juftlikka parchalanadi?
+A) C2H6 + C6H12O
+B) CH4 + C7H16
+C) C4H10 + C4H8
+D) C8H16 + O2
+Javob: C
+Slayd: 35
+Izoh: C8H18 → C4H10 + C4H8 tenglama atomlar soni bo'yicha muvozanatlangan.
+
+59. Alkanlarning izomerlanishida n-alkan qanday birikmaga aylanishi mumkin?
+A) Spirtga
+B) Aldegidga
+C) Karbonat kislotaga
+D) Izoalkanga
+Javob: D
+Slayd: 37
+Izoh: Slaydda n-alkan va izoalkan o'rtasida muvozanat hosil bo'lishi ko'rsatilgan.
+
+60. Izooktanning sistematik nomi qaysi?
+A) 2,2,4-trimetilpentan
+B) n-oktan
+C) 2-metilpropan
+D) 3-etilgeksan
+Javob: A
+Slayd: 35
+Izoh: Slaydda izooktan C8H18 ning 2,2,4-trimetilpentan tuzilishi berilgan.
