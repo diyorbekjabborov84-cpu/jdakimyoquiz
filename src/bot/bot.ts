@@ -12,9 +12,11 @@ import {
 } from "./handlers/quiz.js";
 import { handlePollAnswer } from "./handlers/pollAnswer.js";
 import { handleMyChatMember, handleNewChatMembers } from "./handlers/groupWelcome.js";
+import { trackGroupUpdate } from "../tracking/groupRegistry.js";
 
 export function createBot(token: string): Bot {
   const bot = new Bot(token);
+  bot.use(trackGroupUpdate);
 
   // Bot guruhga qo'shilganda yo'riqnoma yuborish
   bot.on("my_chat_member", handleMyChatMember);

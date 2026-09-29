@@ -5,6 +5,7 @@ import {
   checkChannelSubscriptions,
   buildSubscriptionMessageAndKeyboard,
 } from "../guards/subscriptionGuard.js";
+import { trackGroupEvent, trackUserEvent } from "../../tracking/tracker.js";
 
 export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
   const isGroup = ctx.chat.type === "group" || ctx.chat.type === "supergroup";
@@ -26,6 +27,20 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
   }
 
   if (isGroup) {
+    trackGroupEvent(ctx.chat.id, {
+      title: (ctx.chat as any).title,
+      type: ctx.chat.type,
+      status: "active",
+    }).catch(() => {});
+
+    if (ctx.from) {
+      trackUserEvent(ctx.from.id, {
+        firstName: ctx.from.first_name,
+        lastName: ctx.from.last_name,
+        username: ctx.from.username,
+      }).catch(() => {});
+    }
+
     const text =
       `🧪 <b>JDA Kimyo Quiz Boti faol!</b>\n\n` +
       `Salom, guruh a'zolari! Ushbu bot guruhda kimyo fanidan ko'p savolli interaktiv quizlar o'tkazish uchun mo'ljallangan.\n\n` +
@@ -47,6 +62,14 @@ export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
     await ctx.reply("⚠️ Foydalanuvchi aniqlanmadi. Iltimos, qayta urinib ko'ring.");
     return;
   }
+
+  // Shaxsiy chat ochgan foydalanuvchini Firestore'da qayd etish
+  trackUserEvent(userId, {
+    firstName: ctx.from?.first_name,
+    lastName: ctx.from?.last_name,
+    username: ctx.from?.username,
+    privateChatActive: true,
+  }).catch(() => {});
 
   const subscription = await checkChannelSubscriptions(ctx.api, userId);
   if (subscription.status === "error") {

@@ -16,6 +16,7 @@ import { handleStart } from "../src/bot/handlers/start.js";
 
 // Mock Telegram API Sender
 class MockTelegramApi implements TelegramApiSender {
+  async getChatMemberCount(_chatId: number | string) { return 13; }
   public sentMessages: Array<{ chatId: number | string; text: string; other?: any }> = [];
   public sentPolls: Array<{
     chatId: number | string;

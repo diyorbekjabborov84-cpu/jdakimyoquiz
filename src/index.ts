@@ -4,6 +4,7 @@ import { createApp } from "./server/app.js";
 import { quizManager } from "./quiz/quizManager.js";
 import { initFirestore, checkFirestoreHealth } from "./firebase/firestore.js";
 import { initDatabase, checkDatabaseHealth } from "./database/db.js";
+import { restoreHistoricalGroups } from "./tracking/groupRegistry.js";
 
 async function bootstrap() {
   console.log("🚀 JDA Kimyo Quiz boti ishga tushirilmoqda...");
@@ -62,9 +63,16 @@ async function bootstrap() {
     console.log(`🩺 [Health Check] http://localhost:${config.PORT}/health`);
   });
 
+  if (config.NODE_ENV === "production") {
+    void restoreHistoricalGroups(bot.api)
+      .then((result) => console.log("[GroupRegistry] Eski guruhlarni tiklash:", result))
+      .catch(() => console.error("[GroupRegistry] Tiklash tugamadi; keyingi ishga tushishda qayta uriniladi."));
+  }
+
   // 6. Bot update'larini qabul qilish
   const allowedUpdates = [
     "message",
+    "edited_message",
     "poll",
     "poll_answer",
     "chat_member",
@@ -78,7 +86,7 @@ async function bootstrap() {
     await bot.api.setWebhook(`${config.WEBHOOK_URL}/webhook`, {
       secret_token: config.WEBHOOK_SECRET,
       allowed_updates: [...allowedUpdates],
-      drop_pending_updates: true,
+      drop_pending_updates: false,
     });
     console.log("✅ [Bot] Telegram Webhook muvaffaqiyatli o'rnatildi.");
   } else {

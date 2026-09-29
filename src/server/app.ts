@@ -3,6 +3,7 @@ import { Bot, webhookCallback } from "grammy";
 import { EnvConfig } from "../config/env.js";
 import { checkFirestoreHealth } from "../firebase/firestore.js";
 import { checkDatabaseHealth } from "../database/db.js";
+import { createAdminRouter } from "./adminRoutes.js";
 
 export function createApp(
   bot: Bot,
@@ -66,6 +67,9 @@ export function createApp(
       message: "JDA Kimyo Quiz Telegram Boti serveri muvaffaqiyatli ishlamoqda.",
     });
   });
+
+  // Admin panel API routeri
+  app.use("/api", createAdminRouter(config));
 
   // Agar webhook rejimi yoqilgan bo'lsa (Render / production)
   if (config.NODE_ENV === "production" && config.WEBHOOK_URL) {

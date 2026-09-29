@@ -13,6 +13,7 @@ export async function handleHelp(ctx: CommandContext<Context>): Promise<void> {
     `• /stop yoki /stopquiz — Faol quizni to'xtatish (faqat guruh admini)\n\n` +
     `🔹 <b>Foydalanish tartibi:</b>\n` +
     `1. <b>Guruhda:</b> Quizni guruhning istalgan a'zosi /quiz_&lt;ID&gt; orqali boshlashi, qayta yechishi yoki davom ettirishi mumkin. Faol quizni to'xtatish (/stop) esa faqat guruh adminiga berilgan.\n` +
+    `   Quizni boshlash yoki davom ettirish uchun guruhda botdan tashqari kamida 12 kishi bo'lishi kerak.\n` +
     `2. <b>Shaxsiy chatda:</b> /quiz orqali kodlar kanalini oching. Testlar shaxsiy chatda boshlanmaydi.\n` +
     `3. <b>Guruh havolalari:</b> Har bir quiz uchun guruhga qo'shish havolasi mavjud (masalan: <code>https://t.me/&lt;bot_username&gt;?startgroup=quiz_&lt;ID&gt;</code>).\n` +
     `4. Savollar rasmiy Telegram <b>Quiz Poll</b> shaklida beriladi, har biriga 20 soniya vaqt ajratiladi.\n` +

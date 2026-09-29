@@ -1385,3 +1385,238 @@ Foydalanuvchining yangi qarori va Codex talablari asosida guruhdagi yakuniy nati
 - **Git commit va push qilinmadi**.
 - **Render deploy qilinmadi**.
 - Kod va hisobot to'liq tayyor bo'lib, Codex tekshiruvini kutmoqda.
+
+---
+
+## 13. Admin Panel — 1-Bosqich Amalga Oshirilishi Hisoboti
+
+- **Sana va vaqt**: 2026-09-29 01:15:00 (Toshkent vaqti)
+- **Topshiriq hujjati**: `ANTIGRAVITY_ADMIN_PANEL_BOSQICH1.md` va `ADMIN_PANEL_TALABLARI.md`
+- **Vercel hisobi va jamoasi**: `diyorbekjabborov84@gmail.com` (Verified Primary), jamoa: `jda-group`. Vercel Root Directory: `admin`.
+
+### 1. Amalga Oshirilgan Arxitektura va Imkoniyatlar
+
+1. **Alohida `admin/` Next.js loyihasi**:
+   - Next.js 14 (App Router) + TypeScript + zamonaviy, toza, moslashuvchan (responsive) o'zbekcha dizayn.
+   - Vercel monorepo sozlamasi: Root Directory `admin`, Vercel jamoasi `jda-group`.
+   - Boshqaruv modullari:
+     - `/login`: Telegram Login Widget orqali rasmiy kirish vidjeti (`data-telegram-login="jdakimyoquizbot"`), xatoliklar (ruxsatsiz ID, fail-closed, eskirgan auth) bo'yicha tushunarli o'zbekcha bildirishnomalar.
+     - `/`: Bosh sahifa (Dashboard) — Render `/health` tiriklik indikatori (kechikish ms bilan), 4 ta asosiy real KPI kartalari (`groupsCount`, `usersCount`, `quizzesCount`, `resultsCount`), tezkor havolalar.
+     - `/groups`: Guruhlar ro'yxati — guruh nomi, Chat ID, turi (supergroup/group), bot holati (Faol, Chiqib ketgan, Haydalgan), a'zolar soni (noma'lum bo'lsa `noma'lum`), oxirgi faollik sanasi, jonli qidiruv.
+     - `/users`: Foydalanuvchilar ro'yxati — ismi, Telegram ID, username, shaxsiy chat holati (Faol/Quiz qatnashchisi), oxirgi faollik sanasi, jonli qidiruv.
+     - `/quizzes`, `/results`, `/broadcast`, `/settings`: Kelgusi bosqichlar modullari aniq qilib `Keyingi bosqichda` yorlig'i bilan belgilangan (ishga tayyordek ko'rsatilmagan).
+
+2. **Render Serverida Telegram HMAC va Fail-Closed Autentifikatsiya**:
+   - `src/server/adminAuth.ts`:
+     - `verifyTelegramAuth`: Telegram rasmiy spetsifikatsiyasi bo'yicha bot tokenidan `SHA256` orqali maxfiy kalit olinadi, barcha maydonlar alfavit tartibida yig'ilib `HMAC-SHA256` tekshiriladi (`crypto.timingSafeEqual`).
+     - `auth_date` yangiligi tekshiriladi (24 soatdan oshmagan va kelajakdagi noaniq sana bo'lmagan).
+     - Telegram `id` serverdagi `ADMIN_TELEGRAM_ID` raqamli ID bilan qat'iy solishtiriladi.
+     - **Fail-closed**: Agar `ADMIN_TELEGRAM_ID` sozlanmagan bo'lsa yoki bo'sh bo'lsa, tizim 503 bilan barcha kirishlarni darhol to'xtatadi.
+     - Frontendga yoki brauzerga bot tokeni yoki Firebase service account aslo chiqmaydi.
+
+3. **Vercel Domenida Xavfsiz Sessiya (BFF Arxitekturasi)**:
+   - `createAdminSessionToken`: HMAC-SHA256 bilan imzolangan xavfsiz vaqt chegarali (7 kun) sessiya tokeni.
+   - Vercel BFF API (`/api/auth/login`) orqali brauzerda `HttpOnly`, `Secure`, `SameSite: lax` cookie (`admin_session`) o'rnatiladi.
+   - Brauzer Render API'ga bevosita admin tokenini yubormaydi; Next.js server route'lari vositachilik qiladi (`admin/app/api/...`).
+   - Render har bir so'rovda `requireAdminAuth` orqali imzolangan sessiyani va admin IDni qayta tekshiradi.
+
+4. **Cloud Firestore Asinxron Kuzatuvi (Tracking & Idempotency)**:
+   - `src/tracking/tracker.ts`:
+     - `trackGroupEvent`: Guruhga bot qo'shilishi (`my_chat_member`, `new_chat_members`), guruh `/start` va quiz boshlanishida `groups/{chatId}` hujjatiga asinxron upsert qilinadi.
+     - `trackUserEvent`: Shaxsiy `/start` va quiz `poll_answer` javoblarida `bot_users/{userId}` hujjatiga asinxron upsert qilinadi.
+     - Telegram bermaydigan noaniq a'zolar sun'iy ravishda ko'rsatilmaydi; a'zolar soni noma'lum bo'lsa `noma'lum` saqlanadi.
+     - Barcha Firestore operatsiyalari non-blocking (asinxron) bo'lib, Telegram quiz oqimi yoki `poll_answer` tezligiga mutlaqo to'sqinlik qilmaydi; xatoliklar botni yiqitmaydi va logda qayd etiladi.
+     - Hujjat IDlari `chatId` va `userId` bo'lgani uchun dublikat hujjatlar hosil bo'lmaydi.
+   - `getOverviewStats`: Firestore'dagi `count().get()` so'rovlari 30 soniyalik in-memory kesh bilan himoyalangan (qimmat to'liq skan qilinmaydi).
+
+5. **Konfiguratsiya va Hujjatlar**:
+   - `admin/.env.example`: Vercel uchun zarur `RENDER_API_URL` va `NEXT_PUBLIC_BOT_USERNAME` faqat nom va izoh bilan berildi.
+   - `.env.example`: Render uchun `ADMIN_TELEGRAM_ID`, `ADMIN_SESSION_SECRET`, `ADMIN_CORS_ORIGIN` qo'shildi.
+   - `admin/README.md`: Loyihani o'rnatish, lokal run, Vercel monorepo importida Root Directory `admin` sozlash, va BotFather `/setdomain` yo'riqnomasi yozildi.
+
+### 2. BotFather orqali Domen Bog'lash Ko'rsatmasi (Deploydan Keyin)
+
+Vercel'da admin paneli deploy qilingandan so'ng Telegram Login Widget ishlashi uchun quyidagi amal bajariladi:
+1. Telegram'da [@BotFather](https://t.me/BotFather) botiga `/setdomain` buyrug'i yuboriladi.
+2. Botlar ro'yxatidan `@jdakimyoquizbot` tanlanadi.
+3. Vercel domeni kiritiladi (masalan: `jda-kimyo-quiz-admin.vercel.app` — boshida `https://`siz).
+4. BotFather: `Success! Domain linked.` xabarini beradi.
+
+### 3. Kompilyatsiya va Test Natijalari
+
+- **Root TypeScript build (`npm run build`)**: **Exit code 0** (toza kompilatsiya).
+- **Admin Next.js build (`cd admin && npm run build`)**: **Exit code 0** (barcha 18 ta statik va dinamik sahifalar toza qurildi).
+- **Admin Unit & Integration testlar (`test/admin-auth-tracking.test.ts`)**:
+  - Telegram to'g'ri HMAC va ruxsatli ID: ✅ Muvaffaqiyatli
+  - Noto'g'ri HMAC imzosi: ✅ Rad etildi (INVALID_HASH)
+  - Eskirgan `auth_date` (> 24 soat): ✅ Rad etildi (EXPIRED_AUTH)
+  - Kelajakdagi noaniq `auth_date`: ✅ Rad etildi (EXPIRED_AUTH)
+  - Boshqa (ruxsatsiz) Telegram ID: ✅ Rad etildi (UNAUTHORIZED_ADMIN)
+  - Missing `ADMIN_TELEGRAM_ID` (Fail-closed): ✅ Rad etildi (ADMIN_NOT_CONFIGURED)
+  - Imzolangan sessiya tokeni yaratish va tasdiqlash: ✅ Muvaffaqiyatli
+  - Soxta yoki buzilgan sessiya tokeni: ✅ Rad etildi (SIGNATURE_INVALID)
+  - Muddati o'tgan sessiya tokeni: ✅ Rad etildi (TOKEN_EXPIRED)
+  - Begona ID sessiya tokeni: ✅ Rad etildi (UNAUTHORIZED_ADMIN)
+  - Express POST `/api/auth/telegram`: ✅ 200 token beradi / 403 begona ID
+  - Himoyalangan endpointlar (`/overview`, `/groups`, `/users`): ✅ 401 tokensiz / 200 to'g'ri token bilan
+  - Asinxron tracking va xatoliklarga chidamlilik: ✅ Non-blocking va xavfsiz
+  - Mavjud quiz savollari butunligi: ✅ Barcha 19 ta quiz saqlangan
+
+### 4. Holat va Qat'iy Cheklovlar
+
+- **Git commit va push qilinmadi**.
+- **Render va Vercel'ga deploy qilinmadi**.
+- Loyiha to'liq mahalliy holatda saqlandi va Codex tekshiruviga tayyor.
+
+---
+
+## 14. Admin Panel — 1-Bosqich Qayta Topshiriq Tuzatishlari Hisoboti
+
+- **Sana va vaqt**: 2026-09-29 07:48:00 (Toshkent vaqti)
+- **Topshiriq hujjati**: `ANTIGRAVITY_ADMIN_PANEL_QAYTA_TOPSHIRIQ.md`
+
+### 1. Autentifikatsiya va Sessiya Xavfsizligi Tuzatishlari
+
+1. **Qat'iy CORS nazorati (`src/server/adminRoutes.ts`)**:
+   - Production muhitida (`NODE_ENV === "production"`) wildcard `*`, har qanday substring yoki blanket `*.vercel.app` domenlari mutlaqo taqiqlandi.
+   - Faqat va faqat `ADMIN_CORS_ORIGIN` da aniq ko'rsatilgan origin bilan to'liq teng bo'lgandagina (`origin === config.ADMIN_CORS_ORIGIN.trim()`) `Access-Control-Allow-Origin` sarlavhasi beriladi. Aks holda hech qanday CORS sarlavhasi ochilmaydi.
+   - Development/test muhitida esa faqat aniq konfiguratsiya yoki `localhost:3000/3001` ga ruxsat beriladi.
+
+2. **Next.js BFF Mutatsiyalarida Same-Origin va CSRF Himoyasi (`admin/lib/csrf.ts`)**:
+   - `verifyMutationOrigin` yordamchisi yaratildi va `admin/app/api/auth/login/route.ts` hamda `logout/route.ts` ga ulandi.
+   - Brauzer yuborgan `Origin` yoki `Referer` sarlavhasi Next.js ilovasining o'z `Host` domeni yoki `ADMIN_ALLOWED_ORIGIN` bilan qat'iy solishtiriladi.
+   - Agar `sec-fetch-site: cross-site` bo'lsa yoki begona domen bo'lsa, so'rov darhol `403 CSRF_FORBIDDEN` bilan rad etiladi.
+
+3. **Statik/avtomatik Sessiya Siri Fallbackini Tozalash va Fail-Closed (`src/server/adminAuth.ts`)**:
+   - `getSessionSecret` dagi statik fallback (`fallback_insecure_key_change_in_production`) va bot tokenidan hosil qilinadigan avtomatik fallback to'liq olib tashlandi.
+   - `ADMIN_SESSION_SECRET` kamida 32 belgidan iborat kuchli kalit bo'lishi shart, aks holda tizim fail-closed bo'lib `SECRET_NOT_CONFIGURED` (503) xatosini beradi.
+   - `verifyAdminSessionToken` da `iat` va `exp` sonli ekanligi, `iat <= now + 60` va `session.exp - session.iat <= 7 * 86400` (maksimal umr 7 kun) ekanligi qat'iy tekshiriladi (`TOKEN_INVALID_EXPIRY`, `TOKEN_MALFORMED`).
+
+4. **Telegram Login Yangiligi va Kutilmagan Maydonlarni Rad Etish**:
+   - `auth_date` qayta ishlatish (replay) oynasi 24 soatdan **5 daqiqaga (300 soniya)** tushirildi.
+   - Kutilmagan maydonlar kiritilganda `UNEXPECTED_FIELD` xatosi bilan rad etiladi.
+   - Primitiv bo'lmagan (obyekt/massiv) maydonlar `INVALID_FIELD_TYPE` bilan rad etiladi.
+   - 64 belgili hex bo'lmagan soxta xeshlar `RangeError` bermasdan `INVALID_HASH` bilan rad etiladi.
+
+5. **`admin/lib/auth.ts` Production Xatoligi**:
+   - Production muhitida `RENDER_API_URL` sozlanmagan bo'lsa, jimgina `localhost:3000` ga o'tmasdan aniq `RENDER_API_URL_NOT_CONFIGURED` istisnosini tashlaydi.
+
+### 2. Firestore Ma'lumotlari To'g'riligi va Race Condition Himoyasi
+
+1. **Xatoliklarni Keshlamaslik va 503 Propagatsiyasi (`src/tracking/tracker.ts` & `adminRoutes.ts`)**:
+   - `getOverviewStats` bazadagi xatolikni ushlab soxta `0` qaytarmaydi va uni 30 soniyalik keshga qo'ymaydi; istisno tashlaydi va API `503 DATABASE_UNAVAILABLE` qaytaradi.
+   - `cachedStats` faqat va faqat barcha count aggregatsiyalari 100% muvaffaqiyatli yakunlangandagina yangilanadi.
+   - Faol guruhlar soni (`status == "active"`) bilan barcha tarixiy guruhlar soni alohida hisoblanadi.
+
+2. **Server Qidiruvi va Sahifalash (Cursor Pagination)**:
+   - `getGroupsList` va `getUsersList`:
+     - Aniq sonli ID qidirilganda (masalan `-10012345678` yoki `555111`): butun kolleksiya bo'ylab to'g'ridan-to'g'ri `doc(id)` orqali barcha yozuvlar ichidan topiladi.
+     - Matnli qidiruvda: `titleLower`, `nameLower`, `usernameLower` bo'yicha server-side prefix qidiruvi ishlaydi (`>= qLower && <= qLower + '\uf8ff'`).
+     - Sahifalash: `limit` va `cursor` (lastActivity) orqali `startAfter(cursor)` ishlaydi. 50 tadan ko'p bo'lsa `nextCursor` qaytariladi va UI'da "Keyingi sahifani yuklash ⬇️" tugmasi chiqadi.
+     - `total` maydonida faqat joriy sahifa uzunligi emas, butun kolleksiyaning real soni ko'rsatiladi.
+
+3. **Race Condition Himoyasi (Kechikkan `active` hodisadan himoya)**:
+   - `trackGroupEvent` va `trackUserEvent` Firestore tranzaksiyasi (`runTransaction`) ichida ishlaydi.
+   - Har bir hodisaga `eventTimestamp` biriktiriladi.
+   - Agar guruh allaqachon `left` yoki `kicked` bo'lsa va kechikkan `active` hodisa kelsa (uning `eventTimestamp`i mavjud holat vaqtidan oldinroq bo'lsa), u e'tiborsiz qoldiriladi va guruh holati `kicked`ligicha qoladi.
+
+4. **Tarixiy Guruhlar Bo'yicha Panel Ogohlantirishi**:
+   - Bosh sahifa va ro'yxat sahifalarida: `📌 Bot kuzatuvi yoqilgandan keyin qayd etilgan ma'lumotlar ko'rsatilmoqda` ogohlantirishi qo'shildi.
+
+5. **Tarixiy Ma'lumotlarni Backfill Qilish Rejasi (Idempotent & Xavfsiz)**:
+   - **Manba**: Cloud Firestore'dagi mavjud `quiz_sessions` va `quiz_results` kolleksiyalari.
+   - **Skript algoritmi**:
+     1. `quiz_sessions` va `quiz_results` hujjatlari o'qiladi.
+     2. Har bir unikal `chatId` uchun: agar `groups/{chatId}` mavjud bo'lmasa, `set({ chatId, title: doc.groupTitle || "Guruh", titleLower: (doc.groupTitle || "guruh").toLowerCase(), type: "supergroup", status: "active", memberCount: null, lastActivity: doc.createdAt, updatedAt: doc.createdAt, eventTimestamp: Date.parse(doc.createdAt) || 0 }, { merge: true })` bajariladi.
+     3. Har bir natijadagi ishtirokchi `userId` uchun: `bot_users/{userId}` hujjatiga `set({ userId, firstName: p.firstName || "Foydalanuvchi", nameLower: (p.firstName || "foydalanuvchi").toLowerCase(), username: p.username || null, usernameLower: p.username ? p.username.toLowerCase() : null, privateChatActive: false, lastActivity: doc.createdAt, updatedAt: doc.createdAt }, { merge: true })` bajariladi.
+   - **Idempotentlik kafolati**: Hujjat IDlari aynan `chatId` va `userId` bo'lganligi hamda `{ merge: true }` ishlatilganligi sababli mavjud ma'lumotlar buzilmaydi, takroriy hujjatlar hosil bo'lmaydi va xavfsiz to'ldiriladi.
+
+### 3. Kompilyatsiya va Test Natijalari
+
+- **Root TypeScript build (`npm run build`)**: **Exit code 0** (toza kompilatsiya).
+- **Admin Next.js build (`cd admin && npm run build`)**: **Exit code 0** (barcha 18 ta statik va dinamik sahifalar toza qurildi).
+- **Admin Unit & Integration testlar (`test/admin-auth-tracking.test.ts`)**:
+  - Telegram to'g'ri HMAC va ruxsatli ID: ✅ Muvaffaqiyatli
+  - Kutilmagan begona maydonlar rad etilishi (`UNEXPECTED_FIELD`): ✅ Rad etildi
+  - Primitiv bo'lmagan maydon turi (`INVALID_FIELD_TYPE`): ✅ Rad etildi
+  - 5 daqiqadan (300 soniya) oshgan `auth_date` (`EXPIRED_AUTH`): ✅ Rad etildi
+  - Kelajakdagi noaniq `auth_date`: ✅ Rad etildi
+  - Noto'g'ri va buzilgan HMAC xeshlar: ✅ Rad etildi
+  - Begona Telegram ID va sozlanmagan admin (fail-closed): ✅ Rad etildi
+  - Zaif / yo'q `ADMIN_SESSION_SECRET` (<32 belgi): ✅ Rad etildi
+  - 7 kundan oshiq umrga ega token (`TOKEN_INVALID_EXPIRY`): ✅ Rad etildi
+  - Noto'g'ri formatdagi iat/exp token (`TOKEN_MALFORMED`): ✅ Rad etildi
+  - Next.js mutatsiyalarida Same-Origin va CSRF himoyasi: ✅ Muvaffaqiyatli
+  - Productionda `RENDER_API_URL` yo'qligi xatosi: ✅ Muvaffaqiyatli
+  - Mock Firestore upsert va race condition himoyasi: ✅ Muvaffaqiyatli
+  - 55 ta yozuv bo'yicha cursor sahifalash va qidiruv: ✅ Muvaffaqiyatli
+  - Firestore xatosi propagatsiyasi (noto'g'ri 0 keshlanmasligi): ✅ Muvaffaqiyatli
+  - Production CORS qat'iyligi (begona vercel.app va localhost rad etilishi): ✅ Muvaffaqiyatli
+  - Barcha 19 ta mavjud quizlar butunligi: ✅ Saqlangan
+
+### 4. Holat va Qat'iy Cheklovlar
+
+- **Git commit va push qilinmadi**.
+- **Render va Vercel'ga deploy qilinmadi**.
+- Barcha o'zgarishlar mahalliy ishchi daraxtda saqlanmoqda.
+
+---
+
+### 15. Admin Panel — Qidiruv va Sahifalashni Yakunlash (Barqaror Composite Cursor, Deduplikatsiya va UI Debounce/Abort)
+
+- **Vazifaning Maqsadi**:
+  1. Guruh va foydalanuvchilar ro'yxatida yagona `lastActivity` bo'yicha sahifalashdagi beqarorlik (bir xil vaqtli hujjatlar o'tkazib yuborilishi yoki takrorlanishi) muammosini hujjat IDsi (`__name__`) bilan birlashtirilgan barqaror composite cursor orqali bartaraf etish.
+  2. Jami yozuvlar soni sahifa hajmiga (masalan, 50 ta) teng bo'lganda soxta bo'sh sahifa yoki ortiqcha "Keyingi sahifani yuklash" tugmasi chiqishining oldini olish uchun `limit + 1` qidiruv shablonini joriy etish.
+  3. Foydalanuvchilarni username va ism bo'yicha qidirishda har ikkala shartga tushuvchi foydalanuvchilarning takror chiqishi yoki sahifalash oralig'ida tushib qolishini 2-bosqichli deduplikatsiyalangan qidiruv algoritmi orqali hal qilish.
+  4. Noto'g'ri yoki buzilgan cursor uzatilganda `InvalidCursorError` orqali Express API'da to'g'ri `400 Bad Request` qaytarilishini ta'minlash.
+  5. Next.js BFF marshrutlarida (`/api/groups` va `/api/users`) `cursor` parametrining Render Express API'ga to'liq uzatilishini saqlash.
+  6. Frontend UI'da (`groups/page.tsx` va `users/page.tsx`) 300ms qidiruv debounce'i, eskirgan in-flight so'rovlarni bekor qiluvchi `AbortController` va ketma-ketlik hisoblagichini kiritish, sahifa yuklanayotganda yuklash tugmasini bloklash (`loadingMore`).
+  7. 65 ta guruh va 65 ta foydalanuvchi bo'yicha kengaytirilgan mock Firestore va Express API integratsiya testlarini yozish va barcha mavjud quizlar butunligini tekshirish.
+
+- **Amalga Oshirilgan Ishlar**:
+  1. **Barqaror Composite Cursor va `limit + 1` Arxitekturasi (`src/tracking/tracker.ts`)**:
+     - `encodeCursor(payload)` va `decodeCursor(cursorStr)`: JSON ma'lumotlarini Base64url formatida xavfsiz kodlash va dekodlash.
+     - `InvalidCursorError`: yaroqsiz base64, buzilgan JSON yoki kutilmagan formatdagi cursorlar uchun maxsus xatolik klassi.
+     - Standart ro'yxatlarda barqaror saralash: `.orderBy("lastActivity", "desc").orderBy("__name__", "desc")`. Bir xil `lastActivity` vaqtiga ega yuzlab yozuvlar bo'lsa ham, ikkilamchi unikal hujjat IDsi hisobiga deterministik sahifalash kafolatlandi.
+     - Guruh qidiruvida saralash: `.orderBy("titleLower", "asc").orderBy("__name__", "asc")`.
+     - `limit + 1` shabloni: Firestore'dan so'ralgan `limit` miqdoridan 1 ta ko'p yozuv olinadi. Agar yozuvlar soni `limit`dan oshsa — `hasMore = true` va oxirgi yozuv bo'yicha `nextCursor` shakllantiriladi, ortiqcha 1 ta yozuv kesib olinadi. Agar yozuvlar soni `<= limit` bo'lsa — `hasMore = false` va `nextCursor = null`. Bu orqali chegaradagi holatlarda (masalan, aynan 50 ta natija) soxta bo'sh sahifa chiqishi to'xtatildi.
+     - Foydalanuvchilarni 2-bosqichli qidirish:
+       - 1-bosqich: `usernameLower` prefix mosliklari (`orderBy("usernameLower").orderBy("__name__")`).
+       - 2-bosqich: `nameLower` prefix mosliklari (`orderBy("nameLower").orderBy("__name__")`), bunda `usernameLower` ham mos kelgan yozuvlar avtomatik filtrlab o'tkazib yuboriladi. Natijada foydalanuvchilar ro'yxatida dublikatlar 0 taga keltirildi va sahifalash uzluksizligi saqlandi.
+     - Cursor validatsiyasi ma'lumotlar bazasi so'rovidan oldin bajarilishi ta'minlandi — noto'g'ri cursor bo'lsa, baza bilan aloqa uzilmasdan oldin darhol 400 xatosi qaytadi.
+
+  2. **Express API Xatolik Boshqaruvi (`src/server/adminRoutes.ts`)**:
+     - `/api/admin/groups` va `/api/admin/users` marshrutlarida `InvalidCursorError` xatosi tutib qolinadi va HTTP 400 `{ ok: false, error: "INVALID_CURSOR", message: "Cursor parametri yaroqsiz yoki noto'g'ri formatda." }` qaytariladi.
+     - Muvaffaqiyatli javoblarga `hasMore: boolean` maydoni kiritildi.
+
+  3. **Next.js BFF Marshrutlari (`admin/app/api/groups/route.ts` va `users/route.ts`)**:
+     - `getRenderApiUrl()` orqali so'rov yuborilganda `q`, `limit` bilan birga `cursor` parametri to'liq uzatiladi.
+     - Importlar nisbiy yo'l (`../../../lib/auth`) orqali to'g'rilandi, natijada ham Next.js bundlerida, ham test muhitlarida toza ishlaydi.
+
+  4. **Frontend UI Mukammallashtirilishi (`admin/app/groups/page.tsx` va `admin/app/users/page.tsx`)**:
+     - 300ms qidiruv debounce'i qo'shildi — har bir harf kiritilganda darhol so'rov yuborilmaydi, tarmoq yuki kamaytirildi.
+     - `AbortController` va `searchSeqRef` qo'shildi: foydalanuvchi tez yozganda avvalgi kutilayotgan so'rovlar bekor qilinadi va kechikib kelgan eski javoblar joriy natijalarni buzib yubormaydi.
+     - Qidiruv matni o'zgarganda ro'yxat, `nextCursor` va `hasMore` bir zumda tozalanadi.
+     - `loadingMore` holati joriy etildi: sahifalash tugmasi bosilganda u o'chiriladi (`disabled`), takroriy bosish orqali dublikat so'rov yuborilishi bloklandi.
+
+  5. **Kompilyatsiya va Test Natijalari**:
+     - `npm run build`: **Exit code 0** (TypeScript toza kompilatsiya).
+     - `cd admin && npm run build`: **Exit code 0** (Next.js 14 barcha 18 ta statik va dinamik sahifalari toza qurildi).
+     - `node test/run-tests.mjs admin-auth-tracking.test.ts`: **Exit code 0** (Barcha 6 ta yangi va chuqur integratsiya testlari muvaffaqiyatli o'tdi):
+       - Telegram HMAC va autentifikatsiya: ✅ O'tdi
+       - Admin sessiyasi tokeni va yaroqlilik muddati: ✅ O'tdi
+       - 65 ta bir xil prefixli guruh bilan barqaror composite cursor sahifalash: ✅ 100% to'g'ri va takrorlarsiz
+       - 65 ta foydalanuvchi bilan username/ism qidiruvi va 2-bosqichli deduplikatsiyasi: ✅ To'liq deduplikatsiya bilan o'tdi
+       - Bir xil `lastActivity` vaqtli 25 ta guruh bo'yicha barqaror (id+vaqt) composite cursor sahifalash: ✅ 0 ta takror, 0 ta yo'qotish
+       - Aynan 50 ta yozuvli chegara holati: ✅ `hasMore=false` va `nextCursor=null` to'g'ri ishladi, soxta tugma chiqmadi
+       - Noto'g'ri cursor uchun `InvalidCursorError` va Express API 400 `INVALID_CURSOR`: ✅ To'g'ri qaytarildi
+       - Next.js BFF route'larida cursor parametrining Render API'ga uzatilishi: ✅ To'liq uzatilmoqda
+       - Barcha 19 ta mavjud quizlar butunligi: ✅ To'liq saqlangan
+     - `npm test`: **Exit code 0** (Barcha 14 ta test to'plami, jumladan 20/20 saqlash va regression testlari, Cloud Firestore integratsiya testlari, barcha kimyo quiz testlari 100% muvaffaqiyatli o'tdi).
+
+- **Qat'iy Cheklovlar va Codex Tekshiruvi**:
+  - **Git push va Render/Vercel deploy qat'iyan bajarilmadi**.
+  - Barcha o'zgarishlar mahalliy ishchi daraxtda saqlanmoqda va Codex tekshiruviga to'liq tayyor.
+
+
+

@@ -2,7 +2,7 @@
 
 Holat: mahsulot talablari. Ushbu hujjat kod yozish va deploydan oldin Antigravity uchun topshiriq hamda Codex uchun qabul mezoni sifatida ishlatiladi.
 
-Ish tartibi: rus tili quizlari va guruhdagi pauza funksiyasi tekshirilib deploy qilingach, admin panel bosqichlariga o'tiladi. Hozirgi bosqichda panel kodi va panel deployi boshlanmaydi.
+Ish tartibi: foydalanuvchi admin panel ishini boshlashni so'radi. Bosqichma-bosqich bajariladi; har bosqichni Codex tekshirgach keyingisiga o'tiladi. Panel Vercel'dagi `diyorbekjabborov84@gmail.com` akkauntiga joylanadi; bu hosting akkaunti paneldagi admin autentifikatsiyasi o'rnini bosmaydi.
 
 ## Guruhdagi ruxsatlar (yangilangan qaror)
 

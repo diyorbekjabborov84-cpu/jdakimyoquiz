@@ -18,6 +18,9 @@ const allTestFiles = [
   "smart-pause-welcome.test.ts",
   "phase2-storage.test.ts",
   "firestore.test.ts",
+  "admin-auth-tracking.test.ts",
+  "group-size.test.ts",
+  "group-registry.test.ts",
 ];
 const requested = process.argv.slice(2);
 const testFiles = requested.length ? requested : allTestFiles;

@@ -21,6 +21,9 @@ const envSchema = z.object({
   DATABASE_URL: z.string().optional(),
   FIREBASE_SERVICE_ACCOUNT_JSON: z.string().optional(),
   FIREBASE_SERVICE_ACCOUNT_PATH: z.string().optional(),
+  ADMIN_TELEGRAM_ID: z.string().optional(),
+  ADMIN_SESSION_SECRET: z.string().optional(),
+  ADMIN_CORS_ORIGIN: z.string().optional(),
 }).superRefine((data, ctx) => {
   if (data.NODE_ENV === "production") {
     const fs = require("node:fs");

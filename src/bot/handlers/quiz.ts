@@ -1,8 +1,10 @@
 import { CommandContext, Context } from "grammy";
 import { isGroupAdmin } from "../guards/adminGuard.js";
 import { checkChannelSubscriptions } from "../guards/subscriptionGuard.js";
+import { checkGroupSize } from "../guards/groupSizeGuard.js";
 import { quizManager, escapeHtml } from "../../quiz/quizManager.js";
 import { getQuizById } from "../../quiz/questions.js";
+import { trackGroupEvent, trackUserEvent } from "../../tracking/tracker.js";
 
 /**
  * Quizni ID bo'yicha boshlashning umumiy yordamchi funksiyasi
@@ -49,6 +51,22 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
 
   // Guruhda: istalgan a'zo boshlashi mumkin, kanal obunasi talab qilinmaydi!
   if (isGroup) {
+    // Guruh va foydalanuvchi faolligini qayd etish
+    if (ctx.chat) {
+      trackGroupEvent(ctx.chat.id, {
+        title: (ctx.chat as any).title,
+        type: ctx.chat.type,
+        status: "active",
+      }).catch(() => {});
+    }
+    if (ctx.from) {
+      trackUserEvent(ctx.from.id, {
+        firstName: ctx.from.first_name,
+        lastName: ctx.from.last_name,
+        username: ctx.from.username,
+      }).catch(() => {});
+    }
+
     // Guruhda faol yoki pauzadagi quiz tekshiruvi
     if (ctx.chat && quizManager.isQuizActive(ctx.chat.id)) {
       const isPaused = quizManager.isQuizPaused(ctx.chat.id);
@@ -61,9 +79,13 @@ export async function startQuizById(ctx: Context, rawId: string): Promise<void> 
       return;
     }
 
-    if (ctx.chat) {
-      await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
+    const size = await checkGroupSize(ctx);
+    if (!size.allowed) {
+      await ctx.reply(`⚠️ ${size.message}`);
+      return;
     }
+    trackGroupEvent(ctx.chat!.id, { memberCount: size.peopleCount + 1 }).catch(() => {});
+    await quizManager.startQuiz(ctx.chat!.id, quiz, ctx.api);
     return;
   }
 
@@ -279,6 +301,12 @@ export async function handleRestartQuizCallback(ctx: Context): Promise<void> {
     return;
   }
 
+  const size = await checkGroupSize(ctx);
+  if (!size.allowed) {
+    await ctx.answerCallbackQuery({ text: size.message, show_alert: true });
+    return;
+  }
+
   const startResult = await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
   if (!startResult.success) {
     await ctx.answerCallbackQuery({
@@ -320,6 +348,12 @@ export async function handleResumeQuizCallback(ctx: Context): Promise<void> {
     return;
   }
 
+  const size = await checkGroupSize(ctx);
+  if (!size.allowed) {
+    await ctx.answerCallbackQuery({ text: size.message, show_alert: true });
+    return;
+  }
+
   const resumeResult = await quizManager.resumeQuiz(ctx.chat.id, ctx.api, match[2]);
 
   if (!resumeResult.success) {
@@ -358,6 +392,12 @@ export async function handleResumeCommand(ctx: CommandContext<Context>): Promise
     await ctx.reply(
       "ℹ️ Ushbu guruhda hozirda to‘xtatilgan (pauzadagi) quiz mavjud emas. Yangi quiz boshlash uchun /quiz buyrug'i yoki quiz kodini yuboring."
     );
+    return;
+  }
+
+  const size = await checkGroupSize(ctx);
+  if (!size.allowed) {
+    await ctx.reply(`⚠️ ${size.message}`);
     return;
   }
 
