@@ -20,6 +20,7 @@ const allTestFiles = [
   "phase2-storage.test.ts",
   "firestore.test.ts",
   "admin-auth-tracking.test.ts",
+  "ak1-quiz.test.ts",
   "group-size.test.ts",
   "group-registry.test.ts",
 ];

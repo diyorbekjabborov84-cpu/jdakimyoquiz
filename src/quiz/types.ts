@@ -5,6 +5,7 @@ export interface QuizQuestion {
   correctOptionId: number; // 0-based index
   explanation?: string;
   timeLimitSeconds: number;
+  imagePath?: string;
 }
 
 export interface Quiz {

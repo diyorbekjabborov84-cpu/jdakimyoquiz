@@ -683,8 +683,9 @@ async function runAdminTests() {
   // 6. Mavjud Barcha Quizlar Butunligi
   // -------------------------------------------------------------
   console.log("\n6. Mavjud barcha quizlar butunligi tekshiruvi...");
-  assert.strictEqual(allQuizzes.length, 19);
-  console.log("  ✅ Barcha 19 ta quiz va ularning savollari to'liq butun");
+  assert.strictEqual(allQuizzes.length, 20);
+  assert.ok(allQuizzes.some((q) => q.id === "AK1"));
+  console.log("  ✅ Barcha 20 ta quiz (jumladan AK1) va ularning savollari to'liq butun");
 
   console.log("\n==================================================================");
   console.log("🎉 BARCHA QIDIRUV VA SAHIFALASH TESTLARI 100% MUVAFFAQIYATLI O'TDI!");

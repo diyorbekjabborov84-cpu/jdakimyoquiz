@@ -60,9 +60,11 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
    - `R4`: «Rus tili va adabiyoti — 4-qism (151–200)» (151–200-savollar, buyruq: `/start_R4` yoki `/quiz_R4`, 20s/savol)
    - `R5`: «Rus tili va adabiyoti — 5-qism (201–250)» (201–250-savollar, buyruq: `/start_R5` yoki `/quiz_R5`, 20s/savol)
    - `R6`: «Rus tili va adabiyoti — 6-qism (251–300)» (251–298-savollar + 5-to'plamdan 2 ta to'ldiruvchi savol, jami 50 ta savol, buyruq: `/start_R6` yoki `/quiz_R6`, 20s/savol)
+   - `AK1`: «Aminokislotalar — kimyoviy strukturalar (AK1)» (329–330-betlardagi 17-jadval asosida 21 ta moddaning kimyoviy strukturasi rasmi va polli, buyruq: `/quiz_AK1`, 30s/savol)
 2. **Guruh Havolalari (Deep Linking)**:
    - **Shaxsiy chatda ochilgan eski havola**: `https://t.me/<bot_username>?start=quiz_<ID>` — test boshlanmaydi, guruhga o'tish tugmasi chiqadi.
    - **Guruhga qo'shish va to'g'ridan-to'g'ri boshlash uchun**: `https://t.me/<bot_username>?startgroup=quiz_<ID>` yoki `?startgroup=start_<ID>`
+     - *AK1*: `https://t.me/jdakimyoquizbot?startgroup=quiz_AK1`
      - *KK2_1*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_1` (yoki `?startgroup=start_KK2_1`)
      - *KK2_2*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_2` (yoki `?startgroup=start_KK2_2`)
      - *KK2_3*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_3` (yoki `?startgroup=start_KK2_3`)

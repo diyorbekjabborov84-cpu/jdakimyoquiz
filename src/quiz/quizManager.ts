@@ -1,3 +1,4 @@
+import { InputFile } from "grammy";
 import { Quiz, QuizSession, ParticipantScore } from "./types.js";
 import { ISessionStorage, defaultSessionStorage, FirestoreSessionStorage, SessionStorage } from "./sessionStorage.js";
 import { getDatabasePool } from "../database/db.js";
@@ -74,6 +75,7 @@ export interface TelegramApiSender {
   ): Promise<{ message_id: number; poll: { id: string } }>;
   stopPoll(chatId: number | string, messageId: number): Promise<any>;
   sendMessage(chatId: number | string, text: string, other?: Record<string, any>): Promise<any>;
+  sendPhoto?(chatId: number | string, photo: any, other?: Record<string, any>): Promise<any>;
   getChatMember?(chatId: number | string, userId: number): Promise<any>;
 }
 
@@ -469,6 +471,74 @@ export class QuizManager {
     const questionNumber = session.currentQuestionIndex + 1;
 
     const questionText = `[${questionNumber}/${totalQuestions}] ${q.question}`;
+
+    // 0-BOSQICH: Agar savolda rasm bo'lsa, avval rasmni yuboramiz
+    if (q.imagePath) {
+      try {
+        if (!api.sendPhoto) {
+          throw new Error("Telegram API rasm yuborishni qo'llab-quvvatlamaydi");
+        }
+        const photoPayload =
+          typeof q.imagePath === "string" && !q.imagePath.startsWith("http")
+            ? new InputFile(q.imagePath)
+            : q.imagePath;
+        await api.sendPhoto(chatId, photoPayload, {
+          caption: `[${questionNumber}/${totalQuestions}]`,
+        });
+      } catch (photoError: any) {
+        console.error(`[QuizManager] Telegramga rasm yuborishda xatolik (chat: ${chatId}):`, photoError);
+
+        // Rasm Telegramga bormadi! Savol indeksi orqaga qaytariladi va poll yuborilmaydi
+        session.currentQuestionIndex = Math.max(-1, session.currentQuestionIndex - 1);
+        this.clearSessionTimer(session);
+        session.status = "paused";
+        session.currentPollId = null;
+        session.currentPollMessageId = null;
+        session.version += 1;
+
+        // Xavfsiz pauza holatini saqlashga urinamiz
+        try {
+          await this.sessionStorage.saveSession(session);
+        } catch (dbErr) {
+          console.error(
+            `[QuizManager] Rasm xatoligidan so'ng pauza holatini DBga saqlashda ham xatolik (chat: ${chatId}):`,
+            dbErr
+          );
+        }
+
+        const errorMessage =
+          photoError?.description || photoError?.message || "Telegram API rasm yuborishda vaqtinchalik xatolik";
+        const totalQuestionsCount = session.quiz.questions.length;
+        const currentProgress = session.currentQuestionIndex + 1;
+
+        try {
+          await api.sendMessage(
+            chatId,
+            `⚠️ <b>Savol rasmini yuborishda vaqtinchalik xatolik yuz berdi</b>\n\n` +
+              `Xatolik sababi: <i>${escapeHtml(errorMessage)}</i>\n` +
+              `O‘tilgan savollar holati: <b>${currentProgress}/${totalQuestionsCount}</b>\n` +
+              `Ishtirokchilarning barcha ballari va javob vaqtlari to‘liq saqlab qolindi.\n\n` +
+              `Muammo bartaraf etilgach, quyidagi tugma yoki guruhda <b>/resume</b> buyrug'i orqali quizni xavfsiz davom ettirishingiz mumkin:`,
+            {
+              parse_mode: "HTML",
+              reply_markup: {
+                inline_keyboard: [
+                  [
+                    {
+                      text: "▶️ Qolgan joyidan davom ettirish",
+                      callback_data: `resume_quiz_${chatId}_${session.sessionId}`,
+                    },
+                  ],
+                ],
+              },
+            }
+          );
+        } catch (sendMsgErr) {
+          console.error(`[QuizManager] Chat ${chatId} ga xatolik xabarini yuborishda ham xatolik:`, sendMsgErr);
+        }
+        return;
+      }
+    }
 
     // 1-BOSQICH: Telegramga poll yuborish
     let message;
