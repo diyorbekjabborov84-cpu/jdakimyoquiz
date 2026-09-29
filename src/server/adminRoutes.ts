@@ -8,6 +8,7 @@ import {
   AdminSession,
 } from "./adminAuth.js";
 import { getOverviewStats, getGroupsList, getUsersList } from "../tracking/tracker.js";
+import { verifyGoogleAdmin } from "./googleAuth.js";
 
 export function createAdminRouter(config: EnvConfig): Router {
   const router = Router();
@@ -104,6 +105,26 @@ export function createAdminRouter(config: EnvConfig): Router {
         error: "SECRET_NOT_CONFIGURED",
         message: "Serverda admin sessiyasi siri (ADMIN_SESSION_SECRET) to'g'ri sozlanmagan.",
       });
+    }
+  });
+
+  router.post("/auth/google", async (req: Request, res: Response) => {
+    res.setHeader("Cache-Control", "no-store");
+    if (!config.ADMIN_TELEGRAM_ID?.trim() || !config.ADMIN_SESSION_SECRET || config.ADMIN_SESSION_SECRET.length < 32) {
+      return res.status(503).json({ ok: false, error: "ADMIN_NOT_CONFIGURED" });
+    }
+    const idToken = req.body?.idToken;
+    if (typeof idToken !== "string" || !idToken || idToken.length > 10000) {
+      return res.status(400).json({ ok: false, error: "INVALID_PAYLOAD" });
+    }
+    if (!(await verifyGoogleAdmin(idToken))) {
+      return res.status(403).json({ ok: false, error: "UNAUTHORIZED_ADMIN", message: "Bu Google akkauntga ruxsat berilmagan yoki kirish tasdig‘i eskirgan." });
+    }
+    try {
+      const token = createAdminSessionToken(config.ADMIN_TELEGRAM_ID.trim(), undefined, config.ADMIN_SESSION_SECRET);
+      return res.json({ ok: true, token, user: { id: config.ADMIN_TELEGRAM_ID.trim(), firstName: "Diyorbek" } });
+    } catch {
+      return res.status(503).json({ ok: false, error: "SECRET_NOT_CONFIGURED" });
     }
   });
 

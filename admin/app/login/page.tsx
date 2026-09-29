@@ -2,12 +2,34 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { getGoogleIdToken } from "@/lib/google-login";
 
 export default function LoginPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const widgetContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleGoogleAuth = async () => {
+    if (loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const idToken = await getGoogleIdToken();
+      const response = await fetch("/api/auth/google", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idToken }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.ok) throw new Error(data.message || "Google akkauntingizga kirish ruxsati berilmagan.");
+      router.replace("/");
+    } catch (err: any) {
+      if (err.code === "auth/popup-closed-by-user" || err.code === "auth/cancelled-popup-request") setError(null);
+      else if (err.code === "auth/popup-blocked") setError("Brauzerda ochiluvchi oynaga ruxsat bering va qayta urinib ko‘ring.");
+      else if (err.message === "GOOGLE_NOT_CONFIGURED") setError("Google orqali kirish hali sozlanmagan.");
+      else setError(err.code ? "Google orqali kirishda xatolik yuz berdi. Qayta urinib ko‘ring." : err.message);
+    } finally { setLoading(false); }
+  };
 
   const botUsername =
     process.env.NEXT_PUBLIC_BOT_USERNAME || "jdakimyoquizbot";
@@ -88,10 +110,14 @@ export default function LoginPage() {
 
         <div style={{ textAlign: "center", marginBottom: "1rem" }}>
           <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-            Tizimga kirish uchun quyidagi rasmiy Telegram tugmasini bosing:
+            Google yoki Telegram akkauntingiz orqali kiring.
           </p>
         </div>
 
+        <button type="button" className="btn btn-primary" disabled={loading} onClick={handleGoogleAuth}
+          style={{ width: "100%", marginBottom: "1rem", padding: "0.8rem", cursor: loading ? "wait" : "pointer" }}>
+          {loading ? "Kirish tekshirilmoqda…" : "Google orqali kirish"}
+        </button>
         <div className="widget-container" ref={widgetContainerRef}>
           {loading ? (
             <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
@@ -105,8 +131,7 @@ export default function LoginPage() {
         </div>
 
         <div className="alert alert-info" style={{ marginTop: "1.5rem", fontSize: "0.775rem" }}>
-          ℹ️ <b>Eslatma:</b> Telegram Login vidjeti ishlashi uchun bot domenini
-          BotFather&apos;da <code>/setdomain</code> buyrug&apos;i orqali ulash kerak.
+          Faqat loyiha administratorining akkauntlariga ruxsat beriladi.
         </div>
       </div>
     </div>

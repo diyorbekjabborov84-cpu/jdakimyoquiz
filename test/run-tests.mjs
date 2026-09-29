@@ -5,6 +5,7 @@ import path from "node:path";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const tsxCli = path.join(projectRoot, "node_modules", "tsx", "dist", "cli.mjs");
 const allTestFiles = [
+  "google-auth.test.ts",
   "index.test.ts",
   "quiz.test.ts",
   "e2e-simulation.test.ts",

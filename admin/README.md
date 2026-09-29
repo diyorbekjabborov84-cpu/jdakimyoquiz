@@ -1,5 +1,15 @@
 # JDA Kimyo Quiz — Admin Panel (1-bosqich)
 
+## Google orqali kirish
+
+Google login Firebase Authentication orqali ishlaydi. `jda-kimyo-quiz` loyihasida Google provider yoqilgan,
+`jda-kimyo-quiz-admin.vercel.app` authorized domain sifatida qo'shilgan.
+`/api/auth/google/config` faqat ochiq Firebase web konfiguratsiyasini beradi; server kalitlari berilmaydi.
+Render Firebase Admin SDK orqali token imzosi, loyiha, muddati, bekor qilinganligi va foydalanuvchi holatini tekshiradi.
+Faqat tasdiqlangan `diyorbekjabborov84@gmail.com`, `google.com` provider va oxirgi 5 daqiqadagi kirish qabul qilinadi.
+Sessiya mavjud yagona `ADMIN_TELEGRAM_ID` administratoriga bog'lanadi va HttpOnly cookie orqali ishlaydi.
+Firebase klient sessiyasi brauzer xotirasida turadi va token olingach yopiladi. Telegram orqali kirish ham saqlangan.
+
 Ushbu loyiha **JDA Kimyo Quiz** Telegram botining rasmiy veb boshqaruv paneli hisoblanadi.
 
 - **Frontend & BFF**: Next.js 14 (App Router) + TypeScript
