@@ -1756,9 +1756,16 @@ Vercel'da admin paneli deploy qilingandan so'ng Telegram Login Widget ishlashi u
   - `node test/run-tests.mjs i4-quiz.test.ts`: **Exit code 0** (100% muvaffaqiyatli).
   - `npm test`: **Exit code 0** (Barcha 21 ta test to'plami 100% muvaffaqiyatli o'tdi).
 
-- **Qat'iy Cheklovlar**:
-  - **Git push va Render/Vercel deploy qilinmadi**.
-  - Barcha o'zgarishlar mahalliy ishchi daraxtda saqlanmoqda va Codex tekshiruviga to'liq tayyor.
+- **Deploy va Ishga Tushirish (Render)**:
+  - **Git Commit**: `8574b3e` (`feat: add KK4, KK5, and I4 quizzes with alken diagrams`).
+  - **GitHub Push**: `origin/main` ga muvaffaqiyatli yuborildi.
+  - **Render Deploy**: Render avtomatik ravishda yangi versiyani qurdi va ishga tushirdi.
+  - **Tiriklik Tekshiruvi (`GET /health`)**:
+    - URL: `https://jda-kimyo-quiz.onrender.com/health`
+    - Javob: `{"status":"ok","service":"jda-kimyo-quiz","database":"connected","uptime":...}` (HTTP 200 OK).
+  - **Telegram Webhook**:
+    - URL: `https://jda-kimyo-quiz.onrender.com/webhook`
+    - Holati: Faol va sog'lom (`pending_update_count: 0`, xatoliklar yo'q).
 
 
 
