@@ -1,7 +1,10 @@
+import fs from "fs";
 import path from "path";
 import { Quiz } from "./types.js";
 
-const ASSETS_DIR = path.resolve(process.cwd(), "assets", "amino_acids");
+const ASSETS_DIR = fs.existsSync(path.resolve(process.cwd(), "assets", "amino_acids"))
+  ? path.resolve(process.cwd(), "assets", "amino_acids")
+  : path.resolve(__dirname, "../../assets/amino_acids");
 
 /**
  * 329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning

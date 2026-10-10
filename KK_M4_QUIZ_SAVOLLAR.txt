@@ -1,0 +1,684 @@
+KK_M4 — ADSORBSIYA JARAYONLARI VA ADSORBSIYA IZOTERMALARI
+
+Manba: Bahora Nayimova slaydlaridan, KK_M4.pdf (4-ma'ruza).
+Test tuzuvchisi: @diyorbek_jabborov
+Jami: 80 ta savol. Har savolda 4 ta variant va 1 ta to'g'ri javob.
+Format: + to'g'ri javob; - noto'g'ri javob.
+"Slayd" qatori manba PDF'ning sahifa raqamini bildiradi.
+"Slayd" va "Izoh" qatorlari tekshirish uchun; poll matniga kiritilmaydi.
+Olimlarning tarjimayi holi va sanalar haqidagi savollar kiritilmadi.
+Savollar matn orqali yechiladi; rasm talab qilinmaydi.
+Belgilanishlar: C_0 — boshlang'ich konsentratsiya; C_e — muvozanat
+konsentratsiyasi; a — adsorbsiyalangan miqdorning adsorbent massasiga
+nisbati; a_m — monoqavat sig'imi; p — muvozanat bosimi.
+
+=== ADSORBSIYANING ASOSIY TUSHUNCHALARI ===
+
+01. Adsorbsiya nima?
+- Moddaning yutuvchi fazaning butun hajmiga bir tekis tarqalishi
++ Moddaning fazalar chegarasidagi sirt qatlamida to'planishi
+- Erituvchining qaynab, bug'ga aylanishi
+- Eritilgan moddaning kristall holatda cho'kishi
+Slayd: 3
+Izoh: Adsorbsiya fazalararo sirtda modda konsentratsiyasining ortishi bilan bog'liq.
+
+02. Absorbsiya adsorbsiyadan qanday farq qiladi?
++ Yutilgan modda yutuvchi fazaning butun hajmiga tarqaladi
+- Yutilgan modda faqat sirtning bitta nuqtasida qoladi
+- Faqat adsorbentning tashqi sirtida sodir bo'ladi
+- Har doim ionlarning ekvivalent almashinishidan iborat bo'ladi
+Slayd: 3
+Izoh: Absorbsiya hajmiy, adsorbsiya esa sirt hodisasidir.
+
+03. Adsorbent deb nimaga aytiladi?
+- Adsorbsiya boshlanishidan oldingi yutiluvchi moddaga
+- Sirtdan ajralib chiqayotgan moddaga
++ O'z sirtida boshqa modda zarrachalarini tutib qoluvchi moddaga
+- Adsorbsiyaning tezligini o'lchovchi asbobga
+Slayd: 4
+Izoh: Adsorbent yutuvchi sirtga ega bo'lgan moddadir.
+
+04. Adsorbat nima?
+- Eritmaning umumiy hajmi
+- Adsorbentning g'ovaklari orasidagi bo'shliq
+- Adsorbsiya sodir bo'ladigan idish
++ Adsorbent sirtida adsorbsiyalangan modda
+Slayd: 4
+Izoh: Adsorbat — adsorbent sirtida to'plangan modda.
+
+05. Adsorbtiv atamasi qaysi moddaga nisbatan ishlatiladi?
++ Adsorbsiyalanishidan oldingi yutiluvchi moddaga
+- Faqat kimyoviy bog' hosil qilgan sirt markaziga
+- Adsorbentning erimaydigan qismiga
+- Adsorbsiyadan keyingi adsorbent massasiga
+Slayd: 4
+Izoh: Yutiluvchi modda sirtga birikishidan oldin adsorbtiv deb ataladi.
+
+06. Desorbsiya qanday jarayon?
+- Adsorbent sirtida yangi g'ovaklar hosil bo'lishi
+- Adsorbentning maydalab kukunga aylantirilishi
++ Adsorbatning adsorbent sirtidan ajralib chiqishi
+- Eritilgan moddaning qattiq cho'kmaga aylanishi
+Slayd: 4
+Izoh: Desorbsiya adsorbsiyaga teskari jarayondir.
+
+07. Adsorbsiya natijasida sirtning erkin energiyasi odatda qanday o'zgaradi?
+- Har doim ortadi
++ Kamayadi
+- Har doim nolga teng bo'lib qoladi
+- Sirt energiyasi adsorbsiya bilan bog'liq emas
+Slayd: 5
+Izoh: Sirtda zarrachalarning to'planishi sirt erkin energiyasini kamaytirishi mumkin.
+
+08. Jarayonning o'z-o'zidan borishi uchun Gibbs energiyasi o'zgarishining ishorasi qanday bo'lishi kerak?
+- ΔG > 0
+- ΔG = +1
+- ΔG har doim ΔH ga teng bo'lishi kerak
++ ΔG < 0
+Slayd: 5, 33
+Izoh: Berilgan sharoitda ΔG < 0 jarayonning termodinamik jihatdan o'z-o'zidan borishini bildiradi.
+
+09. Adsorbsiya miqdori a = n_ads / m ifodasida m nimani bildiradi?
+- Adsorbatning molyar massasini
++ Adsorbent massasini
+- Eritmaning umumiy hajmini
+- Adsorbsiyalangan moddaning mol sonini
+Slayd: 4, 13
+Izoh: Adsorbsiyalangan modda miqdori adsorbent massasiga bo'linadi.
+
+10. Adsorbsiyalangan modda mol bilan, adsorbent massasi gramm bilan berilsa, a ning birligi qanday bo'ladi?
++ mol/g
+- g/mol
+- mol/L
+- m²/g
+Slayd: 13
+Izoh: a = n_ads / m bo'lgani uchun birlik mol/g bo'ladi.
+
+11. Fizik adsorbsiyada zarrachalarni sirtda asosan qaysi kuchlar tutib turadi?
+- Kovalent kimyoviy bog'lar
+- Ionlarning ekvivalent almashinuvi
++ Van-der-Vaals kuchlari
+- Kristall panjaraning to'liq parchalanishi
+Slayd: 7
+Izoh: Fizik adsorbsiyaning asosini molekulalararo kuchlar tashkil etadi.
+
+12. Fizik adsorbsiyaga qaysi xususiyat xos?
+- Har doim faqat bitta qatlam hosil qiladi
+- Faqat yuqori haroratda sodir bo'ladi
+- Adsorbat albatta yangi kimyoviy modda hosil qiladi
++ Ko'p qatlamli adsorbsiya yuz berishi mumkin
+Slayd: 7, 9
+Izoh: Fizik adsorbsiyada monoqavatdan keyin qo'shimcha qatlamlar hosil bo'lishi mumkin.
+
+13. Xemosorbsiya qaysi jarayon hisobiga yuz beradi?
++ Adsorbat bilan sirtning faol markazlari o'rtasida kimyoviy bog'lar hosil bo'lishi
+- Gazning adsorbent atrofida siqilishi
+- Adsorbentning mexanik maydalanganligi
+- Adsorbatning erituvchida bir tekis tarqalishi
+Slayd: 8
+Izoh: Xemosorbsiya — kimyoviy adsorbsiya.
+
+14. Fizik va kimyoviy adsorbsiyaning selektivligini taqqoslaganda qaysi fikr to'g'ri?
+- Fizik adsorbsiya doimo mutlaq selektiv bo'ladi
++ Kimyoviy adsorbsiya odatda ko'proq selektiv bo'ladi
+- Ikkalasida ham selektivlik bo'lishi mumkin emas
+- Selektivlik faqat adsorbent massasiga bog'liq
+Slayd: 9
+Izoh: Kimyoviy bog' hosil bo'lishi muayyan modda va sirt markazining mosligini talab qiladi.
+
+15. Kimyoviy adsorbsiya tezligining harorat oshganda ortishi nimaga bog'liq bo'lishi mumkin?
+- Har qanday adsorbsiya albatta endotermik bo'lishiga
+- Adsorbent massasi harorat bilan cheksiz ortishiga
+- Sirt markazlari sonining cheksiz ko'payishiga
++ Jarayon uchun aktivlanish energiyasi talab qilinishiga
+Slayd: 8, 34
+Izoh: Harorat ortishi aktivlanish to'sig'ini yengishni tezlashtirishi mumkin; bu muvozanat sig'imi ortadi degani emas.
+
+16. Kapillyar kondensatsiya nima?
+- Erituvchining qattiq kristallarga aylanishi
+- Ionlarning adsorbentdan ekvivalent miqdorda chiqishi
++ Bug'ning g'ovaklarda kondensatsiyalanishi
+- Adsorbentning yuqori haroratda yonishi
+Slayd: 6, 12
+Izoh: Kapillyar kondensatsiya adsorbent g'ovaklarida suyuq faza hosil bo'lishi bilan bog'liq.
+
+=== ADSORBENTLAR VA G'OVAKLAR ===
+
+17. Qaysi adsorbent molekulyar elak sifatida tavsiflanadi?
+- Faollashtirilgan ko'mir
++ Seolit
+- Silikagel
+- Ionit
+Slayd: 10
+Izoh: Seolitning selektiv g'ovaklari molekulalarni ajratishda ishlatiladi.
+
+18. Namlikni yutish va quritishda ishlatiladigan, qutbli sirtga ega adsorbent qaysi?
++ Silikagel
+- Kationit
+- Anionit
+- Xromatografiyaning harakatchan fazasi
+Slayd: 10
+Izoh: Silikagel qutbli sirtga ega bo'lib, namlikni yutishda qo'llanadi.
+
+19. Faollashtirilgan ko'mirning adsorbent sifatidagi muhim xususiyati qaysi?
+- Ion almashinish guruhlari bilan suvni yumshatishi
+- Faqat tashqi sirtining mavjudligi
++ Katta solishtirma sirt va mikrog'ovaklarga ega bo'lishi
+- Har doim g'ovaksiz tuzilishga ega bo'lishi
+Slayd: 10
+Izoh: Rivojlangan sirt va mikrog'ovaklar uning adsorbsion imkoniyatini oshiradi.
+
+20. Suvni yumshatishda ion almashinish guruhlari hisobiga ishlaydigan adsorbent qaysi?
+- Silikagel
+- Faollashtirilgan ko'mir
+- Alumogel
++ Ionit
+Slayd: 10, 37
+Izoh: Ionitlar ion almashinish orqali suvni yumshatishda ishlatiladi.
+
+21. Solishtirma sirt qanday aniqlanadi?
+- Adsorbent massasi uning sirt maydoniga bo'linadi
++ Adsorbent sirt maydoni uning massasiga bo'linadi
+- G'ovak hajmi eritma konsentratsiyasiga bo'linadi
+- Adsorbatning molyar massasi uning miqdoriga bo'linadi
+Slayd: 11
+Izoh: S_solishtirma = A / m.
+
+22. Solishtirma sirtning slaydda keltirilgan birligi qaysi?
+- mol/g
+- cm³/g
+- g/m²
++ m²/g
+Slayd: 11
+Izoh: Bir gramm adsorbentga to'g'ri keladigan sirt maydoni m²/g bilan ifodalanadi.
+
+23. Sirt maydoni 1200 m², massasi 3 g bo'lgan adsorbentning solishtirma sirti qancha?
++ 400 m²/g
+- 3600 m²/g
+- 1197 m²/g
+- 0,0025 m²/g
+Slayd: 11
+Izoh: S = A / m = 1200 / 3 = 400 m²/g.
+
+24. Adsorbentning OH, COOH va amin guruhlari asosan nimaga ta'sir qiladi?
+- Faqat adsorbent idishining shakliga
+- Faqat eritmaning tashqi rangiga
++ Sirtning kimyoviy tabiatiga va moddalarga moyilligiga
+- Har qanday moddaning molyar massasiga
+Slayd: 11
+Izoh: Sirt funksional guruhlari adsorbent va adsorbat o'zaro ta'sirini belgilashda qatnashadi.
+
+25. Mikrog'ovaklarning diametri qanday chegaraga ega?
+- 2–50 nm
++ 2 nm dan kichik
+- 50 nm dan katta
+- 50–100 nm
+Slayd: 12
+Izoh: Slayddagi tasnifda mikrog'ovaklar d < 2 nm bilan berilgan.
+
+26. Diametri 10 nm bo'lgan g'ovak qaysi turga kiradi?
+- Mikrog'ovak
+- Makrog'ovak
+- G'ovaksiz sirt
++ Mezog'ovak
+Slayd: 12
+Izoh: Mezog'ovaklar diametri 2–50 nm oralig'ida bo'ladi.
+
+27. Makrog'ovaklarning adsorbentdagi muhim vazifasi qaysi?
++ Moddalarning o'tishi uchun diffuziya va massa almashinish yo'llarini ta'minlash
+- Faqat bitta molekulani kimyoviy bog' bilan tutish
+- Adsorbentning barcha ichki sirtini yo'qotish
+- Eritmadagi barcha ionlarni teng miqdorda hosil qilish
+Slayd: 12
+Izoh: Katta g'ovaklar moddalarning ichki sohaga o'tishiga yordam beradi.
+
+28. Adsorbentni regeneratsiya qilishdan asosiy maqsad nima?
+- Uning solishtirma sirtini har doim nolga tushirish
+- Adsorbat miqdorini cheksiz oshirish
++ Adsorbentning ishlash qobiliyatini tiklab, qayta foydalanish
+- Muvozanat konsentratsiyasini o'lchamaslik
+Slayd: 11, 39
+Izoh: Regeneratsiya adsorbentdan qayta foydalanish imkonini beradi.
+
+=== ADSORBSIYA MIQDORI VA MUVOZANAT ===
+
+29. Eritmadan adsorbsiyalangan miqdor qaysi ifoda bilan hisoblanadi?
+- a = (C_0 + C_e) V / m
++ a = (C_0 - C_e) V / m
+- a = (C_0 - C_e) m / V
+- a = C_e / (V m)
+Slayd: 13, 35
+Izoh: Eritmadagi modda miqdorining kamayishi adsorbent massasiga bo'linadi.
+
+30. a = (C_0 - C_e) V / m ifodasida C_e nimani bildiradi?
++ Adsorbsiya muvozanatidagi eritma konsentratsiyasini
+- Adsorbentning solishtirma sirtini
+- Boshlang'ich eritma hajmini
+- Adsorbentning molyar massasini
+Slayd: 13
+Izoh: C_e — muvozanat konsentratsiyasi; C_0 esa boshlang'ich konsentratsiya.
+
+31. C_0 = 10 mmol/L, C_e = 4 mmol/L, V = 0,5 L, m = 2 g. Adsorbsiya miqdori qancha?
+- 3 mmol/g
+- 6 mmol/g
++ 1,5 mmol/g
+- 7 mmol/g
+Slayd: 13, 35
+Izoh: a = (10 - 4) × 0,5 / 2 = 1,5 mmol/g.
+
+32. 4 g adsorbent 8 mmol modda yutdi. Adsorbsiya miqdori a qancha?
+- 32 mmol/g
+- 0,5 mmol/g
+- 12 mmol/g
++ 2 mmol/g
+Slayd: 13
+Izoh: a = n_ads / m = 8 / 4 = 2 mmol/g.
+
+33. Gibbs sirt ortiqchaligi Γ qanday birlikda ifodalanadi?
+- mol/g
++ mol/m²
+- m²/mol
+- g/L
+Slayd: 14
+Izoh: Γ = n^s / A, ya'ni sirt ortiqcha miqdori sirt maydoniga bo'linadi.
+
+34. Γ > 0 bo'lishi nimani bildiradi?
++ Musbat adsorbsiyani
+- Manfiy adsorbsiyani
+- Adsorbent g'ovaklari butunlay yo'qolganini
+- Adsorbsiya va desorbsiya doimo to'xtaganini
+Slayd: 14
+Izoh: Musbat sirt ortiqchaligi musbat adsorbsiyaga mos keladi.
+
+35. Adsorbsiya muvozanatida qaysi tenglik bajariladi?
+- Adsorbent massasi adsorbat massasiga teng bo'ladi
+- Boshlang'ich konsentratsiya doimo nolga teng bo'ladi
+- Adsorbsiya tezligi desorbsiya tezligidan doimo katta bo'ladi
++ Adsorbsiya tezligi desorbsiya tezligiga teng bo'ladi
+Slayd: 15
+Izoh: Muvozanat dinamik bo'lib, ikki qarama-qarshi jarayonning tezliklari tenglashadi.
+
+36. Dinamik adsorbsiya muvozanati haqida qaysi fikr to'g'ri?
+- Adsorbsiya va desorbsiya butunlay to'xtaydi
+- Adsorbatning barcha molekulalari sirtdan ajraladi
++ Adsorbsiya va desorbsiya davom etadi, ammo umumiy adsorbsiyalangan miqdor o'zgarmaydi
+- Adsorbsiyalangan miqdor cheksiz ortib boradi
+Slayd: 15
+Izoh: Muvozanat jarayonlarning to'xtashi emas, tezliklarining tenglashishidir.
+
+37. Adsorbsiya izotermasi qaysi bog'lanishni ifodalaydi?
++ O'zgarmas haroratda muvozanat adsorbsiya miqdorining bosim yoki konsentratsiyaga bog'lanishini
+- O'zgarmas bosimda adsorbent massasining vaqtga bog'lanishini
+- O'zgarmas hajmda molyar massaning haroratga bog'lanishini
+- Faqat desorbsiya tezligining adsorbent rangiga bog'lanishini
+Slayd: 16
+Izoh: Izoterma olishda harorat o'zgarmas saqlanadi.
+
+38. I turdagi adsorbsiya izotermasi asosan qaysi adsorbentlarga xos?
+- Faqat makrog'ovakli adsorbentlarga
++ Mikrog'ovakli adsorbentlarga
+- Faqat g'ovaksiz suyuqliklarga
+- Faqat ion almashinuvchi eritmalarga
+Slayd: 17
+Izoh: I tur mikrog'ovaklarning to'lishi va chegaraviy adsorbsiya bilan bog'liq.
+
+39. IV turdagi izotermada kuzatiladigan gisterezis asosan nima bilan bog'liq?
+- Faqat adsorbent massasining o'lchash xatosi bilan
+- Ionlarning yadro reaksiyasi bilan
+- Erituvchining mutlaq yo'qligi bilan
++ Mezog'ovaklarda kapillyar kondensatsiya va g'ovak geometriyasi bilan
+Slayd: 17
+Izoh: Adsorbsiya va desorbsiya yo'llarining farqlanishi gisterezis halqasini hosil qiladi.
+
+40. VI turdagi izotermaning pog'onasimon ko'rinishi nimani ifodalaydi?
+- Faqat ion almashinishini
+- Adsorbentning birdan erib ketishini
++ Qatlamlarning ketma-ket hosil bo'lishini
+- Adsorbsiya miqdorining har doim nol bo'lishini
+Slayd: 17
+Izoh: VI turdagi izoterma qatlamma-qatlam adsorbsiyaga mos keladi.
+
+=== GENRI VA FREYNDLIX IZOTERMALARI ===
+
+41. Genri izotermasi asosan qaysi sharoitda qo'llanadi?
++ Past bosim yoki past konsentratsiyada
+- Sirt to'liq to'yingandan keyin
+- Faqat cheksiz yuqori bosimda
+- Faqat adsorbent erib ketganda
+Slayd: 18
+Izoh: Sirtning oz qismi band bo'lganda adsorbsiya miqdori bosim yoki konsentratsiyaga chiziqli bog'lanadi.
+
+42. Eritma uchun Genri izotermasining tenglamasi qaysi?
+- a = K_H / C_e
+- a = K_H + C_e
+- a = K_H C_e²
++ a = K_H C_e
+Slayd: 18
+Izoh: Genri sohasida adsorbsiya miqdori muvozanat konsentratsiyasiga to'g'ri proporsional.
+
+43. Genri qonuni amal qiladigan sohada gaz bosimi 2 marta oshsa, adsorbsiya miqdori qanday o'zgaradi?
+- 2 marta kamayadi
++ 2 marta ortadi
+- 4 marta ortadi
+- O'zgarmaydi
+Slayd: 18
+Izoh: a = K_H p; harorat o'zgarmasa va Genri sohasi saqlansa, a bosimga proporsional.
+
+44. Freyndlix izotermasining tenglamasi qaysi?
+- a = a_m K C_e / (1 + K C_e)
+- a = K_H / C_e
++ a = K_F C_e^(1/n)
+- a = C_e / a_m
+Slayd: 19
+Izoh: Freyndlix modeli darajali empirik bog'lanishdir.
+
+45. Freyndlix modeli qaysi sirtni tavsiflashda qo'llanadi?
+- Faqat barcha markazlari bir xil energiyali sirtni
++ Energetik jihatdan bir jinsli bo'lmagan sirtni
+- Faqat adsorbsiya markazlari yo'q sirtni
+- Faqat suyuqlikning butun hajmini
+Slayd: 19
+Izoh: Freyndlix modeli geterogen sirt adsorbsiyasini ifodalashda ishlatiladi.
+
+46. Freyndlix tenglamasining chiziqlashtirilgan ko'rinishi qaysi?
++ lg a = lg K_F + (1/n) lg C_e
+- lg a = lg K_F - n lg C_e
+- a = lg K_F + n C_e
+- C_e/a = lg K_F + lg C_e
+Slayd: 19, 20
+Izoh: a = K_F C_e^(1/n) tenglamasidan o'nli logarifm olinadi.
+
+47. lg a ning lg C_e ga bog'liqlik grafigida to'g'ri chiziqning qiyaligi nimaga teng?
+- K_F
+- lg K_F
++ 1/n
+- a_m
+Slayd: 20
+Izoh: y = lg a va x = lg C_e bo'lganda qiyalik 1/n bo'ladi.
+
+48. Freyndlix chiziqli grafigining qiyaligi 0,5 bo'lsa, n qancha?
+- 0,5
+- 1
+- 4
++ 2
+Slayd: 20
+Izoh: 1/n = 0,5; demak n = 2.
+
+49. Freyndlix tenglamasida 1/n = 1 bo'lsa, adsorbsiya miqdori konsentratsiyaga qanday bog'lanadi?
++ Chiziqli ravishda
+- Konsentratsiyaning kvadratiga proporsional
+- Konsentratsiyaga teskari proporsional
+- Konsentratsiyadan butunlay mustaqil
+Slayd: 21
+Izoh: Bu holda a = K_F C_e bo'ladi.
+
+50. Freyndlix modelining muhim cheklovi qaysi?
+- Faqat sirt to'liq to'yingandan keyin ishlashi
+- Hech qanday tajriba ma'lumotiga mos kelmasligi
+- Haroratni doimo nol deb qabul qilishi
++ Chegaraviy to'yinish sig'imini tenglamada belgilamasligi
+Slayd: 19, 26
+Izoh: Freyndlix tenglamasida a_m kabi chekli to'yinish miqdori mavjud emas.
+
+=== LENGMYUR IZOTERMASI VA SIRTNING BANDLIGI ===
+
+51. Lengmyur modelida adsorbent sirt markazlari qanday deb olinadi?
+- Energetik jihatdan doimo turlicha
++ Energetik jihatdan bir xil
+- Adsorbatdan to'liq mustaqil va mavjud emas
+- Faqat suyuqlik hajmida joylashgan
+Slayd: 22
+Izoh: Model energetik bir jinsli sirtni qabul qiladi.
+
+52. Lengmyur modelida bitta adsorbsiya markazi nechta molekulani tutadi?
+- Ikki molekulani
+- Cheksiz ko'p molekulani
++ Bitta molekulani
+- Faqat adsorbentning barcha molekulalarini birgalikda
+Slayd: 22
+Izoh: Har bir markazga bitta adsorbat molekulasi joylashadi.
+
+53. Lengmyur modelida adsorbsiyalangan molekulalar orasidagi yonlama o'zaro ta'sir qanday hisobga olinadi?
++ Hisobga olinmaydi
+- Har doim eng kuchli ta'sir deb olinadi
+- Faqat ko'p qatlam hosil bo'lganda hisoblanadi
+- Adsorbent massasiga teng deb olinadi
+Slayd: 22
+Izoh: Yonlama o'zaro ta'sirni e'tiborga olmaslik modelning farazlaridan biridir.
+
+54. Eritma uchun Lengmyur tenglamasi qaysi?
+- a = K_F C_e^(1/n)
++ a = a_m K C_e / (1 + K C_e)
+- a = a_m / (K C_e)
+- a = a_m (1 + K C_e)
+Slayd: 23
+Izoh: Tenglama monoqavat hosil bo'lishi va chekli sirt markazlarini ifodalaydi.
+
+55. Lengmyur tenglamasidagi a_m nimani bildiradi?
+- Eritmaning boshlang'ich konsentratsiyasini
+- Muvozanat tezligini
+- Adsorbentning molyar massasini
++ Monoqavat to'liq hosil bo'lgandagi chegaraviy adsorbsiya sig'imini
+Slayd: 23, 25
+Izoh: a_m sirt markazlari to'liq band bo'lgandagi maksimal monoqavat miqdoridir.
+
+56. Lengmyur tenglamasida K C_e juda katta bo'lsa, a qaysi qiymatga yaqinlashadi?
+- Nolga
+- K ga
++ a_m ga
+- C_e ga
+Slayd: 23
+Izoh: K C_e >> 1 bo'lganda a ≈ a_m, ya'ni to'yinish kuzatiladi.
+
+57. K C_e juda kichik bo'lganda Lengmyur tenglamasi qanday soddalashadi?
++ a ≈ a_m K C_e
+- a ≈ a_m / C_e
+- a ≈ a_m + K
+- a ≈ 1 / (a_m K C_e)
+Slayd: 23
+Izoh: K C_e << 1 bo'lsa, maxrajdagi 1 + K C_e ≈ 1 bo'ladi.
+
+58. Lengmyur tenglamasining chiziqlashtirilgan ko'rinishi qaysi?
+- C_e/a = a_m K + a_m C_e
+- a/C_e = C_e/a_m + K
+- lg a = lg a_m + lg C_e
++ C_e/a = 1/(a_m K) + C_e/a_m
+Slayd: 24
+Izoh: Bu ko'rinishda C_e/a ning C_e ga bog'lanishi to'g'ri chiziq beradi.
+
+59. C_e/a ning C_e ga bog'liqlik grafigidagi qiyalik nimaga teng?
+- a_m
++ 1/a_m
+- K
+- 1/K
+Slayd: 24
+Izoh: Chiziqli tenglamada C_e oldidagi koeffitsiyent 1/a_m.
+
+60. Lengmyur modelida sirtning bandlik ulushi θ qaysi ifodaga teng?
+- θ = 1 + K C_e
+- θ = a_m / C_e
++ θ = K C_e / (1 + K C_e)
+- θ = K C_e²
+Slayd: 25
+Izoh: θ = a/a_m; qiymati 0 dan 1 gacha bo'ladi.
+
+61. K C_e = 1 bo'lsa, sirtning bandlik ulushi θ qancha?
+- 0
++ 0,5
+- 1
+- 2
+Slayd: 25
+Izoh: θ = 1/(1 + 1) = 0,5, ya'ni sirtning yarmi band.
+
+62. a_m = 10 mmol/g va K C_e = 1 bo'lsa, adsorbsiya miqdori qancha?
++ 5 mmol/g
+- 10 mmol/g
+- 20 mmol/g
+- 1 mmol/g
+Slayd: 23, 25
+Izoh: a = 10 × 1/(1 + 1) = 5 mmol/g.
+
+=== BOSHQA IZOTERMALAR VA BET USULI ===
+
+63. Sips modeli qaysi ikki modelning xususiyatlarini birlashtiradi?
+- Genri va BET
+- Temkin va BET
++ Lengmyur va Freyndlix
+- Genri va Gibbs
+Slayd: 27
+Izoh: Sips modeli Lengmyur–Freyndlix modeli sifatida ham ko'rsatilgan.
+
+64. Slayddagi Sips tenglamasida n = 1 bo'lsa, qaysi model hosil bo'ladi?
+- BET modeli
+- Temkin modeli
+- Dubinin–Radushkevich modeli
++ Lengmyur modeli
+Slayd: 27
+Izoh: a = a_m (K_s C_e)^n / [1 + (K_s C_e)^n] da n = 1 Lengmyur ko'rinishini beradi.
+
+65. Temkin modelida adsorbsiya issiqligi sirt bandligi ortishi bilan qanday o'zgaradi deb olinadi?
+- Chiziqli ortadi
++ Chiziqli kamayadi
+- Cheksiz ortadi
+- Har doim mutlaq nol bo'ladi
+Slayd: 28
+Izoh: Temkin modeli adsorbatlar o'zaro ta'sirini va adsorbsiya issiqligining kamayishini hisobga oladi.
+
+66. Temkin tenglamasi a = B ln(A_T C_e) bo'lsa, a ning ln C_e ga bog'liqlik grafigi qiyaligi nimaga teng?
++ B
+- A_T
+- 1/B
+- C_e
+Slayd: 28
+Izoh: a = B ln A_T + B ln C_e; ln C_e oldidagi koeffitsiyent B.
+
+67. Dubinin–Radushkevich modeli asosan qaysi jarayonni tavsiflaydi?
+- Faqat adsorbentning tashqi sirtida ko'p qatlam hosil bo'lishini
+- Ionlarning ekvivalent almashinishini
++ Mikrog'ovaklar hajmining adsorbat bilan to'lishini
+- Faqat eritmaning butun hajmida absorbsiya borishini
+Slayd: 29
+Izoh: Model mikrog'ovakli adsorbentlar, jumladan faollashtirilgan ko'mir uchun qo'llanadi.
+
+68. BET modelida birinchi adsorbsion qatlamdan keyingi qatlamlar qayerda hosil bo'ladi?
+- Faqat adsorbentning hali band bo'lmagan markazlarida
+- Faqat eritma hajmining markazida
+- Adsorbentdan tashqaridagi bo'sh idishda
++ Oldingi adsorbat qatlamlari ustida
+Slayd: 30
+Izoh: BET ko'p qatlamli fizik adsorbsiyani tavsiflaydi.
+
+69. BET usulida monoqavat sig'imidan qaysi muhim xususiyatni aniqlashda foydalaniladi?
+- Adsorbentning atom raqamini
++ Adsorbentning solishtirma sirtini
+- Adsorbatning yadro tarkibini
+- Erituvchining molyar massasini
+Slayd: 30, 32
+Izoh: Monoqavat miqdori adsorbent sirt maydonini baholashga yordam beradi.
+
+70. BET o'lchashlarida slaydda ko'rsatilgan keng qo'llanadigan gaz va harorat qaysi?
++ Azot, 77 K
+- Azot, 77 °C
+- Kislorod, 273 °C
+- Vodorod, 1000 K
+Slayd: 32
+Izoh: Slaydda N₂ bilan 77 K da o'lchash keltirilgan.
+
+71. BET tenglamasidagi p_0 nimani bildiradi?
+- Adsorbentning boshlang'ich massasini
+- Adsorbsiyalangan moddaning konsentratsiyasini
++ O'lchash haroratidagi to'yingan bug' bosimini
+- Adsorbsiya markazlarining umumiy sonini
+Slayd: 31
+Izoh: p/p_0 — nisbiy bosim.
+
+72. Slaydda BET chiziqli sohasi uchun odatda qaysi nisbiy bosim oralig'i keltirilgan?
+- 0,50 < p/p_0 < 0,90
+- 1,00 < p/p_0 < 2,00
+- 0,30 < p/p_0 < 0,80
++ 0,05 < p/p_0 < 0,30
+Slayd: 31
+Izoh: Bu slaydda keltirilgan odatiy oraliq; har bir namuna uchun modelga moslik alohida baholanadi.
+
+=== TERMODINAMIKA, ERITMALAR VA AMALIY QO'LLANISH ===
+
+73. Gibbs energiyasi, entalpiya va entropiya orasidagi bog'lanish qaysi?
+- ΔG = ΔH + TΔS
++ ΔG = ΔH - TΔS
+- ΔG = TΔH - ΔS
+- ΔG = ΔS - TΔH
+Slayd: 33
+Izoh: T mutlaq haroratni bildiradi.
+
+74. Adsorbsiyada ΔH < 0 bo'lsa, jarayon qanday tavsiflanadi?
++ Ekzotermik, ya'ni issiqlik ajraladigan
+- Endotermik, ya'ni issiqlik yutiladigan
+- Issiqlik almashinuvi mavjud bo'lmagan
+- Faqat mexanik ish sodir bo'ladigan
+Slayd: 33
+Izoh: Manfiy entalpiya o'zgarishi issiqlik ajralishini bildiradi.
+
+75. Ekzotermik fizik adsorbsiyada harorat oshirilsa, muvozanat odatda qaysi tomonga siljiydi?
+- Adsorbsiyaning ortishi tomoniga
+- Har doim monoqavatning ko'p qatlamga aylanishi tomoniga
++ Desorbsiya tomoniga
+- Adsorbent massasining ortishi tomoniga
+Slayd: 34
+Izoh: Harorat ortishi ekzotermik adsorbsiyaga qarama-qarshi jarayonni kuchaytiradi.
+
+76. Eritmada bir nechta adsorbsiyalanuvchi modda bo'lsa, ular o'rtasida qanday hodisa yuz berishi mumkin?
+- Barcha moddalarning muvozanat konsentratsiyasi bir xil bo'lishi shart
+- Har bir modda faqat alohida, boshqa moddalar kira olmaydigan sirtga ega bo'ladi
+- Adsorbsiya haroratga bog'liq bo'lmay qoladi
++ Bir xil sirt markazlari uchun raqobat
+Slayd: 35
+Izoh: Erituvchi va boshqa erigan moddalar adsorbsiya markazlari uchun raqobatlashishi mumkin.
+
+77. Gibbs adsorbsiya tenglamasiga ko'ra, dσ/dln c < 0 bo'lsa, Γ ning ishorasi qanday?
++ Musbat
+- Manfiy
+- Albatta nol
+- Haroratdan qat'i nazar aniqlab bo'lmaydi
+Slayd: 36
+Izoh: Γ = -(1/RT)(dσ/dln c); R va T musbat bo'lgani uchun manfiy hosila musbat Γ beradi.
+
+78. Kationitlar va anionitlar qaysi ionlarni almashadi?
+- Kationitlar manfiy, anionitlar musbat ionlarni
+- Ikkalasi faqat neytral molekulalarni
++ Kationitlar musbat, anionitlar manfiy ionlarni
+- Ikkalasi faqat elektronlarni
+Slayd: 37
+Izoh: Kationit kationlarni, anionit anionlarni almashadi.
+
+79. Natriy shaklidagi kationit bitta Ca²⁺ ionini tutganda, ekvivalent almashinish bo'yicha nechta Na⁺ ionini chiqaradi?
+- Bitta
++ Ikkita
+- Uchta
+- To'rtta
+Slayd: 37
+Izoh: Bitta Ca²⁺ ning zaryadi ikkita Na⁺ zaryadiga teng. Muvozanatlangan yozuv: 2R-SO₃Na + Ca²⁺ ↔ (R-SO₃)₂Ca + 2Na⁺.
+
+80. Adsorbsion xromatografiyada boshqa sharoitlar bir xil bo'lsa, qo'zg'almas fazaga kuchliroq adsorbsiyalanuvchi modda qanday harakat qiladi?
+- Kolonnadan tezroq chiqadi
+- Qo'zg'almas faza bilan umuman ta'sirlashmaydi
+- Har doim erituvchi bilan bir vaqtda chiqadi
++ Ko'proq ushlanadi va kolonnadan kechroq chiqadi
+Slayd: 38
+Izoh: Moddalarning adsorbsiya va desorbsiya farqlari ularni ajratishga imkon beradi.
+
+=== TUZUVCHI UCHUN TEKSHIRUV ESLATMALARI ===
+
+1. Savollar manba mazmuniga tayangan; bir xil ma'noli takrorlar bilan son ko'paytirilmadi.
+2. 31, 32, 23, 48, 61 va 62-savollarning hisoblashlari tekshirildi.
+3. 37-slayddagi ion almashinish reaksiyasida natriy shaklidagi ionit oldiga
+   2 koeffitsiyenti qo'yilib, zaryad va modda balansi saqlandi (79-savol).
+4. 32-slayddagi BET sirt formulasida a_m ning umumiy miqdor yoki massa
+   birligiga nisbatan miqdor ekaniga qarab yozuv farqlanadi. Shu sababli
+   birliklari noaniq formuladan hisoblash savoli olinmadi.
+5. 29-slayddagi Polanyi potensiali formulasida konsentratsiyaning
+   o'lchovsiz ko'rinishi aniqlashtirilmagan; undan hisoblash savoli olinmadi.
+6. 33-slayddagi grafikning qiyalik ishorasiga doir savol olinmadi.
+7. Freyndlix tenglamasida ko'rsatkich 1/n; Sips tenglamasida ushbu
+   slayddagi belgilash bo'yicha n. Ularni bir xil ko'rsatkich deb almashtirmang.
+8. Botga kiritilganda savollar va variantlar aralashtirilsa, to'g'ri javob
+   o'z variantiga biriktirilgan holda qolishi kerak.

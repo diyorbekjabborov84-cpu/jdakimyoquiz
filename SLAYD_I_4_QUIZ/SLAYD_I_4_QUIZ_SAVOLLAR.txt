@@ -1,0 +1,511 @@
+SLAYD-I-4 - TO'YINMAGAN UGLEVODORODLAR: ALKENLAR
+
+Manba: Abdusalom Saidov slaydlaridan, Slayd-I-4.pdf (4-ma'ruza).
+Test tuzuvchisi: @diyorbek_jabborov
+Jami: 56 ta savol: 48 ta matnli va 8 ta rasmli.
+Har savolda 4 ta variant va 1 ta to'g'ri javob.
+Format: + to'g'ri javob; - noto'g'ri javob.
+"Slayd" qatori manba PDF sahifasini bildiradi.
+"Izoh" va "Slayd" qatorlari tekshiruv uchun; poll matniga qo'shilmaydi.
+"Rasm" qatori shu papkaga nisbatan rasm manzilidir.
+49-56-savollarda rasm majburiy: avval rasm yuborilsin, keyin tegishli quiz polli.
+Olimlar, sanalar va tarixiy kashfiyotlar haqida savollar kiritilmadi.
+Nomlar bir xil uslubda yozildi: but-1-en, but-2-en va hokazo.
+Savollar va variantlar aralashtirilganda rasm hamda to'g'ri javob
+tegishli savol bilan birga saqlanishi kerak.
+
+=== TUZILISH VA GOMOLOGIK QATOR ===
+
+01. Ochiq zanjirli, bitta C=C qo'sh bog'li alkenlarning umumiy formulasi qaysi?
+- CₙH₂ₙ₊₂
+- CₙH₂ₙ₋₂
++ CₙH₂ₙ
+- CₙHₙ
+Slayd: 3, 5
+Izoh: Bitta qo'sh bog'li atsiklik alkenlar CₙH₂ₙ formulasiga ega.
+
+02. Alkenlar gomologik qatorining birinchi vakili qaysi?
+- Etan
+- Etin
++ Eten
+- Metan
+Slayd: 3, 5
+Izoh: C=C bog' hosil qilish uchun kamida ikkita uglerod atomi kerak.
+
+03. C=C qo'sh bog' nechta σ- va π-bog'dan iborat?
+- Bitta σ va ikkita π
++ Bitta σ va bitta π
+- Ikkita σ va bitta π
+- Faqat ikkita π
+Slayd: 3, 4
+Izoh: Qo'sh bog' bitta sigma va bitta pi bog'dan tuzilgan.
+
+04. Eten molekulasidagi uglerod atomlari qanday gibridlangan?
+- sp³
++ sp²
+- sp
+- sp³d
+Slayd: 4
+Izoh: Qo'sh bog'dagi har bir uglerod sp²-gibridlanishga ega.
+
+05. sp²-gibrid orbitallar orasidagi ideal burchak taxminan qancha?
+- 90°
+- 109,5°
+- 180°
++ 120°
+Slayd: 4
+Izoh: sp² orbitallar trigonal tekis geometriyaga mos keladi.
+
+06. Eten molekulasida atomlarning joylashuvi qanday?
+- Oktaedr uchlarida
+- Faqat chiziq bo'ylab
+- Tetraedr uchlarida
++ Bir tekislikda
+Slayd: 4
+Izoh: Etenning atomlari tekis tuzilishda joylashadi.
+
+07. Alkenlar qatoridagi ketma-ket gomologlar tarkibi qanday guruhga farq qiladi?
+- H₂
+- CO₂
+- CH₃
++ CH₂
+Slayd: 5
+Izoh: Gomologik farq CH₂ guruhidir.
+
+08. Ochiq zanjirli, bitta qo'sh bog'li pentenning molekulyar formulasi qaysi?
+- C₅H₁₂
+- C₅H₈
++ C₅H₁₀
+- C₅H₆
+Slayd: 5, 8
+Izoh: CₙH₂ₙ formulasida n = 5 bo'lsa, C₅H₁₀ olinadi.
+
+09. Ochiq zanjirli, bitta qo'sh bog'li alkenda 14 ta vodorod atomi bo'lsa, nechta uglerod atomi bo'ladi?
+- 14
+- 8
++ 7
+- 6
+Slayd: 3, 5
+Izoh: 2n = 14 dan n = 7.
+
+10. C₄H₈ alkenning molyar massasi qancha? C = 12, H = 1 deb oling.
+- 54 g/mol
++ 56 g/mol
+- 58 g/mol
+- 48 g/mol
+Slayd: 5
+Izoh: 4 × 12 + 8 × 1 = 56 g/mol.
+
+11. Etenning trivial nomi qaysi?
+- Izobutilen
+- Atsetilen
+- Propilen
++ Etilen
+Slayd: 5
+Izoh: Eten etilen nomi bilan ham ataladi.
+
+12. Alkenlar yana qanday nom bilan ataladi?
+- Parafinlar
++ Olefinlar
+- Alkinlar
+- Arenlar
+Slayd: 3
+Izoh: Ma'ruzada alkenlar uchun olefinlar atamasi ham ishlatilgan.
+
+=== NOMENKLATURA VA IZOMERIYA ===
+
+13. Alkenni nomlashda asosiy zanjir sifatida qanday zanjir tanlanadi?
++ Qo'sh bog'ni o'z ichiga olgan eng uzun uglerod zanjiri
+- Qo'sh bog'ni o'z ichiga olmagan istalgan eng uzun zanjir
+- Faqat eng qisqa uglerod zanjiri
+- Faqat barcha metil guruhlarini birlashtirgan zanjir
+Slayd: 10
+Izoh: Asosiy zanjir C=C bog'ni saqlashi kerak.
+
+14. Alken zanjirini raqamlash qaysi tomondan boshlanadi?
+- Qo'sh bog'ga eng katta raqam beradigan tomondan
++ Qo'sh bog'ga kichikroq raqam beradigan tomondan
+- Har doim eng katta tarmoq yonidan
+- Har doim chap tomondan
+Slayd: 10
+Izoh: Qo'sh bog'ning joylashuv raqami imkon qadar kichik bo'ladi.
+
+15. But-1-en va but-2-en qanday izomerlar?
+- Uglerod skeleti izomerlari
+- Bir-birining gomologlari
+- Sinflararo izomerlar
++ Qo'sh bog'ning holat izomerlari
+Slayd: 6
+Izoh: Zanjir bir xil, qo'sh bog'ning o'rni farq qiladi.
+
+16. But-1-en va 2-metilpropen qanday izomerlar?
++ Uglerod skeleti izomerlari
+- Faqat sis-trans izomerlar
+- Faqat qo'sh bog'ning holat izomerlari
+- Bir-birining gomologlari
+Slayd: 5, 6
+Izoh: Ikkalasining formulasi C₄H₈; biri to'g'ri, ikkinchisi tarmoqlangan zanjirga ega.
+
+17. Pent-1-en va siklopentan qanday izomerlar?
++ Sinflararo izomerlar
+- Gomologlar
+- Faqat geometrik izomerlar
+- Faqat holat izomerlari
+Slayd: 8
+Izoh: Ikkalasi C₅H₁₀, ammo turli sinflarga mansub.
+
+18. Oddiy alken uchun geometrik izomeriya bo'lishining zarur sharti qaysi?
+- Qo'sh bog'dagi har bir uglerodga ikki bir xil guruh bog'langan bo'lishi
++ Qo'sh bog'dagi har bir uglerodga ikki xil guruh bog'langan bo'lishi
+- Molekulada faqat bitta uglerod bo'lishi
+- Molekulada qo'sh bog' bo'lmasligi
+Slayd: 7
+Izoh: Har bir C=C uglerodidagi ikkita o'rinbosar o'zaro farqli bo'lishi kerak; barcha to'rtta guruhning farqli bo'lishi shart emas.
+
+19. Qaysi alken geometrik izomeriyaga ega bo'la oladi?
+- Propen
+- 2-metilpropen
+- Eten
++ But-2-en
+Slayd: 6, 7
+Izoh: But-2-enning har bir qo'sh bog' uglerodiga H va CH₃ bog'langan.
+
+20. Nega propen sis-trans izomeriyaga ega emas?
+- Unda uglerod atomlari sp³-gibridlangan
+- Uning molekulasida qo'sh bog' yo'q
+- U faqat halqali tuzilishga ega
++ CH₂ guruhidagi qo'sh bog' uglerodiga ikkita bir xil H bog'langan
+Slayd: 7
+Izoh: C=C ning bir uglerodida bir xil guruhlar bo'lsa, geometrik izomeriya kuzatilmaydi.
+
+21. Z konfiguratsiyada qaysi guruhlar qo'sh bog'ning bir tomonida joylashadi?
++ Har bir C=C uglerodidagi CIP bo'yicha yuqori ustuvor guruhlar
+- Har doim faqat vodorod atomlari
+- Faqat nomida birinchi yozilgan guruhlar
+- Har doim eng katta hajmli guruhlar
+Slayd: 7; IUPAC E/Z
+Izoh: Z/E belgilash CIP ustuvorliklariga asoslanadi; Z da yuqori ustuvor guruhlar bir tomonda.
+
+22. E konfiguratsiyada yuqori CIP ustuvorlikdagi guruhlar qanday joylashadi?
++ Qo'sh bog'ning qarama-qarshi tomonlarida
+- Qo'sh bog'ning bir tomonida
+- Faqat bitta uglerod atomiga bog'langan bo'ladi
+- Ikkalasi ham har doim vodorod bo'ladi
+Slayd: 7; IUPAC E/Z
+Izoh: E konfiguratsiya yuqori ustuvor guruhlarning qarama-qarshi joylashishini bildiradi.
+
+23. CH₂=CH- guruhining keng ishlatiladigan nomi qaysi?
+- Izopropil
+- Allil
++ Vinil
+- Etil
+Slayd: 11
+Izoh: Vinil ikki uglerodli to'yinmagan o'rinbosardir; uni etinil bilan adashtirmang.
+
+24. CH₂=CH-CH₂- guruhining nomi qaysi?
++ Allil
+- Etil
+- Fenil
+- Vinil
+Slayd: 11
+Izoh: Allil guruhining erkin valentligi qo'sh bog' yonidagi CH₂ da joylashgan.
+
+=== ALKENLARNING OLINISHI ===
+
+25. Alkandan H₂ ajratib alken olish qanday jarayon?
+- Gidratlash
+- Gidrogenlash
+- Galogenlash
++ Degidrogenlash
+Slayd: 12
+Izoh: Degidrogenlashda vodorod ajralib, qo'sh bog' hosil bo'ladi.
+
+26. Etanni degidrogenlash natijasida qaysi alken hosil bo'ladi?
++ Eten
+- But-1-en
+- Pent-1-en
+- Propen
+Slayd: 12
+Izoh: C₂H₆ → C₂H₄ + H₂.
+
+27. Alkinni alken bosqichigacha qaytarish uchun qanday jarayon qo'llanadi?
+- To'liq yonish
+- Gidroliz
++ Selektiv gidrogenlash
+- Degidratlash
+Slayd: 13
+Izoh: Selektiv gidrogenlashda uch bog' qo'sh bog'gacha qaytariladi.
+
+28. Bir mol etindan eten olish uchun necha mol H₂ birikishi kerak?
+- 2 mol
++ 1 mol
+- 3 mol
+- 0,5 mol
+Slayd: 13
+Izoh: C₂H₂ + H₂ → C₂H₄.
+
+29. Galogenalkandan alken olish uchun slaydda qaysi sharoit ko'rsatilgan?
++ Ishqorning spirtdagi eritmasi yoki alkogolyat
+- Faqat vodorod va nikel
+- Faqat ishqorsiz sovuq suv
+- Faqat bromning yorug'likdagi eritmasi
+Slayd: 14
+Izoh: Spirtli ishqor yoki alkogolyat vodorod galogenidning ajralishiga yordam beradi.
+
+30. Galogenalkandan HX ajralib, alken hosil bo'lishi qanday jarayon?
+- Galogenlash
+- Gidrogenlash
++ Degidrogalogenlash
+- Gidratlash
+Slayd: 14
+Izoh: H va galogen ajralib chiqishi qo'sh bog' hosil qiladi.
+
+31. 1-xlorpropan spirtli ishqor ta'sirida eliminatsiyaga uchrasa, qaysi alken hosil bo'ladi?
++ Propen
+- Eten
+- But-1-en
+- 2-metilpropen
+Slayd: 14
+Izoh: CH₃-CH₂-CH₂Cl dan HCl ajralganda CH₃-CH=CH₂ olinadi.
+
+32. Slayddagi Zaysev qoidasiga ko'ra, eliminatsiyada odatda qaysi alken asosiy mahsulot bo'ladi?
+- Har doim uglerod atomlari eng kam bo'lgan alken
+- Har doim faqat terminal alken
+- Faqat geometrik izomeriyaga ega bo'lmagan alken
++ Qo'sh bog'i ko'proq alkil guruhlari bilan o'rinbosarlangan alken
+Slayd: 14, 15
+Izoh: Ma'ruzadagi sharoitlarda ko'proq o'rinbosarlangan qo'sh bog'li mahsulot ustun bo'lishi ko'rsatilgan.
+
+33. Vitsinal digalogenalkan deganda qanday tuzilma tushuniladi?
++ Galogenlari qo'shni uglerod atomlarida joylashgan birikma
+- Faqat bitta galogenli birikma
+- Galogensiz halqali birikma
+- Ikkala galogeni bitta uglerod atomida joylashgan birikma
+Slayd: 15
+Izoh: Vitsinal joylashuv qo'shni uglerod atomlariga tegishli.
+
+34. Vitsinal dibromalkandan alken olish uchun slaydda qaysi metall ishlatilgan?
++ Rux
+- Natriy
+- Kumush
+- Mis
+Slayd: 15
+Izoh: Rux ta'sirida ikkita brom ajralib, ZnBr₂ va alken hosil bo'ladi.
+
+35. Spirtdan suv ajratib alken olish qanday ataladi?
+- Gidrogenlash
+- Degalogenlash
+- Gidratlash
++ Degidratlash
+Slayd: 15
+Izoh: Degidratlash suvning ajralib chiqishidir.
+
+36. Propan-1-ol degidratlanganda qaysi alken hosil bo'ladi?
++ Propen
+- 2-metilpropen
+- Eten
+- But-2-en
+Slayd: 15
+Izoh: Uch uglerodli spirtdan uch uglerodli alken va suv hosil bo'ladi.
+
+37. 3-metilbutan-2-ol Zaysev qoidasiga muvofiq degidratlanganda asosiy mahsulot qaysi?
+- Pent-1-en
++ 2-metilbut-2-en
+- 2-metilpropen
+- But-1-en
+Slayd: 15
+Izoh: Suv ajralishi ko'proq o'rinbosarlangan qo'sh bog'ni beradi.
+
+38. Slaydda alkenlar olishning asosiy sanoat usuli sifatida nima keltirilgan?
+- Spirtlarni suvda eritish
+- Alkenlarni to'liq gidrogenlash
++ Alkanlarni krekinglash
+- Alkanlarni to'liq yondirish
+Slayd: 16
+Izoh: Kreking alkanlardan kichikroq molekulalar, jumladan alkenlar olishda qo'llanadi.
+
+39. Etilatsetat pirolizida slaydda qaysi mahsulotlar ko'rsatilgan?
+- Etin va metanol
++ Eten va sirka kislota
+- Propen va chumoli kislota
+- Etan va etanol
+Slayd: 16
+Izoh: CH₃COOCH₂CH₃ → CH₂=CH₂ + CH₃COOH.
+
+40. Fosfor ilidi karbonil birikma bilan reaksiyaga kirishganda organik mahsulotda qanday bog' hosil bo'ladi?
+- Faqat yangi O-O bog'
++ C=C qo'sh bog'
+- Faqat C-Cl bog'
+- Faqat yangi C≡C uch bog'
+Slayd: 17
+Izoh: Karbonil guruhining kislorodi o'rnida yangi uglerod-uglerod qo'sh bog' hosil bo'ladi.
+
+41. Fosfor ilidi bilan karbonil birikma reaksiyasida slaydda qaysi fosforli mahsulot ko'rsatilgan?
+- Fosfor pentaxlorid
+- Fosfor kislota
+- Fosfin PH₃
++ Trifenilfosfin oksid
+Slayd: 17
+Izoh: (C₆H₅)₃P=O hosil bo'lishi reaksiyaning muhim qismidir.
+
+42. Ikki molekula propen metatezisga uchraganda slaydda qaysi alkenlar hosil bo'lishi ko'rsatilgan?
+- Etan va butan
+- Etin va propan
+- Pent-1-en va metan
++ Eten va but-2-en
+Slayd: 18
+Izoh: 2CH₂=CHCH₃ ⇌ CH₂=CH₂ + CH₃CH=CHCH₃.
+
+43. Mahsulotlardan biri etilen bo'lgan metatezisda etilenni chiqarib yuborish muvozanatga qanday ta'sir qiladi?
+- Har qanday holatda reaksiyani qaytmas to'xtatadi
++ Mahsulotlar hosil bo'lishi tomon siljitadi
+- Faqat boshlang'ich alken tomon siljitadi
+- Muvozanatga hech qanday ta'sir qilmaydi
+Slayd: 19
+Izoh: Mahsulotni chiqarish uning qayta hosil bo'lishini rag'batlantiradi.
+
+=== FIZIKAVIY XOSSALAR ===
+
+44. Eten va propen odatdagi xona sharoitida qanday agregat holatda bo'ladi?
++ Gaz
+- Suyuqlik
+- Plazma
+- Qattiq kristall
+Slayd: 20
+Izoh: Quyi alkenlar, jumladan eten va propen gazlardir.
+
+45. Alkenlarning suvda eruvchanligi qanday?
+- Har qanday nisbatda yaxshi eriydi
++ Juda kam
+- Har doim suv bilan kimyoviy tuz hosil qiladi
+- Suvda eruvchanligi organik erituvchilardagidan doimo yuqori
+Slayd: 20
+Izoh: Alkenlar uglevodorodlar bo'lib, suvda kam eriydi.
+
+46. Eten molekulasining dipol momenti qanday?
+- Doimo manfiy
+- 1 kulonga teng
++ Nolga teng
+- Uglerod atomlari soniga teng
+Slayd: 22
+Izoh: Simmetrik eten qutbsiz molekuladir.
+
+47. Metil guruhi slaydda induktiv ta'siri bo'yicha qanday tavsiflangan?
+- Har doim ta'sirsiz
++ Elektrondonor, +I ta'sirli
+- Faqat -M ta'sirli
+- Elektronakseptor, -I ta'sirli
+Slayd: 22
+Izoh: Alkil guruhining +I ta'siri elektron zichligining taqsimlanishiga ta'sir qiladi.
+
+48. Slayddagi jadvalga ko'ra, sis-but-2-en va trans-but-2-enning qaynash haroratlarini taqqoslang.
+- Trans-but-2-enniki yuqoriroq
+- Ikkalasiniki bir xil
++ Sis-but-2-enniki yuqoriroq
+- Ikkalasi ham jadvalda berilmagan
+Slayd: 21
+Izoh: Jadvalda sis izomer uchun 4 °C, trans izomer uchun 1 °C keltirilgan.
+
+=== RASMLI SAVOLLAR ===
+
+49. Rasmda ko'rsatilgan buten izomeri qaysi?
+- 2-metilpropen
+- But-1-en
++ Sis-but-2-en
+- Trans-but-2-en
+Slayd: 6
+Izoh: CH₃ guruhlari qo'sh bog'ning bir tomonida joylashgan.
+Rasm: rasmlar/q49.png
+
+50. Rasmda ko'rsatilgan buten izomeri qaysi?
+- Sis-but-2-en
+- But-1-en
++ Trans-but-2-en
+- 2-metilpropen
+Slayd: 6
+Izoh: CH₃ guruhlari qo'sh bog'ning qarama-qarshi tomonlarida joylashgan.
+Rasm: rasmlar/q50.png
+
+51. Rasmdagi galogenli alkenning E/Z konfiguratsiyasi qaysi?
++ Z konfiguratsiya
+- Bu alken emas, alkan
+- Geometrik izomeriya mavjud emas
+- E konfiguratsiya
+Slayd: 7; IUPAC E/Z
+Izoh: CH₃ guruhi H dan, Br esa Cl dan ustuvor; CH₃ va Br bir tomonda.
+Rasm: rasmlar/q51.png
+
+52. Rasmdagi galogenli alkenning E/Z konfiguratsiyasi qaysi?
+- Bu alken emas, alkin
+- Geometrik izomeriya mavjud emas
+- Z konfiguratsiya
++ E konfiguratsiya
+Slayd: 7; IUPAC E/Z
+Izoh: CH₃ guruhi H dan, Br esa Cl dan ustuvor; ular qarama-qarshi tomonlarda.
+Rasm: rasmlar/q52.png
+
+53. Rasmdagi alkenning sistematik nomi qaysi?
++ 3-metilbut-1-en
+- Pent-1-en
+- 2-metilbut-2-en
+- 2-metilbut-1-en
+Slayd: 9
+Izoh: Qo'sh bog'ni saqlagan asosiy zanjir to'rtta uglerodli; metil guruhi 3-o'rinda.
+Rasm: rasmlar/q53.png
+
+54. Rasmdagi alkenning sistematik nomi qaysi? Geometrik konfiguratsiyani aniqlash talab qilinmaydi.
+- 2,5-dimetilgeks-2-en
+- 2,4-dimetilgeks-3-en
++ 2,5-dimetilgeks-3-en
+- 3,4-dimetilgeks-2-en
+Slayd: 9
+Izoh: Asosiy zanjir oltita uglerodli, qo'sh bog' 3-o'rinda va metil guruhlari 2 hamda 5-o'rinda.
+Rasm: rasmlar/q54.png
+
+55. Rasmdagi tarmoqlangan alkenning nomi qaysi?
++ 2-metilpropen
+- But-1-en
+- But-2-en
+- Propen
+Slayd: 10
+Izoh: Struktura CH₂=C(CH₃)₂ ko'rinishida; asosiy zanjir propen bo'lib, 2-o'rinda metil mavjud.
+Rasm: rasmlar/q55.png
+
+56. Rasmdagi to'g'ri zanjirli alkenning nomi qaysi?
+- But-1-en
+- Pent-2-en
+- 3-metilbut-1-en
++ Pent-1-en
+Slayd: 8
+Izoh: Besh uglerodli zanjirda qo'sh bog' birinchi ugleroddan boshlanadi.
+Rasm: rasmlar/q56.png
+
+=== TUZUVCHI UCHUN TEKSHIRUV ESLATMALARI ===
+
+1. 7-8-slaydlardagi "sis = Z, trans = E" jumlasi umumiy qoida sifatida
+   ko'chirilmadi. E/Z belgilash CIP ustuvorliklariga bog'liq; eng katta
+   hajmli guruhlar bilan avtomatik belgilanmaydi. Qo'sh bog'dagi har bir
+   uglerodga ikki xil guruh bog'lanishi kifoya, barcha to'rtta guruhning
+   bir-biridan farqli bo'lishi shart emas.
+   Tekshiruv manbasi: IUPAC Gold Book, E, Z:
+   https://goldbook.iupac.org/terms/view/E01882
+2. 11-slayddagi CH₂=CH- uchun "etinil" yozuvi to'g'ri emas.
+   Savolda vinil ishlatildi; etinil HC≡C- guruhidir.
+3. 5-slayddagi pent-1-en zanjirining oxirgi CH₂ yozuvi xato;
+   neytral ochiq zanjir oxiri CH₃ bo'lishi kerak. Rasmli pent-1-en
+   savolida 8-slayddagi to'g'ri struktura ishlatildi.
+4. 12-slayddagi ayrim butan/buten sxemalarida oxirgi CH₂ yozuvlari
+   valentligiga mos emas. Ushbu sxemalardan rasmli savol olinmadi.
+5. 16-slayddagi etan parchalanish sxemasi koeffitsiyentsiz berilgan;
+   u muvozanatlangan reaksiya sifatida savollarga olinmadi.
+6. 15-slaydda etanol va sulfat kislota bilan yozilgan qator
+   oraliq sulfat efir hosil bo'lishini ko'rsatadi; u alkenning
+   bevosita hosil bo'lish tenglamasi sifatida ishlatilmadi.
+7. 20-slayddagi barcha alkenlar uchun hid va erituvchilar haqidagi
+   keskin umumlashtirishlar savollarga ko'chirilmadi. Suvda
+   eruvchanlik "juda kam" deb yozildi.
+8. 49-56 rasmlar asl PDF strukturalaridan ajratildi. Javobni
+   ko'rsatuvchi nomlar va izomer yorliqlari rasm hududiga kiritilmadi.
+9. 23-24-slaydlar yakuniy minnatdorchilik sahifalari. Mavzu
+   rejasidagi barcha kimyoviy xossalar bu PDF'da batafsil ochilmagan;
+   manbada yo'q reaksiyalar bilan savollar soni sun'iy oshirilmadi.

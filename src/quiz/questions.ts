@@ -239,7 +239,10 @@ export const chemistryBasicsQuiz: Quiz = {
 import { kk1Quiz1, kk1Quiz2, kk1Quiz3 } from "./kk1Questions.js";
 import { kk2Quiz1, kk2Quiz2, kk2Quiz3, allKk2Quizzes } from "./kk2Questions.js";
 import { kk3Quiz1, kk3Quiz2, allKk3Quizzes } from "./kk3Questions.js";
+import { kk4Quiz1, kk4Quiz2, kk4Quiz3, kk4Quiz4, allKk4Quizzes } from "./kk4Questions.js";
+import { kk5Quiz1, kk5Quiz2, kk5Quiz3, kk5Quiz4, allKk5Quizzes } from "./kk5Questions.js";
 import { i3Quiz1, i3Quiz2, i3Quiz3, allI3Quizzes } from "./i3Questions.js";
+import { i4Quiz1, i4Quiz2, i4Quiz3, allI4Quizzes } from "./i4Questions.js";
 import {
   russianQuiz1,
   russianQuiz2,
@@ -262,10 +265,24 @@ export {
   kk3Quiz1,
   kk3Quiz2,
   allKk3Quizzes,
+  kk4Quiz1,
+  kk4Quiz2,
+  kk4Quiz3,
+  kk4Quiz4,
+  allKk4Quizzes,
+  kk5Quiz1,
+  kk5Quiz2,
+  kk5Quiz3,
+  kk5Quiz4,
+  allKk5Quizzes,
   i3Quiz1,
   i3Quiz2,
   i3Quiz3,
   allI3Quizzes,
+  i4Quiz1,
+  i4Quiz2,
+  i4Quiz3,
+  allI4Quizzes,
   russianQuiz1,
   russianQuiz2,
   russianQuiz3,
@@ -285,7 +302,10 @@ export const allQuizzes: Quiz[] = [
   kk1Quiz3,
   ...allKk2Quizzes,
   ...allKk3Quizzes,
+  ...allKk4Quizzes,
+  ...allKk5Quizzes,
   ...allI3Quizzes,
+  ...allI4Quizzes,
   ...allRussianQuizzes,
   ak1Quiz,
 ];
@@ -420,6 +440,42 @@ export function getQuizById(id: string): Quiz | undefined {
     normalized === "i33"
   ) {
     return i3Quiz3;
+  }
+
+  if (normalized === "kk4-1" || normalized === "kk_4_1" || normalized === "kk41") {
+    return kk4Quiz1;
+  }
+  if (normalized === "kk4-2" || normalized === "kk_4_2" || normalized === "kk42") {
+    return kk4Quiz2;
+  }
+  if (normalized === "kk4-3" || normalized === "kk_4_3" || normalized === "kk43") {
+    return kk4Quiz3;
+  }
+  if (normalized === "kk4-4" || normalized === "kk_4_4" || normalized === "kk44") {
+    return kk4Quiz4;
+  }
+
+  if (normalized === "kk5-1" || normalized === "kk_5_1" || normalized === "kk51") {
+    return kk5Quiz1;
+  }
+  if (normalized === "kk5-2" || normalized === "kk_5_2" || normalized === "kk52") {
+    return kk5Quiz2;
+  }
+  if (normalized === "kk5-3" || normalized === "kk_5_3" || normalized === "kk53") {
+    return kk5Quiz3;
+  }
+  if (normalized === "kk5-4" || normalized === "kk_5_4" || normalized === "kk54") {
+    return kk5Quiz4;
+  }
+
+  if (normalized === "i4-1" || normalized === "i_4_1" || normalized === "i41") {
+    return i4Quiz1;
+  }
+  if (normalized === "i4-2" || normalized === "i_4_2" || normalized === "i42") {
+    return i4Quiz2;
+  }
+  if (normalized === "i4-3" || normalized === "i_4_3" || normalized === "i43") {
+    return i4Quiz3;
   }
 
   if (normalized === "r_1" || normalized === "r-1") return russianQuiz1;

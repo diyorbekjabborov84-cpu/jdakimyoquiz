@@ -1618,5 +1618,149 @@ Vercel'da admin paneli deploy qilingandan so'ng Telegram Login Widget ishlashi u
   - **Git push va Render/Vercel deploy qat'iyan bajarilmadi**.
   - Barcha o'zgarishlar mahalliy ishchi daraxtda saqlanmoqda va Codex tekshiruviga to'liq tayyor.
 
+---
+
+### 16. Yangi Aminokislotalar Strukturasi Quizi (AK1) va Kimyoviy Formulalar Rasmlari Tizimi
+
+- **Vazifaning Maqsadi**:
+  1. 329–330-betlardagi 17-jadvalda keltirilgan 21 ta aminokislota asosida yangi interaktiv rasm-quiz yaratish: Quiz kodi `AK1`, boshlash buyrug'i `/quiz_AK1`.
+  2. Mavjud `/quiz_amino_acids` (suyuqlanish temperaturasi) testini o'zgartirmasdan to'liq saqlab qolish.
+  3. Har bir savol uchun faqat kimyoviy struktura tushirilgan, telefonda o'qilishi oson, oq fonda yuqori kontrastli alohida rasm (PNG) tayyorlash (nomi, qisqartmasi va suyuqlanish temperaturasisiz, butun jadval skrinshotlaridan foydalanmasdan).
+  4. Guruhda savollar ketma-ketligini ta'minlash: avval `[1/21]` sarlavhali struktura rasmi, darhol uning ortidan Telegram’ning o'z quiz polli: `"Rasmdagi aminokislota qaysi?"` (4 ta variant, 1 ta to'g'ri).
+  5. Har bir pollga 30 soniya berish; 30 soniyalik vaqt rasm yuborilganda emas, aynan poll ochilganda boshlanishi.
+  6. Savollar ham, variantlar ham har yangi urinishda Fisher-Yates algoritmi orqali aralashishi (to'g'ri indekslar mos yangilanishi bilan).
+  7. Nozik juftliklar (leysin–izoleysin, sistein–sistin, asparagin–glutamin kislota, prolin–oksiprolin, ornitin–lizin) bo'yicha struktura va to'g'ri nomlarni adashtirmaslik, variantlarda ushbu o'xshash moddalarni to'g'ri chalg'ituvchi sifatida berish.
+  8. Rasm yuborishda Telegram API xatosi bo'lsa, keyingi pollga o'tmasdan quizni xavfsiz pauzaga qo'yish, qayta davom ettirilganda aynan shu rasm va savoldan boshlash.
+  9. Test yaratuvchisi: `@diyorbek_jabborov`, Manba: `329–330-betlardagi 17-jadval`.
+  10. Hozircha deploy qilmaslik, o'zgargan fayllar va o'tkazilgan testlarni hisobotga kiritish.
+
+- **Amalga Oshirilgan Ishlar**:
+  1. **21 ta Kimyoviy Struktura Rasmlari Generatsiyasi (`assets/amino_acids/`)**:
+     - Python Pillow kutubxonasi orqali 17-jadval darsligidagi formulalarga 100% mos keluvchi 900x380 o'lchamdagi toza, yuqori sifatli, mobil qurilmalarda yaqinlashtirmasdan ham bemalol o'qiladigan 21 ta PNG rasm yaratildi (`ak_1.png` ... `ak_21.png`):
+       - Subskriptlar (kichik raqamlar: $CH_3$, $NH_2$, $(CH_2)_2$, $COOH$, $OH$, $HS$ va h.k.) to'g'ri vertikal ofset bilan chizildi;
+       - Gorizontal, vertikal va qo'shbog'lar (4px qalinlikda, chuqur qora rangda) aniq joylashtirildi;
+       - Benzol halqalari (Fenilalanin, Tirozin), Indol halqasi (Triptofan), Pirrolidin halqasi (Prolin, Oksiprolin) va Imidazol halqasi (Gistidin) kitobdagi strukturaga mos ravishda chizildi;
+       - Rasm ichida moddaning nomi, qisqartmasi, temperaturasi yoki jadval skrinshotlari mutlaqo yo'q — faqat toza kimyoviy struktura.
+  2. **AK1 Quiz Ma'lumotlari (`src/quiz/ak1Questions.ts`)**:
+     - 21 ta savol to'plami yaratildi: har bir savol uchun `id` (`ak1_1` ... `ak1_21`), `imagePath`, `question: "Rasmdagi aminokislota qaysi?"`, 4 ta tanlov varianti, `correctOptionId`, batafsil `explanation`, `timeLimitSeconds: 30`.
+     - `ak1Quiz`: `id: "AK1"`, `title: "Aminokislotalar strukturasi (AK1)"`, `groupOnly: true`, `shuffle: true`, `source: "329–330-betlardagi 17-jadval"`.
+  3. **Quiz Registratsiyasi (`src/quiz/questions.ts`)**:
+     - `ak1Quiz` import va eksport qilindi, `allQuizzes` ro'yxatiga qo'shildi (jami quizlar soni 20 taga yetdi).
+     - `getQuizById`: `AK1`, `ak1`, `ak_1`, `ak-1`, `quiz_AK1`, `start_ak1` buyruqlarini qabul qiladi.
+     - Mavjud `aminoAcidsQuiz` (id: `amino_acids`) ga tegilmadi, 100% o'zgarmasdan saqlandi.
+  4. **QuizManager Rasm va Poll Integratsiyasi (`src/quiz/quizManager.ts`)**:
+     - `QuizQuestion` interfeysiga `imagePath?: string` maydoni qo'shildi.
+     - `TelegramApiSender` interfeysiga `sendPhoto?(chatId, photo, other)` metodi kiritildi.
+     - `sendNextQuestion`:
+       - Agar `q.imagePath` mavjud bo'lsa, avval `api.sendPhoto` orqali `[1/21]` sarlavhali rasm yuboriladi;
+       - Rasm yuborishda xatolik yuz bersa (masalan, Telegram 500 yoki tarmoq uzilishi): keyingi poll yuborilmaydi, savol indeksi 1 ga orqaga qaytariladi (`Math.max(-1, currentQuestionIndex - 1)`), sessiya statusi `"paused"` qilinadi, bazaga saqlanadi va guruhga resume tugmasi va `/resume` xabari yuboriladi.
+       - Qayta davom ettirilganda (`/resume` yoki tugma) aynan o'sha savolning rasmi va polli qayta yuboriladi.
+       - Rasm muvaffaqiyatli yuborilgach, darhol `api.sendPoll` chaqiriladi va 30 soniyalik taymer aynan poll ochilgan vaqtda boshlanadi.
+  5. **To'liq Integratsiya va Regressiya Testlari (`test/ak1-quiz.test.ts`)**:
+     - Barcha 21 ta savol, variantlar, to'g'ri javoblar va diskdagi rasm fayllari tekshirildi (21/21 mavjud va to'liq);
+     - Nozik juftliklar (leysin/izoleysin, sistein/sistin, asparagin/glutamin, prolin/oksiprolin, ornitin/lizin) tekshirildi: variantlarda o'zaro chalg'ituvchi sifatida qatnashgan va rasmlar chalkashmasligi kafolatlandi;
+     - Fisher-Yates orqali savollar va javob variantlari aralashishi hamda to'g'ri javob matni saqlanishi tekshirildi;
+     - Avval `[1/21]` rasm, so'ngra 30s lik poll chiqishi tekshirildi;
+     - Rasm yuborishda xatolik yuz berganda poll ochilmasdan xavfsiz pauzaga o'tish va resume qilinganda aynan shu rasm va savol qayta chiqishi simulyatsiya qilindi;
+     - Yakuniy reytingda `@diyorbek_jabborov` va `329–330-betlardagi 17-jadval` ko'rinishi tasdiqlandi.
+
+- **21 ta Savol, Rasm, Variantlar va To'g'ri Javoblar Ro'yxati**:
+  1. **Glitsin** (`ak_1.png`): $NH_2—CH_2—COOH$ | Variantlar: **Glitsin**, Alanin, Valin, Serin (To'g'ri: Glitsin)
+  2. **Alanin** (`ak_2.png`): $CH_3—CH(NH_2)—COOH$ | Variantlar: Glitsin, **Alanin**, Valin, Leysin (To'g'ri: Alanin)
+  3. **Valin** (`ak_3.png`): $CH_3—CH(CH_3)—CH(NH_2)—COOH$ | Variantlar: **Valin**, Alanin, Leysin, Izoleysin (To'g'ri: Valin)
+  4. **Leysin** (`ak_4.png`): $CH_3—CH(CH_3)—CH_2—CH(NH_2)—COOH$ | Variantlar: Izoleysin, Valin, **Leysin**, Lizin (To'g'ri: Leysin)
+  5. **Izoleysin** (`ak_5.png`): $CH_3—CH_2—CH(CH_3)—CH(NH_2)—COOH$ | Variantlar: Leysin, **Izoleysin**, Valin, Treonin (To'g'ri: Izoleysin)
+  6. **Asparagin kislota** (`ak_6.png`): $HOOC—CH_2—CH(NH_2)—COOH$ | Variantlar: **Asparagin kislota**, Glutamin kislota, Alanin, Serin (To'g'ri: Asparagin kislota)
+  7. **Glutamin kislota** (`ak_7.png`): $HOOC—CH_2—CH_2—CH(NH_2)—COOH$ | Variantlar: Asparagin kislota, **Glutamin kislota**, Ornitin, Valin (To'g'ri: Glutamin kislota)
+  8. **Ornitin** (`ak_8.png`): $CH_2(NH_2)—(CH_2)_2—CH(NH_2)—COOH$ | Variantlar: Lizin, **Ornitin**, Arginin, Gistidin (To'g'ri: Ornitin)
+  9. **Lizin** (`ak_9.png`): $NH_2—(CH_2)_4—CH(NH_2)—COOH$ | Variantlar: Ornitin, **Lizin**, Arginin, Leysin (To'g'ri: Lizin)
+  10. **Serin** (`ak_10.png`): $HOCH_2—CH(NH_2)—COOH$ | Variantlar: **Serin**, Treonin, Sistein, Alanin (To'g'ri: Serin)
+  11. **Treonin** (`ak_11.png`): $CH_3—CH(OH)—CH(NH_2)—COOH$ | Variantlar: Serin, **Treonin**, Valin, Izoleysin (To'g'ri: Treonin)
+  12. **Sistein** (`ak_12.png`): $HS—CH_2—CH(NH_2)—COOH$ | Variantlar: **Sistein**, Sistin, Metionin, Serin (To'g'ri: Sistein)
+  13. **Sistin** (`ak_13.png`): $S—CH_2—CH(NH_2)COOH \ | \ S—CH_2—CH(NH_2)COOH$ | Variantlar: Sistein, **Sistin**, Metionin, Lizin (To'g'ri: Sistin)
+  14. **Metionin** (`ak_14.png`): $CH_3—S—CH_2—CH_2—CH(NH_2)—COOH$ | Variantlar: **Metionin**, Sistein, Sistin, Glutamin kislota (To'g'ri: Metionin)
+  15. **Fenilalanin** (`ak_15.png`): $C_6H_5—CH_2—CH(NH_2)—COOH$ | Variantlar: **Fenilalanin**, Tirozin, Triptofan, Gistidin (To'g'ri: Fenilalanin)
+  16. **Tirozin** (`ak_16.png`): $HO—C_6H_4—CH_2—CH(NH_2)—COOH$ | Variantlar: Fenilalanin, **Tirozin**, Triptofan, Treonin (To'g'ri: Tirozin)
+  17. **Triptofan** (`ak_17.png`): $Indol—CH_2—CH(NH_2)—COOH$ | Variantlar: **Triptofan**, Gistidin, Prolin, Tirozin (To'g'ri: Triptofan)
+  18. **Prolin** (`ak_18.png`): Pirrolidin-2-karbon kislota ($H_2C—CH_2 \dots$) | Variantlar: **Prolin**, Oksiprolin, Gistidin, Triptofan (To'g'ri: Prolin)
+  19. **Oksiprolin** (`ak_19.png`): 4-gidroksipirrolidin-2-karbon kislota ($OH—[halqa]—COOH$) | Variantlar: Prolin, **Oksiprolin**, Gistidin, Tirozin (To'g'ri: Oksiprolin)
+  20. **Gistidin** (`ak_20.png`): $Imidazol—CH_2—CH(NH_2)—COOH$ | Variantlar: **Gistidin**, Arginin, Prolin, Triptofan (To'g'ri: Gistidin)
+  21. **Arginin** (`ak_21.png`): $NH_2—C(=NH)—NH—(CH_2)_3—CH(NH_2)—COOH$ | Variantlar: Lizin, **Arginin**, Ornitin, Gistidin (To'g'ri: Arginin)
+
+- **Kompilyatsiya va Test Natijalari**:
+  - `npm run build`: **Exit code 0** (TypeScript toza kompilatsiya).
+  - `cd admin && npm run build`: **Exit code 0** (Next.js 15 barcha 19 ta sahifasi toza qurildi).
+  - `node test/run-tests.mjs ak1-quiz.test.ts`: **Exit code 0** (Barcha 7 ta test 100% muvaffaqiyatli).
+  - `npm test`: **Exit code 0** (Barcha 18 ta test to'plami, 100% muvaffaqiyatli).
+
+- **Qat'iy Cheklovlar**:
+  - **Git push va Render/Vercel deploy qat'iyan bajarilmadi**.
+  - Barcha o'zgarishlar mahalliy ishchi daraxtda saqlanmoqda.
+
+---
+
+## 17. Yangi Quizlar Integratsiyasi (KK_M4: 80 ta, KK_M5: 82 ta, Slayd-I-4: 56 ta)
+
+- **Vazifaning Maqsadi**:
+  Loyiha papkasidagi `.txt` fayllar ko'rinishida qo'shilgan, lekin hali botga integratsiya qilinmagan 3 ta yirik to'plamni guruh musobaqalari formatida to'liq ishga tushirish:
+  1. `KK_M4_QUIZ_SAVOLLAR.txt`: Kolloid kimyo — 4-mavzu (Adsorbsiya jarayonlari va adsorbsiya izotermalari, 80 ta savol).
+  2. `KK_M5_QUIZ_SAVOLLAR.txt`: Kolloid kimyo — 5-mavzu (Kolloid eritmalar va liofob zollar, 82 ta savol).
+  3. `SLAYD_I_4_QUIZ/SLAYD_I_4_QUIZ_SAVOLLAR.txt`: Organik kimyo — Alkenlar (56 ta savol: 48 ta matnli va 8 ta rasmli).
+
+- **Amalga Oshirilgan Arxitektura va Bo'linish**:
+  1. **KK4 (Kolloid kimyo 4-mavzu)**:
+     - Standart 20 tadan 4 ta mustaqil quizga ajratildi:
+       - `KK4_1`: 01–20-savollar (Adsorbsiya tushunchasi va adsorbentlar). Buyruq: `/quiz_KK4_1`, `/start_KK4_1`.
+       - `KK4_2`: 21–40-savollar (Adsorbsiya miqdori va izotermalar). Buyruq: `/quiz_KK4_2`, `/start_KK4_2`.
+       - `KK4_3`: 41–60-savollar (Lengmyur izotermasi va monoqavat). Buyruq: `/quiz_KK4_3`, `/start_KK4_3`.
+       - `KK4_4`: 61–80-savollar (Ko'pqavatli adsorbsiya va xromatografiya). Buyruq: `/quiz_KK4_4`, `/start_KK4_4`.
+     - Har bir savolga 20 soniya, `groupOnly: true`, `shuffle: true`.
+     - Manba: *Bahora Nayimova slaydlaridan*, test tuzuvchisi: `@diyorbek_jabborov`.
+
+  2. **KK5 (Kolloid kimyo 5-mavzu)**:
+     - 82 ta savol to'liq qamrab olinib 4 ta mustaqil quizga ajratildi:
+       - `KK5_1`: 01–20-savollar (Kolloid sistemalar va disperslik). Buyruq: `/quiz_KK5_1`, `/start_KK5_1`.
+       - `KK5_2`: 21–40-savollar (Liofil/liofob zollar va mitsellalar). Buyruq: `/quiz_KK5_2`, `/start_KK5_2`.
+       - `KK5_3`: 41–60-savollar (Zol olish usullari va peptizatsiya). Buyruq: `/quiz_KK5_3`, `/start_KK5_3`.
+       - `KK5_4`: 61–82-savollar (Kinetik, optik xossalar va koagulyatsiya, 22 ta savol). Buyruq: `/quiz_KK5_4`, `/start_KK5_4`.
+     - Har bir savolga 20 soniya, `groupOnly: true`, `shuffle: true`.
+     - Manba: *Bahora Nayimova slaydlaridan*, test tuzuvchisi: `@diyorbek_jabborov`.
+
+  3. **I4 (Alkenlar va Rasmli Savollar)**:
+     - 56 ta savol 3 ta mustaqil quizga ajratildi:
+       - `I4_1`: 01–20-savollar (Tuzilish, gomologik qator va gibridlanish). Buyruq: `/quiz_I4_1`, `/start_I4_1`.
+       - `I4_2`: 21–40-savollar (Nomenklatura, izomeriya va olinish). Buyruq: `/quiz_I4_2`, `/start_I4_2`.
+       - `I4_3`: 41–56-savollar (Fizikaviy xossalar va rasmli savollar). Buyruq: `/quiz_I4_3`, `/start_I4_3`.
+     - 49–56-savollardagi rasmlar `assets/alkenlar/q49.png`–`q56.png` manziliga joylashtirildi va QuizManager rasm yuborish mexanizmiga ulandi (avval `[X/16]` sarlavhali rasm, darhol ortidan quiz polli).
+     - Har bir savolga 20 soniya, `groupOnly: true`, `shuffle: true`.
+     - Manba: *Abdusalom Saidov slaydlaridan*, test tuzuvchisi: `@diyorbek_jabborov`.
+
+  4. **Yangi Fayllar va O'zgarishlar**:
+     - `assets/alkenlar/`: `q49.png` ... `q56.png` rasmlari qo'shildi.
+     - `src/quiz/kk4Questions.ts`: KK4 savollar to'plami yaratildi.
+     - `src/quiz/kk5Questions.ts`: KK5 savollar to'plami yaratildi.
+     - `src/quiz/i4Questions.ts`: I4 savollar to'plami yaratildi.
+     - `src/quiz/questions.ts`: Yangi quizlar import/export qilindi, `allQuizzes` ga qo'shildi (jami **31 ta quiz**), `getQuizById` da barcha qisqartma va sinonimlar ulandi.
+     - `README.md`: Barcha 11 ta yangi quiz buyruqlari va Telegram guruh havolalari (`startgroup=quiz_...`) qo'shildi.
+     - `test/kk4-quiz.test.ts`: KK4 uchun 4 ta test to'plami (80 ta savol, 4 ta variant, 20s vaqt, aralashtirish, sinonimlar).
+     - `test/kk5-quiz.test.ts`: KK5 uchun 4 ta test to'plami (82 ta savol, 4 ta variant, 20s vaqt, aralashtirish, sinonimlar).
+     - `test/i4-quiz.test.ts`: I4 uchun 5 ta test to'plami (56 ta savol, 8 ta rasm mavjudligi va hajmi, aralashtirish, sinonimlar).
+     - `test/admin-auth-tracking.test.ts`: `allQuizzes.length` 20 dan 31 ga yangilandi.
+     - `test/run-tests.mjs`: Yangi testlar to'plamiga ulandi.
+
+- **Kompilyatsiya va Test Natijalari**:
+  - `npm run build`: **Exit code 0** (TypeScript toza kompilatsiya bo'ldi).
+  - `cd admin && npm run build`: **Exit code 0** (Next.js 15 barcha 19 ta sahifasi toza qurildi).
+  - `node test/run-tests.mjs kk4-quiz.test.ts`: **Exit code 0** (100% muvaffaqiyatli).
+  - `node test/run-tests.mjs kk5-quiz.test.ts`: **Exit code 0** (100% muvaffaqiyatli).
+  - `node test/run-tests.mjs i4-quiz.test.ts`: **Exit code 0** (100% muvaffaqiyatli).
+  - `npm test`: **Exit code 0** (Barcha 21 ta test to'plami 100% muvaffaqiyatli o'tdi).
+
+- **Qat'iy Cheklovlar**:
+  - **Git push va Render/Vercel deploy qilinmadi**.
+  - Barcha o'zgarishlar mahalliy ishchi daraxtda saqlanmoqda va Codex tekshiruviga to'liq tayyor.
+
+
+
 
 

@@ -4,6 +4,8 @@ node_modules/
 # Production build
 dist/
 data/
+tmp/
+*.zip
 .next/
 *.tsbuildinfo
 

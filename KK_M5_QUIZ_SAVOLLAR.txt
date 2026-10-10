@@ -1,0 +1,702 @@
+KK_M5 - KOLLOID ERITMALAR VA LIOFOB ZOLLAR
+
+Manba: Bahora Nayimova slaydlaridan, KK_M5.pdf (5-ma'ruza).
+Test tuzuvchisi: @diyorbek_jabborov
+Jami: 82 ta savol. Har savolda 4 ta variant va 1 ta to'g'ri javob.
+Format: + to'g'ri javob; - noto'g'ri javob.
+"Slayd" qatori manba PDF'ning sahifa raqamini bildiradi.
+"Slayd" va "Izoh" qatorlari tekshiruv uchun; quiz savol matniga kiritilmaydi.
+Olimlarning tarjimayi holi va sanalar haqidagi savollar kiritilmadi.
+Savollar matn orqali yechiladi; rasm talab qilinmaydi.
+Belgilanishlar: r - zarracha radiusi; D_disp = 1/r - disperslik;
+D_diff - diffuziya koeffitsiyenti; η - muhit qovushoqligi;
+T - mutlaq harorat; ζ - elektrokinetik potensial; |ζ| - uning moduli.
+
+=== KOLLOID SISTEMALAR VA ZOLLARNING TURLARI ===
+
+01. Kolloid eritma qanday sistema hisoblanadi?
++ Dispers faza zarrachalari dispers muhitda tarqalgan geterogen sistema
+- Faqat alohida ionlardan iborat bir jinsli sistema
+- Faqat bir turdagi gaz molekulalaridan iborat sistema
+- Dispers muhiti bo'lmagan qattiq kristall
+Slayd: 3
+Izoh: Kolloid sistemada dispers faza va dispers muhit farqlanadi.
+
+02. Slayddagi tasnifga ko'ra, kolloid zarrachalar odatda qaysi o'lcham oralig'ida bo'ladi?
+- 0,01-0,1 nm
+- 1-100 cm
++ 1-100 nm
+- 1-100 mm
+Slayd: 2-4
+Izoh: Ushbu ma'ruzada kolloid o'lcham diapazoni 1-100 nm deb berilgan.
+
+03. Dispers faza nima?
++ Mayda zarrachalar holida tarqalgan modda
+- Faqat eritmadagi erkin suv
+- Faqat erituvchi molekulalarining sirt qavati
+- Zarrachalarni o'rab turuvchi uzluksiz faza
+Slayd: 3
+Izoh: Dispers faza dispers muhitda tarqaladi.
+
+04. Dispers muhit nima?
++ Dispers fazani o'rab turuvchi uzluksiz faza
+- Faqat zarracha yadrosini hosil qiluvchi modda
+- Mayda zarrachalar holida tarqalgan modda
+- Faqat zolning tubiga cho'kkan qism
+Slayd: 3
+Izoh: Dispers muhit zarrachalar tarqalgan uzluksiz fazadir.
+
+05. Disperslik D = 1/r bo'lsa, zarracha radiusi kamayganda disperslik qanday o'zgaradi?
+- Radiusga bog'liq bo'lmaydi
+- Har doim nolga teng bo'ladi
++ Ortadi
+- Kamayadi
+Slayd: 3
+Izoh: Disperslik zarracha radiusiga teskari proporsional.
+
+06. D = 1/r bog'lanishida zarracha radiusi 2 marta kamaytirilsa, disperslik qanday o'zgaradi?
+- O'zgarmaydi
++ 2 marta ortadi
+- 4 marta kamayadi
+- 2 marta kamayadi
+Slayd: 3
+Izoh: Radius yarmiga kamayganda uning teskari qiymati ikki baravar ortadi.
+
+07. Bir xil hajmdagi modda maydaroq zarrachalarga ajratilsa, umumiy sirt maydoni qanday o'zgaradi?
++ Ortadi
+- O'zgarmaydi
+- Har doim nolga tushadi
+- Kamayadi
+Slayd: 3, 22
+Izoh: Maydalash sirt maydonini oshiradi.
+
+08. Slayddagi tasnif bo'yicha haqiqiy eritma zarrachalari qaysi o'lchamga ega?
+- 10-100 nm
+- 1 mm dan katta
+- 100-1000 nm
++ 1 nm dan kichik
+Slayd: 3
+Izoh: Haqiqiy eritma bilan kolloid eritma zarrachalar o'lchami bo'yicha farqlanadi.
+
+09. Zollarda qattiq dispers faza qaysi muhitda tarqalishi mumkin?
+- Faqat qattiq kristall ichida
++ Suyuq yoki gazsimon muhitda
+- Faqat gazsiz qattiq metall ichida
+- Faqat vakuumda
+Slayd: 6
+Izoh: Slaydda zol qattiq fazaning suyuq yoki gaz muhitdagi kolloid sistemasi sifatida berilgan.
+
+10. Dispers muhiti suv bo'lgan zol qanday ataladi?
+- Emulsiya
+- Organozol
++ Gidrozol
+- Qattiq aerozol
+Slayd: 7, 8
+Izoh: Gidrozolning dispers muhiti suvdir.
+
+11. Organozolning dispers muhiti qanday bo'ladi?
+- Faqat qattiq silikat
++ Organik erituvchi
+- Faqat havo
+- Faqat toza suv
+Slayd: 7, 9
+Izoh: Organozollarda organik erituvchilar dispers muhit vazifasini bajaradi.
+
+12. Qaysi modda organozolning dispers muhiti bo'lishi mumkin?
+- Kumush yodid kristali
+- Grafit kukuni
+- Temir(III) gidroksid zarrachasi
++ Toluol
+Slayd: 9
+Izoh: Toluol slaydda organik dispers muhitga misol sifatida keltirilgan.
+
+13. Aerozolda dispers muhit qanday agregat holatda bo'ladi?
++ Gaz holatida
+- Faqat suyuq holatda
+- Albatta gel holatida
+- Faqat qattiq holatda
+Slayd: 10
+Izoh: Aerozol qattiq zarrachalar yoki suyuq tomchilarning gaz muhitdagi dispersiyasidir.
+
+14. Tuman tarkibidagi dispers faza qanday bo'ladi?
+- Faqat gaz molekulalari
+- Qattiq ion almashuvchi donachalar
++ Suyuq tomchilar
+- Qattiq metall kristallari
+Slayd: 5, 10
+Izoh: Tuman suyuq aerozolga misoldir.
+
+15. Tutun aerozolida dispers faza asosan qanday bo'ladi?
+- Uzluksiz suyuq faza
++ Qattiq zarrachalar
+- Faqat suv bug'i molekulalari
+- Faqat suyuq organik erituvchi
+Slayd: 5, 10
+Izoh: Tutun qattiq zarrachalarning gazdagi dispersiyasidir.
+
+16. Suyuqlik tomchilari boshqa suyuqlikda tarqalgan sistema qanday ataladi?
++ Emulsiya
+- Gaz aralashmasi
+- Qattiq aerozol
+- Ko'pik
+Slayd: 5
+Izoh: Emulsiyada dispers faza ham, dispers muhit ham suyuq bo'ladi.
+
+17. Gaz suyuq muhitda tarqalgan sistema qanday ataladi?
+- Emulsiya
+- Qattiq aerozol
++ Ko'pik
+- Organozol
+Slayd: 5
+Izoh: Ko'pikning dispers fazasi gaz, dispers muhiti esa suyuqlikdir.
+
+=== LIOFIL VA LIOFOB SISTEMALAR ===
+
+18. Liofil sistema uchun dispers faza va dispers muhit o'rtasidagi o'zaro ta'sir qanday?
+- Juda sust
+- Faqat mexanik bosimdan iborat
+- Mutlaqo mavjud emas
++ Kuchli
+Slayd: 11, 12
+Izoh: Liofil sistemada zarracha va erituvchi o'rtasida kuchli o'zaro ta'sir mavjud.
+
+19. Liofob sistema uchun qaysi xususiyat xos?
+- Zarracha va erituvchi doimo bir jinsli fazaga aylanadi
++ Dispers faza bilan dispers muhit orasidagi ta'sir sust
+- Zol har qanday elektrolitga mutlaqo chidamli bo'ladi
+- Zarracha sirtida har doim juda kuchli solvatlanish bo'ladi
+Slayd: 11, 13
+Izoh: Liofob zollar muhitga nisbatan sust moyillikka ega.
+
+20. Qaysi juftlik slaydda liofil sistemalarga misol sifatida keltirilgan?
++ Jelatin va kraxmal eritmalari
+- AgI va Fe(OH)₃ zollari
+- Tutun va atmosfera changi
+- AgI va As₂S₃ zollari
+Slayd: 11, 12
+Izoh: Jelatin va kraxmalning suvdagi sistemalari liofil misollar sifatida berilgan.
+
+21. Qaysi moddaning zoli liofob sistemaga misol bo'ladi?
+- Jelatinning suvdagi eritmasi
++ Fe(OH)₃ zoli
+- Slaydda ko'rsatilgan liofil oqsil eritmasi
+- Kraxmalning suvdagi eritmasi
+Slayd: 13
+Izoh: Temir(III) gidroksid zoli liofob zolga misoldir.
+
+22. Liofil zollarda solvatlanish liofob zollarga nisbatan qanday?
++ Kuchliroq
+- Faqat qattiq aerozollarda kuzatiladi
+- Har ikkala sistemada ham mutlaqo yo'q
+- Sustroq
+Slayd: 11, 12
+Izoh: Liofil zarrachalar muhit molekulalari bilan kuchliroq o'raladi.
+
+23. Liofil zol quritilib, keyin mos erituvchi qo'shilsa, qanday holat yuz berishi mumkin?
++ Yana zol holatiga qaytishi mumkin
+- Hech qachon disperslanmaydi
+- Har doim metallga aylanadi
+- Dispers muhit gazga aylanishi shart
+Slayd: 12
+Izoh: Liofil sistemalar ko'pincha qaytar bo'ladi.
+
+24. Liofob zollarning barqarorligini saqlashda qaysi omillar muhim?
++ Sirt zaryadi va qo'sh elektr qavat
+- Dispers muhitning butunlay yo'qligi
+- Faqat zarrachalarning yirikligi
+- Barcha zarrachalarning bir-biriga yopishishi
+Slayd: 13, 14
+Izoh: Elektrostatik itarilish va gidrat qavati zarrachalarning birikishini cheklaydi.
+
+25. Bir xil ishorali zaryadlangan kolloid zarrachalar o'rtasida qanday ta'sir yuz beradi?
+- Zaryadga bog'liq bo'lmagan cho'kish
+- Elektrostatik tortishish
++ Elektrostatik itarilish
+- Faqat kimyoviy parchalanish
+Slayd: 14, 19
+Izoh: Bir xil zaryadlar zarrachalarning yaqinlashishiga qarshilik qiladi.
+
+=== MITSELLA, IONLAR VA QO'SH ELEKTR QAVAT ===
+
+26. Liofob zol zarrachasining yadrosi nimadan iborat?
++ Erimaydigan moddaning ko'p sonli molekula yoki ionlaridan tuzilgan agregatdan
+- Faqat tashqi elektr maydonidan
+- Faqat diffuz qatlamdagi qarshi ionlardan
+- Faqat erkin erituvchi molekulalaridan
+Slayd: 15, 16
+Izoh: Yadro kolloid zarrachaning markaziy agregatidir.
+
+27. Potensialni aniqlovchi ionlar asosan qayerda joylashadi?
++ Yadro sirtiga selektiv adsorbsiyalanadi
+- Faqat eritma yuzasida bug'lanadi
+- Yadroning o'rniga dispers muhitni hosil qiladi
+- Faqat idish devoriga yig'iladi
+Slayd: 14, 15
+Izoh: Sirtga adsorbsiyalangan ionlar zarracha zaryadini belgilaydi.
+
+28. Qarshi ionlar zarracha zaryadiga nisbatan qanday ishorali bo'ladi?
+- Har doim zaryadsiz
+- Faqat musbat, zarracha zaryadidan qat'i nazar
+- Har doim bir xil ishorali
++ Qarama-qarshi ishorali
+Slayd: 15, 19
+Izoh: Qarshi ionlar zarrachaning sirt zaryadini kompensatsiyalaydi.
+
+29. Kolloid mitsella to'liq qarshi ionlar qavati bilan birgalikda qanday elektr holatga ega?
++ Elektr neytral
+- Har doim manfiy
+- Qarshi ionlarga bog'liq bo'lmagan cheksiz zaryadli
+- Har doim musbat
+Slayd: 16, 17
+Izoh: Zaryadlangan granula va uni kompensatsiyalovchi ionlar birgalikda neytral mitsellani tashkil etadi.
+
+30. AgNO₃ ortiqcha bo'lgan sharoitda olingan AgI zolining granulasi qanday zaryadlanadi?
+- Manfiy
++ Musbat
+- Faqat harorat manfiy bo'lsa zaryadlanadi
+- Har doim zaryadsiz
+Slayd: 17
+Izoh: Ortiqcha Ag⁺ ionlarining sirtga adsorbsiyasi musbat zaryad beradi.
+
+31. AgNO₃ ortiqcha bo'lgan AgI zolida potensialni aniqlovchi ion qaysi?
+- K⁺
+- NO₃⁻
++ Ag⁺
+- OH⁻
+Slayd: 17
+Izoh: Ag⁺ ionlari AgI yadrosi sirtiga adsorbsiyalanadi.
+
+32. AgNO₃ ortiqcha bo'lgan AgI zolida qarshi ion qaysi?
++ NO₃⁻
+- K⁺
+- Fe³⁺
+- Ag⁺
+Slayd: 17
+Izoh: Nitrat ionlari musbat granula zaryadini kompensatsiyalaydi.
+
+33. FeCl₃ gidrolizidan hosil qilingan, slaydda musbat zaryadli deb ko'rsatilgan Fe(OH)₃ zolida qarshi ion qaysi?
++ Cl⁻
+- Ag⁺
+- NO₃⁻
+- K⁺
+Slayd: 18
+Izoh: Xlorid ionlari musbat granula atrofida qarshi ion vazifasini bajaradi.
+
+34. Qo'sh elektr qavat qaysi ikki sohadan iborat?
+- Faqat ikkita adsorbent qatlamidan
+- Faqat yadro va eritma hajmidan
++ Fiksirlangan qavat va diffuz qavat
+- Faqat ikkita qattiq kristalldan
+Slayd: 19
+Izoh: Slaydda qo'sh elektr qavat fiksirlangan hamda diffuz qismlarga ajratilgan.
+
+35. Qo'sh elektr qavatning fiksirlangan qavatidagi qarshi ionlar qanday tavsiflanadi?
+- Faqat erkin suv molekulalaridan iborat
+- Har doim bir xil zaryadli yadroga aylanadi
+- Sirt bilan aloqasiz va faqat gaz holatida
++ Sirtga kuchli tortilgan va kam harakatchan
+Slayd: 19
+Izoh: Fiksirlangan qavat sirtga yaqin, kuchli bog'langan ionlar sohasidir.
+
+36. Qo'sh elektr qavatning diffuz qavati nima?
+- Faqat qattiq yadroning ichki markazi
+- Sirtga butunlay harakatsiz bog'langan erituvchi kristali
+- Faqat idishning tashqi devori
++ Issiqlik harakati ta'sirida eritmada tarqalgan qarshi ionlar sohasi
+Slayd: 19
+Izoh: Diffuz qavatdagi ionlar eritmaga nisbatan kengroq tarqalgan.
+
+37. ζ-potensial qayerdagi elektr potensialni bildiradi?
+- Faqat idish devoridagi metall elektrodda
++ Zarracha va unga nisbatan harakatlanuvchi suyuqlik orasidagi sirpanish tekisligida
+- Faqat eritma ustidagi gazda
+- Faqat zarracha yadrosining geometrik markazida
+Slayd: 20
+Izoh: ζ-potensial elektrokinetik potensial bo'lib, sirpanish tekisligiga tegishli.
+
+38. Elektrostatik barqarorlashgan zolda |ζ| kamayib, nolga yaqinlashsa, koagulyatsiya ehtimoli odatda qanday o'zgaradi?
+- Zarracha zaryadiga mutlaqo bog'liq bo'lmaydi
+- Har doim nol bo'ladi
+- Kamayadi
++ Ortadi
+Slayd: 20, 37
+Izoh: Potensial moduli kamayishi elektrostatik itarilishning susayishi bilan bog'liq.
+
+39. Slayddagi taxminiy mezonda |ζ| > 30 mV qanday barqarorlikka mos qo'yilgan?
+- Past barqarorlikka
+- Faqat mutlaq qaytmas koagulyatsiyaga
+- Faqat dispers muhitning yo'qligiga
++ Yuqori barqarorlikka
+Slayd: 20
+Izoh: Bu elektrostatik barqarorlik uchun slaydda keltirilgan taxminiy ko'rsatkich, universal kafolat emas.
+
+40. Solvatlanish suv muhitida sodir bo'lsa, qanday ataladi?
+- Elektroforez
+- Sedimentatsiya
+- Koagulyatsiya
++ Gidratlanish
+Slayd: 30
+Izoh: Gidratlanish suv molekulalari bilan solvatlanishdir.
+
+=== ZOL OLISH USULLARI VA PEPTIZATSIYA ===
+
+41. Dispersiya usulida zol olishning asosiy yo'nalishi qanday?
++ Yirik zarrachalarni kolloid o'lchamgacha maydalash
+- Faqat gazni suyuqlantirish
+- Alohida ionlarni yirik kristallarga aylantirish
+- Erituvchini to'liq chiqarib, quruq tuz olish
+Slayd: 21, 22
+Izoh: Dispersiya yirik moddadan mayda kolloid zarrachalar hosil qilishdir.
+
+42. Kondensatsiya usulida kolloid zarrachalar qanday hosil bo'ladi?
+- Faqat suvning bug'lanishidan
++ Atom, molekula yoki ionlarning birikishidan
+- Faqat adsorbent massasining kamayishidan
+- Faqat yirik kristallarning mexanik kesilishidan
+Slayd: 21, 24
+Izoh: Kondensatsiyada kichik birliklardan kolloid o'lchamdagi agregatlar hosil bo'ladi.
+
+43. Ultratovush bilan disperslashda maydalashni kuchaytiruvchi hodisa qaysi?
+- Faqat diffuz qavatning elektr neytralligi
++ Kavitatsiya pufakchalarining yorilishi
+- Faqat eritma yuzasining muzlashi
+- Faqat ionlarning ekvivalent almashinuvi
+Slayd: 22
+Izoh: Kavitatsiya pufakchalarining yorilishi zarrachalarni maydalashga yordam beradi.
+
+44. Elektr yoy usulida metall zoli olishda qaysi ketma-ketlik to'g'ri?
++ Metall bug'lanishi → bug'ning sovib kondensatsiyalanishi → kolloid zarrachalar
+- Ion almashinish → metall yadrosining parchalanishi → emulsiya
+- Suv muzlashi → metall cho'kishi → gaz aralashmasi
+- Metall erishi → katta quyma hosil bo'lishi → haqiqiy eritma
+Slayd: 23
+Izoh: Elektrodlar orasidagi yoy metall bug'ini hosil qiladi; bug' soviganda zol zarrachalari paydo bo'ladi.
+
+45. Zol hosil bo'lgandan keyin stabilizator qo'shishning asosiy maqsadi nima?
+- Zarracha sirtini har doim zaryadsizlantirish
+- Dispers muhitni butunlay olib tashlash
++ Zarrachalarning qayta agregatlanishini cheklash
+- Zarrachalarning albatta yirik cho'kmaga o'tishini tezlashtirish
+Slayd: 22-25
+Izoh: Stabilizator kolloid zarrachalarning barqarorligini saqlashga yordam beradi.
+
+46. Kimyoviy kondensatsiyada yadrolanish nimani bildiradi?
+- Faqat suv molekulalarining bug'lanishini
+- Faqat tayyor zolning tubga cho'kishini
+- Faqat qarshi ionlarning yo'qolishini
++ Dastlabki barqaror kichik agregatlar hosil bo'lishini
+Slayd: 24
+Izoh: Yadrolanish yangi dispers fazaning boshlang'ich yadrolarini hosil qiladi.
+
+47. Kondensatsiyada zarrachalarni kolloid o'lchamda saqlash uchun nima nazorat qilinadi?
++ Zarrachalarning o'sishi va reaksiya sharoiti
+- Faqat eritmaning yorug'lik manbasidan masofasi
+- Faqat tayyor cho'kmaning quruq massasi
+- Faqat idishning tashqi rangi
+Slayd: 24
+Izoh: Konsentratsiya, harorat, pH va reagent qo'shish tezligi o'sishga ta'sir qiladi.
+
+48. FeCl₃ gidrolizi orqali qaysi zol olinadi?
+- AgI zoli
++ Fe(OH)₃ zoli
+- As₂S₃ zoli
+- Au zoli
+Slayd: 25, 26
+Izoh: FeCl₃ + 3H₂O → Fe(OH)₃ + 3HCl reaksiyasi keltirilgan.
+
+49. FeCl₃ gidrolizi orqali zol olishda qizdirishning vazifasi nima?
+- Dispers muhitni faqat qattiq holatda saqlash
+- FeCl₃ ning barcha ionlarini yo'q qilish
+- Har qanday kolloid zarrachani darhol metallga aylantirish
++ Gidroliz tezligi va yadrolar hosil bo'lishini kuchaytirish
+Slayd: 26
+Izoh: Harorat oshishi gidroliz va yangi faza hosil bo'lishini tezlashtiradi.
+
+50. Kimyoviy usulda zol olishda suyultirilgan eritmalar ishlatilishi nima uchun muhim?
+- Dispers muhitni yo'qotish uchun
+- Faqat barcha reaksiyalarni to'xtatish uchun
+- Kolloid zarrachalarni doimo 1 mm gacha o'stirish uchun
++ Zarrachalarning yirik cho'kma sifatida ajralishini kamaytirish uchun
+Slayd: 25-27
+Izoh: Suyultirish va reagentni sekin qo'shish kolloid holatni saqlashga yordam beradi.
+
+51. AgNO₃ + KI reaksiyasida kolloid dispers fazani qaysi modda hosil qiladi?
+- KOH
+- H₂O
++ AgI
+- KNO₃
+Slayd: 17, 27
+Izoh: AgI kam eruvchan modda bo'lib, tegishli sharoitda zol hosil qiladi.
+
+52. 2H₂S + SO₂ → 3S + 2H₂O reaksiyasi orqali qaysi zol olinadi?
+- Temir(III) gidroksid zoli
++ Oltingugurt zoli
+- Kumush yodid zoli
+- Oltin zoli
+Slayd: 25
+Izoh: Reaksiyada hosil bo'lgan oltingugurt kolloid fazani tashkil etadi.
+
+53. As₂O₃ + 3H₂S → As₂S₃ + 3H₂O reaksiyasi orqali qaysi moddaning zoli olinadi?
++ Mishyak(III) sulfid
+- Kumush nitrat
+- Temir(III) gidroksid
+- Mishyak(III) oksid
+Slayd: 25, 27
+Izoh: Hosil bo'lgan As₂S₃ dispers fazadir.
+
+54. Peptizatsiya nima?
++ Yangi hosil qilingan cho'kmani peptizator yordamida kolloid holatga o'tkazish
+- Suyuqlikni faqat gazga aylantirish
+- Kolloid zarrachalarni to'liq molekulyar eritish
+- Zol zarrachalarini yirik cho'kmaga birlashtirish
+Slayd: 28
+Izoh: Peptizatsiya cho'kmadan zol hosil qilish jarayonidir.
+
+55. Peptizatsiya uchun qanday cho'kma ma'qul?
+- Faqat erituvchisi butunlay yo'qotilgan qattiq massa
+- Uzoq saqlanib, qattiq kristallashgan cho'kma
++ Yangi hosil qilingan va yumshoq cho'kma
+- To'liq quritilib, yirik kristallga aylantirilgan cho'kma
+Slayd: 28, 29
+Izoh: Yangi cho'kmalarni disperslash odatda osonroq.
+
+56. Peptizator zarrachani qanday barqarorlashtiradi?
+- Faqat zarrachalar radiusini cheksiz oshiradi
++ Sirtga adsorbsiyalanib zaryad beradi va o'zaro itarilishga yordam beradi
+- Sirt zaryadini har doim mutlaqo yo'q qiladi
+- Faqat barcha erituvchi molekulalarini bug'lantiradi
+Slayd: 28, 29
+Izoh: Bir xil zaryadlangan zarrachalar agregatdan ajralib, disperslanadi.
+
+57. Fe(OH)₃ cho'kmasini peptizatsiya qilish uchun slaydda qaysi modda ko'rsatilgan?
++ FeCl₃
+- KNO₃
+- Na₂SO₄
+- C₆H₁₂O₆
+Slayd: 28
+Izoh: FeCl₃ ushbu cho'kma uchun peptizator misoli sifatida berilgan.
+
+58. AgCl cho'kmasi uchun slaydda keltirilgan peptizator qaysi?
+- FeCl₃
++ AgNO₃
+- KNO₃
+- AlCl₃
+Slayd: 28
+Izoh: AgNO₃ AgCl cho'kmasi uchun peptizator sifatida ko'rsatilgan.
+
+=== GIDRATLANISH VA MOLEKULYAR-KINETIK XOSSALAR ===
+
+59. Gidrat qavatining birlamchi qismidagi suv molekulalari qanday joylashadi?
++ Sirtga yaqin, kuchli bog'langan va tartibli
+- Faqat zarrachadan uzoqda erkin harakatlanadi
+- Faqat yadro ichidagi kristall panjarani hosil qiladi
+- Faqat gaz holatida bo'ladi
+Slayd: 31
+Izoh: Birlamchi gidrat qavati sirtga eng yaqin suv molekulalaridan iborat.
+
+60. Gidrat yoki solvat qavati zarrachalarning agregatlanishini qanday cheklaydi?
++ Zarrachalarning bevosita yaqinlashishi va yopishishini qiyinlashtiradi
+- Faqat zarrachalar massasini nolga tushiradi
+- Dispers muhitni butunlay qattiqlashtiradi
+- Zarrachalarning bir-biriga kimyoviy birikishini har doim tezlashtiradi
+Slayd: 30, 31
+Izoh: Solvat qavati himoya to'sig'i vazifasini bajaradi.
+
+61. Braun harakati nimadan kelib chiqadi?
+- Faqat tashqi elektr maydonining yo'nalishidan
+- Faqat zarrachalarning og'irlik kuchidan
++ Dispers muhit molekulalarining zarrachalarga tartibsiz zarbalaridan
+- Faqat reagentlarning kimyoviy parchalanishidan
+Slayd: 32
+Izoh: Braun harakati kolloid zarrachalarning tartibsiz issiqlik harakatidir.
+
+62. Diffuziyada zarrachalarning umumiy oqimi qaysi yo'nalishda bo'ladi?
++ Yuqori konsentratsiyadan past konsentratsiyaga
+- Past konsentratsiyadan yuqori konsentratsiyaga
+- Faqat idish tubidan uning devoriga
+- Faqat elektr maydoniga qarshi
+Slayd: 32, 33
+Izoh: Diffuziya konsentratsiya farqining kamayishiga olib keladi.
+
+63. Osmosda yarim o'tkazuvchan parda orqali asosan nima o'tadi?
+- Faqat adsorbent donachalari
+- Kolloid zarrachalar yadrosi
+- Faqat qattiq cho'kma bo'laklari
++ Erituvchi molekulalari
+Slayd: 32
+Izoh: Osmos erituvchining tanlab o'tkazuvchi parda orqali ko'chishi bilan bog'liq.
+
+64. Sedimentatsiya qanday hodisa?
+- Zarrachalarning elektr maydonida anodga yo'nalishi
+- Zarrachalarning yorug'likni sochishi
++ Zarrachalarning og'irlik kuchi ta'sirida cho'kishi
+- Yangi cho'kmaning zolga o'tishi
+Slayd: 32
+Izoh: Sedimentatsiya zarrachalarning pastga siljishi va cho'kishidir.
+
+65. Fikning birinchi qonunidagi J = -D_diff dc/dx ifodasida minus ishora nimani bildiradi?
+- Haroratning Selsiy shkalasida manfiyligini
+- Diffuziya koeffitsiyenti doimo manfiyligini
++ Oqim konsentratsiya ortishiga qarama-qarshi yo'nalganini
+- Konsentratsiya doimo nolga tengligini
+Slayd: 33
+Izoh: Diffuziya oqimi yuqori konsentratsiyadan past konsentratsiyaga yo'naladi.
+
+66. D_diff = kT/(6πηr) tenglamasiga ko'ra, T va η o'zgarmasa, radius 2 marta oshganda diffuziya koeffitsiyenti qanday o'zgaradi?
+- 2 marta ortadi
+- O'zgarmaydi
+- 4 marta ortadi
++ 2 marta kamayadi
+Slayd: 33
+Izoh: Diffuziya koeffitsiyenti zarracha radiusiga teskari proporsional.
+
+67. D_diff = kT/(6πηr) tenglamasida muhit qovushoqligi η ortsa, boshqa omillar o'zgarmaganda D_diff qanday o'zgaradi?
++ Kamayadi
+- Qovushoqlikka bog'liq bo'lmaydi
+- Har doim nolga teng bo'ladi
+- Ortadi
+Slayd: 33
+Izoh: Qovushoqlik maxrajda bo'lgani uchun uning ortishi diffuziyani sekinlashtiradi.
+
+68. Diffuziya koeffitsiyentining SI birligi qaysi?
++ m²/s
+- mol/L
+- m/s
+- N/m
+Slayd: 33
+Izoh: Slaydda [D] = m²·s⁻¹ deb berilgan.
+
+=== OPTIK VA ELEKTR XOSSALAR ===
+
+69. Tindal effekti nima?
+- Cho'kmaning peptizator ta'sirida zolga o'tishi
+- Erituvchining yarim o'tkazuvchan pardadan o'tishi
+- Zarrachaning elektrod tomon harakati
++ Kolloid zarrachalar yorug'likni sochishi sabab nur dastasining ko'rinishi
+Slayd: 34
+Izoh: Yorug'lik sochilishi zolda nur yo'lini ko'rinadigan qiladi.
+
+70. Ultramikroskopiyada kolloid zarrachalar qanday kuzatiladi?
+- Faqat erituvchining bug' bosimi orqali
++ Ulardan sochilgan yorug'lik nuqtalari orqali
+- Har bir zarrachaning atomlari to'liq ajratib ko'rinadi
+- Faqat zarrachalarning quruq massasi o'lchanadi
+Slayd: 34
+Izoh: Ultramikroskopiya zarrachalarning o'zidan sochilgan yorug'likni kuzatadi.
+
+71. Elektroforez nima?
++ Elektr maydonida kolloid zarrachalarning yo'nalgan harakati
+- Elektr maydonida faqat erituvchining g'ovakdan oqishi
+- Faqat yorug'lik nurining sinishi
+- Zarrachalarning faqat og'irlik kuchi bilan cho'kishi
+Slayd: 35
+Izoh: Elektroforezda zaryadlangan dispers faza zarrachalari ko'chadi.
+
+72. Elektroosmos nima?
+- Yangi cho'kmaning mexanik maydalanganligi
++ Elektr maydonida dispers muhitning g'ovak yoki kapillyar orqali harakati
+- Qattiq yadroning molekulalarga parchalanishi
+- Kolloid zarrachalarning faqat cho'kishi
+Slayd: 35
+Izoh: Elektroosmosda suyuq dispers muhit harakatlanadi.
+
+73. Manfiy zaryadlangan kolloid zarracha elektroforezda qaysi elektrodga yo'naladi?
+- Faqat idish tubiga
+- Har doim ikkala elektroddan uzoqlashadi
+- Manfiy katodga
++ Musbat anodga
+Slayd: 35
+Izoh: Qarama-qarshi zaryadlar tortishadi: manfiy zarracha musbat elektrodga yo'naladi.
+
+=== BARQARORLIK VA KOAGULYATSIYA ===
+
+74. Agregativ barqarorlik nimani bildiradi?
+- Faqat zarrachalarning yorug'lik o'tkazishini
++ Zarrachalarning yopishib yirik agregat hosil qilishiga qarshilikni
+- Faqat erituvchining qaynashga qarshiligini
+- Faqat gaz bosimining o'zgarmasligini
+Slayd: 36
+Izoh: Agregativ barqarorlik zarrachalar birikib yiriklashishiga qarshi turishdir.
+
+75. Sedimentatsion barqarorlik nimani bildiradi?
++ Zarrachalarning cho'kib ketmasdan muallaq holatda saqlanishini
+- Faqat dispers muhitning bug'lanishini
+- Faqat bir xil zaryadli ionlar hosil bo'lishini
+- Zarrachalarning kimyoviy parchalanishini
+Slayd: 36
+Izoh: Bu barqarorlik og'irlik kuchi ta'siridagi cho'kishga qarshilik bilan bog'liq.
+
+76. Koagulyatsiya qanday jarayon?
+- Erituvchining yarim o'tkazuvchan pardadan o'tishi
++ Kolloid zarrachalarning barqarorligi buzilib, yirik agregatlar hosil qilishi
+- Yirik zarrachalarning kolloid o'lchamgacha maydalanganligi
+- Yangi cho'kmaning peptizator yordamida zolga o'tishi
+Slayd: 37
+Izoh: Koagulyatsiyada zarrachalar birikib yiriklashadi va keyin cho'kishi mumkin.
+
+77. Koagulyant nima?
+- Har qanday cho'kmani albatta peptizatsiyalovchi modda
++ Zolga qo'shilganda koagulyatsiyani chaqiruvchi modda, jumladan elektrolit
+- Faqat dispers muhit vazifasini bajaruvchi gaz
+- Zolni faqat yorug'lik yordamida kuzatuvchi asbob
+Slayd: 37
+Izoh: Slaydda koagulyant koagulyatsiyani chaqiruvchi elektrolit sifatida ta'riflangan.
+
+78. Koagulyatsiya chegarasi nimani bildiradi?
++ Berilgan sharoitda koagulyatsiyani boshlovchi elektrolitning eng kichik konsentratsiyasini
+- Adsorbentning eng katta sirt maydonini
+- Zarrachaning mutlaq nol haroratdagi radiusini
+- Dispers muhitning eng katta hajmini
+Slayd: 37
+Izoh: Chegara koagulyatsiyani boshlash uchun zarur minimal konsentratsiyadir.
+
+79. Elektrolit qo'shilishi elektrostatik barqarorlashgan zolning diffuz qavatiga qanday ta'sir qilishi mumkin?
+- Uni faqat qattiq yadroga aylantiradi
+- Uni har doim cheksiz kengaytiradi
+- Har qanday miqdorda qo'shilsa ham ta'sir qilmaydi
++ Uni siqib, zarrachalar orasidagi itarilishni susaytiradi
+Slayd: 37, 38
+Izoh: Diffuz qavatning siqilishi koagulyatsiyani osonlashtirishi mumkin.
+
+80. DLVO nazariyasi zol barqarorligini qaysi ikki ta'sir orqali tushuntiradi?
+- Faqat osmos va bug'lanish
+- Faqat peptizatsiya va gidroliz
+- Faqat og'irlik kuchi va yorug'lik sinishi
++ Van-der-Vaals tortishishi va qo'sh elektr qavatning elektrostatik itarilishi
+Slayd: 38
+Izoh: Umumiy ta'sir tortishish hamda itarilish hissalaridan tashkil topadi.
+
+81. DLVO modelida zarrachalar orasidagi yuqori energetik to'siq nimaga yordam beradi?
++ Zarrachalarning yaqinlashib agregatlanishini cheklab, zolni barqaror saqlashga
+- Dispers muhitning darhol bug'lanishiga
+- Har qanday zaryadni butunlay yo'qotishga
+- Zarrachalarning har doim tezroq yopishishiga
+Slayd: 38
+Izoh: Yuqori to'siq zarrachalarning birlamchi minimumga o'tishini qiyinlashtiradi.
+
+82. Suvni tozalashda koagulyatsiya va flokulyatsiyadan nima uchun foydalaniladi?
++ Loyqa va kolloid iflosliklarni yiriklashtirib ajratish uchun
+- Faqat suvni gaz aralashmasiga aylantirish uchun
+- Barcha iflosliklarni yanada mayda va barqaror qilish uchun
+- Faqat eritilgan tuzlarning atom raqamini o'zgartirish uchun
+Slayd: 39
+Izoh: Yiriklashgan agregatlarni suvdan ajratish osonlashadi.
+
+=== TUZUVCHI UCHUN ESLATMALAR ===
+
+1. Kolloid o'lcham chegaralari ma'ruzadagi 1-100 nm tasnifiga asoslangan.
+2. 16-slayddagi AgI sxemasida ko'rsatilgan Au⁺ yozuvi savollarga olinmadi.
+   AgI uchun 17-slayddagi izchil Ag⁺ / NO₃⁻ misoli ishlatildi.
+3. Fe(OH)₃ zoli uchun 18-slaydda FeO⁺, 26-slaydda Fe³⁺ ko'rsatilgan.
+   Bu belgilashlarni sharoitsiz bitta javobga tenglashtiruvchi savol tuzilmadi;
+   musbat granula va Cl⁻ qarshi ion haqidagi izchil mazmun ishlatildi.
+4. Zol barqarorligiga oid savollarda ζ ning ishorali qiymati emas,
+   uning moduli |ζ| kamayishi yoki ortishi nazarda tutilgan.
+5. |ζ| > 30 mV mezoni slayddagi taxminiy mezondir. U barcha zollar,
+   jumladan sterik barqarorlashgan sistemalar uchun universal kafolat emas.
+6. Disperslik va diffuziya koeffitsiyenti ikkalasi ham manbada D bilan
+   belgilangan. Savollarda ularni ajratish uchun D_diff yozuvi ishlatildi.
+7. Elektr yoy usuli manbadagi tasnifda dispersiya usullari bilan berilgan;
+   mexanizmida metall bug'lanishi va keyin kondensatsiyalanishi ham mavjud.
+8. Savollar va variantlar botda aralashtirilganda to'g'ri javob o'z
+   variantiga biriktirilgan holda saqlanishi kerak.
