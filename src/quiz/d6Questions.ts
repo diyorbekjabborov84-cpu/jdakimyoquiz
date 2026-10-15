@@ -539,5 +539,6 @@ export const d6Quiz: Quiz = {
   groupOnly: true,
   shuffle: true,
   source: "",
+  author: "@Dr_xasanov07",
   questions: d6Questions,
 };

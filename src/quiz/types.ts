@@ -16,6 +16,7 @@ export interface Quiz {
   groupOnly?: boolean; // Faqat Telegram guruhlarida o'tkazilishi shart bo'lsa
   shuffle?: boolean; // Savollar va variantlar har sessiyada aralashtirilishi kerak bo'lsa
   source?: string; // Savollar manbasi (masalan: "Bahora Nayimova slaydlaridan")
+  author?: string; // Test yaratuvchisi (agar berilmasa, sukut bo'yicha "@diyorbek_jabborov")
 }
 
 export interface ParticipantScore {

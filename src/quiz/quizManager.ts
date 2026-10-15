@@ -966,7 +966,10 @@ export class QuizManager {
    */
   public formatLeaderboardMessages(session: QuizSession, leaderboard: ParticipantScore[]): string[] {
     const totalQuestions = session.quiz.questions.length;
-    let footer = `\nBarcha ishtirokchilarga qatnashganlari uchun tashakkur! 👏\n\nTest yaratuvchisi: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`;
+    const defaultAuthor = "diyorbek_jabborov";
+    const rawAuthor = session.quiz.author ? session.quiz.author.replace(/^@/, "").trim() : defaultAuthor;
+    const authorHtml = `<a href="https://t.me/${escapeHtml(rawAuthor)}">@${escapeHtml(rawAuthor)}</a>`;
+    let footer = `\nBarcha ishtirokchilarga qatnashganlari uchun tashakkur! 👏\n\nTest yaratuvchisi: ${authorHtml}`;
     if (session.quiz.source !== undefined) {
       const srcText = escapeHtml(session.quiz.source).trim();
       footer += `\nSavollar manbasi: ${srcText}`.trimEnd();
@@ -976,7 +979,7 @@ export class QuizManager {
       let text = `🏁 <b>«${escapeHtml(session.quiz.title)}» yakunlandi!</b>\n\n`;
       text += `👥 Qatnashchilar soni: <b>0 ta</b>\n\n`;
       text += `Afsuski, hech bir ishtirokchi savollarga javob bermadi. 😴\nKeyingi safar faolroq bo'ling!\n\n`;
-      text += `Test yaratuvchisi: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`;
+      text += `Test yaratuvchisi: ${authorHtml}`;
       if (session.quiz.source !== undefined) {
         const srcText = escapeHtml(session.quiz.source).trim();
         text += `\nSavollar manbasi: ${srcText}`.trimEnd();

@@ -2,7 +2,7 @@
 DINSHUNOSLIK — 6-MAVZU: ISLOM DINI (QUIZ SAVOLLARI)
 Quiz kodi: D6 | Guruhda boshlash: /quiz_D6 yoki /start_D6
 Vaqt: har bir savolga 20 soniya | Jami savollar: 40 ta
-Test yaratuvchisi: @diyorbek_jabborov
+Test yaratuvchisi: @Dr_xasanov07
 Savollar manbasi:
 ================================================================================
 

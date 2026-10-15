@@ -182,12 +182,27 @@ async function runD6Tests() {
   const leaderboardMsgs = quizManager.formatLeaderboardMessages(mockSession, []);
   assert.ok(leaderboardMsgs.length > 0);
   assert.ok(
-    leaderboardMsgs[0].includes("Test yaratuvchisi: <a href=\"https://t.me/diyorbek_jabborov\">@diyorbek_jabborov</a>"),
-    "Test yaratuvchisi ko'rsatilmadi"
+    leaderboardMsgs[0].includes("Test yaratuvchisi: <a href=\"https://t.me/Dr_xasanov07\">@Dr_xasanov07</a>"),
+    "D6 test yaratuvchisi @Dr_xasanov07 ko'rsatilmadi"
   );
   assert.ok(
     leaderboardMsgs[0].includes("Savollar manbasi:"),
     "Savollar manbasi qatori ko'rsatilmadi"
+  );
+
+  // Boshqa D quizlari (masalan D1) da @diyorbek_jabborov saqlanganini tekshirish
+  const { d1Quiz } = await import("../src/quiz/d1Questions.js");
+  const mockD1Session: QuizSession = {
+    chatId: testChatId,
+    quiz: d1Quiz,
+    currentQuestionIndex: 30,
+    scores: {},
+    isActive: false,
+  };
+  const d1LeaderboardMsgs = quizManager.formatLeaderboardMessages(mockD1Session, []);
+  assert.ok(
+    d1LeaderboardMsgs[0].includes("Test yaratuvchisi: <a href=\"https://t.me/diyorbek_jabborov\">@diyorbek_jabborov</a>"),
+    "D1 da @diyorbek_jabborov saqlanmadi"
   );
 
   // To'xtatish
