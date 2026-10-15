@@ -967,8 +967,9 @@ export class QuizManager {
   public formatLeaderboardMessages(session: QuizSession, leaderboard: ParticipantScore[]): string[] {
     const totalQuestions = session.quiz.questions.length;
     let footer = `\nBarcha ishtirokchilarga qatnashganlari uchun tashakkur! 👏\n\nTest yaratuvchisi: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`;
-    if (session.quiz.source) {
-      footer += `\nSavollar manbasi: ${escapeHtml(session.quiz.source)}`;
+    if (session.quiz.source !== undefined) {
+      const srcText = escapeHtml(session.quiz.source).trim();
+      footer += `\nSavollar manbasi: ${srcText}`.trimEnd();
     }
 
     if (leaderboard.length === 0) {
@@ -976,8 +977,9 @@ export class QuizManager {
       text += `👥 Qatnashchilar soni: <b>0 ta</b>\n\n`;
       text += `Afsuski, hech bir ishtirokchi savollarga javob bermadi. 😴\nKeyingi safar faolroq bo'ling!\n\n`;
       text += `Test yaratuvchisi: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`;
-      if (session.quiz.source) {
-        text += `\nSavollar manbasi: ${escapeHtml(session.quiz.source)}`;
+      if (session.quiz.source !== undefined) {
+        const srcText = escapeHtml(session.quiz.source).trim();
+        text += `\nSavollar manbasi: ${srcText}`.trimEnd();
       }
       return [text];
     }

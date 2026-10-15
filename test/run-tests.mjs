@@ -25,6 +25,8 @@ const allTestFiles = [
   "admin-auth-tracking.test.ts",
   "ak1-quiz.test.ts",
   "d1-quiz.test.ts",
+  "d6-quiz.test.ts",
+  "t-quiz.test.ts",
   "group-size.test.ts",
   "group-registry.test.ts",
   "admin-modules.test.ts",

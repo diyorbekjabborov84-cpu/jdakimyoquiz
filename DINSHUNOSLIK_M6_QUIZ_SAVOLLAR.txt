@@ -1,0 +1,327 @@
+================================================================================
+DINSHUNOSLIK — 6-MAVZU: ISLOM DINI (QUIZ SAVOLLARI)
+Quiz kodi: D6 | Guruhda boshlash: /quiz_D6 yoki /start_D6
+Vaqt: har bir savolga 20 soniya | Jami savollar: 40 ta
+Test yaratuvchisi: @diyorbek_jabborov
+Savollar manbasi:
+================================================================================
+
+1-savol:
+Islom tarixida ushbu din kelishidan avvalgi davr qanday nom bilan ataladi?
+A) Feodalizm davri
+B) Johiliya (johiliyat) davri [TO'G'RI]
+C) Quldorlik davri
+D) Antik sivilizatsiya davri
+Izoh: Islomdan avvalgi davr adabiy arab tilida «bilmaslik», ya’ni «yagona Xudoni tanimaslik» ma’nosidagi «Johiliya» deb yuritiladi.
+
+2-savol:
+Zamonaviy tadqiqotlarga ko‘ra, Islom paydo bo‘lishi arafasida Arabiston yarim orolida nechta sivilizatsiya mavjud bo‘lgan?
+A) 3 ta sivilizatsiya [TO'G'RI]
+B) 5 ta sivilizatsiya
+C) 2 ta sivilizatsiya
+D) 4 ta sivilizatsiya
+Izoh: Uch sivilizatsiya: Janubiy Arabiston, ichki Arabiston hamda Vizantiya va Eron ta’siridagi Shimoliy Arabiston mavjud bo‘lgan.
+
+3-savol:
+Arablar nasabiy jihatdan qaysi ikki katta avlodga bo‘lingan?
+A) Somiy va homiylar
+B) Banu Hoshim va Banu Umayya
+C) Qahtoniylar (janub) va adnoniylar (shimol) [TO'G'RI]
+D) Avs va xazrajliklar
+Izoh: Arablarning barchasi nasab jihatidan ikki avlodga: qahtoniylar (janub arablari) va adnoniylar (shimol arablari)ga bo‘linadi.
+
+4-savol:
+Islom dini vujudga kelgan davrda arablarning qancha qismi o‘troq holda shahar va qishloqlarda yashagan?
+A) Faqat 1/4 qismi
+B) Yarmi (1/2)
+C) Katta qismi (2/3) [TO'G'RI]
+D) To‘liq ko‘chmanchi bo‘lgan
+Izoh: Qabilaviy tasavvurlar kuchli bo‘lsa-da, Islom paydo bo‘lishida arablarning katta qismi (2/3) o‘troq yashagan.
+
+5-savol:
+Arabiston yarim orolining Makka, Madina, Toif, Xaybar shaharlarini o‘z ichiga olgan qismi qadimda nima deb atalgan?
+A) Hijoz [TO'G'RI]
+B) Najd
+C) Yaman
+D) Hadramavt
+Izoh: Makka, Madina, Toif va Xaybar kabi muhim shaharlarni o‘z ichiga olgan hudud qadimdan Hijoz deb atalgan.
+
+6-savol:
+Arabistonga dastavval sanam keltirgan va unga ibodat qilishni targ‘ib qilgan shaxs kim bo‘lgan?
+A) Abu Jahl
+B) Abu Sufyon
+C) Amr ibn Luhay [TO'G'RI]
+D) Nabonid
+Izoh: Rivoyatga ko‘ra, Shomga tijorat qilgan Amr ibn Luhay u yerdan bir butni Makkaga olib kelib, sig‘inishni boshlagan.
+
+7-savol:
+Ibn al-Asirning ma’lumotiga ko‘ra, 630-yili Makka fath etilganda Ka’ba ichida nechta sanam bo‘lgan?
+A) 100 ta
+B) 360 ta [TO'G'RI]
+C) 72 ta
+D) 99 ta
+Izoh: Ibn al-Asir uqtirishicha, 630-yil Makka fath etilganda Ka’ba ichida 360 ta sanam bo‘lgan.
+
+8-savol:
+Arabiston yahudiylari haqida aniqlik kirituvchi eng qadimgi hujjat qaysi podshoh xronikasidir?
+A) Sosoniy Xusrav I
+B) Yangi Bobil podshohi Nabonid [TO'G'RI]
+C) Rim imperatori Yuliy Tsezar
+D) Vizantiya imperatori Iustinian
+Izoh: Yangi Bobil podshohi Nabonidga (mil. av. 555–539) tegishli xronikada Shimoliy Arabistondagi Tayma shahri tilga olingan.
+
+9-savol:
+Muhammad (s.a.v.) «Fil voqeasi»dan necha kun keyin tavallud topganlar?
+A) 100 kun keyin
+B) 40 kun keyin
+C) 50 kun keyin [TO'G'RI]
+D) 12 kun keyin
+Izoh: Tarixiy manbalarda Payg‘ambarimiz «Fil voqeasi» jangidan 50 kun keyin tavallud topganlari qayd etilgan.
+
+10-savol:
+Misrlik munajjim Mahmud Poshoning aniqlashicha, Payg‘ambarimizning tavallud sanasi qaysi milodiy kunga to‘g‘ri keladi?
+A) 571-yil 21-aprel [TO'G'RI]
+B) 570-yil 12-may
+C) 610-yil 1-fevral
+D) 622-yil 20-sentyabr
+Izoh: Mahmud Posho hisob-kitoblariga ko‘ra, bu sana milodiy 571-yil 21-aprel kuniga to‘g‘ri keladi.
+
+11-savol:
+Muhammad (s.a.v.)ning ota va onalari Qurayshning qaysi urug‘lariga mansub bo‘lgan?
+A) Otasi Banu Umayya, onasi Banu Asad
+B) Otasi Banu Zuhra, onasi Banu Hoshim
+C) Otasi Banu Hoshim, onasi Banu Zuhra [TO'G'RI]
+D) Otasi Banu Maxzum, onasi Banu Taym
+Izoh: Otasi Abdulloh Qurayshning Banu Hoshim, onasi Omina bint Vahb esa Banu Zuhra urug‘idan edilar.
+
+12-savol:
+Muhammad (s.a.v.) 8 yoshgacha bobolari Abdulmuttalib, so‘ngra kimning himoyasida tarbiyalandilar?
+A) Amakilari Abu Tolib [TO'G'RI]
+B) Amakilari Hamza
+C) Amakilari Abbos
+D) Qarindoshlari Varaqa ibn Navfal
+Izoh: Bobolari Abdulmuttalib vafotidan so‘ng Muhammad (s.a.v.)ni amakilari Abu Tolib o‘z tarbiyasiga olgan.
+
+13-savol:
+Islomdan avval urush harom qilingan muqaddas oylarda bo‘lib o‘tgani uchun «Fijor jangi» deb atalgan oylar qaysilar?
+A) Ramazon, Shavvol, Sha’bon, Safar
+B) Muharram, Rajab, Zulqa’da, Zulhijja [TO'G'RI]
+C) Rabi’ul-avval, Rabi’us-soniy, Rajab
+D) Faqat Muharram va Ramazon
+Izoh: Arablar orasida Muharram, Rajab, Zulqa’da va Zulhijja oylarida urush taqiqlangan, unda kechgan jang «Fijor» (gunohkorlar) deyilgan.
+
+14-savol:
+Muhammad (s.a.v.) 25 yoshda uylangan Xadicha bint Xuvaylid qaysi urug‘dan edilar?
+A) Banu Hoshim
+B) Banu Asad [TO'G'RI]
+C) Banu Zuhra
+D) Banu Umayya
+Izoh: Xadicha bint Xuvaylid Qurayshning Banu Asad urug‘idan bo‘lgan boy va obro‘li ayol edilar.
+
+15-savol:
+Muhammad (s.a.v.)ning Moriyadan tug‘ilgan Ibrohimdan boshqa qolgan 6 farzandining onasi kim edi?
+A) Oysha bint Abu Bakr
+B) Xadicha bint Xuvaylid [TO'G'RI]
+C) Hafsa bint Umar
+D) Ummu Salama
+Izoh: Payg‘ambarimizning 6 farzandlari (Zaynab, Ruqayya, Umm Kulsum, Fotima, Qosim, Abdulloh)ning onalari Xadicha onamiz edilar.
+
+16-savol:
+Ilk vahy Muhammad (s.a.v.) 40 yoshga yetganlarida qayerda va qaysi oyda nozil bo‘la boshladi?
+A) Savr g‘orida, Rajab oyida
+B) Hiro g‘orida, Ramazon oyida [TO'G'RI]
+C) Ka’bada, Zulhijja oyida
+D) Madinada, Safar oyida
+Izoh: Ilk vahy Makkadan 3 mil naridagi Hiro tog‘i g‘orida, Ramazon oyidagi xilvat ibodatlari chog‘ida nozil bo‘lgan.
+
+17-savol:
+Islom tarixida Payg‘ambarimizga nozil bo‘lgan eng birinchi vahy qaysi sura oyatlaridir?
+A) Fotiha surasining 7 ta oyati
+B) Baqara surasining ilk oyatlari
+C) Alaq surasining boshidagi 5 oyat [TO'G'RI]
+D) Ixlos surasi to‘liq
+Izoh: Islom tarixida ilk vahy «Alaq» surasining boshidagi besh oyat («O‘qi, karamli Rabbing nomi bilan...») hisoblanadi.
+
+18-savol:
+Xadicha onamiz vahy haqida xabar berganda uni payg‘ambarlik nishonasi deb ta’birlagan nasroniy olim kim edi?
+A) Buhayro rohib
+B) Najoshiy
+C) Varaqa ibn Navfal [TO'G'RI]
+D) Salmon Forsiy
+Izoh: Samoviy kitoblardan boxabar bo‘lgan qarindoshlari Varaqa ibn Navfal buni payg‘ambarlik belgisi deb ta’kidlagan.
+
+19-savol:
+Muhammad (s.a.v.)ning da’vatini eng birinchi bo‘lib qabul qilgan insonlar kimlar edi?
+A) Abu Bakr va Umar
+B) Xadicha bint Xuvaylid va Ali ibn Abu Tolib [TO'G'RI]
+C) Usmon ibn Affon va Hamza
+D) Bilol Habashiy va Zayd
+Izoh: Islomni birinchi bo‘lib ayollardan Xadicha bint Xuvaylid, yoshlardan amakivachchalari Ali ibn Abu Tolib qabul qilishgan.
+
+20-savol:
+Musulmonlarning ilk yashirin da’vat davri necha yil davom etdi va safi necha kishiga yetdi?
+A) 1 yil, 10 kishi
+B) 5 yil, 100 kishi
+C) 3 yil, 30 kishiga yetdi [TO'G'RI]
+D) 7 yil, 70 kishi
+Izoh: Yashirin da’vat 3 yil davom etdi va musulmonlar soni 30 kishiga yetgach, ochiq da’vat boshlandi.
+
+21-savol:
+Musulmonlarning Habashistonga (Oqsum) birinchi hijrati vahyning nechanchi yilida amalga oshirildi?
+A) Beshinchi yilida (15 kishi) [TO'G'RI]
+B) Birinchi yilida (50 kishi)
+C) O‘ninchi yilida (80 kishi)
+D) Hijratning 2-yilida
+Izoh: Vahyning 5-yili Usmon ibn Maz’un boshchiligida 11 erkak va 4 ayol (jami 15 kishi) Habashistonga ilk hijratni qildi.
+
+22-savol:
+Habashistonga qilingan ikkinchi hijrat guruhiga kim boshchilik qilgan va unda necha kishi bo‘lgan?
+A) Ali ibn Abu Tolib (40 kishi)
+B) Ja’far ibn Abu Tolib (80 kishi) [TO'G'RI]
+C) Usmon ibn Affon (60 kishi)
+D) Hamza ibn Abdulmuttalib (100 kishi)
+Izoh: Ikkinchi hijrat guruhiga Ja’far ibn Abu Tolib boshchilik qildi va ular 80 kishidan iborat edilar.
+
+23-savol:
+Payg‘ambarimiz va Yasrib (Madina)dan kelgan 6 kishi o‘rtasida «Birinchi Aqaba bay’ati» qachon bo‘lib o‘tgan?
+A) Da’vatning 5-yili
+B) Da’vatning 10-yili haj mavsumida [TO'G'RI]
+C) Makka fathidan keyin
+D) Badr jangidan so‘ng
+Izoh: Da’vatning o‘ninchi yili haj mavsumida Makkadagi Aqaba tepaligida ilk bor 6 yasriblik bilan bay’at tuzildi.
+
+24-savol:
+Muhammad (s.a.v.)ning Madinaga hijrat qilishlari qaysi milodiy sanada yuz berdi?
+A) 610-yil 10-avgust
+B) 632-yil 8-iyun
+C) 622-yil 20-sentyabr [TO'G'RI]
+D) 624-yil 15-mart
+Izoh: Payg‘ambarimizning Madinaga ko‘chib o‘tishlari milodiy 622-yil 20-sentyabrda (Rabi’ul-avvalning 8-kuni) yuz berdi.
+
+25-savol:
+Madinada makkalik muhojirlarga yordam bergan mahalliy musulmonlar qanday nom bilan ataldilar?
+A) Ansorlar [TO'G'RI]
+B) Qurayshiylar
+C) Hoshimiylar
+D) Ahli sufiy
+Izoh: Madinalik yordamchi musulmonlar «Ansor» (yordamchilar), Makkadan ko‘chib kelganlar esa «Muhojir» deb ataldi.
+
+26-savol:
+Musulmonlar va Makka mushriklari o‘rtasidagi Badr jangi qachon bo‘lib o‘tdi?
+A) Hijratning 1-yili
+B) Hijratning 2-yili Ramazon oyida (mil. 624 y.) [TO'G'RI]
+C) Hijratning 5-yili Shavvol oyida
+D) Hijratning 8-yili
+Izoh: Badr jangi hijratning 2-yili Ramazon oyida (milodiy 624-yil) Madinadan 80 mil naridagi Badr qudug‘i yonida bo‘lib o‘tdi.
+
+27-savol:
+Madina shahar-davlatida Islomni tilda tan olib, amalda unga qarshi fitna uyushtirgan guruh qanday nomlandi?
+A) Mushriklar
+B) Munofiqlar (Munofiqun) [TO'G'RI]
+C) Kofirlar
+D) Majusiylar
+Izoh: O‘zlarini musulmon deb e’lon qilib, aslida musulmonlarga muxoliflik qilganlar Qur’onda «Munofiqun» deb atalgan.
+
+28-savol:
+Islom davlatida musulmonlar himoyasidagi g‘ayridinlar (Ahl al-kitob) to‘laydigan maxsus jon solig‘i nima deb atalgan?
+A) Ushr
+B) Zakot
+C) Jizya [TO'G'RI]
+D) Xiroj
+Izoh: Ahl al-kitob (yahudiylar, nasroniylar) Madina xazinasiga jizya to‘lab, o‘z ijtimoiy-diniy avtonomiyasini saqlab qolgan.
+
+29-savol:
+Hijratning 6-yilida musulmonlar va Makka qurayshiylari o‘rtasida qanday muhim shartnoma tuzildi?
+A) Aqaba shartnomasi
+B) Madina axdnomasi
+C) Hudaybiya sulh shartnomasi [TO'G'RI]
+D) Toif bitimi
+Izoh: Hijratning oltinchi yili Makka qurayshiylari bilan tuzilgan Hudaybiya sulhi Islom davlati uchun katta siyosiy g‘alaba bo‘ldi.
+
+30-savol:
+Muhammad (s.a.v.) qachon vafot etdilar va bu bilan Islom tarixida qaysi davr tugadi?
+A) 630-yil, Jaholat davri
+B) 632-yil 8-iyun, Qur’oniy davr (teokratiya) [TO'G'RI]
+C) 634-yil, Madina davri
+D) 644-yil, Xalifalik davri
+Izoh: Payg‘ambarimiz hijriy 11-yil 12-Rabi’ul-avval (mil. 632-yil 8-iyun) vafot etdilar va ilk teokratiya (Qur’oniy) davri yakunlandi.
+
+31-savol:
+Payg‘ambarimiz vafotidan so‘ng xalifalik masalasi qayerda hal qilindi va birinchi xalifa kim bo‘ldi?
+A) Ka’ba maydonida, Umar ibn Xattob
+B) Saqifa guzarida, Abu Bakr as-Siddiq [TO'G'RI]
+C) Qubo masjidida, Ali ibn Abu Tolib
+D) Uhud tog‘ida, Usmon ibn Affon
+Izoh: Banu So‘ida qabilasining Saqifa guzarida Abu Bakr as-Siddiq (632–634) birinchi xalifa etib saylandi.
+
+32-savol:
+Abu Bakr xalifaligi davrida zakot to‘lashdan bosh tortgan va soxta payg‘ambarlarga ergashganlarga qarshi voqealar nima deyiladi?
+A) Fijor urushlari
+B) Ridda (dindan qaytish) voqealari [TO'G'RI]
+C) Siffin jangi
+D) Nahravon jangi
+Izoh: Abu Bakr (r.a.) davrida murtadlar va soxta payg‘ambarlarga qarshi qat’iy kurash «Ridda voqealari» deb ataladi.
+
+33-savol:
+Islom dinining besh asosiy rukniga qaysilar kiradi?
+A) Imon, namoz, zakot, ro‘za, haj [TO'G'RI]
+B) Imon, ilm, amaliyot, ehson, sabr
+C) Namoz, zakot, jihod, tavhid, ma’rifat
+D) Tavrot, Zabur, Injil, Qur’on, Sunnat
+Izoh: Islomning 5 rukni: imon keltirish, 5 vaqt namoz o‘qish, zakot berish, Ramazon oyida ro‘za tutish va qodir bo‘lsa haj qilishdir.
+
+34-savol:
+Moturidiya ta’limotiga ko‘ra, imonning istilohiy ta’rifi qanday?
+A) Faqat ibodatlarni mukammal bajarish
+B) Til bilan aytib, dil bilan tasdiqlash [TO'G'RI]
+C) Faqat Qur’onni yod bilish
+D) Faqat jamoat bilan namoz o‘qish
+Izoh: Moturidiylar nazdida imon — kalimai shahodatni til bilan iqror etish va dil bilan tasdiqlashdan iboratdir.
+
+35-savol:
+Islomda zakot mol-mulkning qancha qismidan va qaysi hisobda farz qilinadi?
+A) Molning o‘ndan biri (10%)
+B) Ehtiyojdan tashqari boylikning 1/40 qismi (2,5%) [TO'G'RI]
+C) Barcha daromadning 1/5 qismi
+D) Yillik foydaning 50%i
+Izoh: Zakot «poklash» ma’nosini bildirib, bir yil ushlangan ehtiyojdan ortiq boylikning qirqdan biridan (2,5%) beriladi.
+
+36-savol:
+Qur’oni Karim jami nechta suradan iborat?
+A) 114 ta sura [TO'G'RI]
+B) 124 ta sura
+C) 99 ta sura
+D) 66 ta sura
+Izoh: Qur’oni Karim 114 ta suradan iborat bo‘lib, eng kichik sura 3 oyat, eng kattasi 286 oyatdan tashkil topgan.
+
+37-savol:
+Abu Bakr (r.a.) davrida Qur’onni sahifalarga jamlash topshirig‘i qaysi sahobiyga yuklatilgan?
+A) Abdulloh ibn Mas’ud
+B) Zayd ibn Sobit [TO'G'RI]
+C) Ali ibn Abu Tolib
+D) Usmon ibn Affon
+Izoh: Umar (r.a.) maslahati bilan xalifa Abu Bakr Qur’onni to‘liq jamlashni vahiy kotibi Zayd ibn Sobitga topshirdi.
+
+38-savol:
+Qur’onning rasmiy nusxalari («Mushafi Usmon») xalifa Usmon tomonidan qaysi yili ko‘chirtirildi?
+A) 632-yilda
+B) 651-yilda [TO'G'RI]
+C) 661-yilda
+D) 680-yilda
+Izoh: Qur’onning birinchi rasmiy nusxasi 651-yilda Zayd ibn Sobit boshchiligida ko‘chirilib, Kufa, Basra, Damashqqa yuborilgan.
+
+39-savol:
+Toshkentda saqlanayotgan mashhur qadimiy Usmon Mushafi necha varaqdan iborat?
+A) 114 varaq
+B) 604 varaq
+C) 353 varaq [TO'G'RI]
+D) 500 varaq
+Izoh: O‘zbekiston musulmonlar idorasida saqlanayotgan kiyik terisidagi Usmon Mushafi 353 varaqdan iborat.
+
+40-savol:
+Hadis ilmidagi eng nufuzli oltita sahih to‘plam («Kutubi sitta») orasida eng yuqori e’tirof etilgan asar qaysi?
+A) Molik ibn Anasning «al-Muvatto»si
+B) Imom al-Buxoriyning «al-Jomi’ as-sahih» asari [TO'G'RI]
+C) Ahmad ibn Hanbalning «Musnad»i
+D) Imom ad-Dorimiyning «as-Sunan»i
+Izoh: Hadis to‘plamlari orasida Imom al-Buxoriyning «al-Jomi’ as-sahih» to‘plami sunniylar orasida eng ishonchli manba hisoblanadi.

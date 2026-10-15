@@ -1,0 +1,1993 @@
+================================================================================
+O‘ZBEKISTONNING ENG YANGI TARIXI — TEST SAVOLLARI TO‘PLAMI
+Test yaratuvchisi: @diyorbek_jabborov
+Yo‘nalish: 1-kurs talabalari uchun (O‘zbekistonning eng yangi tarixi)
+Jami savollar soni: 276 ta | Qismlar: T1 dan T9 gacha (har birida 30-36 tadan)
+Vaqt: har bir savolga 20 soniya | Buyruqlar: /quiz_T1 dan /quiz_T9 gacha
+================================================================================
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 1-QISM (T1)
+# Buyruq: /quiz_T1 yoki /start_T1 | Savollar: 1–30 (jami 30 ta)
+################################################################################
+
+1-savol:
+«Qaysi millat yashashni (ravnaqu, taraqqiyotni) istasa, tarixini bilishi lozim bo‘ladi» ushbu so’zlar muallifini toping
+A) Abdurauf Fitrat [TO‘G‘RI]
+B) Abdulla Avloniy
+C) Abdulla Qodiriy
+D) Cho’lpon
+
+2-savol:
+O’zbekiston tomoni qaysi yili o’tkazilgan MDH doirasidagi sammitga raislik qildi
+A) 2010 yil
+B) 2020 yil [TO‘G‘RI]
+C) 2000 yil
+D) 1994 yil
+
+3-savol:
+1998 yilda O’zbekistonda qanday Kodeks qabul qilingan edi
+A) Mehnat kodeksi
+B) Yer kodeksi
+C) Oila kodeksi [TO‘G‘RI]
+D) Shaharsozlik kodeksi
+
+4-savol:
+Qaysi yildan boshlab Prezident topshirig’iga muvofiq Axsikent tarixiy yodgorligini asrab-avaylash va tadqiq etish, uning haqqoniy tarixini yaratish bo’yicha katta ishlar boshlandi.
+A) 2020 yil
+B) 2016 yil
+C) 2021 yil
+D) 2017 yil [TO‘G‘RI]
+
+5-savol:
+Quyidagi qaysi yodgorlikning bugungi kunda 60 gektar xarobalari saqlanib qolgan
+A) Axsikent [TO‘G‘RI]
+B) Bolaliktepa
+C) Afrosiyob
+D) Boburtepa
+
+6-savol:
+O‘zbekiston Respublikasida Vitse-Prezident lavozimi qachon tugatildi
+A) 1993 yil
+B) 1992 yil [TO‘G‘RI]
+C) 1995 yil
+D) O’zbekistonda Vitse-Prezident lavozimi joriy qilinmagan
+
+7-savol:
+1990-yilga kelib Orol dengizi suvining hajmi necha foizga qisqarib ketdi
+A) 44 %ga
+B) 50 %ga
+C) 54 %ga [TO‘G‘RI]
+D) 80 %ga
+
+8-savol:
+O‘tgan asrning 80-yillarida O’zbekiston aholi jon boshiga yalpi ichki mahsulot ishlab chiqarishda ittifoqdosh respublikalar orasida nechanchi o’ringa tushib qoldi
+A) 10
+B) 9
+C) 7
+D) 12 [TO‘G‘RI]
+
+9-savol:
+Mavjud siyosiy tuzumni va iqtisodiyotga partiyaviy rahbarlikni saqlab qolgan holda xo’jalik mexanizmini isloh qilish yo’lidagi urinish ham samara bermasligi qaysi yilga kelib oydinlashib qoldi
+A) 1987 yil [TO‘G‘RI]
+B) 1980 yil
+C) 1990 yil
+D) 1993 yil
+
+10-savol:
+«O‘zbekiston ovozi», «Golos Uzbekistana» gazetalari qaysi siyosiy partiyaning nashri hisoblanadi?
+A) «Vatan taraqqiyoti» partiyasi
+B) «O‘zbekiston Xalq Demokratik partiyasi» [TO‘G‘RI]
+C) «Milliy Tiklanish Demokratik Partiyasi»
+D) «Fidokorlar Milliy Demokratik Partiyasi»
+
+11-savol:
+O‘zbekiston Respublikasi Prezidentining «O‘zbekiston Respublikasi Xalq ta’limi tizimini 2030 yilgacha rivojlantirish konsepsiyasini tasdiqlash to‘g‘risida« PF-5712-son Farmoni qachon e’lon qilindi
+A) 2020 yil 29 aprel
+B) 2017 yil 29 aprel
+C) 2019 yil 29 aprel [TO‘G‘RI]
+D) 2022 yil 29 aprel
+
+12-savol:
+Qaysi yildan boshlab O‘zbekiston Respublikasi Oliy Majlisining qaroriga binoan 1 oktabr o‘qituvchilar va murabbiylar kuni, bayram kuni deb e’lon qilindi.
+A) 1992 yil
+B) 1997 yil
+C) 2000 yil
+D) 1996 yil [TO‘G‘RI]
+
+13-savol:
+O‘zbekiston Respublikasi Prezidentining 2016 yil 29 dekabrdagi PQ-2707-son Qarori qanday nomlanadi va qaysi soha uchun mo’ljallangan
+A) «2017–2021 yillarda maktabgacha ta’lim tizimini takomillashtirish to‘g‘risida»gi qaror [TO‘G‘RI]
+B) Ta’lim to’g’risidagi qonun
+C) «Kadrlar tayyorlash milliy dasturi to‘g‘risida»gi Qonun
+D) «O‘zbekiston Respublikasi Xalq ta’limi tizimini 2030 yilgacha rivojlantirish konsepsiyasini tasdi...
+
+14-savol:
+2014 yili yurtimizda qaysi Xalqaro universitetning filiali ochilgan edi
+A) Singapur menejmentni rivojlantirish instituti
+B) Janubiy Koreyaning Inxa universiteti [TO‘G‘RI]
+C) I.M. Gubkin nomidagi Rossiya neft va gaz davlat universiteti
+D) Italiyaning Turin politexnika instituti
+
+15-savol:
+«O‘zbekistonning Markaziy Osiyo xalqlariga ta’siri Vizantiyaning qadim Rusga ta’siridan aslo kam emas»- bu so‘zlar kimga ta’luqli?
+A) Sh. Rashidovga
+B) I. Karimovga
+C) Chingiz Aytmatovga [TO‘G‘RI]
+D) N. Nazarboevga
+
+16-savol:
+Ta’lim sohasida davlatimiz bilan hamkorlik aloqalarini olib boruvchi JAYKO xalqaro tashkiloti qaysi davlatga tegishli
+A) Britaniya
+B) Singapur
+C) Malayziya
+D) Yaponiya [TO‘G‘RI]
+
+17-savol:
+O’zbekiston REspublikasi Prezidenti tomonidan qachon Besh tashabbus g’oyasi ilgari surildi
+A) 2019 yil 20 mart [TO‘G‘RI]
+B) 2017 yil 20 mart
+C) 2016 yil 20 mart
+D) 2022 yil 20 mart
+
+18-savol:
+O‘zbekiston Respublikasi Prezidenti Shavkat Mirziyoyev asarlarining to’rtinchi jildi qanday ataladi
+A) «El-yurtimizning mustahkam irodasi va matonatiga tayanib, sinovlardan munosib o‘tamiz»
+B) «Milliy tiklanishdan – milliy yuksalish sari» [TO‘G‘RI]
+C) «Xalqimizning hayot darajasi va sifatini yangi bosqichga ko‘tarish – eng muhim vazifamiz»
+D) Barcha javoblar to’g’ri
+
+19-savol:
+2013-yil yanvar oyida qaysi shahar ma’muriyati va Florensiya provinsiyasi ma’muriyati o’trasida Do’stlik va hamkorlik shartnomasi imzolangan.
+A) Buxoro shahri
+B) Toshkent
+C) Samarqand shahri [TO‘G‘RI]
+D) Xiva
+
+20-savol:
+Mustaqillik yillarida olib borilgan hamkorlik aloqalari natijasida qaysi davlatda Temuriylar davri tarixi va madaniyatini o’rganish Assosiasiyasi hamda «Avisenna –…………» Assosiasiyasi faoliyat yuritib kelmoqda. Nuqtalar o’rnida qaysi davlat ekanligini belgilang
+A) Buyuk Britaniya
+B) Yaponiya
+C) Rossiya
+D) Fransiya [TO‘G‘RI]
+
+21-savol:
+2004 yilda Tokiodagi Soka universiteti hududida qaysi buyuk o’zbek mutafakkirining haykali o’rnatilgan edi
+A) Alisher Navoiy [TO‘G‘RI]
+B) Mirzo Ulug’bek
+C) Beruniy
+D) Abu Ali ibn Sino
+
+22-savol:
+1999 yilda O’zbekiston Respublikasining qaysi davlat bilan do’stlik jamiyatiga asos solindi
+A) Xitoy
+B) Yaponiya [TO‘G‘RI]
+C) Qozog’iston
+D) Tojikiston
+
+23-savol:
+Qaysi mamlakatning O’zbekistonda avtomobil sanoatni bo’yicha 20 ta kompaniyasi jalb qilingan
+A) Yaponiya
+B) Turkiya
+C) Janubiy Koreya [TO‘G‘RI]
+D) Finlandiya
+
+24-savol:
+Xitoy davlati tashkil qilingan qo’shma korxonalarning asosiy ulushi qaysi viloyatlarda joylashgan
+A) Toshkent, Samarqand, Qashqadaryo
+B) Xorazm, Navoiy, Samarqand
+C) Qashqadaryo, Navoiy, Toshkent
+D) AndijonFarg’onaNamangan [TO‘G‘RI]
+
+25-savol:
+2018-yil 10-fevraldan boshlab qaysi davlat fuqarolari uchun 30 kunlik vizasiz rejimi qo’llanishi munosabati bilan O’zbekistonga ushbu davlatdan keladigan turistlar soni ikki baravariga oshdi va 10 mingdan ortiqni tashkil etdi.
+A) Isroil [TO‘G‘RI]
+B) Malayziya
+C) Ummon
+D) Xitoy
+
+26-savol:
+1992-yil martidan 2001-yil oktyabriga qadar qaysi shaharda O’zbekistonning Bosh konsulxonasi faoliyat yuritdi.
+A) Dehli shahrida
+B) Karachi shahrida [TO‘G‘RI]
+C) Pekin shahrida
+D) Moskva shahrida
+
+27-savol:
+O’zbekistonda faoliyat yuritayotgan «Exxon Mobil», «CNH Industrial», «Coca-Cola», «Hyatt», «Hilton», «John Deyere» kompaniyalari qaysi davlatga tegishli
+A) Kanada
+B) Fransiya
+C) AQSh [TO‘G‘RI]
+D) Britaniya
+
+28-savol:
+Markaziy Osiyo davlatlari bilan qaysi davlat o’rtasida imzolangan TIFA savdo va investisiyalar to’g’risidagi bitimning amalga oshirilib kelinmoqda
+A) Kanada
+B) Fransiya
+C) Britaniya
+D) AQSh [TO‘G‘RI]
+
+29-savol:
+O’zbekiston tomoni 2002-yil martda qaysi davlat Strategik sherikchilik va hamkorlikning asoslari to’g’risidagi Deklarasiya imzolagan
+A) AQSh [TO‘G‘RI]
+B) Kanada
+C) Fransiya
+D) Britaniya
+
+30-savol:
+Yurtimizda Mirzo Ulug’bek yili deb e’lon qilingan yilni aniqlang
+A) 1993 yil
+B) 1994 yil [TO‘G‘RI]
+C) 1996 yil
+D) 1998 yil
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 2-QISM (T2)
+# Buyruq: /quiz_T2 yoki /start_T2 | Savollar: 31–60 (jami 30 ta)
+################################################################################
+
+31-savol:
+2022 yil 28 yanvarda….
+A) O‘zbekiston Respublikasi Prezidentining Oliy Majlisga Murojaatnomasi e’lon qilindi
+B) Ilm, ma’rifat va raqamli iqtisodiyotni rivojlantirish yili e’lon qilindi
+C) «2022–2026 yillarga mo‘ljallangan Yangi O‘zbekiston taraqqiyot strategiyasi» Farmoni e’lon qilindi [TO‘G‘RI]
+D) «Yoshlarni qo‘llab quvvatlash va aholi salomatligini mustahkamlash yili» e’lon qilindi
+
+32-savol:
+2023 yil O’zbekistonda …. …yili deb e’lon qilindi
+A) «Faol investitsiyalar va ijtimoiy rivojlanish yili»
+B) «Inson qadrini ulug‘lash va faol mahalla yili» deb e’lon qilindi.
+C) To’g’ri javob yo’q
+D) Insonga e’tibor va sifatli talim yili [TO‘G‘RI]
+
+33-savol:
+Pejo Sitroen korparatsiyasi bilan birgalikda qaysi viloyatda avtomobil zavodi qurilishi rejalashtirilgan
+A) Jizzax [TO‘G‘RI]
+B) Xorazm
+C) Andijon
+D) Toshkent
+
+34-savol:
+Mahalla so’zining ma’nosi
+A) Arabcha boshqarish
+B) Arabcha o’rin-joy [TO‘G‘RI]
+C) Arabcha muloqot
+D) Arabcha yangilik
+
+35-savol:
+O’zbekistan Respublikasi Oliy ta’lim tizimini 2030 yilgacha rivojlantirish Konsepsiyasida oliy ta’lim muassasalari rasmiy veb-saytlarini qaysi tashkilot reyting tizimida egallagan o’rinlarini yaxshilab borish rejalashtirilgan
+A) STEAM
+B) Quacquarelli Symonds World University Rankings
+C) Webometrics [TO‘G‘RI]
+D) Times Nigher Education
+
+36-savol:
+2017 yil 16-fevral kuni….
+A) O‘zbekiston Respublikasi Prezidentining Oliy Majlisga Murojaatnomasi e’lon qilindi
+B) Ilm, ma’rifat va raqamli iqtisodiyotni rivojlantirish yili e’lon qilindi
+C) «Yoshlarni qo‘llab quvvatlash va aholi salomatligini mustahkamlash yili» e’lon qilindi
+D) Oliy o’quv yurtidan keyingi ta’lim tizimini yanada takomillashtirish to’g’risida«gi O’zbekiston R... [TO‘G‘RI]
+
+37-savol:
+O‘zbekistonda ikki palatali Parlament tuzish masalasiga bag‘ishlangan umumxalq Referendumi qachon bo‘lib o‘tdi
+A) 2002 yil [TO‘G‘RI]
+B) 2004 yil
+C) 2000 yil
+D) 2001 yil
+
+38-savol:
+Qaysi yildan boshlab Oliy Majlisga Ekologik harakatdan deputatlar saylanadigan bo’ldi
+A) 2004 yildan
+B) 2009 yildan [TO‘G‘RI]
+C) 2010 yildan
+D) 2012 yildan
+
+39-savol:
+Prezident so’zining ma’nosi
+A) boshqaruvchi
+B) Yo’lboshchi
+C) Oldinda o’tiruvchi [TO‘G‘RI]
+D) hokim
+
+40-savol:
+Ajrataman, bo’laman ma’nolarini anglatuvchi termini belgilang
+A) prezident
+B) respublika
+C) demokratiya
+D) partiya [TO‘G‘RI]
+
+41-savol:
+O‘zbekiston ovozi gazetasi qaysi partiya axborot matbuoti hisoblanadi
+A) XDP [TO‘G‘RI]
+B) Adolat
+C) Milliy tiklanish
+D) Vatan taraqqiyoti
+
+42-savol:
+«Vatan taraqqiyoti» partiyasi va «Fidokorlar» milliy-demokratik partiyalari qachon qo’shildi
+A) 1998 yil
+B) 2000 yil [TO‘G‘RI]
+C) 2003 yil
+D) 2005 yil
+
+43-savol:
+1995 yil 18 fevralda qaysi partiyaga asos solindi
+A) XDP
+B) Milliy tiklanish
+C) Adolat [TO‘G‘RI]
+D) O’zLidep
+
+44-savol:
+Milliy tiklanish» demokratik partiyasi qachon tuzildi
+A) 2003 yil
+B) 2005 yil
+C) 1996 yil
+D) 2008 yil [TO‘G‘RI]
+
+45-savol:
+O’zbekistonda Sog’lom bola yili deb qaysi yil e’lon qilindi
+A) 2014 yil [TO‘G‘RI]
+B) 2008 yil
+C) 2015 yil
+D) 2010 yil
+
+46-savol:
+Qaysi yili O‘zbekiston Respublikasi Prezidenti Shavkat Mirziyoyev Xalq qabulxonalari negizida, Prezident huzurida alohida tuzilma – Tezkor davlat xizmatlari agentligini tashkil etish g‘oyasini ilgari surdi.
+A) 2018 yil
+B) 2017 yil [TO‘G‘RI]
+C) 2020 yil
+D) 2019 yil
+
+47-savol:
+1993 yilda quyidagi qaysi Xayriya jamg’armasiga asos solingan edi
+A) Nuroniy
+B) Umid
+C) Mahalla [TO‘G‘RI]
+D) Ona va bola
+
+48-savol:
+«Shahidlar xotirasi» yodgorligi majmuyi qoshida qaysi muzey o’z faoliyatini boshladi?
+A) «O’zbekiston tarixi» muzeyi
+B) «San’at» muzeyi
+C) «Tibbiyot» muzeyi
+D) «Qatag‘on qurbonlari xotirasi» muzeyi [TO‘G‘RI]
+
+49-savol:
+Qaysi yildan boshlab sud islohotlarida «bir sud-bir istansiya « tamoyili amalga oshiriladigan bo’ldi
+A) 2020 yil [TO‘G‘RI]
+B) 2019 yil
+C) 2017 yil
+D) 2021 yil
+
+50-savol:
+O’zbeekiston Respublikasi Preziddenti 2020-yil 29-dekabrdagi Oliy Majlis Murojatnomasida qaysi sohada keyingi 4 yilda 40 dan ortiq Qonunlar va Farmonlar qabul qilinganlligini e’tirof etgan edi
+A) Ta’lim tizimi
+B) Sud tizimii [TO‘G‘RI]
+C) Soliq tizimi
+D) iqtisodiyot
+
+51-savol:
+Yoshlar ittifoqiga qachon asos solidi
+A) 2016 yil
+B) 2010 yil
+C) 2017 yil [TO‘G‘RI]
+D) 2019 yil
+
+52-savol:
+Qaysi yili mamlakatimizda Kichik xususiylashtirish jarayoni tugallandi
+A) 1995 yil
+B) 1998 yil
+C) 1997
+D) 1994 yil [TO‘G‘RI]
+
+53-savol:
+«O’zbekiston Respublikasining tashqi siyosiy faoliyati konsepsiyasini tasdiqlash to’g’risida»gi Qonuni qachon qabul qilingan?
+A) 2012 yil sentyabr [TO‘G‘RI]
+B) 2010 yil oktyabr
+C) 2014 yil dekabr
+D) 2008 yil may
+
+54-savol:
+Mustaqillik yillarida O’zbekiston 1994 yil qqaysi davlat bilan mashinasozlik sanoati jadal rivojlanishi uchun shartnoma imzoladi
+A) Yaponiya
+B) Isroil [TO‘G‘RI]
+C) Xitoy
+D) Singapur
+
+55-savol:
+Respublika «Ma’naviyat va ma’rifat» jamoatchilik markazi qachon tashkil etildi
+A) 1992 yil
+B) 1997 yil
+C) 1994 yil [TO‘G‘RI]
+D) 2000 yil
+
+56-savol:
+O’zbekiston Respublikasida viloyat, tumanlarning chegarasini o’zgartirish qaysi organ roziligi asosida amalga oshiriladi
+A) Vazirlar Mahkamasi
+B) Sud
+C) Mahalliy hokimlik
+D) Oliy majlis [TO‘G‘RI]
+
+57-savol:
+O’zbekistonda Yaponiyaning «Marubeni» va «Jey-Ji-Si» kompaniyalari qaysi soha rivojiga katta hissa qo’shgan
+A) neftni qayta ishlash [TO‘G‘RI]
+B) Oltin qazib olish
+C) Pilla yetishtirish
+D) G’alla yetishtirish
+
+58-savol:
+Jizzaxdagi mashhur yo’g’och tolali plita ishlab chiqarish Xitoy kompaniyasi nomi
+A) Marubeni
+B) Nunkel [TO‘G‘RI]
+C) Jey-Ji-Si
+D) JAIKA
+
+59-savol:
+O’zbekistonda maktab bitiruvchilarini oliy ta’lim bilan qamrab olish darajasi qaysi yilda 50-60 foizga yetadi
+A) 2030 yil
+B) 2027 yil
+C) 2025 yil [TO‘G‘RI]
+D) 2032 yil
+
+60-savol:
+«Ekonomist jurnali» qaysi yili O’zbekistonni «Yil mamalkati» deb e’tirof etdi.
+A) 2016 yil
+B) 2020 yil
+C) 2022 yil
+D) 2019 yil [TO‘G‘RI]
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 3-QISM (T3)
+# Buyruq: /quiz_T3 yoki /start_T3 | Savollar: 61–90 (jami 30 ta)
+################################################################################
+
+61-savol:
+1937-53 yillarda O‘zbekistonda qancha odamlar siyosiy qatag‘on qurboni bo’ldi va ularning necha nafari shafqatsiz otib tashlangan.
+A) 100 ming .13 ming nafari shafqatsiz otib tashlangan [TO‘G‘RI]
+B) 90 ming .10 ming nafari shafqatsiz otib tashlangan
+C) 80 ming .12 ming nafari shafqatsiz otib tashlangan
+D) 70 ming .9 ming nafari shafqatsiz otib tashlangan
+
+62-savol:
+Harakatlar strategiyasining nechanchi yo’nalishi Davlat va jamiyat qurilishi tizimini takomillashtirishning ustuvor yo’nalishlari
+A) beshinchi
+B) birinchi [TO‘G‘RI]
+C) uchinchi
+D) To’rtinchi
+
+63-savol:
+Harakatlar strategiyasining to’rtinchi asosiy yo’nalishi qanday nomlanadi
+A) Davlat va jamiyat qurilishi tizimini takomillashtirishning ustuvor yo’nalishlari
+B) Qishloq xo’jaligini modernizatsiya qilish va jadal rivojlantiris
+C) Ijtimoiy sohani rivojlantirishning ustuvor yo’nalishlari [TO‘G‘RI]
+D) Yuridik yordam va xizmat ko’rsatish tizimini takomillashtirish
+
+64-savol:
+Quyidagi mukofotlardan qaysi biri 1999-yilda ta’sis etilgan
+A) Beruniy
+B) O’zbekiston xalq shoiri
+C) Xalq rassomi
+D) Zulfiya [TO‘G‘RI]
+
+65-savol:
+_____________ bu ijtimoiy, iqtisodiy, huquqiy, psixologik qo‘llab-quvvatlashga, bilim va kasb o‘rganishga ehtiyoji va ishtiyoqi bo‘lgan, ishsiz yoshlarning muammolarini aniqlash, bartaraf etish va nazoratini olib borish bo‘yicha ma’lumotlar bazasidir. Yuqoridagi termini belgilang
+A) Yoshlar daftari [TO‘G‘RI]
+B) Ayollar daftari
+C) Davlat dasturi
+D) Temir daftar
+
+66-savol:
+Yoshlar daftariga necha yosh oralig’idagi yoshlar kiritiladi
+A) 12-25
+B) 14-30 [TO‘G‘RI]
+C) 10-18
+D) 10-25
+
+67-savol:
+_____________ bu ijtimoiy, iqtisodiy, huquqiy, psixologik qo‘llab-quvvatlashga, bilim va kasb o‘rganishga ehtiyoji va ishtiyoqi bo‘lgan, ishsiz xotin-qizlarning muammolarini aniqlash, bartaraf etish va nazoratini olib borish bo‘yicha ma’lumotlar bazasi hisoblanadi. Yuqoridagi termini belgilang
+A) Yoshlar daftari
+B) Davlat dasturi
+C) Ayollar daftari [TO‘G‘RI]
+D) Temir daftar
+
+68-savol:
+Qaysi davrga kelib SSSRning parchalanishi real obektiv haqiqatga aylanib qoldi
+A) XX asr 90-yillari boshida
+B) XX asr 70-yillari ikkinchi yarmida
+C) XX asr 60-yillarning oxirida
+D) XX asr 80-yillari o’rtalarida [TO‘G‘RI]
+
+69-savol:
+1991-yil 15-fevralda O’zbekiston Oliy Kengashi qanday qaror qabul qildi
+A) «O’zbekistonning davlat ramzlari to’g’risida» [TO‘G‘RI]
+B) «Mustaqillik Deklaratsiyasi»
+C) «Mustaqil Davlatlar Ittifoqi to’g’risidagi shartnoma»
+D) «O’zbekiston Respublikasi referendumini o’tkazish to’g’risida»
+
+70-savol:
+Quyidagi sanalardan umumxalq referendum bo‘lib otgan davrni belgilang
+A) 2003-yil 24-aprel
+B) 2002-yil 27-yanvar [TO‘G‘RI]
+C) 2007-yil 23-dekabr
+D) 2000-yil 9-yanvar
+
+71-savol:
+1991-yil aprelda qabul qilingan «Mamlakatdagi vaziyatni barqarorlashtirish va tanglikni bartaraf etishga doir kechiktirib bo’lmaydigan choralar to’g’risida» qo’shma Bayonot yana qanday nomlanadi
+A) «Moskva kelishuvi»
+B) «Mustaqillik Deklaratsiyasi»
+C) «9+1» (9 respublika+Markaz) [TO‘G‘RI]
+D) «Minsk kelishuvi»
+
+72-savol:
+Mustaqil Davlatlar Hamdo’stligi (MDH) tashkil etilganligini rasman e’lon qilingan sana
+A) 1992-yil 30 dekabr
+B) 1990-yil 30 mart
+C) 1989-yil 30 noyabr
+D) 1991-yil 8-dekabr [TO‘G‘RI]
+
+73-savol:
+1990 yilda davlat mablag’larining qancha qismi ijtimoiy sohalarni moliyalashtirishga yo’naltirilgan
+A) 31 foiz [TO‘G‘RI]
+B) 41 foiz
+C) 51 foiz
+D) 61 foiz
+
+74-savol:
+Istiqlolning dastlabki yillarida chetdan sotib olingan mahsulotlar tarkibida oziq-ovqat mahsulotlarining ulushi
+A) 53 foiz
+B) 73 foiz [TO‘G‘RI]
+C) 43 foiz
+D) 60 foiz
+
+75-savol:
+«Fuqarolik jamiyati» va «huquqiy davlat» tushunchasi birgalikda nechanchi asrda paydo bo’lgan
+A) XIX asrda
+B) XX asrda
+C) XVIII asrda [TO‘G‘RI]
+D) XVII asrda
+
+76-savol:
+1990-yil 20-iyun kuni….?
+A) O’zbekiston mustaqil davlatga aylandi
+B) Davlat bayrog’i qabul qilindi
+C) Prezidentlik lavozimi ta’sis etildi
+D) Mustaqillik Deklaratsiyasi qabul qilindi [TO‘G‘RI]
+
+77-savol:
+«XXI asr» ijtimoiy-siyosiy gazetasi qaysi partiya matbuot organi hisoblanadi
+A) O’zLidep [TO‘G‘RI]
+B) XDP
+C) Adolat
+D) Fidokorlar
+
+78-savol:
+Qadimiy ajdodlarimizning bunyodkorligi tufayli yaratilgan qanchamoddiy-madaniy obidalar umujahon merosining noyob namunalari sifatidaYUNESKO ro‘yxatiga kiritilgan
+A) besh mingdan ziyod
+B) To‘rt mingdan ziyod [TO‘G‘RI]
+C) Sakkiz mingdan ziyod
+D) O’n mingdan ziyod
+
+79-savol:
+1991-yil 28-sentabr kuni Toshkent shahrida qaysi buyuk shaxs haykalining ochilish marosimi bo’lib o’tgan?
+A) Amir Temur haykali
+B) Z.M.Bobur haykali
+C) Alisher Navoiy haykali [TO‘G‘RI]
+D) Abdulla Qodiriy haykali
+
+80-savol:
+1991-yilning 19–21-avgustida….?
+A) O‘zbekiston SSR Oliy Kengashining navbatdan tashqari VI sessiyasi o‘z ishini boshladi.
+B) «GKChPning O‘zbekiston Konstitutsiyasiga zid hujjatlari amal qilmaydi» qarori qabul qilindi
+C) Prezidentlik lavozimi ta’sis etildi
+D) Sovet Ittifoqida davlat to‘ntarishi sodir etildi. [TO‘G‘RI]
+
+81-savol:
+2017–2021-yillarda O‘zbekiston Respublikasini rivojlantirishning beshta ustuvor yo‘nalishi bo‘yicha Harakatlar strategiyasini samarali amalga oshirish yo‘lida qanday vazifalar belgilangan edi
+A) Turistlarni jalb qilish va turistik infratuzilmani rivojlantirishda amaliy yordam berish [TO‘G‘RI]
+B) Mintaqa va jahon siyosatida O‘zbekiston xalqaro tashabbuslarini ilgari surish
+C) Iqtisodiyotga to‘g‘ridan-to‘g‘ri xorijiy investitsiya va ilg‘or texnologiyalarni jalb etish
+D) Barcha javoblar to’g’ri
+
+82-savol:
+O‘zbekiston mintaqaning nechta mamlakati bilan umumiy chegaraga ega
+A) 7
+B) 5 [TO‘G‘RI]
+C) 9
+D) 4
+
+83-savol:
+Davlatimiz rahbari BMT Bosh Assambleyasiga qanday taklif bilan chiqqan edi
+A) Ma’rifat va diniy bag‘rikenglik» deb nomlangan maxsus rezolyusiyani qabul qilish
+B) Diniy bag‘rikenglik va millatlararo totuvlikni ta’minlash
+C) Islom madaniyatlararo sivilizatsiyasi bo‘yicha [TO‘G‘RI]
+D) Islomiy ma’naviyat va ma’rifat masalalari bo‘yicha
+
+84-savol:
+Orol dengizining fojiasi birinchi navbatda qaysi jarayon oqibatidashakllangan
+A) Tabiiy omillar, masalan, yog‘ingarchiliklar miqdorining kamayishi oqibatida
+B) Qirg‘iziston va Tojikistonda gidroenergetika rivojlanishi oqibatida
+C) Suv resurslarining ifloslanishi oqibatida
+D) Suv resurslaridan oqilona foydalanmaslik oqibatida [TO‘G‘RI]
+
+85-savol:
+Harakatlar strategiyasiga muvofiq, ijtimoiy sohani rivojlantirish» debnomlangan to‘rtinchi yo‘nalishi bo‘yicha hududlarni har tomonlamarivojlantirish hisobiga qancha ishchi o‘rni tashkil etish nazarda tutilgan
+A) 256,4 ming ish o‘rni [TO‘G‘RI]
+B) 951 ming ish o‘rni
+C) 1 million ish o‘rni
+D) 1,4 million ish o‘rni
+
+86-savol:
+O‘zbekiston Respublikasi Prezidenti Shavkat Mirziyoyev 2017-yil 27-mart kuni qaysi tarixiy davlat organi tavalludining 100 yilligini nishonlash haqida qarorga imzo chekdi
+A) Abqulla Qodiriy
+B) Sharof Rashidov [TO‘G‘RI]
+C) Fayzulla Xo’jayev
+D) To’g’ri javob yo’q
+
+87-savol:
+1989 yilda quyidagi qaysi shaharlarda millatlaaroaro nizolar yuz berdi
+A) Xorazm, Navoiy
+B) Toshkent, Qashqadaryo
+C) Toshkent, Andijon, Farg’ona [TO‘G‘RI]
+D) Barcha javoblar to’g’ri
+
+88-savol:
+Farg’ona voqealarida qancha xonadonga o’t qo’yildi
+A) 550
+B) 500
+C) 1000
+D) 650 [TO‘G‘RI]
+
+89-savol:
+Qaysi yilda «Davlat tili» maqomining berilganiga 30 yil to’ldi
+A) 2019 yil [TO‘G‘RI]
+B) 2020 yil
+C) 2009 yil
+D) 2022 yil
+
+90-savol:
+Mustaqillik arafasida mamlakat aholisining tabiiy gaz bilan ta’minlanishi necha foizni tashkil etaredi
+A) 20 %
+B) 17% [TO‘G‘RI]
+C) 10%
+D) 30%
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 4-QISM (T4)
+# Buyruq: /quiz_T4 yoki /start_T4 | Savollar: 91–120 (jami 30 ta)
+################################################################################
+
+91-savol:
+1993-yil 29-oktabrda.....
+A) YUNESKO Bosh direktori Federiko Mayorning O‘zbekistondagi rasmiy tashrifi amalga oshirildi
+B) YUNESKO Amir Temur tavalludining 660 yilligini xalqaro nishonlash haqida qaror qildi
+C) YUNESKO ning Parijdagi qarorgohida O‘zbekistonni YUNESKOga a’zolikka qabul qilish marosimi bo‘ldi [TO‘G‘RI]
+D) Buxoro va Xiva shaharlarining 2500 yillik muborak sanalari Parijda keng nishonlandi
+
+92-savol:
+1993-yilda qaysi davlatlar ta’sisligida Orolni qutqarish xalqaro jamg‘armasi (OQXJ) tashkil etildi?
+A) Rossiya, Xitoy, O’zbekiston, Turkmaniston va Tojikiston
+B) Qozog’iston, Yaponiya, Rossiya, Xitoy va O’zbekiston
+C) Qozog‘iston, Qirg‘iziston, Tojikiston, Turkmaniston, O‘zbekiston va Afg’oniston
+D) Qozog‘iston, Qirg‘iziston, Tojikiston, Turkmaniston va O‘zbekiston [TO‘G‘RI]
+
+93-savol:
+1994-yilda qaysi vatandoshimiz tavalludining 600 yilligi nishonlangan?
+A) Mirzo Ulug’bek [TO‘G‘RI]
+B) Imom al-Moturidiy
+C) Mahmud az-Zamaxshariy
+D) Zahiriddin Muhammad Bobur
+
+94-savol:
+1995-yil 1-iyunda qaysi partiya tashkil topdi?
+A) XDP
+B) Milliy Tiklanish Demokratik partiyasi [TO‘G‘RI]
+C) «Adolat» sotsial demokratik partiyasi
+D) O‘zLDEP
+
+95-savol:
+1998-yil 23-oktabrda Farg‘ona shahrida buyuk alloma Ahmad al-Farg‘oniyning necha yillik yubileyi keng nishonlandi?
+A) 1100 yillik
+B) 1300 yillik
+C) 1200 yillik [TO‘G‘RI]
+D) 1000 yillik
+
+96-savol:
+2003-yil ShHTning Pekin sammitida …..?
+A) Afg‘oniston va Mo‘g‘uliston ShHT ning kuzatuvchi maqomiga ega bo‘lishdi
+B) Hindiston, Eron va Pokistonga ShHT kuzatuvchi maqomi berilishi haqida qaror qabul qilindi
+C) «Mintaqaviy Antiterror tuzilmasi (MATT)» tashkil topdi
+D) «ShHTga a’zo davlatlarning 20 yilga mo‘ljallangan savdo – iqtisodiy hamkorlik dasturi» qabul qilindi [TO‘G‘RI]
+
+97-savol:
+2017 - yil 30- iyunda .....?
+A) «Yoshlar ittifoqi« tashkil topdi. [TO‘G‘RI]
+B) «Yoshlar kelajagimiz» jamg’armasi va uning hududiy boʻlimlari ish boshladi.
+C) «Yoshlarga oid davlat siyosatining samaradorligini oshirish va Oʻzbekiston Yoshlar ittifoqi faoli...
+D) «Yoshlar kelajagimiz« Davlat dasturi qabul qilindi.
+
+98-savol:
+2018 yilda dunyoda THE reytingi bo’yicha birinchi o’rinni olgan universitet
+A) Massachuset
+B) Oksford [TO‘G‘RI]
+C) Kemrij
+D) Garvard
+
+99-savol:
+2018-yildan boshlab qaysi shahrida har ikki yilda bir marta Xalqaro maqom san’ati festivalini o‘tkazish belgilandi?
+A) Samarqandda
+B) Buxoroda
+C) Shahrisabzda [TO‘G‘RI]
+D) Toshkentda
+
+100-savol:
+2019 yil dekabr oyida bo’lib o’tgan O’zbekiston Respublikasi Qonunchilik palatasi va Senati xamda viloyat tuman, shaxar kengashlariga deputatlar saylovlari qaysi shior asosida bo’lib o’tdi?
+A) «Demokratik saylovlar».
+B) «Birdamlik harakati saylovlar».
+C) «Yangi saylovlar yili».
+D) «Yangi O’zbekiston-yangi saylovlar». [TO‘G‘RI]
+
+101-savol:
+2019 yilda mamlakatlarda oliy ta’lim muassasalari sonida qanday o’zgarish sodir bo’ldi?
+A) 19 ta yangi oliy o’quv yurti, jumladan 9 ta nufuzli xorijiy universitetlarning filiali ochildi [TO‘G‘RI]
+B) 30 ta yangi oliy o’quv yurti, jumladan 10 ta nufuzli xorijiy universitetlarning filiali ochildi
+C) 10 ta yangi oliy o’quv yurti, jumladan 5ta nufuzli xorijiy universitetlarning filiali ochildi
+D) 50 ta yangi oliy o’quv yurti, jumladan 25 ta nufuzli xorijiy universitetlarning filiali ochildi
+
+102-savol:
+2020 yil MDH doirasidagi sammidga qaysi mamlakat raislik qildi?
+A) Qozog’iston
+B) O‘zbekiston [TO‘G‘RI]
+C) Tojikiston
+D) To’g’ri javob yo’q
+
+103-savol:
+2020 yilda intensiv usulda baliq yetishtirish uni kupaytirish borasida qaysi mamlakatlar bilan yaqin xamkorlik yo’lga qo’yildi?
+A) Xitoy va Malayziya
+B) Rossiya va Xitoy
+C) Vetnam va Xitoy [TO‘G‘RI]
+D) Singapur va Hindiston
+
+104-savol:
+Adolatli bir siyosat sifatida amalda qo‘llash va uning odamlar turmushida aks etishini taminlash qaysi raxbarining ustuvor tamoyilidir?
+A) I. Karimovning
+B) N. Nazarbaevning
+C) Den Syaopenning
+D) Sh. Mirziyoevning [TO‘G‘RI]
+
+105-savol:
+Afg‘oniston tarixida eng birinchi zamonaviy temir yo‘l aynan qaysi davlat tomonidan qurib bitkazilgan?
+A) O‘zbekiston [TO‘G‘RI]
+B) Afg’oniston
+C) Rossiya
+D) Xitoy
+
+106-savol:
+Alisher Navoiy nomidagi Davlat mukofoti qachon ta’sis etilgan?
+A) 1992-yilda
+B) 1991-yilda [TO‘G‘RI]
+C) 1993-yilda
+D) 2000-yilda
+
+107-savol:
+Birlashgan millatlar tashkiloti har yilning qaysi sanasini «Xalqaro bag‘rikenglik kuni» deb e’lon qildi.
+A) 1-dekabrni
+B) 21-oktyabrni
+C) 16-noyabrni [TO‘G‘RI]
+D) 16 dekabrni
+
+108-savol:
+BMT shafeligi ostida afg‘on muammosini muzokaralar yo‘li bilan yechishga qaratilgan «6+2» muloqot guruhini tuzish tashabbusi bilan chiqqan davlat rahbarini aniqlang
+A) Tojikiston Respublikasi Prezidenti I.Rahmon
+B) Afg’oniston Respublikasi Prezidenti A.Gani
+C) O’zbekiston Prezidenti Sh.I.Mirziyoyev
+D) O’zbekiston Respublikasi birinchi prezidenti I.A.Karimov [TO‘G‘RI]
+
+109-savol:
+Dunyoviy davlat tushunchasi nimaga asoslanadi?
+A) Demokratiyaning muhim umumjahon e’tirof etgan asosiy tamoyillariga asoslanadi. [TO‘G‘RI]
+B) Yakkapartiyaviylik tizimiga asoslanadi
+C) Yakkahukmronlikka asoslanadi
+D) To’g’ri javob yo’q
+
+110-savol:
+Fuqarolik jamiyati pishib yetilgan mamlakatlarda konstitutsionalizmdan qaysi jamiyatga o‘tish boshlanadi?
+A) Aristokratiyaga
+B) Demokratiyaga [TO‘G‘RI]
+C) Monarxiyaga
+D) Mutlaq monarxiyaga
+
+111-savol:
+Fuqorolik jamiyatida o’zini o’zi boshqarishning nechta mexanizmi mavjud?
+A) 5 ta
+B) 6 ta
+C) 4 ta [TO‘G‘RI]
+D) 3 ta
+
+112-savol:
+Hozirgi kunda dunyodagi nechta mamlakatda Prezidentlik boshqaruvi joriy etilgan?
+A) 100 dan ziyod
+B) 110 dan ziyod
+C) 120 dan ziyod
+D) 130 dan ziyod [TO‘G‘RI]
+
+113-savol:
+I.A.Karimovning «O‘zbekiston mustaqillikka erishish ostonasida « kitobi . . . davrni o‘z ichiga oladi.
+A) 1989 yilning 24 iyunidan 1992 yilning 4 yanvariga qadar [TO‘G‘RI]
+B) 1989 yilning 24 martidan 1992 yilning 4 yanvariga qadar
+C) 1989 yilning 24 iyunidan 1991 yilning 29 dekabriga qadar
+D) 1989 yilning 24 iyunidan 1992 yilning 2 yanvariga qadar
+
+114-savol:
+Ikki yoki bir necha davlat boshliqlarining muhim xalqaro masalalar bo‘yicha uchrashuvi; oliy darajadagi kengashi qaysi atamaga muvofiq keladi?
+A) Delimitatsiya
+B) Sammit [TO‘G‘RI]
+C) konferensiya
+D) forum
+
+115-savol:
+Iqtisodning siyosatdan ustunligi, uni mafkuradan xoli etish « O’zbek modeli » ining nechanchi tamoyili ?
+A) 2
+B) 4
+C) 1 [TO‘G‘RI]
+D) 5
+
+116-savol:
+Islom Karimovning «Istiqlol yo‘li; muammolar va rejalar» hamda «O‘zbekistonning o‘z istiqlol va taraqqiyot yo‘li» asarlari qaysi yilda yozilgan?
+A) 1997 yilda
+B) 1993 yilda
+C) 1994 yilda
+D) 1992 yilda [TO‘G‘RI]
+
+117-savol:
+Janubiy Koreya Respublikasi bilan O‘zbekiston o‘rtasida tuzilgan bitim asosida «UzDEU avto» qo‘shma korxonasi tashkil etildi va ... shahrida yengil avtomashinalar ishlab chiqarishga kirishildi
+A) Asaka [TO‘G‘RI]
+B) Samarqand
+C) Toshkent
+D) Andijon
+
+118-savol:
+Mamlakatimizda Ommaviy axborot vositalari xalqqa ilmiy, huquqiy, siyosiy, iqtisodiy madaniyat tarqatuvchi....?
+A) sifatida erkin faoliyat yuritishi mumkin emas
+B) «To‘rtinchi hokimiyatdir» [TO‘G‘RI]
+C) huquqiy tashkilotdir
+D) uyushmadir
+
+119-savol:
+Metodologiyaning lug‘aviy ma’nosi nima?
+A) O‘qitish
+B) Er sayyorasi
+C) Grekcha «methodos» (tadqiqot usuli, yo‘li) va «logos» (ta’limot, fan) so‘zlaridan olingan [TO‘G‘RI]
+D) Koinot
+
+120-savol:
+Moskvada fojiali hodisalar roʼy bergan paytda Oʼzbekiston Prezidenti I.A.Karimov rasmiy safar bilan qayerda edi?
+A) Pokistonda
+B) Eronda
+C) Turkiyada
+D) Hindistonda [TO‘G‘RI]
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 5-QISM (T5)
+# Buyruq: /quiz_T5 yoki /start_T5 | Savollar: 121–150 (jami 30 ta)
+################################################################################
+
+121-savol:
+Mustaqillik davrida tashkil topgan ilk siyosiy partiya bu……
+A) O‘zbekiston Xalq demokratik partiyasi [TO‘G‘RI]
+B) Erk demokratik partiyasi
+C) Vatan taraqqiyoti partiyasi
+D) Fidokorlar milliy-demokratik partiyasi
+
+122-savol:
+Mustaqillik yillarida qaysi vatandoshimizning 850 yilligi keng nishonlangan?
+A) Bahouddin Naqshbandiy
+B) Najmiddin Kubro [TO‘G‘RI]
+C) Abu Mansur al-Moturidiy
+D) Abu Iso at-Termiziy
+
+123-savol:
+Nechanchi yilda Respublikamizda «Xorazm Ma’mun akademiyasi» ning 1000 yilligi nishonlangan?
+A) 2001-yilda
+B) 1997-yilda
+C) 2006-yilda [TO‘G‘RI]
+D) 1996-yilda
+
+124-savol:
+Nechinchi yil «Xalq bilan muloqot va inson manfaatlari yili» deb e’lon qilingan
+A) 2014 yil
+B) 2015 yil
+C) 2016 yil
+D) 2017 yil [TO‘G‘RI]
+
+125-savol:
+O‘tgan asrning 80-yillari oxirida O‘zbekistonda yuzaga kelgan o‘ta jiddiy muammolar qaysi javobda to‘g‘ri ko‘rsatilgan?
+A) Respublikadagi ijtimoiy ahvolning qoniqarsizligi, demografik vaziyatning murakkabligi [TO‘G‘RI]
+B) Respublikada ishsizlar sonining ko‘pligi, zamonaviy tehnologiyalarning jadal rivojlanganligi
+C) Iqtisodiyotning nomaqbul ixtisoslashtirilishi, tayyor mahsulot tarmoqlari ulushi yuqoriligi
+D) Ishlab chiqaruvchi kuchlarning samarali joylashuvi, sanoat ob’ektlarining etarli emasligi
+
+126-savol:
+O‘zbekistnonning eng yangi tarixi deganda ...
+A) Bu davr 1989 yildan boshlanadi
+B) 1991 yildan keyin to hozirgi kungacha bosib o‘tgan yo’li. [TO‘G‘RI]
+C) Bu davr asosan 2016 yildan boshlanadi
+D) Bu davr o‘tish davridan boshlanadi
+
+127-savol:
+O‘zbekiston bilan ta’lim sohasida hamkorlikni yo‘lga qo‘ygan Konrad Adenauer Fondi qaysi davlatga tegishli edi?
+A) AQSH
+B) Buyuk Britaniya
+C) Germaniya [TO‘G‘RI]
+D) Fransiya
+
+128-savol:
+O‘zbekiston Prezidenti tashabbusi bilan 2001-yilda BMT Xavfsizlik Kengashining …..
+A) Bosh Kotib vakolatlarini kengaytirish lozimligini qayd etdi
+B) «Ma’rifat va diniy bag‘rikenglik» deb nomlangan maxsus rezolyutsiyasini qabul qildi
+C) narkobiznes va giyohvandlikka qarshi kurash bo‘yicha maxsus qo‘mitasi ta’sis etildi
+D) terrorizmga qarshi kurash bo‘yicha maxsus qo‘mitasi ta’sis etildi [TO‘G‘RI]
+
+129-savol:
+O‘zbekiston Respublikasi Prezidenti BMT Bosh Assambleyasining 72-sessiyasida...
+A) «Yoshlar xuquklari to‘g‘risida»gi konvensiyani ishlab chiqish ilgari so‘radi. [TO‘G‘RI]
+B) Afg‘onistonda tinchlikni saqlab qolish g‘oyasi ilgari surdi
+C) Dunyoda ishsizlikni kamaytirish g‘oyasini ilgari surdi
+D) Transchegaraviy daryolardan birgalikda foydalanish g‘oyasini ilgari surdi
+
+130-savol:
+O‘zbekiston Respublikasi Prezidenti Sh. Mirziyoevga fenomenini belgilab beruvchi bosh asoslardan biri...
+A) Viloyat hokimlarining qabulxonalari ochilishi
+B) «Xalq qabulxonalari»ning ochilishi. [TO‘G‘RI]
+C) Tumanlarda xalq qabulxonalarning ochilishi
+D) To’g’ri javob yo’q
+
+131-savol:
+O‘zbekiston Respublikasi Prezidenti Shavkat Mirziyoyev 2017-yil 19-sentabrda...?
+A) O‘zbekiston Respublikasi Prezidentining Oliy Majlisga Murojaatnomasi e’lon qilindi.
+B) Harakatlar strategiyasi qabul qilindi
+C) Birlashgan Millatlar Tashkiloti Bosh Assambleyasining 72-sessiyasida nutq so‘zladi. [TO‘G‘RI]
+D) Demokratik islohotlarni chuqurlashtirish va fuqarolik jamiyatini rivojlantirish konsepsiyasi
+
+132-savol:
+Harakatlar strategiyasida (2017–2021) keltirilgan 5 ta ustuvor yo‘nalishdan beshinchi yo‘nalishni aniqlang:
+A) Qonun ustuvorligini ta’minlash va sud-huquq tizimini yanada isloh qilish
+B) Iqtisodiyotni rivojlantirish va liberallashtirish
+C) Ijtimoiy sohani rivojlantirish
+D) Xavfsizlik, diniy bag‘rikenglik va millatlararo totuvlik, o‘zaro manfaatli va amaliy tashqi siyosat [TO‘G‘RI]
+
+133-savol:
+Harakatlar strategiyasida (2017–2021) keltirilgan 5 ta ustuvor yo‘nalishdan uchinchi yo‘nalishni aniqlang:
+A) Iqtisodiyotni rivojlantirish va liberallashtirish [TO‘G‘RI]
+B) Qonun ustuvorligini ta’minlash va sud-huquq tizimini yanada isloh qilish
+C) Ijtimoiy sohani rivojlantirish
+D) Xavfsizlik, diniy bag‘rikenglik va millatlararo totuvlik, o‘zaro manfaatli va amaliy tashqi siyosat
+
+134-savol:
+Harakatlar strategiyasida (2017–2021) keltirilgan 5 ta ustuvor yo‘nalishdan to‘rtinchi yo‘nalishni aniqlang:
+A) Qonun ustuvorligini ta’minlash va sud-huquq tizimini yanada isloh qilish
+B) Ijtimoiy sohani rivojlantirish [TO‘G‘RI]
+C) Iqtisodiyotni rivojlantirish va liberallashtirish
+D) Xavfsizlik, diniy bag‘rikenglik va millatlararo totuvlik, o‘zaro manfaatli va amaliy tashqi siyosat
+
+135-savol:
+O‘zbekiston Respublikasi Prezidentining, O‘zbekiston Respublikasi FA huzurida «O‘zbekistonning eng yangi tarixi bo‘yicha Jamoatchilik Kengashi faoliyatini tashkil etish tugrisida»gi qarorida ko‘rsatilgan asosiy vazifalar ...
+A) Yangi avlodni ilmiy salohiyatini oshirish
+B) Og‘zaki tarixdan ko‘proq foydalanish
+C) Yangi avlod ilmiy-o‘quv adabiyotlarini yaratish va yoshlarga taqdim etish [TO‘G‘RI]
+D) Asosiy e’tiborni mustaqillik davriga berish
+
+136-savol:
+O‘zbekiston Respublikasi Vazirlar Mahkamasining «Iqtisodiy islohotlarni yanada chuqurlashtirish, xususiy mulk manfaatlarini himoya qilish va tadbirkorlikni rivojlantirishning chora-tadbirlari to‘g‘risida»gi qarori qachon qabul qilingan?
+A) 1992 yil 21 fevralda
+B) 1994 yil 21 martda
+C) 1993 yil 21 yanvarda
+D) 1994 yil 21 yanvarda [TO‘G‘RI]
+
+137-savol:
+O‘zbekiston tarixini o‘rganish qanday metodolog tamoyillarga asoslanadi?
+A) Xolislik, tarixiylik, haqqoniylik [TO‘G‘RI]
+B) Faqat tarixiylikga
+C) Tarixiy voqealarni burtirib kursatishga
+D) Tarixiy voqealarni faqat xolisona o‘rganishga
+
+138-savol:
+O‘zbekistonda yechishtirilgan paxta AQSh mehnat vazirligi e’lon qilgan «Bolalar mehnati yoxud majburiy mehnatdan foydalangan holda ishlab chiqarilgan tovarlar ro’yxati»dan o‘chirilishiga nima sabab bo‘ldi?
+A) Paxtaning xarid narxining pasayganligi bilan
+B) O‘zbekiston Respublikasi Prezidenti Sh. Mirziyoevning tashabbusi bilan [TO‘G‘RI]
+C) Paxta tolasining sifati pastligi bilan
+D) Yetishtirilgan paxtaning kam daromadligi ekanligi bilan
+
+139-savol:
+O‘zbekistonning eng yangi tarixining beshinchi davri nima deb ataladi?
+A) O‘zbekiston o‘tish davrida.
+B) O‘zbekiston yangi asr davrida.
+C) Yangilanayotgan O‘zbekiston tarixi. [TO‘G‘RI]
+D) O‘zbekiston taraqqiyot davrida.
+
+140-savol:
+O‘zbekistonning yangi tarixini necha davrga bo‘lib o‘rganish mumkin?
+A) 3 davrga.
+B) 7 davrga.
+C) 2 davrga.
+D) 5 davrga. [TO‘G‘RI]
+
+141-savol:
+O‘zbekiston 1991-yil 31-avgustda qaysi huquqiy hujjatlarni qabul qildi? 1. Qonun, 2. Bayonot, 3. Deklaratsiya, 4. Qaror
+A) 1,2 [TO‘G‘RI]
+B) 1,3,5
+C) 2,3,4
+D) 1,4
+
+142-savol:
+O’zbekiston avtomobil transporti (O’zavtotrans) davlat-aksiyadorlik korporatsiyasi qachon tashkil etildi
+A) 1994-yil
+B) 1993-yil [TO‘G‘RI]
+C) 1998-yil
+D) 1997-yil
+
+143-savol:
+O’zbekiston davlat hokimyati tizimi nechta bo’linish prinsipiga asoslanadi?
+A) 2 ta
+B) 4 ta
+C) 3 ta [TO‘G‘RI]
+D) To’g’ri javob yo’q
+
+144-savol:
+O’zbekiston oltin qazib olish buyicha dunyoda...
+A) 5 o’rinda, o’rtacha yillik 80 tonna
+B) 2 o’rinda, o’rtacha yillik 50 tonna
+C) 8 o’rinda, o’rtacha yillik 55 tonna
+D) 7 o’rinda, o’rtacha yillik 90 tonna [TO‘G‘RI]
+
+145-savol:
+O’zbekiston quyidagi xalqaro tashkilotlardan qaysi biriga boshqalariga nisbatan keyinroq a’zo bo’lgan?
+A) ShHT (Shanxay Hamkorlik Tashkiloti) [TO‘G‘RI]
+B) MDH (Mustaqil Davlatlar Hamdo’stligi)
+C) BMT (Birlashgan Millatlar tashkiloti)
+D) YeIH (Yevropa Iqtisodiy Hamkorligi)
+
+146-savol:
+O’zbekiston Respublikasi davlat bayrog’i necha xil rangda beriladi?
+A) 3 xil
+B) 4 xil [TO‘G‘RI]
+C) 5 xil
+D) 2 xil
+
+147-savol:
+O’zbekiston Respublikasi davlat madhiyasi tog’risidagi qonuni qachon qabul qilingan?
+A) 1992 yil 8 dekabrda
+B) 1991 yil 30 sentabrda
+C) 1992 yil 10 dekabrda [TO‘G‘RI]
+D) 1992 yil 2 iyulda
+
+148-savol:
+O’zbekiston Respublikasi oliy ta’lim tizimini 2030 yilgacha rivojlantirish konsepsiyasida oliy ta’lim muassasalari ilmiy jurnallarining qaysi xalqaro ilmiy-texnik ma’lumotlar bazalariga bosqichma-bosqich kiritilishini ta’minlash rajalashtirilgan.
+A) STEAM
+B) Quacquarelli Symonds World University Rankings
+C) Times Nigher Education
+D) Scopus, Science Direct va boshqa [TO‘G‘RI]
+
+149-savol:
+O’zbekiston respublikasi oliy ta’lim tizimini 2030 yilgacha rivojlantirish konsepsiyasi Flagment universitetlarni kursating?
+A) O’zbekiston Milliy universiteti va Samarqand davlat universiteti [TO‘G‘RI]
+B) O’zbekiston Milliy universiteti va Qarshi davlat universiteti
+C) O’zbekiston Milliy universiteti va Toshkent davlat yuridik universiteti
+D) O’zbekiston Milliy universiteti va Guliston davlat universiteti
+
+150-savol:
+O’zbekiston Respublikasi oliy talimi tizimini 2030 yilgacha rivojlantirish konsepsiyasining maqsadli ko’rsatkichlarida Xorijiy talabalarning ulushi(jami talabalar soniga nisbatan)2030 yilga borib necha foizni tashknl etish belgilangan?
+A) 10
+B) 15 [TO‘G‘RI]
+C) 16
+D) 20
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 6-QISM (T6)
+# Buyruq: /quiz_T6 yoki /start_T6 | Savollar: 151–180 (jami 30 ta)
+################################################################################
+
+151-savol:
+O’zbekiston Respublikasi oliy talimi tizimini 2030 yilgacha rivojlantirish konsepsiyasining maqsadli ko’rsatkichlarida oliy talim bilan qamrab olish darajasi 2030 yilga borib necha foizni tashknl etish belgilangan?
+A) 20 foiz
+B) 35 foiz
+C) 50 foiz [TO‘G‘RI]
+D) 55 foiz
+
+152-savol:
+Oliy ta’limni 2030-yilgacha rivojlantirish konsepsiyasida magistraturani ilmiy faoliyatga yo‘naltirish necha foiz etib belgilangan?
+A) 50
+B) 55
+C) 60
+D) 45 [TO‘G‘RI]
+
+153-savol:
+Oliy ta’limni 2030-yilgacha rivojlantirish konsepsiyasida ta’lim sifatini elektron tizim orqali nazorat qilish necha foiz belgilangan?
+A) 100 [TO‘G‘RI]
+B) 90
+C) 75
+D) 85
+
+154-savol:
+O’zbekiston Respublikasi Prezidentning 2017-yil 15-dekabrdagi farmoni asosida....?
+A) «2017–2021-yillarda rivojlantirishning 5 ta ustuvor yo‘nalishi Harakatlar strategiyasi» tasdiqlandi
+B) O‘zbekiston Islom akademiyasi tashkil etildi [TO‘G‘RI]
+C) Yurtimizda «Xalq bilan muloqot va inson manfaatlari yili» deb e’lon qilindi
+D) «OAVni davlat tomonidan qo‘llab-quvvatlash kafolatlari to‘g‘risida»gi qonun qabul qilindi
+
+155-savol:
+O’zbekiston Respublikasida Ma’muriy islohotlar konsepsiyasida davlat boshqaruvi tizimini tubdan isloh qilishning nechta asosiy yo’nalishi belgilab berildi?
+A) 5 ta
+B) 7 ta
+C) 6 ta [TO‘G‘RI]
+D) 4 ta
+
+156-savol:
+O’zbekiston Respublikasida o’lim jazosi qachondan bekor qilindi?
+A) 2007-yil 1-yanvardan
+B) 2006-yil 1-yanvardan
+C) 2005-yil 10-yanvardan
+D) 2008-yil 1-yanvardan [TO‘G‘RI]
+
+157-savol:
+O’zbekiston Respublikasining «Saylov Kodeksi»..... qabul qilingan?
+A) 2019-yil 25-iyunda [TO‘G‘RI]
+B) 2005 yil 15-iyunda
+C) 1993-yil 18-noyabrda
+D) 2020-yil 25-iyunda
+
+158-savol:
+O’zbekiston Respublikasining Birinchi Prezidenti Islom Karimov tashabbusi bilan Toshkent shahrining qaysi hududida qatag‘on davri qurbonlari xotirasini abadiylashtirish maqsadida «Shahidlar xotirasi» yodgorligi majmuyi bunyod etildi?
+A) Anhor kanali bo‘yida
+B) Bo‘zsuv kanali bo‘yida [TO‘G‘RI]
+C) Teleminora qarshisida
+D) Parlament binosi yonida
+
+159-savol:
+O’zbekiston Respublikasining Birinchi Prezidenti Islom Karimov tomonidan uy-joy qurish va dehqonchilik bilan shug’ullanish uchun 2,5 mln oilaga qancha sug’oriladigan yer maydoni ajratib bergan?
+A) 600 ming gektar
+B) 500 ming gektar
+C) 700 ming gektar [TO‘G‘RI]
+D) 800 ming gektar
+
+160-savol:
+O’zbekiston Respublikasining Birinchi Prezidenti Islom Karimovning «O’zbekistonning o’z istiqlol va taraqqiyot yo’li» asari qachon yozilgan?
+A) 1993 yil
+B) 1994 yil
+C) 1995 yil
+D) 1992 yil [TO‘G‘RI]
+
+161-savol:
+O’zbekiston Respublikasining Birinchi Prezidenti Islom Karimovning «O’zbekiston — bozor munosabatlariga o’tishning o’ziga xos yo’li» risolasi qachon nashr qiligan?
+A) 1993 yil [TO‘G‘RI]
+B) 1994 yil
+C) 1995 yil
+D) 1996 yil
+
+162-savol:
+O’zbekiston SSRning Mustaqillik Deklaratsiyasi qachon qabul qilingan?
+A) 1990-yil 21-iyul
+B) 1990 yil 20 iyun [TO‘G‘RI]
+C) 1991yil 20-iyun
+D) 1990 yil 19 avgust
+
+163-savol:
+O’zbekistonda 2025 yilga borib turizm sohasida qanday yutuqlarga erishish rejalashtirilmoqda?
+A) Turistlarga yetarli sharoitlarni yaratib berish.
+B) O’zbekistonga keladigan turistlar sonini 5 mln. kishiga yetkazish.
+C) Har yili 7 mln xorijiy turist kelishi va tushgan daromadni 2 mln dollarga yetkazish [TO‘G‘RI]
+D) Ayniqsa ekologik turizmni mamlakatda rivojlantirish.
+
+164-savol:
+O’zbekistonda maktab bitiruvchilarini oliy ta’lim bilan qamrab olish darajasi 2020 yilda ...
+A) 20% yetkazish
+B) 30% yetkazish
+C) 35% yetkazish
+D) 25% yetkazish [TO‘G‘RI]
+
+165-savol:
+O’zbekistonda sovet tuzumi davrida qanday iqtisodiy siyosat olib borilgan ?
+A) rejalashtiruvchi iqtisodiy siyosat [TO‘G‘RI]
+B) bozor iqtisodiyotiga o’tish siyosati
+C) bosqichma-bosqich iqtisodiy siyosat
+D) to’g’ri javob yo’q
+
+166-savol:
+O’zbekistonda ta’lim nechta tilda olib boriladi?
+A) 3 ta
+B) 7 ta [TO‘G‘RI]
+C) 5 ta
+D) 4 ta
+
+167-savol:
+O’zbekistonnig Mustaqillik Deklaratsiyasi» Oliy kengashning nechanchi sesiyasida qabul qilingan ?
+A) XI chaqiriq VIII sesiyasida
+B) XII chaqirq XI sesiyasida
+C) XII chaqiriq VI sesiyasida [TO‘G‘RI]
+D) XII chaqiriq VII sesiyasida
+
+168-savol:
+O’zbekistonning qaysi viloyatida Xitoyning «Nunkel» firmasi bilan hamkorlikda yo’g’och tolali plita ishlab chiqarish yo’lga qo’yildi?
+A) Samarqand
+B) Namangan
+C) Qashqadaryo
+D) Jizzax [TO‘G‘RI]
+
+169-savol:
+Oliy Majlis huzuridagi inson huquqlari bo‘yicha Vakil instituti qachon ta’sis etilgan?
+A) 1995-yil 23-fevralda [TO‘G‘RI]
+B) 1996-yil 21-aprelda
+C) 1996-yil 27-dekabrda
+D) 1995-yil 28-avgustda
+
+170-savol:
+Orol dengiziga qo‘yiladigan suv nihoyatda kamayib ketishi natijasida dengizning suv sathi 1969-yildagiga nisbatan 1990-yilda necha metrga pasayib ketgan?
+A) 12 metr
+B) 14,5 metr [TO‘G‘RI]
+C) 10,5 metr
+D) 16,5 metr
+
+171-savol:
+O’zbekiston BMT ga qachon qabul qilingan?
+A) 1993-yil 2-mart
+B) 1994-yil 2-mart
+C) 1992-yil 2-mart [TO‘G‘RI]
+D) 1995-yil 2-mart
+
+172-savol:
+O’zbekiston g’alla mustaqilligiga erishganmi?
+A) g’alla mustaqilligiga erishgan emas
+B) endi g’alla mustaqilligiga erishmoqchi
+C) bu borada endi qadam qo’ymoqda
+D) g’alla mustaqilligiga erishgan [TO‘G‘RI]
+
+173-savol:
+O’zbekiston mustaqilligini xalqaro maydonda eng birinchi tan olgan davlat qaysi?
+A) Turkiya [TO‘G‘RI]
+B) Ozarbayjon
+C) AQSH
+D) Buyuk Britaniya
+
+174-savol:
+O’zbekiston SSR davlat tili haqidagi Qonun O’zbekiston Oliy Sovetining nechanchi Sessiyasida qabul qilindi
+A) X sessiyasida
+B) XI sessiyasida [TO‘G‘RI]
+C) XII sessiyasida
+D) XIII sessiyasida
+
+175-savol:
+O’zbekiston yoqilgi mustaqilligiga erishganmi?
+A) yoqilgi mustaqilligiga erishgan emas
+B) endi yoqilgi mustaqilligiga erishmoqchi
+C) yoqilgi mustaqilligiga erishgan [TO‘G‘RI]
+D) bu borada endi qadam qo’ymoqda
+
+176-savol:
+Qachon Ozbekistonda ikki palatali Parlament tuzish masalasiga bagishlangan umumxalq Referendumi bolib o‘tdi.?
+A) 2003 yil 27 yanvar
+B) 2002 yil 27 fevral
+C) 2006 yil 27 yanvar
+D) 2002 yil 27 yanvar [TO‘G‘RI]
+
+177-savol:
+Qachon SSSR da favqulodda holat e’lon qilindi?
+A) 1991-yil 18-avgustda [TO‘G‘RI]
+B) 1991-yil 18-iyunda
+C) 1991-yil 18-noyabrda
+D) 1991-yil 20-martda
+
+178-savol:
+Qachondan boshlab O’zbekistonning qo’shni davlatlar bilan munosabatida yangi davr boshlandi?
+A) 2015-yildan
+B) 2017-yildan [TO‘G‘RI]
+C) 2016-yildan
+D) 2018-yildan
+
+179-savol:
+Qaysi davlat tashabbusi bilan va BMT rahnamoligida 1995-yil sentabrda Markaziy Osiyoda xavfsizlik va hamkorlik masalalariga bag‘ishlangan Toshkent kengash-seminari tashkil etildi.
+A) Tojikiston
+B) BMT
+C) O‘zbekiston [TO‘G‘RI]
+D) Turkmaniston
+
+180-savol:
+Qaysi partiyaning asosiy maqsad vazifasi milliy an’analarni va qadriyatlarni saqlashdan iborat?
+A) O‘zbekiston Liberal-Demokratik partiyasi (O‘zLiDeP)
+B) O‘zbekiston «Adolat» sotsialdemokratik partiyasi
+C) Vatan taraqqiyoti»partiyasi
+D) O‘zbekiston Milliy tiklanish demokratik partiyasidi [TO‘G‘RI]
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 7-QISM (T7)
+# Buyruq: /quiz_T7 yoki /start_T7 | Savollar: 181–210 (jami 30 ta)
+################################################################################
+
+181-savol:
+Qaysi tashkilot bayrog’ining markazida tashkilotning emblemasi joylashgan?
+A) MDH (Mustaqil Davlatlar Hamdo’stligi) [TO‘G‘RI]
+B) ShHT (Shanxay Hamkorlik Tashkiloti)
+C) Birlashgan Millatlar tashkiloti
+D) YeIH (Yevropa Iqtisodiy Hamkorligi)
+
+182-savol:
+Qaysi xalqaro tashkilot Yevroosiyo hududining 61% ni egallaydi.
+A) MDH (Mustaqil Davlatlar Hamdo’stligi)
+B) ShHT (Shanxay Hamkorlik Tashkiloti) [TO‘G‘RI]
+C) BMT (Birlashgan Millatlar tashkiloti)
+D) YeIH (Yevropa Iqtisodiy Hamkorligi)
+
+183-savol:
+Qaysi yilda o’tkazilgan referendumda Prezidentlik lavozimi vakolati 5 yildan 7 yilga uzaytirilgan?
+A) 2002 yil 29 dekabr
+B) 2007 yil 23 dekabr
+C) 2002 yil 27 yanvar [TO‘G‘RI]
+D) 2000 yil 9 yanvar
+
+184-savol:
+Qaysi yildan boshlab har yili 1-oktabr «O‘qituvchilar va murabbiylar kuni» sifatida nishonlanib kelinmoqda?
+A) 1996-yildan
+B) 1999-yildan
+C) 1998-yildan
+D) 1997-yildan [TO‘G‘RI]
+
+185-savol:
+Quyidagi qaysi davlat arbobi tarixning eng muqaddas milliy va umuminsoniy xotira hamda qadriyat ekanligini ta’kidlagan edi?
+A) I.A.Karimov [TO‘G‘RI]
+B) SH.M.Mirziyoev
+C) SHarof Rashidov
+D) Fransua Mitteran
+
+186-savol:
+Quyidagi qaysi omil davlatimizni yanada jadal sur’atlar bilan rivojlantirish uchun mutlaqo yangicha yondashuvni ishlab chiqishni taqozo etdi?
+A) Davlat hokimiyatini demokratlashtirish, sud-huquq tizimi va axborot sohasini isloh qilish
+B) Taraqqiyot yo‘li tahlili, jahon bozori talablari o‘zgarishi va globallashuvda raqobat kuchayishi [TO‘G‘RI]
+C) so’z erkinligini ta’minlash, saylov qonunchiligini takomillashtirishi
+D) iqtisodiyotni liberallashtirishga qaratilgan demokratik bozor islohotlarini chuqurlashtirishi
+
+187-savol:
+Quyidagi qaysi shahar 1996-yilda «Amir Temur» ordeni bilan mukofotlangan?
+A) Termiz
+B) Buxoro
+C) Shahrisabz [TO‘G‘RI]
+D) Qarshi
+
+188-savol:
+Quyidagilardan qaysi biri norasmiy to‘rtinchi hokimiyat deb ataladi?
+A) Oliy Majlis
+B) Sud hokimiyati
+C) Vazirlar Mahkamasi
+D) Ommaviy Axborot Vositalari [TO‘G‘RI]
+
+189-savol:
+Respublikadagi qaysi jamg‘arma tashabbusi bilan Ikkinchi jahon urushida halok bo‘lgan 400 mingga yaqin vatandoshlarimiz haqida 33 tomlik xotira kitobi tayyorlandi va nashr etildi?
+A) Nuroniy [TO‘G‘RI]
+B) Sog’lom avlod uchun
+C) Mehr-muruvvat
+D) Muruvvat
+
+190-savol:
+Senat so’zining ma’nosi nima?
+A) vazirlik
+B) oqsoqol, mo’ysafid. [TO‘G‘RI]
+C) hokimiyat
+D) davlat rahbari
+
+191-savol:
+Shavkat Mirziyoyevning BMT Bosh Assambleyasidagi ilk ma’ruzasi qachon bo’lib o’tgan?
+A) 2018 yil oktyabrda
+B) 2017 yil fevralda
+C) 2017-yil sentyabrda [TO‘G‘RI]
+D) 2019 yil sentyabrda
+
+192-savol:
+Shayx Abdulaziz Mansur tomonidan Qur’oni Karim izohli tarjimasi bilan nechanchi yilda tayyorlandi va nashr etildi?
+A) 2000-yilda
+B) 1999-yilda
+C) 2001-yilda
+D) 2002-yilda [TO‘G‘RI]
+
+193-savol:
+Sobiq ittifoqdosh respublikalar orasidan O’zbekistonda nechanchi yildan boshlab izchil iqtisodiy o’sish sur’atlari ta’minlanmoqda?
+A) 1996-yildan boshlab [TO‘G‘RI]
+B) 1997-yildan boshlab
+C) 1998-yildan boshlab
+D) 1999-yildan boshlab
+
+194-savol:
+Sovet hukmronligi davrida O‘zbekiston qanday hududga aylantirildi?
+A) Sanoat hududi
+B) Xom- ashyo yetkazib beruvchi hudud [TO‘G‘RI]
+C) Sanoat – agrar hudud
+D) To‘g‘ri javob yo‘q
+
+195-savol:
+Sovet jamiyatida «qayta qurish« qachondan boshlandi?
+A) XX asrning 70-yillarida
+B) XX asrning 60-yillarida
+C) XX asrning 80-yillarida [TO‘G‘RI]
+D) XX asrning 50-yillarida
+
+196-savol:
+Sovet tuzumi davrida uzoq yilllar davomida qishloq xo‘jaligini ekstensiv rivojlantirilishi, paxtachilikka asosiy e‘tibor qaratilishi qanday oqibatlarga olib keldi?
+A) Tayyor kiyim kechak ishlab chiqarishning rivojlanishiga
+B) Ekologik vaziyatning barqarorlashuviga
+C) To‘g‘ri javob yo‘q
+D) Mamlakatdagi ijtimoiy-iqtisodiy va ekogologik vaziyatni yana keskinlashtirdi [TO‘G‘RI]
+
+197-savol:
+Taraqqiyotning o’zbek modelidan ko’zlangan iqtisodiy maqsad nima edi?
+A) O’zbekistonni Industrial-agrar davlatga aylantirish [TO‘G‘RI]
+B) O‘zbekistonni jahonning birinchi raqamli davlatiga aylantirish
+C) O‘zbekistonni to‘la sanoatlashgan davlatga aylantirish
+D) Barcha javoblar to‘g‘ri
+
+198-savol:
+Toshkent Islom universiteti qachon ochilgan?
+A) 2000-yil
+B) 1999-yil [TO‘G‘RI]
+C) 1998-yil
+D) 2002-yil
+
+199-savol:
+Toshkentda Lomonosov nomidagi Moskva Davlat Universitetining filiali qachon tashkil etilgan?
+A) 2008-yil
+B) 2007-yil
+C) 2006-yil [TO‘G‘RI]
+D) 2005-yil
+
+200-savol:
+Viloyat va Toshkent shahar hokimi kim tomonidan qonunga muvofiq tayinlanadi hamda lavozimidan ozod etiladi.
+A) Oliy Majlis
+B) Vazirlar Mahkamasi
+C) Xalq tomonidan
+D) O‘zbekiston Respublikasi Prezidenti [TO‘G‘RI]
+
+201-savol:
+Viloyat, tuman va shahar ijroya hokimiyatiga …..boshchilik qiladi.
+A) hokim [TO‘G‘RI]
+B) Prezident
+C) Senat
+D) Bosh Vazir
+
+202-savol:
+Xalq deputatlari Kengashlari ishining asosiy tashkiliy – huquqiy shakli bu……
+A) Majlis
+B) Sessiya [TO‘G‘RI]
+C) Miting
+D) To‘g‘ri javob yo‘q
+
+203-savol:
+Xalq deputatlari Kengashlari qaysi organga kiradi?
+A) Qonun chiqaruvchi
+B) ijro etuvchi
+C) Mahalliy vakillik organlariga [TO‘G‘RI]
+D) sud hokimiyatlari
+
+204-savol:
+Xalqimiz ma’naviyatining yulduzlari bo‘lgan buyuk allomalarimizning tavallud topgan sanalari qaysi xalqaro tashkilot bilan hamkorlikda mamlakatimizda va xalqaro miqyosda keng nishonlandi?
+A) ISESCO
+B) ACEAN
+C) NATO
+D) YUNESKO [TO‘G‘RI]
+
+205-savol:
+Yangilangan O‘zbekiston tarixi qaysi davrdan boshlangan?
+A) 2016 yil oktyabrdan [TO‘G‘RI]
+B) 2016 yil noyabrdan
+C) 2016 yil sentyabrdan
+D) 2016 yil dekabrdan
+
+206-savol:
+YUNESKO tashkiloti qarorgohi qayerda joylashgan?
+A) London
+B) Parij [TO‘G‘RI]
+C) Nyu-York
+D) Jeneva
+
+207-savol:
+Yurtimizda faoliyat ko’rsatayotgan siyosiy partiyalardan qaysi biri boshqalariga nisbatan oldinroq tashkil topgan?
+A) «Vatan taraqqiyoti» partiyasi
+B) «Milliy Tiklanish Demokratik Partiyasi»
+C) «O‘zbekiston Xalq Demokratik partiyasi» [TO‘G‘RI]
+D) «Fidokorlar Milliy Demokratik Partiyasi»
+
+208-savol:
+Zamonaviy fuqarolik jamiyatining ildizlari nimalarda ko‘rinadi?
+A) Shaharlarining paydo bo‘lishida
+B) Mustaqil markazlashgan davlatlarning shakllanishida
+C) Faqat savdo-sotiqning rivojlanishida
+D) Sanoat, savdo-sotiq, chuqur mehnat taqsimoti va tovar-pul munosabatlarining rivojlanishida [TO‘G‘RI]
+
+209-savol:
+O‘zbekiston-2030 strategiyasini qabul qilingan sanani aniqlang?
+A) 2023 yil 11 sentyabr [TO‘G‘RI]
+B) 2023 yil 16 sentyabr
+C) 2023 yil 20 sentyabr
+D) 2023 yil 1 sentyabr
+
+210-savol:
+O‘zbekistonda umumiy so‘g‘oriladigan yer maydoni qancha?
+A) 4 mln gektar
+B) 3,2 mln gektar [TO‘G‘RI]
+C) 4,2 mln gektar
+D) 5,2 mln gektar
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 8-QISM (T8)
+# Buyruq: /quiz_T8 yoki /start_T8 | Savollar: 211–240 (jami 30 ta)
+################################################################################
+
+211-savol:
+2019 yil 17 iyunda...
+A) Kichik xususiylashtirish boshlandi.
+B) Maxalliy sovetlarga saylovlar bo‘lib o‘tdi
+C) Qishloq xo‘jaligida suv va suv resurslaridan samarali foydalanish chora-tadbirlari to‘g‘risida» g... [TO‘G‘RI]
+D) Davlat tili to‘g‘risidagi qonun chiqdi.
+
+212-savol:
+2030 yilga borib Respublikada suvni tejash maqsadida nechta yirik suv xujaligi inshoatlari avtomatlashtiriladi?
+A) 150 ta
+B) 200 ta
+C) 180 ta
+D) 100 ta [TO‘G‘RI]
+
+213-savol:
+O‘zbekiston-2030 strategiyasida Respublikada kambag‘allik necha foizga qisqartirish nazarda tutilgan?
+A) 7% tushirish [TO‘G‘RI]
+B) 10% tushirish
+C) 15% tushirish
+D) 20%tushirish
+
+214-savol:
+BMTda suv resurslari buyicha maxsus vakili lavozimini ta’sis etishni taklif etgan davlat raxbarini aniqlang?
+A) I.Karimov
+B) Sh.Mirziyoyev [TO‘G‘RI]
+C) N.Nazarboyev
+D) Imomali Raxmon
+
+215-savol:
+Xavo xaroratining shu darajada isib borishi oqibatida yana 20 yildan so‘ng...
+A) Amudaryo va Sirdaryo oqimining 5% qisqarishiga olib keladi.
+B) Amudaryo va Sirdaryo oqimining 20 % qisqarishiga olib keladi.
+C) Amudaryo va Sirdaryo oqimining 15 % qisqarishiga olib keladi. [TO‘G‘RI]
+D) Amudaryo va Sirdaryo oqimining 23 % qisqarishiga olib keladi.
+
+216-savol:
+2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasi nechta yunalish va maqsaddan iborat?
+A) 5 yunalish va 100 maqsaddan
+B) 4 yunalish va 100 maqsaddan
+C) 8 yunalish va 100 maqsaddan
+D) 7 yunalish va 100 maqsaddan [TO‘G‘RI]
+
+217-savol:
+Yangi O‘zbekiston Strategiyasining 67-73 maqsadlari qanday taraqqiyotni ta’minlashga qaratilgan?
+A) Ma’naviy taraqqiyotga [TO‘G‘RI]
+B) Iqtisodiy taraqqiyotga
+C) Siyosiy taraqqiyotga
+D) Ta’lim taraqqiyotga
+
+218-savol:
+Xozirgi kunda Respublikamizda qanday xalqaro ilmiy-tadqiqot markazlari bor?
+A) Avesto markazi
+B) Imom Buxoriy, Imom Termiziy, Imom Matrudiy [TO‘G‘RI]
+C) Sharq tillari markazi
+D) Qo‘xna shaxarlar markazi
+
+219-savol:
+Ma’naviyat so‘zining ma’nosi...
+A) Forischa so‘z bo‘lib tafakkur yigindisidir
+B) Lotincha so‘z bo‘lib-ma’nolar majmuidir
+C) Arabcha so‘z bo‘lib-ma’nolar majmuidir [TO‘G‘RI]
+D) Frantsuzcha so‘z bo‘lib-ma’nolar majmuidir
+
+220-savol:
+Xozirgi kunda ma’naviyat-eng tasirchan va qudratli qurolimiz bo‘lshi lozim!-degan so‘zlarning muallifi kim?
+A) I.Karimov
+B) Farobiy
+C) A.Oripov
+D) Sh.mirziyoyev [TO‘G‘RI]
+
+221-savol:
+2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasida asosiy bosh maqsad?
+A) Inson omilini qadrlash va ularni ma’naviyatli qilish [TO‘G‘RI]
+B) Ta’limni rivojlantirish
+C) Xalqaro munosabatlarini yaxshilash
+D) Axoli sog‘ligini yaxshilash
+
+222-savol:
+«Biz Yangi O‘zbekistonni yetuk manaviyatli jamiyat, erkin va baxtli insonlar yashaydigan yurtga aylantirshimiz zarur»-degan so‘zlar kimga tegishli?
+A) I.Karimovga
+B) Sh.Mirziyoyevga [TO‘G‘RI]
+C) Sh.Rashidovga
+D) A.Oripovga
+
+223-savol:
+Jamiyatda vatanparvarlik tuyg‘ularini shakllantirishda...
+A) Iqdisodiy fan o‘qituvchilarining roli yuqori
+B) Tibbiyot fan o‘qituvchilarining roli yuqori
+C) Ijtimoiy fan o‘qituvchilarining roli yuqori [TO‘G‘RI]
+D) Aniq fan o‘qituvchilarining roli yuqori
+
+224-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasining birinchi yunalishi qanday nomlanadi?
+A) Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish
+B) Ma’naviy taraqqiyotni ta’minlash, ushbu soxani tubdan islox etish
+C) Adolat va qonun ustuvorligi tamoyillarini taraqqiyotning eng asosiy shartiga aylantirish
+D) Inosn qadrini yuksaltirish va erkin fuqarolik jamiyatini yanada rivojlantirish orqali xalqparvar ... [TO‘G‘RI]
+
+225-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasining ikkinchi yunalishi qanday nomlanadi?
+A) Adolat va qonun ustuvorligi tamoyillarini taraqqiyotning eng asosiy shartiga aylantirish [TO‘G‘RI]
+B) Inosn qadrini yuksaltirish va erkin fuqarolik jamiyatini yanada rivojlantirish orqali xalqparvar ...
+C) Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish
+D) Ma’naviy taraqqiyotni ta’minlash, ushbu soxani tubdan islox etish
+
+226-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasining uchinchi yunalishi qanday nomlanadi?
+A) Adolat va qonun ustuvorligi tamoyillarini taraqqiyotning eng asosiy shartiga aylantirish
+B) Milliy iqtisodiyotni rivojoantirish, uning usish sur’atlarini zamon talablari darajasida ta’minlash [TO‘G‘RI]
+C) Ma’naviy taraqqiyotni ta’minlash, ushbu soxani tubdan islox etish
+D) Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish
+
+227-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasining turtinchi yunalishi qanday nomlanadi?
+A) Milliy iqtisodiyotni rivojoantirish, uning usish sur’atlarini zamon talablari darajasida ta’minlash
+B) Adolat va qonun ustuvorligi tamoyillarini taraqqiyotning eng asosiy shartiga aylantirish
+C) Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish [TO‘G‘RI]
+D) Ma’naviy taraqqiyotni ta’minlash, ushbu soxani tubdan islox etish
+
+228-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasining beshinchi yunalishi qanday nomlanadi?
+A) Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish
+B) Milliy iqtisodiyotni rivojoantirish, uning usish sur’atlarini zamon talablari darajasida ta’minlash
+C) Adolat va qonun ustuvorligi tamoyillarini taraqqiyotning eng asosiy shartiga aylantirish
+D) Ma’naviy taraqqiyotni ta’minlash, ushbu soxani tubdan islox etish va yangi bosqichga olib chiqish [TO‘G‘RI]
+
+229-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasining oltinchi yunalishi qanday nomlanadi?
+A) Umumbashariy muammolarga milliy manfaatlardan kelib chikgan xolda yechim topish [TO‘G‘RI]
+B) Ma’naviy taraqqiyotni ta’minlash, ushbu soxani tubdan islox etish va yangi bosqichga olib chiqish
+C) Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish
+D) Adolat va qonun ustuvorligi tamoyillarini taraqqiyotning eng asosiy shartiga aylantirish
+
+230-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasining yettinchi yunalishi qanday nomlanadi?
+A) Umumbashariy muammolarga milliy manfaatlardan kelib chikgan xolda yechim topish
+B) Mamlkatimiz xafsizligi va mudofaa saloxiyatini kuchaytirish, ochiq va paragmatik, faol tashqi siy... [TO‘G‘RI]
+C) Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish
+D) Adolat va qonun ustuvorligi tamoyillarini taraqqiyotning eng asosiy shartiga aylantirish
+
+231-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasida 2030 yila borib axoli jon boshiga to‘g‘ri keladigan daromat...
+A) 5,5 ming AQSh dollaridan oshirish
+B) 4,5 ming AQSh dollaridan oshirish
+C) 4 ming AQSh dollaridan oshirish [TO‘G‘RI]
+D) 3 ming AQSh dollaridan oshirish
+
+232-savol:
+Tarraqiyot Strategiyasining «Adolatli ijtimoiy siyosat yuritish, inson kapitalini rivojlantirish» deb nomlangan yunalishi nechanchi yunalishga kiradi?
+A) 5-yunalishiga
+B) 6-yugalishiga
+C) 2-yunalishiga
+D) 4-yunalishiga [TO‘G‘RI]
+
+233-savol:
+Tarraqiyot Strategiyasining 35 maqsadida «O‘zbekiston bo‘ylab sayoxat qilish» Dasturi doirasida maxalliy sayyoxlar sonini...
+A) 12 mln nafardan oshirish [TO‘G‘RI]
+B) 10 mln nafardan oshirish
+C) 5 mln nafardan oshirish
+D) 7 mln nafardan oshirish
+
+234-savol:
+Tarraqiyot Strategiyasida qariyb ......talabalar turar joylarini barpo etish nazarda tutilgan?
+A) 200 ming o‘rinli
+B) 100 ming o‘rinli [TO‘G‘RI]
+C) 150 ming o‘rinli
+D) 65 ming o‘rinli
+
+235-savol:
+O‘zbekiston -2030 strategiyasida .... talabalar turar joylarini barpo etish nazarda tutilgan?
+A) 200 ming
+B) 300 ming
+C) 150 ming [TO‘G‘RI]
+D) 100 ming
+
+236-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasida 2026 yilga borib Respublikada OTMlar sonini qancha yetkazish nazarda tutilgan?
+A) 300taga
+B) 150taga
+C) 400taga
+D) 200 taga [TO‘G‘RI]
+
+237-savol:
+Tarraqiyot Strategiyasida maktabgacha ta’lim qamrov darajasi 67 foizdan...
+A) 80 foizga yetkazish [TO‘G‘RI]
+B) 75 foizga yetkazish
+C) 70 foizga yetkazish
+D) 100 foizga yetkazish
+
+238-savol:
+Tarraqiyot Strategiyasida 1-4 sinf o‘quvchilarini bepul ovqat bilan ta’minlash tizimini ....joriy etish.
+A) Samarqand viloyatida
+B) Qoraqolpoqiston va Xorazm viloyatlarida [TO‘G‘RI]
+C) Jizzax viloyatida
+D) Sirdaryo viloyatida
+
+239-savol:
+Tarraqiyot Strategiyasida 5-yunalishidagi 72 maqsad nimaga qartilgan?
+A) Yangi ish o‘rinlari yaratishga
+B) Kitobxonlikni keng ommalashtirishga
+C) O‘zbekiston tarixini o‘rganish va targ‘ib qilishga [TO‘G‘RI]
+D) Jamiyatda millatlararo totuvlikni mustaxkamlashga
+
+240-savol:
+Tarraqiyot Strategiyasi qachon qabul qilingan?
+A) 2021 yil 28 yanvar
+B) 2021 yil 11 yanvar
+C) 2022 yil 20 fevral
+D) 2022 yil 28 yanvar [TO‘G‘RI]
+
+
+################################################################################
+# O‘ZBEKISTONNING ENG YANGI TARIXI — 9-QISM (T9)
+# Buyruq: /quiz_T9 yoki /start_T9 | Savollar: 241–276 (jami 36 ta)
+################################################################################
+
+241-savol:
+Yangi O‘zbekiston 2030 strategiyasi nechta yunalish va maqsaddan iborat?
+A) 5 ta yunalish va 100 maqsaddan [TO‘G‘RI]
+B) 7 ta yunalish va 100 maqsaddan
+C) 10 ta yunalish va 100 maqsaddan
+D) 9 ta yunalish va 100 maqsaddan
+
+242-savol:
+Tarraqiyot Strategiyasidagi vazifalarni amalga oshirish maqsadida Davlat dasturi qabul qilnidi. uni amalga oshirish uchun...
+A) 50 trln so‘m va 11,7 mld AQSh dollari ajratildi
+B) 55 trln so‘m va 11,7 mld AQSh dollari ajratildi [TO‘G‘RI]
+C) 55 trln so‘m va 20mld AQSh dollari ajratildi
+D) 55 trln so‘m va 10,8 mld AQSh dollari ajratildi
+
+243-savol:
+2017 yil 22 dekabrda ... ?
+A) Xarakatlar strategiyasi qabul qilindi
+B) Til to‘g‘risidagi qonun qabul qilindi
+C) O‘zbekiston Respublikasi Prezidentinnig Oliy Majlisga Murojaatnomasi e’lon qilindi. [TO‘G‘RI]
+D) Umumxalq Referendumi bo‘lib o‘tdi
+
+244-savol:
+O‘zbeiksiton Respublikasi Markaziy saylov komissiyasi ...
+A) Vazirlar maxkamasi tomonidan tuziladi
+B) Referendum asosida tuziladi
+C) Senat tomonidan tuziladi
+D) Olits Majlis tomonidan tuziladi [TO‘G‘RI]
+
+245-savol:
+Dunyodagi eng nufuzli nashrlardan biri «Ekonomist jurnal» 2019 yilda O‘zbekistonni...
+A) «yil mamlakati» deb e’tirof etdi [TO‘G‘RI]
+B) «rivojlangan davlat» deb e’tirof etdi
+C) «iqtisodiy usish» deb e’tirof etdi
+D) «iqtisodiy sog‘lom» deb e’tirof etdi
+
+246-savol:
+Yangi O‘zbekistonning 2022-2026 yillarga mo‘ljanlangan Taraqqiyot Strategiyasidagi 43-maqsadda maktab o‘qituvchilarining oylik ish xaqini...?
+A) 1,5 ming dollarga yetkazish nazarda tutildi.
+B) 1000 dollarga yetkazish nazarda tutildi. [TO‘G‘RI]
+C) 800 dollarga yetkazish nazarda tutildi.
+D) 700 dollarga yetkazish nazarda tutildi.
+
+247-savol:
+2020 yil 23 sentyarda qabul qilingan Yangi taxridagi Ta’lim to‘g‘risidagi qonun...?
+A) 12 bob 75 moddadan iborat
+B) 19 bob 75 moddadan iborat
+C) 11 bob 75 moddadan iborat [TO‘G‘RI]
+D) 15 bob 75 moddadan iborat
+
+248-savol:
+O‘zbekiston Respublikasi Prezidenti Sh.Mirziyoyevning 2023 yil 17-18oktyabr kunlari qaysi imamlakatga davlat tashrifi bo‘lib o‘tdi?
+A) Yaponiya
+B) Rossiya
+C) Qozog‘iston
+D) Xitoy [TO‘G‘RI]
+
+249-savol:
+2023 yil 16-20 oktyabr kunlari Butun jaxon turizm tashkiloti Bosh Asssambliyasining 25 sessiyasi qaysi shaxarda bo‘lib o‘tdi?
+A) Samarqandda [TO‘G‘RI]
+B) Dushanbeda
+C) Beshkekda
+D) Ostonada
+
+250-savol:
+«Agar boy bo‘lmoqchi bo‘lsang, yullar qurgin» degan so‘zlar qaysi xalqning xikmatli so‘zidir?
+A) Rossiya
+B) Xitoy [TO‘G‘RI]
+C) Xindiston
+D) Yaponiya
+
+251-savol:
+«Bir makon bir yul» loyixasining 3-Xalqaro Forumi qachon va qaysi mamlakatda bo‘lib o‘tdi?
+A) 2023 yil 17-18 oktyabr kunlari Xindistonda
+B) 2023 yil 17-18 oktyabr kunlari Rossiyada
+C) 2023 yil 17-18 oktyabr kunlari Xitoyda [TO‘G‘RI]
+D) 2023 yil 17-18 oktyabr kunlari Qirg‘izistonda
+
+252-savol:
+O‘zbekiston Respublikasi Prezidenti Sh.Mirziyoyev Tojikiston Respublikasi bilan o‘zaro xamkorlik aloqalarini mustaxkamlashdaki xizmatlari uchun qanday orden bilan taqdirlandi?
+A) II-darajali Zarrintosh ordeni bilan
+B) Do‘stlik ordeni bilan
+C) Shuxrat iyedali bilan
+D) I-darajali Zarrintosh ordeni bilan [TO‘G‘RI]
+
+253-savol:
+2024 yilda rejalishtirilayotgan Xalqaro iqlim Forumi Markaziy Osiyonining qaysi shaxrida bo‘lib o‘tadi?
+A) Samarqandda [TO‘G‘RI]
+B) Toshkentda
+C) Dushanbeda
+D) Beshkekda
+
+254-savol:
+«Bir makon bir yul» (BMBY) tashabusida O‘zbekiston uchun eng qulay imkoniyat, bu ...
+A) Ta’limni rivojlantirish
+B) Dengiz yuliga chiqish [TO‘G‘RI]
+C) Suv muammosini xal etish
+D) Ekologik muammoni xal etish
+
+255-savol:
+«Bir makon bir yul» (BMBY) tashabusining 1-2 Forumlari qaysi yillarda bo‘lib o‘tgan edi?
+A) 2016, 2017 yy
+B) 2018, 2020 yy
+C) 2017, 2019 yy [TO‘G‘RI]
+D) 2018, 2021 yy
+
+256-savol:
+«Ochiq eshiklar» siyosati doirasida O‘zbekistonga vizasiz kirish tizimi nechta mamlakat doirasida qullanilmoqda.
+A) 80 ta
+B) 150 ta
+C) 50 ta
+D) 100 ta [TO‘G‘RI]
+
+257-savol:
+2021 yilga ma’lumotga ko‘ra Respublikada nechta maktabda nemis tili chuqurlashtirilgan xolda o‘tilmoqda?
+A) Shahrisabz [TO‘G‘RI]
+B) Termiz
+C) Xiva
+D) Buxoro
+
+258-savol:
+Quyidagi qaysi shaxar 1996 yilda «Amur Temur» ordeni bilan mukofatlangan?
+A) Termiz
+B) Samarqand [TO‘G‘RI]
+C) Xiva
+D) Buxoro
+
+259-savol:
+O‘zbekiston-2030 Strategiyasining birinchi yunalishi qanday nom bilan ataladi?
+A) Barqaror iqtisodiy usish orqali axoli farovonligini ta’minlash.
+B) Suv resurslarini tejash va atrof muxitni muxofaza qilish
+C) Xar bir inson o‘z saloxiyatini ruyobga chikarish uchun munosib sharoitlarni yaratish. [TO‘G‘RI]
+D) Qonun ustuvorligini ta’minlash, xalq xizmatidagi davlat boshqaruvini tashkil etish.
+
+260-savol:
+O‘zbekiston-2030 Strategiyasining ikkinchi yunalishi qanday nom bilan ataladi?
+A) Xar bir inson o‘z saloxiyatini ruyobga chikarish uchun munosib sharoitlarni yaratish.
+B) Qonun ustuvorligini ta’minlash, xalq xizmatidagi davlat boshqaruvini tashkil etish.
+C) Suv resurslarini tejash va atrof muxitni muxofaza qilish
+D) Barqaror iqtisodiy usish orqali axoli farovonligini ta’minlash. [TO‘G‘RI]
+
+261-savol:
+O‘zbekiston-2030 Strategiyasining uchinchi yunalishi qanday nom bilan ataladi?
+A) Suv resurslarini tejash va atrof muxitni muxofaza qilish [TO‘G‘RI]
+B) Barqaror iqtisodiy usish orqali axoli farovonligini ta’minlash.
+C) Qonun ustuvorligini ta’minlash, xalq xizmatidagi davlat boshqaruvini tashkil etish.
+D) Xar bir inson o‘z saloxiyatini ruyobga chikarish uchun munosib sharoitlarni yaratish.
+
+262-savol:
+O‘zbekiston-2030 Strategiyasining turtinchi yunalishi qanday nom bilan ataladi?
+A) Suv resurslarini tejash va atrof muxitni muxofaza qilish
+B) Qonun ustuvorligini ta’minlash, xalq xizmatidagi davlat boshqaruvini tashkil etish. [TO‘G‘RI]
+C) Xar bir inson o‘z saloxiyatini ruyobga chikarish uchun munosib sharoitlarni yaratish.
+D) Barqaror iqtisodiy usish orqali axoli farovonligini ta’minlash.
+
+263-savol:
+O‘zbekiston-2030 Strategiyasining beshinchi yunalishi qanday nom bilan ataladi?
+A) Qonun ustuvorligini ta’minlash, xalq xizmatidagi davlat boshqaruvini tashkil etish.
+B) Xar bir inson o‘z saloxiyatini ruyobga chikarish uchun munosib sharoitlarni yaratish.
+C) «Xafsiz tinchliksevar davlat» tamoyiliga asoslangan siyosatni izchil davom ettirish [TO‘G‘RI]
+D) Suv resurslarini tejash va atrof muxitni muxofaza qilish
+
+264-savol:
+O‘zbekiston-2030 Strategiyasida xar yili qancha iqtidorli yoshlarni xorijning nufuzli oliygoxlariga o‘qishga yuborish ko‘zda tutilgan?
+A) 600 nafarni
+B) 300 nafarni
+C) 650 nafarni
+D) 500 nafarni [TO‘G‘RI]
+
+265-savol:
+O‘zbekiston-2030 Strategiyasida olis va chekka xududlarda joylashgan ... umumo‘rta ta’lim muassasalari o‘quvchilari uchun bepul avtobuslar yulga ko‘yiladi?
+A) 715 ta [TO‘G‘RI]
+B) 840 ta
+C) 480 ta
+D) 1000 ta
+
+266-savol:
+«Jamiyatda o‘qituvchi kasbi eng nufuzli va obruli kasb bo‘lishi lozim»-degan so‘zlar kimga ta’luqli?
+A) I.Karimovga
+B) Sh.Mirziyoyevga [TO‘G‘RI]
+C) Sh.Rashidovga
+D) A.Oripovga
+
+267-savol:
+O‘z davrida yoshlarga murojaat qilib «Qiyoshlik istasang , kasbi kamol top»deb yozgan buyuk alloma kim?
+A) Lutfiy
+B) Jomiy
+C) Alisher Navoiy [TO‘G‘RI]
+D) Farobiy
+
+268-savol:
+IT doirasida «Bir million dasturchi» loyixasini kengaytirib.......eng iqtidorli yoshlarni nufuzli xalqaro kompaniyalar talabiga mos dasturlar asosida tayorlash
+A) 20 ming nafar
+B) 10 ming nafar
+C) 25 ming nafar
+D) 15 ming nafar [TO‘G‘RI]
+
+269-savol:
+O‘zbekiston-2030 Strategiyasi 2024-2030yillarda ..... nomli xujjatli serial ishlab chiqish va uni beshta telekanalda namoyish etish
+A) «Buyuk tarix» nomli serial [TO‘G‘RI]
+B) «Yurt fidoilari» nomli serial
+C) «Qaxramon» nomli serial
+D) «Tarix» nomli serial
+
+270-savol:
+O‘zbekiston respublikasi Prezidenti Sh.Mirziyoyevning 2023 yil 1-2 oktyabr kunlari davlat tashrifi qaysi mamlakatga bo‘ldi?
+A) Rossiya
+B) Qatar [TO‘G‘RI]
+C) AQSh
+D) Germaniya
+
+271-savol:
+«Xotin qizlar-bu millat onalaridir» degan so‘zlar kimga ta’luqli?
+A) Abdulla Avloniyga
+B) Bexbudiyga
+C) Abdurouf Fitratga [TO‘G‘RI]
+D) Munavvar Qoriga
+
+272-savol:
+2024 yil 1 yanvardan boshlab ....
+A) «Obod qishloq dasturi» qabul qilinadi
+B) Sog‘lomlashtirish oyligi boshlanadi
+C) Obod maxalla dasturi joriy etiladi.
+D) Maxalla byudjeti tizimi joriy etiladi [TO‘G‘RI]
+
+273-savol:
+BMTning 78-sessiyasi qachon bo‘lib o‘tdi?
+A) 2023 yil 19 sentyabrda [TO‘G‘RI]
+B) 2023 yil 19 oktyabrda
+C) 2023 yil 1 sentyabrda
+D) 2021 yil 19 oktyabrda
+
+274-savol:
+BMTning 2023 yil 19 sentyabrda bo‘lib o‘tgan 78-sessiyasi qaysi shaxarda bo‘ldi?
+A) Frantsiyaning Parij shaxrida
+B) AQShning Nyu-York shaxrida [TO‘G‘RI]
+C) O‘zbekistonning Toshkent shaxrida
+D) Turkiyaning Istanbul shaxrida
+
+275-savol:
+Keyingi yillarda besh martta o‘tkazilgan «Mexr» inson parvarlik missiyasi doirasida nechi nafar fuqarolarimiz qurolli nizolar xududlaridan yurtimizga qaytarildi?
+A) 630 nafardan ziyot
+B) 500 nafardan ziyot
+C) 530 nafardan ziyot [TO‘G‘RI]
+D) 430 nafardan ziyot
+
+276-savol:
+«S5+1» formatdagi uchrashuv ...
+A) Markaziy Osiyo davlatlari va Turkiya bilan
+B) Markaziy Osiyo davlatlari va Xitoy bilan
+C) Markaziy Osiyo davlatlari va Germaniya bilan
+D) Markaziy Osiyo davlatlari va AQSh bilan [TO‘G‘RI]

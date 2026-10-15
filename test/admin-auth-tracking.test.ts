@@ -683,13 +683,16 @@ async function runAdminTests() {
   // 6. Mavjud Barcha Quizlar Butunligi
   // -------------------------------------------------------------
   console.log("\n6. Mavjud barcha quizlar butunligi tekshiruvi...");
-  assert.strictEqual(allQuizzes.length, 32);
+  assert.strictEqual(allQuizzes.length, 42);
   assert.ok(allQuizzes.some((q) => q.id === "AK1"));
   assert.ok(allQuizzes.some((q) => q.id === "D1"));
+  assert.ok(allQuizzes.some((q) => q.id === "D6"));
+  assert.ok(allQuizzes.some((q) => q.id === "T1"));
+  assert.ok(allQuizzes.some((q) => q.id === "T9"));
   assert.ok(allQuizzes.some((q) => q.id === "KK4_1"));
   assert.ok(allQuizzes.some((q) => q.id === "KK5_1"));
   assert.ok(allQuizzes.some((q) => q.id === "I4_1"));
-  console.log("  ✅ Barcha 32 ta quiz (jumladan D1, AK1, KK4, KK5, I4) va ularning savollari to'liq butun");
+  console.log("  ✅ Barcha quizlar (jumladan D1, D6, AK1, KK4, KK5, I4, T1-T9) va ularning savollari to'liq butun");
 
   console.log("\n==================================================================");
   console.log("🎉 BARCHA QIDIRUV VA SAHIFALASH TESTLARI 100% MUVAFFAQIYATLI O'TDI!");

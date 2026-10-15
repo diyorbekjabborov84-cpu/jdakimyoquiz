@@ -254,6 +254,18 @@ import {
 } from "./russianQuestions.js";
 import { ak1Quiz } from "./ak1Questions.js";
 import { d1Quiz } from "./d1Questions.js";
+import { d6Quiz } from "./d6Questions.js";
+import {
+  t1Quiz,
+  t2Quiz,
+  t3Quiz,
+  t4Quiz,
+  t5Quiz,
+  t6Quiz,
+  t7Quiz,
+  t8Quiz,
+  t9Quiz,
+} from "./tQuestions.js";
 
 export {
   kk1Quiz1,
@@ -293,6 +305,16 @@ export {
   allRussianQuizzes,
   ak1Quiz,
   d1Quiz,
+  d6Quiz,
+  t1Quiz,
+  t2Quiz,
+  t3Quiz,
+  t4Quiz,
+  t5Quiz,
+  t6Quiz,
+  t7Quiz,
+  t8Quiz,
+  t9Quiz,
 };
 
 // Barcha mavjud quizlar ro'yxati (o'zgarmas ID lar bilan)
@@ -311,6 +333,16 @@ export const allQuizzes: Quiz[] = [
   ...allRussianQuizzes,
   ak1Quiz,
   d1Quiz,
+  d6Quiz,
+  t1Quiz,
+  t2Quiz,
+  t3Quiz,
+  t4Quiz,
+  t5Quiz,
+  t6Quiz,
+  t7Quiz,
+  t8Quiz,
+  t9Quiz,
 ];
 
 /**
@@ -495,6 +527,20 @@ export function getQuizById(id: string): Quiz | undefined {
   if (normalized === "d1" || normalized === "d_1" || normalized === "d-1") {
     return d1Quiz;
   }
+
+  if (normalized === "d6" || normalized === "d_6" || normalized === "d-6") {
+    return d6Quiz;
+  }
+
+  if (normalized === "t1" || normalized === "t_1" || normalized === "t-1") return t1Quiz;
+  if (normalized === "t2" || normalized === "t_2" || normalized === "t-2") return t2Quiz;
+  if (normalized === "t3" || normalized === "t_3" || normalized === "t-3") return t3Quiz;
+  if (normalized === "t4" || normalized === "t_4" || normalized === "t-4") return t4Quiz;
+  if (normalized === "t5" || normalized === "t_5" || normalized === "t-5") return t5Quiz;
+  if (normalized === "t6" || normalized === "t_6" || normalized === "t-6") return t6Quiz;
+  if (normalized === "t7" || normalized === "t_7" || normalized === "t-7") return t7Quiz;
+  if (normalized === "t8" || normalized === "t_8" || normalized === "t-8") return t8Quiz;
+  if (normalized === "t9" || normalized === "t_9" || normalized === "t-9") return t9Quiz;
 
   return undefined;
 }
