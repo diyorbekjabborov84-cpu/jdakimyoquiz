@@ -69,7 +69,7 @@ export function createApp(
   });
 
   // Admin panel API routeri
-  app.use("/api", createAdminRouter(config));
+  app.use("/api", createAdminRouter(config, bot?.api));
 
   // Agar webhook rejimi yoqilgan bo'lsa (Render / production)
   if (config.NODE_ENV === "production" && config.WEBHOOK_URL) {

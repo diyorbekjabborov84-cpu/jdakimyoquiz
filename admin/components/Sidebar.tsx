@@ -12,10 +12,10 @@ const navItems = [
   { href: "/", label: "Bosh sahifa", icon: "📊", available: true },
   { href: "/groups", label: "Guruhlar", icon: "👥", available: true },
   { href: "/users", label: "Foydalanuvchilar", icon: "👤", available: true },
+  { href: "/broadcast", label: "Xabarnoma yuborish", icon: "📢", available: true },
+  { href: "/results", label: "Natijalar & Reyting", icon: "🏆", available: true },
+  { href: "/settings", label: "Sozlamalar", icon: "⚙️", available: true },
   { href: "/quizzes", label: "Quizlar va testlar", icon: "🧪", available: false },
-  { href: "/results", label: "Natijalar & Reyting", icon: "🏆", available: false },
-  { href: "/broadcast", label: "Xabarnoma yuborish", icon: "📢", available: false },
-  { href: "/settings", label: "Sozlamalar", icon: "⚙️", available: false },
 ];
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {

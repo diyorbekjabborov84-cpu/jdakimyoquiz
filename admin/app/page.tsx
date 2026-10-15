@@ -134,36 +134,24 @@ export default function DashboardPage() {
               {/* Tezkor havolalar va holat */}
               <div className="content-card">
                 <div className="card-header">
-                  <h3 className="card-title">1-bosqich: Mavjud Boshqaruv Bo&apos;limlari</h3>
+                  <h3 className="card-title">🚀 Faol Boshqaruv Bo&apos;limlari</h3>
                 </div>
                 <div style={{ padding: "1.25rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                  <Link href="/groups" className="btn btn-primary">
+                  <Link href="/broadcast" className="btn btn-primary">
+                    📢 Umumiy xabarnoma (Broadcast)
+                  </Link>
+                  <Link href="/results" className="btn btn-outline">
+                    🏆 Natijalar & Reyting
+                  </Link>
+                  <Link href="/groups" className="btn btn-outline">
                     👥 Guruhlar ro&apos;yxati
                   </Link>
                   <Link href="/users" className="btn btn-outline">
                     👤 Foydalanuvchilar ro&apos;yxati
                   </Link>
-                </div>
-              </div>
-
-              {/* Keyingi bosqichlar rejasi */}
-              <div className="content-card">
-                <div className="card-header">
-                  <h3 className="card-title">Keyingi bosqichlarda qo&apos;shiladigan modullar</h3>
-                  <span className="badge badge-next">Rejada</span>
-                </div>
-                <div style={{ padding: "1.25rem", fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-                  <ul style={{ paddingLeft: "1.25rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                    <li>
-                      <b>2-bosqich:</b> Test muharriri — yangi savollar yaratish, tahrirlash va botga dinamik yuklash
-                    </li>
-                    <li>
-                      <b>3-bosqich:</b> Natijalar va reyting tahlili — guruhlar bo&apos;yicha ishtirokchilar reytingi, xatoliklar statistikasi
-                    </li>
-                    <li>
-                      <b>4-bosqich:</b> Xabarnoma yuborish (Broadcast) va botning dinamik sozlamalarini boshqarish
-                    </li>
-                  </ul>
+                  <Link href="/settings" className="btn btn-outline">
+                    ⚙️ Sozlamalar & Audit
+                  </Link>
                 </div>
               </div>
             </>

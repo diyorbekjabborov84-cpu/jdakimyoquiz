@@ -16,6 +16,7 @@ export async function GET(req: NextRequest) {
       },
       // Keshni cheklash uchun no-store
       cache: "no-store",
+      signal: AbortSignal.timeout(12000),
     });
 
     const data = await response.json();

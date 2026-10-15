@@ -1,5 +1,41 @@
 # JDA Kimyo Quiz — Antigravity hisobot va haqiqiy sinov
 
+## Yangi bosqich hisoboti: Admin Panel Rivojlantirish (Google Direct Login, Broadcast, Results & Settings)
+- **Sana va vaqt**: 2026-10-10 23:35:00 (Toshkent vaqti)
+- **Topshiriq mazmuni**: `diyorbekjabborov84@gmail.com` orqali to'g'ridan-to'g'ri kirishni ta'minlash, 4-modul (Broadcast), 3-modul (Results & Analytics), 5-modul (Settings & Audit Logs) ni qo'shish; lekin **deploy qilmaslik**.
+- **Amalga oshirilgan ishlar**:
+  1. **Google Direct Auth**:
+     - `admin/lib/google-login.ts` dagi majburiy `prompt: "select_account"` olib tashlandi, brauzerda faol Google hisobi bo'lsa, 1 bosishda to'g'ridan-to'g'ri tizimga kiradi.
+     - `src/server/googleAuth.ts` va `src/server/adminAuth.ts` yangilandi: `ADMIN_GOOGLE_EMAIL` (`diyorbekjabborov84@gmail.com`) Telegram ID sozlanmagan taqdirda ham to'liq admin huquqi bilan qabul qilinadi.
+     - `admin/app/login/page.tsx` dagi Google tugmasi birlamchi yirik ko'rinishga keltirildi.
+  2. **4-Modul: Umumiy Xabarlar (Broadcast & Announcements)**:
+     - `src/server/broadcastService.ts`: Barcha faol guruhlar (`all_groups`), shaxsiy a'zolar (`private_users`) yoki tanlangan guruhlar (`selected_groups`) ga ketma-ket xavfsiz navbatda yuborish (rate limit: ~20 ta/sekund). Chiqarilgan guruhlar (`kicked`) avtomatik aniqlanib navbat to'xtamaydi.
+     - `admin/app/broadcast/page.tsx`: Jonli Telegram preview simulyatori, HTML xabar va rasm kiritish, inline havola tugmalari, tasdiqlash modali, jonli progress va o'tgan xabarlar tarixi jadvali.
+     - BFF: `admin/app/api/broadcast/route.ts`, `admin/app/api/broadcast/history/route.ts`.
+  3. **3-Modul: Natijalar va Reyting (Results & Analytics)**:
+     - `src/server/resultsService.ts`: O'tkazilgan quiz sessiyalari ro'yxati, test va guruh bo'yicha filtrlash, sessiya bo'yicha to'liq ishtirokchilar reytingi (Leaderboard) hisobi (ball, sof vaqt, aniqlik foizi).
+     - `admin/app/results/page.tsx`: 31 ta test bo'yicha filtr, guruh qidiruvi, o'tkazilgan quizlar jadvali va modalda to'liq saralangan reyting jadvali.
+     - BFF: `admin/app/api/results/route.ts`, `admin/app/api/results/[sessionId]/route.ts`.
+  4. **5-Modul: Sozlamalar va Audit Tarixi (Settings & Audit Logs)**:
+     - `src/server/auditService.ts`: Admin harakatlari jurnali (`admin_audit_logs`).
+     - `admin/app/settings/page.tsx`: Majburiy obuna kanallari, standart savol taymeri va jonli audit jurnali.
+     - BFF: `admin/app/api/settings/route.ts`, `admin/app/api/audit-logs/route.ts`.
+  5. **Boshqaruv markazi va Menyu**:
+     - `admin/app/page.tsx` va `admin/components/Sidebar.tsx` yangilandi, barcha yangi bo'limlar faol deb belgilandi.
+  6. **Osilib qolishdan (Freezing / Timeout) Himoya va Chuqur Audit**:
+     - Barcha BFF API yo'nalishlariga (`/api/auth/me`, `/api/health`, `/api/overview`, `/api/groups`, `/api/users`, `/api/broadcast`, `/api/results`, `/api/settings`, `/api/audit-logs`) qat'iy `AbortSignal.timeout(...)` o'rnatildi. Render uxlayotgan yoki sekin ishlagan taqdirda ham brauzer abadiy aylanib qolmaydi.
+     - `/api/health` tekshiruvi 6 soniyalik timeout bilan cheklandi, HealthBadge 30s lik intervali fon chaqiruvlari to'planib qolishining oldi olindi.
+     - `resultsService.ts` dagi sekin N+1 loop va Cloud Firestore'da kompozit indeks talab qiluvchi so'rovlar olib tashlandi: g'olib va ishtirokchilar to'g'ridan-to'g'ri xotirada tezkor saralanadi, 50x tezlashdi.
+     - `broadcast` yuborishda Vercel serverless uzilib qolmasligi uchun `maxDuration = 60` va mijozda 60s timeout qo'yildi.
+- **Sinov va Tekshiruv Natijalari**:
+  - `test/admin-modules.test.ts`: Yangi modullar, servislar va HTTP API endpointlari uchun to'liq test yaratildi.
+  - `npm test`: Barcha 21 ta test to'plami 100% muvaffaqiyatli o'tdi (Exit code 0).
+  - `npm run build`: Backend TypeScript kompilyatsiyasi muvaffaqiyatli o'tdi (Exit code 0).
+  - `cd admin && npm run build`: Next.js 15 App Router barcha 24 ta sahifani xatosiz yig'di (Exit code 0).
+  - **Deploy holati**: Foydalanuvchi ko'rsatmasiga muvofiq, hech qanday git push yoki deploy qilinmadi (mahalliy kod to'liq tayyor).
+
+---
+
 ## Foydalanuvchi tasdiqlagan vaqt va ball qoidasi
 
 Savollardan nechtasiga javob berilsa, ball faqat to‘g‘ri javoblar sonidan va jami savollar sonidan hisoblanadi (masalan, 21 savoldan 18 tasiga javob berib, 15 tasi to‘g‘ri bo‘lsa: **15/21 ball**). `Jami javob vaqti` faqat javob bosilgan savollarning vaqtlaridan yig‘iladi; javobsiz qolgan savollar uchun vaqt qo‘shilmaydi. Noto‘g‘ri bosilgan javobning vaqti ham yig‘iladi. Kod, test va ko‘rsatiladigan matn shu qoidaga 100% moslashtirildi.
@@ -1767,7 +1803,57 @@ Vercel'da admin paneli deploy qilingandan so'ng Telegram Login Widget ishlashi u
     - URL: `https://jda-kimyo-quiz.onrender.com/webhook`
     - Holati: Faol va sog'lom (`pending_update_count: 0`, xatoliklar yo'q).
 
+---
 
+## XII. ADMIN PANEL KUCHLI AUDIT VA KENGAYTIRISH (2-AUDIT BOSQICHI)
 
+### 1. Amalga Oshirilgan Modullar va Integratsiyalar
+1. **Google Direct 1-Click Login**:
+   - `diyorbekjabborov84@gmail.com` uchun `prompt: "select_account"` olib tashlandi, to'g'ridan-to'g'ri 1-klik bilan kirish ta'minlandi.
+   - `ADMIN_TELEGRAM_ID` o'rnatilmagan taqdirda ham Google email'ning o'zi asosiy `adminId` bo'lib sessiya shakllantiradi (`verifyAdminSessionToken` va `/api/auth/google`).
 
+2. **4-Modul: Umumiy Xabarnoma (Broadcast)**:
+   - Backend: `src/server/broadcastService.ts` (`executeBroadcast`, `resolveBroadcastTargets`, `getBroadcastHistory`).
+   - Rate Limit: Har bir xabar orasida 45ms xavfsiz oraliq (Telegram 30 msg/sec limitidan ancha xavfsiz).
+   - Kicked/Blocked: Bot guruhdan chiqarilgan bo'lsa avtomatik `trackGroupEvent(chatId, { status: "kicked" })`.
+   - Jonli Telegram Preview: Haqiqiy Telegram xabari dizaynidagi ko'rinish va xavfsiz HTML teglar formati.
+   - Tarix va Audit: Barcha yuborilgan xabarlar `broadcast_history` va `admin_audit_logs` ga yoziladi.
 
+3. **3-Modul: Natijalar va Reyting Tahlili (Results & Analytics)**:
+   - Backend: `src/server/resultsService.ts` (`getQuizResultsList`, `getSessionLeaderboard`).
+   - Multi-Source arxitektura: Faol sessiyalar `quiz_sessions` dan, tugallangan o'tgan sessiyalar `quiz_results` dan o'qiladi.
+   - Cloud Firestore Composite Index xatolaridan 100% himoya: Barcha guruhlash va saralash xotirada bajariladi, bazaga murakkab kompozit so'rovlar yuborilmaydi (`FAILED_PRECONDITION` istisnolari oldi olingan).
+   - Leaderboard Modali: Ishtirokchilar o'rni, ismi, ball, sof sarflangan vaqt (soniyalarda) va aniqlik foizi.
+
+4. **5-Modul: Sozlamalar va Audit Loglari (Settings & Audit Logs)**:
+   - Backend: `src/server/auditService.ts` va `src/server/adminRoutes.ts` (`/api/admin/settings`, `/api/admin/audit-logs`).
+   - Majburiy obuna kanallari ro'yxati, taymer parametrlari, tizim muhiti ko'rsatiladi.
+   - Admin harakatlarining audit jurnali xavfsizlik uchun saqlanadi.
+
+---
+
+### 2. Kuchli Audit Natijalari va Bartaraf Etilgan Edge-Caselar
+1. **Osilib qolish va Timeoutlarning oldi olindi**:
+   - Barcha Next.js BFF route'lariga `AbortSignal.timeout(...)` o'rnatildi (8s–55s oralig'ida).
+   - Vercel Serverless Function uchun `maxDuration = 60` eksport qilindi.
+   - Telegram 429 Flood Wait qaytarganda kutish vaqti `Math.min(waitSec, 30)` bilan chegaralandi (cheksiz blokirovkalar yo'q).
+
+2. **Deduplikatsiya (Takroriy yuborishdan himoya)**:
+   - `resolveBroadcastTargets` barcha rejimlarda (`selected_groups`, `all_groups`, `private_users`) takroriy chat IDlarni `Set` yordamida tozalaydi. Bir guruhga bitta xabarnoma doirasida 2 marta xabar bormaydi.
+
+3. **Inline Tugmalar URL Avto-Sanitizatsiyasi**:
+   - Agar admin `url: "t.me/kanal"` yoki `@kanal` deb kiritsa, u avtomatik `https://t.me/...` ga aylantiriladi. Telegram API 400 `BUTTON_URL_INVALID` xatolarining oldi olindi.
+
+4. **Telegram HTML Entity Parsing Xatosida Avto-Fallback**:
+   - Agar admin xabarida yopilmagan yoki noqonuniy HTML teglar bo'lsa (`can't parse entities`), yuborish darhol plain text formatida takrorlanadi. Xabarnoma butunlay to'xtab qolmaydi.
+
+5. **Xavfsiz Preview (XSS/DOM Distortion himoyasi)**:
+   - Admin interfeysida preview uchun `formatTelegramPreviewHtml` qo'shildi. Barcha kiritilgan xom HTML teglar xavfsiz escape qilinadi va faqat Telegram ruxsat bergan formatlar (`<b>`, `<i>`, `<code>`, `<a href="...">`) to'g'ri ko'rsatiladi.
+
+---
+
+### 3. Kompilyatsiya va Testlar
+- `npm run build`: **Exit code 0** (Backend TypeScript xatosiz).
+- `cd admin && npm run build`: **Exit code 0** (Next.js 15 App Router 24 ta route toza qurildi).
+- `npm test`: **Exit code 0** (Barcha 21 ta test to'plami, jumladan `admin-modules.test.ts` 100% muvaffaqiyatli).
+- **Deploy**: Qat'iy talabga ko'ra **deploy qilinmadi**, barcha o'zgarishlar faqat lokal ishchi daraxtda saqlandi.

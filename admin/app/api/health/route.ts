@@ -7,6 +7,7 @@ export async function GET() {
     const renderUrl = getRenderApiUrl();
     const response = await fetch(`${renderUrl}/health`, {
       cache: "no-store",
+      signal: AbortSignal.timeout(6000),
     });
     const latency = Date.now() - start;
 

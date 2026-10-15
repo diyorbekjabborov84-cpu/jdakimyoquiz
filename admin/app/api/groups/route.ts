@@ -23,6 +23,7 @@ export async function GET(req: NextRequest) {
         Authorization: `Bearer ${token}`,
       },
       cache: "no-store",
+      signal: AbortSignal.timeout(15000),
     });
 
     const data = await response.json();

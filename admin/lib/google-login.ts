@@ -8,7 +8,6 @@ export async function getGoogleIdToken() {
   const auth = getAuth(app);
   await setPersistence(auth, inMemoryPersistence);
   const provider = new GoogleAuthProvider();
-  provider.setCustomParameters({ prompt: "select_account" });
   try {
     const result = await signInWithPopup(auth, provider);
     return await result.user.getIdToken();

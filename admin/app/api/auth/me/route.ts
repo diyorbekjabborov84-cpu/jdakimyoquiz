@@ -14,6 +14,8 @@ export async function GET(req: NextRequest) {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+      cache: "no-store",
+      signal: AbortSignal.timeout(8000),
     });
 
     if (!response.ok) {

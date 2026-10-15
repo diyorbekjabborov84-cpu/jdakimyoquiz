@@ -114,9 +114,31 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <button type="button" className="btn btn-primary" disabled={loading} onClick={handleGoogleAuth}
-          style={{ width: "100%", marginBottom: "1rem", padding: "0.8rem", cursor: loading ? "wait" : "pointer" }}>
-          {loading ? "Kirish tekshirilmoqda…" : "Google orqali kirish"}
+        <button
+          type="button"
+          className="btn btn-primary"
+          disabled={loading}
+          onClick={handleGoogleAuth}
+          style={{
+            width: "100%",
+            marginBottom: "1.25rem",
+            padding: "0.85rem 1.25rem",
+            fontSize: "0.95rem",
+            fontWeight: 600,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.6rem",
+            cursor: loading ? "wait" : "pointer",
+            background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
+            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.25)",
+            border: "none",
+            borderRadius: "8px",
+            color: "#ffffff",
+          }}
+        >
+          <span>🔐</span>
+          <span>{loading ? "Kirish tekshirilmoqda…" : "Google orqali to'g'ridan-to'g'ri kirish"}</span>
         </button>
         <div className="widget-container" ref={widgetContainerRef}>
           {loading ? (

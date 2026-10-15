@@ -253,6 +253,7 @@ import {
   allRussianQuizzes,
 } from "./russianQuestions.js";
 import { ak1Quiz } from "./ak1Questions.js";
+import { d1Quiz } from "./d1Questions.js";
 
 export {
   kk1Quiz1,
@@ -291,6 +292,7 @@ export {
   russianQuiz6,
   allRussianQuizzes,
   ak1Quiz,
+  d1Quiz,
 };
 
 // Barcha mavjud quizlar ro'yxati (o'zgarmas ID lar bilan)
@@ -308,6 +310,7 @@ export const allQuizzes: Quiz[] = [
   ...allI4Quizzes,
   ...allRussianQuizzes,
   ak1Quiz,
+  d1Quiz,
 ];
 
 /**
@@ -487,6 +490,10 @@ export function getQuizById(id: string): Quiz | undefined {
 
   if (normalized === "ak1" || normalized === "ak_1" || normalized === "ak-1") {
     return ak1Quiz;
+  }
+
+  if (normalized === "d1" || normalized === "d_1" || normalized === "d-1") {
+    return d1Quiz;
   }
 
   return undefined;

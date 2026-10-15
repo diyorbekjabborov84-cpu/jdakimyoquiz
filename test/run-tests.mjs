@@ -24,8 +24,10 @@ const allTestFiles = [
   "firestore.test.ts",
   "admin-auth-tracking.test.ts",
   "ak1-quiz.test.ts",
+  "d1-quiz.test.ts",
   "group-size.test.ts",
   "group-registry.test.ts",
+  "admin-modules.test.ts",
 ];
 const requested = process.argv.slice(2);
 const testFiles = requested.length ? requested : allTestFiles;

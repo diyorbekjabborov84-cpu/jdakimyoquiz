@@ -12,6 +12,8 @@ export const FIRESTORE_COLLECTIONS = {
   GROUPS: "groups",
   USERS: "bot_users",
   QUIZZES: "quizzes",
+  BROADCASTS: "broadcast_history",
+  AUDIT_LOGS: "admin_audit_logs",
 } as const;
 
 /**

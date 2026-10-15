@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { ADMIN_GOOGLE_EMAIL } from "./googleAuth.js";
 
 export interface TelegramAuthPayload {
   id: number | string;
@@ -169,7 +170,7 @@ export function verifyAdminSessionToken(
   secret?: string
 ): { valid: boolean; session?: AdminSession; error?: string } {
   // Fail-closed
-  if (!adminTelegramId || !adminTelegramId.trim()) {
+  if ((!adminTelegramId || !adminTelegramId.trim()) && !ADMIN_GOOGLE_EMAIL) {
     return { valid: false, error: "ADMIN_NOT_CONFIGURED" };
   }
 
@@ -249,8 +250,15 @@ export function verifyAdminSessionToken(
     return { valid: false, error: "TOKEN_INVALID_EXPIRY" };
   }
 
-  // Raqamli Telegram ID mosligi qat'iy tekshiriladi
-  if (String(session.adminId).trim() !== adminTelegramId.trim()) {
+  // Raqamli Telegram ID yoki rasmiy Google Email mosligi qat'iy tekshiriladi
+  const adminIdStr = String(session.adminId).trim().toLowerCase();
+  const allowedTelegramId = (adminTelegramId || "").trim().toLowerCase();
+  const allowedGoogleEmail = ADMIN_GOOGLE_EMAIL.toLowerCase();
+
+  const isTelegramMatch = Boolean(allowedTelegramId && adminIdStr === allowedTelegramId);
+  const isGoogleMatch = Boolean(adminIdStr === allowedGoogleEmail);
+
+  if (!isTelegramMatch && !isGoogleMatch) {
     return { valid: false, error: "UNAUTHORIZED_ADMIN" };
   }
 
