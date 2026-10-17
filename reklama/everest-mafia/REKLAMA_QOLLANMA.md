@@ -1,7 +1,7 @@
 # Everest Mafia — Instagram reklama videosi
 
 **Guruh:** [t.me/everest_mafia_uzbekiston](https://t.me/everest_mafia_uzbekiston)
-**Format:** 9:16 (Reels/Stories) va 4:5 (Feed) · **Uzunlik:** 25.6 s · **Shrift:** Times New Roman (Tinos) · **Ovoz:** erkak diktor (turkcha ohang, oʻzbekcha matn)
+**Format:** 9:16 (Reels/Stories) va 4:5 (Feed) · **Uzunlik:** 26.1 s · **Shrift:** Times New Roman (Tinos) · **Ovoz:** bitta erkak diktor (turkcha ohangli, oʻzbekcha matn) — 7 ta sahnaning hammasi shu ovozda
 
 ---
 
@@ -27,17 +27,19 @@
 
 | # | Vaqt | Kadrlar | Ekran matni | Ovoz |
 |---|---|---|---|---|
-| 1 | 0.0–2.7 | Telefon ekranida yuz, qorongʻi xona | **TELEGRAMʼDA MAFA OʻYINI** → *OʻYINCHI BOʻL!* → Oʻzbek tilidagi haqiqiy mafiya oʻyini | «Telegram'da Everest Mafia o'yini!» |
-| 2 | 2.7–6.1 | Doʻstlar stol atrofida → **kesilish** → telefon ekrani | **SIZ SHAHARDASIZ** → *DOʻSTLARINGIZ YONDAKI XONADA* → Ulardan biri — mafiya. Siz esa komissar. | «Do'stlarningiz yondaki xonada, siz esa shaharda.» |
-| 3 | 6.1–11.7 | Ochilgan kartalar, lupa | **ROLLAR** → *TOʻRT TA ROL — KIM SIZ?* → **Mafiya · Komissar · Tinch aholi · Doktor** (har biri alohida ochiladi) | «To'rtta rol bor: mafiya, komissar, tinch aholi va doktor. Sizniki qaysi?» |
-| 4 | 11.7–14.6 | Telefonda chat → **kesilish** → yuz | **FEIL** → *FAQAT FEILIN SOʻZLARI SIZNI OGOHLANTIRADI* → Har bir soʻz — dalil. Har bir dalil — gʻalaba. | «Faqat feilin so'zlari sizni ogohlantiradi.» |
-| 5 | 14.6–18.6 | Qizil kart, shashka karta | **DALIL TOʻPLA** → *MAFIYANI USHLA* → Dalil toʻplab, mafiyani ushlang. | «Komissar bo'lsangiz, dalil to'plang va mafiyani ushlang.» |
-| 6 | 18.6–21.8 | Doʻstlar xursand → **kesilish** → stol | **TUNDA YOKI KUNDA** → *GʻALABA SENING QOʻLINGDA* → Everest Mafia — har kuni yangi oʻyin | «Tunda yoki kunda yutish sizning qo'lingizda.» |
-| 7 | 21.8–25.6 | Yuz + CTA | **EVEREST MAFIA** → tugma **HOZIR OʻYNASH** → `t.me/everest_mafia_uzbekiston` → Telegramʼda — bepul va oʻzbek tilida | «Hozir o'ynash uchun havola bio'da - Everest Mafia.» |
+| 1 | 0.0–2.8 | Telefon ekranida yuz, qorongʻi xona | **TELEGRAMʼDA MAFA OʻYINI** → *OʻYINCHI BOʻL!* → Telegram guruhida, bot orqali oʻynang | «Telegram'da Everest Mafia o'yini!» |
+| 2 | 2.8–6.3 | Doʻstlar stol atrofida → **kesilish** → telefon ekrani | **SIZ SHAHARDASIZ** → *DOʻSTLARINGIZ YONDAKI XONADA* → Ulardan biri — mafiya. Siz esa komissar. | «Do'stlarningiz yondaki xonada, siz esa shaharda.» |
+| 3 | 6.3–12.0 | Ochilgan kartalar, lupa | **OʻYIN ROLLARI** → *ASOSIY ROLLAR — KIM SIZ?* → **Mafiya · Komissar · Tinch aholi · Doktor** (har biri alohida ochiladi) | «Asosiy rollar: mafiya, komissar, tinch aholi va doktor. Sizniki qaysi?» |
+| 4 | 12.0–14.8 | Telefonda chat → **kesilish** → yuz | **FEIL** → *FAQAT FEILIN SOʻZLARI SIZNI OGOHLANTIRADI* → Har bir soʻz — dalil. Har bir dalil — gʻalaba. | «Faqat feilin so'zlari sizni ogohlantiradi.» |
+| 5 | 14.8–18.7 | Qizil kart, shashka karta | **DALIL TOʻPLA** → *MAFIYANI USHLA* → Dalil toʻplab, mafiyani ushlang. | «Komissar bo'lsangiz, dalil to'plang va mafiyani ushlang.» |
+| 6 | 18.7–22.1 | Doʻstlar xursand → **kesilish** → stol | **TUNDA YOKI KUNDA** → *GʻALABA SENING QOʻLINGDA* → Everest Mafia — har kuni yangi oʻyin | «Tunda yoki kunda yutish sizning qo'lingizda.» |
+| 7 | 22.1–26.1 | Yuz + CTA | **EVEREST MAFIA** → tugma **HOZIR OʻYNASH** → `t.me/everest_mafia_uzbekiston` → Bot orqali oʻynang — bepul, oʻzbek tilida | «Hozir o'ynash uchun havola bio'da - Everest Mafia.» |
 
-### Oʻyin rollari
+### Oʻyin qanday ishlaydi
 
-Reklama toʻrtta asosiy rolni koʻrsatadi: **Mafiya** (qatlom qiluvchi), **Komissar** (dalil toʻplaydigan), **Tinch aholi** (oddiy oʻyinchi) va **Doktor** (bir hayot saqlaydigan). 3-sahnada rol nomlari ketma-ket ochiladi.
+Oʻyin **Telegram guruhida, bot orqali** oʻynaladi: guruhga kirasiz, bot ishlaydi, rollar va oʻyin bosqichlari bot orqali yuritiladi.
+
+**Asosiy rollar** (video shu toʻrtta nomni koʻrsatadi): **Mafiya** (qatlom qiluvchi), **Komissar** (dalil toʻplaydigan), **Tinch aholi** (oddiy oʻyinchi) va **Doktor** (bir hayot saqlaydigan). Oʻyinda boshqa rollar ham bor — shuning uchun matnda «asosiy rollar» deyiladi, «faqat shu toʻrtta» emas. 3-sahnada rol nomlari ketma-ket ochiladi.
 
 ### Animatsiya tizimi
 
@@ -64,7 +66,7 @@ Siz shaharda. Doʻstlaringiz esa yondaki xonada. 🃏
 
 Mafiya, komissar, tinch aholi yoki doktor — sizniki qaysi rol?
 
-Telegramʼdagi Everest Mafia — oʻzbek tilidagi mafiya oʻyini.
+Everest Mafia — Telegram guruhida, bot orqali oʻynaladigan mafiya oʻyini.
 🔗 Bioʼdagi havolaga oʻting
 
 #mafia #mafiaoyini #mafiauzbekiston #everestmafia
@@ -74,7 +76,7 @@ Telegramʼdagi Everest Mafia — oʻzbek tilidagi mafiya oʻyini.
 ```
 Tunda yoki kunda — yutish sizning qoʻlingizda. 🔦
 
-Everest Mafia: faqat feilin soʻzlari sizni ogohlantiradi.
+Telegram guruhida, bot orqali oʻynang. Faqat feilin soʻzlari sizni ogohlantiradi.
 → Bioʼdagi havolaga oʻting
 
 #mafia #tgoyin #mafiauzbekistan #uzbekcha

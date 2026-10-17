@@ -40,7 +40,7 @@ SCENES = [
         parts=["01_hook.jpg"],
         kicker="TELEGRAMʼDA MAFA OʻYINI",
         headline=["OʻYINCHI BOʻL!"],
-        sub=["Oʻzbek tilidagi haqiqiy mafiya oʻyini"],
+        sub=["Telegram guruhida, bot orqali oʻynang"],
     ),
     dict(
         key="s2",
@@ -52,8 +52,8 @@ SCENES = [
     dict(
         key="s3",
         parts=["03_roles.jpg"],
-        kicker="ROLLAR",
-        headline=["TOʻRT TA ROL —", "KIM SIZ?"],
+        kicker="OʻYIN ROLLARI",
+        headline=["ASOSIY ROLLAR —", "KIM SIZ?"],
         sub=["Mafiya · Komissar · Tinch aholi · Doktor"],
     ),
     dict(
@@ -82,10 +82,10 @@ SCENES = [
         parts=["01_hook.jpg"],
         style="cta",
         headline=["EVEREST", "MAFIA"],
-        sub=["Telegramʼdagi mafiya oʻyini"],
+        sub=["Telegram guruhidagi mafiya oʻyini"],
         button="HOZIR OʻYNASH",
         link="t.me/everest_mafia_uzbekiston",
-        note="Telegramʼda — bepul va oʻzbek tilida",
+        note="Bot orqali oʻynang — bepul, oʻzbek tilida",
     ),
 ]
 
