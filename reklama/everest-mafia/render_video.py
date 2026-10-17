@@ -37,50 +37,58 @@ DIM = (219, 223, 228)
 SCENES = [
     dict(
         key="s1",
-        parts=["01_hook.jpg"],
-        kicker="TELEGRAMʼDA MAFA OʻYINI",
-        headline=["OʻYINCHI BOʻL!"],
-        sub=["Telegram guruhida, bot orqali oʻynang"],
+        parts=[("06_city_night.jpg", 1.2, "in"), ("01_hook.jpg", 0.8, "burst")],
+        kicker="SHAHARDA KECH QORAYDI",
+        headline=["SHAHAR TINCH", "EMAS"],
+        sub=["Tunda mafialar oʻz yurishiga chiqadi"],
     ),
     dict(
         key="s2",
-        parts=["02_gameplay.jpg", "04_phone.jpg"],
-        kicker="SIZ SHAHARDASIZ",
-        headline=["DOʻSTLARINGIZ", "YONDAKI XONADA"],
-        sub=["Ulardan biri — mafiya. Siz esa komissar."],
+        parts=[("07_mafia_walk.jpg", 1.0, "in"), ("03_roles.jpg", 0.6, "shake"), ("04_phone.jpg", 0.6, "out")],
+        kicker="MAFIYALAR",
+        headline=["OʻZ YURISHLARI UCHUN", "TUNNI KUTMOQDA"],
+        sub=["Ular uchun tun — ish vaqti"],
     ),
     dict(
         key="s3",
-        parts=["03_roles.jpg"],
-        kicker="OʻYIN ROLLARI",
-        headline=["ASOSIY ROLLAR —", "KIM SIZ?"],
-        sub=["Mafiya · Komissar · Tinch aholi · Doktor"],
+        parts=[("08_spotlight.jpg", 1.2, "in"), ("03_roles.jpg", 0.8, "burst")],
+        kicker="KOMISSAR",
+        headline=["TUNGI SUDNI", "ADOLATLI QILISHGA", "VAʼDA BERDI"],
+        sub=["U faqat dalil toʻplaydi"],
     ),
     dict(
         key="s4",
-        parts=["04_phone.jpg", "01_hook.jpg"],
-        kicker="FEIL",
-        headline=["FAQAT FEILIN SOʻZLARI", "SIZNI OGOHLANTIRADI"],
-        sub=["Har bir soʻz — dalil. Har bir dalil — gʻalaba."],
+        parts=[("03_roles.jpg", 1.0, "in"), ("02_gameplay.jpg", 0.7, "out"), ("10_crowd.jpg", 0.7, "shake")],
+        kicker="ASOSIY ROLLAR",
+        headline=["TOʻRT TA ROL —", "KIM SIZ?"],
+        sub=["Mafiya · Komissar · Tinch aholi · Doktor"],
     ),
     dict(
         key="s5",
-        parts=["03_roles.jpg"],
-        kicker="DALIL TOʻPLA",
-        headline=["MAFIYANI USHLA"],
-        sub=["Dalil toʻplab, mafiyani ushlang."],
+        parts=[("09_doctor.jpg", 1.3, "in"), ("04_phone.jpg", 0.7, "burst")],
+        kicker="DOKTOR",
+        headline=["BIR HAYOT", "SAQLAYDI"],
+        sub=["Yoki yoʻqotadi"],
     ),
     dict(
         key="s6",
-        parts=["05_win.jpg", "02_gameplay.jpg"],
-        kicker="TUNDA YOKI KUNDA",
-        headline=["GʻALABA SENING", "QOʻLINGDA"],
-        sub=["Everest Mafia — har kuni yangi oʻyin"],
+        parts=[("10_crowd.jpg", 1.1, "in"), ("02_gameplay.jpg", 0.9, "out")],
+        kicker="TINCH AHOLI",
+        headline=["HECH NARSA", "BILMAYDI"],
+        sub=["Bilmasligi — omil"],
     ),
     dict(
         key="s7",
-        parts=["01_hook.jpg"],
+        parts=[("04_phone.jpg", 1.0, "in"), ("01_hook.jpg", 0.8, "shake")],
+        kicker="OʻYIN",
+        headline=["FAQAT FEILIN SOʻZLARI", "SIZNI OGOHLANTIRADI"],
+        sub=["Har bir soʻz — dalil"],
+    ),
+    dict(
+        key="s8",
         style="cta",
+        parts=[("05_win.jpg", 0.8, "in"), ("01_hook.jpg", 1.2, "out")],
+        kicker="TUN YOKI KUN — GʻALABA SIZNIKI",
         headline=["EVEREST", "MAFIA"],
         sub=["Telegram guruhidagi mafiya oʻyini"],
         button="HOZIR OʻYNASH",
@@ -243,6 +251,14 @@ def build_scene_layers(scene: dict, w: int, h: int, out_dir: str, duration: floa
             layers.append(dict(file=f"{key}_head{i}.png", x=lx, y=y, delay=None, kind="text"))
             layer.save(os.path.join(out_dir, f"{key}_head{i}.png"))
             y += int(h * 0.070) * 1.16
+
+        # Kicker (ovoz matni bilan bogʻlash)
+        if scene.get("kicker"):
+            kick = text_layer(scene["kicker"], SERIF_B, int(h * 0.0195), RED_HOT + (255,), tracking=4,
+                              stroke=2, stroke_fill=(0, 0, 0, 230), pad=8)
+            kick.save(os.path.join(out_dir, f"{key}_kick.png"))
+            layers.append(dict(file=f"{key}_kick.png", x=(w - kick.width) // 2,
+                               y=block_top - int(h * 0.045), delay=None, kind="text"))
 
         # Tagʻ-alt (subtitle)
         sub = scene.get("sub", "")
@@ -438,29 +454,32 @@ def main() -> None:
     # Fon rasmlari
     bg_files: dict[str, str] = {}
     for scene in SCENES:
+        mood = "cta" if scene.get("style") == "cta" else "normal"
         for part in scene["parts"]:
-            if part in bg_files:
+            img = part[0]
+            if img in bg_files:
                 continue
-            name = part.replace(".jpg", "")
+            name = img.replace(".jpg", "")
             out = os.path.join(out_dir, f"bg_{name}.png")
-            mood = "cta" if scene.get("style") == "cta" else "normal"
-            make_bg(part, w, h, out, mood)
-            bg_files[part] = f"bg_{name}.png"
+            make_bg(img, w, h, out, mood)
+            bg_files[img] = f"bg_{name}.png"
 
     # Sahnalar
     for idx, scene in enumerate(SCENES):
         dur = float(durations.get(scene["key"], durations.get(str(idx), 3.0)))
         built = build_scene_layers(scene, w, h, out_dir, dur)
 
-        # Kadrlar (qismlar) — davomiylik sahna boʻyicha teng taqsimlanadi
+        # Kadrlar (qismlar) — ulush boʻyicha boʻlib, har biriga kamera harakati
+        raw = scene["parts"]
+        total_w = sum(x[1] for x in raw)
         parts = []
-        if len(scene["parts"]) == 1:
-            parts.append(dict(bg=bg_files[scene["parts"][0]], duration=round(dur, 3)))
-        else:
-            share = dur / len(scene["parts"])
-            for i, p in enumerate(scene["parts"]):
-                d = share if i < len(scene["parts"]) - 1 else dur - share * (len(scene["parts"]) - 1)
-                parts.append(dict(bg=bg_files[p], duration=round(d, 3)))
+        left = dur
+        for i, (img, wgt, motion) in enumerate(raw):
+            d = dur * wgt / total_w
+            if i == len(raw) - 1:
+                d = left
+            left -= d
+            parts.append(dict(bg=bg_files[img], duration=round(d, 3), motion=motion))
         built["parts"] = parts
         manifest["scenes"].append(built)
 
@@ -469,7 +488,7 @@ def main() -> None:
 
     # Cover — CTA sahnasining to'liq ko'rinishi
     cta = next(s for s in SCENES if s.get("style") == "cta")
-    base = Image.open(os.path.join(out_dir, f"bg_{cta['parts'][0].replace('.jpg', '')}.png")).convert("RGBA")
+    base = Image.open(os.path.join(out_dir, f"bg_{cta['parts'][0][0].replace('.jpg', '')}.png")).convert("RGBA")
     for entry in manifest["scenes"][-1]["layers"]:
         if entry["kind"] == "text" and entry.get("file"):
             layer = Image.open(os.path.join(out_dir, entry["file"])).convert("RGBA")

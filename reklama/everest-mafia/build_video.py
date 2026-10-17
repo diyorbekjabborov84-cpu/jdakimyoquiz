@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import wave
@@ -34,7 +35,11 @@ BUILD = os.path.join(HERE, "build")
 OUTPUT = os.path.join(HERE, "output")
 GAP = 0.14          # sahnalar orasidagi jimlik
 SPEED = "1.12"      # ovoz tezligi
-SCENE_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"]
+def scene_keys() -> list[str]:
+    """audio/vo_01.mp3, vo_02.mp3 ... — raqamlangan kliplar soniga qarab."""
+    files = [f for f in os.listdir(AUDIO_SRC) if re.fullmatch(r"vo_\d+\.mp3", f)]
+    n = len(files)
+    return [f"s{i}" for i in range(1, n + 1)]
 
 
 def run(args: list[str]) -> None:
@@ -67,24 +72,41 @@ def make_sweep(w: int, h: int, path: str) -> None:
 
 
 def build_part(bg: str, dur: float, out: str, w: int, h: int, motion: str, flash: str) -> None:
-    """Bitta kadr: Ken Burns (drift bilan) + kirish effekti."""
+    """Bitta kadr: Ken Burns / burst / shake + kirish effekti."""
+    drift_x = "42*(zoom-1)*sin(on/48)"
+    drift_y = "30*(zoom-1)*cos(on/66)"
     if motion == "in":
         z = "min(1+on*0.00030,1.14)"
-        x = "iw/2-(iw/zoom/2)+42*(zoom-1)*sin(on/48)"
-        y = "ih/2-(ih/zoom/2)+30*(zoom-1)*cos(on/66)"
-    else:
+        x = f"iw/2-(iw/zoom/2)+{drift_x}"
+        y = f"ih/2-(ih/zoom/2)+{drift_y}"
+    elif motion == "out":
         z = "max(1.14-on*0.00030,1.0)"
-        x = "iw/2-(iw/zoom/2)+42*(zoom-1)*sin(on/48)"
-        y = "ih/2-(ih/zoom/2)+30*(zoom-1)*cos(on/66)"
+        x = f"iw/2-(iw/zoom/2)+{drift_x}"
+        y = f"ih/2-(ih/zoom/2)+{drift_y}"
+    elif motion == "burst":
+        # tez zoom "snap": 1.34 -> 1.0 (0.4 s), keyin sekin drift
+        z = "if(lt(on,13),1.34-on*0.026,1.005+on*0.00022)"
+        x = f"iw/2-(iw/zoom/2)+{drift_x}"
+        y = f"ih/2-(ih/zoom/2)+{drift_y}"
+    else:  # shake — kamera tebranishi
+        z = "min(1+on*0.00028,1.12)"
+        x = "iw/2-(iw/zoom/2)+90*sin(on*1.35)*min(1,on/12)"
+        y = "ih/2-(ih/zoom/2)+60*cos(on*1.15)*min(1,on/12)"
 
-    fade_in = 0.08 if flash == "white" else 0.45
-    color = "white" if flash == "white" else "black"
+    # kesishdagi chaqnash: iliq "light leak" (noir uslubga mos)
+    fade_in = 0.06 if flash == "white" else 0.45
+    color = "0xFFF2E0" if flash == "white" else "black"
+    # burst kadrlarda qisqa kontrast/rang "punch"
+    punch = ""
+    if motion == "burst":
+        punch = "eq=eval=frame:contrast='1+0.35*max(0,1-t/0.16)':saturation='1+0.5*max(0,1-t/0.16)',"
 
     ff([
         "-framerate", "30", "-loop", "1", "-t", f"{dur:.3f}", "-i", bg,
         "-vf",
         f"scale={w*2}:{h*2}:flags=lanczos,"
         f"zoompan=z='{z}':x='{x}':y='{y}':d=1:s={w}x{h}:fps=30,"
+        f"{punch}"
         f"fade=t=in:st=0:d={fade_in}:color={color},format=yuv420p",
         "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-an", out,
     ])
@@ -105,7 +127,7 @@ def build_scene(scene: dict, stills: str, seg_dir: str, w: int, h: int, sweep: s
     part_files = []
     for i, p in enumerate(parts):
         out = os.path.join(seg_dir, f"{key}_p{i}.mp4")
-        motion = "in" if i % 2 == 0 else "out"
+        motion = p.get("motion", "in")
         if i == 0 and key == "s1":
             flash = "black"
         else:
@@ -132,11 +154,13 @@ def build_scene(scene: dict, stills: str, seg_dir: str, w: int, h: int, sweep: s
             inputs += ["-loop", "1", "-i", png]
             d = layer["delay"]
             filters.append(
-                f"[{idx}]format=rgba,fade=t=in:st={d:.3f}:d=0.45:alpha=1,setpts=PTS-STARTPTS[ov{tag}]"
+                f"[{idx}]format=rgba,"
+                f"scale=w='iw*(0.94+0.06*min(1,max(0,(t-{d:.3f})/0.3)))':h=-1:eval=frame,"
+                f"fade=t=in:st={d:.3f}:d=0.3:alpha=1,setpts=PTS-STARTPTS[ov{tag}]"
             )
             filters.append(
                 f"[{cur}][ov{tag}]overlay=x={layer['x']}:"
-                f"y='{layer['y']}+38*(1-min(1,max(0,(t-{d:.3f})/0.52)))':format=auto[o{tag}]"
+                f"y='{layer['y']}+30*(1-min(1,max(0,(t-{d:.3f})/0.38)))':format=auto[o{tag}]"
             )
             cur = f"o{tag}"
             idx += 1
@@ -190,9 +214,12 @@ def main() -> None:
     os.makedirs(seg_dir, exist_ok=True)
     os.makedirs(OUTPUT, exist_ok=True)
 
+    keys = scene_keys()
+    n = len(keys)
+
     # 1) Ovoz kliplari
-    print("▸ Ovoz kliplari tayyorlanmoqda...")
-    for i in range(1, 8):
+    print(f"▸ Ovoz kliplari tayyorlanmoqda ({n} ta)...")
+    for i in range(1, n + 1):
         ff([
             "-i", os.path.join(AUDIO_SRC, f"vo_{i:02d}.mp3"),
             "-af", f"silenceremove=start_periods=1:start_duration=0.05:start_threshold=-45dB:"
@@ -202,7 +229,7 @@ def main() -> None:
 
     # 2) Davomiyliklar
     durations = {}
-    for i, key in enumerate(SCENE_KEYS, start=1):
+    for i, key in enumerate(keys, start=1):
         durations[key] = round(wav_duration(os.path.join(aud_dir, f"vo_{i:02d}.wav")) + GAP, 3)
     dur_path = os.path.join(BUILD, "durations.json")
     with open(dur_path, "w") as f:
@@ -230,10 +257,10 @@ def main() -> None:
 
     # Ovoz trekini jimliklar bilan yigʻish
     inputs = []
-    for i in range(1, 8):
+    for i in range(1, n + 1):
         inputs += ["-i", os.path.join(aud_dir, f"vo_{i:02d}.wav")]
-    pads = "".join(f"[{i}]apad=pad_dur={GAP}[a{i}];" for i in range(7))
-    ac = pads + "".join(f"[a{i}]" for i in range(7)) + "concat=n=7:v=0:a=1[a]"
+    pads = "".join(f"[{i}]apad=pad_dur={GAP}[a{i}];" for i in range(n))
+    ac = pads + "".join(f"[a{i}]" for i in range(n)) + f"concat=n={n}:v=0:a=1[a]"
     voice = os.path.join(aud_dir, "vo_full.wav")
     ff(inputs + ["-filter_complex", ac, "-map", "[a]", "-c:a", "pcm_s16le", voice])
 
