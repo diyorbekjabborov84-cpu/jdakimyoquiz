@@ -87,7 +87,7 @@ SCENES = [
     dict(
         key="s8",
         style="cta",
-        parts=[("05_win.jpg", 0.8, "in"), ("01_hook.jpg", 1.2, "out")],
+        parts=[("07_mafia_walk.jpg", 0.8, "in"), ("01_hook.jpg", 1.2, "out")],
         kicker="TUN YOKI KUN — GʻALABA SIZNIKI",
         headline=["EVEREST", "MAFIA"],
         sub=["Telegram guruhidagi mafiya oʻyini"],
@@ -139,10 +139,10 @@ def make_bg(name: str, w: int, h: int, out_path: str, mood: str = "normal") -> N
     img = Image.open(os.path.join(FRAMES, name)).convert("RGB")
     img = cover(img, w, h)
     if mood == "cta":
-        img = ImageEnhance.Brightness(img).enhance(0.55)
-        img = ImageEnhance.Contrast(img).enhance(1.12)
-        img = scrim(img, 1.15)
-        img = vignette(img, 0.8)
+        img = ImageEnhance.Brightness(img).enhance(0.46)
+        img = ImageEnhance.Contrast(img).enhance(1.16)
+        img = scrim(img, 1.32)
+        img = vignette(img, 0.88)
     else:
         img = ImageEnhance.Brightness(img).enhance(0.70)
         img = ImageEnhance.Contrast(img).enhance(1.10)

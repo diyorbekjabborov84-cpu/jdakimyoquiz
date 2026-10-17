@@ -37,7 +37,7 @@ Uslub: **noir / kinematik** — qorongʻi shahar, tungi sud, mafiya yurishi. Mat
 | 5 | 16.9–20.3 | Doktor stoli → telefon (zoom snap) | **DOKTOR** → *BIR HAYOT SAQLAYDI* → Yoki yoʻqotadi | «Doktor bir hayot saqlaydi. Yoki yo'qotadi.» |
 | 6 | 20.3–23.8 | Olchoz → doʻstlar | **TINCH AHOLI** → *HECH NARSA BILMAYDI* → Bilmasligi — omil | «Tinch aholi hech narsani bilmaydi. Ehtimol.» |
 | 7 | 23.8–27.4 | Telefon (chat) → yuz (tebranish) | **OʻYIN** → *FAQAT FEILIN SOʻZLARI SIZNI OGOHLANTIRADI* → Har bir soʻz — dalil | «Faqat feilin so'zlari sizni ogohlantiradi.» |
-| 8 | 27.4–34.8 | Xursandlik → yuz + CTA | **TUN YOKI KUN — GʻALABA SIZNIKI** → *EVEREST MAFIA* → tugma **HOZIR OʻYNASH** → `t.me/everest_mafia_uzbekiston` → Bot orqali oʻynang — bepul, oʻzbek tilida | «Tunda yoki kunda yutish sizning qo'lingizda. Hozir o'ynash uchun havola bio'da - Everest Mafia.» |
+| 8 | 27.4–34.8 | Mafiya stol → telefon (yuz) + CTA | **TUN YOKI KUN — GʻALABA SIZNIKI** → *EVEREST MAFIA* → tugma **HOZIR OʻYNASH** → `t.me/everest_mafia_uzbekiston` → Bot orqali oʻynang — bepul, oʻzbek tilida | «Tunda yoki kunda yutish sizning qo'lingizda. Hozir o'ynash uchun havola bio'da - Everest Mafia.» |
 
 ### Oʻyin rollari
 
