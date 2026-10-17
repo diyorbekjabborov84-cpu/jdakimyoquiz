@@ -47,14 +47,14 @@ SCENES = [
         parts=["02_gameplay.jpg", "04_phone.jpg"],
         kicker="SIZ SHAHARDASIZ",
         headline=["DOʻSTLARINGIZ", "YONDAKI XONADA"],
-        sub=["Ulardan biri — mafiya. Siz esa shahof."],
+        sub=["Ulardan biri — mafiya. Siz esa komissar."],
     ),
     dict(
         key="s3",
         parts=["03_roles.jpg"],
         kicker="ROLLAR",
-        headline=["KIM MAFIYA,", "KIM SHAHOF?"],
-        sub=["Mafiya · Shahof · Tibbiyotchi"],
+        headline=["TOʻRT TA ROL —", "KIM SIZ?"],
+        sub=["Mafiya · Komissar · Tinch aholi · Doktor"],
     ),
     dict(
         key="s4",
@@ -68,7 +68,7 @@ SCENES = [
         parts=["03_roles.jpg"],
         kicker="DALIL TOʻPLA",
         headline=["MAFIYANI USHLA"],
-        sub=["Shahof boʻlsangiz — shaharda yutasaniz"],
+        sub=["Dalil toʻplab, mafiyani ushlang."],
     ),
     dict(
         key="s6",
@@ -301,11 +301,26 @@ def build_scene_layers(scene: dict, w: int, h: int, out_dir: str, duration: floa
                 sub_blocks.append(dict(kind="lines", lines=_wrap(_DRAW, s, sub_f, max_w)))
 
         sub_line_h = int(sub_f.size * 1.32)
+        # balandlik hisobi: roʻyxat satrlarini oldindan hisoblaymiz
+        sub_row_count = 0
+        for b in sub_blocks:
+            if b["kind"] == "row":
+                widths = [
+                    text_layer(t, SERIF_I, int(h * 0.0255), DIM + (242,), stroke=2,
+                               stroke_fill=(0, 0, 0, 205), pad=8).width
+                    for t in b["items"]
+                ]
+                b["widths"] = widths
+                b["rows"] = _chunk_row(widths, int(w * 0.035), max_w)
+                sub_row_count += len(b["rows"])
+            else:
+                sub_row_count += len(b["lines"])
+
         block_h = (
             int(kick_f.size * 2.2)
             + len(head_lines) * line_h
             + int(h * 0.020)
-            + sum(len(b["items"]) if b["kind"] == "row" else len(b["lines"]) for b in sub_blocks) * sub_line_h
+            + sub_row_count * sub_line_h
         )
         bottom = int(h * 0.845)
         y = bottom - block_h
@@ -341,26 +356,23 @@ def build_scene_layers(scene: dict, w: int, h: int, out_dir: str, duration: floa
                     gi += 1
                     y += sub_line_h
             else:
-                # roʻyxat — qatorlab, har biri alohida ochiladi
+                # roʻyxat — qatorlab (kerak boʻlsa bir necha satrga), har biri alohida ochiladi
                 gap = int(w * 0.035)
-                widths = []
-                for tok in block["items"]:
-                    probe = text_layer(tok, SERIF_I, int(h * 0.0255), DIM + (242,), stroke=2,
-                                       stroke_fill=(0, 0, 0, 205), pad=8)
-                    widths.append(probe.width)
-                x = side
-                for j, tok in enumerate(block["items"]):
-                    layer = text_layer(tok, SERIF_I, int(h * 0.0255), DIM + (242,), stroke=2,
-                                       stroke_fill=(0, 0, 0, 205), pad=8)
-                    layer.save(os.path.join(out_dir, f"{key}_sub{gi}.png"))
-                    layers.append(dict(file=f"{key}_sub{gi}.png", x=x, y=y, delay=None, kind="text"))
-                    gi += 1
-                    x += widths[j] + gap
-                y += sub_line_h
+                widths = block["widths"]
+                for row in block["rows"]:
+                    x = side
+                    for j in row:
+                        layer = text_layer(block["items"][j], SERIF_I, int(h * 0.0255), DIM + (242,),
+                                           stroke=2, stroke_fill=(0, 0, 0, 205), pad=8)
+                        layer.save(os.path.join(out_dir, f"{key}_sub{gi}.png"))
+                        layers.append(dict(file=f"{key}_sub{gi}.png", x=x, y=y, delay=None, kind="text"))
+                        gi += 1
+                        x += widths[j] + gap
+                    y += sub_line_h
 
     # Qatlamlarning ochilish vaqti (sahna davomiyligiga moslashtiriladi)
     text_layers = [l for l in layers if l["kind"] == "text"]
-    span = duration * 0.68
+    span = min(duration * 0.68, 2.8)   # uzun sahnalarda matn kechiktirilmaydi
     step = span / max(1, len(text_layers))
     for i, l in enumerate(text_layers):
         l["delay"] = round(0.06 + i * step, 3)
@@ -369,6 +381,25 @@ def build_scene_layers(scene: dict, w: int, h: int, out_dir: str, duration: floa
             l["delay"] = 0.10
 
     return dict(key=key, duration=round(duration, 3), layers=layers, style=scene.get("style", "stack"))
+
+
+def _chunk_row(widths: list[int], gap: int, max_w: int) -> list[list[int]]:
+    """Elementlarni sigʻadigan qatorlarga boʻlish (rol chiplari uchun)."""
+    rows: list[list[int]] = []
+    cur: list[int] = []
+    cur_w = 0
+    for i, w in enumerate(widths):
+        add = w + (gap if cur else 0)
+        if cur and cur_w + add > max_w:
+            rows.append(cur)
+            cur = [i]
+            cur_w = w
+        else:
+            cur.append(i)
+            cur_w += add
+    if cur:
+        rows.append(cur)
+    return rows
 
 
 def _wrap(draw, text: str, fnt, max_w: int) -> list[str]:
