@@ -14,7 +14,7 @@
 |---|---|---|
 | 1 | Kislotalar haqidagi tushunchalar va ularning tarixi | "Kislota" iborasi, o'simlik va tabiiy kislotalar, tarixiy bosqichlar |
 | 2 | Kislotalarning tasnifi | Tuzilish, kislotalik, kuch, sonish darajasi bo'yicha tasnif; barcha tasnif jadvallari |
-| 3 | Kislotalarning tuzilmasi: elektronegativlik va markaziy atom | Tuzilish, gibridlanish, orbital, ion半径 (o'lcham), kislotalik bilan bog'liqlik |
+| 3 | Kislotalarning tuzilmasi: elektronegativlik va markaziy atom | Tuzilish, gibridlanish, orbital, ion radiusi (o'lcham), kislotalik bilan bog'liqlik |
 | 4 | Proton nazariyasi: Brønsted–Lowry | Proton almashinuvi, kislotalar va asoslar juftligi, konjugatsiya, kislotalik kuchi taqqoslash |
 | 5 | Lyuis nazariyasi | Elektron juftligi, nukleofil/ elektrofil, kislotalar sifatida Lyuis kislotalari |
 | 6 | Kislotalik kuchining o'lchovi | Ka, pKa, suvda va eritmali muhitda, kislotalik shkalasi, ta'sir etuvchi omillar |
