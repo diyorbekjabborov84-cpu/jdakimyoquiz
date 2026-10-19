@@ -39,3 +39,8 @@ Thumbs.db
 
 # Kitob build artefaktlari
 kitob/chiqish/
+
+# Python
+__pycache__/
+*.pyc
+.venv-book/
