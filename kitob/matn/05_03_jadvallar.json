@@ -1,0 +1,692 @@
+{
+  "namlik": {
+    "caption": "5.3.1-jadval. Suvning holatlari, namlik ko‘rsatkichlari va o‘lchov usullari",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Erkin (hajmiy) suv",
+        "Eritmada erigan suv",
+        "Bug‘lash, ekstraksiya"
+      ],
+      [
+        "Kristallizatsiya suvi",
+        "Gidrat tuzda stixiometrik",
+        "Fazaviy o‘zgarish"
+      ],
+      [
+        "Sorbsiyalangan suv",
+        "Sirt va mikroporalarda",
+        "Quritgich, vakuum"
+      ],
+      [
+        "Reagent suvi",
+        "Reaksiyada sarflangan yoki hosil bo‘lgan",
+        "Massa balansi"
+      ],
+      [
+        "X (nam asos) va w (quruq asos)",
+        "m(suv)/m(namuna); m(suv)/m(quruq modda)",
+        "Model: 0,35 kg / 1,00 kg → 0,2593; w = 0,350"
+      ],
+      [
+        "Quruq qoldig‘ (2.2.32)",
+        "Massa yo‘qotishi, m/m %",
+        "Model: 10,00 g → 9,95 g → 0,50 %"
+      ],
+      [
+        "Karl Fischer (2.5.12) va TGA (2.2.34)",
+        "Faqat suv; massa yo‘qotishi haroratga bog‘liq",
+        "Tarkibni ajratadi"
+      ],
+      [
+        "Chegara",
+        "Usullar o‘zaro almashtirilmaydi",
+        "Monografiyadagi usul majburiy"
+      ]
+    ]
+  },
+  "higroskopiklik": {
+    "caption": "5.3.2-jadval. Higroskopiklik sinovi: sharoit, hisob va sinflar (Ph. Eur. 5.11)",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Shkaf",
+        "50 mm diametr, 15 mm balandlik",
+        "m₁ — idish va tiqin"
+      ],
+      [
+        "Namlik sharoiti",
+        "25 ± 1 °C, 80 ± 2 % RH, 24 h",
+        "Yoki to‘yingan NH₄Cl/(NH₄)₂SO₄"
+      ],
+      [
+        "Massa o‘sishi",
+        "(m₃ − m₂)/(m₂ − m₁) × 100 %",
+        "Model: 3,50 %"
+      ],
+      [
+        "Deliquescent",
+        "Suv yetarlicha yig‘ilib suyuq hosil qiladi",
+        "Eng kuchli sinf"
+      ],
+      [
+        "Juda higroskopik",
+        "Massa o‘sishi ≥ 15 %",
+        "Ph. Eur. 5.11"
+      ],
+      [
+        "Higroskopik",
+        "2 % ≤ o‘sish < 15 %",
+        "Model misoli shu sinfda"
+      ],
+      [
+        "Biroz higroskopik",
+        "0,2 % ≤ o‘sish < 2 %",
+        "Ph. Eur. 5.11"
+      ],
+      [
+        "Efflorescence",
+        "Gidrat kristallizatsiya suvini yo‘qotadi",
+        "Gold Book E01909"
+      ],
+      [
+        "Kislotaga ta’siri",
+        "H₂SO₄ nam tortadi; HCl nam yig‘adi",
+        "5.2 va 4.5-bo‘lim"
+      ],
+      [
+        "Chegara",
+        "Sinov — miqdorni emas, darajani ko‘rsatadi",
+        "Tajriba ma’lumoti emas"
+      ]
+    ]
+  },
+  "usullar": {
+    "caption": "5.3.3-jadval. QuRITish usullarining taqqoslash",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Mexanik",
+        "Quruq filtratsiya, sentrifugalash",
+        "Faqat erkin suvni oladi"
+      ],
+      [
+        "Fizik: shkaf",
+        "105 °C da bug‘latish",
+        "Oddiy, arzon, sekin"
+      ],
+      [
+        "Fizik: vakuum",
+        "Past bosimda bug‘lanish",
+        "Past haroratda samarali"
+      ],
+      [
+        "Fizik: gaz oqimi",
+        "Quruq N₂ yoki H₂ bilan",
+        "Namni olib ketadi"
+      ],
+      [
+        "Kimyoviy",
+        "P₂O₅, CaCl₂, molekulyar sital",
+        "Suvni bog‘laydi"
+      ],
+      [
+        "Fizik-kimyoviy",
+        "Azeotrop, ekstraksiya",
+        "Yordamchi komponent bilan"
+      ],
+      [
+        "Maxsus: suhlatish",
+        "Muz sublimatsiyasi",
+        "Termik beqaror moddalar"
+      ],
+      [
+        "Maxsus: spray",
+        "Tez bug‘latish, zarracha hosil qilish",
+        "Granulometriya o‘zgaradi"
+      ],
+      [
+        "Tanlash mezoni",
+        "Namlik darajasi, reaksiyaga kirish, chiqindi",
+        "Energiya bilan birga"
+      ],
+      [
+        "Chegara",
+        "Amaliy parametrlar berilmaydi",
+        "7, 8, 12-bo‘limlarda"
+      ]
+    ]
+  },
+  "vakuum": {
+    "caption": "5.3.4-jadval. Vakuumning ta’siri: qaynash harorati va muvozanat namligi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "ΔvapH (25 °C)",
+        "44,01 kJ/mol",
+        "ΔfH°(g) − ΔfH°(l); OpenStax App. G"
+      ],
+      [
+        "ΔvapH (100 °C)",
+        "40,657 kJ/mol",
+        "CRC"
+      ],
+      [
+        "p_sat (25 °C)",
+        "2,858 kPa",
+        "Model"
+      ],
+      [
+        "101,325 kPa",
+        "T = 100,0 °C",
+        "Model nuqtasi"
+      ],
+      [
+        "10,0 kPa",
+        "T = 43,96 °C",
+        "Model"
+      ],
+      [
+        "2,5 kPa",
+        "T = 17,80 °C",
+        "Ph. Eur. 2.2.32 (b)"
+      ],
+      [
+        "1,5 kPa",
+        "T = 9,22 °C",
+        "Ph. Eur. 2.2.32 (b)"
+      ],
+      [
+        "0,1 kPa",
+        "T = −28,96 °C",
+        "Ph. Eur. 2.2.32 (e)"
+      ],
+      [
+        "Muvozanat namligi",
+        "w_eq = w_m·C·x/(1 + (C − 1)x)",
+        "w_m = 0,05; C = 10"
+      ],
+      [
+        "Muvozanat namligi",
+        "20 % RH → 0,0357; 80 % → 0,0488 kg/kg",
+        "Model"
+      ]
+    ]
+  },
+  "azeotrop": {
+    "caption": "5.3.5-jadval. Azeotropik quritish: entrainerlar va suv sig‘imi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Toluen–suv",
+        "84,1 °C; suv 19,8 % (x = 0,444)",
+        "1 kg toluen → 0,2469 kg suv"
+      ],
+      [
+        "Sikloheksan–suv",
+        "69,5 °C; suv 8,4 % (x = 0,300)",
+        "1 kg → 0,0917 kg suv"
+      ],
+      [
+        "n-geptan–suv",
+        "70,9 °C; suv 12,5 % (x = 0,376)",
+        "1 kg → 0,1429 kg suv"
+      ],
+      [
+        "Fazalar",
+        "Yuqori: ~99,95 % entrainer; pastki: ~99,95 % suv",
+        "Heteroazeotrop"
+      ],
+      [
+        "Model: suv chiqishi",
+        "1000 kg 68 % HNO₃ → 0,5 %: 316,58 kg",
+        "Model"
+      ],
+      [
+        "Model: distillat",
+        "1598,90 kg",
+        "Model"
+      ],
+      [
+        "Model: toluen",
+        "1282,32 kg; yo‘qotish 0,158 kg",
+        "Entrainer qaytadi"
+      ],
+      [
+        "Vakuumda",
+        "Harorat pasayadi, tarkib o‘zgarmaydi",
+        "Chegara"
+      ],
+      [
+        "Chegara",
+        "Entrainer kislota bilan reaksiyaga kirmasligi kerak",
+        "Amaliyot tavsiyasi emas"
+      ]
+    ]
+  },
+  "quritgich": {
+    "caption": "5.3.6-jadval. Kimyoviy quritgichlar va molekulyar sitalar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "P₂O₅ + 3H₂O → 3H₃PO₄",
+        "Sig‘im 38,08 % massaga",
+        "Ph. Eur. 2.2.32 desikatorda"
+      ],
+      [
+        "CaCl₂ → CaCl₂·6H₂O",
+        "Sig‘im 0,974 kg suv/kg",
+        "Gidratlanuvchi reagent"
+      ],
+      [
+        "MgSO₄ → MgSO₄·7H₂O",
+        "Sig‘im 1,048 kg suv/kg",
+        "Massa oshadi"
+      ],
+      [
+        "3A sital",
+        "3 Å; sig‘im 19,5 %",
+        "K shakli; faqat suv"
+      ],
+      [
+        "4A sital",
+        "4 Å; sig‘im 20,5 %",
+        "Umumiy quritgich"
+      ],
+      [
+        "5A sital",
+        "5 Å; sig‘im 21,0 %",
+        "Ca shakli; n-paraffinlar"
+      ],
+      [
+        "13X sital",
+        "10 Å; sig‘im 23,5 %",
+        "CO₂ va katta molekulalar"
+      ],
+      [
+        "Model: sital massasi",
+        "100,0 kg suv uchun 487,8 kg (4A)",
+        "Model"
+      ],
+      [
+        "Regeneratsiya",
+        "200–300 °C",
+        "Energiya sarfi"
+      ],
+      [
+        "Chegara",
+        "Sital kislotada erimaydi, qaytarilmaydi",
+        "Chiqindi masalasi"
+      ]
+    ]
+  },
+  "gidrat": {
+    "caption": "5.3.7-jadval. Kristall gidratlarini quritish: fazaviy o‘tish",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "CuSO₄·5H₂O",
+        "M = 249,68 g/mol",
+        "Boshlang‘ich faza"
+      ],
+      [
+        "CuSO₄·3H₂O",
+        "M = 213,65 g/mol",
+        "Oraliq faza"
+      ],
+      [
+        "CuSO₄·H₂O",
+        "M = 177,62 g/mol",
+        "Model maqsadi"
+      ],
+      [
+        "CuSO₄",
+        "M = 159,61 g/mol",
+        "Anhiddrid"
+      ],
+      [
+        "Model: suv chiqishi",
+        "288,60 kg (1000 kg pentahidratdan)",
+        "Model"
+      ],
+      [
+        "Model: mahsulot",
+        "711,40 kg monohidrat",
+        "Model"
+      ],
+      [
+        "Model: anhiddrid",
+        "360,75 kg suv; 639,25 kg mahsulot",
+        "Model"
+      ],
+      [
+        "Suv ulushi",
+        "36,08 % → 10,14 %",
+        "Model"
+      ],
+      [
+        "Qayta namlanish",
+        "Maydalashgan kristallar nam qaytaradi",
+        "Yopiq idish saqlash"
+      ],
+      [
+        "Efflorescence",
+        "Tabiiy suv yo‘qotish — saqlashda ham",
+        "Gold Book E01909"
+      ]
+    ]
+  },
+  "ekstraksiya": {
+    "caption": "5.3.8-jadval. Ekstraksiya, adsorbsiya va membranaviy suvsizlantirish",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Ekstraksiya",
+        "Suvni organik fazaga ko‘chirish",
+        "Past haroratda ishlaydi"
+      ],
+      [
+        "Taqsimot koeffitsienti",
+        "D = c_organik/c_suv",
+        "Model"
+      ],
+      [
+        "Adsorbsiya",
+        "Langmuir: q = q_max·K·C/(1 + K·C)",
+        "5.2-bob bilan bog‘liq"
+      ],
+      [
+        "Adsorbent",
+        "Molekulyar sital, silikagel",
+        "Suv sig‘imi 19,5–23,5 %"
+      ],
+      [
+        "Nanofiltratsiya",
+        "Kation va mayda zarrachalarni ushlash",
+        "Selektivlik"
+      ],
+      [
+        "Elektrodializ",
+        "Kation va anionlarni ajratish",
+        "Elektr maydoni"
+      ],
+      [
+        "Osmotik bosim",
+        "Π = cRT",
+        "Model"
+      ],
+      [
+        "Chegara",
+        "Kislotaga xos ifloslikka ta’sir qilmaydi",
+        "5.2 bilan birga kerak"
+      ],
+      [
+        "Tartib",
+        "Avval tozalash, keyin quritish",
+        "Ketma-ketlik mantiqi"
+      ]
+    ]
+  },
+  "nazorat": {
+    "caption": "5.3.9-jadval. Suv miqdori nazorati: usullar, namuna va hujjat",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Karl Fischer reaksiyasi",
+        "I₂ + H₂O + SO₂ + 3Py → 2Py·HI + Py·SO₃",
+        "1:1 stixiometriya (EPA 9000)"
+      ],
+      [
+        "Model hisob",
+        "2,000 g namuna; 0,50 mol/L; 22,2 mL",
+        "m(H₂O) = 0,2000 g → 10,00 %"
+      ],
+      [
+        "Karl Fischer",
+        "Faqat suvni o‘lchaydi",
+        "Tez, aniq"
+      ],
+      [
+        "Quruq qoldig‘",
+        "Barcha uchuvchi moddalar",
+        "Gravimetrik"
+      ],
+      [
+        "TGA",
+        "Haroratga bog‘liq mass yo‘qotish",
+        "Tarkibni ajratadi"
+      ],
+      [
+        "Namuna olish",
+        "Toza, qopqoqli idish, o‘z vaqtida",
+        "Zaif nuqta"
+      ],
+      [
+        "Saqlash",
+        "Qopqoq, inert atmosfera, desikator",
+        "Nam qaytmasin"
+      ],
+      [
+        "Hujjat",
+        "Partiya, sana, usul, sharoit, natija",
+        "Izchillik"
+      ],
+      [
+        "Chegara",
+        "Suhat vaqtida nam o‘lchash",
+        "Natija aylanadi"
+      ]
+    ]
+  },
+  "energetika": {
+    "caption": "5.3.10-jadval. Energetika, iqtisodiyot va chiqindi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "1 kg suv",
+        "2,2568 MJ = 0,6269 kWh",
+        "ΔvapH = 40,657 kJ/mol"
+      ],
+      [
+        "Gidrat quritish",
+        "288,60 kg suv → 651,3 MJ (180,9 kWh)",
+        "Model A"
+      ],
+      [
+        "Azeotrop",
+        "316,58 kg suv → 714,5 MJ",
+        "Model B"
+      ],
+      [
+        "Azeotrop + toluen",
+        "1282,32 kg → 529,7 MJ; jami 1244,2 MJ",
+        "Model B"
+      ],
+      [
+        "Sital bilan",
+        "0,18 kWh/kg suv (model)",
+        "Regeneratsiya yashirin"
+      ],
+      [
+        "Vakuum bilan",
+        "0,85 kWh/kg suv (model)",
+        "Nisbiy qiymat"
+      ],
+      [
+        "Shkaf bilan",
+        "1,05 kWh/kg suv (model)",
+        "Nisbiy qiymat"
+      ],
+      [
+        "Azeotrop bilan",
+        "1,55 kWh/kg suv (model)",
+        "Entrainer aylanishi"
+      ],
+      [
+        "Chiqindi omili",
+        "H₃PO₄, adsorbat, suv fazasi",
+        "Reagent sarfi"
+      ],
+      [
+        "Chegara",
+        "Model qiymatlari — reyting emas",
+        "5.4-bo‘lim iqtisodiyoti"
+      ]
+    ]
+  },
+  "hisob": {
+    "caption": "5.3.11-jadval. Ishlangan hisob natijalari va ularning taqqoslanishi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Model A: boshlang‘ich",
+        "1000,0 kg CuSO₄·5H₂O",
+        "M = 249,68 g/mol"
+      ],
+      [
+        "Model A: miqdor",
+        "n = 4,0051 kmol",
+        "Model"
+      ],
+      [
+        "Model A: suv",
+        "288,60 kg",
+        "4 mol H₂O / mol"
+      ],
+      [
+        "Model A: mahsulot",
+        "711,40 kg CuSO₄·H₂O",
+        "Nazorat: 1000,0 − 288,60"
+      ],
+      [
+        "Model A: namlik",
+        "36,08 % → 10,14 %",
+        "Model"
+      ],
+      [
+        "Model A: energiya",
+        "651,3 MJ = 180,9 kWh",
+        "Model"
+      ],
+      [
+        "Model B: boshlang‘ich",
+        "1000,0 kg 68 % li HNO₃",
+        "HNO₃ 680,0 kg"
+      ],
+      [
+        "Model B: suv",
+        "316,58 kg; distillat 1598,90 kg",
+        "Toluen bilan"
+      ],
+      [
+        "Model B: yo‘qotish",
+        "Toluen 0,158 kg",
+        "Entrainer qaytadi"
+      ],
+      [
+        "Chegara",
+        "Faollik va issiqlik hisobga olinmagan",
+        "Tajriba ma’lumoti emas"
+      ]
+    ]
+  }
+}

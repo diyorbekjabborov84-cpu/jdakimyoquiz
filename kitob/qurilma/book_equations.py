@@ -45,6 +45,9 @@ def chem(s):
     return result
 
 def equations(topic):
+    if topic=='5.3':
+        from equations_05_03 import drying_equations
+        return drying_equations()
     if topic=='5.2':
         from equations_05_02 import purification_equations
         return purification_equations()
