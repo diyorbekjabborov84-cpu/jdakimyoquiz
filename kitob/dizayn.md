@@ -454,3 +454,13 @@ Hamma yangi nusxalar reader/discovery=false. Oldingi Drive fayllari o‘chirilma
 - Yakuniy Google Docs: https://docs.google.com/document/d/1RdFsZCju6_YqF6m7yVq79gr5v6B3DgXP75e-B8HY54A/edit
 - Ikkala yakuniy nusxa reader/discovery=false. Manbalar, model va render QA `matn/05_01_rasm_manbasi.md` da.
 - Keyingi mavzu: 5.2 — Tozalash.
+
+### 5-bob kirish vizuali (2026-10-22)
+- `rasmlar/5-bob-kirish-sarlavhali.png` (1664×2496, A4 150 dpi): 4-bob vizuali uslubiy referens sifatida ishlatilib yaratilgan 5-bob kirish rasmi. Alohida saqlanadi, mavzu DOCXlariga kiritilmaydi.
+- Kompozitsiya: yuqorida «II QISM · UMUMIY KIMYO» (bronza, letter-spacing 7 px), ostida ingichka qo‘ng‘iroq chizig‘i va olmos; «5-BOB»; katta to‘q ko‘k sarlavha «Olish, tozalash, / konsentrlash» (Playfair Display 160 px, ikki qator, 190 px qator oralig‘i); chiziq + olmos; «BOB MAVZULARI»; 4 ta mavzu (5.1 Olishning umumiy usullari, 5.2 Tozalash, 5.3 Quritish va suvsizlantirish, 5.4 Sanoat prinsiplari) — raqamlar bronza, nomlar to‘q ko‘k, har biri ostida ingichka qo‘ng‘iroq chizig‘i.
+- Fon: `rasmlar/5-bob-fon.png` — AI konsept-art (distillatsion ustun, mis kondenser, amber/teal suyuqli kolbalar, kristallar, oltin nur). AI rasmga matn joylanmagan: barcha yozuvlar dasturiy tipografiya bilan qo‘shilgan, shuning uchun o‘zbekcha imlo aniq.
+- Fon kadrga solindi va kattalashtirildi (chapdan 0–844 px, 100–1366 qatori) — jihozlar o‘ng pastki burchakka surilib, sarlavha va mavzular ro‘yxati toza krem maydonda qoldi; yuqoriga yengil krem parda qo‘llandi.
+- Shriftlar: `rasmlar/shriftlar/` — Playfair Display (400/500/600) va Libre Baskerville (400/700) latin TTF; @fontsource woff2 paketlaridan fontTools yordamida TTF ga o‘tkazildi. Sil OFL 1.1 (fayllar `OFL-PlayfairDisplay.txt`, `OFL-LibreBaskerville.txt`).
+- Generator: `qurilma/kirish_5_bob.py` (Pillow; deterministik, qayta ishga tushirilsa bir xil natija).
+- QA: birinchi renderda sarlavha qatorlari ustma-ust tushgan (104 px qator oralig‘i), ro‘yxat apparat ustiga chiqqan, chiziq+olmos birinchi mavzu ustiga tushgan edi — barchasi tuzatildi (qator oralig‘i 190 px, fon kadrga solindi, element tartibi 4-bobdagidek qilindi).
+- AI konsept-art; tajribaviy foto yoki mexanizmning ilmiy dalili emas.
