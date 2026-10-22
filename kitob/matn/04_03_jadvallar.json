@@ -1,0 +1,372 @@
+{
+  "distinction": {
+    "caption": "4.3.1-jadval. Immun holat, passiv holat va oddiy cho‘kma",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Immun holat",
+        "Metall termodinamik barqaror",
+        "Berilgan potensial/pH va turlar uchun"
+      ],
+      [
+        "Faol korroziya",
+        "Anod erish tezligi katta",
+        "Mahsulotlar chetlanadi; parda yetarli emas"
+      ],
+      [
+        "Passiv holat",
+        "Sirt to‘sig‘i erishni sekinlatadi",
+        "Kichik, ammo noldan farqli tezlik mumkin"
+      ],
+      [
+        "G‘ovak cho‘kma",
+        "Yomon qoplash yoki yopishish",
+        "Oksid borligi himoya isboti emas"
+      ],
+      [
+        "Tashqi tok nol",
+        "i_a+i_c=0",
+        "Ichki qisman toklar nol bo‘lishi shart emas"
+      ]
+    ]
+  },
+  "films": {
+    "caption": "4.3.2-jadval. Parda tarkibi va uning shartli tasviri",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Fe",
+        "Fe(II)/Fe(III), oksid/oksigidroksid",
+        "Yagona sof kristall formula emas"
+      ],
+      [
+        "Cr / zanglamas po‘lat",
+        "Cr(III) ga boy to‘siq qatlam",
+        "Tashqi gidratlangan qism va qotishma ta’siri"
+      ],
+      [
+        "Al",
+        "Oksid/gidroksidli sirt",
+        "Kislota va ishqorda erishi mumkin"
+      ],
+      [
+        "Ti",
+        "Oksidli himoya",
+        "Barcha muhitlarga mutlaq inert emas"
+      ],
+      [
+        "Samarali to‘siq",
+        "Uzluksizlik, yopishish, transport",
+        "Faqat qalinlikning o‘zi yetmaydi"
+      ]
+    ]
+  },
+  "polarization": {
+    "caption": "4.3.3-jadval. Sun’iy anod modelining to‘rt hududi",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Faol",
+        "E_rel=0…0,300 V",
+        "i 10⁻⁶ dan 10⁻³ A cm⁻² gacha"
+      ],
+      [
+        "Faol–passiv o‘tish",
+        "E_rel=0,300…0,450 V",
+        "Tok 3 tartibga pasayadi"
+      ],
+      [
+        "Passiv",
+        "E_rel=0,450…0,800 V",
+        "i_pass=10⁻⁶ A cm⁻²"
+      ],
+      [
+        "Yuqori potensial",
+        "E_rel>0,800 V",
+        "Qo‘shimcha anod tok ortishi modeli"
+      ],
+      [
+        "Muhim cheklov",
+        "Ixtiyoriy o‘quv etaloni",
+        "Real metallning xavfsiz ish oynasi emas"
+      ]
+    ]
+  },
+  "acids": {
+    "caption": "4.3.4-jadval. Kislota nomi va sirt holatini birga talqin qilish",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Sovuq konsentrlangan HNO₃",
+        "Fe, Cr, Al passivlanishi mumkin",
+        "Metall navi, sirt va harorat muhim"
+      ],
+      [
+        "Oksidlovchi katod yo‘li",
+        "Potensialni passiv sohaga olib kelishi mumkin",
+        "E° ning o‘zi yetarli emas"
+      ],
+      [
+        "Sovuq konsentrlangan H₂SO₄",
+        "Ayrim temirli materiallar sekin yemiriladi",
+        "Parda, suv faolligi va transportni ajrating"
+      ],
+      [
+        "Harorat / suyultirish",
+        "Erish va parda saqlanishi o‘zgaradi",
+        "Idish materiali nazariy qoidadan tanlanmaydi"
+      ],
+      [
+        "Sun’iy ikki katod modeli",
+        "Faol: E_rel=0,150 V; passiv: 0,700 V",
+        "i mos ravishda 3,162×10⁻⁵ va 10⁻⁶ A cm⁻²"
+      ]
+    ]
+  },
+  "kinetics": {
+    "caption": "4.3.5-jadval. L₀=0,500 nm; L_lim=4,00 nm; k_g=0,0200 s⁻¹",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "v_diss=0,0200 nm s⁻¹",
+        "L_inf=3,00 nm",
+        "O‘sish–erish balansi"
+      ],
+      [
+        "v_diss=0,0600 nm s⁻¹",
+        "L_inf=1,00 nm",
+        "Boshqa musbat limit"
+      ],
+      [
+        "v_diss=0,0800 nm s⁻¹",
+        "L_inf=0",
+        "Parda kamayadigan chegaraviy model"
+      ],
+      [
+        "1/k_g",
+        "50,0 s",
+        "Modelning relaksatsiya vaqt ko‘lami"
+      ],
+      [
+        "L_inf>0",
+        "Musbat qalinlik sharti",
+        "Himoya va uzluksizlik alohida tekshiriladi"
+      ]
+    ]
+  },
+  "pitting": {
+    "caption": "4.3.6-jadval. Mahalliy korroziyada o‘zaro kuchayuvchi omillar",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Metall ionlari chiqishi",
+        "Al → Al³⁺+3e⁻ misoli",
+        "Mahalliy anod joyi"
+      ],
+      [
+        "Gidroliz",
+        "Mahalliy H⁺ ortishi mumkin",
+        "Tashqi pH bilan teng bo‘lishi shart emas"
+      ],
+      [
+        "Ionlar ko‘chishi",
+        "Cl⁻ va boshqa ionlar muvozanati",
+        "Xloridning oksidlanishi shart emas"
+      ],
+      [
+        "Cheklangan transport",
+        "Chuquroqda boshqa kimyo",
+        "Tirqish geometriyasi ham muhim"
+      ],
+      [
+        "E_rp<E_pit bo‘lishi mumkin",
+        "Boshlanish va davom etish chegarasi boshqa",
+        "Etalon, vaqt va sirt tarixini yozing"
+      ]
+    ]
+  },
+  "highpotential": {
+    "caption": "4.3.7-jadval. Katta anod tokini bitta sababga bog‘lamang",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Transpassiv erish",
+        "Parda markazi yuqori darajaga o‘tadi",
+        "Cr(III)→Cr(VI) misoli"
+      ],
+      [
+        "Kislorod ajralishi",
+        "Suv anodda oksidlanadi",
+        "Tok ortishi metall erishining o‘zi emas"
+      ],
+      [
+        "Mahalliy buzilish",
+        "Cl⁻ li tizimda oldinroq bo‘lishi mumkin",
+        "Pitting bilan transpassivlik boshqa"
+      ],
+      [
+        "Mexanik shikast",
+        "Yalang‘och joy ochiladi",
+        "Elektrokimyoviy yuqori valentli erish emas"
+      ],
+      [
+        "Material farqi",
+        "Elektron/ion transporti boshqacha",
+        "Barcha oksidlar bir xil tutmaydi"
+      ]
+    ]
+  },
+  "evidence": {
+    "caption": "4.3.8-jadval. Usul qaysi savolga javob beradi?",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Potensial–tok / vaqt",
+        "Faol–passiv o‘tish va relaksatsiya",
+        "Skan tezligi va iR xatosi tekshiriladi"
+      ],
+      [
+        "R_p / kichik-signal",
+        "Mos modelda i_corr bahosi",
+        "Tafel qiyaligi yoki B kerak"
+      ],
+      [
+        "XPS",
+        "Sirt kimyoviy holati",
+        "Yakka o‘zi chuqurcha tezligini bermaydi"
+      ],
+      [
+        "Mikroskopiya",
+        "Pitting, darz va morfologiya",
+        "Kimyoviy tarkib uchun qo‘shimcha usul"
+      ],
+      [
+        "Eritmadagi metall / massa",
+        "Jami yo‘qotish yoki erish",
+        "Kichik o‘rtacha son mahalliy xavfni yashiradi"
+      ]
+    ]
+  },
+  "worked": {
+    "caption": "4.3.9-jadval. Al→Al³⁺; i_M=1,000 μA cm⁻²; A=10,00 cm²; 24 soat",
+    "headers": [
+      "Obyekt / bosqich",
+      "Mazmun / hisob",
+      "Chegara / natija"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Metall erish toki",
+        "i_M A",
+        "10,00 μA"
+      ],
+      [
+        "Elektr miqdori",
+        "It",
+        "0,8640 C"
+      ],
+      [
+        "Massa ekvivalenti",
+        "QM/(3F)",
+        "0,08054 mg"
+      ],
+      [
+        "Bir tekis qalinlik",
+        "m/(ρA)",
+        "0,02983 μm"
+      ],
+      [
+        "Faol maydon ulushi",
+        "f=0,001000",
+        "fA=0,01000 cm²"
+      ],
+      [
+        "Mahalliy tok zichligi",
+        "i_M/f",
+        "1,000 mA cm⁻²"
+      ],
+      [
+        "Mahalliy o‘rtacha ekvivalent",
+        "h_uniform/f",
+        "29,83 μm; maksimal pit chuqurligi emas"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+[
+  [
+    ["Atamaning izi", "Inglizcha acid lotincha acidus — «nordon» so‘ziga borib taqaladi. O‘zbekcha kislota esa rus tili orqali o‘zlashgan. Bir tushuncha turli tillarda turlicha tarixga ega."],
+    ["Bitta rang — ko‘p sabab", "Lakmusning qizarishi HCl ni HNO₃ dan ajratmaydi. Indikator muhit haqida xabar beradi, moddaning aniq nomini aytmaydi."],
+    ["O‘ylab ko‘ring", "Suvdagi NaCl ham tok o‘tkazadi. Faqat elektr o‘tkazuvchanlikka qarab eritmani kislota deb atash mumkinmi? Yo‘q: bu ionlar mavjudligining belgisi."]
+  ],
+  [
+    ["Nega «moy»?", "Konsentrlangan sulfat kislota qovushqoq suyuqlikdir. «Vitriol moyi» degan tarixiy nom tashqi ko‘rinishni eslatadi; bu modda kimyoviy ma’noda yog‘ yoki moy emas."],
+    ["Sirka qanday paydo bo‘ladi?", "Sirka hosil bo‘lishida etanol kislorod ishtirokida mikrobiologik oksidlanadi. Bu jarayonni mineral kislotalarni haydab olish bilan aralashtirmaslik kerak."],
+    ["Tarixchining ehtiyoti", "Eski retseptdagi «kislota» zamonaviy toza reagent bo‘lmasligi mumkin. Xomashyo va yig‘ish usuli mahsulotdagi aralashmalarni ham belgilagan."]
+  ],
+  [
+    ["Nomda qolgan faraz", "Oxygen nomi tarixan «kislota hosil qiluvchi» mazmunini aks ettiradi. Nazariya o‘zgargan, ammo kimyoviy elementning nomida uning izi saqlanib qolgan."],
+    ["Qarama-qarshi misol", "Na₂O kislorod saqlaydi, ammo suv bilan asos hosil qiladi: Na₂O + H₂O → 2NaOH. Kislorod borligining o‘zi kislotalilikni kafolatlamaydi."],
+    ["Mantiqiy kalit", "«Ba’zi kislotalarda kislorod bor» va «barcha kislotalarda kislorod bor» — boshqa-boshqa hukmlar. Ikkinchisini rad etish uchun bitta ishonchli qarshi misol yetarli."]
+  ],
+  [
+    ["Yashirin farq", "H₃PO₃ va H₃PO₄ formulalarida vodorodlar soni teng. Ammo birinchisida bitta vodorod bevosita fosforga bog‘langan. Sxemadagi farq asoslikni tushuntiradi."],
+    ["Yana bir misol", "H₃PO₂ odatiy suvli kislota–asos jarayonida bir asosli: uning tuzilishida bitta O–H va ikkita P–H bog‘i mavjud. Formuladagi uch vodorod uch asoslik degani emas."],
+    ["Adashtirmang", "Asoslik — almashinadigan protonlar soni. Kislota kuchi — berilgan muhitdagi proton berish muvozanati bilan bog‘liq xususiyat. Ularni bitta mezon sifatida ishlatmang."]
+  ],
+  [
+    ["Proton yolg‘iz qolmaydi", "Suvda H⁺ belgisi gidratlangan protonning qisqartmasidir. H₃O⁺ yozuvi suvning ishtirokini ko‘rsatadi; haqiqiy solvatlanish bundan murakkab bo‘lishi mumkin."],
+    ["Kuzatuvchi ionlar", "HCl va NaOH ning suyultirilgan eritmalari neytrallanganda Na⁺ hamda Cl⁻ ionlari qisqartirilgan ion tenglamasiga kirmaydi. Ular eritmada qoladi."],
+    ["Kuchmi, miqdormi?", "Bir xil kislota eritmasini suyultirish uning konsentratsiyasini va odatda pH qiymatini o‘zgartiradi. Bundan kislotaning tabiati o‘zgardi degan xulosa kelib chiqmaydi."]
+  ],
+  [
+    ["Suvning ikki vazifasi", "HCl bilan suv proton qabul qiladi. NH₃ bilan esa proton beradi. Zarrachaning kislota yoki asos vazifasi reaksiyadagi sherigiga ham bog‘liq."],
+    ["Protonsiz kislota", "BF₃ tarkibida vodorod yo‘q. Shunga qaramay, u NH₃ ning elektron juftini qabul qilib Lewis kislotasi sifatida qatnashadi. Proton ko‘chishi shart emas."],
+    ["O‘q nimani bildiradi?", "F₃B←NH₃ yozuvida o‘q elektron juftini beruvchi azotdan uni qabul qiluvchi borga yo‘nalgan. Bu belgi protonning harakatini emas, bog‘ hosil bo‘lishini ifodalaydi."]
+  ],
+  [
+    ["Gaz boshqa, eritma boshqa", "Vodorod xlorid gazi va uning suvli eritmasi bir xil fizik-kimyoviy tizim emas. Suvli muhitga oid pH tushunchasini quruq gazga bevosita tatbiq qilib bo‘lmaydi."],
+    ["To‘rtta savol", "Qaysi zarracha? Qanday sherik? Qaysi muhit? Qaysi nazariy mezon? Kislota–asos jarayonini tahlil qilishni shu savollardan boshlash foydali."],
+    ["Keyingi qadam", "Arrhenius nazariyasida turli kislotalarning suvdagi umumiy xossalari ion modeli orqali tushuntiriladi. Endi asosiy savol: bu umumiylik qaysi zarracha bilan bog‘liq?"]
+  ]
+]

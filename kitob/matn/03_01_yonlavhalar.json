@@ -1,0 +1,92 @@
+[
+  [
+    [
+      "Suvning vazifasi",
+      "Suv modelida O qizil, H oq. Proton qabul qilishda donor elektron jufti va solvatlanish birga muhim."
+    ],
+    [
+      "Bir xil kislota",
+      "Kₐ o‘zgarmas ideal hisobda konsentratsiya o‘zgarsa α o‘zgarishi mumkin. Ulushni kuch bilan tenglashtirmang."
+    ]
+  ],
+  [
+    [
+      "Standart holat",
+      "c°=1 mol L⁻¹. Faollik shu standartga nisbatan o‘lchamsiz. pKₐ ta’rifida o‘lchamsiz Kₐ ishlatiladi."
+    ],
+    [
+      "Ikki xil konstanta",
+      "Termodinamik Kₐ va konsentratsion K_c ning soni ideal shartda mos kelishi ularning birliklarini teng qilmaydi."
+    ]
+  ],
+  [
+    [
+      "HF faqat vizual misol",
+      "HF modeli monoprotik modda tuzilishini ko‘rsatadi. Matndagi Kₐ=10⁻⁵ uning o‘lchangan konstantasi emas."
+    ],
+    [
+      "Yo‘nalishni tekshiring",
+      "pKₐ kamayganda Kₐ ortadi. Uch birlik farq uch emas, ming marta konstantalar nisbatidir."
+    ]
+  ],
+  [
+    [
+      "Grafik sharti",
+      "K_c/C=α²/(1−α). Faqat HA, bitta proton, γ=1; suv va boshqa ionlar hisobga olinmagan."
+    ],
+    [
+      "Foizga aylantirish",
+      "α=0,0311267 — ulush; 100α=3,11267%. 0,031 va 3,1% bir xil mazmundagi turli yozuvlar."
+    ]
+  ],
+  [
+    [
+      "Xato qanday o‘lchandi?",
+      "Grafikda 100(x_taqrib/x_aniq−1) chizilgan. Bu α uchun kichiklik mezoni ham, pH foiz xatosi ham emas."
+    ],
+    [
+      "400 va 380",
+      "Taqribiy √(K_c/C)≤0,05 → C/K_c≥400. Aniq α≤0,05 → C/K_c≥380."
+    ]
+  ],
+  [
+    [
+      "Grafik shartlari",
+      "Shartli HA: K_c=10⁻⁵ mol L⁻¹; 25 °C modelida K_w,c=10⁻¹⁴ (mol L⁻¹)². Ko‘k — suv hisobga olingan."
+    ],
+    [
+      "Neytral chegaraga yaqin",
+      "C→0 da ideal kislotali eritma pH si 7 ga pastdan yaqinlashadi. Tajribada CO₂ va ifloslanish ham muhim."
+    ]
+  ],
+  [
+    [
+      "H₃O⁺ modeli",
+      "Bu molekulyar rasm solvatlangan protonni muhokama qilishga tayanch. Eritmada faqat bitta qat’iy klaster bor degani emas."
+    ],
+    [
+      "Tenglikning sharti",
+      "pH=pKₐ → a(A⁻)=a(HA). [A⁻]=[HA] xulosasi uchun faollik koeffitsiyentlari nisbati ham kerak."
+    ]
+  ],
+  [
+    [
+      "H₃PO₄ bilan bog‘lanish",
+      "Rasm uch asosli haqiqiy kislota misolidir. Grafik esa alohida shartli H₂A tizimi; uning K lari fosfatniki emas."
+    ],
+    [
+      "Bir α yetmaydi",
+      "Shakllar ulushlari yig‘indisi 1. ν esa zarrachaga to‘g‘ri keladigan o‘rtacha ajralgan protonlar soni."
+    ]
+  ],
+  [
+    [
+      "Oxirgi qadam",
+      "Natijani muvozanatga qayta qo‘ying; moddiy hamda zaryad balansini tekshiring. Faqat pH soni yetarli emas."
+    ],
+    [
+      "Keyingi mavzu",
+      "3.2. Kuchga ta’sir etuvchi omillar: strukturaviy va muhit omillarini shu miqdoriy til bilan bog‘laymiz."
+    ]
+  ]
+]

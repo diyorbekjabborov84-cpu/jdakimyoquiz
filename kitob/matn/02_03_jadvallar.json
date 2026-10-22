@@ -1,0 +1,267 @@
+{
+  "axes": {
+    "caption": "2.3.1-jadval. Mustaqil tasnif o‘qlari",
+    "headers": [
+      "Mezon",
+      "Savol",
+      "Misol / cheklov"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Tarkib",
+        "Qaysi elementlar qatnashadi?",
+        "Kislorodli / kislorodsiz"
+      ],
+      [
+        "Asoslilik",
+        "Necha proton berish bosqichi?",
+        "Bir, ikki, uch asosli"
+      ],
+      [
+        "Kuch",
+        "Muvozanat qanday?",
+        "Erituvchi va bosqich ko‘rsatiladi"
+      ],
+      [
+        "Tuzilish",
+        "Atomlar qanday tutashgan?",
+        "O–O yoki P–O–P kabi belgilar"
+      ],
+      [
+        "Redoks",
+        "Elektron almashinuvida roli?",
+        "Sharoit va reaktivga bog‘liq"
+      ]
+    ]
+  },
+  "composition": {
+    "caption": "2.3.2-jadval. Tarkib va tarkibiy hosilalar",
+    "headers": [
+      "Oila",
+      "Misollar",
+      "Strukturaviy izoh"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Kislorodsiz",
+        "HF, HCl, H₂S",
+        "Bitta kuch sinfi emas"
+      ],
+      [
+        "Oddiy oksokislota",
+        "HNO₃, H₃PO₄",
+        "O–H joylari tekshiriladi"
+      ],
+      [
+        "Perokso hosila",
+        "H₂SO₅",
+        "O–O fragmenti mavjud"
+      ],
+      [
+        "Tio hosila",
+        "H₂S₂O₃",
+        "Oltingugurtli hosila; barqarorlik alohida"
+      ],
+      [
+        "Kompleks anionli",
+        "H₂[SiF₆]",
+        "Eritmadagi shakllar sharoitga bog‘liq"
+      ]
+    ]
+  },
+  "proticity": {
+    "caption": "2.3.3-jadval. Vodorod soni va asoslilik",
+    "headers": [
+      "Modda",
+      "Ulanish / mexanizm",
+      "Suvli tavsif"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "H₃PO₂",
+        "3 H; 1 O–H va 2 P–H",
+        "Odatda bir asosli"
+      ],
+      [
+        "H₃PO₃",
+        "3 H; 2 O–H va 1 P–H",
+        "Odatda ikki asosli"
+      ],
+      [
+        "H₃PO₄",
+        "3 H; 3 O–H",
+        "Uch asosli"
+      ],
+      [
+        "B(OH)₃",
+        "3 OH; suvda Lewis akseptori",
+        "Asosiy muvozanati bir asosli"
+      ]
+    ]
+  },
+  "strength": {
+    "caption": "2.3.4-jadval. O‘zaro almashtirilmaydigan tushunchalar",
+    "headers": [
+      "Tushuncha",
+      "Nimani tavsiflaydi?",
+      "Nimaga teng emas?"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Kuch",
+        "Kₐ va tegishli muvozanat",
+        "Konsentratsiya emas"
+      ],
+      [
+        "Konsentratsiya",
+        "Eritmadagi analitik miqdor",
+        "Asoslilik emas"
+      ],
+      [
+        "Asoslilik",
+        "Mumkin proton berish bosqichlari",
+        "Bosqichlarning kuchi teng emas"
+      ],
+      [
+        "Dissotsiatsiya ulushi",
+        "Sharoitdagi ajralgan ulush",
+        "Kₐ ning o‘zi emas"
+      ]
+    ]
+  },
+  "structure": {
+    "caption": "2.3.5-jadval. Skelet bo‘yicha oilalar",
+    "headers": [
+      "Tuzilish oilasi",
+      "Misol",
+      "Belgilovchi jihat"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Monoyadroli",
+        "H₃PO₄",
+        "Bitta markaziy P"
+      ],
+      [
+        "Kondensatsiyalangan",
+        "H₄P₂O₇",
+        "P–O–P ko‘prigi"
+      ],
+      [
+        "Perokso",
+        "H₂SO₅",
+        "O–O bog‘i"
+      ],
+      [
+        "Kompleks anionli",
+        "H₂[SiF₆]",
+        "Koordinatsion anion"
+      ],
+      [
+        "Polimerlanadigan tizim",
+        "Kremniy kislotalari",
+        "Bitta formula barcha shakl emas"
+      ]
+    ]
+  },
+  "properties": {
+    "caption": "2.3.6-jadval. Qo‘shimcha xossalar alohida baholanadi",
+    "headers": [
+      "Xossa",
+      "Misol / omil",
+      "Cheklov"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Oksidlovchilik",
+        "HNO₃; ayrim sharoitda H₂SO₄",
+        "Proton berishga teng emas"
+      ],
+      [
+        "Qaytaruvchilik",
+        "H₃PO₃, H₃PO₂",
+        "Har reaktiv bilan bir xil emas"
+      ],
+      [
+        "Uchuvchanlik",
+        "HCl–suv tizimi",
+        "Harorat va tarkibga bog‘liq"
+      ],
+      [
+        "Xavflilik",
+        "HF — kuchsiz, lekin juda xavfli",
+        "Kislota kuchi xavfsizlik o‘lchovi emas"
+      ]
+    ]
+  },
+  "passport": {
+    "caption": "2.3.7-jadval. Qisqa kimyoviy pasport namunalari",
+    "headers": [
+      "Obyekt",
+      "Tarkib / asoslilik",
+      "Qo‘shimcha aniqlik"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "HCl(aq)",
+        "Kislorodsiz; bir asosli",
+        "Suvda kuchli; eritma holati"
+      ],
+      [
+        "HF(aq)",
+        "Kislorodsiz; bir asosli",
+        "Suvda kuchsiz; juda xavfli"
+      ],
+      [
+        "H₃PO₃",
+        "Kislorodli; ikki asosli",
+        "P–H mavjud; qaytaruvchilik mumkin"
+      ],
+      [
+        "H₃PO₄",
+        "Kislorodli; uch asosli",
+        "Bosqichlari turli kuchda"
+      ],
+      [
+        "B(OH)₃",
+        "Kislorodli; Lewis akseptori",
+        "Suvdagi asosiy muvozanat bir asosli"
+      ]
+    ]
+  }
+}

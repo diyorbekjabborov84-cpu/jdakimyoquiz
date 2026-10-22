@@ -1,0 +1,92 @@
+[
+  [
+    [
+      "Tutashlik sharti",
+      "Juftlik bir proton bilan farqlanadi. Istalgan ikkita kislota yoki tuz aralashmasi bufer bo‘lavermaydi."
+    ],
+    [
+      "pH qotib qolmaydi",
+      "Bufer tarkibini o‘zgartirib javob beradi. Zaxira kamaygach o‘zgarishga qarshilik ham pasayadi."
+    ]
+  ],
+  [
+    [
+      "Nisbatning yo‘nalishi",
+      "Asosli shakl suratda, kislotali shakl maxrajda. NH₃/NH₄⁺ va HPO₄²⁻/H₂PO₄⁻ misollarida ham shu tartib."
+    ],
+    [
+      "Analitik ≠ muvozanat",
+      "Tayyorlashdagi miqdorlar nisbatini [A⁻]/[HA] ga tenglashtirish alohida taqribdir."
+    ]
+  ],
+  [
+    [
+      "Avval stexiometriya",
+      "Kuchli reagent qaysi shaklni qancha sarflashini hisoblang; manfiy miqdorni logarifmga kiritmang."
+    ],
+    [
+      "Grafik sharti",
+      "q yakuniy konsentratsiya bo‘yicha taqqoslash parametri. Bir idishga o‘zgarmas hajmda quyish tajribasi emas."
+    ]
+  ],
+  [
+    [
+      "β ning birligi",
+      "Bu yerda mol L⁻¹ pH⁻¹. Butun idishning mol zaxirasi va birlik hajmdagi sig‘imni adashtirmang."
+    ],
+    [
+      "Maksimum nimaniki?",
+      "pH≈pKₐ da juftlik hissasi maksimum. Suv hadlari bor umumiy β ga global hukm chiqarilmaydi."
+    ]
+  ],
+  [
+    [
+      "Nisbat saqlansa ham",
+      "Suyultirishdan keyin analitik nisbat saqlanadi; shakllar qayta muvozanatlangani uchun haqiqiy nisbat o‘zgarishi mumkin."
+    ],
+    [
+      "Haqiqiy eritma",
+      "T, ion kuchi, CO₂, uchuvchan NH₃ va cho‘kma — faqat kalkulyator bilan yo‘qolmaydigan cheklovlar."
+    ]
+  ],
+  [
+    [
+      "Ikki xil γ",
+      "γ_h — shu matnda gidroliz ulushi; faollik koeffitsiyenti γ bilan bir kattalik emas."
+    ],
+    [
+      "Ulush va miqdor",
+      "Suyultirishda gidroliz ulushi ortib, mutlaq OH⁻ konsentratsiyasi kamayishi mumkin."
+    ]
+  ],
+  [
+    [
+      "Proton qayerdan?",
+      "NH₄⁺ da ionning o‘zi proton donor; Al akvakompleksida esa suv ligandining O–H guruhi donor."
+    ],
+    [
+      "Kuzatuvchi zaryad",
+      "Cl⁻ reaksiyada sezilarli qatnashmasa ham, elektr neytrallik tenglamasidan olib tashlanmaydi."
+    ]
+  ],
+  [
+    [
+      "HF qiymati alohida",
+      "NH₄F hisobida HF uchun K_c≈6,4×10⁻⁴ mol L⁻¹. Boshqa grafiklarning shartli HA konstantasi emas."
+    ],
+    [
+      "Amfiprot tushunchasi",
+      "Bitta ionning ikki yo‘nalishdagi proton almashinuvi. Bu ikkita turli ion gidrolizi bilan aynan bir emas."
+    ]
+  ],
+  [
+    [
+      "Qayta qo‘yish",
+      "Topilgan konsentratsiyalarni moddiy balans, zaryad va K ifodalariga qayta joylashtiring."
+    ],
+    [
+      "Keyingi savol",
+      "3.6 da jarayon tezligi va kataliz ko‘riladi. Muvozanatdagi tarkib bilan unga yetishish tezligi boshqa xossalardir."
+    ]
+  ]
+]

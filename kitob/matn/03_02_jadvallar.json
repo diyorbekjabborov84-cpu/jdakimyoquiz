@@ -1,0 +1,337 @@
+{
+  "whole": {
+    "caption": "3.2.1-jadval. Kuchni belgilovchi hissalar",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Boshlang‘ich HA",
+        "Qanchalik barqarorlashgan?",
+        "Faqat asosni tekshirish yetmaydi"
+      ],
+      [
+        "Bog‘ o‘zgarishi",
+        "Qaysi uzilish yo‘li?",
+        "Gomolitik energiya pKₐ emas"
+      ],
+      [
+        "Konjugat asos",
+        "Zaryad va elektronlar qayerda?",
+        "Rezonans yozuvlari sanog‘i yetmaydi"
+      ],
+      [
+        "Erituvchi",
+        "HA, H⁺ va A⁻ ga ta’siri?",
+        "Standart holatlar izchil bo‘lsin"
+      ],
+      [
+        "Harorat",
+        "ΔH° va ΔS° qanday?",
+        "Barcha Kₐ bir xil yo‘nalishda emas"
+      ]
+    ]
+  },
+  "bond": {
+    "caption": "3.2.2-jadval. Turli qiyos yo‘nalishlari",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Yaqin bir davr tizimlari",
+        "Elektrmanfiylik va elektron taqsimot",
+        "Zaryad va donor joyi mos bo‘lsin"
+      ],
+      [
+        "HX guruhi bo‘ylab",
+        "Bog‘ xossalari, o‘lcham, solvatlanish",
+        "HF ning qutbliligi yakka mezon emas"
+      ],
+      [
+        "Gaz gomolizi",
+        "H–X → H• + X•",
+        "Radikallar; ionli eritma mahsuloti emas"
+      ],
+      [
+        "Gaz proton ajralishi",
+        "HA → H⁺ + A⁻",
+        "Solvatlanish qo‘shilmaguncha suvdagi qiymat emas"
+      ]
+    ]
+  },
+  "oxo": {
+    "caption": "3.2.3-jadval. Oksokislotalarda strukturaviy shart",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "HClO → HClO₄",
+        "Bir Cl va bitta OH saqlanadi",
+        "Terminal O va asos tuzilishi o‘zgaradi"
+      ],
+      [
+        "HOCl / HOBr / HOI",
+        "Bir OH; terminal O yo‘q",
+        "Markaziy atomning xossasi almashadi"
+      ],
+      [
+        "H₃PO₂ / H₃PO₃ / H₃PO₄",
+        "P–H va O–H sonlari boshqa",
+        "Xlor qoidasi shartsiz ko‘chirilmaydi"
+      ],
+      [
+        "Perokso hosilalar",
+        "O–O mavjudligini tekshiring",
+        "Ko‘proq O avtomatik yuqoriroq OD emas"
+      ]
+    ]
+  },
+  "delocal": {
+    "caption": "3.2.4-jadval. Delokallashuvni talqin qilish",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "A⁻ delokallashuvi",
+        "Mahsulot elektron holati qulaylashishi mumkin",
+        "HA ham delokallashgan bo‘lishi mumkin"
+      ],
+      [
+        "HNO₃ / NO₃⁻",
+        "Ikkala tomonni taqqoslang",
+        "Yozuvlar soni energiya birligi emas"
+      ],
+      [
+        "Geometriya",
+        "Orbital mosligi bormi?",
+        "Tekislik va ulanish muhim"
+      ],
+      [
+        "Eritmadagi natija",
+        "Solvatlanish ham o‘zgaradimi?",
+        "Gaz tendensiyasi aynan takrorlanishi shart emas"
+      ]
+    ]
+  },
+  "charge": {
+    "caption": "3.2.5-jadval. Zaryad va statistika",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Fosfat bosqichlari",
+        "0 → −1 → −2 → −3 zaryadlar",
+        "P(+5) saqlanadi; Kₐ lar boshqa"
+      ],
+      [
+        "Elektrostatik hissa",
+        "Proton va manfiy qoldiq ta’siri",
+        "Solvatlanish qarama-qarshi hissa qo‘shishi mumkin"
+      ],
+      [
+        "Ikki mustaqil ekvivalent joy",
+        "Kₐ₁=2k; Kₐ₂=k/2",
+        "Faqat shu ideal statistik model"
+      ],
+      [
+        "Akvakompleks",
+        "Metall O–H ni qutblaydi",
+        "Koordinatsiya/gidroliz/cho‘kish ham tekshiriladi"
+      ]
+    ]
+  },
+  "solvent": {
+    "caption": "3.2.6-jadval. Erituvchining bir nechta vazifasi",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Proton qabul qilish",
+        "Konjugat erituvchi kislotasi hosil bo‘ladi",
+        "Tekislovchi ta’sir mumkin"
+      ],
+      [
+        "Ionlarni solvatlash",
+        "Elektrostatik va maxsus kontaktlar",
+        "Faqat dielektrik son yetarli emas"
+      ],
+      [
+        "Neytral HA ni solvatlash",
+        "Reagent tomoni ham o‘zgaradi",
+        "Anionning o‘zi bilan xulosa qilmang"
+      ],
+      [
+        "Born grafik modeli",
+        "B=(1−1/εᵣ)/ρ; z=1",
+        "εᵣ=2 va 80 — shartli muhitlar"
+      ],
+      [
+        "Yangi erituvchi",
+        "Standartlar va muvozanat turi",
+        "Suvdagi pKₐ ni to‘g‘ridan-to‘g‘ri ko‘chirmang"
+      ]
+    ]
+  },
+  "local": {
+    "caption": "3.2.7-jadval. Qo‘shimcha mahalliy ta’sirlar",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Vodorod bog‘i",
+        "HA yoki asosni barqarorlashtirishi mumkin",
+        "Qaysi tomonda ekanini ayting"
+      ],
+      [
+        "HF + F⁻ ⇌ HF₂⁻",
+        "Qo‘shimcha assotsiatsiya",
+        "Har muhitda ustun degani emas"
+      ],
+      [
+        "Ion juftlanishi",
+        "Erkin ionlar miqdori kamayishi mumkin",
+        "Qaysi konstanta o‘lchanganini aniqlang"
+      ],
+      [
+        "Sterik va konformatsiya",
+        "Erituvchining yaqinlashuvi o‘zgaradi",
+        "Har organik qoida kichik noorganik tizimga mos emas"
+      ]
+    ]
+  },
+  "temperature": {
+    "caption": "3.2.8-jadval. Harorat bo‘yicha shartli hisob",
+    "headers": [
+      "Harorat / shart",
+      "Endotermik model yoki izoh",
+      "Ekzotermik model yoki cheklov"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "273,15 K",
+        "pKₐ(+ΔH)=5,16034",
+        "pKₐ(−ΔH)=4,83966"
+      ],
+      [
+        "298,15 K",
+        "Ikkala model pKₐ=5,00000",
+        "Taqqoslashning tayanch nuqtasi"
+      ],
+      [
+        "323,15 K",
+        "pKₐ(+ΔH)=4,86447",
+        "pKₐ(−ΔH)=5,13553"
+      ],
+      [
+        "333,15 K",
+        "pKₐ(+ΔH)=4,81595",
+        "pKₐ(−ΔH)=5,18405"
+      ],
+      [
+        "Model parametrlari",
+        "ΔH°=±10,0 kJ mol⁻¹",
+        "Doimiy ΔH°; haqiqiy modda o‘lchovi emas"
+      ]
+    ]
+  },
+  "cases": {
+    "caption": "3.2.9-jadval. Qiyosiy masalada asosiy omilni tanlash",
+    "headers": [
+      "Omil / qiyos",
+      "Foydali savol",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "HF / HI",
+        "HX guruhi; bog‘ va solvatlanish",
+        "Faqat elektrmanfiylik yetmaydi"
+      ],
+      [
+        "HOCl / HOI",
+        "Bir xil OH oilasi; markaz almashadi",
+        "Bir xil OD teng kuch emas"
+      ],
+      [
+        "HNO₂ / HNO₃",
+        "Bir N; terminal O va asos elektron holati",
+        "Faqat OD soni bilan tugatmang"
+      ],
+      [
+        "H₃PO₄ / H₂PO₄⁻",
+        "Donor zaryadi va keyingi mahsulot boshqa",
+        "P darajasi o‘zgarmasligi yetarli emas"
+      ],
+      [
+        "Bir kislota, ikki erituvchi",
+        "Sikldagi barcha solvatlanish hissalari",
+        "Bitta anionni yaxshi solvatlash javob emas"
+      ]
+    ]
+  }
+}

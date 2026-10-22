@@ -1,6 +1,6 @@
 # Noorganik kislotalar — ishchi mundarija
 
-> 5 qism, 12 yirik bob, 68 mavzu. Har bir kislota alohida mavzu sifatida ochilgan.
+> 5 qism, 12 yirik bob, 73 mavzu. Har bir kislota alohida mavzu sifatida ochilgan.
 
 ### I QISM. NAZARIY POYDEVOR
 **1-bob. Kislota nima? Nazariyalar**

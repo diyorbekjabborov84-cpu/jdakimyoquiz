@@ -1,0 +1,92 @@
+[
+  [
+    [
+      "Oxirgi ulush saqlanadi",
+      "Yopiq ideal bir xil reaksiya uchun katalizator vaqt o‘lchovini o‘zgartiradi, termodinamik K ni emas."
+    ],
+    [
+      "Ikki xil yarim vaqt",
+      "Bu grafikda muvozanatdan og‘ish yarimlanadi. Qaytmas S ning yarmi sarflanishi bilan aynan bir emas."
+    ]
+  ],
+  [
+    [
+      "Daraja va koeffitsiyent",
+      "Umumiy stexiometrik koeffitsiyentlarni ko‘r-ko‘rona tezlik darajalari deb ko‘chirmang."
+    ],
+    [
+      "k_obs shartli",
+      "pH yoki katalizatorning aktiv shakli vaqt davomida o‘zgarsa, doimiy k_obs modeli buzilishi mumkin."
+    ]
+  ],
+  [
+    [
+      "Profil mustaqil model",
+      "80/55/45/−20 qiymatlari o‘quv sonlari. Ular 1-bo‘limdagi K=4 ga yoki real kislota tajribasiga tegishli emas."
+    ],
+    [
+      "Ikki xil ΔG",
+      "ΔG° — umumiy termodinamika; ΔG‡ — tanlangan kinetik yo‘l to‘sig‘i. Bir xil birlik bir xil ma’no degani emas."
+    ]
+  ],
+  [
+    [
+      "Kelvin zarur",
+      "1/T yozuviga °C emas, K qo‘yiladi. ln(k/k_ref) argumenti o‘lchamsiz."
+    ],
+    [
+      "E_a bog‘ energiyasi emas",
+      "Murakkab tizimdagi ko‘rinma E_a bir nechta muvozanat va bosqichlarning ta’sirini birlashtirishi mumkin."
+    ]
+  ],
+  [
+    [
+      "Maxsus nimani bildiradi?",
+      "Suvda kuzatilgan kataliz erituvchining H⁺/OH⁻ ionlariga tegishli. Bu kuchli kislota nomining sinonimi emas."
+    ],
+    [
+      "To‘yinish ham mumkin",
+      "Tez protonlanish muvozanati to‘yinganda H⁺ bo‘yicha tartib noldan farqli boshqa hududlarga o‘tadi."
+    ]
+  ],
+  [
+    [
+      "Bufer faol bo‘lishi mumkin",
+      "Bir xil pH da ham HA yoki A⁻ bevosita kinetik hissa berishi mumkin. Ion kuchi va muhit nazorat qilinadi."
+    ],
+    [
+      "α_Br ≠ α",
+      "Brønsted kinetik qiyaligi dissotsiatsiya ulushi emas. Bitta oiladagi korrelyatsiyani boshqasiga shartsiz o‘tkazmang."
+    ]
+  ],
+  [
+    [
+      "Qayta hosil bo‘lish",
+      "Katalizator har bir bosqichda o‘zgarmas emas; umumiy siklda tiklanadi."
+    ],
+    [
+      "NH₃ rasmi",
+      "NH₃ proton akseptorining tuzilish misoli. Formal sikldagi barcha S yoki P aynan shu modda degani emas."
+    ]
+  ],
+  [
+    [
+      "NO₂ radikal",
+      "Neytral NO₂ toq elektronli zarracha. Yon shar–tayoqcha tasviri to‘liq Lewis yoki elektron zichlik modeli emas."
+    ],
+    [
+      "NOₓ xavfi",
+      "Zaharli gazlar haqida konseptual sikl berilgan, laboratoriya bajarish yo‘riqnomasi emas."
+    ]
+  ],
+  [
+    [
+      "Bir dalil yetmaydi",
+      "Tezlik tartibi, pH, bufer, T va izotop kuzatuvlari birgalikda tekshiriladi."
+    ],
+    [
+      "3-bob yakuni",
+      "Muvozanat tarkibni, kinetika vaqtni yoritadi. Keyingi mavzu: 4.1 — neytrallanish va tuz hosil bo‘lishi."
+    ]
+  ]
+]

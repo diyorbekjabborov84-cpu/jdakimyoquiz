@@ -44,3 +44,7 @@ kitob/chiqish/
 __pycache__/
 *.pyc
 .venv-book/
+
+# Google Drive eksportlari va QA renderlari (katta, vaqtinchalik)
+google_drive/
+kitob/chiqish/formula_qa/

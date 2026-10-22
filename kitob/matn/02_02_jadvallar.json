@@ -1,0 +1,237 @@
+{
+  "meaning": {
+    "caption": "2.2.1-jadval. Strelkalar ma’nosi",
+    "headers": [
+      "Holat",
+      "To‘g‘ri talqin",
+      "Noto‘g‘ri talqin"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Rezonans: ↔",
+        "Bitta zarrachaning elektron yozuvlari",
+        "Mustaqil shakllar aralashmasi"
+      ],
+      [
+        "Muvozanat: ⇌",
+        "Turli zarrachalarning almashinuvi",
+        "Faqat elektronlarni qayta chizish"
+      ],
+      [
+        "Proton ko‘chishi",
+        "Yadro ulanishi o‘zgaradi",
+        "Rezonans hissasi"
+      ]
+    ]
+  },
+  "rules": {
+    "caption": "2.2.2-jadval. Yaroqlilik shartlari",
+    "headers": [
+      "Holat",
+      "To‘g‘ri talqin",
+      "Noto‘g‘ri talqin"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Yadrolar",
+        "Bir xil joylashuv va ulanish",
+        "Atomni boshqa joyga ko‘chirish"
+      ],
+      [
+        "Elektronlar",
+        "Jami son saqlanadi",
+        "Elektron qo‘shish yoki yo‘qotish"
+      ],
+      [
+        "Zaryad",
+        "Yig‘indi bir xil",
+        "Umumiy ion zaryadini almashtirish"
+      ],
+      [
+        "Oktet",
+        "Ikkinchi davr uchun nazorat",
+        "N atrofida o‘nta elektron"
+      ]
+    ]
+  },
+  "base": {
+    "caption": "2.2.3-jadval. Delokallashuv va kislotalik",
+    "headers": [
+      "Holat",
+      "To‘g‘ri talqin",
+      "Noto‘g‘ri talqin"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "NO₃⁻",
+        "Ideal ionda uch teng yo‘nalish",
+        "Uch alohida nitrat shakli"
+      ],
+      [
+        "Formal 4/3",
+        "Lewis bog‘ tartibining o‘rtachasi",
+        "Har usulda aynan shu bog‘ indeksi"
+      ],
+      [
+        "Kislotalik",
+        "Kislota, asos va erituvchi birga",
+        "Faqat rezonans yozuvlarini sanash"
+      ]
+    ]
+  },
+  "hbond": {
+    "caption": "2.2.4-jadval. Donor va akseptor",
+    "headers": [
+      "Holat",
+      "To‘g‘ri talqin",
+      "Noto‘g‘ri talqin"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "O–H···O",
+        "O–H donor, ikkinchi O akseptor",
+        "Proton albatta to‘liq uzatilgan"
+      ],
+      [
+        "Suv dimeri",
+        "Neytral molekulalar assotsiatsiyasi",
+        "Majburiy H₃O⁺/OH⁻ jufti"
+      ],
+      [
+        "O···O masofasi",
+        "Bir geometrik dalil",
+        "Yakka o‘zi qat’iy isbot"
+      ],
+      [
+        "X–H···Y burchak",
+        "Yo‘nalish muhim",
+        "Barcha bog‘lar aynan 180°"
+      ]
+    ]
+  },
+  "evidence": {
+    "caption": "2.2.5-jadval. Bir nechta dalil bilan tekshirish",
+    "headers": [
+      "Holat",
+      "To‘g‘ri talqin",
+      "Noto‘g‘ri talqin"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "IR",
+        "Chastota, kenglik va intensivlik",
+        "Har tizimda majburiy qizil siljish"
+      ],
+      [
+        "NMR",
+        "Kimyoviy siljish va almashinish",
+        "Yagona signal — mutlaq isbot"
+      ],
+      [
+        "Difraksiya",
+        "Geometriya va atom joylashuvi",
+        "Rasmning o‘zi energiya o‘lchovi"
+      ],
+      [
+        "Hisoblash",
+        "Elektron va energetik tahlil",
+        "Model shartlarini tekshirmaslik"
+      ]
+    ]
+  },
+  "water": {
+    "caption": "2.2.6-jadval. Suvdagi darajalar",
+    "headers": [
+      "Holat",
+      "To‘g‘ri talqin",
+      "Noto‘g‘ri talqin"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Suv dimeri",
+        "Ikki molekulali sodda model",
+        "Butun suyuqlikning tuzilishi"
+      ],
+      [
+        "Suyuq suv",
+        "Dinamik bog‘lar tarmog‘i",
+        "Har lahza mukammal kristall"
+      ],
+      [
+        "Proton ko‘chishi",
+        "Almashinish va qayta yo‘nalish",
+        "Faqat bitta ionning yurishi"
+      ],
+      [
+        "Solvat qobig‘i",
+        "Ion va muhitga bog‘liq",
+        "Hamma ion uchun bir xil klaster"
+      ]
+    ]
+  },
+  "compare": {
+    "caption": "2.2.7-jadval. Rezonans va vodorod bog‘i",
+    "headers": [
+      "Mezon",
+      "Rezonans",
+      "Vodorod bog‘i"
+    ],
+    "widths": [
+      3.0,
+      4.8,
+      5.0
+    ],
+    "rows": [
+      [
+        "Asosiy savol",
+        "Elektronlar qanday taqsimlangan?",
+        "Qaysi donor–akseptor ta’siri bor?"
+      ],
+      [
+        "Tavsif",
+        "Muqobil Lewis yozuvlari",
+        "X–H···Y geometriyasi va dalillar"
+      ],
+      [
+        "Ko‘p uchraydigan xato",
+        "Shakllar tez almashinadi deyish",
+        "Har safar proton uzatiladi deyish"
+      ],
+      [
+        "Birgalikdagi misol",
+        "Nitrat ichidagi delokallashuv",
+        "Suvning nitrat O atomlariga yo‘nalishi"
+      ]
+    ]
+  }
+}

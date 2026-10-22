@@ -1,0 +1,357 @@
+{
+  "terms": {
+    "caption": "3.4.1-jadval. Asosiy tushunchalar",
+    "headers": [
+      "Tushuncha",
+      "Mazmun",
+      "Chalkashtirmang"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Titrant",
+        "Konsentratsiyasi aniqlangan reagent",
+        "Faqat taxminiy yorliq yetmaydi"
+      ],
+      [
+        "Ekvivalentlik",
+        "Tanlangan reaksiya stexiometriyasi",
+        "Har doim pH=7 emas"
+      ],
+      [
+        "Oxirgi nuqta",
+        "Qabul qilingan kuzatuv signali",
+        "Nazariy nuqta bilan aynan bir emas"
+      ],
+      [
+        "Titrlanadigan kislotalik",
+        "Berilgan oxirgacha sarflangan asos",
+        "Boshlang‘ich pH ning o‘zi emas"
+      ]
+    ]
+  },
+  "strong": {
+    "caption": "3.4.2-jadval. Kuchli kislota–NaOH; ideal 25 °C",
+    "headers": [
+      "V_b, mL",
+      "Hisobiy pH",
+      "Ustun holat"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "0",
+        "1,00000",
+        "Boshlang‘ich kuchli kislota"
+      ],
+      [
+        "12,50",
+        "1,47712",
+        "Kislota ortiqcha"
+      ],
+      [
+        "24,90",
+        "3,69810",
+        "Ekvivalentlikka yaqin, kislota"
+      ],
+      [
+        "25,00",
+        "7,00000",
+        "Suvli neytral ideal nuqta"
+      ],
+      [
+        "25,10",
+        "10,30016",
+        "Asos oz ortiqcha"
+      ],
+      [
+        "50,00",
+        "12,52288",
+        "Asos ortiqcha"
+      ]
+    ]
+  },
+  "weak": {
+    "caption": "3.4.3-jadval. Shartli HA, K_c=10⁻⁵ mol L⁻¹",
+    "headers": [
+      "V_b, mL",
+      "Hisobiy pH",
+      "Yaroqli yo‘l"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "0",
+        "3,00217",
+        "HA va suv balansi"
+      ],
+      [
+        "12,50",
+        "5,00026",
+        "Yarim ekvivalentlik; pH≈pKₐ"
+      ],
+      [
+        "24,90",
+        "7,39575",
+        "To‘liq balans afzal"
+      ],
+      [
+        "25,00",
+        "8,84950",
+        "A⁻ gidrolizi va suv"
+      ],
+      [
+        "25,10",
+        "10,30071",
+        "Asos ortig‘i + muvozanat"
+      ],
+      [
+        "50,00",
+        "12,52288",
+        "Ortiqcha asos ustun"
+      ]
+    ]
+  },
+  "poly": {
+    "caption": "3.4.4-jadval. H₃PO₄–NaOH; ideal bosqichlar",
+    "headers": [
+      "Nishon hajm",
+      "Ustun oraliq shakl",
+      "Hisobiy pH"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "25,00 mL; 1 ekv.",
+        "H₂PO₄⁻",
+        "4,69678"
+      ],
+      [
+        "50,00 mL; 2 ekv.",
+        "HPO₄²⁻",
+        "9,67465"
+      ],
+      [
+        "75,00 mL; 3 ekv.",
+        "PO₄³⁻/HPO₄²⁻ va suv",
+        "12,18305"
+      ],
+      [
+        "3 bosqichli formula",
+        "Uchta ravshan sakrash shart emas",
+        "Taqsimot va zaryadni saqlang"
+      ]
+    ]
+  },
+  "indicator": {
+    "caption": "3.4.5-jadval. Ikki shaklli indikatorning shartli modeli",
+    "headers": [
+      "pH−pK_In",
+      "[In⁻]/[HIn]",
+      "In⁻ ulushi"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "−2",
+        "0,01",
+        "0,9901%"
+      ],
+      [
+        "−1",
+        "0,1",
+        "9,0909%"
+      ],
+      [
+        "0",
+        "1",
+        "50%"
+      ],
+      [
+        "+1",
+        "10",
+        "90,9091%"
+      ],
+      [
+        "+2",
+        "100",
+        "99,0099%"
+      ]
+    ]
+  },
+  "ranges": {
+    "caption": "3.4.6-jadval. Ma’lumotnoma rang o‘tish intervallari [2]",
+    "headers": [
+      "Indikator",
+      "Odatiy pH intervali",
+      "Kislotali → asosli rang"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Metiloranj",
+        "3,1–4,4",
+        "Qizil → sariq"
+      ],
+      [
+        "Bromtimol ko‘ki",
+        "6,0–7,6",
+        "Sariq → ko‘k"
+      ],
+      [
+        "Fenolftalein",
+        "8,3–10,0",
+        "Rangsiz → pushti/qizil"
+      ],
+      [
+        "Tanlash mezoni",
+        "Egri chiziqdagi hajm oralig‘i",
+        "Faqat bitta pH soni emas"
+      ]
+    ]
+  },
+  "error": {
+    "caption": "3.4.7-jadval. Tanlangan pH mezoni; shartli HA misoli",
+    "headers": [
+      "pH mezoni",
+      "V_oxir, mL",
+      "ε_V, %"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "4,0",
+        "2,24548",
+        "−91,0181"
+      ],
+      [
+        "7,0",
+        "24,75248",
+        "−0,9901"
+      ],
+      [
+        "8,3",
+        "24,98847",
+        "−0,0461"
+      ],
+      [
+        "10,0",
+        "25,04980",
+        "+0,1992"
+      ],
+      [
+        "Haqiqiy V_e",
+        "25,00000",
+        "0; stexiometrik nishon"
+      ]
+    ]
+  },
+  "instrument": {
+    "caption": "3.4.8-jadval. Instrumental kuzatuv va cheklovlar",
+    "headers": [
+      "Signal / ishlov",
+      "Foydasi",
+      "Xavf / shart"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "pH(V)",
+        "To‘liq egri chiziqni kuzatish",
+        "Kalibrlash, T va vaqt"
+      ],
+      [
+        "ΔpH/ΔV",
+        "Tik sohani ajratish",
+        "Shovqin kuchayadi"
+      ],
+      [
+        "Ikkinchi hosila",
+        "Infleksiya atrofini baholash",
+        "Qadam va silliqlashga sezgir"
+      ],
+      [
+        "Takroriy o‘lchash",
+        "Tarqalishni baholash",
+        "Sistematik xatoni yo‘qotmaydi"
+      ]
+    ]
+  },
+  "quality": {
+    "caption": "3.4.9-jadval. Analitik hisob va sifat nazorati",
+    "headers": [
+      "Bosqich",
+      "Namuna / shart",
+      "Nazorat"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Alikvota",
+        "25,00 mL",
+        "Kalibrlangan hajm"
+      ],
+      [
+        "Titrant",
+        "0,1000 mol L⁻¹ NaOH",
+        "Standartlangan konsentratsiya"
+      ],
+      [
+        "Tuzatilgan sarf",
+        "24,98 mL",
+        "Blank va oxirgi nuqta"
+      ],
+      [
+        "C_a",
+        "0,09992 mol L⁻¹",
+        "Bir protonli reaksiya"
+      ],
+      [
+        "u_r(C_a)",
+        "≈0,1756%",
+        "Mustaqil standart noaniqliklar"
+      ],
+      [
+        "Asosiy shart",
+        "Yon reaksiya yo‘q",
+        "Nishon komponent aniq"
+      ]
+    ]
+  }
+}

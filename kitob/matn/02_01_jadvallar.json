@@ -1,0 +1,242 @@
+{
+  "start": {
+    "caption": "2.1.1-jadval. Formuladan tuzilishga",
+    "headers": [
+      "Zarracha",
+      "Tuzilish belgisi",
+      "Asosiy xulosa"
+    ],
+    "rows": [
+      [
+        "H₃PO₃",
+        "H–P(=O)(OH)₂",
+        "Odatda ikki proton beradi"
+      ],
+      [
+        "H₃PO₄",
+        "O=P(OH)₃",
+        "Uch bosqichli proton berish"
+      ],
+      [
+        "H₂O",
+        "Egik molekula",
+        "Ikki yakka elektron jufti"
+      ],
+      [
+        "NO₃⁻",
+        "Uch N–O yo‘nalishi",
+        "Trigonal tekis ion"
+      ]
+    ],
+    "widths": [
+      3.1,
+      4.5,
+      5.2
+    ]
+  },
+  "break": {
+    "caption": "2.1.2-jadval. Uzilish yo‘llari",
+    "headers": [
+      "Jarayon",
+      "Elektronlarning taqdiri",
+      "Muhim cheklov"
+    ],
+    "rows": [
+      [
+        "Gomoliz",
+        "Har bo‘lakka bitta elektron",
+        "Radikallar; Kₐ bilan teng emas"
+      ],
+      [
+        "Geteroliz",
+        "Juft bitta bo‘lakda qoladi",
+        "Ionlarni barqarorlashtirish muhim"
+      ],
+      [
+        "Suvda ionlanish",
+        "Suv protonni qabul qiladi",
+        "Solvatlangan mahsulotlar olinadi"
+      ]
+    ],
+    "widths": [
+      3.1,
+      4.5,
+      5.2
+    ]
+  },
+  "charge": {
+    "caption": "2.1.3-jadval. Bir xil bo‘lmagan zaryad tushunchalari",
+    "headers": [
+      "Kattalik",
+      "Qanday olinadi?",
+      "Nimani bildirmaydi?"
+    ],
+    "rows": [
+      [
+        "Formal zaryad",
+        "Bog‘ elektronlari teng bo‘linadi",
+        "Haqiqiy atom zaryadi emas"
+      ],
+      [
+        "Oksidlanish darajasi",
+        "Juft elektrmanfiyroq atomga yoziladi",
+        "Kovalent bog‘lar soni emas"
+      ],
+      [
+        "Qisman zaryad",
+        "Elektron zichlikni taqsimlash",
+        "Yagona universal atom soni emas"
+      ]
+    ],
+    "widths": [
+      3.1,
+      4.5,
+      5.2
+    ]
+  },
+  "vsepr": {
+    "caption": "2.1.4-jadval. Sodda VSEPR misollari",
+    "headers": [
+      "Misol",
+      "Soha va shakl",
+      "Burchak / izoh"
+    ],
+    "rows": [
+      [
+        "CO₂: AX₂",
+        "2; chiziqli",
+        "180°"
+      ],
+      [
+        "NO₃⁻: AX₃",
+        "3; trigonal tekis",
+        "120°; erkin ideal ion"
+      ],
+      [
+        "NH₃: AX₃E",
+        "4; trigonal piramidal",
+        "≈107°; gaz faza"
+      ],
+      [
+        "H₂O: AX₂E₂",
+        "4; egik",
+        "≈104,5°; gaz faza"
+      ],
+      [
+        "SO₄²⁻: AX₄",
+        "4; tetraedrik",
+        "Ideal: ≈109,47°"
+      ]
+    ],
+    "widths": [
+      3.1,
+      4.5,
+      5.2
+    ]
+  },
+  "dipole": {
+    "caption": "2.1.5-jadval. Bog‘ qutbliligi va simmetriya",
+    "headers": [
+      "Misol",
+      "Geometriya",
+      "Dipolga oid xulosa"
+    ],
+    "rows": [
+      [
+        "CO₂",
+        "Chiziqli, simmetrik",
+        "Bog‘lar qutbli; umumiy μ = 0"
+      ],
+      [
+        "H₂O",
+        "Egik",
+        "Bog‘ hissalari bekor bo‘lmaydi"
+      ],
+      [
+        "SO₂",
+        "Egik",
+        "Doimiy dipol momenti bor"
+      ],
+      [
+        "SO₄²⁻",
+        "Ideal tetraedrik ion",
+        "Ion zaryadi ta’sirini unutmang"
+      ]
+    ],
+    "widths": [
+      3.1,
+      4.5,
+      5.2
+    ]
+  },
+  "acidity": {
+    "caption": "2.1.6-jadval. Sifat qoidalarining chegarasi",
+    "headers": [
+      "Qiyos",
+      "Foydali omil",
+      "Yetarli bo‘lmagan xulosa"
+    ],
+    "rows": [
+      [
+        "HF / HCl",
+        "Bog‘ va solvatlanish",
+        "Qutblilikning o‘zi Kₐ emas"
+      ],
+      [
+        "HClO / HClO₄",
+        "Elektron taqsimoti va asos",
+        "Faqat O–H sanash yetmaydi"
+      ],
+      [
+        "H₃PO₃ / H₃PO₄",
+        "Vodorodning ulanishi",
+        "Jami H soni asoslilik emas"
+      ]
+    ],
+    "widths": [
+      3.1,
+      4.5,
+      5.2
+    ]
+  },
+  "algorithm": {
+    "caption": "2.1.7-jadval. Tekshiruv varaqasi",
+    "headers": [
+      "Bosqich",
+      "Savol",
+      "Xatoni aniqlash"
+    ],
+    "rows": [
+      [
+        "1. Ulanish",
+        "H qaysi atomga ulangan?",
+        "P–H ni O–H bilan tenglashtirish"
+      ],
+      [
+        "2. Elektronlar",
+        "Umumiy son to‘g‘rimi?",
+        "Formal zaryadlar yig‘indisi"
+      ],
+      [
+        "3. Shakl",
+        "Nechta elektron soha bor?",
+        "Qo‘sh bog‘ni ikki soha sanash"
+      ],
+      [
+        "4. Dipol",
+        "Vektorlar bekor bo‘ladimi?",
+        "Har qutbli bog‘ → qutbli molekula"
+      ],
+      [
+        "5. Muhit",
+        "Qaysi faza va mahsulot?",
+        "Gomoliz energiyasi → pKₐ"
+      ]
+    ],
+    "widths": [
+      3.1,
+      4.5,
+      5.2
+    ]
+  }
+}

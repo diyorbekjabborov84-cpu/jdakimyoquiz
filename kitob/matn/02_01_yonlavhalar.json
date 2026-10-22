@@ -1,0 +1,100 @@
+[
+  [
+    [
+      "Atomlar soni yetmaydi",
+      "Tarkib — boshlanish. Atomlarning qaysi ketma-ketlikda ulanganini bilmasdan proton berishni sanamang."
+    ],
+    [
+      "P–H ni ajrating",
+      "H₃PO₃ odatiy sharoitda ikki asosli. Bitta vodorod fosforga bevosita ulangan."
+    ],
+    [
+      "Suvdagi proton",
+      "H₃O⁺ — foydali qisqartma. Haqiqiy eritmada proton solvatlangan tarmoq ichida bo‘ladi."
+    ]
+  ],
+  [
+    [
+      "Grafik sharti",
+      "Morse modeli: V/Dₑ = [1 − exp(−2(r/rₑ − 1))]² − 1. Parametrlar faraziy, tajriba emas."
+    ],
+    [
+      "Nol qayerda?",
+      "Ajralgan atomlar energiyasi nol deb olingan. Minimum −1 ga teng; r/rₑ = 1 muvozanatdir."
+    ],
+    [
+      "Energiyalar teng emas",
+      "Gomolitik bog‘ energiyasi, geterolitik uzilish va suvdagi erkin energiya boshqa kattaliklar."
+    ]
+  ],
+  [
+    [
+      "NO₃⁻ hisobi",
+      "5 + 3×6 + 1 = 24 valent elektron. Chizmada sakkiz bog‘lovchi va o‘n olti bog‘lanmagan elektron bor."
+    ],
+    [
+      "N oktetini tekshiring",
+      "Bitta qo‘sh va ikkita yakka bog‘: azot atrofida sakkiz elektron. Azot oktetini kengaytirmang."
+    ],
+    [
+      "Faqat bitta yozuv",
+      "Yon chizma nitratning teng huquqli Lewis yozuvlaridan biri; ajralgan alohida izomer emas."
+    ]
+  ],
+  [
+    [
+      "E nimani bildiradi?",
+      "AXₘEₙ da E — markaziy atomning bog‘lanmagan elektron jufti. Indekslar elektron sohalarni sanashga yordam beradi."
+    ],
+    [
+      "Bitta yo‘nalish",
+      "VSEPR sanog‘ida qo‘sh bog‘ bitta soha. Uning itarilish kuchi yakka bog‘nikiga aynan teng bo‘lishi shart emas."
+    ],
+    [
+      "Faza ko‘rsatiladi",
+      "Keltirilgan H₂O va NH₃ burchaklari gaz fazadagi taxminiy qiymatlar; barcha muhitlar uchun o‘zgarmas emas."
+    ]
+  ],
+  [
+    [
+      "Vektor modeli",
+      "Grafik: μ/μᵦ = 2 cos(θ/2). Ikki teng bog‘ dipoli faraz qilingan; elektron zichlikning to‘liq hisobi emas."
+    ],
+    [
+      "Chegaralarni tekshiring",
+      "θ = 0° da nisbat 2; θ = 180° da 0. Grafik burchakning geometriyadagi rolini ajratadi."
+    ],
+    [
+      "Ionlar alohida holat",
+      "Neytral molekulaning dipol momentini ionning umumiy elektrostatik ta’siri bilan tenglashtirmang."
+    ]
+  ],
+  [
+    [
+      "Elektron jufti qoladi",
+      "Brønsted dissotsiatsiyasida H–A bog‘i jufti odatda A tomonida qoladi. Erkin radikallar bu tavsif mahsuloti emas."
+    ],
+    [
+      "Muhit ham qatnashadi",
+      "Suv reagentlarni ham, mahsulotlarni ham barqarorlashtiradi. Faqat bitta bog‘ni ko‘rish yetmaydi."
+    ],
+    [
+      "Oldinga havola",
+      "Kuch omillari 3.2-mavzuda kengayadi. Bu yerda ularning tuzilish bilan bog‘lanishi asoslanadi."
+    ]
+  ],
+  [
+    [
+      "1-savolga tayanch",
+      "NH₄⁺ hosil bo‘lgach erkin iondagi to‘rtta N–H bog‘i ekvivalent. Elektron juftining manbasi alohida doimiy belgi emas."
+    ],
+    [
+      "2-savolga tayanch",
+      "S atrofidagi O yo‘nalishlari taxminan tetraedrik. H₂SO₄ ning OH guruhlari butun molekula simmetriyasini pasaytiradi."
+    ],
+    [
+      "Keyingi mavzu",
+      "2.2. Rezonans va vodorod bog‘i: bir nechta Lewis yozuvi hamda molekulalararo ta’sirlarning fizik ma’nosi."
+    ]
+  ]
+]

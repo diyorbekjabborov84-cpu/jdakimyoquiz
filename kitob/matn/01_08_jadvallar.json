@@ -1,0 +1,92 @@
+{
+ "mezonlar": {
+  "caption": "1.8.1-jadval. Yondashuvlar bir xil savolga javob bermaydi.",
+  "headers": ["Yondashuv", "Markaziy mezon", "Qulay soha", "Asosiy ehtiyot"],
+  "widths": [2.6, 3.5, 3.2, 3.65],
+  "rows": [
+   ["Arrhenius", "Suvdagi H₃O⁺ va OH⁻", "Suvli eritma, neytrallanish", "Boshqa muhitga o‘zgartirmay ko‘chirilmaydi"],
+   ["Brønsted–Lowry", "Proton berish va qabul qilish", "Proton muvozanatlari", "Protonsiz addukt uchun yetarli emas"],
+   ["Lewis", "Elektron jufti donorligi/akseptorligi", "Addukt va komplekslar", "Donor, muhit va stexiometriya kerak"],
+   ["Usanovich", "Kation, anion yoki elektron almashinuvi", "Keng tasnif", "Redoks ham qamraladi; maxsus hisoblar saqlanadi"],
+   ["Lyuks–Flud", "O²⁻ berish va qabul qilish", "Oksidli tizimlar", "Formal ion yozuvi faza tuzilishining o‘zi emas"],
+   ["Pearson HSAB", "Qattiq–yumshoq moslik", "Nisbiy tanlovchanlik", "Qattiqlik mutlaq kuch emas"],
+   ["Superkislotalilik", "Muhitning yuqori protonlash qobiliyati", "Kuchli kislotali muhitlar", "Alohida umumiy reaksiya nazariyasi emas"]
+  ]
+ },
+ "ammiak": {
+  "caption": "1.8.2-jadval. NH₃ + H₂O muvozanatining uch xil o‘qilishi.",
+  "headers": ["Daraja", "Nima ajratiladi?", "Nima deyilmaydi?"],
+  "widths": [2.7, 5.4, 4.85],
+  "rows": [
+   ["Suvli ion modeli", "NH₃ ta’sirida OH⁻ miqdori ortadi", "NH₃ tarkibida oldindan OH bor, deyilmaydi"],
+   ["Proton modeli", "H₂O donor; NH₃ akseptor", "Zaryad belgisi vazifaning o‘zi emas"],
+   ["Tutash juftlar", "NH₄⁺/NH₃; H₂O/OH⁻", "NH₃/OH⁻ bitta tutash juft emas"],
+   ["Elektron modeli", "Azot jufti yangi N–H bog‘ini hosil qiladi", "Butun H₂O va proton markazi bir darajada belgilanmaydi"],
+   ["Muvozanat", "Boshlang‘ich tarkib va Kᵦ kerak", "Asos deb nomlash yakuniy pH ni bermaydi"]
+  ]
+ },
+ "protonsiz": {
+  "caption": "1.8.3-jadval. Proton shart bo‘lmagan jarayonlar.",
+  "headers": ["Misol", "Qulay mezon", "Albatta tekshiriladi"],
+  "widths": [4.7, 3.35, 4.9],
+  "rows": [
+   ["BF₃ + NH₃ ⇌ F₃B←NH₃", "Lewis: juft NH₃ dan B ga", "Addukt barqarorligi, muhit"],
+   ["Ag⁺ + 2NH₃ ⇌ [Ag(NH₃)₂]⁺", "Lewis: metall–ligand bog‘i", "Solvatlanish, boshqa komplekslar"],
+   ["CaO + SiO₂ → CaSiO₃", "Lyuks–Flud: oksid-ion vazifasi", "Faza, harorat, silikat tarmog‘i"],
+   ["2Na + Cl₂ → 2NaCl", "Redoks; keng Usanovich tasnifi", "Elektron balansi, sharoit"],
+   ["Yumshoq markaz + S-donor", "HSAB: nisbiy moslik", "Konstanta, raqobat, redoks"]
+  ]
+ },
+ "olchovlar": {
+  "caption": "1.8.4-jadval. Bir-birining o‘rniga ishlatilmaydigan kattaliklar.",
+  "headers": ["Kattalik", "Nimani tavsiflaydi?", "Nimaga teng emas?"],
+  "widths": [2.6, 5.6, 4.75],
+  "rows": [
+   ["Kₐ, pKₐ", "Belgilangan muhitdagi proton berish muvozanati", "Eritmaning tayyor pH qiymati emas"],
+   ["pH", "Eritmaning ayni holatidagi proton faolligi", "Har qanday muhit uchun umumiy kuch reytingi emas"],
+   ["H₀", "Indikator oilasi orqali muhit kislotaliligi", "pH bilan aynan bir kattalik emas"],
+   ["Hosil bo‘lish K", "Aniq addukt/kompleks muvozanati", "Donor va erituvchisiz universal son emas"],
+   ["HSAB toifasi", "Qattiq–yumshoq nisbiy moslik", "Kₐ, tezlik yoki korrozivlik emas"],
+   ["Mutlaq η", "Tanlangan ta’rifdagi elektron qattiqlik", "Eritmadagi kompleks foizi emas"]
+  ]
+ },
+ "modellar": {
+  "caption": "1.8.5-jadval. Natijadagi farq boshlang‘ich shartlardan keladi.",
+  "headers": ["Shart", "Teng miqdorli almashinish", "Erkin ligand berilgan"],
+  "widths": [3.1, 4.9, 4.95],
+  "rows": [
+   ["Jarayon", "A + B ⇌ C + D", "A + L ⇌ AL"],
+   ["Boshlang‘ich holat", "A va B teng; C va D yo‘q", "a(L) berilgan va saqlanadi"],
+   ["Grafikdagi q", "K", "K·a(L)"],
+   ["Ulush", "f = √q/(1 + √q)", "θ = q/(1 + q)"],
+   ["q = 100 bo‘lganda", "90,91%", "99,01%"],
+   ["Chegarasi", "Ideal almashinish, bitta muvozanat", "Ideal ikki shakl; erkin L nazoratda"]
+  ]
+ },
+ "tanlash": {
+  "caption": "1.8.6-jadval. Savoldan vositaga o‘tish.",
+  "headers": ["Savol yoki holat", "Asosiy vosita", "Qo‘shimcha shart"],
+  "widths": [4.3, 4.0, 4.65],
+  "rows": [
+   ["Suvda pH yoki titrlash", "Proton va ion muvozanatlari", "Faollik, modda balansi"],
+   ["Quruq HCl + NH₃", "Brønsted–Lowry", "Faza va proton almashinuvi"],
+   ["Protonsiz addukt", "Lewis", "Donor markaz, stexiometriya"],
+   ["Ligandlarning moyilligi", "HSAB + barqarorlik konstantalari", "Erkin ligand miqdori, muhit"],
+   ["Oksidli suyuqlanma", "Lyuks–Flud", "Oksid faolligi, fazalar"],
+   ["Kuchli protonlovchi muhit", "Mos kislotalilik funksiyasi", "Indikator oilasi, kalibrlash"]
+  ]
+ },
+ "xatolar": {
+  "caption": "1.8.7-jadval. Bob bo‘yicha yakuniy tekshiruv.",
+  "headers": ["Shoshma xulosa", "To‘g‘riroq ifoda"],
+  "widths": [5.5, 7.45],
+  "rows": [
+   ["«Har qanday kislota proton beradi»", "Bu Brønsted mezoniga tegishli; Lewis akseptorida proton shart emas."],
+   ["«Qattiq kislota doimo kuchliroq»", "HSAB qattiqligi va protonli kuch boshqa mezonlardir."],
+   ["«H₀ = −12 demak pH = −12»", "H₀ indikatorning muhitga javobini ham o‘z ichiga oladi."],
+   ["«K katta bo‘lsa reaksiya tez»", "K muvozanatga, tezlik esa kinetikaga tegishli."],
+   ["«Lyuks–Flud Lavuazye nazariyasi»", "Birinchisi O²⁻ almashinuvini tanlaydi; ikkinchisi tarixiy tarkib farazi edi."],
+   ["«Yangi nazariya eskisini bekor qiladi»", "Har bir vosita mos masala va sharoitda foydali bo‘lishi mumkin."]
+  ]
+ }
+}

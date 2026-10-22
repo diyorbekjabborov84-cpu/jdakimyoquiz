@@ -1,0 +1,392 @@
+{
+  "equilibrium": {
+    "caption": "3.6.1-jadval. Bir xil muvozanat, turli vaqt o‘lchovi",
+    "headers": [
+      "Kattalik",
+      "Dastlabki model",
+      "Ikkala k ni 10× oshirish"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "k_f, s⁻¹",
+        "0,0200",
+        "0,2000"
+      ],
+      [
+        "k_r, s⁻¹",
+        "0,00500",
+        "0,05000"
+      ],
+      [
+        "K=k_f/k_r",
+        "4",
+        "4"
+      ],
+      [
+        "P ning muvozanat ulushi",
+        "0,8000",
+        "0,8000"
+      ],
+      [
+        "Og‘ishning yarim vaqti, s",
+        "27,7259",
+        "2,77259"
+      ],
+      [
+        "ΔG°; 298,15 K",
+        "−3,43656 kJ mol⁻¹",
+        "O‘zgarmaydi"
+      ]
+    ]
+  },
+  "orders": {
+    "caption": "3.6.2-jadval. Tezlik qonuni va birliklar",
+    "headers": [
+      "Model",
+      "k ning birligi",
+      "Muhim shart"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "v=k",
+        "mol L⁻¹ s⁻¹",
+        "Nolinchi tartib"
+      ],
+      [
+        "v=k[S]",
+        "s⁻¹",
+        "Birinchi tartib"
+      ],
+      [
+        "v=k[S][H⁺]",
+        "L mol⁻¹ s⁻¹",
+        "Umumiy ikkinchi tartib"
+      ],
+      [
+        "v=k_obs[S]",
+        "k_obs: s⁻¹",
+        "Boshqa ta’sirlar kuzatilgan k da"
+      ],
+      [
+        "ln([S]_t/[S]_0)",
+        "−k_obs t",
+        "Qaytmas / mos psevdobirinchi model"
+      ],
+      [
+        "Umumiy tenglama",
+        "Darajalarni o‘zi bermaydi",
+        "Elementar bosqich bilan adashtirmang"
+      ]
+    ]
+  },
+  "barrier": {
+    "caption": "3.6.3-jadval. Yon energiya profilining shartli qiymatlari",
+    "headers": [
+      "Nuqta / tushuncha",
+      "G, kJ mol⁻¹",
+      "Izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Reagent",
+        "0",
+        "Ikkala yo‘l uchun bir xil"
+      ],
+      [
+        "Katalizsiz maksimum",
+        "80",
+        "Bitta o‘quv cho‘qqisi"
+      ],
+      [
+        "Katalitik maksimumlar",
+        "55; 45",
+        "Oraliq minimum bilan ajralgan"
+      ],
+      [
+        "Katalitik oraliq",
+        "10",
+        "O‘tish holati emas"
+      ],
+      [
+        "Mahsulot",
+        "−20",
+        "Ikkala yo‘l uchun bir xil"
+      ],
+      [
+        "1-bo‘limdagi model",
+        "Boshqa sonli parametrlar",
+        "Bu profil K=4 ga moslashtirilmagan"
+      ]
+    ]
+  },
+  "temperature": {
+    "caption": "3.6.4-jadval. E_a=50,0 kJ mol⁻¹ shartli Arrhenius modeli",
+    "headers": [
+      "T, K",
+      "k, s⁻¹",
+      "k/k(298,15)"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "288,15",
+        "0,000496598",
+        "0,496598"
+      ],
+      [
+        "298,15",
+        "0,00100000",
+        "1"
+      ],
+      [
+        "308,15",
+        "0,00192426",
+        "1,92426"
+      ],
+      [
+        "10 K qo‘shimcha",
+        "Doimiy ko‘paytirgich emas",
+        "T va E_a ga bog‘liq"
+      ],
+      [
+        "Harorat nazorati",
+        "Kₐ va K_w ham o‘zgarishi mumkin",
+        "Bir xil retsept bir xil pH emas"
+      ]
+    ]
+  },
+  "ph": {
+    "caption": "3.6.5-jadval. Parallel maxsus kanallar; ideal 25 °C",
+    "headers": [
+      "pH",
+      "k_obs, s⁻¹",
+      "Ustunlik / qiyos"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "3,0",
+        "0,010010001",
+        "H⁺ kanali ustun"
+      ],
+      [
+        "5,0",
+        "0,0001101",
+        "H⁺ va fon hissasi"
+      ],
+      [
+        "6,5",
+        "0,0000163246",
+        "Ayni model minimumi"
+      ],
+      [
+        "9,0",
+        "0,00101001",
+        "OH⁻ kanali ustun"
+      ],
+      [
+        "11,0",
+        "0,1000100001",
+        "OH⁻ kanali ustun"
+      ],
+      [
+        "Parametrlar",
+        "k₀=10⁻⁵ s⁻¹",
+        "k_H=10; k_OH=100 L mol⁻¹ s⁻¹"
+      ]
+    ]
+  },
+  "buffer": {
+    "caption": "3.6.6-jadval. Bir xil pH=5 da shartli bufer katalizi",
+    "headers": [
+      "C_T, mol L⁻¹",
+      "k_maxsus, s⁻¹",
+      "Jami k_obs, s⁻¹"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "0",
+        "0,0001101",
+        "0,0001101"
+      ],
+      [
+        "0,0100",
+        "0,0001101",
+        "0,0002101"
+      ],
+      [
+        "0,1000",
+        "0,0001101",
+        "0,0011101"
+      ],
+      [
+        "HA/A⁻ ulushlari",
+        "Haqiqiy muvozanatda 1:1",
+        "Har biri C_T/2"
+      ],
+      [
+        "Berilgan koeffitsiyentlar",
+        "k_HA=0,0200 L mol⁻¹ s⁻¹",
+        "k_A=0; oldindan berilgan faraz"
+      ],
+      [
+        "Bitta chiziq",
+        "k_HA va k_A ni ajratmaydi",
+        "Og‘irlashtirilgan yig‘indi o‘lchanadi"
+      ]
+    ]
+  },
+  "cycle": {
+    "caption": "3.6.7-jadval. Formal proton tashish sikli",
+    "headers": [
+      "Bosqich",
+      "Yozuv",
+      "Mazmun"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Protonlanish",
+        "S+H⁺ ⇌ SH⁺",
+        "Faolroq holat hosil bo‘lishi mumkin"
+      ],
+      [
+        "Qayta tuzilish",
+        "SH⁺ ⇌ PH⁺",
+        "S va P — teng atom tarkibli belgilar"
+      ],
+      [
+        "Deprotonlanish",
+        "PH⁺ ⇌ P+H⁺",
+        "Proton qayta tiklanadi"
+      ],
+      [
+        "Yig‘indi",
+        "S ⇌ P",
+        "H⁺ umumiy sarfda yo‘q"
+      ],
+      [
+        "Neytrallanish",
+        "H⁺+OH⁻ → H₂O",
+        "Stexiometrik sarf; o‘zi katalitik sikl emas"
+      ]
+    ]
+  },
+  "inorganic": {
+    "caption": "3.6.8-jadval. Noorganik katalitik ta’sirlarning farqi",
+    "headers": [
+      "Tizim turi",
+      "Asosiy rol",
+      "Talqin chegarasi"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "H₃O⁺ / OH⁻",
+        "Erituvchi ionlarining katalitik hissasi",
+        "Maxsus kislota–asos katalizi"
+      ],
+      [
+        "Bufer HA / A⁻",
+        "Boshqa donor/akseptor hissasi",
+        "Umumiy kataliz; muhit nazorati"
+      ],
+      [
+        "NO/NO₂ formal sikli",
+        "Redoks vositachilik",
+        "To‘liq sanoat mexanizmi emas"
+      ],
+      [
+        "V oksidli kontakt tizimi",
+        "SO₂ oksidlanishidagi kataliz",
+        "Faol faza oddiy bitta formula emas"
+      ],
+      [
+        "Metall koordinatsiyasi",
+        "Ligand faolligi va proton tashish",
+        "Faqat pH bilan izohlab bo‘lmaydi"
+      ]
+    ]
+  },
+  "checks": {
+    "caption": "3.6.9-jadval. Dalil va xulosaning chegaralari",
+    "headers": [
+      "Kuzatuv",
+      "Nimani ko‘rsatishi mumkin?",
+      "Nimani o‘zi isbotlamaydi?"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Eksponenta",
+        "Mos k_obs bilan ishchi model",
+        "Barcha bosqichlar birinchi tartibli"
+      ],
+      [
+        "pH profili",
+        "Faol shakllar yoki H⁺/OH⁻ ta’siri",
+        "Yagona aniq mexanizm"
+      ],
+      [
+        "Buferga bog‘liqlik",
+        "Umumiy katalitik/muhit hissasi",
+        "k_HA va k_A ning alohida qiymati"
+      ],
+      [
+        "Arrhenius qiyaligi",
+        "Ishchi E_a",
+        "Bitta bog‘ uzilish energiyasi"
+      ],
+      [
+        "Izotop effekti",
+        "Proton dinamikasi haqida dalil",
+        "Yagona o‘tish holati"
+      ],
+      [
+        "Katalizator bilan tezlashish",
+        "Boshqa kinetik yo‘l",
+        "Bir xil umumiy reaksiya K si oshishi"
+      ]
+    ]
+  }
+}

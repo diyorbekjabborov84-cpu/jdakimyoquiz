@@ -1,0 +1,292 @@
+{
+  "levels": {
+    "caption": "2.4.1-jadval. Nomlash usullari",
+    "headers": [
+      "Obyekt / mezon",
+      "Nom yoki tavsif",
+      "Izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Saqlangan nom",
+        "sulfuric acid",
+        "IUPAC doirasida saqlangan"
+      ],
+      [
+        "Tarkibiy nom",
+        "Stexiometrik axborot",
+        "Ulanishni to‘liq bermaydi"
+      ],
+      [
+        "Additiv nom",
+        "Markaz va guruhlar",
+        "Ulanishga oid axborot beradi"
+      ],
+      [
+        "O‘zbekcha ishchi nom",
+        "Sulfat kislota",
+        "Xalqaro nom zarur joyda yonida"
+      ]
+    ]
+  },
+  "retained": {
+    "caption": "2.4.2-jadval. Ko‘p ishlatiladigan kislota nomlari",
+    "headers": [
+      "Formula",
+      "Inglizcha nom",
+      "O‘zbekcha ishchi izoh"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "HCl(g)",
+        "hydrogen chloride",
+        "Vodorod xlorid"
+      ],
+      [
+        "HCl(aq)",
+        "hydrochloric acid",
+        "Xlorid kislota eritmasi"
+      ],
+      [
+        "HNO₃",
+        "nitric acid",
+        "Nitrat kislota"
+      ],
+      [
+        "HNO₂",
+        "nitrous acid",
+        "Nitrit kislota"
+      ],
+      [
+        "H₂SO₄",
+        "sulfuric acid",
+        "Sulfat kislota"
+      ],
+      [
+        "H₃PO₄",
+        "phosphoric acid",
+        "Fosfat kislota"
+      ],
+      [
+        "HP(O)(OH)₂",
+        "phosphonic acid",
+        "An’anaviy fosfit kislota; tuzilish tekshirilsin"
+      ]
+    ]
+  },
+  "anions": {
+    "caption": "2.4.3-jadval. Protonlanish darajasi va anion nomi",
+    "headers": [
+      "Ion",
+      "Inglizcha nom",
+      "Ishchi izoh / zaryad"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "HSO₄⁻",
+        "hydrogensulfate",
+        "Gidrogensulfat; −1"
+      ],
+      [
+        "SO₄²⁻",
+        "sulfate",
+        "Sulfat; −2"
+      ],
+      [
+        "H₂PO₄⁻",
+        "dihydrogenphosphate",
+        "Digidrogenfosfat; −1"
+      ],
+      [
+        "HPO₄²⁻",
+        "hydrogenphosphate",
+        "Gidrogenfosfat; −2"
+      ],
+      [
+        "PO₄³⁻",
+        "phosphate",
+        "Fosfat; −3"
+      ],
+      [
+        "HCO₃⁻",
+        "hydrogencarbonate",
+        "Gidrogenkarbonat; −1"
+      ]
+    ]
+  },
+  "additive": {
+    "caption": "2.4.4-jadval. Additiv nomning tarkibiy qismlari",
+    "headers": [
+      "Guruh",
+      "Nom qismi",
+      "Miqdor / vazifa"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "OH guruhi",
+        "hydroxido",
+        "di-: ikkita OH"
+      ],
+      [
+        "O guruhi",
+        "oxido",
+        "di-: ikkita O"
+      ],
+      [
+        "Bevosita H",
+        "hydrido",
+        "P–H ni ajratadi"
+      ],
+      [
+        "Markaziy atom",
+        "sulfur / phosphorus",
+        "Neytral misollarda oxirgi qism"
+      ],
+      [
+        "F ligandi",
+        "fluorido",
+        "hexa-: oltita F"
+      ]
+    ]
+  },
+  "prefix": {
+    "caption": "2.4.5-jadval. O‘xshash eshitiladigan belgilar",
+    "headers": [
+      "Belgi",
+      "Axborot",
+      "Nimani anglatmaydi?"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "per-",
+        "perchlorate: ClO₄⁻",
+        "O–O mavjudligini bildirmaydi"
+      ],
+      [
+        "perokso-",
+        "O–O fragmenti",
+        "Oddiy per- bilan bir xil emas"
+      ],
+      [
+        "tio-",
+        "Oltingugurtli hosila",
+        "Ota tuzilish bilan tekshiriladi"
+      ],
+      [
+        "diphosphate",
+        "P₂O₇⁴⁻",
+        "Ikki alohida PO₄³⁻ emas"
+      ],
+      [
+        "orto-/meta-",
+        "Tarixiy oilaviy belgilar",
+        "Aniq skelet va formula kerak"
+      ]
+    ]
+  },
+  "formula": {
+    "caption": "2.4.6-jadval. Nomdan formulaga tekshirish",
+    "headers": [
+      "Nom / obyekt",
+      "Formula",
+      "Zaryad balansi"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Natriy gidrogensulfat",
+        "NaHSO₄",
+        "+1 va −1"
+      ],
+      [
+        "Kalsiy gidrogensulfat",
+        "Ca(HSO₄)₂",
+        "+2 va 2×(−1)"
+      ],
+      [
+        "Natriy digidrogenfosfat",
+        "NaH₂PO₄",
+        "+1 va −1"
+      ],
+      [
+        "Dinatriy gidrogenfosfat",
+        "Na₂HPO₄",
+        "2×(+1) va −2"
+      ],
+      [
+        "Kompleks anion",
+        "[SiF₆]²⁻",
+        "F soni 6; umumiy zaryad −2"
+      ]
+    ]
+  },
+  "errors": {
+    "caption": "2.4.7-jadval. Ko‘p uchraydigan xatolar",
+    "headers": [
+      "Xato fikr",
+      "Tuzatish",
+      "Tekshirish usuli"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Barcha eski nom xato",
+        "Saqlangan nomlar ham bor",
+        "Nomlash tizimini aniqlang"
+      ],
+      [
+        "Per- = O–O",
+        "Perxlorat perokso emas",
+        "Bog‘lanishni tekshiring"
+      ],
+      [
+        "(2−) = Si darajasi",
+        "Bu butun kompleks zaryadi",
+        "Si ning darajasi boshqa hisob"
+      ],
+      [
+        "H₃PO₃ nomi yetarli",
+        "Tautomerik noaniqlik bor",
+        "HP(O)(OH)₂ ni ko‘rsating"
+      ],
+      [
+        "Nom barcha xossani beradi",
+        "Nomlash axboroti chegaralangan",
+        "Faza va tajriba dalili kerak"
+      ]
+    ]
+  }
+}

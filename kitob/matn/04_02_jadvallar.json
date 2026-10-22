@@ -1,0 +1,392 @@
+{
+  "roles": {
+    "caption": "4.2.1-jadval. Proton ko‘chishi va elektron ko‘chishini farqlash",
+    "headers": [
+      "Tizim",
+      "Daraja / markaz",
+      "Mazmun"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "HCl+NH₃",
+        "Hamma darajalar saqlanadi",
+        "Kislota–asos, redoks emas"
+      ],
+      [
+        "Zn+2H⁺→Zn²⁺+H₂",
+        "Zn: 0→+2; H: +1→0",
+        "Zn qaytaruvchi; H⁺ oksidlovchi"
+      ],
+      [
+        "Cu va HNO₃",
+        "Cu: 0→+2; N: +5→+4/+2",
+        "Nitrat elektron qabul qiladi"
+      ],
+      [
+        "H₃PO₃→H₃PO₄",
+        "P: +3→+5",
+        "Fosforli kislota qaytaruvchi"
+      ],
+      [
+        "Cl⁻ ning roli",
+        "Ba’zan kuzatuvchi, ba’zan qaytaruvchi",
+        "Reagent juftligi tekshiriladi"
+      ]
+    ]
+  },
+  "potentials": {
+    "caption": "4.2.2-jadval. 25 °C, SHE ga nisbatan qaytarilish potensiallari [2,4]",
+    "headers": [
+      "Qaytarilish yarimreaksiyasi",
+      "E°",
+      "Qo‘llanish sharti"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "Zn²⁺+2e⁻→Zn",
+        "−0,7618 V",
+        "H⁺ bilan taqqoslanadi"
+      ],
+      [
+        "2H⁺+2e⁻→H₂",
+        "0,0000 V",
+        "Etalon; gazning standart holati"
+      ],
+      [
+        "Cu²⁺+2e⁻→Cu",
+        "+0,337 V",
+        "Erkin Cu²⁺ jufti"
+      ],
+      [
+        "Fe³⁺+e⁻→Fe²⁺",
+        "+0,771 V",
+        "n=1; komplekslar tashlangan"
+      ],
+      [
+        "NO₃⁻+4H⁺+3e⁻→NO+2H₂O",
+        "+0,957 V",
+        "NO nishoni; kislotali standart"
+      ],
+      [
+        "MnO₄⁻+8H⁺+5e⁻→Mn²⁺+4H₂O",
+        "+1,507 V",
+        "Mn²⁺ nishoni; n=5"
+      ]
+    ]
+  },
+  "ph": {
+    "caption": "4.2.3-jadval. pH qiyaligi: boshqa faolliklar birga teng bo‘lgan model",
+    "headers": [
+      "Juft / holat",
+      "Qiyalik yoki shart",
+      "Natija / cheklov"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "H⁺/H₂",
+        "−0,05915935 V/pH",
+        "E(pH=2)=−0,11832 V"
+      ],
+      [
+        "MnO₄⁻/Mn²⁺",
+        "−0,09465496 V/pH",
+        "E(pH=2)=1,31769 V"
+      ],
+      [
+        "NO₃⁻/NO",
+        "−0,07887913 V/pH",
+        "E(pH=2)=0,79924 V"
+      ],
+      [
+        "pH ortishi",
+        "Proton sarflanadigan juft E si pasayadi",
+        "Yarimreaksiya o‘zgarmaganida"
+      ],
+      [
+        "Chiziqlar chegarasi",
+        "Turlar, faza va boshqa faolliklar saqlangan",
+        "To‘liq Pourbaix xaritasi emas"
+      ]
+    ]
+  },
+  "medium": {
+    "caption": "4.2.4-jadval. Permanganatning turli nishonlari va elektron talabi",
+    "headers": [
+      "Nishon",
+      "Elektron balansi",
+      "Muhit / talqin"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "MnO₄⁻→Mn²⁺",
+        "Mn: +7→+2; 5e⁻",
+        "Kislotali nishon; 8H⁺ sarfi"
+      ],
+      [
+        "MnO₄⁻→MnO₂(s)",
+        "Mn: +7→+4; 3e⁻",
+        "Suv/OH⁻ bilan balanslanadi"
+      ],
+      [
+        "MnO₄⁻→MnO₄²⁻",
+        "Mn: +7→+6; 1e⁻",
+        "Manganat nishoni; ishqoriy sharoit"
+      ],
+      [
+        "H⁺ ning vazifasi",
+        "H darajasi +1 da qolishi mumkin",
+        "Proton manbai ≠ redoks markazi"
+      ],
+      [
+        "Elektron tekshiruvi",
+        "Fe²⁺ dan har biriga 1e⁻",
+        "Mn²⁺ uchun Fe:Mn=5:1"
+      ]
+    ]
+  },
+  "nitrogen": {
+    "caption": "4.2.5-jadval. Nitratdan turli azot mahsulotlariga formal elektron hisobi",
+    "headers": [
+      "Nishon mahsulot",
+      "Bir N uchun elektron",
+      "Muhim izoh"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "NO₂",
+        "N(+4); 1e⁻/N",
+        "Cu misolida 2NO₂ / 1Cu"
+      ],
+      [
+        "NO",
+        "N(+2); 3e⁻/N",
+        "Cu misolida 2NO / 3Cu"
+      ],
+      [
+        "N₂O",
+        "O‘rtacha N(+1); 4e⁻/N",
+        "8e⁻ / 1N₂O; atomlar ekvivalent emas"
+      ],
+      [
+        "N₂",
+        "N(0); 5e⁻/N",
+        "10e⁻ / 1N₂"
+      ],
+      [
+        "NH₄⁺",
+        "N(−3); 8e⁻/N",
+        "Mahsulot bo‘lsa; universal bashorat emas"
+      ],
+      [
+        "Kuzatuvchi NO₃⁻",
+        "N(+5) saqlanadi",
+        "Tuzdagi nitratni qaytarilgan deb sanamang"
+      ]
+    ]
+  },
+  "sulfur": {
+    "caption": "4.2.6-jadval. Oltingugurtning elektron sig‘imi nishonga bog‘liq",
+    "headers": [
+      "O‘tish",
+      "1 mol S uchun",
+      "Talqin"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "S(+6)→SO₂; S(+4)",
+        "2e⁻ qabul",
+        "Oksidlovchi markaz qaytariladi"
+      ],
+      [
+        "S(+6)→S(0)",
+        "6e⁻ qabul",
+        "Mahsulot tanlovi sharoitga bog‘liq"
+      ],
+      [
+        "S(+6)→H₂S; S(−2)",
+        "8e⁻ qabul",
+        "Grafik mahsulotni bashorat qilmaydi"
+      ],
+      [
+        "SO₂→SO₄²⁻",
+        "2e⁻ beradi",
+        "S(+4) qaytaruvchi"
+      ],
+      [
+        "H₂S→S(0)",
+        "2e⁻ beradi",
+        "Bir nishon"
+      ],
+      [
+        "H₂S→SO₄²⁻",
+        "8e⁻ beradi",
+        "Boshqa nishon; sarf 4 marta katta"
+      ]
+    ]
+  },
+  "phosphorus": {
+    "caption": "4.2.7-jadval. H soni, kislotalilik va elektron ekvivalenti boshqa kattaliklar",
+    "headers": [
+      "Kislota / ulanish",
+      "Tuzilish va daraja",
+      "Redoks talqini"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "H₃PO₄; OP(OH)₃",
+        "3 O–H; 0 P–H; P(+5)",
+        "Odatiy qaytaruvchi emas"
+      ],
+      [
+        "H₃PO₃; HP(O)(OH)₂",
+        "2 O–H; 1 P–H; P(+3)",
+        "H₃PO₄ nishoniga 2e⁻ beradi"
+      ],
+      [
+        "H₃PO₂; H₂P(O)(OH)",
+        "1 O–H; 2 P–H; P(+1)",
+        "H₃PO₄ nishoniga 4e⁻ beradi"
+      ],
+      [
+        "Proton ekvivalenti",
+        "Tanlangan neytrallanish bosqichi",
+        "O–H sarfi bilan bog‘liq"
+      ],
+      [
+        "Elektron ekvivalenti",
+        "Tanlangan oksidlanish mahsuloti",
+        "Proton ekvivalentiga teng emas"
+      ]
+    ]
+  },
+  "dual": {
+    "caption": "4.2.8-jadval. Disproportsiyalanish va H₂O₂ ning ikki roli",
+    "headers": [
+      "Jarayon",
+      "Elektron / potensial",
+      "Ma’no"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "HNO₂→HNO₃",
+        "N: +3→+5; 2e⁻ beradi",
+        "Bir N oksidlanadi"
+      ],
+      [
+        "2HNO₂→2NO",
+        "Har N: +3→+2; 1e⁻ qabul",
+        "Ikki N qaytariladi"
+      ],
+      [
+        "H₂O₂→H₂O",
+        "O: −1→−2; 2e⁻/H₂O₂ qabul",
+        "E°(qaytarilish)=1,776 V"
+      ],
+      [
+        "H₂O₂→O₂",
+        "O: −1→0; 2e⁻/H₂O₂ beradi",
+        "Teskari juft E°=0,695 V"
+      ],
+      [
+        "2H₂O₂→2H₂O+O₂",
+        "E°_cell=1,081 V; n=2",
+        "ΔG°≈−208,60 kJ mol⁻¹"
+      ],
+      [
+        "Termodinamika va tezlik",
+        "Katta K tez reaksiya degani emas",
+        "Kataliz/sirtlar alohida tekshiriladi"
+      ]
+    ]
+  },
+  "worked": {
+    "caption": "4.2.9-jadval. Ideal kislotali MnO₄⁻–Fe²⁺ hisobining nazorati",
+    "headers": [
+      "Bosqich",
+      "Hisob / shart",
+      "Natija"
+    ],
+    "widths": [
+      4.1,
+      4.2,
+      4.5
+    ],
+    "rows": [
+      [
+        "MnO₄⁻ boshlang‘ich",
+        "0,02000×0,02000",
+        "0,4000 mmol"
+      ],
+      [
+        "Fe²⁺ boshlang‘ich",
+        "0,05000×0,05000",
+        "2,500 mmol"
+      ],
+      [
+        "Elektron sig‘imi",
+        "0,4000×5",
+        "2,000 mmol e⁻"
+      ],
+      [
+        "Fe³⁺ hosil / Fe²⁺ qoldiq",
+        "2,000 / 0,5000 mmol",
+        "Nisbat 4"
+      ],
+      [
+        "Mn²⁺ hosil / H⁺ sarfi",
+        "0,4000 / 3,200 mmol",
+        "a(H⁺) yakunda ham berilgan"
+      ],
+      [
+        "Fe juftining E si",
+        "0,771+0,05915935·lg4",
+        "0,80662 V (SHE)"
+      ],
+      [
+        "Muvozanat MnO₄⁻ izi",
+        "a(H⁺)=0,100; γ≈1",
+        "≈3,65×10⁻⁵⁴ mol L⁻¹, model"
+      ]
+    ]
+  }
+}

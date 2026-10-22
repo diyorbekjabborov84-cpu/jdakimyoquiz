@@ -1,0 +1,382 @@
+{
+  "definition": {
+    "caption": "3.3.1-jadval. pH va konsentratsiya",
+    "headers": [
+      "Kattalik",
+      "To‘g‘ri ma’no",
+      "Ishlatish sharti"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "pH",
+        "−lg a(H⁺)",
+        "Faollik o‘lchamsiz"
+      ],
+      [
+        "m(H⁺)",
+        "mol kg⁻¹; molallik",
+        "IUPAC ifodasidagi shkala"
+      ],
+      [
+        "h=[H⁺]",
+        "mol L⁻¹; molyar konsentratsiya",
+        "Ideal masalalardagi o‘zgaruvchi"
+      ],
+      [
+        "−lg(h/c°)",
+        "Konsentratsion yaqinlashuv",
+        "γ≈1 va mos suyultirish"
+      ],
+      [
+        "pKₐ",
+        "−lg Kₐ",
+        "pH bilan aynan bir son emas"
+      ]
+    ]
+  },
+  "balances": {
+    "caption": "3.3.2-jadval. Modelni yopadigan tenglamalar",
+    "headers": [
+      "Tayanch",
+      "HA uchun yozuv",
+      "Tekshiruv"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Moddiy balans",
+        "C=[HA]+[A⁻]",
+        "Kislota oilasi saqlanadi"
+      ],
+      [
+        "Zaryad balansi",
+        "h=[A⁻]+[OH⁻]",
+        "Faqat HA va suv uchun"
+      ],
+      [
+        "Kislota muvozanati",
+        "K_c=h[A⁻]/[HA]",
+        "Ideal konsentratsion model"
+      ],
+      [
+        "Suv muvozanati",
+        "K_w,c=h[OH⁻]",
+        "25 °C da 10⁻¹⁴ (mol L⁻¹)²"
+      ],
+      [
+        "Kuchli HX qo‘shilsa",
+        "h=C_s+[A⁻]+[OH⁻]",
+        "[X⁻]=C_s; boshqa ionlar yo‘q"
+      ]
+    ]
+  },
+  "strong": {
+    "caption": "3.3.3-jadval. Kuchli bir asosli kislota; 25 °C ideal model",
+    "headers": [
+      "C, mol L⁻¹",
+      "Suv bilan pH",
+      "Suvsiz −lg(C/c°)"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "10⁻³",
+        "3,00000",
+        "3"
+      ],
+      [
+        "10⁻⁶",
+        "5,99572",
+        "6"
+      ],
+      [
+        "10⁻⁷",
+        "6,79101",
+        "7"
+      ],
+      [
+        "10⁻⁸",
+        "6,97829",
+        "8 — yaroqsiz"
+      ],
+      [
+        "C → 0",
+        "7 ga pastdan intiladi",
+        "Cheksiz ortish fizik emas"
+      ]
+    ]
+  },
+  "weak": {
+    "caption": "3.3.4-jadval. HA uchun hisob bosqichlari",
+    "headers": [
+      "Model",
+      "Tenglama / natija",
+      "Qachon yaroqli?"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Suv saqlanadi",
+        "h=CK_c/(K_c+h)+K_w,c/h",
+        "Ushbu ideal tizimning to‘liq hisobi"
+      ],
+      [
+        "Suv kichik",
+        "x²+K_cx−K_cC=0",
+        "h≈[A⁻] tekshirilgan"
+      ],
+      [
+        "Kichik x ham olinadi",
+        "h≈√(K_cC)",
+        "x/C kichik va suv kichik"
+      ],
+      [
+        "C=0,01; K_c=10⁻⁵",
+        "Ideal pH≈3,50687",
+        "α≈3,1127%; kichik x nisbati"
+      ],
+      [
+        "C=10⁻⁴; K_c=10⁻⁵",
+        "Ideal pH≈4,56838",
+        "α≈27,02%; kvadrat model kerak"
+      ],
+      [
+        "C=10⁻⁸; K_c=10⁻⁵",
+        "Ideal pH≈6,97852",
+        "Suvni tashlab bo‘lmaydi"
+      ]
+    ]
+  },
+  "mixstrong": {
+    "caption": "3.3.5-jadval. Kuchli kislotalar aralashmasini hisoblash",
+    "headers": [
+      "Bosqich",
+      "Hisob",
+      "Natija"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Birinchi miqdor",
+        "0,0100×0,0100",
+        "1,00×10⁻⁴ mol"
+      ],
+      [
+        "Ikkinchi miqdor",
+        "0,00100×0,0300",
+        "3,00×10⁻⁵ mol"
+      ],
+      [
+        "Jami miqdor",
+        "n₁+n₂",
+        "1,30×10⁻⁴ mol"
+      ],
+      [
+        "Yakuniy hajm",
+        "0,0100+0,0300",
+        "0,0400 L; qo‘shiluvchan deb olingan"
+      ],
+      [
+        "C_s va ideal pH",
+        "0,000130/0,0400",
+        "0,003250 mol L⁻¹; pH≈2,48812"
+      ]
+    ]
+  },
+  "mixweak": {
+    "caption": "3.3.6-jadval. Umumiy H⁺ ta’siri: shartli HA, K_c=10⁻⁵",
+    "headers": [
+      "Holat / kattalik",
+      "Faqat HA",
+      "HA + kuchli HX"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "C(HA), mol L⁻¹",
+        "0,0100",
+        "0,0100"
+      ],
+      [
+        "C_s, mol L⁻¹",
+        "0",
+        "0,00100"
+      ],
+      [
+        "[A⁻], mol L⁻¹",
+        "0,0003112673",
+        "0,0000908397"
+      ],
+      [
+        "α, %",
+        "3,1127",
+        "0,9084"
+      ],
+      [
+        "Ideal pH",
+        "3,50687",
+        "2,96224"
+      ],
+      [
+        "O‘zgarmagan kattalik",
+        "Berilgan K_c",
+        "Berilgan K_c"
+      ]
+    ]
+  },
+  "diprotic": {
+    "caption": "3.3.7-jadval. H₂SO₄; birinchi bosqich to‘liq, ikkinchisi muvozanatli",
+    "headers": [
+      "Kattalik",
+      "Ideal natija",
+      "Nazorat"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "C, mol L⁻¹",
+        "0,0100",
+        "S oilasining analitik jami"
+      ],
+      [
+        "K₂,c, mol L⁻¹",
+        "0,012",
+        "25 °C; γ≈1 deb olingan"
+      ],
+      [
+        "[HSO₄⁻], mol L⁻¹",
+        "0,00547583",
+        "C−x"
+      ],
+      [
+        "[SO₄²⁻], mol L⁻¹",
+        "0,00452417",
+        "x"
+      ],
+      [
+        "h, mol L⁻¹",
+        "0,01452417",
+        "Bir va ikki zaryadni farqlang"
+      ],
+      [
+        "Ideal pH",
+        "1,83791",
+        "O‘lchangan pH emas"
+      ]
+    ]
+  },
+  "quality": {
+    "caption": "3.3.8-jadval. Aniqlik chegaralari",
+    "headers": [
+      "Omil",
+      "Nima o‘zgaradi?",
+      "Nimani tekshirish kerak?"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Faollik koeffitsiyenti",
+        "a bilan konsentratsiya farqi",
+        "Shkala, konvensiya, ion kuchi"
+      ],
+      [
+        "Harorat",
+        "Kₐ va K_w",
+        "Konstantalarning T si"
+      ],
+      [
+        "Yakuniy hajm",
+        "Barcha analitik C lar",
+        "Qo‘shiluvchanlik farazi"
+      ],
+      [
+        "Juda kichik C",
+        "Suv va tashqi aralashmalar hissasi",
+        "CO₂, iz ionlar, o‘lchash chegarasi"
+      ],
+      [
+        "Ko‘p hisobiy raqam",
+        "Model ildizining yozilishi",
+        "Tajriba aniqligi bilan teng emas"
+      ]
+    ]
+  },
+  "checks": {
+    "caption": "3.3.9-jadval. Yechimni tanlash va rad etish mezonlari",
+    "headers": [
+      "Vaziyat",
+      "Boshlang‘ich yo‘l",
+      "Xato belgisi"
+    ],
+    "widths": [
+      3.0,
+      4.9,
+      4.9
+    ],
+    "rows": [
+      [
+        "Kuchli kislota",
+        "h=strong(C, K_w,c)",
+        "Suyultirilgan kislota uchun pH=8"
+      ],
+      [
+        "HA",
+        "Balanslar va K_c",
+        "α>1 yoki manfiy konsentratsiya"
+      ],
+      [
+        "Kuchli + kuchli",
+        "Miqdor → hajm → C_s",
+        "pH larni o‘rtachalashtirish"
+      ],
+      [
+        "Kuchli + HA",
+        "Kuchli anionni balansga kiriting",
+        "[A⁻]=h deb qo‘yish"
+      ],
+      [
+        "Ko‘p bosqichli",
+        "Har bir bosqich va zaryad",
+        "Har doim h=nC"
+      ],
+      [
+        "Har qanday model",
+        "Qayta qo‘yish va birlik nazorati",
+        "Balans yoki K tiklanmaydi"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+route,electrons_per_center
+N+5_to_NO2,1
+N+5_to_NO,3
+N+5_to_NH4,8
+S+6_to_SO2,2
+S+6_to_S,6
+S+6_to_H2S,8
