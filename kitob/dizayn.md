@@ -419,3 +419,20 @@ Hamma yangi nusxalar reader/discovery=false. Oldingi Drive fayllari o‘chirilma
 - Yakuniy Google Docs: https://docs.google.com/document/d/1O4VZZNWnTCzlX2aaOCrhlOTW-82GfWFzVOOXRavOZK8/edit
 - Ikkala yakuniy nusxa reader/discovery=false. Manbalar, model va render QA `matn/04_04_rasm_manbasi.md` da.
 - Keyingi mavzu: 4.5 — Parchalanish.
+
+
+## 4.5 — Parchalanish (2026-10-22)
+- Alohida DOCX: `chiqish/Noorganik-kislotalar-4.5-Parchalanish.docx`; 695093 bayt, 4771 so‘z (matematik matn bilan).
+- 11 bo‘lim: parchalanish va uning qarindoshlari; termodinamik mezon (ΔG, T*); muvozanat konstantasi (van ’t Hoff); kinetika: termodinamika bilan farqi; yorug‘lik, radiatsiya va zanjirli fotokimyo; dismutatsiya; kondensatsiya; muhitning ta’siri (pH, katalizator, konsentratsiya); barqarorlik ierarxiyasi; parchalanish mahsulotlarini aniqlash; ishlangan hisob (termodinamik chegara va kinetik blok).
+- A4 13.5:4.5 cm, ko‘k/bronza ramkalar. 11 jadval, 11 raqamlangan Equation (27 native OMML qatori, 14 haqiqiy kasr, 63 pastki, 25 yuqori), 4 hisobiy grafik + CSV (401 nuqta har biri), 7 sxema, 5 original illyustratsiya, 22 yon lavha. TNR matn, Cambria Math Equation, DejaVu Serif raster. Bob kirish rasmi alohida.
+- Markaziy g‘oya: termodinamik qulaylik va kinetik blok — boshqa savollar. HNO₃ uchun ΔG°(298,15)=−155,18 kJ/mol va lg K≈27,2, ammo yuqori aktivatsiya to‘sig‘i uni idishda saqlanishga imkon beradi; H₂SO₄ uchun T*=779,7 K (≈507 °C) va lg K(298,15)=−14,33. Kimyoviy «kislota o‘zgardi» holatlari dissotsiatsiya, gidroliz, redoks, kondensatsiya va polimerlashdan aniq ajratildi; dismutatsiya IUPAC D01799/C01217 asosida berildi.
+- Model qiymatlari: ΔH°, ΔS° OpenStax App. G dan (HNO₃(l) −174,1/155,6 — suyuq qiymat, eritma qiymati emas); ΔG° qayta hisoblangan; kinetika A=1,0×10¹³ s⁻¹, E_a=100 kJ/mol (o‘quv); sulfit ulushlari K_a1=1,6×10⁻², K_a2=6,4×10⁻⁸ bo‘yicha, pH 7 da α(SO₂·H₂O)=3,81×10⁻⁶; kondensatsiya entalpiyalari +31,2/+58,2/−63,9/−7,9/+14,3/+57,7 kJ/mol. 14 ta atom va zaryad balansi o‘tkazildi (HNO₃: 4HNO₃→4NO₂+2H₂O+O₂; H₂S+H₂SO₃: 2H₂S+H₂SO₃→3S+3H₂O). Barchasi ochiq shartli model; tajriba ma’lumoti emas.
+- `check_04_05.py` PASS: 1604 model nuqtasi; termodinamik, kinetik va sulfit identifikatsiyalari; 14 atom/zarjad balansi; Word matematikasi, indekslar, jadvallar/rasmlar/3:1 ustunlar.
+- Native Google Docs→DOCX roundtrip 1687218 bayt; 27 OMML qatori, 14 kasr, 11 jadval sarlavhasi va (4.5.1)…(4.5.11) raqamlari saqlangan. Yakuniy Google PDF 1076162 bayt, 12 sahifa; har bir bo‘lim bitta sahifada, bo‘sh sahifa yo‘q. Sahifalar 1, 5, 8, 11, 12 ko‘z bilan tekshirildi. Lokal MS Word renderer yo‘q.
+- Dastlabki render 16 sahifa bo‘lib, 1/2/4/7-bo‘limlar ikkinchi sahifaga oqqan; matn ixchamlashtirish, jadval katak bo‘shliqlarini 70→50 twips ga qisqartirish, jadval qatorlarini birlashtirish va sxema balandligini 5 qatorga moslash orqali yakuniy 12 sahifaga yetildi. Besh qatorli sxemalarda oxirgi blok kesilib qolgani topildi va tuzatildi; sxema matnidagi «Fotoskimyoviy», «Nitrit», «Xron kislota», «Notheri yo‘l», «To‘sig‘ katalizator» kabi xatolar tuzatildi.
+- Xavfsizlik: HNO₃, HClO₃/HClO₄, HCN va H₂S uchun tayyorlash yoki qayta ishlash ko‘rsatmasi berilmadi; saqlash faqat umumiy tamoyil darajasida.
+- QA paytida yuklangan oraliq Docs/DOCX juftliklar muxlatga solindi; foydalanuvchiga faqat quyidagi yakuniy havolalar beriladi.
+- Yakuniy DOCX: https://drive.google.com/uc?id=1JqmkA5dppBO9ZL17VVYMZ_BBI7DDpr5T&export=download
+- Yakuniy Google Docs: https://docs.google.com/document/d/13khlAyiQBp8-D-MT0Z1vdqlyCb4cbVCFLufVPTMFdlM/edit
+- Ikkala yakuniy nusxa reader/discovery=false. Manbalar, model va render QA `matn/04_05_rasm_manbasi.md` da.
+- Keyingi mavzu: 5.1 — Olishning umumiy usullari.
