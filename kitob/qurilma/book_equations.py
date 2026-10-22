@@ -13,11 +13,15 @@ def el(tag,*children):
         for item in (c if isinstance(c,list) else [c]):x.append(deepcopy(item))
     return x
 
+EQ_SIZE = 22
+EQ_GAP = 7
+EQ_LEAD = 1.15
+
 def text(s):
     r=el('r');pr=el('rPr');sty=el('sty');sty.set(qn('m:val'),'p');pr.append(sty);r.append(pr)
     wp=OxmlElement('w:rPr');fo=OxmlElement('w:rFonts')
     for a in ['ascii','hAnsi']:fo.set(qn('w:'+a),'Cambria Math')
-    wp.append(fo);size=OxmlElement('w:sz');size.set(qn('w:val'),'22');wp.append(size);r.append(wp)
+    wp.append(fo);size=OxmlElement('w:sz');size.set(qn('w:val'),str(EQ_SIZE));wp.append(size);r.append(wp)
     t=el('t');t.set(qn('xml:space'),'preserve');t.text=s;r.append(t);return r
 
 def seq(*xs):
@@ -41,6 +45,9 @@ def chem(s):
     return result
 
 def equations(topic):
+    if topic=='5.2':
+        from equations_05_02 import purification_equations
+        return purification_equations()
     if topic=='5.1':
         from equations_05_01 import preparation_equations
         return preparation_equations()
@@ -84,9 +91,9 @@ def add_equation(p,cell,topic,number,runs):
     lines=equations(topic)[number-1]
     for i,line in enumerate(lines):
         if i:
-            p=cell.add_paragraph();p.paragraph_format.space_before=Pt(2)
-        p.paragraph_format.line_spacing=1.15
-        p.paragraph_format.space_after=Pt(7)
+            p=cell.add_paragraph();p.paragraph_format.space_before=Pt(1)
+        p.paragraph_format.line_spacing=EQ_LEAD
+        p.paragraph_format.space_after=Pt(EQ_GAP)
         p.paragraph_format.keep_together=True
         p.paragraph_format.keep_with_next=i<len(lines)-1
         om=el('oMath',line);p._p.append(om)

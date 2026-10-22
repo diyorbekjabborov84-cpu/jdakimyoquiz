@@ -1,0 +1,39 @@
+# 5.2. Kislotalarni tozalash — manba va rasm izohi
+
+## Manbalar (to‘liq o‘qilgan)
+1. **OpenStax, Chemistry 2e, Appendix J “Solubility Products” (25 °C)** — https://openstax.org/books/chemistry-2e/pages/j-solubility-products . Ksp qiymatlari: BaSO₄ 2,3×10⁻⁸; CaCO₃ 8,7×10⁻⁹; CaSO₄·2H₂O 6,1×10⁻⁵; Cd(OH)₂ 5,9×10⁻¹⁵; CdS 1,0×10⁻²⁸; Cu(OH)₂ 2,2×10⁻²⁰; CuS 8,5×10⁻⁴⁵; Fe(OH)₂ 1,8×10⁻¹⁵; Fe(OH)₃ 4×10⁻³⁸; Pb(OH)₂ 1,2×10⁻¹⁵; PbS 7×10⁻²⁹; NiS(α) 4×10⁻²⁰; Ag₂O 2×10⁻⁸; AgCl 1,6×10⁻¹⁰; Zn(OH)₂ 4,5×10⁻¹⁷; Al(OH)₃ 2×10⁻³²; Ni(OH)₂ 1,6×10⁻¹⁶; Co(OH)₂ 2,5×10⁻¹⁶; MnS 2,3×10⁻¹³; HgS 1,6×10⁻⁵⁴; Ag₂S 1,6×10⁻⁴⁹; FeS 3,7×10⁻¹⁹; CoS(α) 5,0×10⁻²². Cho‘ktirish hisoblari faqat shu qiymatlarga asoslanadi (Zn(OH)₂ turli jadvalda farq qilgani uchun sonli qiymat ishlatilmadi).
+2. **OpenStax, Chemistry 2e, Appendix K “Formation Constants for Complex Ions”** — https://openstax.org/books/chemistry-2e/pages/k-formation-constants-for-complex-ions . Kf: Cu²⁺+4NH₃ ⇌ [Cu(NH₃)₄]²⁺ 1,7×10¹³; Cd²⁺+4NH₃ 1,3×10⁷; Ni²⁺+6NH₃ 2,0×10⁸; Ag⁺+2NH₃ 1,7×10⁷; Zn²⁺+4OH⁻ ⇌ [Zn(OH)₄]²⁻ 2×10¹⁵; Fe³⁺+SCN⁻ 8,9×10²; Fe³⁺+6SCN⁻ 3,2×10³; Hg²⁺+4Cl⁻ 1,1×10¹⁶; Al³⁺+6F⁻ 7×10¹⁹.
+3. **IUPAC Gold Book** — «azeotropic point» (15315, PAC 2008, 80, 233) https://goldbook.iupac.org/terms/view/15315 ; «ion exchanger» (I03171), «ion exchange» (I03167), «selection coefficient» (S05566) https://goldbook.iupac.org/terms/view/I03171 . Azeotrop ta’rifi, ion almashinuvchi ta’rifi va selektivlik koeffitsienti shakli.
+4. **European Pharmacopoeia 6.0, monograph 01/2008:1550 — Nitric acid** — http://www.uspbpep.com/ep60/nitric%20acid%201549e.pdf . Kontent 68,0–70,0 % m/m; M_r 63,0; ρ ≈ 1,41; eritma rangi Y6 taqoslash eritmadan kuchsizroq (2.2.2, II usul); xloridlar ≤ 0,5 ppm (2.4.4); sulfatlar ≤ 10 ppm (2.4.13); temir ≤ 10 ppm (2.4.9); og‘ir metallar (Pb bo‘yicha) ≤ 2 ppm (2.4.8); sulfatlangan kul ≤ 0,01 %; saqlash — yorug‘likdan himoyalangan; titrlash: 1 ml 1 M NaOH ≡ 63,0 mg HNO₃.
+5. **ASTM D1209** — Pt-Co rang skalasiga mos rang o‘lchash usuli. **U.S. EPA Method 9000** — Karl Fischer titratsiyasi orqali suv miqdorini aniqlash (1:1 stixiometriya) https://www.epa.gov/sites/default/files/2015-12/documents/9000.pdf .
+6. **CRC Handbook of Chemistry and Physics, 97th ed.** — molekul massalari (HNO₃ 63,01; NO₂ 46,01; Fe 55,85; H₂SO₄ 98,08; CaO 56,08; CaCO₃ 100,09) va faza xossalari uchun umumiy nazorat manbai.
+
+## Model va hisoblar (barchasi ochiq shartli)
+- **Erushchanlik modeli.** [M] = Ksp/[OH⁻]ⁿ, faollik koeffitsientlari γ≈1, 25 °C. pH ning ta’siri: pH +1 → n=2 uchun 100 marta, n=3 (Fe³⁺) uchun 1000 marta kamayish. Model bo‘yicha Fe³⁺ pH 2 da 4,0×10⁻² M, pH 3 da 4,0×10⁻⁵ M; Cu²⁺ pH 5 da 2,2×10⁻² M, pH 7 da 2,2×10⁻⁶ M; Cd²⁺ pH 8 da 5,9×10⁻³ M.
+- **Kompleks niqoblash modeli.** Cu²⁺ + 4NH₃ ⇌ [Cu(NH₃)₄]²⁺, Kf = 1,7×10¹³; erkin Cu²⁺ = C_Cu/(1 + Kf[NH₃]⁴) bo‘lib, 1,0 M NH₃ va pH 2 da 1,29×10⁻⁹ M (ammiaksiz hisoblangan 2,2×10⁴ M o‘rniga).
+- **Tozalash kaskadi modeli.** c/c₀ = (1/Φ)ᴺ (Φ — ajratish faktori). Reagent darajasiga (10⁻⁶) yetish uchun: Φ=10 → 6 bosqich; Φ=100 → 3; Φ=1000 → 2; Φ=10000 → 1,5.
+- **Rektifikatsiya modeli.** Doimiy nisbiy uchuvchanlik α, faollik koeffitsientlari γ≈1. Fenske: N_min = lg[(x_D/(1−x_D))·((1−x_B)/x_B)]/lg α; x_D=0,95, x_B=0,05: α=1,2 → 32,30; 1,5 → 14,52; 2,0 → 8,50; 3,0 → 5,36 pog‘ona. R_min (q=1, x_F=0,50): α=1,5 → 3,50; 2,0 → 1,70; 3,0 → 0,80. McCabe-Thiele (q=1, R=2,0, x_F=0,50): α=2,0 → 16 pog‘ona; α=3,0 → 7 pog‘ona; α=1,5 da R_min=3,50 > R=2,0 — dizajn mumkin emas (model aniq belgilaydi).
+- **Konsentratsiyalash mass balansi.** Kislota yo‘qotilmaydi: m(suv) = 100 − 100·w₀/w₁ (100 kg asos). 0,50 → 0,98: 48,98 kg; 0,68 → 0,98: 30,61 kg; 0,75 → 0,98: 23,47 kg. Azeotrop chegaralari: HNO₃–H₂O 68,8 % (120,5 °C), HCl–H₂O 20,2 % (108,6 °C), H₂SO₄–H₂O 98,3 % (337 °C).
+- **Ion almashinuv modeli.** Plug-flow kolonka, Langmuir izotermasi q = q_max·K·C/(1 + K·C), q_max = 50 mg/g, K = 0,5 L/mg, darhol muvozanat; q_eq (C₀ = 50/100/200 mg/L) = 48,08/49,02/49,51 mg/g. «Fronti kiring» — C/C₀ = 0,5 ga birinchi ko‘tarilish nuqtasi: BV = 4,96 / 1,28 / 0,34. Massa balansi tekshiruvi: yig‘ilgan miqdor 48,08 mg/g (C₀ = 50 mg/L).
+- **Model A — rangli HNO₃ ni tozalash.** 1000 t 68 % li HNO₃ eritmasi, eritilgan NO₂ 4,0 t. 4NO₂ + O₂ + 2H₂O → 4HNO₃. n(NO₂) = 4000/46,01 = 86,938 kmol; suv 43,469 kmol = 0,7831 t; kislorod 21,734 kmol = 0,6955 t; HNO₃ +5,4779 t; m_yakuniy = 1000 + 0,6955 − 0,7831 = 999,91 t; HNO₃ umumiy 685,48 t; w = 685,48/999,91 = 0,68554 (68,55 %).
+- **Model B — sulfat kislotadagi temir.** 1000 t 96 % li H₂SO₄ eritmasi, Fe 0,03 % (0,3 t). Fe₂(SO₄)₃ + 3CaO + 3H₂O → 2Fe(OH)₃↓ + 3CaSO₄. n(Fe) = 300/55,85 = 5,3715 kmol; Fe(OH)₃ 0,5741 t; CaSO₄ 1,0969 t; CaO 0,4519 t; bog‘langan suv 0,1452 t; m_yakuniy 998,93 t; chiqindi omili (0,5741 + 1,0969)/1000 = 0,00167 kg/kg. Taqqoslash yo‘li — CaCO₃: reagent 0,8065 t, kislotaning o‘zidan olinadigan H₂SO₄ 0,7903 t (mahsulotning 0,079 % i).
+
+## Grafiklar (5 ta, model chizig‘i — tajriba ma’lumoti EMAS)
+1. `kaskad.png` / `kaskad.csv` — ifloslik pasayishi c/c₀ = (1/Φ)ᴺ, N = 1…40 (401 nuqta), Φ = 10/100/1000/10000; 10⁻⁶ reagent darajasi chizig‘i.
+2. `choqish.png` / `choqish.csv` — metall gidroksiidlarining eruvchanligi pH ga bog‘liqligi, pH 0…14 (281 nuqta): Fe³⁺, Cu²⁺, Ni²⁺, Cd²⁺, Pb²⁺ va ammiak bilan niqoblangan Cu²⁺ (1,29×10⁻⁹ M, pH 2).
+3. `rektifikatsiya.png` / `rektifikatsiya.csv` — x–y diagrammasi, y = αx/(1 + (α−1)x), x = 0…1 (201 nuqta), α = 1,5/2,0/3,0; McCabe-Thiele bosqichlari `mcbabgele.csv` (33 nuqta).
+4. `buglash.png` / `buglash.csv` — olib tashlanadigan suv massasi (100 kg asos), w₀ = 0,10…1,00 (401 nuqta), w₁ = 0,68/0,90/0,98/0,99; uchta azeotrop chegarasi vertikal chiziq sifatida.
+5. `front.png` / `ionalmashinuv.csv` — kolonkadagi fronti kiring egri chizig‘i (4000 nuqta), C₀ = 50/100/200 mg/L, C/C₀ = 0,5 kesimi belgilangan.
+Har bir grafikda «model egri chizig‘i; o‘lchov ma’lumoti emas» degan belgi bor.
+
+## Sxemalar (7 ta, original o‘quv ishlari)
+`usullar.png` (tozalash usullarining beshta oilasi), `zanjir.png` (tozalash zanjiri: umumiy material oqimi), `choqirish.png` (cho‘ktirish: Ksp asosida reagent tanlash, ortiqcha reagent, cho‘kmani ajratish, chiqindini baholash, resursni tiklash), `ionsxema.png` (ion almashinuv kolonkasi va regeneratsiya sikli), `sifat.png` (sifat nazorati nuqtalari: titrlash, rang, xloridlar, metallar, suv, hujjatlashtirish), `chiqindi.png` (chiqindini ushlash, baholash, tiklash va yo‘qotish), `xarita.png` (HCl, HNO₃, H₂SO₄, H₃PO₄, HF uchun ifloslik profili va asosiy usul).
+
+## Illyustratsiyalar (5 ta, original; mikrofoto/atom tuzilishi emas)
+`manbalar.png` (ifloslik manbalari: xom ashyo, reagent, suv, idish, qayta ishlatish, parchalanish), `kolkada.png` (cho‘kma qatlami, eritma fazasi, filtrat va cho‘kma chiqindisi — sxematik kesim), `azeotrop.png` (t–x diagrammasida azeotrop nuqtasi — sxematik), `membrana.png` (membranadan permeat va retentat ajratish — sxematik), `hisob.png` (Model A va Model B oqimlari: NO₂ → HNO₃, Fe(OH)₃/CaSO₄ chiqindi, E = 0,00167 kg/kg). Rang, o‘lcham va geometriya shartli; bular tajriba rasmlari yoki masshtabli tuzilma tasvirlari emas.
+
+## Cheklovlar
+- Sonli egri chiziqlar model hisoblari; real o‘lchov, reyting yoki texnologik parametr emas. Grafiklarda «o‘lchov ma’lumoti emas» degan belgi aniq qo‘yilgan.
+- Azeotrop qiymatlari (68,8 % / 120,5 °C; 20,2 % / 108,6 °C; 98,3 % / 337 °C) — an’anaviy faza-diagramm ma’lumotlari; real tizimda namlik va bosim ularni siljitadi.
+- Ph. Eur. monografiyasi faqat HNO₃ uchun mavjud; boshqa kislotalar uchun monografiya talabi bu bobda keltirilmagan.
+- Kislotalarning tayyorlanishi, konsentratsiya tanlash, idish materiali, saqlash va reaktorni yig‘ish bo‘yicha amaliyot tavsiyalari berilmagan; xavfsizlik faqat umumiy tamoyil darajasida.

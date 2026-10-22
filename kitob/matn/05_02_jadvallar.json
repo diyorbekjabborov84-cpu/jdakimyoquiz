@@ -1,0 +1,687 @@
+{
+  "ifloslik": {
+    "caption": "5.2.1-jadval. Ifloslik turlari, ularning ifloslanish manbai va tozalashga ta’siri",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Suv va erituvchi",
+        "Konsentratsiyani pasaytiradi",
+        "5.3-bo‘lim — quritish"
+      ],
+      [
+        "Metall kationlari",
+        "Katalizator qoldig‘i; cho‘kma",
+        "Fe, Cu, Ni, Cd, Pb"
+      ],
+      [
+        "Kislotaga xos ifloslik",
+        "NO₂ va HNO₂ (HNO₃ da)",
+        "4.5-bo‘lim bilan bog‘liq"
+      ],
+      [
+        "Kuchsiz kislotalar",
+        "HCl va HNO₃ (H₂SO₄ da)",
+        "Denitrifikatsiya"
+      ],
+      [
+        "Tuzlar va anionlar",
+        "Cl⁻, SO₄²⁻, NO₃⁻, F⁻",
+        "Ion almashinuv bilan"
+      ],
+      [
+        "Organik moddalar",
+        "Adsorbsiya bilan ushlanadi",
+        "Aktiv ug, koks"
+      ],
+      [
+        "Qoldiq va cho‘kma",
+        "Suspenziya; filtratsiya",
+        "Dekantatsiya bilan"
+      ],
+      [
+        "Kislotaning o‘zi",
+        "Parchalanish, NO₂ hosil bo‘lishi",
+        "4.5-bo‘lim"
+      ],
+      [
+        "Sifat o‘lchovi",
+        "Har bir ifloslikka alohida chegara",
+        "Ph. Eur. monografiyasi"
+      ],
+      [
+        "Daraja",
+        "Texnik → reagent → farmatsevtik → elektron",
+        "Nisbiy tushuncha"
+      ]
+    ]
+  },
+  "manba": {
+    "caption": "5.2.2-jadval. Ifloslik manbalari, mexanizmi va tozalashga ta’siri",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Idish materiali",
+        "Fe + 2HCl → FeCl₂ + H₂",
+        "Metall iflosligi; korroziya"
+      ],
+      [
+        "Nitrik kislota idishi",
+        "Passivatsiya qatlami",
+        "Buzilsa jarayon qaytadi"
+      ],
+      [
+        "Suv",
+        "Mass ulushi va katalizator",
+        "Zichlik va namlik nazorati"
+      ],
+      [
+        "Atmosfera namligi",
+        "Giqrometrik nam tortishi",
+        "H₂SO₄, HCl"
+      ],
+      [
+        "Qayta ishlatish",
+        "Ifloslik yig‘ilishi",
+        "Sikl chegarasi"
+      ],
+      [
+        "Kislotaning parchalanishi",
+        "NO₂ va HNO₂ hosil bo‘lishi",
+        "Kislotaning o‘zi ifloslanadi"
+      ],
+      [
+        "Xom ashyo va reagent",
+        "Dastlabki ifloslik",
+        "Kirish nazorati"
+      ],
+      [
+        "Chegara",
+        "Amaliyot ko‘rsatmasi berilmaydi",
+        "Parametrlar 7, 8, 12-bo‘limlarda"
+      ]
+    ]
+  },
+  "usullar": {
+    "caption": "5.2.3-jadval. Tozalash usullarining taqqoslash",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Filtratsiya",
+        "Suspenziya va cho‘kma",
+        "Ifloslikni yo‘qotmaydi"
+      ],
+      [
+        "Sentrifugalash",
+        "Deng qatlami ajratish",
+        "Mexanik usul"
+      ],
+      [
+        "Cho‘ktirish",
+        "Ksp bilan eruvchanlik",
+        "Reagent sarfi muhim"
+      ],
+      [
+        "Ekstraksiya",
+        "Erituvchi tanlanish",
+        "Kam uchraydi"
+      ],
+      [
+        "Adsorbsiya",
+        "Sirtga tortish",
+        "Katalizator qaytariladi"
+      ],
+      [
+        "Ion almashinuv",
+        "Kation/anion almashtirish",
+        "Regeneratsiya kerak"
+      ],
+      [
+        "Kimyoviy (redoks)",
+        "Ifloslikni o‘zgartirish",
+        "Ortiqcha reagent sarfi"
+      ],
+      [
+        "Kompleks hosil qilish",
+        "Niqoblash",
+        "Amfoterlik ehtiyoti"
+      ],
+      [
+        "Membrana",
+        "Oqim tezligi va selektivlik",
+        "Material moslashuvi"
+      ],
+      [
+        "Chegara",
+        "Texnologik parametrlar",
+        "Bu bobda berilmaydi"
+      ]
+    ]
+  },
+  "buglash": {
+    "caption": "5.2.4-jadval. Azeotroplar va ularning tozalash strategiyasiga ta’siri",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "HNO₃–H₂O",
+        "68,8 %; 120,5 °C",
+        "Oddiy bug‘lash yetarli emas"
+      ],
+      [
+        "HCl–H₂O",
+        "20,2 %; 108,6 °C",
+        "Gaz holatida ajratish kerak"
+      ],
+      [
+        "H₂SO₄–H₂O",
+        "98,3 %; 337 °C",
+        "Glina katalizatori (5.3)"
+      ],
+      [
+        "Fenske",
+        "α = 1,2 → 32,3 pog‘ona",
+        "xD = 0,95; xB = 0,05"
+      ],
+      [
+        "Fenske",
+        "α = 2,0 → 8,5; 3,0 → 5,4",
+        "Minimal pog‘onalar soni"
+      ],
+      [
+        "McCabe-Thiele",
+        "α = 2,0 → 16 pog‘ona",
+        "R = 2,0; xF = 0,50; q = 1"
+      ],
+      [
+        "Minimal qaytish",
+        "α = 2,0 → R_min = 1,70",
+        "α = 1,5 da R_min = 3,50"
+      ],
+      [
+        "Suv olib tashlash",
+        "0,50 → 0,98: 48,98 kg suv",
+        "100 kg asosda"
+      ],
+      [
+        "Suv olib tashlash",
+        "0,68 → 0,98: 30,61 kg suv",
+        "Azeotrop chegarasiga yaqin"
+      ],
+      [
+        "Chegara",
+        "Model α doimiy",
+        "Real tizim ideal emas"
+      ]
+    ]
+  },
+  "choqish": {
+    "caption": "5.2.5-jadval. Cho‘ktirish: Ksp, reagent tanlash va selektivlik",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Fe(OH)₃",
+        "Ksp = 4×10⁻³⁸",
+        "pH 2 da [Fe³⁺] = 4,0×10⁻² M"
+      ],
+      [
+        "Cu(OH)₂",
+        "Ksp = 2,2×10⁻²⁰",
+        "pH 7 da [Cu²⁺] = 2,2×10⁻⁶ M"
+      ],
+      [
+        "Cd(OH)₂",
+        "Ksp = 5,9×10⁻¹⁵",
+        "pH 8 da [Cd²⁺] = 5,9×10⁻³ M"
+      ],
+      [
+        "CuS",
+        "Ksp = 8,5×10⁻⁴⁵",
+        "Kislotada ham cho‘kadi"
+      ],
+      [
+        "PbS / CdS",
+        "7×10⁻²⁹ / 1,0×10⁻²⁸",
+        "Selektiv tozalash"
+      ],
+      [
+        "Cu(NH₃)₄²⁺",
+        "Kf = 1,7×10¹³",
+        "Niqoblash: pH 2 da 1,29×10⁻⁹ M"
+      ],
+      [
+        "Reagent tanlash",
+        "CaO — kislatani sarflamaydi",
+        "CaCO₃ — kislotani sarflaydi"
+      ],
+      [
+        "Amfoterlik",
+        "Ortiqcha asosda cho‘kma eriyishi",
+        "Zn(OH)₄²⁻, Kf = 2×10¹⁵"
+      ],
+      [
+        "Chegara",
+        "Faollik koeffitsienti",
+        "Real tizimda natijani siljitadi"
+      ]
+    ]
+  },
+  "kimyoviy": {
+    "caption": "5.2.6-jadval. Kimyoviy tozalash usullari va ularning chegaralari",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "NO₂ → HNO₃",
+        "4NO₂ + O₂ + 2H₂O → 4HNO₃",
+        "Rangni olib tashlash"
+      ],
+      [
+        "HNO₂ → HNO₃",
+        "3HNO₂ → HNO₃ + 2NO + H₂O",
+        "Parchalanish mahsuloti"
+      ],
+      [
+        "Fe³⁺ → Fe²⁺",
+        "2Fe³⁺ + Cu → 2Fe²⁺ + Cu²⁺",
+        "Keyin Cu²⁺ alohida chiqariladi"
+      ],
+      [
+        "Sulfid usuli",
+        "Cd²⁺, Pb²⁺, Cu²⁺, Hg²⁺",
+        "Ksp juda kichik"
+      ],
+      [
+        "Arsenik",
+        "As₂S₃ yoki As₂O₃",
+        "Alohida oqim talab qiladi"
+      ],
+      [
+        "Fluorid niqoblash",
+        "[AlF₆]³⁻, Kf = 7×10¹⁹",
+        "Kremniy iflosligini kamaytiradi"
+      ],
+      [
+        "Zaharli reagent",
+        "H₂S, sulfidlar",
+        "Chiqindi omilini oshiradi"
+      ],
+      [
+        "Chegara",
+        "Ortiqcha reagent sarfi",
+        "Ortiqcha modda mahsulotni ifloslaydi"
+      ]
+    ]
+  },
+  "adsorbsiya": {
+    "caption": "5.2.7-jadval. Adsorbsiya, ion almashinuv va membranaviy usullar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Aktiv ug, koks",
+        "Organik moddalar va rang",
+        "Katalizator qaytariladi"
+      ],
+      [
+        "Bentonit, gil",
+        "Cho‘kma doni va og‘ir metallar",
+        "Suspenziya ushlash"
+      ],
+      [
+        "Langmuir izotermasi",
+        "q = q_max·K·C/(1 + K·C)",
+        "Model: q_max = 50 mg/g"
+      ],
+      [
+        "Kationit (H⁺ shakli)",
+        "Metall kationlari",
+        "Kislota H⁺ bilan qaytadi"
+      ],
+      [
+        "Anionit",
+        "Cl⁻, SO₄²⁻",
+        "Shaklga qarab"
+      ],
+      [
+        "Selektivlik",
+        "k(Mg/Ca) = [Mg]S/[Ca]S ÷ [Mg]M/[Ca]M",
+        "Gold Book S05566"
+      ],
+      [
+        "Fronti kiring",
+        "C₀ = 50 mg/L → 4,96 bed hajmi",
+        "C₀ = 200 mg/L → 0,34"
+      ],
+      [
+        "Membrana",
+        "Nano- va ultrafiltratsiya",
+        "Material moslashuvi"
+      ],
+      [
+        "Regeneratsiya",
+        "Smolani tiklash",
+        "Sikl chegarasi"
+      ],
+      [
+        "Chegara",
+        "Amaliy parametrlar",
+        "Bu bobda berilmaydi"
+      ]
+    ]
+  },
+  "oilalar": {
+    "caption": "5.2.8-jadval. Kislota oilalari bo‘yicha ifloslik profili va tozalash",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "HCl",
+        "Fe, Cu; idish bilan reaksiya",
+        "Gaz holatida ajratish; distillatsiya"
+      ],
+      [
+        "HNO₃",
+        "NO₂ (rang), HNO₂, Cu, Fe",
+        "Pervaza; 68,8 % azeotropi"
+      ],
+      [
+        "H₂SO₄",
+        "Fe, Cu, As, Pb, Cd; NOx",
+        "Denitrifikatsiya; 98,3 % azeotropi"
+      ],
+      [
+        "H₃PO₄ (nam usul)",
+        "F⁻, As, Cd, Pb, Ca, Mg",
+        "Defluorinatsiya; og‘ir metallar"
+      ],
+      [
+        "HF",
+        "Si, metallar; H₂SiF₆",
+        "Kremniy alohida chiqariladi"
+      ],
+      [
+        "HClO₄",
+        "Cl⁻, metallar",
+        "Distillatsiya"
+      ],
+      [
+        "Kuchli kislota",
+        "Ko‘p usul kislota bilan reaksiyaga kiradi",
+        "Qarshi usul talab qilinadi"
+      ],
+      [
+        "Zaif kislota",
+        "Tozalash oson",
+        "O‘ziga xos ifloslik qoladi"
+      ],
+      [
+        "Chegara",
+        "Texnologik parametrlar",
+        "Berilmaydi; 7, 8, 12-bo‘limlar"
+      ]
+    ]
+  },
+  "zanjir": {
+    "caption": "5.2.9-jadval. Tozalash zanjiri bosqichlari va ularning vazifasi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Daqiqotlash va filtratsiya",
+        "Suspenziya va qattiq zarracha",
+        "Barcha bosqichlardan oldin"
+      ],
+      [
+        "Kimyoviy tozalash",
+        "O‘ziga xos ifloslikni o‘zgartirish",
+        "Reagent sarfi nazoratda"
+      ],
+      [
+        "Cho‘kmani ajratish",
+        "Filtratsiya",
+        "Cho‘kma reagentini to‘liq chiqarish"
+      ],
+      [
+        "Konsentratsiya",
+        "Bug‘lash yoki ekstraksiya",
+        "Azeotrop chegarasi"
+      ],
+      [
+        "Ion almashinuv / membrana",
+        "Qoldiq metall va anion",
+        "Regeneratsiya rejalashtiriladi"
+      ],
+      [
+        "Yakuniy filtratsiya",
+        "Qoldiq zarracha",
+        "Sifat nazoratidan oldin"
+      ],
+      [
+        "Qadoqlash",
+        "Partiya raqami va hujjat",
+        "Ishlatish muddati"
+      ],
+      [
+        "Ajratish faktori Φ",
+        "N bosqichdan keyin Φ⁻ⁿ",
+        "Φ = 1000 → 10⁻⁶ gacha 2 bosqich"
+      ],
+      [
+        "Chiqindi omili",
+        "m(chiqindi)/m(mahsulot)",
+        "Model: 0,00167 kg/kg"
+      ],
+      [
+        "Chegara",
+        "Amaliyot ko‘rsatmasi",
+        "Bu bobda berilmaydi"
+      ]
+    ]
+  },
+  "sifat": {
+    "caption": "5.2.10-jadval. Sifat ko‘rsatkichlari, tahlil usullari va chegaralar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Kislota miqdori",
+        "Titrlash (potensiometrik)",
+        "Ph. Eur.: 68,0–70,0 % m/m"
+      ],
+      [
+        "Zichlik",
+        "Areometr",
+        "Ph. Eur.: ≈ 1,41"
+      ],
+      [
+        "Rang",
+        "Y6 taqoslash; Pt-Co (ASTM D1209)",
+        "Y6 dan kuchsiz"
+      ],
+      [
+        "Xloridlar",
+        "AgNO₃ bilan solishtirish (2.4.4)",
+        "≤ 0,5 ppm"
+      ],
+      [
+        "Sulfatlar",
+        "Natriy karbonat bilan (2.4.13)",
+        "≤ 10 ppm"
+      ],
+      [
+        "Temir",
+        "Kul qoldig‘ini HCl da eritish (2.4.9)",
+        "≤ 10 ppm"
+      ],
+      [
+        "Og‘ir metallar",
+        "Pb standarti bilan (2.4.8)",
+        "≤ 2 ppm"
+      ],
+      [
+        "Sulfatlangan kul",
+        "Qoldiqni kuydirish",
+        "≤ 0,01 %"
+      ],
+      [
+        "Suv",
+        "Karl Fischer usuli",
+        "Ishlatish muddati bilan bog‘liq"
+      ],
+      [
+        "Hujjat",
+        "Partiya, metod, natija, sana",
+        "Izchillik; mas’ul shaxs"
+      ]
+    ]
+  },
+  "hisob": {
+    "caption": "5.2.11-jadval. Ishlangan hisob natijalari va ularning taqqoslanishi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Model A: boshlang‘ich",
+        "1000 t; HNO₃ 68 %; NO₂ 4,0 t",
+        "4NO₂ + O₂ + 2H₂O → 4HNO₃"
+      ],
+      [
+        "Model A: n(NO₂)",
+        "86,938 kmol",
+        "4000 kg / 46,01 kg/kmol"
+      ],
+      [
+        "Model A: suv va O₂",
+        "0,7831 t; 0,6955 t",
+        "43,469 va 21,734 kmol"
+      ],
+      [
+        "Model A: HNO₃",
+        "+5,4779 t",
+        "Moliyar massa 63,01 kg/kmol"
+      ],
+      [
+        "Model A: natija",
+        "999,91 t; w = 68,55 %",
+        "Rang butunlay yo‘qoladi"
+      ],
+      [
+        "Model B: boshlang‘ich",
+        "1000 t; H₂SO₄ 96 %; Fe 0,03 %",
+        "Fe₂(SO₄)₃ + 3CaO + 3H₂O"
+      ],
+      [
+        "Model B: cho‘kma",
+        "Fe(OH)₃ 0,5741 t",
+        "n(Fe) = 5,3715 kmol"
+      ],
+      [
+        "Model B: chiqindi",
+        "CaSO₄ 1,0969 t; CaO 0,4519 t",
+        "Chiqindi omili 0,00167 kg/kg"
+      ],
+      [
+        "Model B: CaCO₃ yo‘li",
+        "0,8065 t; H₂SO₄ yo‘qotish 0,7903 t",
+        "Mahsulotning 0,079 % i"
+      ],
+      [
+        "Chegara",
+        "Model: faollik va yo‘qotishlar hisobga olinmagan",
+        "Tajriba ma’lumoti emas"
+      ]
+    ]
+  }
+}
