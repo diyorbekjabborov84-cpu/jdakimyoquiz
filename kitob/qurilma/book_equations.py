@@ -41,6 +41,9 @@ def chem(s):
     return result
 
 def equations(topic):
+    if topic=='5.1':
+        from equations_05_01 import preparation_equations
+        return preparation_equations()
     if topic=='4.5':
         from equations_04_05 import decomposition_equations
         return decomposition_equations()
