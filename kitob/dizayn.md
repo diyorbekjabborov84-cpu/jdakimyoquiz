@@ -566,3 +566,16 @@ Hamma yangi nusxalar reader/discovery=false. Oldingi Drive fayllari o‘chirilma
 - QA: birinchi urinishda fonning yuqori chizig‘i vertik cho‘zildi (tik chiziqli artefaktlar), idishlar kadrga chegarasiz yopishtirildi va mavzular ro‘yxati to‘q fonda o‘qilmas edi — fon qayta generatsiya qilindi (yuqori chap bo‘sh, idishlar pastki o‘ngda), idishlar guruhi alohida qirqim bilan yumshoq qo‘shildi va ro‘yxat uchun krem dog‘ qo‘llandi.
 - AI konsept-art; tajribaviy foto yoki mexanizmning ilmiy dalili emas.
 - Yakuniy fayl: https://drive.google.com/uc?id=1jdpAZh6JtumM_-3Z6sMFD9PyKlSkLIIQ&export=download (reader, allow_file_discovery=false).
+
+### 6.3 — HCl, xlorid kislota (2026-10-23)
+- Mavzu hujjati: `kitob/chiqish/Noorganik-kislotalar-6.3-HCl-xlorid-kislota.docx` (995 365 B) — 11 sahifa, har bir bo‘lim bitta sahifada.
+- Tuzilma: 11 bo‘lim / 11 jadval (3 ustun, 10–11 qator) / 22 yon lavha / 5 hisoblangan grafik + 7 sxema + 5 original illyustratsiya (jami 17 PNG) / 11 ta native OMML formula guruhi (50 qator, Cambria Math) / 6 ta manba.
+- Layout: A4, asosiy matn 13,5 sm + vizual yon ustun 4,5 sm; matn 10 pt Times New Roman (qator oralig‘i 1,03), jadval 8 pt; to‘q ko‘k `#0B2C4A` / bronza `#B37C2D` ramkalar; sarlavha «6-BOB / VODOROD GALOGENIDLARI» bandi bilan.
+- Generatorlar: `qurilma/prep_06_03.py` (model + 6 CSV), `content_06_03.py` (11 jadval, 22 yon lavha → JSON), `equations_06_03.py` (11 formula guruhi), `draw_06_03.py` (17 PNG), `build_06_03_sidebar.py` (DOCX), `check_06_03.py` (QA — PASS).
+- `qurilma/book_equations.py` ga `'6.3'` varianti qo‘shildi (native formula dispetcheri).
+- Asosiy model natijalari: Mannheim 1000 kg HCl → NaCl 1602,8 / H₂SO₄ 1345,0 / Na₂SO₄ 1947,8 kg (ΔrH +884,8 MJ); sintetik → H₂ 27,6 / Cl₂ 972,4 kg (−2531,7 MJ); spetsiatsiya 0,1 M → pH 1,000, 12 M → pH −1,079 va HCl₂⁻ 0,09 %; metall: 1 g Fe → 2,270 g FeCl₂ / 1,306 g HCl, 1 g Al → 4,054 g HCl, 1 g Cu → 1,148 g HCl + 0,252 g O₂; neytralizatsiya Na₂CO₃ 145,3 kg (kirish = chiqish 245,3 kg), Ca(OH)₂ 101,6 kg (201,6 kg); tiklash 1000 kg FeCl₂ → Fe₂O₃ 629,9 / HCl 575,3 kg; standartlash 0,2500 g Na₂CO₃ va 24,85 mL → 0,18984 mol/L.
+- Manbalar, model va render QA `matn/06_03_rasm_manbasi.md` da (Wikipedia — Hydrochloric acid va uning fizik jadvali; Air Liquide/Messer/Cheméo/NOAA — kritik nuqta; OSHA va NIOSH (IDLH 2025-yilda 45 ppm) — chegaralar; JACS va adabiyotlar — xloroaluminat H₀; Journal of Cleaner Production va patentlar — spray roasting va pickling koeffitsiyentlari).
+- PDF: `google_drive/6.3 qoralamalar/6.3 final.pdf` (1 399 917 B, 11 sahifa, 1 sahifa/bo‘lim).
+- Yakuniy DOCX: https://drive.google.com/uc?id=1Gg35Vm5gX1QAdjZU-UQac73u4TTKiKPE&export=download
+- Yakuniy Google Docs: https://docs.google.com/document/d/1NyH_8laOkKMMCeEoHvuh_8DHYzbO_vY1FhA6C6XnZrk/edit
+- Ikkala yakuniy nusxa reader/discovery=false. Keyingi mavzu: 6.4 — HBr, bromid kislota.

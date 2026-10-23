@@ -1,0 +1,112 @@
+[
+  [
+    [
+      "Molekula",
+      "r = 1,2746 Å; D = 432 kJ/mol; μ = 1,08 D."
+    ],
+    [
+      "Guruhda o‘rni",
+      "Qaynash −85,1 °C; suyuqlash −114,2 °C."
+    ]
+  ],
+  [
+    [
+      "Kritik nuqta",
+      "51,4 °C; 83,1 bar; 450 kg/m³."
+    ],
+    [
+      "Azeotrop",
+      "20,2 % HCl; 108,6 °C; ρ 1,0959 g/cm³."
+    ]
+  ],
+  [
+    [
+      "Dissotsiatsiya",
+      "pK_a −5,9; model: Cl⁻ 100,00 % (0,1 M)."
+    ],
+    [
+      "Model: 12 M",
+      "pH −1,079; HCl₂⁻ 0,09 %."
+    ]
+  ],
+  [
+    [
+      "Ishlab chiqarish",
+      "Mannheim: 2NaCl + H₂SO₄ → Na₂SO₄ + 2HCl."
+    ],
+    [
+      "Hajm",
+      "Jahon: ≈20 Mt/y; to‘g‘ridan-to‘g‘ri sintez 3 Mt/y."
+    ]
+  ],
+  [
+    [
+      "Tuzlar",
+      "AlCl₃ gidrolizi kislota muhiti beradi."
+    ],
+    [
+      "Komplekslar",
+      "[CuCl₄]²⁻, [CoCl₄]²⁻, [FeCl₄]⁻, [SnCl₆]²⁻."
+    ]
+  ],
+  [
+    [
+      "Metallar",
+      "1 g Fe → 1,306 g HCl; 1 g Al → 4,054 g HCl."
+    ],
+    [
+      "Mis",
+      "HCl o‘z-o‘zidan eritmaydi — havo kerak."
+    ]
+  ],
+  [
+    [
+      "Pickling",
+      "1 t po‘lat: HCl 7,6 kg; Fe 5,8 kg; Cl⁻ 7,4 kg."
+    ],
+    [
+      "Tiklash",
+      "4FeCl₂ + 4H₂O + O₂ → 2Fe₂O₃ + 8HCl."
+    ]
+  ],
+  [
+    [
+      "Superkislota",
+      "H₀: −11,3 (NaCl tizimi); −12,7 (LiCl); ≈ −18."
+    ],
+    [
+      "Taqqoslash",
+      "Suyuq HF: H₀ = −15,1."
+    ]
+  ],
+  [
+    [
+      "Qo‘llanish",
+      "PVC (VCM), pickling, ion almashinuv, pH nazorati."
+    ],
+    [
+      "Suv",
+      "Klorlanishda HOCl va xlorform hosil bo‘ladi."
+    ]
+  ],
+  [
+    [
+      "Tahlil",
+      "Na₂CO₃ bilan standartlash; dead-stop titr."
+    ],
+    [
+      "Zamonaviy",
+      "Ion xromatografiya, ISE, ICP-MS."
+    ]
+  ],
+  [
+    [
+      "Xavfsizlik",
+      "OSHA 5 ppm; ACGIH 2,98 ppm; IDLH 50 ppm (45 ppm — 2025)."
+    ],
+    [
+      "Model",
+      "A: ishlab chiqarish; B: neytralizatsiya; C: metall; D: tiklash."
+    ]
+  ]
+]
