@@ -1,0 +1,14 @@
+element,miqdor,izoh
+HBr (kirish),100.0,kg
+Na₂CO₃ (neytralizator),65.49708325093928,kg
+NaBr (chiqish),127.16778722562783,kg
+CO₂ (chiqish),27.195595214554082,kg
+H₂O (chiqish),11.132464900138421,kg
+Ca(OH)₂ (neytralizator),45.7861627447103,kg
+CaBr₂ (chiqish),123.5243227209808,kg
+H₂O (Ca(OH)₂ bilan),22.264929800276843,kg
+kirish (Na₂CO₃ bilan),165.49708325093928,kg
+chiqish (Na₂CO₃ bilan),165.49584734032032,kg
+standartlash: Na₂CO₃,0.2,g
+standartlash: V(HBr),30.0,mL
+standartlash: C(HBr),0.1257980312608108,mol/L

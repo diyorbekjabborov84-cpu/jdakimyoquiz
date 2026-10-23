@@ -1,0 +1,712 @@
+{
+  "kirish": {
+    "caption": "6.4.1-jadval. HBr ning o‘rni va molekulasining xususiyatlari",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Tuzilishi",
+        "Chiziqli, ikkiatomli; r(H–Br) = 1,4144 Å",
+        "Guruhda eng uzun"
+      ],
+      [
+        "Bog‘ energiyasi",
+        "D(H–Br) = 366 kJ/mol",
+        "Guruhda eng kuchsiz"
+      ],
+      [
+        "Dipol moment",
+        "0,8272 D",
+        "Guruhda eng kichik"
+      ],
+      [
+        "Elektronegativlik",
+        "χ(Br) = 2,96 (Pauling)",
+        "Guruhda o‘rtacha"
+      ],
+      [
+        "Ionlanish potensiali",
+        "11,66 eV",
+        "Guruhda eng past"
+      ],
+      [
+        "Qaynash harorati",
+        "−66,8 °C",
+        "Guruhda o‘rtacha"
+      ],
+      [
+        "Suyuqlash harorati",
+        "−86,9 °C",
+        "Guruhda o‘rtacha"
+      ],
+      [
+        "Kislotalik (suvda)",
+        "pK_a −8,8 — HCl dan kuchli, HI dan kuchsiz",
+        "Guruhda o‘rtacha"
+      ],
+      [
+        "Kislotalik (gaz fazida)",
+        "Bug‘ fazida HF > HCl > HBr > HI",
+        "Suvdagi tartib teskari"
+      ],
+      [
+        "Chegara",
+        "Barcha sonlar ochiq shartli model",
+        "O‘lchov ma’lumoti emas"
+      ]
+    ]
+  },
+  "fizik": {
+    "caption": "6.4.2-jadval. Fizik xossalar: gaz va suvli eritma",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Molar mass",
+        "80,912 g/mol",
+        "—"
+      ],
+      [
+        "Gaz zichligi (25 °C, 1 atm)",
+        "3,307 g/L",
+        "Havoga nisbatan 2,71"
+      ],
+      [
+        "Kritik nuqta",
+        "89,8 °C; 85,0 bar; 807 kg/m³",
+        "Suyuq holda saqlanadi"
+      ],
+      [
+        "Suyuqlash harorati",
+        "−86,9 °C",
+        "—"
+      ],
+      [
+        "Erkin Br₂ va HBr",
+        "Havoda bug‘ holatida",
+        "Nam havoda oq tutun"
+      ],
+      [
+        "Eritma: 40 %",
+        "ρ 1,38 g/cm³; 7,0 mol/L",
+        "Katalog ma’lumoti"
+      ],
+      [
+        "Eritma: 47,6 % (azeotrop)",
+        "ρ 1,49; 8,77 mol/L; 124,3 °C",
+        "Doimiy qaynash nuqtasi"
+      ],
+      [
+        "Eritma: 48 %",
+        "ρ 1,49; mp −11 °C; bp 126 °C",
+        "Sanoat navi"
+      ],
+      [
+        "To‘yingan eritma",
+        "68,85 % (xona harorati)",
+        "Shundan ortiq eritilmaydi"
+      ],
+      [
+        "Eruvchanlik",
+        "221 / 204 / 130 g/100 mL (0 / 15 / 100 °C)",
+        "Manba"
+      ],
+      [
+        "Gidratlar",
+        "HBr·nH₂O, n = 1, 2, 3, 4, 6",
+        "Gidronium bromidlar"
+      ],
+      [
+        "Chegara",
+        "Parametrlar qurilma va boshqaruv bo‘yicha berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "dissotsiatsiya": {
+    "caption": "6.4.3-jadval. Suvli HBr: kislotalik, model va guruh taqqoslash",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Kislota doimiysi",
+        "K_a ≈ 6,3×10⁸ (pK_a −8,8)",
+        "Suvda"
+      ],
+      [
+        "DMSO dagi pK_a",
+        "−6,8",
+        "Erta model"
+      ],
+      [
+        "Dissotsiatsiya",
+        "To‘liq; [HBr] ≈ 0",
+        "Kuchli kislota"
+      ],
+      [
+        "Model: 0,100 M",
+        "Br⁻ 100,000 %; pH 1,000",
+        "Ideal erituvchi modeli"
+      ],
+      [
+        "Model: 8,770 M",
+        "Br⁻ 100,000 %; pH −0,943",
+        "Azeotrop konsentratsiyasi"
+      ],
+      [
+        "Model: 12,000 M",
+        "Br⁻ 100,000 %; pH −1,079",
+        "Model chegarasi"
+      ],
+      [
+        "HBr₂⁻ hosil bo‘lishi",
+        "HBr + Br⁻ ⇌ HBr₂⁻; lgK = 0,7 (model)",
+        "HCl dan ancha kam"
+      ],
+      [
+        "Guruh: pK_a (suv)",
+        "HF 3,17;  HCl −5,9;  HBr −8,8;  HI −9,5",
+        "Manba"
+      ],
+      [
+        "Guruh: pK_a (DMSO)",
+        "HF 15;  HCl −2,0;  HBr −6,8;  HI −10,9",
+        "Manba"
+      ],
+      [
+        "Guruh: D(H–X)",
+        "569; 432; 366; 295 kJ/mol",
+        "Gaz fazi kislotaligi"
+      ],
+      [
+        "Chegara",
+        "Model faolik koeffitsiyentlarni hisobga olmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "ishlabchiqarish": {
+    "caption": "6.4.4-jadval. Ishlab chiqarish usullari va bromin sikli",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Sintetik usul",
+        "H₂ + Br₂ → 2HBr (200–400 °C, Pt)",
+        "Asosiy sanoat yo‘li"
+      ],
+      [
+        "Model: sintetik",
+        "1000 kg HBr → H₂ 12,46 kg; Br₂ 987,5 kg",
+        "Model"
+      ],
+      [
+        "Model: termiya",
+        "Δ_rH −639,5 MJ (51,7 kJ/mol HBr)",
+        "Eksotermik"
+      ],
+      [
+        "Laboratoriya usuli",
+        "Br₂ + SO₂ + 2H₂O → H₂SO₄ + 2HBr",
+        "Laboratoriyada"
+      ],
+      [
+        "Model: laboratoriya",
+        "Br₂ 987,5 kg; SO₂ 395,9 kg; H₂SO₄ 606,1 kg",
+        "Model"
+      ],
+      [
+        "Bromid + H₂SO₄",
+        "H₂SO₄ + KBr → KHSO₄ + HBr; unum ≈85 %",
+        ">75 °C da HBr oksidlanadi"
+      ],
+      [
+        "Bromin sikli",
+        "2NaBr + Cl₂ → 2NaCl + Br₂",
+        "Brinlardan bromin olish"
+      ],
+      [
+        "Model: bromin sikli",
+        "1000 kg NaBr + Cl₂ 344,6 kg → Br₂ 776,6 + NaCl 568,0 kg",
+        "Kirish 1344,6 ≈ chiqish 1344,5 kg"
+      ],
+      [
+        "Jahon bromin ishlab chiqarish",
+        "≈440 000 t/y (2024); Israel 190, Jordan 112, Xitoy 100 kt",
+        "Manba"
+      ],
+      [
+        "Dengiz suvi",
+        "Br ≈65 ppm; O‘rta dengizda ≈1 mlrd t bromin",
+        "Manba"
+      ],
+      [
+        "Chegara",
+        "Texnologik kartalar va parametrlar berilmaydi",
+        "Amaliyot tavsiyalari berilmaydi"
+      ]
+    ]
+  },
+  "tuzlar": {
+    "caption": "6.4.5-jadval. Bromidlar va bromokomplekslar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "NaBr, KBr",
+        "Oddiy bromidlar; KBr — sedativ ta’sir",
+        "Farmatsevtika"
+      ],
+      [
+        "CaBr₂, MgBr₂",
+        "Tuzlar; bromidlar litiy batareyalari uchun",
+        "Sanoat"
+      ],
+      [
+        "AlBr₃",
+        "Dimer ko‘rinishida (Al₂Br₆); kislota muhiti",
+        "Gidroliz"
+      ],
+      [
+        "FeBr₃, FeBr₂",
+        "Katalizator va bromlanish reaktivi",
+        "Organik sintez"
+      ],
+      [
+        "Bromokomplekslar",
+        "[CuBr₄]²⁻, [CoBr₄]²⁻, [FeBr₄]⁻, [SnBr₆]²⁻",
+        "Br⁻ kuchli ligand"
+      ],
+      [
+        "Pd (II) bromokompleksi",
+        "[PdBr₄]²⁻ — HBr muhitida Pd ni eritish",
+        "Noble metall"
+      ],
+      [
+        "Tribromid ion",
+        "Br₂ + Br⁻ ⇌ Br₃⁻",
+        "Br₂ ning eritilishi"
+      ],
+      [
+        "Model: tribromid",
+        "8,77 M da Br₃⁻ ulushi 99,29 %",
+        "Model (lgK = 1,2)"
+      ],
+      [
+        "Tuz hosil qilish",
+        "M + 2HBr → MBr₂ + H₂",
+        "Eng oddiy usul"
+      ],
+      [
+        "Chegara",
+        "Doza va texnologiya parametrlari berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "metallar": {
+    "caption": "6.4.6-jadval. Metallarga ta’sir: passivatsiya yo‘qligi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Temir",
+        "Fe + 2HBr → FeBr₂ + H₂",
+        "Model: 1 g Fe → 2,898 g HBr"
+      ],
+      [
+        "Alumin",
+        "2Al + 6HBr → 2AlBr₃ + 3H₂",
+        "Model: 1 g Al → 8,996 g HBr"
+      ],
+      [
+        "Rux",
+        "Zn + 2HBr → ZnBr₂ + H₂",
+        "Model: 1 g Zn → 2,475 g HBr"
+      ],
+      [
+        "Magniy",
+        "Mg + 2HBr → MgBr₂ + H₂",
+        "Model: 1 g Mg → 6,658 g HBr"
+      ],
+      [
+        "Kumush",
+        "Ag⁺ + Br⁻ → AgBr↓ (och sariq cho‘kma)",
+        "Tahlil usuli"
+      ],
+      [
+        "Chegara",
+        "Amaliyot tavsiyalari berilmaydi",
+        "12-bo‘limga havola"
+      ]
+    ]
+  },
+  "redoks": {
+    "caption": "6.4.7-jadval. Qaytaruvchi xossalar va bromin olishi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Kislota kuchi",
+        "pK_a −8,8 — suvda HCl dan kuchli",
+        "Manba"
+      ],
+      [
+        "HBr₂⁻? (Br⁻)",
+        "Br⁻ — kuchli qaytaruvchi va nukleofil",
+        "Manba"
+      ],
+      [
+        "O₂ bilan oksidlanish",
+        "4HBr + O₂ → 2Br₂ + 2H₂O",
+        "Termofil/katalitik"
+      ],
+      [
+        "Model: O₂ bilan",
+        "1000 kg HBr → Br₂ 987,5 kg; O₂ 98,9 kg",
+        "Model"
+      ],
+      [
+        "H₂O₂ bilan",
+        "2HBr + H₂O₂ → Br₂ + 2H₂O",
+        "Xavfsiz bromlanish"
+      ],
+      [
+        "Model: H₂O₂ bilan",
+        "1000 kg HBr → H₂O₂ 210,2 kg; Br₂ 987,5 kg",
+        "Model"
+      ],
+      [
+        "Aromatik bromlanish",
+        "2ArH + 2HBr + H₂O₂ → 2ArBr + 2H₂O",
+        "Br₂ o‘rniga"
+      ],
+      [
+        "Xlor bilan siljish",
+        "2NaBr + Cl₂ → 2NaCl + Br₂",
+        "Bromin ishlab chiqarish"
+      ],
+      [
+        "Guruh tartibi",
+        "F⁻ < Cl⁻ < Br⁻ < I⁻ (qaytaruvchilik)",
+        "Manba"
+      ],
+      [
+        "Ozon bilan",
+        "O₃ + 2Br⁻ + H₂O → Br₂ + O₂ + 2OH⁻",
+        "Bromin ajratish usuli"
+      ],
+      [
+        "Chegara",
+        "Reaksiya sharoitlari berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "organik": {
+    "caption": "6.4.8-jadval. Organik kimyoga ta’sir",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Alkil bromidlari",
+        "R–OH + HBr → R–Br + H₂O",
+        "Birlamchi spirtlardan"
+      ],
+      [
+        "Markerovnikov qoidasi",
+        "R–CH=CH₂ + HBr → R–CHBr–CH₃",
+        "Klassik qoidа"
+      ],
+      [
+        "Anti-Markerovnikov",
+        "Peroksidlar ishtirokida 1-bromalkanlar",
+        "Radikal mexanizm"
+      ],
+      [
+        "Eter kesish",
+        "Eterlar HBr bilan kesiladi",
+        "Manba"
+      ],
+      [
+        "Aromatik bromlanish",
+        "HBr + H₂O₂ tizimi",
+        "Br₂ o‘rniga"
+      ],
+      [
+        "Katalizator",
+        "Alkillash va boshqa reaksiyalarda katalizator",
+        "Manba"
+      ],
+      [
+        "Muhim mahsulotlar",
+        "Allil bromid, bromotsetat kislota",
+        "Sanoat"
+      ],
+      [
+        "Yong‘in qarshilash",
+        "Tetrabromobisfenol A",
+        "Materiallar sohasi"
+      ],
+      [
+        "Metilbromid",
+        "CH₃Br — fumigant; ozon buzilishi",
+        "Ekologik cheklov"
+      ],
+      [
+        "Chegara",
+        "Dozalar va sharoitlar berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "qollanish": {
+    "caption": "6.4.9-jadval. Qo‘llanish sohalari",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Bromidlar ishlab chiqarish",
+        "Fe, Ni, Zn bromidlari (gidrati)",
+        "Asosiy iste’mol"
+      ],
+      [
+        "Organik bromin moddalari",
+        "Alkil bromidlari, yong‘in qarshilash moddalari",
+        "Sanoat"
+      ],
+      [
+        "Fotosiya",
+        "AgBr — yorug‘likka sezgir qatlam",
+        "An’anaviy soha"
+      ],
+      [
+        "Dorivorlik",
+        "KBr, NaBr — tinchlantiruvchi; bromkriptin",
+        "Farmatsevtika"
+      ],
+      [
+        "Neft quyilish",
+        "Formiat bromli quyuq suyuqliklar (clear brine)",
+        "Sondiq qatlamlar"
+      ],
+      [
+        "Katalizator",
+        "Alkillash va ekstruksiya (rudalarni yishish)",
+        "Manba"
+      ],
+      [
+        "Suv tozalash",
+        "Br₂ va uning moddalari — mikroorganizmlarga ta’sir",
+        "Sanoat"
+      ],
+      [
+        "Fugigant",
+        "Metilbromid (cheklangan)",
+        "Montreal protokoli"
+      ],
+      [
+        "Metallurgiya",
+        "Bromin ajratish; Pd ni HBr da eritish",
+        "Noble metall"
+      ],
+      [
+        "Chegara",
+        "Dozalar va texnologiya parametrlari berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "tahlil": {
+    "caption": "6.4.10-jadval. Tahlil usullari",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Standartlash",
+        "Na₂CO₃ yoki boraks bilan titrlash",
+        "Birlamchi standart"
+      ],
+      [
+        "Model: standartlash",
+        "0,2000 g Na₂CO₃; 30,00 mL → 0,12580 mol/L",
+        "Model"
+      ],
+      [
+        "“Dead-stop” titr",
+        "Pt elektrod; rang indikatori kerak emas",
+        "HBr uchun klassik usul"
+      ],
+      [
+        "Argentometriya",
+        "AgBr; Mohr va Fajans usullari",
+        "Br⁻ aniqlash"
+      ],
+      [
+        "Gravimetriya",
+        "AgBr cho‘kmasi quritilib o‘lchanadi",
+        "Br⁻ aniqlash"
+      ],
+      [
+        "Ion xromatografiya",
+        "Anion varianti; Br⁻ va Cl⁻ birga",
+        "Zamonaviy"
+      ],
+      [
+        "Ion-elektrod",
+        "Bromid ioni elektrodi",
+        "Tez, selektiv"
+      ],
+      [
+        "Element izotoplari",
+        "ICP-OES / ICP-MS; Br, Hg, Pb",
+        "Yuqori sezgirlik"
+      ],
+      [
+        "Erkin va umumiy",
+        "Erkin HBr va umumiy bromid farqi",
+        "Spesifikatsiya"
+      ],
+      [
+        "Chegara",
+        "Metod parametrlari berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "hisob": {
+    "caption": "6.4.11-jadval. Sifat, xavfsizlik, ekologiya va ishlangan hisob",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Sifat mezoni",
+        "Titrimetrik massa ulushi; Fe, Pb; suv",
+        "Spesifikatsiya bo‘yicha"
+      ],
+      [
+        "Xavfsizlik chegaralari",
+        "OSHA 3 ppm (TWA); NIOSH 3 ppm (yuqori chegar); ACGIH 2 ppm",
+        "Manba"
+      ],
+      [
+        "IDLH",
+        "30 ppm (1994); 2025-yilda 35 ppm (116 mg/m³)",
+        "NIOSH"
+      ],
+      [
+        "Ta’sir",
+        "Korroziya; o‘pka shishi; hid chegarasi 2 ppm",
+        "Manba"
+      ],
+      [
+        "Ekologiya",
+        "Metilbromid ODP 0,6; stratosferada BrO katalizator",
+        "NOAA/UNEP"
+      ],
+      [
+        "Model D: neytralizatsiya",
+        "Na₂CO₃ 65,5 kg; NaBr 127,2 kg; CO₂ 27,2 kg; H₂O 11,1 kg (kirish = chiqish 165,5 kg); Ca(OH)₂ 45,8 kg → CaBr₂ 123,5 kg, H₂O 22,3 kg (145,8 kg)",
+        "Model"
+      ],
+      [
+        "Model E: bromlanish",
+        "1000 kg HBr + H₂O₂ 210,2 kg → Br₂ 987,5 kg",
+        "Model"
+      ],
+      [
+        "Chegara",
+        "Barcha natijalar ochiq shartli modeldan",
+        "O‘lchov ma’lumoti emas"
+      ]
+    ]
+  }
+}

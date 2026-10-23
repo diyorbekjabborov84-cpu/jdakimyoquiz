@@ -579,3 +579,16 @@ Hamma yangi nusxalar reader/discovery=false. Oldingi Drive fayllari o‘chirilma
 - Yakuniy DOCX: https://drive.google.com/uc?id=1Gg35Vm5gX1QAdjZU-UQac73u4TTKiKPE&export=download
 - Yakuniy Google Docs: https://docs.google.com/document/d/1NyH_8laOkKMMCeEoHvuh_8DHYzbO_vY1FhA6C6XnZrk/edit
 - Ikkala yakuniy nusxa reader/discovery=false. Keyingi mavzu: 6.4 — HBr, bromid kislota.
+
+### 6.4 — HBr, bromid kislota (2026-10-23)
+- Mavzu hujjati: `kitob/chiqish/Noorganik-kislotalar-6.4-HBr-bromid-kislota.docx` (981 324 B) — 11 sahifa, har bir bo‘lim bitta sahifada.
+- Tuzilma: 11 bo‘lim / 11 jadval (3 ustun) / 22 yon lavha / 5 hisoblangan grafik + 7 sxema + 5 original illyustratsiya (jami 17 PNG) / 11 ta native OMML formula guruhi (61 qator, Cambria Math) / 4 manba + to‘liq ro‘yxat `matn/06_04_rasm_manbasi.md` da.
+- Layout: A4, asosiy matn 13,5 sm + vizual yon ustun 4,5 sm; matn 10 pt TNR (qator oralig‘i 1,03), jadval 8 pt; to‘q ko‘k `#0B2C4A` / bronza `#B37C2D`; sarlavha «6-BOB / VODOROD GALOGENIDLARI» bandi bilan.
+- Generatorlar: `qurilma/prep_06_04.py` (model + 8 CSV), `content_06_04.py` (11 jadval, 22 yon lavha → JSON), `equations_06_04.py` (11 formula guruhi), `draw_06_04.py` (17 PNG), `build_06_04_sidebar.py` (DOCX; panel va qo‘shimcha rasm kengligi ixtiyoriy parametr sifatida), `check_06_04.py` (QA — PASS; ichki jadvallar matni ham tekshiriladi).
+- `qurilma/book_equations.py` ga `'6.4'` varianti qo‘shildi.
+- Asosiy model natijalari: sintetik 1000 kg HBr → H₂ 12,46 kg, Br₂ 987,5 kg (ΔrH −639,5 MJ); laboratoriya usuli → Br₂ 987,5 kg, SO₂ 395,9 kg, H₂SO₄ 606,1 kg; bromin sikli 1000 kg NaBr + Cl₂ 344,6 kg → Br₂ 776,6 + NaCl 568,0 kg; spetsiatsiya 0,1 M → pH 1,000, 8,770 M → pH −0,943, 12 M → pH −1,079 (HBr₂⁻ 0,0001 %); tribromid 0,10 M → 60,40 %, 8,77 M → 99,29 %; metall: 1 g Fe → FeBr₂ 3,862 g / HBr 2,898 g, 1 g Al → 9,884 g AlBr₃ / 8,996 g HBr, 1 g Cu → HBr 2,547 g + O₂ 0,252 g; neytralizatsiya Na₂CO₃ 65,5 kg (kirish = chiqish 165,5 kg), Ca(OH)₂ 45,8 kg (145,8 kg); standartlash 0,2000 g Na₂CO₃ va 30,00 mL → 0,12580 mol/L.
+- Manbalar: Wikipedia (Hydrobromic acid / Hydrogen bromide / Bromine — fizik ma’lumot, azeotrop, gidratlar, ishlab chiqarish, qo‘llanish), NOAA CAMEO va Wikidata/Cheméo-NIST (kritik nuqta, S°, IE), OSHA va NIOSH (3 ppm ceiling/TWA, ACGIH 2 ppm, IDLH 30→35 ppm, 2025), USGS (bromin ishlab chiqarishi ≈440 000 t/y), NOAA/UNEP (metilbromid ODP 0,6, BrO katalizatori).
+- PDF: `google_drive/6.4 qoralamalar/6.4 final.pdf` (1 395 901 B, 11 sahifa).
+- Yakuniy DOCX: https://drive.google.com/uc?id=1Rd0_6i3l0_7hlcNN9ZuTI1yXZkco5cPd&export=download
+- Yakuniy Google Docs: https://docs.google.com/document/d/1jbL2UpO601HOV-P9ST3PA7gBHGy4tVn91aAEI368x34/edit
+- Ikkala yakuniy nusxa reader/discovery=false. Keyingi mavzu: 6.5 — HI, yodid kislota.

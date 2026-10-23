@@ -1,0 +1,112 @@
+[
+  [
+    [
+      "Molekula",
+      "r = 1,4144 Å; D = 366 kJ/mol; μ = 0,8272 D."
+    ],
+    [
+      "Guruhda o‘rni",
+      "Qaynash −66,8 °C; suyuqlash −86,9 °C; pK_a −8,8."
+    ]
+  ],
+  [
+    [
+      "Kritik nuqta",
+      "89,8 °C; 85,0 bar; 807 kg/m³."
+    ],
+    [
+      "Azeotrop",
+      "47,6 % HBr; 124,3 °C; 8,77 mol/L; ρ 1,49 g/cm³."
+    ]
+  ],
+  [
+    [
+      "Kislotalik",
+      "pK_a: suvda −8,8; DMSO da −6,8."
+    ],
+    [
+      "Model",
+      "8,770 M → Br⁻ 100,000 %, pH −0,943; HBr₂⁻ 0,0001 %."
+    ]
+  ],
+  [
+    [
+      "Ishlab chiqarish",
+      "H₂ + Br₂ → 2HBr (200–400 °C, Pt katalizator)."
+    ],
+    [
+      "Bromin sikli",
+      "2NaBr + Cl₂ → 2NaCl + Br₂; Br₂ 776,6 kg / 1000 kg NaBr."
+    ]
+  ],
+  [
+    [
+      "Komplekslar",
+      "[CuBr₄]²⁻, [CoBr₄]²⁻, [PdBr₄]²⁻, [SnBr₆]²⁻."
+    ],
+    [
+      "Tribromid",
+      "Br₂ + Br⁻ ⇌ Br₃⁻; 8,77 M da 99,29 % (model)."
+    ]
+  ],
+  [
+    [
+      "Metallar",
+      "1 g Fe → 2,898 g HBr; 1 g Al → 8,996 g HBr."
+    ],
+    [
+      "Mis",
+      "HBr o‘z-o‘zidan eritmaydi — havo (O₂) kerak."
+    ]
+  ],
+  [
+    [
+      "Redoks",
+      "4HBr + O₂ → 2Br₂ + 2H₂O; 2HBr + H₂O₂ → Br₂ + 2H₂O."
+    ],
+    [
+      "Model",
+      "1000 kg HBr → Br₂ 987,5 kg (H₂O₂ 210,2 kg yoki O₂ 98,9 kg)."
+    ]
+  ],
+  [
+    [
+      "Organik",
+      "R–OH + HBr → R–Br + H₂O; Markerovnikov va anti-Markerovnikov."
+    ],
+    [
+      "Muhim mahsulot",
+      "Allil bromid; tetrabromobisfenol A; bromotsetat kislota."
+    ]
+  ],
+  [
+    [
+      "Qo‘llanish",
+      "Bromidlar, organobromin moddalar, foto, dori, clear brine."
+    ],
+    [
+      "Ekologiya",
+      "Metilbromid: ODP 0,6; BrO stratosferada ozonni buzadi."
+    ]
+  ],
+  [
+    [
+      "Tahlil",
+      "Na₂CO₃ bilan standartlash; dead-stop titr."
+    ],
+    [
+      "Zamonaviy",
+      "Ion xromatografiya, ISE, ICP-MS."
+    ]
+  ],
+  [
+    [
+      "Xavfsizlik",
+      "OSHA 3 ppm; ACGIH 2 ppm; IDLH 35 ppm (2025)."
+    ],
+    [
+      "Model",
+      "A: ishlab chiqarish; B: bromin sikli; C: metall; D: neytralizatsiya; E: bromlanish."
+    ]
+  ]
+]
