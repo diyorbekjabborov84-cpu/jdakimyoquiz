@@ -23,7 +23,7 @@ panels = [
  (0, 'sxematurlari.png', 'sxema', 'Guruh trendlari: bitta sxema, beshta ko‘rsatkich.',
   '6.1.1-sxema. Elektronegativlik, bog‘ energiyasi, kislotalik, termik barqarorlik va qaytaruvchilik trendlari.'),
  (1, 'gibridlanishx.png', 'sxema', 'H–X bog‘i va dipol moment.',
-  '6.1.2-sxema. Elektron bulutining siljishi, σ bog‘ quyuqligi va hydrogen bog‘i (sxematik).'),
+  '6.1.2-sxema. Elektron bulutining siljishi, σ bog‘ quyuqligi va vodorod bog‘i (sxematik).'),
  (2, 'kislotalik.png', 'grafik', 'Suvda tekislash va DMSOdagi farq.',
   '6.1.3-grafik. pK_a qiymatlari suvda va DMSO da (model egri chizig‘i).'),
  (3, 'energiya.png', 'grafik', 'Energetik balans: bog‘ va gidratatsiya.',

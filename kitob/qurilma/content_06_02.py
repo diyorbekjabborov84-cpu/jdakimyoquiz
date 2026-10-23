@@ -38,7 +38,7 @@ data = [
  ['Chegara', 'Doza va sharoitlar berilmadi', 'Model']]),
 ('spetsiatsiya', 'Suvli HF: spetsiatsiya va konsentratsiya', [
  ['Ka (suv)', '6,8×10⁻⁴ (pK_a 3,17)', 'Kuchsiz kislota'],
- ['Ion juftlari', '[H₃O⁺·F⁻] — hydrogen bog‘langan', 'Dissotsiatsiya kamayadi'],
+ ['Ion juftlari', '[H₃O⁺·F⁻] — vodorod bog‘langan', 'Dissotsiatsiya kamayadi'],
  ['HF₂⁻ hosil bo‘lishi', 'HF + F⁻ ⇌ HF₂⁻; lgK = 0,7', 'Konsentratsiya oshganda'],
  ['Model: 0,010 M', 'HF 76,0 %; F⁻ 22,3 %; HF₂⁻ 0,8 %; pH 2,635', 'Ideal erituvchi modeli'],
  ['Model: 0,100 M', 'HF 87,9 %; F⁻ 6,4 %; HF₂⁻ 2,8 %; pH 2,033', 'Model'],

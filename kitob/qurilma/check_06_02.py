@@ -96,7 +96,7 @@ ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va
 ck('amaliyot tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
 ck('o‘lchov ma’lumotlari emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
 ck('CaF₂ + H₂SO₄' in ms and 'SiO₂ + 6HF' in ms, 'asosiy tengliklar matnda')
-ck('hydrogen bog‘i' in ms and 'passivatsiya' in ms, 'mavzu kalit tushunchalari matnda')
+ck('vodorod bog‘i' in ms and 'passivatsiya' in ms, 'mavzu kalit tushunchalari matnda')
 
 print('5) DOCX tuzilmasi')
 doc = Document(DOCX)

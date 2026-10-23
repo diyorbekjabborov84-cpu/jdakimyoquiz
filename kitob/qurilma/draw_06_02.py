@@ -244,7 +244,7 @@ scheme('fizikx', 'Anhidr HF: fizik xossalar va erituvchi sifatida (sxematik)', [
 
 
 # --- Original illustrasiyalar ---------------------------------------------
-im, d = canvas('HF molekulasi va hydrogen bog‘i zanjiri (sxematik)', 620)
+im, d = canvas('HF molekulasi va vodorod bog‘i zanjiri (sxematik)', 620)
 for i in range(5):
     x = 95 + 150 * i
     d.ellipse((x - 30, 210, x + 30, 270), fill='#FFFFFF', outline=N, width=4)

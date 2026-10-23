@@ -20,10 +20,10 @@ ASSETS = ROOT / 'rasmlar' / 'hf'
 NAVY = '0B2C4A'; BRONZE = 'C28E3B'; PALE = 'EDF3F7'; INK = '243746'
 
 panels = [
- (0, 'molekulax.png', 'rasm', 'HF molekulasi va hydrogen bog‘i.',
+ (0, 'molekulax.png', 'rasm', 'HF molekulasi va vodorod bog‘i.',
   '6.2.1-rasm. HF molekulasi va uning zanjir hosil qilishi (sxematik, original).'),
  (1, 'fizikx.png', 'sxema', 'Anhidr HF: fizik xossalar.',
-  '6.2.2-sxema. Suyuqlanish diapazoni, dielektrik doimiy, hydrogen bog‘i va o‘z-o‘zini ionlashuv.'),
+  '6.2.2-sxema. Suyuqlanish diapazoni, dielektrik doimiy, vodorod bog‘i va o‘z-o‘zini ionlashuv.'),
  (2, 'anidrsx.png', 'sxema', 'Anhidr HF erituvchi tizimi.',
   '6.2.3-sxema. Proton holati, Lewis kislotalar va superkislota hosil bo‘lishi (sxematik).'),
  (3, 'spetsiatsiya.png', 'grafik', 'Suvli HF: zarrachalarning ulushi.',
@@ -161,7 +161,7 @@ def add_comparison_table(cell, spec):
 
 refs = [
  '[1] Housecroft & Sharpe — Liquid HF: suyuqlanish 190–292,5 K; ε = 84 (273 K), 175 (200 K); K_self = 2×10⁻¹² (273 K); 3HF ⇌ H₂F⁺ + HF₂⁻.',
- '[2] Barron’s — Compounds of Fluorine; Wikipedia — Hydrogen fluoride: hydrogen bog‘i; HF₂⁻ hosil bo‘lishi (lgK = 0,7); ion juftlari [H₃O⁺·F⁻]; SiO₂ tenglamalari.',
+ '[2] Barron’s — Compounds of Fluorine; Wikipedia — Hydrogen fluoride: vodorod bog‘i; HF₂⁻ hosil bo‘lishi (lgK = 0,7); ion juftlari [H₃O⁺·F⁻]; SiO₂ tenglamalari.',
  '[3] Wikipedia — Superacid va Fluoroantimonic acid: H₀ = −15,1 (HF), −21 (SbF₅), < −28 (1:1); SbF₅ + 2HF ⇌ H₂F⁺ + SbF₆⁻.',
  '[4] Kim et al. (2024), Applied Surface Science; Helms et al.; Yu et al.: r = 510[F⁻] + 610[HF] + 2890[HF₂⁻] Å/min; HF₂⁻ asosiy hissa; Si₃N₄ selektivligi.',
  '[5] CDC/NIOSH MMG 1142; Calpoison; StatPearls (NCBI): OSHA 3 ppm, ACGIH 0,5 ppm (F), TLV-C 2 ppm, IDLH 30 ppm; kalsiy glyukonat bilan davolash.',

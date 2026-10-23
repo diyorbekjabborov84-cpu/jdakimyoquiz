@@ -18,7 +18,7 @@ def halide_equations():
       # 1 — molekula
       [seq('r(H–F) = 0,917 Å;  ', var('D', ''), '(H–F) = 569 kJ/mol'),
        seq('χ(F) = 3,98;  Δχ(H–F) = 1,78;  ', var('μ', ''), ' = 1,8–1,9 D'),
-       seq(chem('H–F···H–F···H–F'), '   (hydrogen bog‘i zanjiri)'),
+       seq(chem('H–F···H–F···H–F'), '   (vodorod bog‘i zanjiri)'),
        seq('T', var('q', ''), ' :  HF 19,5 °C  >  HCl −85,1 °C')],
       # 2 — anhidr HF
       [chem('3HF ⇌ H₂F⁺ + HF₂⁻'),
