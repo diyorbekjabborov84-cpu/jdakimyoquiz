@@ -45,6 +45,9 @@ def chem(s):
     return result
 
 def equations(topic):
+    if topic=='6.1':
+        from equations_06_01 import halide_equations
+        return halide_equations()
     if topic=='5.4':
         from equations_05_04 import industry_equations
         return industry_equations()
