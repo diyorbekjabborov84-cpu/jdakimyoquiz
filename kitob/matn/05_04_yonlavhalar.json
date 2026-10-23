@@ -1,0 +1,112 @@
+[
+  [
+    [
+      "Sxema",
+      "Uch tur: to‘g‘ridan-to‘g‘ri, oraliq mahsulotli, yopiq."
+    ],
+    [
+      "To‘rt ustun",
+      "Xavfsizlik, ekologiya, sifat, iqtisodiyot — birga baholanadi."
+    ]
+  ],
+  [
+    [
+      "Oqim sxemasi",
+      "Nomi, miqdor, holat — hujjat va boshqaruv birligi."
+    ],
+    [
+      "OEE",
+      "ISO 22400-2:2014: 0,92 × 0,95 × 0,99 = 0,8653."
+    ]
+  ],
+  [
+    [
+      "Mass balansi",
+      "Kirish = chiqish + yig‘ilgan material."
+    ],
+    [
+      "Xulosa",
+      "68 % konsentratsiya suv balansi bilan belgilanadi."
+    ]
+  ],
+  [
+    [
+      "Energiya",
+      "ΔH = −414,03 kJ/mol; jami −4468,2 MJ (≈ −4,47 GJ)."
+    ],
+    [
+      "Eksergiya",
+      "Energiyaning sifati — miqdordan muhimroq."
+    ]
+  ],
+  [
+    [
+      "Materiallar",
+      "Po‘lat → 316L → Hastelloy → qoplama."
+    ],
+    [
+      "Korroziya",
+      "Ko‘p omilli jarayon; tezlik o‘lchilgan bo‘lishi kerak."
+    ]
+  ],
+  [
+    [
+      "Xavfsizlik",
+      "Oldini olish → aniqlash → hamkorlikda."
+    ],
+    [
+      "Inertlash",
+      "N₂ bilan havo chiqarish; xotira kamayadi."
+    ]
+  ],
+  [
+    [
+      "Chiqindi",
+      "Gaz, suyuq, qattiq — uchala yo‘nalish."
+    ],
+    [
+      "Omil",
+      "Chiqindi omili sxemaga bog‘liq, sifga emas."
+    ]
+  ],
+  [
+    [
+      "Sifat",
+      "ISO 9001, ISO 14001, ISO 45001, GMP."
+    ],
+    [
+      "Izchillik",
+      "Xom ashyodan tayyor mahsulotgacha — elektron shaklda."
+    ]
+  ],
+  [
+    [
+      "Raqamli",
+      "Sensor → DCS → MES/ERP."
+    ],
+    [
+      "PI",
+      "Kamaygan aylanma — kamaygan xavf xotirasi."
+    ]
+  ],
+  [
+    [
+      "Iqtisodiyot",
+      "CAPEX 120 mln; FOA 96 USD/t; c(V) = c_o‘z + FOA/V."
+    ],
+    [
+      "Chegara",
+      "Narxlar real bozor ma’lumoti emas."
+    ]
+  ],
+  [
+    [
+      "Model",
+      "Barcha natijalar ochiq shartli modeldan."
+    ],
+    [
+      "Chegara",
+      "Issiqlik integratsiyasi va elektr ishlashi hisobga olinmagan."
+    ]
+  ]
+]

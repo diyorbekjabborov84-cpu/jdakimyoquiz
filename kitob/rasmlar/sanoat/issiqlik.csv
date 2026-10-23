@@ -1,0 +1,17 @@
+ogilma,T_C,tip
+NH3 kirish,25,oqim
+Oksidlash reaktori,880,oqim
+Issiq gaz,400,oqim
+SO2/N2 tozalash,120,oqim
+Absorbsiya,60,oqim
+Konsentratsiya,84,oqim
+Azeotrop reabiler,84,oqim
+Kondenser,40,oqim
+Mahsulot,25,oqim
+Bug' 0.10 MPa,99.63,bug' darajasi
+Bug' 0.50 MPa,151.83,bug' darajasi
+Bug' 1.00 MPa,179.89,bug' darajasi
+Bug' 2.00 MPa,212.42,bug' darajasi
+Bug' 4.00 MPa,250.4,bug' darajasi
+Bug' 6.00 MPa,275.64,bug' darajasi
+Bug' 8.00 MPa,295.06,bug' darajasi
