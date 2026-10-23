@@ -1,0 +1,702 @@
+{
+  "kirish": {
+    "caption": "6.2.1-jadval. HF ning o‘rni va molekulasining maxsusligi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Tuzilishi",
+        "Chiziqli, ikkiatomli; r(H–F) = 0,917 Å",
+        "Guruhdagi eng qisqa bog‘"
+      ],
+      [
+        "Bog‘ energiyasi",
+        "D(H–F) = 569 kJ/mol",
+        "Guruhdagi eng kuchli bog‘"
+      ],
+      [
+        "Elektronegativlik",
+        "χ(F) = 3,98; Δχ = 1,78",
+        "Eng katta"
+      ],
+      [
+        "Dipol moment",
+        "1,8–1,9 D (guruhdagi eng katta)",
+        "Manbalar farqi ±0,1 D"
+      ],
+      [
+        "Hydrogen bog‘i",
+        "Molekulalar zanjiri hosil qiladi",
+        "Suyuq fazada polimerlanish"
+      ],
+      [
+        "Qaynash harorati",
+        "19,5 °C — xona haroratidan yuqori",
+        "Guruhda eng yuqori"
+      ],
+      [
+        "Suyuqlash harorati",
+        "−83,6 °C",
+        "Guruhda eng yuqori"
+      ],
+      [
+        "Suvdagi xarakter",
+        "Kuchsiz kislota (pK_a 3,17); ion juftlari [H₃O⁺·F⁻]",
+        "Hydrogen bog‘i sabab"
+      ],
+      [
+        "Quruq holda",
+        "Kuchli kislota va kuchli erituvchi",
+        "Suvga qarashi"
+      ],
+      [
+        "Chegara",
+        "Barcha sonlar ochiq shartli model",
+        "O‘lchov ma’lumoti emas"
+      ]
+    ]
+  },
+  "anhidr": {
+    "caption": "6.2.2-jadval. Anhidr HF: fizik xossalar va erituvchi tizimi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Suyuqlanish diapazoni",
+        "190–292,5 K",
+        "Keng diapazon — qulay erituvchi"
+      ],
+      [
+        "Nisbiy o‘tkazuvchanlik",
+        "84 (273 K); 175 (200 K)",
+        "Kationlarni yomon solvatatsiya qiladi"
+      ],
+      [
+        "O‘z-o‘zini ionlashuv",
+        "3HF ⇌ H₂F⁺ + HF₂⁻",
+        "Suv kabi erituvchi tizimi"
+      ],
+      [
+        "K_self",
+        "2×10⁻¹² (273 K)",
+        "Suvning (10⁻¹⁴) dan katta"
+      ],
+      [
+        "Elektr o‘tkazuvchanlik",
+        "1,4×10⁻⁵ Ω⁻¹ (ekvivalent)",
+        "Ionlar soni sezilarli, lekin past"
+      ],
+      [
+        "Proton holati",
+        "H₂F⁺ va katta agregatlar; mustaqil H⁺ yo‘q",
+        "Solvatatsiya muhim"
+      ],
+      [
+        "Bug‘lanish entalpiyasi",
+        "30,7 kJ/mol (qaynashda)",
+        "Nashr ma’lumoti"
+      ],
+      [
+        "Zichlik",
+        "0,99 g/cm³ (qaynash haroratida)",
+        "—"
+      ],
+      [
+        "Ko‘rsatilgan kamchilik",
+        "Ko‘p tuzlar, hatto fluoridlar yomon eriydi",
+        "Kation solvatatsiyasi"
+      ],
+      [
+        "Chegara",
+        "Parametrlar qurilma va boshqaruv bo‘yicha berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "superkislota": {
+    "caption": "6.2.3-jadval. HF asosidagi superkislotalar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Hammett H₀ (HF)",
+        "−15,1",
+        "100 % H₂SO₄ dan kuchli"
+      ],
+      [
+        "Sabab",
+        "F⁻ kuchli bog‘lanadi — proton ajratish qobiliyati yuqori",
+        "Konjugat asos barqarorligi"
+      ],
+      [
+        "Lewis kislotalar",
+        "BF₃, PF₅, AlF₃, SbF₅",
+        "Fluorid qabul qiluvchilar"
+      ],
+      [
+        "SbF₅ bilan",
+        "SbF₅ + 2HF ⇌ H₂F⁺ + SbF₆⁻",
+        "H₀ ≈ −21"
+      ],
+      [
+        "Fluoroantimon kislota",
+        "1:1 aralashma; H₀ < −28",
+        "Eng kuchli suyuq superkislota"
+      ],
+      [
+        "Real tuzilish",
+        "Proton va anion aralashmasi (H₃F₂⁺, Sb₄F₂₁⁻)",
+        "Sodda formula soddalashtirish"
+      ],
+      [
+        "Nimaga qodir",
+        "Uglerod gidridlarini protonlash",
+        "Nazariy va katalizatorli yo‘nalish"
+      ],
+      [
+        "Tuzlarga nisbatan",
+        "Erishuvchan yuqori, kationlar yomon solvatatsiya qilinadi",
+        "Amaliy cheklov"
+      ],
+      [
+        "Xavf",
+        "Eng kuchli kislotalar — eng xavfli reagentlar",
+        "Amaliyot tavsiyalari berilmaydi"
+      ],
+      [
+        "Chegara",
+        "Doza va sharoitlar berilmadi",
+        "Model"
+      ]
+    ]
+  },
+  "spetsiatsiya": {
+    "caption": "6.2.4-jadval. Suvli HF: spetsiatsiya va konsentratsiya",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Ka (suv)",
+        "6,8×10⁻⁴ (pK_a 3,17)",
+        "Kuchsiz kislota"
+      ],
+      [
+        "Ion juftlari",
+        "[H₃O⁺·F⁻] — hydrogen bog‘langan",
+        "Dissotsiatsiya kamayadi"
+      ],
+      [
+        "HF₂⁻ hosil bo‘lishi",
+        "HF + F⁻ ⇌ HF₂⁻; lgK = 0,7",
+        "Konsentratsiya oshganda"
+      ],
+      [
+        "Model: 0,010 M",
+        "HF 76,0 %; F⁻ 22,3 %; HF₂⁻ 0,8 %; pH 2,635",
+        "Ideal erituvchi modeli"
+      ],
+      [
+        "Model: 0,100 M",
+        "HF 87,9 %; F⁻ 6,4 %; HF₂⁻ 2,8 %; pH 2,033",
+        "Model"
+      ],
+      [
+        "Model: 1,000 M",
+        "HF 89,5 %; F⁻ 1,1 %; HF₂⁻ 4,7 %; pH 1,238",
+        "Model"
+      ],
+      [
+        "Model: 10,000 M",
+        "HF₂⁻ 5,2 %; pH 0,277",
+        "Model chegarasi"
+      ],
+      [
+        "Sanoat konsentratsiyalari",
+        "37 % (120 °C azeotrop); 48 %; 50 %+",
+        "Yupqa HF alohida mahsulot"
+      ],
+      [
+        "Amaliy xulosa",
+        "Kuchli xossalar HF₂⁻ hosil bo‘lishi bilan bog‘liq",
+        "Yemirish, passivatsiya, flnorid kiritish"
+      ],
+      [
+        "Chegara",
+        "Model faolik koeffitsiyentlarni hisobga olmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "olish": {
+    "caption": "6.2.5-jadval. Ishlab chiqarish, tozalash va qayta foydalanish",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Xom ashyo",
+        "Fluorit CaF₂",
+        "Yagona tabiiy manba"
+      ],
+      [
+        "Reaksiya",
+        "CaF₂ + H₂SO₄ → 2HF + CaSO₄",
+        "Aylanma pechda"
+      ],
+      [
+        "Model",
+        "1000 kg fluorit (97 %) → HF 457,3 kg (unum 92 %)",
+        "Ochiq shartli"
+      ],
+      [
+        "Model: yon mahsulot",
+        "H₂SO₄ 1218,5 kg; CaSO₄ 1691,4 kg",
+        "Model"
+      ],
+      [
+        "Tozalash usuli",
+        "Quruq holda distillatsiya",
+        "Suv bilan tozalash mumkin emas"
+      ],
+      [
+        "Kontrol",
+        "Harorat, nam, ifloslanish (ayniqsa suv)",
+        "Metal izotoplari keltiradi"
+      ],
+      [
+        "Yupqa HF",
+        "99,99 % dan yuqori; alohida zanjir",
+        "Yarim o‘tkazgich"
+      ],
+      [
+        "Qayta tiklash",
+        "Skrubber → CaF₂ cho‘kma → kalsinatsiya → HF",
+        "Chiqindini xom ashyoga aylantirish"
+      ],
+      [
+        "Yon mahsulot",
+        "CaF₂ — alyumin elektrolizining elektroliti",
+        "Kriyolit bilan birga"
+      ],
+      [
+        "Chegara",
+        "Parametrlar, reaksion va kartalar berilmaydi",
+        "Amaliyot tavsiyalari berilmaydi"
+      ]
+    ]
+  },
+  "yemirish": {
+    "caption": "6.2.6-jadval. Shishani yemirish: mexanizm va tezlik modeli",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Suvli muhitda",
+        "SiO₂ + 6HF → H₂SiF₆ + 2H₂O",
+        "Asosiy tenglik"
+      ],
+      [
+        "Gaz fazasida",
+        "SiO₂ + 4HF → SiF₄↑ + 2H₂O",
+        "SiF₄ + 2HF → H₂SiF₆"
+      ],
+      [
+        "Model",
+        "1 kg SiO₂ → HF 1997,8 g (48 % da 4162,1 g)",
+        "Model"
+      ],
+      [
+        "Model: mahsulot",
+        "H₂SiF₆ 2398,2 g; H₂O 599,6 g",
+        "Model"
+      ],
+      [
+        "Tezlik qonuni",
+        "r = 510[F⁻] + 610[HF] + 2890[HF₂⁻] (Å/min)",
+        "Empirik kinetik model"
+      ],
+      [
+        "Model: tezlik",
+        "0,10 M → 65,1; 1,00 M → 687,8; 8,00 M → 5567,7 Å/min",
+        "Model"
+      ],
+      [
+        "Selektivlik",
+        "SiO₂ : Si₃N₄ : Si ≈ 1 : >100 : 0,1",
+        "Yarim o‘tkazgich uchun asosiy"
+      ],
+      [
+        "Al filmi",
+        "Fluoratsiya qatlami ~2000 Å, >50 % F",
+        "Tozalash natijasi"
+      ],
+      [
+        "Kamchilik",
+        "H₂SiF₆ to‘planishi yemirishni sekinlashtiradi",
+        "Nazorat talab qiladi"
+      ],
+      [
+        "Chegara",
+        "Koeffitsiyentlar ayniqlashtirilgan sharoitga tegishli",
+        "Model"
+      ]
+    ]
+  },
+  "passivatsiya": {
+    "caption": "6.2.7-jadval. Metallarga ta’sir: fluoridli passivatsiya",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Sabab",
+        "Zich, uzluksiz fluorid qatlami",
+        "Keyingi reaksiyani to‘xtatadi"
+      ],
+      [
+        "Al → AlF₃",
+        "1 g Al → 3,113 g AlF₃; HF 1,483 g; H₂ 0,112 g",
+        "Model"
+      ],
+      [
+        "Fe → FeF₃",
+        "1 g Fe → 2,326 g FeF₃; HF 0,716 g; H₂ 0,054 g",
+        "Model"
+      ],
+      [
+        "Ni → NiF₂",
+        "1 g Ni → 1,647 g NiF₂; HF 0,682 g; H₂ 0,017 g",
+        "Model"
+      ],
+      [
+        "Cu → CuF₂",
+        "1 g Cu → 1,598 g CuF₂; HF 0,630 g; H₂ 0,016 g",
+        "Model"
+      ],
+      [
+        "Qatlam barqarorligi",
+        "Al va Fe — eng mustahkam; Cu va Ni — zaifroq",
+        "Cu qatlami teshikli bo‘lishi mumkin"
+      ],
+      [
+        "Zanglamaydigan po‘lat",
+        "HF da zaif himoyalanadi",
+        "Qoplama talab qilinadi"
+      ],
+      [
+        "Sanoat qo‘llanishi",
+        "Al qatlamini tozalash, shishadan Al va Mg ajratish",
+        "Aniq profil shakllantirish"
+      ],
+      [
+        "Chegara",
+        "Yakuniy himoya boshqa usul bilan qilinadi",
+        "Model"
+      ]
+    ]
+  },
+  "floridlar": {
+    "caption": "6.2.8-jadval. Floridlar, komplekslar va qo‘llanish",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "NaF, KF",
+        "Oddiy fluoridlar; kuchli ligand",
+        "Tahlil va sintez"
+      ],
+      [
+        "AlF₃",
+        "Alyumin trifluorid; elektroliz va qatlamlar",
+        "—"
+      ],
+      [
+        "CaF₂ (florit)",
+        "HF ning xom ashyosi",
+        "Alyumin va fosfor"
+      ],
+      [
+        "Na₃AlF₆ (kriyolit)",
+        "Alyumin elektrolizining elektroliti",
+        "Erish haroratini pasaytiradi"
+      ],
+      [
+        "H₂SiF₆",
+        "Fluorosilitsiy kislota",
+        "Suv tozalash, katalizator"
+      ],
+      [
+        "Kompleks anionlar",
+        "AlF₆³⁻, BF₄⁻, PF₆⁻, SbF₆⁻",
+        "Barqaror, lekin kuchsiz nukleofil"
+      ],
+      [
+        "Suv chegaralari",
+        "WHO 1,5 mg/L; AQSh MCL 4,0 mg/L; ikkilamchi 2,0 mg/L",
+        "Manba"
+      ],
+      [
+        "Suv tozalashi",
+        "F⁻ qo‘shish; mikroorganizmlar kalsiyini kamaytiradi",
+        "Manba"
+      ],
+      [
+        "Xavf",
+        "HF o‘zi kalsiyga raqib",
+        "Eng xavfli qism — bevosita ishlash"
+      ],
+      [
+        "Chegara",
+        "Dozalar va texnologiya parametrlari berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "sanoat": {
+    "caption": "6.2.9-jadval. Sanoat sohalari: qaysi sohada nima uchun",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Yarim o‘tkazgich",
+        "SiO₂ qatlamini nazoratli yo‘qish (maska, o‘lchash)",
+        "Eng katta miqdor"
+      ],
+      [
+        "Koeffitsientli optika",
+        "Qo‘lda ishlab chiqarish uchun shishani eritish",
+        "Yuqori dioptrik koeffitsient"
+      ],
+      [
+        "Ko‘zoynak optikasi",
+        "Ishlatish cheklangan; uchish va tuzatishda",
+        "Profil talabi"
+      ],
+      [
+        "Farmatsevtika",
+        "Fluorid kiritish (flnor atomining ta’siri)",
+        "Metabolizmni o‘zgartirish"
+      ],
+      [
+        "Katalizatorlar",
+        "HF/SbF₅ tizimi kuchli kislota katalizatori",
+        "Izomerlash, depolimerizatsiya"
+      ],
+      [
+        "Tog‘-kon metallurgiyasi",
+        "Ba’zi rudalardan ftor ajratish",
+        "Kam miqdorda"
+      ],
+      [
+        "Umumiy xulosa",
+        "Tor ixtisoslashtirilgan, lekin texnologik jihatdan asosiy reagent",
+        "—"
+      ],
+      [
+        "Muhim shart",
+        "H₂SiF₄ to‘planishini nazorat qilish; metallga tegmaslik",
+        "Sifat mezoni"
+      ],
+      [
+        "Chegara",
+        "Texnologik kartalar va parametrlar berilmaydi",
+        "Model"
+      ]
+    ]
+  },
+  "xavfsizlik": {
+    "caption": "6.2.10-jadval. Xavfsizlik, ekologiya va chiqindilar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Xavf manbai",
+        "F⁻ ioni — pH emas",
+        "Ca²⁺ va Mg²⁺ ni bog‘laydi"
+      ],
+      [
+        "Oqibatlar",
+        "Gipokalsemiya, gipomagneziya, giperkaliemiya, aritmiya",
+        "Manba"
+      ],
+      [
+        "Kechikuvchi og‘riq",
+        "Suytaqlangan eritmada og‘riq kechikadi",
+        "Manba"
+      ],
+      [
+        "Klinik",
+        "Kalsiy glyukonat",
+        "Manba"
+      ],
+      [
+        "Model: Ca²⁺ talabi",
+        "20 g HF → 0,500 mol Ca²⁺ → 224,1 g kalsiy glyukonat",
+        "Stoksiometriya"
+      ],
+      [
+        "Chegaralar",
+        "OSHA TWA 3 ppm; ACGIH 0,5 ppm (F); TLV-C 2 ppm; IDLH 30 ppm",
+        "Manba"
+      ],
+      [
+        "Suv ekologiyasi",
+        "WHO 1,5 mg/L; AQSh MCL 4,0 mg/L",
+        "Manba"
+      ],
+      [
+        "Neytralizatsiya",
+        "2HF + Ca(OH)₂ → CaF₂↓ + 2H₂O",
+        "Model"
+      ],
+      [
+        "Model: chiqindi",
+        "1000 kg 10 % HF → Ca(OH)₂ 185,2 kg; CaF₂ 195,1 kg; H₂O 90,0 kg",
+        "Kirish 285,2 = chiqish 285,2 kg"
+      ],
+      [
+        "Model: qoldiq F⁻",
+        "Ca²⁺ 0,010 M → 1,186 mg/L; 0,001 M → 3,752 mg/L",
+        "K_sp = 3,9×10⁻¹¹"
+      ],
+      [
+        "Chegara",
+        "Davolash va amaliyot tavsiyalari berilmaydi",
+        "12-bo‘limga havola"
+      ]
+    ]
+  },
+  "hisob": {
+    "caption": "6.2.11-jadval. Ishlangan hisob: to‘rt model",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Model A: 0,010 M",
+        "HF 76,0 %; F⁻ 22,3 %; HF₂⁻ 0,8 %; pH 2,635",
+        "Ideal erituvchi modeli"
+      ],
+      [
+        "Model A: 1,000 M",
+        "HF 89,5 %; F⁻ 1,1 %; HF₂⁻ 4,7 %; pH 1,238",
+        "Model"
+      ],
+      [
+        "Model B: shisha",
+        "1 kg SiO₂ → HF 1997,8 g; H₂SiF₆ 2398,2 g; H₂O 599,6 g",
+        "Model"
+      ],
+      [
+        "Model B: tezlik",
+        "1,000 M → 687,8 Å/min; 4,000 M → 2778,7 Å/min",
+        "Kinetik model"
+      ],
+      [
+        "Model C: chiqindi",
+        "Ca(OH)₂ 185,2 kg; CaF₂ 195,1 kg; H₂O 90,0 kg",
+        "Kirish = chiqish 285,2 kg"
+      ],
+      [
+        "Model C: qoldiq F⁻",
+        "Ca²⁺ 0,010 M → 1,186 mg/L (chegara 1,5 mg/L)",
+        "K_sp modeli; Model A: 10,000 M → HF₂⁻ 5,2 %"
+      ],
+      [
+        "Model D: kaltsiy",
+        "20 g HF → 224,1 g kalsiy glyukonat; 100 g HF → 1120,6 g",
+        "Stoksiometriya"
+      ],
+      [
+        "Chegara",
+        "Barcha natijalar ochiq shartli modeldan",
+        "O‘lchov ma’lumoti emas"
+      ]
+    ]
+  }
+}

@@ -71,7 +71,7 @@ data=[
  ['2. Modda balansi','Metall, ligand, proton','Qoldiqlar nol bo‘lishi kerak'],
  ['3. Zaryad balansi','Kation va anionlar','Elektroneytrallik'],
  ['4. Tashqi shartlar','pH, harorat, faollik','Noma’lum bo‘lsa noma’lum qoladi'],
- ['5. Fazа tekshiruvi','n_s ≥ 0','Manfiy natija — qayta yechish'],
+ ['5. Faza tekshiruvi','n_s ≥ 0','Manfiy natija — qayta yechish'],
  ['6. Natijani baholash','Model va tajriba farqi','Muhit effekti ham bo‘lishi mumkin']]),
 ('worked','Ishlangan hisob: AgCl + ammiak tizimi',[
  ['pH = 10,00','α_L = 0,8490204','pK_a,c = 9,25'],

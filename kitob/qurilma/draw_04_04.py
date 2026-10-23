@@ -115,7 +115,7 @@ scheme('yechim','Muqobilatni yechish tartibi',[
  ('1. Turlar','Eritilgan va qattiq fazalar','Nima mavjudligini aniqlash'),
  ('2. Balanslar','Metall, ligand, zaryad','Qoldiqlar nol bo‘lishi shart'),
  ('3. Yechim','Tenglamalar tizimi','Faqat fizik ildiz qabul qilinadi'),
- ('4. Fazа tekshiruvi','n_s ≥ 0 va Q_sp ≤ K_sp','Manfiy bo‘lsa qayta yechish')])
+ ('4. Faza tekshiruvi','n_s ≥ 0 va Q_sp ≤ K_sp','Manfiy bo‘lsa qayta yechish')])
 scheme('selektiv','Tanlab cho‘ktirish uchun nimani nazorat qilish kerak',[
  ('K_sp farqi','Kichik K_sp oldin cho‘kadi','Yagona omil emas'),
  ('Protonlanish','Anion faolligini o‘zgartiradi','pH boshqaruvi bilan bog‘liq'),

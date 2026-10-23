@@ -65,7 +65,7 @@ Har bob boshida:
 - Har rasmda manba izohi (agar kerak bo'lsa): 7 pt kulrang
 - Turlari:
   - **Tuzilish sxemalari:** oq fonda, ko'k bog'lar, qizil kislorod, sariq oltingugurt
-  - **Grafiklar:** toza chiziqli, ko'k/bронза ranglarda, panjara och kulrang
+  - **Grafiklar:** toza chiziqli, ko'k/bronza ranglarda, panjara och kulrang
   - **Blok-sxemalar:** yumaloq burchakli to'rtburchaklar, strelkalar bronza
   - **3D modellar:** oq fon, yumshoq soya
 
@@ -530,3 +530,18 @@ Hamma yangi nusxalar reader/discovery=false. Oldingi Drive fayllari o‘chirilma
 - Yakuniy Google Docs: https://docs.google.com/document/d/1MkYjXOpbSIXM_D64UzQjZULXjdxQHcXAof5ckT6lPxs/edit
 - Ikkala yakuniy nusxa reader/discovery=false. Manbalar, model va render QA `matn/06_01_rasm_manbasi.md` da.
 - Keyingi mavzu: 6.2 — HF, ftorid kislota.
+
+## 6.2 — HF, ftorid kislota (2026-10-23)
+- Alohida DOCX: `chiqish/Noorganik-kislotalar-6.2-HF-florid-kislota.docx`; 958 892 bayt; 11 sahifa (har bir bo‘lim aynan bitta sahifada). 6-bobning ikkinchi mavzusi.
+- 11 bo‘lim: molekulaning maxsusligi va hydrogen bog‘i; anhidr HF erituvchi tizimi; HF asosidagi superkislotalar; suvli HF spetsiatsiyasi; ishlab chiqarish, tozalash va qayta foydalanish; shisha va keramikaga ta’sir (yemirish modeli); metallarga ta’sir (fluoridli passivatsiya); floridlar, komplekslar va qo‘llanish; sanoat sohalari; xavfsizlik, ekologiya va chiqindilar; sifat, tahlil va ishlangan hisob.
+- A4 13,5:4,5 cm, ko‘k/bronza ramkalar. 11 jadval, 11 raqamlangan Equation guruh (46 native OMML qatori), 5 hisoblangan grafik + 6 CSV, 7 sxema, 5 original illyustratsiya (17 PNG), 22 yon lavha, 11-bo‘limda 6 ta adabiyot bloki. TNR matn (10 pt), Cambria Math Equation, DejaVu Serif raster.
+- Markaziy g‘oya: HF boshqa galogenidlardan ikki tomonlama farqlanadi — suvda kuchsiz kislota (Ka = 6,8×10⁻⁴, ion juftlari [H₃O⁺·F⁻]), quruq holda kuchli kislota va kuchli erituvchi; hydrogen bog‘i tufayli qaynash harorati 19,5 °C (guruhda eng yuqori). Anhidr HF o‘z-o‘zini ionlashadi (3HF ⇌ H₂F⁺ + HF₂⁻, K_self = 2×10⁻¹²) va kuchsiz, kichik F⁻ ioni bilan kuchli bog‘lanadi — shuning uchun HF + SbF₅ superkislota beradi (H₀ = −15,1 → −21 → < −28).
+- Model qiymatlari: speksiatsiya modeli 0,010 M → HF 76,0 % / F⁻ 22,3 % / HF₂⁻ 0,8 % (pH 2,635), 1,000 M → 89,5 / 1,1 / 4,7 % (1,238), 10,000 M → HF₂⁻ 5,2 % (0,277); yemirish r = 510[F⁻] + 610[HF] + 2890[HF₂⁻] Å/min → 1,000 M: 687,8; 4,000 M: 2778,7; 8,000 M: 5567,7 Å/min; 1 kg SiO₂ → HF 1997,8 g (48 % da 4162,1 g), H₂SiF₆ 2398,2 g, H₂O 599,6 g; passivatsiya 1 g Al → 3,113 g AlF₃, Fe → 2,326 g FeF₃, Ni → 1,647 g NiF₂, Cu → 1,598 g CuF₂; chiqindi 1000 kg 10 % HF → Ca(OH)₂ 185,2 kg, CaF₂ 195,1 kg, H₂O 90,0 kg (kirish 285,2 = chiqish 285,2 kg); qoldiq F⁻: Ca²⁺ 0,001 M → 3,752 mg/L, 0,010 M → 1,186 mg/L, 0,100 M → 0,375 mg/L (K_sp = 3,9×10⁻¹¹); kaltsiy 20 g HF → 0,500 mol Ca²⁺ → 224,1 g glyukonat, 100 g HF → 2,499 mol → 1120,6 g; olish 1000 kg fluorit (97 %, unum 92 %) → HF 457,3 kg, H₂SO₄ 1218,5 kg, CaSO₄ 1691,4 kg. Barchasi ochiq shartli model; tajriba ma’lumoti emas.
+- Modelda topilgan xatolar tuzatildi: (1) chiqindi modelida CaF₂ stöchiometriya noto‘g‘ri hisoblangan (n(HF) emas n(CaF₂) = n(HF)/2) — kirish 285,2 kg ≠ chiqish 480,3 kg xatosi tuzatildi; (2) g→kg konversiyasi (Ca(OH)₂ 185 176,9 kg → 185,2 kg) tuzatildi; (3) grafiklarda teg takrorlanishi va yon ustun bilan ustma-ust tushishi tuzatildi (grafiklar qayta chizildi, chiqindi grafigi ikki ustki panelli qilindi); (4) `Selekтивlik` yozuvida kirill harflar aralashgan — barcha 6.2 fayllarida `Selektivlik` ga tuzatildi; (5) butun kitob bo‘yicha kirill qoldiqlari tekshirildi — `dizayn.md`, 4.4 jadval/generator/draw fayllaridagi «Fazа» va «bронза» xatolari tuzatildi (build_01_01.py, build_docx.py, build_mundarija_docx.py dagi kirill atamalar ataylab qoldirildi).
+- `check_06_02.py` PASS: model nuqtalari (spetsiatsiya 8 konsentratsiya, yemirish tezligi, passivatsiya 4 metall, chiqindi mass balansi, qoldiq fluorid 5 nuqta, kaltsiy talabi, olish va shisha modellari, anhidr HF konstantalari), 6 CSV qator sonlari, 17 PNG, matndagi barcha asosiy raqamlar va atamalar (WHO 1,5 mg/L, AQSh 4,0 mg/L, OSHA 3 ppm, IDLH 30 ppm, kalsiy glyukonat, gipokalsemiya, Na₃AlF₆, H₂SiF₆), Word matematiği (46 OMML qatori), 11 jadval sarlavhasi, 11 formula raqami (6.2.1)…(6.2.11), 17 rasm, 22 yon lavha, TNR/Cambria Math shriftlari, xavfsizlik chegarasi matni.
+- Sahifalash: dastlabki render 13 sahifa bo‘ldi (7- va 11-bo‘limlar yon ustuni to‘shdi) → 7-bo‘limdan ikkinchi rasm (grafik) 8-bo‘limga ko‘chirildi; 11-bo‘limda adabiyotlar 8 → 6 qisqartirildi va 7 pt qilindi, jadval 11 → 9 qator; kalsiy grafigi 3-bo‘limga ko‘chirildi → 11 sahifa, bo‘sh sahifa yo‘q. Sahifalar 1, 6 va 11 ko‘z bilan tekshirildi.
+- Xavfsizlik: HF ning tizimli toksikligi (Ca²⁺/Mg²⁺, gipokalsemiya), chegaralar (OSHA 3 ppm, ACGIH 0,5 ppm (F), TLV-C 2 ppm, IDLH 30 ppm) va kalsiy glyukonat manbaga asosida keltirilgan; davolash dozalari va amaliyot tavsiyalari berilmadi; tibbiy yordam — shifokor qarori bilan.
+- Manbalar, model va render QA `matn/06_02_rasm_manbasi.md` da. PDF: `google_drive/6.2 qoralamalar/6.2 final.pdf` (1 358 862 B, 11 sahifa).
+- Yakuniy DOCX: https://drive.google.com/uc?id=13xSUPEFnN6r9RPSxMHNSHmPTwOnvtcdJ&export=download
+- Yakuniy Google Docs: https://docs.google.com/document/d/1F2ru0JIcN-JfPg25n4D-FQte931ZPSVj0mYKi6u2my0/edit
+- Ikkala yakuniy nusxa reader/discovery=false. Keyingi mavzu: 6.3 — HCl, xlorid kislota.
