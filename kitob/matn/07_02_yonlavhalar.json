@@ -1,0 +1,112 @@
+[
+  [
+    [
+      "Tanim",
+      "H₂SO₃ = 82,08 g/mol;  SO₂ — CAS 7446-09-5,  UN 1079."
+    ],
+    [
+      "Holati",
+      "Suvda sof holda ajratilmaydi;  κ ≪ 10⁻⁹;  klathrat 4SO₂·23H₂O."
+    ]
+  ],
+  [
+    [
+      "Tuzilish",
+      "SO₂: burchakli, 119,47°,  r = 143,10 pm,  μ = 1,63 D."
+    ],
+    [
+      "Ionlar",
+      "SO₃²⁻ — piramida (106°);  HSO₃⁻ — proton oltingugurtda."
+    ]
+  ],
+  [
+    [
+      "Fazalar",
+      "Tb 263,15 K;  Tm 200,75 K;  Pc 78,79 bar;  Tc 430,80 K."
+    ],
+    [
+      "Bug‘lanish",
+      "ΔvapH 24,90 kJ/mol;  p(25 °C) = 3,85 bar (taxminiy hisob)."
+    ]
+  ],
+  [
+    [
+      "Eruvchanlik",
+      "94 g/L (25 °C);  k_H = 1,242 mol/(L·atm);  H = 0,805 atm·L/mol."
+    ],
+    [
+      "To‘yingan eritma",
+      "c = 1,4674 mol/L;  pH = 0,845;  α = 9,7 % (taxminiy hisob)."
+    ]
+  ],
+  [
+    [
+      "Kislotalik",
+      "pK_a1 = 1,81 (apparent);  pK_a2 = 7,2;  K_b(SO₃²⁻) = 1,59×10⁻⁷."
+    ],
+    [
+      "Spetsiatsiya",
+      "pH 7: HSO₃⁻ 61,3 %,  SO₃²⁻ 38,7 % (taxminiy hisob)."
+    ]
+  ],
+  [
+    [
+      "Hosilalish",
+      "S + O₂ → SO₂;  Na₂SO₃ + 2HCl → SO₂↑;  SO₂ + NaOH → NaHSO₃."
+    ],
+    [
+      "Chegara",
+      "Apparat parametrlari va konsentratsiyalar berilmaydi."
+    ]
+  ],
+  [
+    [
+      "Redoks",
+      "E°(SO₄²⁻/SO₂) = +0,17 V;  E°(SO₂/S) = +0,45 V — kuchli qaytaruvchi."
+    ],
+    [
+      "Addukt",
+      "Bisulfit + aldehyd → α-gidroksisulfonat (K = 10²–10⁶ M⁻¹)."
+    ]
+  ],
+  [
+    [
+      "Tuzlar",
+      "Na₂SO₃ 50,8 %;  NaHSO₃ 61,6 %;  Na₂S₂O₅ 67,4 % SO₂ mazmuni."
+    ],
+    [
+      "Chegara",
+      "ADI 0,7 mg/kg (EFSA, 2016);  sulfitga sezgirlik e’tiborga loyiq."
+    ]
+  ],
+  [
+    [
+      "Tahlil",
+      "Ripper (1892), Monier–Williams (1927), West–Gaeke (1956) usullari."
+    ],
+    [
+      "Taxminiy hisob",
+      "25,00 mL 0,1000 M:  I₂ 0,6345 g;  Na₂S₂O₃ 1,2409 g."
+    ]
+  ],
+  [
+    [
+      "Chegaralar",
+      "OSHA 5 ppm;  NIOSH 2/5 ppm;  ACGIH 0,25 ppm;  IDLH 100 ppm."
+    ],
+    [
+      "Taxminiy hisob",
+      "1 ppm ≈ 2,62 mg/m³;  5 ppm → 13,1 mg/m³."
+    ]
+  ],
+  [
+    [
+      "Xulosa",
+      "«Nom» bor, sof modda yo‘q;  kuchli qaytaruvchi;  ikki qirrali rol."
+    ],
+    [
+      "Taxminiy hisob",
+      "A: kislotalik;  B: spetsiatsiya;  C: yodometriya;  D: neytralizatsiya;  E: kontakt;  F: ekvivalent."
+    ]
+  ]
+]

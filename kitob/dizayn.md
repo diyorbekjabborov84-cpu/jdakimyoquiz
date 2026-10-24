@@ -774,3 +774,71 @@ bo‘linib, ustunga chiqib ketish tuzatildi.
 - DOCX: `1vwTXwBxO_9668ogF6sIiEeDJNj5Jsfow`
   → https://drive.google.com/uc?id=1vwTXwBxO_9668ogF6sIiEeDJNj5Jsfow&export=download
 - Ikkalasi ham `anyone/reader` (discovery=false). 3 iteratsiya nusxasi trash qilindi.
+
+
+## 7.2. Sulfit kislota (H₂SO₃) — yozildi va yetkazildi (2026-10-24)
+
+7-bobning ikkinchi mavzusi: oltingugurtning +IV darajasidagi «nomlashtirilgan, lekin ajratilmagan»
+kislota — mustahil manbalar (NIST WebBook/CCCBDB, Argonne/Maahs termodinamikasi, Latimer/Frost
+diagrammalari, EFSA 2016 qayta baholash, EPA/NIOSH/OSHA/ACGIH/AIHA/NAC, OIV usullari) asosida,
+«taxminiy hisob» terminologiyasi saqlangan holda.
+
+### Tuzilma (oldingi mavzular bilan bir xil standart)
+- **11 bo‘lim = 11 sahifa** (Google Docs PDF eksporti bilan tekshirilgan, bo‘sh sahifa yo‘q);
+- **11 jadval**, **22 yon lavha** (har bo‘limda 2 ta);
+- **5 hisoblangan grafik** (kislotalik/spetsiatsiya, fizik, eritma, tuzlar, ekvivalent) +
+  **7 sxema** (fizikx, eritmax, gidratx, redoksx, tuzlarx, tahlilx, xavfsizlikx) +
+  **5 original illyustratsiya** (molekulax, hosilax, tabiiyx, tuzlarilx, zavodx) = 17 rasm;
+- **11 raqamlangan native formula guruhi** (7.2.1–7.2.11, OMML, Cambria Math);
+- A4, chapda 75 % asosiy matn / o‘ngda 25 % vizual panel, ko‘k/bronza ramkalar, matn 10 pt TNR,
+  jadval 7,5 pt, formula 18 pt.
+
+### Kanonik raqamlar (NIST / CCCBDB / Argonne-Maahs / EFSA / OSHA-NIOSH-ACGIH / OIV)
+- Molekula: M(H₂SO₃) 82,08 g/mol;  M(SO₂) 64,06 g/mol;  ∠OSO 119,47°;  r(S=O) 143,10 pm;
+  μ 1,63 D;  IE 12,30 eV;  EA 1,06 eV;  SO₃²⁻ — C₃ᵥ piramida, ∠O–S–O 106°, r(S–O) 151 pm.
+- Termodinamika: ΔfH°(g) −296,81 ± 0,20 kJ/mol;  ΔfG° −300,09 kJ/mol;  S° 248,223 J/(mol·K);
+  Cp 39,84 J/(mol·K);  ΔvapH 24,90 kJ/mol;  ΔfH(gidratatsiya) −285,8 kJ/mol.
+- Agregat: Tb 263,15 K (−10,0 °C);  Tm 200,75 K (−72,4 °C);  Tt 197,70 K;  Tc 430,80 K (157,65 °C);
+  Pc 78,79 bar;  ρ(suyuq) 1,434 g/mL;  ρ(gaz) 2,858 g/L (0 °C) va 2,618 g/L (25 °C);  klathrat 4SO₂·23H₂O (<7 °C).
+- Kislotalik: pK_a1 1,81 (K_a1 1,54×10⁻², apparent);  pK_a2 7,2 (K_a2 6,3×10⁻⁸);  K_b(SO₃²⁻) 1,59×10⁻⁷;
+  κ ≪ 10⁻⁹ (H₂SO₃ suvda ajratilmaydi).
+- Eruvchanlik/Henry: 25 °C da 94 g/L;  k_H 1,242 mol/(L·atm);  H 0,805 atm·L/mol;  1 atm → 79,6 g/L;
+  1 ppm = 2,62 mg/m³;  Latimer (kislik) +0,17 / +0,45 / +0,14 V, (asosiy) −0,93 V.
+- Xavfsizlik: OSHA PEL 5 ppm;  NIOSH REL 2/5 ppm;  ACGIH STEL 0,25 ppm;  IDLH 100 ppm;  ERPG 0,3/3/25 ppm;
+  AEGL 0,2/0,75/30 ppm;  PAC 0,2/0,75/30 ppm;  NAAQS 75 ppb (1 soat) / 10 ppb (yillik, 2024);
+  EFSA ADI 0,7 mg/kg (E220–E228);  FGD ho‘llik 92–99 %.
+- Taxminiy hisob natijalari: to‘yingan eritma c 1,4674 M, h 0,1428 M, pH 0,845, α 9,7 %;  pH(0,100 M) 1,49,
+  α 32,3 %;  spetsiatsiya pH 2 → 39,4/60,6 %, pH 7 → 61,3/38,7 %, pH 10 → SO₃²⁻ 99,8 %;
+  C–C p(25 °C) 3,8541 bar (jadval 3,8536 bar, farq 0,01 %);  yodometriya n 0,002500 mol → I₂ 0,6345 g,
+  Na₂S₂O₃ 1,2409 g;  neyutralizatsiya (1000 kg 10 % eritma) NaOH 62,4/124,9 kg, Ca(OH)₂ 115,7 kg,
+  CaSO₃ 187,5 kg, Na₂S₂O₅ 148,4 kg;  kontakt 1000 kg SO₂ → SO₃ 1249,8 kg, O₂ 249,8 kg,
+  H₂O 281,2 kg, H₂SO₄ 1531,1 kg (balans −0,09 kg);  ekvivalent 41,04 va 32,03 g/eq.
+
+### Chegaralar
+- Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari, dozalar va tibbiy
+  tavsiyalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli gazlar bilan ishlash tartibi 12-bo‘limda.
+- Barcha sonli egri chiziqlar «taxminiy hisob» deb belgilangan (o‘lchov ma‘lumoti emas);
+  «model» so‘zi ishlatilmadi; «vodorod bog‘i» terminologiyasi saqlangan.
+- SO₂ uchun identifikatsiya, eksperiment va toksikologiya xulosalari faqat adabiyot manbalariga asoslangan.
+
+### Fayllar
+`kitob/matn/07_02.md`, `07_02_jadvallar.json`, `07_02_yonlavhalar.json`;
+`kitob/qurilma/prep_07_02.py` (10 CSV), `content_07_02.py`, `equations_07_02.py`, `draw_07_02.py`,
+`build_07_02_sidebar.py`, `check_07_02.py`; `kitob/rasmlar/sulfit/` (17 PNG + 10 CSV);
+`kitob/chiqish/Noorganik-kislotalar-7.2-Sulfit-kislota.docx` (1 262 629 bayt).
+
+### QA va sahifalash
+`check_07_02.py` — barcha tekshiruvlar o‘tdi (taxminiy hisoblar, 10 CSV qator sonlari, 17 PNG,
+17 inline shakl, 51 OMML formula, 11/7/5/5 sarlavha, 11 formula raqami, «_» va «**» yo‘q,
+TNR/Cambria, kirill/CJK yo‘q).
+Google Docs PDF eksportida 7.2 uch 4 iteratsiya kerak bo‘ldi: 13 sahifa (1- va 10-bo‘lim toshdi) →
+1- va 10-bo‘lim matni qisqartirildi hamda 1-forma guruhida ikki qator birlashtirildi → 11 sahifa;
+keyin «**» markerlari qalin shriftga o‘tkazildi va OMML ichidagi `C_s`/`K_b` yozuvlari native
+pastki indeksga aylantirildi (oxirgi iteratsiya).
+
+### Drive
+- Native Google Docs: `17XxSSSZJWZkaO-SOBdsm1_kttdCZ5verI8F_Q_ObYAI`
+  → https://docs.google.com/document/d/17XxSSSZJWZkaO-SOBdsm1_kttdCZ5verI8F_Q_ObYAI/edit
+- DOCX: `1qt92ajxywohRMGNsO-LSLpIUJYs1ckOa`
+  → https://drive.google.com/uc?id=1qt92ajxywohRMGNsO-LSLpIUJYs1ckOa&export=download
+- Ikkalasi ham `anyone/reader` (discovery=false). 5 iteratsiya nusxasi trash qilindi.
