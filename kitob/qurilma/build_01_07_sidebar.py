@@ -52,8 +52,8 @@ panels=[
 ('Superkislotalilik mezoni',[],'1.7.1-chizma. Suvsiz sulfat kislotaga nisbatan operatsion taqqoslash; aniq universal kuch shkalasi emas.'),
 ('Muhit o‘zgarsa',[('SUVLI TIZIM','Gidratlangan proton'),('SUVSIZ TIZIM','Boshqa protonlangan zarrachalar'),('O‘LCHOV','Indikator bilan taqqoslash')],'Muhit va standart holatni ko‘rsatmasdan sonlarni solishtirmang.'),
 ('Indikatorning javobi',[('NEYTRAL SHAKL','B — proton qabul qiladi'),('PROTONLANGAN','BH⁺ — tutash kislota'),('O‘LCHASH','Ikki shakl nisbatini aniqlash')],'H₀ indikatorlar oilasining javobiga tayanadi.'),
-('Protonlangan ulush',[],'1.7.1-grafik. Tayanch pKₐ qiymatlari −6 va −9 bo‘lgan ikki faraziy indikator. Ikki shaklli hisobiy model.'),
-('Qarshi ionning roli',[],'1.7.2-chizma. SbF₆⁻ anionining olti koordinatsiyali markazi eskizi. Butun HF–SbF₅ muhitining tarkib modeli emas.'),
+('Protonlangan ulush',[],'1.7.1-grafik. Tayanch pKₐ qiymatlari −6 va −9 bo‘lgan ikki faraziy indikator. Ikki shaklli shartli hisob.'),
+('Qarshi ionning roli',[],'1.7.2-chizma. SbF₆⁻ anionining olti koordinatsiyali markazi eskizi. Butun HF–SbF₅ muhitining tarkibi aks ettirmaydi.'),
 ('Spektrdan tarkibga',[],'1.7.2-grafik. B va BH⁺ uchun faraziy normallangan polosalar. Tasvir haqiqiy indikator spektri emas.'),
 ('Taqqoslash tartibi',[('01 · MUHIT','Tarkib va harorat'),('02 · MEZON','H₀, pH yoki boshqa shkala?'),('03 · JARAYON','Protonlanish va yon reaksiyalar')],'Kislotalilik, korrozivlik va xavf bir xil kattalik emas.')
 ]

@@ -200,7 +200,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'HISOBIY GRAFIK' if idx==4 else 'STRUKTURAVIY SXEMA',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={3:('hclo4_model.png','2.5.1-rasm. HClO₄: O–O bog‘isiz model.'),5:('h2so5_model.png','2.5.2-rasm. H₂SO₅ dagi perokso zanjir.'),6:('ph_model.png','2.5.3-rasm. H₃PO₃ dagi P–H bog‘i.'),7:('thio_model.png','2.5.4-rasm. S₂O₃²⁻ dagi noekvivalent S atomlari.')}
+    extra_models={3:('hclo4_model.png','2.5.1-rasm. HClO₄: O–O bog‘isiz tasvir.'),5:('h2so5_model.png','2.5.2-rasm. H₂SO₅ dagi perokso zanjir.'),6:('ph_model.png','2.5.3-rasm. H₃PO₃ dagi P–H bog‘i.'),7:('thio_model.png','2.5.4-rasm. S₂O₃²⁻ dagi noekvivalent S atomlari.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -229,7 +229,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[1] Karen, P.; McArdle, P.; Takats, J. Comprehensive definition of oxidation state (IUPAC Recommendations 2016). Pure Appl. Chem. 88 (2016), 831–839. DOI: 10.1515/pac-2015-1204. Ayniqsa 4, 5.3 va 5.5-bo‘limlar.',
         '[2] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018. Oksokislotalar va molekulyar bog‘lanish.',
         '[3] Flowers, P.; Theopold, K.; Langley, R.; Robinson, W. R. Chemistry 2e. OpenStax, 2019. H ilova: Ionization Constants of Weak Acids. https://openstax.org/books/chemistry-2e/pages/h-ionization-constants-of-weak-acids . Grafik uchun faqat uchta Kₐ soni olindi; matn yoki tayyor rasm ko‘chirilmagan.',
-        'Barcha chizmalar original o‘quv sxemalari va idealizatsiyalangan molekulyar modellar. Grafik berilgan konstantalardan hisoblangan; tajribaviy grafik emas.'
+        'Barcha chizmalar original o‘quv sxemalari va idealizatsiyalangan molekulyar taxminiy hisoblar. Grafik berilgan konstantalardan hisoblangan; tajribaviy grafik emas.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)
@@ -246,4 +246,4 @@ assert counter==6
 assert comparison_count==9
 assert sum(len(notes) for notes in side_notes)==18
 print(OUT)
-print('9 sections; 9 tables; 8 schemes; 1 model graph; 4 molecular renders; 6 equations; 18 margin notes.')
+print('9 sections; 9 tables; 8 schemes; 1 taxminiy hisob grafigi; 4 molecular renders; 6 equations; 18 margin notes.')

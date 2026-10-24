@@ -1,5 +1,5 @@
 """Original teaching figures for 5.3 "QuRITish va suvsizlantirish".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -91,10 +91,10 @@ for P, col, lbl in ((101.325, N, '101,325 kPa → 100,0 °C'),
     x, y = p(math.log10(P), boiling_temperature(P) - 273.15)
     d.ellipse((x - 7, y - 7, x + 7, y + 7), fill=col)
     txt(d, x + 14, y - 30, lbl, 22, col)
-txt(d, 45, 865, 'Klausius–Klapeiron (model, ΔvapH = 40,657 kJ/mol)', 25, N)
+txt(d, 45, 865, 'Klausius–Klapeiron (taxminiy hisoblar, ΔvapH = 40,657 kJ/mol)', 25, N)
 txt(d, 45, 920, 'Ph. Eur. 2.2.32: vakuumda quritish 1,5–2,5 kPa; chuqur vakuum ≤ 0,1 kPa', 22, B)
-txt(d, 45, 975, 'p_sat(25 °C) = 2,858 kPa (model); ΔvapH(25 °C) = 44,01 kJ/mol', 22, G)
-txt(d, 45, 1030, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 975, 'p_sat(25 °C) = 2,858 kPa (shartli hisob); ΔvapH(25 °C) = 44,01 kJ/mol', 22, G)
+txt(d, 45, 1030, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'vakuum')
 
 # --- Graph 2: azeotrop entrainerlari -------------------------------------
@@ -107,10 +107,10 @@ for name, col in (('toluen', N), ('sikloheksan', B), ('n-geptan', TEAL)):
     x, y = p(a['T'], a['w_water'] * 100)
     d.ellipse((x - 9, y - 9, x + 9, y + 9), fill=col)
     txt(d, x + 16, y - 16, '%s  %.1f °C, %.1f %%' % (name, a['T'], a['w_water'] * 100), 22, col)
-txt(d, 45, 865, '1 kg entrainer necha kg suv olib ketadi (model):', 25, N)
+txt(d, 45, 865, '1 kg entrainer necha kg suv olib ketadi (shartli hisob):', 25, N)
 txt(d, 45, 915, 'toluen 0,2469 kg;  sikloheksan 0,0917 kg;  n-geptan 0,1429 kg', 23, B)
 txt(d, 45, 970, 'Heteroazeotrop: distillat ikki fazaga ajraladi va entrainer qaytadi', 22, G)
-txt(d, 45, 1025, 'Model ma’lumoti; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1025, 'Taxminiy hisob ma’lumoti; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'azeotrop')
 
 # --- Graph 3: quritish kinetikasi ---------------------------------------
@@ -125,10 +125,10 @@ curve(d, p, rr, 't_min', 'X_373', N, ylo=0, yhi=0.36)
 xe = rr[0]['X_eq']
 d.line((120, p(0, xe)[1], 680, p(0, xe)[1]), fill='#C9D4DD', width=3)
 txt(d, 300, p(0, xe)[1] - 32, 'muvozanat namligi (80 % RH)', 22, G)
-txt(d, 45, 865, 'Ikki bosqichli model: doimiy tezlik + birinchi pasayish bosqichi', 24, N)
+txt(d, 45, 865, 'Ikki bosqichli shartli hisob: doimiy tezlik + birinchi pasayish bosqichi', 24, N)
 txt(d, 45, 915, 'ko‘k: 373 K (100 °C);  bronza: 353 K;  qizil: 333 K (60 °C)', 23, B)
-txt(d, 45, 970, 'Arrhenius koeffitsienti: Eₐ = 30 kJ/mol (model)', 22, G)
-txt(d, 45, 1025, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 970, 'Arrhenius koeffitsienti: Eₐ = 30 kJ/mol (shartli hisob)', 22, G)
+txt(d, 45, 1025, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'kinetika')
 
 # --- Graph 4: adsorbsiya va muvozanat namligi ----------------------------
@@ -143,7 +143,7 @@ curve(d, p, rr, 'RH', 'w_0.08', B, ylo=0, yhi=0.09)
 txt(d, 45, 865, 'w_eq = w_m·C·x/(1 + (C − 1)x),  x = p/p₀,  C = 10', 25, N)
 txt(d, 45, 915, 'ko‘k: w_m = 0,05 kg/kg;  bronza: 0,08;  kul: 0,03', 23, B)
 txt(d, 45, 970, '20 % RH → 0,0357;  50 % → 0,0455;  80 % → 0,0488 kg/kg (w_m = 0,05)', 22, G)
-txt(d, 45, 1025, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1025, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'adsorbsiya')
 
 # --- Graph 5: energetika -------------------------------------------------
@@ -159,10 +159,10 @@ for i, r in enumerate(rr):
     d.rectangle((x0, y, x1, 700), fill=cols[i % len(cols)])
     txt(d, x0 - 4, y - 34, '%.2f' % r['kWh_per_kg'], 24, INK)
     txt(d, x0 - 24, 722, r['usul'][:9], 21, INK)
-txt(d, 45, 865, 'Model: 1 kg suvni olib tashlash uchun taxminiy elektr energiyasi', 24, N)
+txt(d, 45, 865, 'Taxminiy hisob: 1 kg suvni olib tashlash uchun taxminiy elektr energiyasi', 24, N)
 txt(d, 45, 915, 'molekulyar sital 0,18;  vakuum 0,85;  shkaf 1,05;  azeotrop 1,55 kWh/kg', 23, B)
 txt(d, 45, 970, 'Sital regeneratsiyasi energiyani yashiradi; azeotrop entrainer aylanishini talab qiladi', 22, G)
-txt(d, 45, 1025, 'Model qiymatlari — reyting emas, usullarning tartibini ko‘rsatadi', 22, G)
+txt(d, 45, 1025, 'Taxminiy qiymatlar — reyting emas, usullarning tartibini ko‘rsatadi', 22, G)
 save(im, 'energiya')
 
 
@@ -206,11 +206,11 @@ scheme('azeotropsxema', 'Azeotropik quritish sxemasi', [
     ('Reabiler', 'Kislota + toluen + suv', '84,1 °C azeotrop'),
     ('Kondenser', 'Distillat sovutiladi', 'Ikki faza hosil bo‘ladi'),
     ('Ajratish', 'Suv fazasi va organik faza', '~99,95 % / ~99,95 %'),
-    ('Entrainer qaytishi', 'Organik faza qaytadi', 'Yo‘qotish 0,158 kg (model)'),
+    ('Entrainer qaytishi', 'Organik faza qaytadi', 'Yo‘qotish 0,158 kg (shartli hisob)'),
     ('Mahsulot', 'Kislota + minimal suv', 'Azeotrop chegarasi yoriladi')])
 
 scheme('sitalsxema', 'Molekulyar sital kolonkasi va regeneratsiya', [
-    ('Kirish oqimi', 'Nam gaz yoki eritma', 'Model: C₀ = 50–200 mg/L'),
+    ('Kirish oqimi', 'Nam gaz yoki eritma', 'Taxminiy hisob: C₀ = 50–200 mg/L'),
     ('Sital qatlami', '3A / 4A / 5A / 13X', 'Sig‘im 19,5–23,5 %'),
     ('Adsorbsiya', 'Suv yuzaga tortiladi', 'Suv kamayadi'),
     ('Regeneratsiya', '200–300 °C da', 'Energiya sarfi'),
@@ -219,9 +219,9 @@ scheme('sitalsxema', 'Molekulyar sital kolonkasi va regeneratsiya', [
 scheme('gidratsxema', 'Gidrat quritish: fazaviy o‘tish', [
     ('CuSO₄·5H₂O', 'M = 249,68 g/mol; suv 36,08 %', 'Boshlang‘ich faza'),
     ('CuSO₄·3H₂O', 'M = 213,65 g/mol', 'Oraliq faza'),
-    ('CuSO₄·H₂O', 'M = 177,62 g/mol; suv 10,14 %', 'Model maqsadi'),
+    ('CuSO₄·H₂O', 'M = 177,62 g/mol; suv 10,14 %', 'Shartli hisob maqsadi'),
     ('CuSO₄ (anh.)', 'M = 159,61 g/mol', 'To‘liq quruq'),
-    ('Model', '1000 kg pentahidrat → 288,60 kg suv', '711,40 kg monohidrat')])
+    ('Taxminiy hisob', '1000 kg pentahidrat → 288,60 kg suv', '711,40 kg monohidrat')])
 
 scheme('nazoratsxema', 'Suv miqdori nazorati va hujjatlashtirish', [
     ('Namuna olish', 'Toza, qopqoqli idish', 'O‘z vaqtida'),
@@ -265,7 +265,7 @@ txt(d, 470, 320, '2-pasayish', 21, B)
 txt(d, 40, 150, 'X', 25, G)
 txt(d, 590, 445, 'vaqt', 22, G)
 txt(d, 35, 510, 'Sxematik: umumiy ko‘rinish', 22, G)
-txt(d, 35, 555, 'Model: doimiy tezlik + 1-pasayish + muvozanat', 22, G)
+txt(d, 35, 555, 'Taxminiy hisob: doimiy tezlik + 1-pasayish + muvozanat', 22, G)
 save(im, 'quritishegri')
 
 im, d = base('Quritish uskonasining kesimi (sxematik)')
@@ -294,27 +294,27 @@ txt(d, 470, 235, 'faza chegarasi', 22, RED)
 d.line((380, 470, 380, 520), fill=G, width=4)
 d.polygon([(380, 520), (366, 496), (394, 496)], fill=G)
 txt(d, 400, 500, 'suv fazasi chiqishi', 22, G)
-txt(d, 35, 550, 'Sxematik; faza tarkibi modelda ~99,95 %', 22, G)
+txt(d, 35, 550, 'Sxematik; faza tarkibi taxminiy hisobda ~99,95 %', 22, G)
 save(im, 'ajratish')
 
-im, d = base('Ishlangan hisob: ikki modelning modda oqimi', 620)
+im, d = base('Ishlangan hisob: ikki taxminiy hisobning modda oqimi', 620)
 d.rounded_rectangle((30, 140, 350, 300), radius=12, outline=N, width=4)
-txt(d, 55, 160, 'Model A: gidrat quritish', 25, N)
+txt(d, 55, 160, 'Taxmin A: gidrat quritish', 25, N)
 txt(d, 55, 205, '1000 kg CuSO₄·5H₂O', 22, INK)
 txt(d, 55, 240, '→ 288,60 kg suv ajraladi', 22, INK)
 txt(d, 55, 272, '→ 711,40 kg CuSO₄·H₂O', 22, INK)
 d.rounded_rectangle((410, 140, 730, 300), radius=12, outline=B, width=4)
-txt(d, 435, 160, 'Model B: azeotrop', 25, B)
+txt(d, 435, 160, 'Taxmin B: azeotrop', 25, B)
 txt(d, 435, 205, '1000 kg 68 % li HNO₃', 22, INK)
 txt(d, 435, 240, '→ 316,58 kg suv + 1282,32 kg toluen', 22, INK)
 txt(d, 435, 272, '→ 683,42 kg mahsulot', 22, INK)
 d.rounded_rectangle((30, 340, 350, 470), radius=12, outline=TEAL, width=4)
 txt(d, 70, 360, 'Q = 651,3 MJ = 180,9 kWh', 24, TEAL)
-txt(d, 60, 405, 'Model A — bug‘latish energiyasi', 21, INK)
+txt(d, 60, 405, 'Taxmin A — bug‘latish energiyasi', 21, INK)
 d.rounded_rectangle((410, 340, 730, 470), radius=12, outline=TEAL, width=4)
 txt(d, 440, 360, 'Q = 1244,2 MJ = 345,6 kWh', 24, TEAL)
-txt(d, 430, 405, 'Model B — suv + toluen', 21, INK)
-txt(d, 40, 505, 'Model zanjiri; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 430, 405, 'Taxmin B — suv + toluen', 21, INK)
+txt(d, 40, 505, 'Shartli hisob zanjiri; o‘lchov ma’lumoti emas', 23, G)
 txt(d, 40, 555, 'Texnologik parametrlar va retseptlar berilmaydi', 23, G)
 save(im, 'hisob')
 

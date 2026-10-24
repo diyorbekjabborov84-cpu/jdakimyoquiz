@@ -59,7 +59,7 @@
       ],
       [
         "Chegara",
-        "Barcha sonlar ochiq shartli model",
+        "Barcha sonlar ochiq shartli hisob",
         "O‘lchov ma’lumoti emas"
       ]
     ]
@@ -125,7 +125,7 @@
       [
         "Chegara",
         "Parametrlar qurilma va boshqaruv bo‘yicha berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -190,7 +190,7 @@
       [
         "Chegara",
         "Doza va sharoitlar berilmadi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -223,24 +223,24 @@
         "Konsentratsiya oshganda"
       ],
       [
-        "Model: 0,010 M",
+        "Taxminiy hisob: 0,010 M",
         "HF 76,0 %; F⁻ 22,3 %; HF₂⁻ 0,8 %; pH 2,635",
-        "Ideal erituvchi modeli"
+        "Ideal erituvchi shartli hisobi"
       ],
       [
-        "Model: 0,100 M",
+        "Taxminiy hisob: 0,100 M",
         "HF 87,9 %; F⁻ 6,4 %; HF₂⁻ 2,8 %; pH 2,033",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: 1,000 M",
+        "Taxminiy hisob: 1,000 M",
         "HF 89,5 %; F⁻ 1,1 %; HF₂⁻ 4,7 %; pH 1,238",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: 10,000 M",
+        "Taxminiy hisob: 10,000 M",
         "HF₂⁻ 5,2 %; pH 0,277",
-        "Model chegarasi"
+        "Taxminiy hisob chegarasi"
       ],
       [
         "Sanoat konsentratsiyalari",
@@ -254,8 +254,8 @@
       ],
       [
         "Chegara",
-        "Model faolik koeffitsiyentlarni hisobga olmaydi",
-        "Model"
+        "Shartli hisob faolik koeffitsiyentlarni hisobga olmaydi",
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -283,14 +283,14 @@
         "Aylanma pechda"
       ],
       [
-        "Model",
+        "Taxminiy hisob",
         "1000 kg fluorit (97 %) → HF 457,3 kg (unum 92 %)",
         "Ochiq shartli"
       ],
       [
-        "Model: yon mahsulot",
+        "Taxminiy hisob: yon mahsulot",
         "H₂SO₄ 1218,5 kg; CaSO₄ 1691,4 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Tozalash usuli",
@@ -325,7 +325,7 @@
     ]
   },
   "yemirish": {
-    "caption": "6.2.6-jadval. Shishani yemirish: mexanizm va tezlik modeli",
+    "caption": "6.2.6-jadval. Shishani yemirish: mexanizm va tezlik taxminiy hisobi",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -348,24 +348,24 @@
         "SiF₄ + 2HF → H₂SiF₆"
       ],
       [
-        "Model",
+        "Taxminiy hisob",
         "1 kg SiO₂ → HF 1997,8 g (48 % da 4162,1 g)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: mahsulot",
+        "Taxminiy hisob: mahsulot",
         "H₂SiF₆ 2398,2 g; H₂O 599,6 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Tezlik qonuni",
         "r = 510[F⁻] + 610[HF] + 2890[HF₂⁻] (Å/min)",
-        "Empirik kinetik model"
+        "Empirik kinetik shartli hisob"
       ],
       [
-        "Model: tezlik",
+        "Taxminiy hisob: tezlik",
         "0,10 M → 65,1; 1,00 M → 687,8; 8,00 M → 5567,7 Å/min",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Selektivlik",
@@ -385,7 +385,7 @@
       [
         "Chegara",
         "Koeffitsiyentlar ayniqlashtirilgan sharoitga tegishli",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -410,22 +410,22 @@
       [
         "Al → AlF₃",
         "1 g Al → 3,113 g AlF₃; HF 1,483 g; H₂ 0,112 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Fe → FeF₃",
         "1 g Fe → 2,326 g FeF₃; HF 0,716 g; H₂ 0,054 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Ni → NiF₂",
         "1 g Ni → 1,647 g NiF₂; HF 0,682 g; H₂ 0,017 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Cu → CuF₂",
         "1 g Cu → 1,598 g CuF₂; HF 0,630 g; H₂ 0,016 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Qatlam barqarorligi",
@@ -445,7 +445,7 @@
       [
         "Chegara",
         "Yakuniy himoya boshqa usul bilan qilinadi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -510,7 +510,7 @@
       [
         "Chegara",
         "Dozalar va texnologiya parametrlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -570,7 +570,7 @@
       [
         "Chegara",
         "Texnologik kartalar va parametrlar berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -608,7 +608,7 @@
         "Manba"
       ],
       [
-        "Model: Ca²⁺ talabi",
+        "Taxminiy hisob: Ca²⁺ talabi",
         "20 g HF → 0,500 mol Ca²⁺ → 224,1 g kalsiy glyukonat",
         "Stoksiometriya"
       ],
@@ -625,15 +625,15 @@
       [
         "Neytralizatsiya",
         "2HF + Ca(OH)₂ → CaF₂↓ + 2H₂O",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: chiqindi",
+        "Taxminiy hisob: chiqindi",
         "1000 kg 10 % HF → Ca(OH)₂ 185,2 kg; CaF₂ 195,1 kg; H₂O 90,0 kg",
         "Kirish 285,2 = chiqish 285,2 kg"
       ],
       [
-        "Model: qoldiq F⁻",
+        "Taxminiy hisob: qoldiq F⁻",
         "Ca²⁺ 0,010 M → 1,186 mg/L; 0,001 M → 3,752 mg/L",
         "K_sp = 3,9×10⁻¹¹"
       ],
@@ -645,7 +645,7 @@
     ]
   },
   "hisob": {
-    "caption": "6.2.11-jadval. Ishlangan hisob: to‘rt model",
+    "caption": "6.2.11-jadval. Ishlangan hisob: to‘rt shartli hisob",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -658,43 +658,43 @@
     ],
     "rows": [
       [
-        "Model A: 0,010 M",
+        "Taxmin A: 0,010 M",
         "HF 76,0 %; F⁻ 22,3 %; HF₂⁻ 0,8 %; pH 2,635",
-        "Ideal erituvchi modeli"
+        "Ideal erituvchi shartli hisobi"
       ],
       [
-        "Model A: 1,000 M",
+        "Taxmin A: 1,000 M",
         "HF 89,5 %; F⁻ 1,1 %; HF₂⁻ 4,7 %; pH 1,238",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model B: shisha",
+        "Taxmin B: shisha",
         "1 kg SiO₂ → HF 1997,8 g; H₂SiF₆ 2398,2 g; H₂O 599,6 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model B: tezlik",
+        "Taxmin B: tezlik",
         "1,000 M → 687,8 Å/min; 4,000 M → 2778,7 Å/min",
-        "Kinetik model"
+        "Kinetik shartli hisob"
       ],
       [
-        "Model C: chiqindi",
+        "Taxmin C: chiqindi",
         "Ca(OH)₂ 185,2 kg; CaF₂ 195,1 kg; H₂O 90,0 kg",
         "Kirish = chiqish 285,2 kg"
       ],
       [
-        "Model C: qoldiq F⁻",
+        "Taxmin C: qoldiq F⁻",
         "Ca²⁺ 0,010 M → 1,186 mg/L (chegara 1,5 mg/L)",
-        "K_sp modeli; Model A: 10,000 M → HF₂⁻ 5,2 %"
+        "K_sp bo‘yicha shartli hisob; Taxmin A: 10,000 M → HF₂⁻ 5,2 %"
       ],
       [
-        "Model D: kaltsiy",
+        "Taxmin D: kaltsiy",
         "20 g HF → 224,1 g kalsiy glyukonat; 100 g HF → 1120,6 g",
         "Stoksiometriya"
       ],
       [
         "Chegara",
-        "Barcha natijalar ochiq shartli modeldan",
+        "Barcha natijalar ochiq shartli hisoblardan",
         "O‘lchov ma’lumoti emas"
       ]
     ]

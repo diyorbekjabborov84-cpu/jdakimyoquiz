@@ -22,7 +22,7 @@ data=[
  ['β_2','Umumiy hosil bo‘lish konstantasi','K_1·K_2; K_2 bilan chalkashtirilmaydi'],
  ['K_d','Dissotsiatsiya konstantasi','Faqat teskari reaksiyaning konstantasi'],
  ['β′_2,c','Shartli hosil bo‘lish konstantasi','Faqat ligandning erkin shakliga nisbatan'],
- ['β_2,c (kumush–ammiak)','1,7×10⁷ L² mol⁻²','25 °C; modellarda ishlatiladigan qiymat']]),
+ ['β_2,c (kumush–ammiak)','1,7×10⁷ L² mol⁻²','25 °C; taxminiy hisoblarda ishlatiladigan qiymat']]),
 ('protonation','Protonlanish va shartli konstantaning pH ga bog‘liqligi',[
  ['pH = 7,25','α_L ≈ 0,00990','Erkin NH₃ ulushi juda kichik'],
  ['pH = 9,25','α_L ≈ 0,500','Teng ikki shakl'],
@@ -45,19 +45,19 @@ data=[
  ['Jami metall ortadi','Analitik miqdor erkin iondan katta','O‘lchash usuli farq qilishi mumkin'],
  ['Ligand sarflanadi','C_B,0 balansi kerak','Yaxlitlash 8,84% ga chiqadi'],
  ['Modda yetarli emas','Qattiq faza tugaydi','To‘yinganlik sig‘imi chegarasi bor']]),
-('separation','Tanlab cho‘ktirish modelining natijalari',[
+('separation','Tanlab cho‘ktirish taxminiy hisobining natijalari',[
  ['A²⁺: K_sp,c = 10⁻¹⁸','Cho‘kish boshlanishi pH = 6,00','F_M = 1'],
  ['B²⁺: K_sp,c = 10⁻¹²','Cho‘kish boshlanishi pH = 9,00','F_M = 1'],
  ['A: 99,9% ajralishi','pH = 7,50','B hali to‘yinmagan'],
  ['A uchun F_A = 10⁴','Boshlanishi pH = 8,00 ga suriladi','Selektivlik pasayadi'],
  ['A: 99,9% (F_A = 10⁴)','pH = 9,50','B oldin cho‘ka boshlaydi'],
  ['Xulosa','Faqat K_sp taqqoslash yetarli emas','Protonlanish va komplekslanish hisobga olinadi']]),
-('amphoteric','Amfoterlik modelining sonli natijalari',[
- ['K_sp,c = 10⁻³⁰','Model uchun tanlangan qiymat','Tajriba konstantasi emas'],
- ['β_4,c = 10³⁴','Model uchun tanlangan qiymat','Xayoliy M(OH)₄⁻ tizimi'],
+('amphoteric','Amfoterlik taxminiy hisobining sonli natijalari',[
+ ['K_sp,c = 10⁻³⁰','Shartli hisob uchun tanlangan qiymat','Tajriba konstantasi emas'],
+ ['β_4,c = 10³⁴','Shartli hisob uchun tanlangan qiymat','Xayoliy M(OH)₄⁻ tizimi'],
  ['C_sat = K_sp,c(x⁻³+β_4,c·x)','Ikkala tur hisobga olinadi','x = [OH⁻]'],
  ['β_4,c·x⁴ = 3','Minimum sharti','pH ≈ 5,619'],
- ['C_sat(min) ≈ 5,55×10⁻⁵','Modelning eng kam eruvchanligi','mol L⁻¹'],
+ ['C_sat(min) ≈ 5,55×10⁻⁵','Yechimning eng kam eruvchanligi','mol L⁻¹'],
  ['C_M,0 = 10⁻³','Jami metall zaxirasi','Real eritilgan miqdor chegaralanadi']]),
 ('acidph','Kislota ta’siri: stoxiometriya va protonlanish',[
  ['CaSO₄ (1:1)','K_sp,c = [Ca²⁺][SO₄²⁻] = s²','s = √K_sp,c = 7,81×10⁻³ mol L⁻¹'],
@@ -72,7 +72,7 @@ data=[
  ['3. Zaryad balansi','Kation va anionlar','Elektroneytrallik'],
  ['4. Tashqi shartlar','pH, harorat, faollik','Noma’lum bo‘lsa noma’lum qoladi'],
  ['5. Faza tekshiruvi','n_s ≥ 0','Manfiy natija — qayta yechish'],
- ['6. Natijani baholash','Model va tajriba farqi','Muhit effekti ham bo‘lishi mumkin']]),
+ ['6. Natijani baholash','Taxminiy hisob va tajriba farqi','Muhit effekti ham bo‘lishi mumkin']]),
 ('worked','Ishlangan hisob: AgCl + ammiak tizimi',[
  ['pH = 10,00','α_L = 0,8490204','pK_a,c = 9,25'],
  ['Erkin NH₃ (l)','0,00779980 mol L⁻¹','Balansli yechim'],
@@ -100,12 +100,12 @@ notes=[
  [['Selektivlik masalasi', 'Ikkita K_sp ni solishtirish selektiv ajratishni hal qilmaydi.'],
   ['Maskalash', 'Kerakli metallni vaqtincha kompleksga bog‘lash usuli.']],
  [['Amfoterlik redoks emas', 'Markaziy metallning oksidlanish darajasi o‘zgarmaydi.'],
-  ['Model chegarasi', 'Xayoliy M(OH)₃/[M(OH)₄]⁻ tizimi haqiqiy Al uchun universal diagramma emas.']],
+  ['Taxminiy hisob chegarasi', 'Xayoliy M(OH)₃/[M(OH)₄]⁻ tizimi haqiqiy Al uchun universal diagramma emas.']],
  [['Ikkita qarama-qarshi ta’sir', 'Protonlanish eruvchanlikni oshiradi, cho‘ktiruvchi anion kuchaytiradi.'],
   ['Stokhiometriya', '1:1 va 2:2 tuzlar uchun eruvchanlik formulasi turlicha.']],
  [['Yaxlitlash xatosi', 'Ligand sarflanishini e’tiborsiz qoldirish 8,84% ga chiqdi.'],
   ['Balans birga', 'Protonlanish, ligand sarfi va faza miqdori birga tekshiriladi.']],
- [['Model chegarasi', 'Erish modeli faqat Ag(NH₃)₂⁺ turini hisobga oladi; boshqa turlar chetga chiqariladi.'],
+ [['Taxminiy hisob chegarasi', 'Erish taxminiy hisobi faqat Ag(NH₃)₂⁺ turini hisobga oladi; boshqa turlar chetga chiqariladi.'],
   ['Xulosa', 'Komplekslanish erkin ionni kamaytiradi, umumiy eruvchanlikni oshiradi.']]]
 (R/'04_04_yonlavhalar.json').write_text(json.dumps(notes,ensure_ascii=False,indent=2))
 print('11 jadval, 22 yon lavha.')

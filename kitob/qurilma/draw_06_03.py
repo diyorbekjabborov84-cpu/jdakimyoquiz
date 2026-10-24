@@ -1,5 +1,5 @@
 """Original teaching figures for 6.3 "HCl — xlorid kislota".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -57,8 +57,8 @@ def axes(d, xlo, xhi, ylo, yhi, xlabel, ylabel, xt, yt, x0=120, x1=680, y0=175, 
     return p
 
 
-# --- Graph 1: suvli HCl — model pH va jadval pH ----------------------------
-im, d = canvas('Suvli HCl: model pH va jadvalning apparent pH qiymati', 1180)
+# --- Graph 1: suvli HCl — shartli hisob pH va jadval pH ----------------------------
+im, d = canvas('Suvli HCl: shartli hisob pH va jadvalning apparent pH qiymati', 1180)
 LO, HI = -1.0, math.log10(12.0)
 
 def px(c):
@@ -87,12 +87,12 @@ d.line(pts, fill=N, width=4)
 for r in rows('eritma'):
     x, y = px(r['mol_L']), py(r['pH'])
     d.rectangle((x - 6, y - 6, x + 6, y + 6), fill=RED)
-d.ellipse((300, 130, 316, 146), fill=N); txt(d, 324, 124, 'model pH = −lg c', 21, N)
+d.ellipse((300, 130, 316, 146), fill=N); txt(d, 324, 124, 'shartli hisob pH = −lg c', 21, N)
 d.rectangle((520, 132, 546, 154), fill=RED); txt(d, 554, 128, 'jadval pH (apparent)', 21, RED)
-txt(d, 45, 830, 'Model: Ka = 7,9×10⁵; lgK(HCl + Cl⁻ ⇌ HCl₂⁻) = 0,7; ideal erituvchi modeli', 22, N)
-txt(d, 45, 880, 'Model pH: 1,000 (0,1 M) · 0,000 (1,0 M) · −1,079 (12,0 M);  HCl₂⁻ ulushi 0,09 %', 22, B)
-txt(d, 45, 930, 'Jadval nuqtalari model egri chizig‘iga yaqin: apparent pH ≈ −lg c', 22, G)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 830, 'Taxminiy hisob: Ka = 7,9×10⁵; lgK(HCl + Cl⁻ ⇌ HCl₂⁻) = 0,7; ideal erituvchi sharoiti', 22, N)
+txt(d, 45, 880, 'Taxminiy hisob pH: 1,000 (0,1 M) · 0,000 (1,0 M) · −1,079 (12,0 M);  HCl₂⁻ ulushi 0,09 %', 22, B)
+txt(d, 45, 930, 'Jadval nuqtalari taxminiy egri chiziqga yaqin: apparent pH ≈ −lg c', 22, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'spetsiatsiya')
 
 # --- Graph 2: eritma fizik xossalari ---------------------------------------
@@ -148,13 +148,13 @@ for i, (name, v, col) in enumerate(items):
 d.line((120, 760, 680, 760), fill=G, width=2)
 txt(d, 45, 775, 'sintetik usul (H₂ + Cl₂ → 2HCl):  H₂ 27,6 kg;  Cl₂ 972,4 kg;  ΔrH −2531,7 MJ', 21, INK)
 txt(d, 45, 820, 'Mannheim usuli (2NaCl + H₂SO₄ → Na₂SO₄ + 2HCl):  ΔrH +884,8 MJ (32,3 kJ/mol HCl)', 21, INK)
-txt(d, 45, 880, 'Model: 1000 kg HCl → NaCl 1602,8 kg;  H₂SO₄ 1345,0 kg;  Na₂SO₄ 1947,8 kg', 22, N)
+txt(d, 45, 880, 'Taxminiy hisob: 1000 kg HCl → NaCl 1602,8 kg;  H₂SO₄ 1345,0 kg;  Na₂SO₄ 1947,8 kg', 22, N)
 txt(d, 45, 930, 'Kirish 2947,8 kg = chiqish 2947,8 kg;  Mannheim usulida Na₂SO₄ (salt cake) chiqadi', 22, G)
-txt(d, 45, 1000, 'Model hisobi; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisobi; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'ishlabchiqarish')
 
 # --- Graph 4: metall yemirilishi -------------------------------------------
-im, d = canvas('Metall yemirilishi: 1 g metallga to‘g‘ri kelgan HCl (model)', 1180)
+im, d = canvas('Metall yemirilishi: 1 g metallga to‘g‘ri kelgan HCl (shartli hisob)', 1180)
 md = metal_dissolution(1.0)
 p = axes(d, -0.5, 4.5, 0, 4.5, '1 g metall', 'HCl sarfi, g',
          [(0, 'Fe'), (1, 'Zn'), (2, 'Al'), (3, 'Mg'), (4, 'Cu')],
@@ -167,10 +167,10 @@ for i, m in enumerate(md):
     txt(d, x - 42, 700 - h - 30, '%.3f g' % m['m_hcl'], 20, col)
 d.rectangle((430, 128, 456, 150), fill=N); txt(d, 464, 128, 'H₂ ajraladi', 21, N)
 d.rectangle((430, 164, 456, 186), fill=RED); txt(d, 464, 164, 'Cu: havo (O₂) kerak', 21, RED)
-txt(d, 45, 830, 'Model: 1 g Fe → 2,270 g FeCl₂ + 1,306 g HCl + 0,036 g H₂;  1 g Zn → 2,084 g ZnCl₂', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: 1 g Fe → 2,270 g FeCl₂ + 1,306 g HCl + 0,036 g H₂;  1 g Zn → 2,084 g ZnCl₂', 22, N)
 txt(d, 45, 880, '1 g Al → 4,942 g AlCl₃ + 4,054 g HCl;  1 g Mg → 3,917 g MgCl₂ + 3,000 g HCl', 22, B)
 txt(d, 45, 930, 'Mis: 1 g Cu → 1,148 g HCl va 0,252 g O₂; o‘z-o‘zidan HCl misni eritmaydi', 22, G)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'metallar')
 
 # --- Graph 5: chiqindi va tiklash ------------------------------------------
@@ -195,10 +195,10 @@ for i, (name, v, col) in enumerate([('FeCl₂ (kirish)', 1000.0, N), ('Fe₂O₃
     d.rectangle((x - 34, 790 - h, x + 34, 790), fill=col)
     txt(d, x - 40, 790 - h - 26, '%.1f kg' % v, 19, col)
     txt(d, x - 62, 802, name, 18, G)
-txt(d, 45, 830, 'Model: 1000 kg FeCl₂ → Fe₂O₃ 629,9 kg;  HCl 575,3 kg;  H₂O 142,1 kg;  O₂ 63,1 kg', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: 1000 kg FeCl₂ → Fe₂O₃ 629,9 kg;  HCl 575,3 kg;  H₂O 142,1 kg;  O₂ 63,1 kg', 22, N)
 txt(d, 45, 880, 'Neytralizatsiya: kirish 245,3 kg = chiqish 245,3 kg;  tiklash: 1205,2 ≈ 1205,2 kg', 22, B)
 txt(d, 45, 930, 'Tiklangan kislota ≈18 % li bo‘lib, pickling zanjiriga qaytariladi', 22, G)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'chiqindi')
 
 
@@ -225,8 +225,8 @@ scheme('fizikx', 'HCl: fizik xossalar (sxematik)', [
     ('Gidronium tuzlari', '[H₃O]Cl 68 %;  [H₅O₂]Cl 51 %', 'Eutektik kristallar')])
 
 scheme('olishsx', 'HCl ishlab chiqarish va tozalash (sxematik)', [
-    ('Mannheim usuli', '2NaCl + H₂SO₄ → Na₂SO₄ + 2HCl', 'Model: NaCl 1602,8 kg / 1000 kg HCl'),
-    ('Sintetik usul', 'H₂ + Cl₂ → 2HCl (HCl pechi)', 'Model: H₂ 27,6 kg;  Cl₂ 972,4 kg'),
+    ('Mannheim usuli', '2NaCl + H₂SO₄ → Na₂SO₄ + 2HCl', 'Taxminiy hisob: NaCl 1602,8 kg / 1000 kg HCl'),
+    ('Sintetik usul', 'H₂ + Cl₂ → 2HCl (HCl pechi)', 'Taxminiy hisob: H₂ 27,6 kg;  Cl₂ 972,4 kg'),
     ('Tozalash', 'Cl₂, H₂S va namni olib tashlash', 'Quruq holda — suvda tozalash mumkin emas'),
     ('Yig‘ish', 'Deionlangan suvga yig‘ish', '20,2 % azeotrop chegarasi'),
     ('Navlar', 'Texnik 30–35 %;  murik 20–32 %;  konsentratsiyalangan 38 %', 'Sanoat va eksport')])
@@ -240,7 +240,7 @@ scheme('kloridlarsx', 'Tuzlar va xloro-komplekslar (sxematik)', [
 
 scheme('metalsx', 'Metallarga ta’sir: passivatsiya yo‘qligi (sxematik)', [
     ('Sirtda himoya qatlami yo‘q', 'Reaksiya to‘xtamaydi', 'HF dan asosiy farq'),
-    ('Fe, Zn, Al, Mg', 'M + 2HCl → MCl₂ + H₂↑', 'Model: 1 g Fe → 1,306 g HCl'),
+    ('Fe, Zn, Al, Mg', 'M + 2HCl → MCl₂ + H₂↑', 'Taxminiy hisob: 1 g Fe → 1,306 g HCl'),
     ('Mis istisnosi', 'HCl o‘z-o‘zidan eritmaydi', '2Cu + O₂ + 4HCl → 2CuCl₂ + 2H₂O'),
     ('Vodorod embrittlementi', 'H₂ po‘lat ichiga diffuziya bilan sing‘adi', 'Mustahkamlik pasayadi'),
     ('Teshik korroziya', 'Cl⁻ zanglamaydigan po‘latni teshadi', 'Yuqori haroratda tez')])
@@ -260,7 +260,7 @@ scheme('qollanishsx', 'HCl qo‘llanish sohalari (sxematik)', [
     ('Oziq-ovqat va dori', 'Jelly, guruch, tuz hosil qilish', 'Farmatsevtika darajasi')])
 
 scheme('tahlilsx', 'HCl tahlil usullari (sxematik)', [
-    ('Standartlash', 'Na₂CO₃ yoki boraks bilan titrlash', 'Model: 0,2500 g → 0,18984 mol/L'),
+    ('Standartlash', 'Na₂CO₃ yoki boraks bilan titrlash', 'Taxminiy hisob: 0,2500 g → 0,18984 mol/L'),
     ('Dead-stop titr', 'Pt elektrod; rang indikatori kerak emas', 'HCl uchun klassik usul'),
     ('Kjeldahl', 'NH₃ ni HCl ga tutib qayta titrlash', 'Azot tahlili'),
     ('Kloridni aniqlash', 'AgCl gravimetriya; Mohr; Fajans', 'Arzon va aniq'),
@@ -284,7 +284,7 @@ txt(d, 250, 312, 'dipol momenti 1,08 D', 24, RED)
 d.rectangle((60, 370, 700, 424), fill='#EAF2F8')
 txt(d, 80, 384, 'vodorod bog‘i yo‘q — molekulalar orasida dipol–dipol tortish', 24, N)
 txt(d, 60, 460, 'Shuning uchun HCl qaynash harorati −85,1 °C da qoladi: HF (19,5 °C) dan ancha past.', 21, N)
-txt(d, 60, 505, 'Model: r(H–Cl) = 1,2746 Å;  D = 432 kJ/mol;  χ(Cl) = 3,16.', 21, B)
+txt(d, 60, 505, 'Taxminiy hisob: r(H–Cl) = 1,2746 Å;  D = 432 kJ/mol;  χ(Cl) = 3,16.', 21, B)
 txt(d, 60, 570, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'molekulax')
 
@@ -302,7 +302,7 @@ for x in (420, 470, 520):
     txt(d, x - 2, 82, 'H₂', 20, G)
 d.rectangle((70, 300, 690, 360), fill='#EAF2F8')
 txt(d, 95, 315, 'toza metall sirt — keyingi shakllantirishga tayyor', 23, TEAL)
-txt(d, 70, 410, 'Model: 1 t po‘lat uchun HCl 7,6 kg;  Fe 5,8 kg;  Cl⁻ 7,4 kg.', 21, N)
+txt(d, 70, 410, 'Taxminiy hisob: 1 t po‘lat uchun HCl 7,6 kg;  Fe 5,8 kg;  Cl⁻ 7,4 kg.', 21, N)
 txt(d, 70, 455, 'Oksid qatlami eriganda H₂ ajraladi; uning po‘latga sing‘ishi — embrittlement xavfi.', 21, B)
 txt(d, 70, 530, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'korroziyax')
@@ -338,11 +338,11 @@ for i, (a, b, c, col) in enumerate(boxes):
         d.line((x + 160, 245, x + 178, 245), fill=G, width=4)
 txt(d, 40, 370, 'Tanlov mezonlari: reaktivlik (shisha mos emas), nam, temperatura, ifloslanish.', 21, N)
 txt(d, 40, 415, 'Konsentratsiyalangan HCl bug‘lanadi — idish yopiq, ventilyatsiya nazoratli bo‘lishi shart.', 21, B)
-txt(d, 40, 460, 'Model: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
+txt(d, 40, 460, 'Taxminiy hisob: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
 txt(d, 40, 535, 'Original sxematik chizma; idish turlari shartli.', 21, G)
 save(im, 'idishx')
 
-im, d = canvas('Ishlangan hisob: to‘rt model (sxematik)', 740)
+im, d = canvas('Ishlangan hisob: to‘rt shartli hisob (sxematik)', 740)
 mn = mannheim(1000.0, 0.98)
 n1 = neutralisation(1000.0, 10.0, 'Na2CO3')
 rg = regeneration(1000.0)
@@ -358,7 +358,7 @@ for i, (a, b, cc, col) in enumerate(blocks):
     txt(d, 60, y + 44, b, 20, INK)
     txt(d, 60, y + 70, cc, 20, G)
 d.rounded_rectangle((470, 130, 712, 530), radius=12, outline=GREEN, width=4)
-txt(d, 490, 148, 'Model natijalari', 24, GREEN)
+txt(d, 490, 148, 'Taxminiy hisob natijalari', 24, GREEN)
 txt(d, 490, 200, 'ΔrH +884,8 MJ', 20, INK)
 txt(d, 490, 235, '(Mannheim usuli)', 19, G)
 txt(d, 490, 285, 'NaCl 1602,8 kg', 20, INK)
@@ -366,7 +366,7 @@ txt(d, 490, 320, 'Na₂SO₄ 1947,8 kg', 20, INK)
 txt(d, 490, 370, 'Fe₂O₃ 629,9 kg', 20, INK)
 txt(d, 490, 405, 'HCl tikilgan 575,3 kg', 20, INK)
 txt(d, 490, 450, 'C(HCl) 0,18984 mol/L', 19, INK)
-txt(d, 490, 485, '(standartlash modeli)', 19, G)
-txt(d, 40, 660, 'Barcha sonlar ochiq shartli model; o‘lchov ma’lumoti emas.', 21, G)
+txt(d, 490, 485, '(standartlash bo‘yicha shartli hisob)', 19, G)
+txt(d, 40, 660, 'Barcha sonlar ochiq shartli hisoblar; o‘lchov ma’lumoti emas.', 21, G)
 save(im, 'hisob')
 print('5 grafik + CSV; 7 sxema; 5 original illustration.')

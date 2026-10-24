@@ -53,7 +53,7 @@ panels=[
 ('Bog‘ va masofa',[],'2.1.1-grafik. Faraziy Morse potensiali; ajralgan atomlar energiyasi nolga teng.'),
 ('Elektronlarni sanang',[],'2.1.2-sxema. Nitrat ionining bitta Lewis yozuvi. Nuqtalar — bog‘lanmagan elektronlar.'),
 ('Shaklni ajrating',[],'2.1.3-sxema. Chiziqli, trigonal tekis va egik yo‘nalishlar. Proyeksiyalar masshtabsiz.'),
-('Geometriya va dipol',[],'2.1.2-grafik. Ikki teng bog‘ dipolining vektor yig‘indisi; normallangan model.'),
+('Geometriya va dipol',[],'2.1.2-grafik. Ikki teng bog‘ dipolining vektor yig‘indisi; normallangan shartli hisob.'),
 ('Butun jarayon',[],'2.1.4-sxema. Kislotalikni baholashda reagent, mahsulot va muhit birga qaraladi.'),
 ('Tekshirish algoritmi',[],'2.1.5-sxema. Ulanishdan muvozanatgacha bo‘lgan bosqichma-bosqich tahlil.')
 ]
@@ -162,7 +162,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         band('2.1. Kimyoviy bog‘lanish va fazoviy tuzilish',PALE,NAVY,18,True)
     else:
         band('2.1  /  BOG‘LANISH VA FAZOVIY TUZILISH',PALE,NAVY,11,True)
-    p=doc.add_paragraph();p.paragraph_format.space_before=Pt(6);p.paragraph_format.space_after=Pt(9);p.paragraph_format.keep_with_next=True
+    p=doc.add_paragraph();p.paragraph_format.space_before=Pt(3);p.paragraph_format.space_after=Pt(6);p.paragraph_format.keep_with_next=True
     runs(p,title,14,True,NAVY)
     table=doc.add_table(rows=1,cols=2);table.alignment=WD_TABLE_ALIGNMENT.CENTER;table.autofit=False
     # 18 cm printable width: 13.5 cm narrative + 4.5 cm outer visual strip.
@@ -219,10 +219,14 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         refs=[
         '[1] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018. Bog‘lanish, Lewis formulalari va molekula geometriyasi.',
         '[2] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018. Molekulyar tuzilish va termodinamik muvozanat.',
-        'Sxemalar mazkur mavzu uchun mualliflik chizmalari. Ikki grafik faraziy matematik modellar, tajribaviy ma’lumot emas.'
+        'Sxemalar mazkur mavzu uchun mualliflik chizmalari. Ikki grafik faraziy matematik taxminiy hisoblar, tajribaviy ma’lumot emas.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)
+
+# Jadvaldan keyingi minimal tugun paragrafi: Google Docs importida bo'sh oxirgi sahifa kelmasligi uchun
+_p=doc.add_paragraph();_p.paragraph_format.space_before=Pt(0);_p.paragraph_format.space_after=Pt(0)
+_p.paragraph_format.line_spacing=1.0;_r=_p.add_run();_r.font.size=Pt(1)
 
 p=sec.header.paragraphs[0];runs(p,'NOORGANIK KISLOTALAR',8,False,NAVY)
 p=sec.footer.paragraphs[0];p.alignment=WD_ALIGN_PARAGRAPH.RIGHT
@@ -236,4 +240,4 @@ assert counter==6
 assert comparison_count==7
 assert sum(len(notes) for notes in side_notes)==21
 print(OUT)
-print('7 sections; 7 tables; 5 diagrams; 2 model graphs; 6 equations; 21 margin notes.')
+print('7 sections; 7 tables; 5 diagrams; 2 taxminiy hisob grafiklari; 6 equations; 21 margin notes.')

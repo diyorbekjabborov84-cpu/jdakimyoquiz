@@ -54,7 +54,7 @@ def purification_equations():
       # 7 — adsorbsiya va ion almashinuv
       [seq(frac(text('q'), var('q', 'max')), ' = ',
            frac(frac('K', 'C'), seq('1 + ', frac('K', 'C')))),
-       seq(var('q', 'max'), ' = 50 mg/g;  K = 0,5 L/mg (model)'),
+       seq(var('q', 'max'), ' = 50 mg/g;  K = 0,5 L/mg (shartli hisob)'),
        seq(var('k', 'Mg/Ca'), ' = ',
            frac(frac(var('[Mg]', 'S'), var('[Ca]', 'S')),
                 frac(var('[Mg]', 'M'), var('[Ca]', 'M')))),
@@ -69,7 +69,7 @@ def purification_equations():
        seq('N = ', frac(seq('lg ', frac(_cN, _c0)), seq('lg ', frac('1', _phi)))),
        seq('Φ = 1000 → 10⁻⁶ gacha 2 bosqich;  Φ = 10 → 6 bosqich'),
        seq(_e_ch, ' = ', frac('m(chiqindi)', 'm(mahsulot)'),
-           '   (model: 0,00167 kg/kg)')],
+           '   (taxminiy hisob: 0,00167 kg/kg)')],
       # 10 — sifat nazorati
       [seq('c = ', frac(var('n', 'titrant'), var('V', 'namuna'))),
        seq(text('w'), ' = ', frac(seq(text('c'), '·', text('M')),

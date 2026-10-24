@@ -53,7 +53,7 @@ panels=[
 ('Yozuvni tekshiring',[],'2.2.2-sxema. Rezonans hissalarining asosiy saqlanish shartlari.'),
 ('Teng yo‘nalishlar',[],'2.2.3-sxema. Ideal nitratning delokallashgan formal tasviri; uzuq chiziq qo‘shimcha bog‘ hissasini bildiradi, elektron zichlik o‘lchovi emas.'),
 ('Yo‘nalgan kontakt',[],'2.2.4-sxema. X–H···Y geometriyasining ikki shartli ko‘rinishi. Masofalar masshtabsiz.'),
-('Spektrda kuzatish',[],'2.2.1-grafik. Ikki faraziy IR tasma: qizil siljish va kengayishning o‘quv modeli.'),
+('Spektrda kuzatish',[],'2.2.1-grafik. Ikki faraziy IR tasma: qizil siljish va kengayishning o‘quv tasviri.'),
 ('Dinamik tarmoq',[],'2.2.5-sxema. Proton almashinuvining soddalashtirilgan fragmenti; bir vaqtda sakrash sharti qo‘yilmagan.'),
 ('Ichki va tashqi ta’sir',[],'2.2.6-sxema. Rezonans hamda vodorod bog‘ining asosiy tushuntirish darajalari.')
 ]
@@ -198,7 +198,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'HISOBIY GRAFIK' if idx == 4 else 'TUZILISH SXEMASI',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={0:('nitrat_model.png','2.2.1-rasm. Nitratning hajmli shar–tayoqcha modeli.'),2:('karbonat_model.png','2.2.2-rasm. Karbonatning shar–tayoqcha modeli.'),3:('dimer_model.png','2.2.3-rasm. Suv dimerining idealizatsiyalangan modeli.'),5:('gidroksoniy_model.png','2.2.4-rasm. H₃O⁺ ning piramidal modeli.')}
+    extra_models={0:('nitrat_model.png','2.2.1-rasm. Nitratning hajmli shar–tayoqcha tasviri.'),2:('karbonat_model.png','2.2.2-rasm. Karbonatning shar–tayoqcha tasviri.'),3:('dimer_model.png','2.2.3-rasm. Suv dimerining idealizatsiyalangan tasviri.'),5:('gidroksoniy_model.png','2.2.4-rasm. H₃O⁺ ning piramidal tasviri.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -227,7 +227,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[1] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018.',
         '[2] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018.',
         '[3] Arunan, E. va boshqalar. Definition of the hydrogen bond (IUPAC Recommendations 2011). Pure Appl. Chem. 83 (2011), 1637–1641. DOI: 10.1351/PAC-REC-10-01-02. https://publications.iupac.org/pac/pdf/2011/pdf/8308x1637.pdf',
-        'Barcha chizma va hajmli modellar ushbu mavzu uchun yaratilgan o‘quv tasvirlari. IR grafik — faraziy model, tajribaviy spektr emas.'
+        'Barcha chizma va hajmli tasvirlar ushbu mavzu uchun yaratilgan o‘quv tasvirlari. IR grafik — faraziy shartli hisob, tajribaviy spektr emas.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)
@@ -244,4 +244,4 @@ assert counter==2
 assert comparison_count==7
 assert sum(len(notes) for notes in side_notes)==14
 print(OUT)
-print('7 sections; 7 tables; 6 diagrams; 1 model graph; 4 molecular renders; 2 equations; 14 margin notes.')
+print('7 sections; 7 tables; 6 diagrams; 1 taxminiy hisob grafigi; 4 molecular renders; 2 equations; 14 margin notes.')

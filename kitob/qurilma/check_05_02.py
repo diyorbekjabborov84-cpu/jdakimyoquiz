@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""5.2 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""5.2 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json
 from docx import Document
@@ -23,7 +23,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: Ksp, eruvchanlik va kompleks')
+print('1) Taxminiy hisob: Ksp, eruvchanlik va kompleks')
 ck(close(M.metal_solubility(2.0, M.KSP['Fe(OH)3'], 3), 4.0e-2, 1e-6), 'Fe³⁺ pH 2 da 4,0×10⁻² M')
 ck(close(M.metal_solubility(3.0, M.KSP['Fe(OH)3'], 3), 4.0e-5, 1e-9), 'Fe³⁺ pH 3 da 4,0×10⁻⁵ M')
 ck(close(M.metal_solubility(5.0, M.KSP['Cu(OH)2'], 2), 2.2e-2, 1e-5), 'Cu²⁺ pH 5 da 2,2×10⁻² M')
@@ -33,7 +33,7 @@ ck(close(M.cu_with_ammonia(2.0), 1.294117647e-9, 1e-12), 'Cu²⁺ + 4NH₃ (1,0 
 ck(close(M.KSP['CuS'], 8.5e-45, 1e-47) and close(M.KSP['HgS'], 1.6e-54, 1e-56)
    and close(M.KSP['PbS'], 7e-29, 1e-31), 'sulfidlar Ksp: CuS 8,5×10⁻⁴⁵; HgS 1,6×10⁻⁵⁴; PbS 7×10⁻²⁹')
 
-print('2) Model: kaskad, Fenske, R_min, McCabe-Thiele')
+print('2) Taxminiy hisob: kaskad, Fenske, R_min, McCabe-Thiele')
 for phi, n in [(10.0, 6.0), (100.0, 3.0), (1000.0, 2.0), (10000.0, 1.5)]:
     ck(close(M.stages_for(phi, 1e-6), n, 1e-9), 'Φ = %g → %g bosqich (10⁻⁶ gacha)' % (phi, n))
 for a, n in [(1.2, 32.30), (1.5, 14.52), (2.0, 8.50), (3.0, 5.36)]:
@@ -49,7 +49,7 @@ m15 = M.mccabe_thiele(1.5)
 ck((not m15['feasible']) and close(m15['r_min'], 3.50, 1e-6) and m15['N'] is None,
    'McCabe-Thiele α = 1,5: R_min = 3,50 > R = 2,0 — dizayn mumkin emas')
 
-print('3) Model: suv olib tashlash, ion almashinuv, tozalash zanjiri')
+print('3) Taxminiy hisob: suv olib tashlash, ion almashinuv, tozalash zanjiri')
 for w0, m in [(0.50, 48.98), (0.68, 30.61), (0.75, 23.47)]:
     ck(close(M.water_removal(w0, 0.98)['m_water_out'], m, 5e-3),
        '100 kg da %s → 0,98: %.2f kg suv' % (w0, m))
@@ -61,19 +61,19 @@ ck(close(r50['area'], 48.0769, 5e-3), 'massa balansi: yig‘ilgan miqdor 48,08 m
 a = M.no2_to_hno3(1000.0, 0.68, 4.0)
 for k, v, tol in [('n_no2', 86.9376, 1e-3), ('m_h2o_used', 0.7831, 1e-4), ('m_o2', 0.6955, 1e-4),
                   ('m_hno3_new', 5.4779, 1e-4), ('m_final', 999.9124, 1e-3), ('w_final', 0.68554, 1e-5)]:
-    ck(close(a[k], v, tol), 'NO₂ modeli: %s = %.4f' % (k, a[k]))
+    ck(close(a[k], v, tol), 'NO₂ taxminiy hisobi: %s = %.4f' % (k, a[k]))
 b = M.fe_precipitation(1000.0, 0.0003)
 for k, v, tol in [('n_fe', 5.3715, 1e-3), ('m_feoh3', 0.5741, 1e-4), ('m_caso4', 1.0969, 1e-4),
                   ('m_cao', 0.4519, 1e-4), ('m_caco3', 0.8065, 1e-4), ('m_h2so4_lost', 0.7903, 1e-4),
                   ('m_final', 998.926, 1e-2), ('E_factor', 0.00167, 1e-5)]:
-    ck(close(b[k], v, tol), 'Fe modeli: %s = %.4f' % (k, b[k]))
+    ck(close(b[k], v, tol), 'Fe taxminiy hisobi: %s = %.4f' % (k, b[k]))
 
-print('4) Model: CSV fayllar')
+print('4) Taxminiy hisob: CSV fayllar')
 for name in ['kaskad', 'choqish', 'rektifikatsiya', 'buglash', 'ionalmashinuv', 'mcbabgele']:
     rows = list(csv.DictReader((ASSETS / (name + '.csv')).open()))
     ck(len(rows) > 20, '%s.csv: %d qator' % (name, len(rows)))
 
-print('5) Matn: model raqamlari matnda bor')
+print('5) Matn: taxminiy hisob raqamlari matnda bor')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '05_02_jadvallar.json').read_text()), ensure_ascii=False)
 notes_txt = json.dumps(json.loads((ROOT / 'matn' / '05_02_yonlavhalar.json').read_text()), ensure_ascii=False)
@@ -91,7 +91,7 @@ for s in need:
     ck(s in ms_all, 'matnda «%s» bor' % s)
 ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va 11 jadval belgisi')
 ck('tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
-ck('tajriba ma’lumoti emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
+ck('tajriba ma’lumoti emas' in ms, 'taxminiy hisob cheklovi matnda ko‘rsatilgan')
 
 print('6) DOCX tuzilmasi')
 doc = Document(DOCX)

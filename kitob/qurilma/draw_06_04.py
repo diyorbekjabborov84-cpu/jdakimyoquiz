@@ -1,5 +1,5 @@
 """Original teaching figures for 6.4 "HBr — bromid kislota".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -74,11 +74,11 @@ d.line(pts2, fill=TEAL, width=4)
 d.ellipse((430, 634, 446, 650), fill=RED); txt(d, 454, 628, 'pK_a (suv)', 21, RED)
 d.ellipse((430, 672, 446, 688), fill=TEAL); txt(d, 454, 666, 'pK_a (DMSO)', 21, TEAL)
 txt(d, 45, 950, 'Guruh: D(H–X) 569 / 432 / 366 / 295 kJ/mol;  pK_a (suv) 3,17 / −5,9 / −8,8 / −9,5', 22, N)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'guruh')
 
 # --- Graph 2: ishlab chiqarish ----------------------------------------------
-im, d = canvas('Ishlab chiqarish va bromin sikli (model)', 1180)
+im, d = canvas('Ishlab chiqarish va bromin sikli (shartli hisob)', 1180)
 sy = synthesis(1000.0); lb = lab_method(1000.0); bo = bromide_oxidation(1000.0)
 d.line((120, 175, 120, 500, 680, 500), fill=G, width=3)
 for v, s in [(0, '0'), (250, '250'), (500, '500'), (750, '750'), (1000, '1000')]:
@@ -107,13 +107,13 @@ for i, (name, v, col) in enumerate([('NaBr (kirish)', bo['m_nabr'], N), ('Cl₂ 
     d.rectangle((x - 30, 800 - h, x + 30, 800), fill=col)
     txt(d, x - 38, 800 - h - 26, '%.1f' % v, 18, col)
     txt(d, x - 52, 812, name, 17, G)
-txt(d, 45, 880, 'Model: 1000 kg HBr → H₂ 12,46 kg, Br₂ 987,5 kg (ΔrH −639,5 MJ);  laboratoriya: SO₂ 395,9 kg', 22, N)
-txt(d, 45, 930, 'Model: 1000 kg NaBr + Cl₂ 344,6 kg → Br₂ 776,6 kg + NaCl 568,0 kg (kirish 1344,6 ≈ chiqish)', 22, B)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 880, 'Taxminiy hisob: 1000 kg HBr → H₂ 12,46 kg, Br₂ 987,5 kg (ΔrH −639,5 MJ);  laboratoriya: SO₂ 395,9 kg', 22, N)
+txt(d, 45, 930, 'Taxminiy hisob: 1000 kg NaBr + Cl₂ 344,6 kg → Br₂ 776,6 kg + NaCl 568,0 kg (kirish 1344,6 ≈ chiqish)', 22, B)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'ishlabchiqarish')
 
 # --- Graph 3: redoks ---------------------------------------------------------
-im, d = canvas('Redoks: bromin olishi va tribromid ion (model)', 1180)
+im, d = canvas('Redoks: bromin olishi va tribromid ion (shartli hisob)', 1180)
 # yuqori panel: Br3- ulushi
 d.line((120, 175, 120, 470, 680, 470), fill=G, width=3)
 for v, s in [(0, '0'), (25, '25'), (50, '50'), (75, '75'), (100, '100')]:
@@ -144,12 +144,12 @@ for i, (name, v, col) in enumerate([('H₂O₂ (H₂O₂ bilan)', h2['m_h2o2'], 
     d.rectangle((x - 40, 880 - h, x + 40, 880), fill=col)
     txt(d, x - 46, 880 - h - 28, '%.1f kg' % v, 20, col)
     txt(d, x - 56, 892, name, 18, G)
-txt(d, 45, 950, 'Model: 2HBr + H₂O₂ → Br₂ + 2H₂O (210,2 kg H₂O₂);  4HBr + O₂ → 2Br₂ + 2H₂O (98,9 kg O₂)', 22, N)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 950, 'Taxminiy hisob: 2HBr + H₂O₂ → Br₂ + 2H₂O (210,2 kg H₂O₂);  4HBr + O₂ → 2Br₂ + 2H₂O (98,9 kg O₂)', 22, N)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'redoks')
 
 # --- Graph 4: metallar ------------------------------------------------------
-im, d = canvas('Metall yemirilishi: 1 g metallga to‘g‘ri kelgan HBr (model)', 1180)
+im, d = canvas('Metall yemirilishi: 1 g metallga to‘g‘ri kelgan HBr (shartli hisob)', 1180)
 md = metal_dissolution(1.0)
 d.line((120, 175, 120, 700, 680, 700), fill=G, width=3)
 for v, s in [(0, '0'), (2, '2'), (4, '4'), (6, '6'), (8, '8'), (10, '10')]:
@@ -163,14 +163,14 @@ for i, m in enumerate(md):
     txt(d, x - 44, 700 - h - 30, '%.3f g' % m['m_hbr'], 20, col)
     txt(d, x - 30, 718, m['metal'], 24, G)
     txt(d, x - 50, 748, '%.3f g tuz' % m['m_salt'], 18, G)
-txt(d, 45, 830, 'Model: 1 g Fe → 3,862 g FeBr₂ + 2,898 g HBr;  1 g Zn → 3,444 g ZnBr₂ + 2,475 g HBr', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: 1 g Fe → 3,862 g FeBr₂ + 2,898 g HBr;  1 g Zn → 3,444 g ZnBr₂ + 2,475 g HBr', 22, N)
 txt(d, 45, 880, '1 g Al → 9,884 g AlBr₃ + 8,996 g HBr;  1 g Mg → 7,575 g MgBr₂ + 6,658 g HBr', 22, B)
 txt(d, 45, 930, 'Mis: 1 g Cu → 2,547 g HBr va 0,252 g O₂ — o‘z-o‘zidan eritilmaydi', 22, G)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'metallar')
 
 # --- Graph 5: chiqindi ------------------------------------------------------
-im, d = canvas('Chiqindi: neytralizatsiya va bromin ajratish (model)', 1180)
+im, d = canvas('Chiqindi: neytralizatsiya va bromin ajratish (shartli hisob)', 1180)
 n1 = neutralisation(1000.0, 10.0, 'Na2CO3'); n2 = neutralisation(1000.0, 10.0, 'Ca(OH)2')
 d.line((120, 175, 120, 560, 680, 560), fill=G, width=3)
 for v, s in [(0, '0'), (40, '40'), (80, '80'), (120, '120'), (160, '160')]:
@@ -193,9 +193,9 @@ for i, (name, v, col) in enumerate([('Ca(OH)₂', n2['m_agent'], TEAL), ('CaBr�
     d.rectangle((x - 34, 820 - h, x + 34, 820), fill=col)
     txt(d, x - 38, 820 - h - 26, '%.1f kg' % v, 19, col)
     txt(d, x - 30, 832, name, 19, G)
-txt(d, 45, 880, 'Model: 1000 kg 10 % HBr → Na₂CO₃ 65,5 kg, NaBr 127,2 kg, CO₂ 27,2 kg, H₂O 11,1 kg', 22, N)
+txt(d, 45, 880, 'Taxminiy hisob: 1000 kg 10 % HBr → Na₂CO₃ 65,5 kg, NaBr 127,2 kg, CO₂ 27,2 kg, H₂O 11,1 kg', 22, N)
 txt(d, 45, 930, 'Ca(OH)₂ bilan: 45,8 kg Ca(OH)₂, 123,5 kg CaBr₂, 22,3 kg H₂O (kirish 145,8 = chiqish 145,8 kg)', 22, B)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'chiqindi')
 
 
@@ -222,7 +222,7 @@ scheme('fizikx', 'HBr: fizik xossalar (sxematik)', [
     ('Gidratlar', 'HBr·nH₂O, n = 1, 2, 3, 4, 6', 'Gidronium bromidlar')])
 
 scheme('olishsx', 'HBr ishlab chiqarish (sxematik)', [
-    ('Sintetik usul', 'H₂ + Br₂ → 2HBr (200–400 °C, Pt)', 'Model: H₂ 12,46 kg / Br₂ 987,5 kg'),
+    ('Sintetik usul', 'H₂ + Br₂ → 2HBr (200–400 °C, Pt)', 'Taxminiy hisob: H₂ 12,46 kg / Br₂ 987,5 kg'),
     ('Laboratoriya usuli', 'Br₂ + SO₂ + 2H₂O → H₂SO₄ + 2HBr', 'Bromin reagent sifatida sarflanadi'),
     ('Bromid + kislota', 'H₂SO₄ + KBr → KHSO₄ + HBr', 'Unum ≈85 %; >75 °C da oksidlanadi'),
     ('Bromin sikli', '2NaBr + Cl₂ → 2NaCl + Br₂', 'Jahon bromini ≈440 000 t/y'),
@@ -233,11 +233,11 @@ scheme('bromokomplekssx', 'Bromidlar va bromokomplekslar (sxematik)', [
     ('Dimer', 'AlBr₃ ⇌ ½Al₂Br₆', 'Kuchli kovalent o‘zaro ta’sir'),
     ('Bromokomplekslar', '[CuBr₄]²⁻, [CoBr₄]²⁻, [FeBr₄]⁻, [SnBr₆]²⁻', 'Br⁻ kuchli ligand'),
     ('Noble metall', '[PdBr₄]²⁻ — HBr muhitida Pd eriydi', 'Pt dan ajratish usuli'),
-    ('Tribromid ion', 'Br₂ + Br⁻ ⇌ Br₃⁻', 'Model: 8,77 M da 99,29 %')])
+    ('Tribromid ion', 'Br₂ + Br⁻ ⇌ Br₃⁻', 'Taxminiy hisob: 8,77 M da 99,29 %')])
 
 scheme('metalsx', 'Metallarga ta’sir: passivatsiya yo‘qligi (sxematik)', [
     ('Sirtda himoya qatlami yo‘q', 'Reaksiya to‘xtamaydi', 'HF dan asosiy farq'),
-    ('Fe, Zn, Al, Mg', 'M + 2HBr → MBr₂ + H₂↑', 'Model: 1 g Al → 8,996 g HBr'),
+    ('Fe, Zn, Al, Mg', 'M + 2HBr → MBr₂ + H₂↑', 'Taxminiy hisob: 1 g Al → 8,996 g HBr'),
     ('Mis istisnosi', 'HBr o‘z-o‘zidan eritmaydi', '2Cu + O₂ + 4HBr → 2CuBr₂ + 2H₂O'),
     ('Kumush', 'Ag⁺ + Br⁻ → AgBr↓ (och sariq)', 'Tahlil usuli'),
     ('Vodorod embrittlementi', 'H₂ po‘lat ichiga sing‘adi', 'Mustahkamlik pasayadi')])
@@ -257,7 +257,7 @@ scheme('qollanishsx', 'HBr qo‘llanish sohalari (sxematik)', [
     ('Metallurgiya', 'Bromin ajratish; Pd ni HBr da eritish', 'Noble metall')])
 
 scheme('tahlilsx', 'HBr tahlil usullari (sxematik)', [
-    ('Standartlash', 'Na₂CO₃ yoki boraks bilan titrlash', 'Model: 0,2000 g → 0,12580 mol/L'),
+    ('Standartlash', 'Na₂CO₃ yoki boraks bilan titrlash', 'Taxminiy hisob: 0,2000 g → 0,12580 mol/L'),
     ('Dead-stop titr', 'Pt elektrod; rang indikatori kerak emas', 'HBr uchun klassik usul'),
     ('Argentometriya', 'AgBr gravimetriya; Mohr; Fajans', 'Br⁻ aniqlash'),
     ('Zamonaviy usullar', 'Ion xromatografiya; ISE; ICP-MS', 'Br, Hg, Pb izotoplari'),
@@ -281,7 +281,7 @@ txt(d, 260, 305, 'dipol momenti 0,8272 D', 24, RED)
 d.rectangle((60, 360, 700, 414), fill='#EAF2F8')
 txt(d, 80, 374, 'vodorod bog‘i yo‘q — bromining katta elektron buluti faqat dispersiya kuchini kuchaytiradi', 22, N)
 txt(d, 60, 455, 'Shuning uchun HBr qaynash harorati −66,8 °C: HF (19,5 °C) dan tez, HI (−35,4 °C) dan sekin.', 21, N)
-txt(d, 60, 500, 'Model: r(H–Br) = 1,4144 Å;  D = 366 kJ/mol;  χ(Br) = 2,96.', 21, B)
+txt(d, 60, 500, 'Taxminiy hisob: r(H–Br) = 1,4144 Å;  D = 366 kJ/mol;  χ(Br) = 2,96.', 21, B)
 txt(d, 60, 570, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'molekulax')
 
@@ -338,11 +338,11 @@ for i, (a, b, c, col) in enumerate(boxes):
         d.line((x + 160, 245, x + 178, 245), fill=G, width=4)
 txt(d, 40, 370, 'Tanlov mezonlari: reaktivlik, yorug‘lik (rangli idish), temperatura, ifloslanish.', 21, N)
 txt(d, 40, 415, 'HBr bug‘lari havoga to‘planadi va teri uchun ayniqsa xavfli — idish yopiq bo‘lishi shart.', 21, B)
-txt(d, 40, 460, 'Model: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
+txt(d, 40, 460, 'Taxminiy hisob: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
 txt(d, 40, 535, 'Original sxematik chizma; idish turlari shartli.', 21, G)
 save(im, 'idishx')
 
-im, d = canvas('Ishlangan hisob: besh model (sxematik)', 830)
+im, d = canvas('Ishlangan hisob: besh shartli hisob (sxematik)', 830)
 mn = synthesis(1000.0)
 bo = bromide_oxidation(1000.0)
 n1 = neutralisation(1000.0, 10.0, 'Na2CO3')
@@ -359,7 +359,7 @@ for i, (a, b, cc, col) in enumerate(blocks):
     txt(d, 60, y + 40, b, 20, INK)
     txt(d, 60, y + 66, cc, 19, G)
 d.rounded_rectangle((488, 130, 716, 560), radius=12, outline=G, width=4)
-txt(d, 506, 148, 'Model natijalari', 24, GREEN)
+txt(d, 506, 148, 'Taxminiy hisob natijalari', 24, GREEN)
 txt(d, 506, 200, 'Br₂ 987,5 kg', 20, INK)
 txt(d, 506, 528, 'ΔrH −639,5 MJ', 20, INK)
 txt(d, 506, 235, '(1000 kg HBr dan)', 19, G)
@@ -368,9 +368,9 @@ txt(d, 506, 320, '(bromin sikli)', 19, G)
 txt(d, 506, 370, 'NaBr 127,2 kg', 20, INK)
 txt(d, 506, 405, '(neytralizatsiya)', 19, G)
 txt(d, 506, 455, 'Br₃⁻ 99,29 %', 20, INK)
-txt(d, 506, 490, '(8,77 M da, model)', 19, G)
+txt(d, 506, 490, '(8,77 M da, taxminiy hisob)', 19, G)
 txt(d, 506, 530, 'pH −0,943', 20, INK)
-txt(d, 40, 740, 'Barcha sonlar ochiq shartli model; o‘lchov ma’lumoti emas.', 21, G)
-txt(d, 40, 785, 'Model chegarasi: faolik koeffitsiyentlar hisobga olinmagan.', 21, G)
+txt(d, 40, 740, 'Barcha sonlar ochiq shartli hisoblar; o‘lchov ma’lumoti emas.', 21, G)
+txt(d, 40, 785, 'Shartli hisob chegarasi: faolik koeffitsiyentlar hisobga olinmagan.', 21, G)
 save(im, 'hisob')
 print('5 grafik; 7 sxema; 5 original illustration.')

@@ -130,7 +130,7 @@
       [
         "β_2,c (kumush–ammiak)",
         "1,7×10⁷ L² mol⁻²",
-        "25 °C; modellarda ishlatiladigan qiymat"
+        "25 °C; taxminiy hisoblarda ishlatiladigan qiymat"
       ]
     ]
   },
@@ -275,7 +275,7 @@
     ]
   },
   "separation": {
-    "caption": "4.4.7-jadval. Tanlab cho‘ktirish modelining natijalari",
+    "caption": "4.4.7-jadval. Tanlab cho‘ktirish taxminiy hisobining natijalari",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -320,7 +320,7 @@
     ]
   },
   "amphoteric": {
-    "caption": "4.4.8-jadval. Amfoterlik modelining sonli natijalari",
+    "caption": "4.4.8-jadval. Amfoterlik taxminiy hisobining sonli natijalari",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -334,12 +334,12 @@
     "rows": [
       [
         "K_sp,c = 10⁻³⁰",
-        "Model uchun tanlangan qiymat",
+        "Shartli hisob uchun tanlangan qiymat",
         "Tajriba konstantasi emas"
       ],
       [
         "β_4,c = 10³⁴",
-        "Model uchun tanlangan qiymat",
+        "Shartli hisob uchun tanlangan qiymat",
         "Xayoliy M(OH)₄⁻ tizimi"
       ],
       [
@@ -354,7 +354,7 @@
       ],
       [
         "C_sat(min) ≈ 5,55×10⁻⁵",
-        "Modelning eng kam eruvchanligi",
+        "Yechimning eng kam eruvchanligi",
         "mol L⁻¹"
       ],
       [
@@ -449,7 +449,7 @@
       ],
       [
         "6. Natijani baholash",
-        "Model va tajriba farqi",
+        "Taxminiy hisob va tajriba farqi",
         "Muhit effekti ham bo‘lishi mumkin"
       ]
     ]

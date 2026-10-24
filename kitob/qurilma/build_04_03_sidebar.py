@@ -27,8 +27,8 @@ panels=[
 ('Parda — dinamik to‘siq',[],'4.3.2-sxema. Tarkib, uzluksizlik, transport va hosil bo‘lish–erish raqobati.'),
 ('Qutblanishni o‘qing',[],'4.3.1-grafik. Shartli anod egri chizig‘i; i_crit=10⁻³, i_pass=10⁻⁶ A cm⁻². Ixtiyoriy o‘quv etaloni, tajriba emas.'),
 ('Oksidlovchi va kesishish',[],'4.3.2-grafik. Bir xil sun’iy anod egri chizig‘iga ikki katod yo‘li. Musbat |i_c| lar berilgan; kesishishlar faol va passiv holatlarda.'),
-('Qalinlik va vaqt',[],'4.3.3-grafik. Cheklangan o‘sish va doimiy erish modeli; 50 s vaqt ko‘lami, uchta boshqa limit. Eksperimental ma’lumot emas.'),
-('Mahalliy buzilish',[],'4.3.4-grafik. Cl⁻ faolligiga shartli E_pit va E_rp bog‘lanishi. Real material chegarasi emas; boshqa model etaloni bilan birlashtirilmaydi.'),
+('Qalinlik va vaqt',[],'4.3.3-grafik. Cheklangan o‘sish va doimiy erish bo‘yicha shartli hisob; 50 s vaqt ko‘lami, uchta boshqa limit. Eksperimental ma’lumot emas.'),
+('Mahalliy buzilish',[],'4.3.4-grafik. Cl⁻ faolligiga shartli E_pit va E_rp bog‘lanishi. Real material chegarasi emas; boshqa shartli etalon bilan birlashtirilmaydi.'),
 ('Yuqori potensial yo‘llari',[],'4.3.3-sxema. Transpassiv erish, O₂ ajralishi va mahalliy buzilishning turli ma’nolari.'),
 ('Dalil va usul',[],'4.3.4-sxema. Elektrokimyo, sirt tarkibi, morfologiya va metall yo‘qotilishini birga talqin qilish.'),
 ('Massa va mahalliy chuqurlik',[],'4.3.5-sxema. Bir xil jami metall yo‘qotilishining bir tekis va mahalliy taqsimlanish ekvivalentlari.')

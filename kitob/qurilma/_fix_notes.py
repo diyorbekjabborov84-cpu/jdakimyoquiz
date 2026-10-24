@@ -19,12 +19,12 @@ notes=[
  ('Selektivlik masalasi','Ikkita K_sp ni solishtirish selektiv ajratishni hal qilmaydi.'),
  ('Maskalash','Kerakli metallni vaqtincha kompleksga bog‘lash usuli.'),
  ('Amfoterlik redoks emas','Markaziy metallning oksidlanish darajasi o‘zgarmaydi.'),
- ('Model chegarasi','Xayoliy M(OH)₃/[M(OH)₄]⁻ tizimi haqiqiy Al uchun universal diagramma emas.'),
+ ('Taxminiy hisob chegarasi','Xayoliy M(OH)₃/[M(OH)₄]⁻ tizimi haqiqiy Al uchun universal diagramma emas.'),
  ('Ikkita qarama-qarshi ta’sir','Protonlanish eruvchanlikni oshiradi, cho‘ktiruvchi anion kuchaytiradi.'),
  ('Stokhiometriya','1:1 va 2:2 tuzlar uchun eruvchanlik formulasi turlicha.'),
  ('Yaxlitlash xatosi','Ligand sarflanishini e’tiborsiz qoldirish 8,84% ga chiqdi.'),
  ('Balans birga','Protonlanish, ligand sarfi va faza miqdori birga tekshiriladi.'),
- ('Model chegarasi','Erish modeli faqat Ag(NH₃)₂⁺ turini hisobga oladi; boshqa turlar chetga chiqariladi.'),
+ ('Taxminiy hisob chegarasi','Erish taxminiy hisobi faqat Ag(NH₃)₂⁺ turini hisobga oladi; boshqa turlar chetga chiqariladi.'),
  ('Xulosa','Komplekslanish erkin ionni kamaytiradi, umumiy eruvchanlikni oshiradi.')]
 assert len(notes)==22
 block=['notes=[']

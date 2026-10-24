@@ -85,7 +85,7 @@
     ]
   },
   "ph": {
-    "caption": "4.2.3-jadval. pH qiyaligi: boshqa faolliklar birga teng bo‘lgan model",
+    "caption": "4.2.3-jadval. pH qiyaligi: boshqa faolliklar birga teng bo‘lgan taxminiy hisob",
     "headers": [
       "Juft / holat",
       "Qiyalik yoki shart",
@@ -385,7 +385,7 @@
       [
         "Muvozanat MnO₄⁻ izi",
         "a(H⁺)=0,100; γ≈1",
-        "≈3,65×10⁻⁵⁴ mol L⁻¹, model"
+        "≈3,65×10⁻⁵⁴ mol L⁻¹, taxminiy hisob"
       ]
     ]
   }

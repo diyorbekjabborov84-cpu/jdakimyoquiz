@@ -17,16 +17,16 @@ NAVY = '0B2C4A'; BRONZE = 'C28E3B'; PALE = 'EDF3F7'; INK = '243746'
 
 panels = [
  ('Parchalanish turlari', [], '4.5.1-sxema. Termik, fotokimyoviy, katalitik, dismutatsion va kondensatsion yo‘nalishlar.'),
- ('Termodinamik chegara', [], '4.5.2-grafik. ΔG° ning haroratga bog‘liqligi; HNO₃ va H₂SO₄ parchalanishi. Model egri chizig‘i.'),
+ ('Termodinamik chegara', [], '4.5.2-grafik. ΔG° ning haroratga bog‘liqligi; HNO₃ va H₂SO₄ parchalanishi. Taxminiy hisob egri chizig‘i.'),
  ('K va harorat', [], '4.5.3-grafik. Sulfur kislota parchalanishining muvozanat konstantasi; van ’t Hoff chizig‘i.'),
- ('Kinetik blok', [], '4.5.4-grafik. Arrhenius modeli bo‘yicha tezlikning haroratga bog‘liqligi; aniq kislotga tegishli emas.'),
+ ('Kinetik blok', [], '4.5.4-grafik. Arrhenius nazariyasi bo‘yicha tezlikning haroratga bog‘liqligi; aniq kislotga tegishli emas.'),
  ('Fotoskimyoviy zanjir', [], '4.5.5-sxema. Boshlanish, davom, tarmoqlanish va tugatish bosqichlari.'),
  ('Dismutatsiya', [], '4.5.6-sxema. Bitta elementning oksidlanish-qaytarilish yo‘nalishlari.'),
  ('Kondensatsiya zanjiri', [], '4.5.7-sxema. Monomerdan oligomer va polimer gacha suv ajratib o‘tish.'),
  ('pH ta’siri', [], '4.5.8-grafik. S(IV) ning uch shakli ulushlari pH ga bog‘liqligi; hisob egri chizig‘i.'),
  ('Saqlash omillari', [], '4.5.9-sxema. Harorat, yorug‘lik, ifloslik va hujjatlashtirish.'),
  ('Tahlil usullari', [], '4.5.10-sxema. Qolgan kislota, rangli mahsulot, uchuvchi mahsulot va tarkib.'),
- ('Hisob natijasi', [], '4.5.11-sxema. Termodinamik ko‘rsatkichlar va kinetik model natijalari.')]
+ ('Hisob natijasi', [], '4.5.11-sxema. Termodinamik ko‘rsatkichlar va kinetik taxminiy natijalar.')]
 
 extra = {
  1: [('profil.png', '4.5.1-rasm. Termodinamik qulay, lekin kinetik blok bilan parchalanish profili.')],
@@ -235,7 +235,7 @@ for idx, ((title, paras), (panel, nodes, note)) in enumerate(zip(sections, panel
             p.paragraph_format.space_after = Pt(3); runs(p, ref, 9)
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(3)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari. Sonli egri chiziqlar model hisoblaridir, tajriba yoki o‘lchov ma’lumotlari emas. Rasmlar mikrofoto, atom tuzilmasi yoki masshtabli tuzilma tasviri emas. Moddalar konsentratsiyasi, harorat va pH oralig‘i real eksperiment yoki idish materiali tanlash uchun ko‘rsatma emas; xavfli kislotalarning tayyorlanishi, konsentratsiyalanishi va saqlanishi bo‘yicha amaliyot tavsiyalari berilmaydi.', 9)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari. Sonli egri chiziqlar taxminiy hisoblardir, tajriba yoki o‘lchov ma’lumotlari emas. Rasmlar mikrofoto, atom tuzilmasi yoki masshtabli tuzilma tasviri emas. Moddalar konsentratsiyasi, harorat va pH oralig‘i real eksperiment yoki idish materiali tanlash uchun ko‘rsatma emas; xavfli kislotalarning tayyorlanishi, konsentratsiyalanishi va saqlanishi bo‘yicha amaliyot tavsiyalari berilmaydi.', 9)
 
 p = sec.header.paragraphs[0]; runs(p, 'NOORGANIK KISLOTALAR', 8, False, NAVY)
 p = sec.footer.paragraphs[0]; p.alignment = WD_ALIGN_PARAGRAPH.RIGHT

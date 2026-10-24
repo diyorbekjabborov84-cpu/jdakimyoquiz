@@ -37,7 +37,7 @@ rxns=[{'H3O':-1,'OH':-1,'H2O':2},{'HCl':-1,'NaOH':-1,'NaCl':1,'H2O':1},{'H3PO4':
 for rxn in rxns:
  for element in ['H','O','Na','Cl','P','N','Cu','C']:assert sum(v*atoms[m].get(element,0) for m,v in rxn.items())==0
  assert sum(v*charge.get(m,0) for m,v in rxn.items())==0
-# Equal weak acid/base: exact neutral model, products ~99.01%, neutrals nonzero.
+# Equal weak acid/base: exact neutral taxminiy hisoblar, products ~99.01%, neutrals nonzero.
 pp=solve([(.01,(1e-5,))],[(.01,1e-9)]);near(pp,7);near((.01*1e-5/(1e-5+1e-7))/.01,100/101)
 p=D/'chiqish/Noorganik-kislotalar-4.1-Neytrallanish-va-tuz-hosil-bolishi.docx';doc=Document(p)
 def paras(o):

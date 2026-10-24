@@ -39,7 +39,7 @@ def halide_equations():
       [chem('CaF₂ + H₂SO₄ → 2HF + CaSO₄'),
        seq(_n, '(HF) = 2 ', _n, '(CaF₂)'),
        seq(_m, '(HF) = ', _n, '(CaF₂) · 2 · ', var('M', 'HF'), ' · η'),
-       seq('Model: 1000 kg fluorit (97 %) → HF 457,3 kg (unum 92 %)')],
+       seq('Taxminiy hisob: 1000 kg fluorit (97 %) → HF 457,3 kg (unum 92 %)')],
       # 6 — shishani yemirish
       [chem('SiO₂ + 6HF → H₂SiF₆ + 2H₂O'),
        seq(chem('SiO₂ + 4HF → SiF₄↑ + 2H₂O'), '  (gaz fazasida)'),
@@ -64,9 +64,9 @@ def halide_equations():
       [seq(chem('2HF + Ca(OH)₂ → CaF₂↓ + 2H₂O')),
        seq('K', var('sp', ''), '(CaF₂) = 3,9×10⁻¹¹  ⇒  [F⁻] = ', var('√', ''),
            seq('(K', var('sp', ''), '/[Ca²⁺])')),
-       seq('Model: Ca²⁺ 0,010 M → [F⁻] = 1,186 mg/L (chegara 1,5 mg/L)'),
+       seq('Taxminiy hisob: Ca²⁺ 0,010 M → [F⁻] = 1,186 mg/L (chegara 1,5 mg/L)'),
        seq(chem('2HF + Ca²⁺ → CaF₂'), '   (kalsiy bog‘lanishi)'),
-       seq('Model: 20 g HF → 0,500 mol Ca²⁺ → 224,1 g kalsiy glyukonat')],
+       seq('Taxminiy hisob: 20 g HF → 0,500 mol Ca²⁺ → 224,1 g kalsiy glyukonat')],
       # 11 — ishlangan hisob
       [seq('A:  ', _h, ' = ', frac(seq('−', _ka, ' + ', var('√', ''),
            seq('(', _ka, '² + 4', _ka, _c, ')')), '2'), '  (yakka HF uchun)'),

@@ -1,4 +1,4 @@
-"""5.1 "Olishning umumiy usullari" — termodinamik va texnologik model.
+"""5.1 "Olishning umumiy usullari" — termodinamik va texnologik taxminiy hisob.
 
 Barcha sonli egri chiziqlar shu modulda hisoblanadi: ular tajriba yoki
 o'lchov ma'lumotlari EMAS. ΔfH° va S° — OpenStax Chemistry 2e, Appendix G
@@ -83,7 +83,7 @@ def vanthoff(dh, T1, T2):
     return -dh * 1000.0 / R * (1.0 / T2 - 1.0 / T1)
 
 
-# --- Model 1: N2O4 ⇌ 2 NO2 muvozanat konversiyasi ------------------------
+# --- Taxminiy hisob 1: N2O4 ⇌ 2 NO2 muvozanat konversiyasi ------------------------
 RX_SO2 = ({'SO2(g)': 1.0, 'O2(g)': 0.5}, {'SO3(g)': 1.0})
 RX_DIMER = ({'N2O4(g)': 1.0}, {'NO2(g)': 2.0})
 
@@ -131,13 +131,13 @@ def eq_conversion(T, P=1.0):
     return 0.5 * (lo + hi)
 
 
-# --- Model 2: bosqichli kaskad — umumiy konversiya -----------------------
+# --- Taxminiy hisob 2: bosqichli kaskad — umumiy konversiya -----------------------
 def cascade(x1, n):
     """N ta bir xil bosqich: X_umumiy = 1 − (1 − x1)^N."""
     return 1.0 - (1.0 - x1) ** n
 
 
-# --- Model 3: ajratish — minimal pog'onalar soni (Fenske, to'liq qaytish) -
+# --- Taxminiy hisob 3: ajratish — minimal pog'onalar soni (Fenske, to'liq qaytish) -
 def fenske(alpha, xD=0.95, xB=0.05):
     """Minimal (to'liq qaytish rejimidagi) pog'onalar soni."""
     if alpha <= 1.0:
@@ -145,7 +145,7 @@ def fenske(alpha, xD=0.95, xB=0.05):
     return (math.log(xD / (1 - xD)) + math.log((1 - xB) / xB)) / math.log(alpha)
 
 
-# --- Model 4: pyrit -> H2SO4 material balansi ----------------------------
+# --- Taxminiy hisob 4: pyrit -> H2SO4 material balansi ----------------------------
 def pyrite_chain(mass_pyrite_t=1000.0, x_so3=0.96, y_abs=0.98):
     """1 mol FeS2 -> 2 mol SO2 -> 2 mol SO3 -> 2 mol H2SO4 zanjiri.
 

@@ -51,9 +51,9 @@ def render(name,title,atoms,bonds):
   a,b=atoms[i],atoms[j];line(d,(a[1],a[2]),(b[1],b[2]),'#8F9DA6',17);line(d,(a[1]-3,a[2]-3),(b[1]-3,b[2]-3),'#CAD5DD',5)
  colors={'Cl':(65,170,115),'S':(205,170,45),'Si':(150,140,170),'N':(70,125,205),'O':(225,80,75),'P':(215,145,55),'B':(180,115,160),'F':(65,170,115),'H':(245,246,249)}
  for label,x,y in atoms:sphere(d,x,y,44 if label!='H' else 27,colors[label],label)
- text(d,(38,595),'Idealizatsiyalangan o‘quv modeli',24,G);save(im,name)
-render('hcl_model','HCl: molekulyar model',[('H',265,325),('Cl',460,325)],[(0,1)])
+ text(d,(38,595),'Idealizatsiyalangan o‘quv tasviri',24,G);save(im,name)
+render('hcl_model','HCl: molekulyar tasvir',[('H',265,325),('Cl',460,325)],[(0,1)])
 render('sulfat_model','SO₄²⁻: ideal proyeksiya',[('S',380,295),('O',380,130),('O',200,345),('O',560,345),('O',380,475)],[(0,1),(0,2),(0,3),(0,4)])
 render('sulfat_kislota_model','H₂SO₄: ikki OH guruhi',[('S',380,295),('O',380,130),('O',200,315),('O',560,315),('O',380,475),('H',140,405),('H',625,250)],[(0,1),(0,2),(0,3),(0,4),(2,5),(3,6)])
-render('sif6_model','[SiF₆]²⁻: oktaedrik model',[('Si',380,310),('F',380,130),('F',380,490),('F',180,310),('F',580,310),('F',270,210),('F',490,410)],[(0,j) for j in range(1,7)])
+render('sif6_model','[SiF₆]²⁻: oktaedrik tasvir',[('Si',380,310),('F',380,130),('F',380,490),('F',180,310),('F',580,310),('F',270,210),('F',490,410)],[(0,j) for j in range(1,7)])
 print('7 nomenclature schemes and 4 molecular models:',OUT)

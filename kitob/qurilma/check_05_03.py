@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""5.3 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""5.3 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json
 from docx import Document
@@ -23,7 +23,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: namlik ko‘rsatkichlari va higroskopiklik')
+print('1) Taxminiy hisob: namlik ko‘rsatkichlari va higroskopiklik')
 w = M.water_fraction(0.35, 1.0)
 ck(close(w['X_wet'], 0.2593, 5e-5) and close(w['w_dry'], 0.35, 1e-9),
    'namlik asoslari: X = 0,2593; w = 0,350')
@@ -40,7 +40,7 @@ kf = M.karl_fischer(2.000, 0.50, 22.2)
 ck(close(kf['n'], 0.0111, 1e-9) and close(kf['m_water'], 0.19997, 1e-4)
    and close(kf['w_percent'], 9.998, 1e-2), 'Karl Fischer: 0,2000 g suv → 10,00 %')
 
-print('2) Model: bug‘lanish termodinamikasi va vakuum')
+print('2) Taxminiy hisob: bug‘lanish termodinamikasi va vakuum')
 ck(close(M.DVAP_H2O_25, 44.01, 1e-9), 'ΔvapH(25 °C) = 44,01 kJ/mol')
 ck(close(M.vapour_pressure(298.15, M.DVAP_H2O_25), 2.8578, 5e-3),
    'p_sat(25 °C) = 2,858 kPa')
@@ -51,11 +51,11 @@ for rh, we in [(0.20, 0.03571), (0.50, 0.04545), (0.80, 0.04878), (0.95, 0.04974
     ck(close(M.equilibrium_moisture(rh), we, 5e-6),
        'muvozanat namligi %d %% RH → %.5f kg/kg' % (int(rh * 100), we))
 
-print('3) Model: quritish kinetikasi va quritgichlar')
+print('3) Taxminiy hisob: quritish kinetikasi va quritgichlar')
 ck(close(M.drying_curve(0), 0.35, 1e-9) and close(M.drying_curve(10), 0.20, 1e-9),
    'kinetika: X(0) = 0,35; X(10 min) = 0,20 (kritik nuqta)')
 ck(M.drying_at_temperature(373.15, 30) < M.drying_at_temperature(333.15, 30),
-   'yuqori haroratda tezroq quriladi (Arrhenius modeli)')
+   'yuqori haroratda tezroq quriladi (Arrhenius nazariyasi)')
 p25 = M.p2o5_capacity()
 ck(close(p25['capacity'], 38.076, 5e-3), 'P₂O₅ sig‘imi: 38,08 % massa')
 ck(close(M.salt_capacity(M.M_CACL2, 0, 6)['capacity'], 0.974, 5e-3),
@@ -64,7 +64,7 @@ ck(close(M.salt_capacity(M.M_MGSO4, 0, 7)['capacity'], 1.048, 5e-3),
    'MgSO₄ sig‘imi: 1,048 kg suv/kg')
 ck(close(M.sieve_demand(100.0, 20.5), 487.8, 0.1), '4A sital: 100 kg suv uchun 487,8 kg')
 
-print('4) Model: gidrat va azeotrop')
+print('4) Taxminiy hisob: gidrat va azeotrop')
 h = M.hydrate_mass('CuSO4', 1000.0, '5H2O', 'H2O')
 ck(close(h['kmol'], 4.0051, 1e-3), 'CuSO₄·5H₂O: n = 4,0051 kmol')
 ck(close(h['m_water'], 288.60, 1e-2), 'gidrat quritish: suv 288,60 kg')
@@ -81,18 +81,18 @@ ck(close(a['m_distillate'], 1598.90, 5e-2), 'azeotrop: distillat 1598,90 kg')
 ck(close(a['m_entrainer'], 1282.32, 5e-2), 'azeotrop: toluen 1282,32 kg')
 ck(close(a['m_entrainer_loss'], 0.158, 1e-3), 'azeotrop: toluen yo‘qotish 0,158 kg')
 
-print('5) Model: energetika')
+print('5) Taxminiy hisob: energetika')
 e = M.evaporation_energy(316.58)
 ck(close(e['Q_MJ'], 714.5, 1e-1), '316,58 kg suv → 714,5 MJ')
 ck(close(M.energy_kwh(1.0), 0.6269, 1e-4), '1 kg suv → 0,6269 kWh')
 ck(close(M.evaporation_energy(288.60)['Q_MJ'], 651.3, 1e-1), '288,60 kg suv → 651,3 MJ')
 
-print('6) Model: CSV fayllar')
+print('6) Taxminiy hisob: CSV fayllar')
 for name, n in [('vakuum', 55), ('kinetika', 121), ('adsorbsiya', 50), ('azeotrop', 3), ('energiya', 4)]:
     rows = list(csv.DictReader((ASSETS / (name + '.csv')).open()))
     ck(len(rows) == n, '%s.csv: %d qator' % (name, len(rows)))
 
-print('7) Matn: model raqamlari matnda bor')
+print('7) Matn: taxminiy hisob raqamlari matnda bor')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '05_03_jadvallar.json').read_text()), ensure_ascii=False)
 notes_txt = json.dumps(json.loads((ROOT / 'matn' / '05_03_yonlavhalar.json').read_text()), ensure_ascii=False)
@@ -111,7 +111,7 @@ for s in need:
     ck(s in ms_all, 'matnda «%s» bor' % s)
 ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va 11 jadval belgisi')
 ck('tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
-ck('tajriba ma’lumoti emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
+ck('tajriba ma’lumoti emas' in ms, 'taxminiy hisob cheklovi matnda ko‘rsatilgan')
 
 print('8) DOCX tuzilmasi')
 doc = Document(DOCX)

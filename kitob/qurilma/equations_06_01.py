@@ -18,7 +18,7 @@ def halide_equations():
     return [
       # 1 — guruhning umumiy o'lchamlari
       [seq(_chi, ' = ', var('χ', 'X'), ' − ', var('χ', 'H'), '   (F 3,98 → Cl 3,16 → Br 2,96 → I 2,66)'),
-       seq(_r, ' = ', var('r', 'H'), ' + ', var('r', 'X'), '   (model; tajribiy qiymatdan kichik)'),
+       seq(_r, ' = ', var('r', 'H'), ' + ', var('r', 'X'), '   (taxminiy hisob; tajribiy qiymatdan kichik)'),
        seq(_pka, ' = 3,17 → −5,9 → −8,8 → −9,5   (suvda)'),
        seq('Tartib:  kislotalik ↑  ·  termik barqarorlik ↓  ·  qaytaruvchilik ↑')],
       # 2 — molekulyar tuzilish
@@ -33,7 +33,7 @@ def halide_equations():
        seq(var('α', '%'), ' = 100 · ', frac(var('x', ''), _c), ';   pH = −lg ', var('x', ''))],
       # 4 — gidratatsiya
       [seq(_dh, '(X⁻) = −506 / −364 / −335 / −293 kJ/mol'),
-       seq(_d, ' + ', _dh, ' = 63 / 68 / 35 / 2 kJ/mol   (model balansi)'),
+       seq(_d, ' + ', _dh, ' = 63 / 68 / 35 / 2 kJ/mol   (shartli hisob balansi)'),
        seq(chem('HF + F⁻ ⇌ HF₂⁻'), '   (bifluorid; konsentratsiya oshganda)'),
        seq(chem('HF + H⁺ ⇌ H₂F⁺'), '   (protonlangan shakl)')],
       # 5 — termik barqarorlik
@@ -44,13 +44,13 @@ def halide_equations():
       # 6 — olish
       [chem('CaF₂ + H₂SO₄ → 2HF + CaSO₄'),
        seq(_n, '(HF) = 2 ', _n, '(CaF₂)'),
-       seq(_m, '(HF) = ', _n, '(CaF₂) · 2 · ', var('M', 'HF'), ' · η   (model: 447,4 kg)'),
+       seq(_m, '(HF) = ', _n, '(CaF₂) · 2 · ', var('M', 'HF'), ' · η   (taxminiy hisob: 447,4 kg)'),
        seq(chem('Cl₂ + H₂ → 2HCl'), '   ·   ', chem('Br₂ + SO₂ + 2H₂O → H₂SO₄ + 2HBr'))],
       # 7 — kislota xossalari
       [chem('2HX + M → MX₂ + H₂↑'),
        seq(_n, '(HX) = ', frac(_m, var('M', 'HX')), ';   ', _n, '(CaCO₃) = ', frac(_n, '(HX)'), ' / 2'),
        seq(chem('CaCO₃ + 2HX → CaX₂ + CO₂↑ + H₂O')),
-       seq(_m, '(CaCO₃) = 137,3 kg;  ', _m, '(CaCl₂) = 152,2 kg;  ', _m, '(CO₂) = 60,4 kg   (model)')],
+       seq(_m, '(CaCO₃) = 137,3 kg;  ', _m, '(CaCl₂) = 152,2 kg;  ', _m, '(CO₂) = 60,4 kg   (shartli hisob)')],
       # 8 — redoks
       [chem('2HBr + H₂SO₄ → Br₂ + SO₂ + 2H₂O'),
        seq(_m, '(Br₂) = ', frac(_n, '(HBr)'), ' · ', var('M', 'Br₂'), '   (1 kg HBr → 987,5 g)'),

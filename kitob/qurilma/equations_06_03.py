@@ -24,16 +24,16 @@ def halide_equations():
        seq(chem('HCl(g) ⇌ HCl(aq)'), '   eruvchanlik 720 g/L (20 °C)')],
       # 3 — dissotsiatsiya
       [seq(chem('HCl + H₂O ⇌ H₃O⁺ + Cl⁻'), '   ', _ka, ' ≈ 7,9×10⁵ (pK', var('a', ''), ' −5,9)'),
-       seq(chem('HCl + Cl⁻ ⇌ HCl₂⁻'), '   lg', _kf, ' = 0,7 (model)'),
+       seq(chem('HCl + Cl⁻ ⇌ HCl₂⁻'), '   lg', _kf, ' = 0,7 (shartli hisob)'),
        seq('zaryad:  ', _h, ' = [Cl⁻] + [HCl₂⁻]'),
        seq('massa:  ', _c, ' = [HCl] + [Cl⁻] + 2[HCl₂⁻]'),
-       seq('Model: 0,100 M → pH 1,000;  12,000 M → pH −1,079, HCl₂⁻ 0,09 %')],
+       seq('Taxminiy hisob: 0,100 M → pH 1,000;  12,000 M → pH −1,079, HCl₂⁻ 0,09 %')],
       # 4 — ishlab chiqarish
       [chem('2NaCl + H₂SO₄ → Na₂SO₄ + 2HCl↑'),
        seq(_n, '(NaCl) = ', _n, '(HCl);  ', _n, '(H₂SO₄) = ½ ', _n, '(HCl)'),
-       seq('Model: 1000 kg HCl → NaCl 1602,8 kg;  H₂SO₄ 1345,0 kg;  Na₂SO₄ 1947,8 kg'),
+       seq('Taxminiy hisob: 1000 kg HCl → NaCl 1602,8 kg;  H₂SO₄ 1345,0 kg;  Na₂SO₄ 1947,8 kg'),
        chem('H₂ + Cl₂ → 2HCl'),
-       seq('Model: 1000 kg HCl → H₂ 27,6 kg;  Cl₂ 972,4 kg;  Δ', var('r', ''), 'H = −2531,7 MJ')],
+       seq('Taxminiy hisob: 1000 kg HCl → H₂ 27,6 kg;  Cl₂ 972,4 kg;  Δ', var('r', ''), 'H = −2531,7 MJ')],
       # 5 — tuzlar va komplekslar
       [chem('M + 2HCl → MCl₂ + H₂↑'),
        chem('MCO₃ + 2HCl → MCl₂ + CO₂↑ + H₂O'),
@@ -43,13 +43,13 @@ def halide_equations():
       [chem('Fe + 2HCl → FeCl₂ + H₂↑'),
        chem('2Al + 6HCl → 2AlCl₃ + 3H₂↑'),
        chem('2Cu + O₂ + 4HCl → 2CuCl₂ + 2H₂O'),
-       seq('Model: 1 g Fe → 2,270 g FeCl₂ + 1,306 g HCl + 0,036 g H₂'),
-       seq('Model: 1 g Cu → 1,148 g HCl + 0,252 g O₂ (havo ishtirokida)')],
+       seq('Taxminiy hisob: 1 g Fe → 2,270 g FeCl₂ + 1,306 g HCl + 0,036 g H₂'),
+       seq('Taxminiy hisob: 1 g Cu → 1,148 g HCl + 0,252 g O₂ (havo ishtirokida)')],
       # 7 — pickling va tiklash
       [seq('1 t po‘lat:  ', _m, '(HCl) = 7,6 kg;  ', _m, '(Fe) = 5,8 kg;  ', _m, '(Cl⁻) = 7,4 kg'),
        chem('4FeCl₂ + 4H₂O + O₂ → 2Fe₂O₃ + 8HCl↑'),
-       seq('Model: 1000 kg FeCl₂ → Fe₂O₃ 629,9 kg;  HCl 575,3 kg'),
-       seq('Model: kirish 1205,2 kg ≈ chiqish 1205,2 kg'),
+       seq('Taxminiy hisob: 1000 kg FeCl₂ → Fe₂O₃ 629,9 kg;  HCl 575,3 kg'),
+       seq('Taxminiy hisob: kirish 1205,2 kg ≈ chiqish 1205,2 kg'),
        chem('12FeCl₂ + 3O₂ → 8FeCl₃ + 2Fe₂O₃'), chem('2FeCl₃ + 3H₂O → 6HCl + Fe₂O₃')],
       # 8 — suvsiz muhit
       [seq(chem('HCl + CH₃OH → [CH₃OH₂]⁺ + Cl⁻'), '   (suvsiz dissotsiatsiya)'),
@@ -64,7 +64,7 @@ def halide_equations():
       # 10 — tahlil
       [chem('Na₂CO₃ + 2HCl → 2NaCl + CO₂↑ + H₂O'),
        seq('T = ', frac(_m, '(Na₂CO₃)'), ' / (2 ', _v, '(HCl) · ', var('M', 'Na₂CO₃'), ')'),
-       seq('Model: 0,2500 g Na₂CO₃;  ', _v, '(HCl) = 24,85 mL → C = 0,18984 mol/L'),
+       seq('Taxminiy hisob: 0,2500 g Na₂CO₃;  ', _v, '(HCl) = 24,85 mL → C = 0,18984 mol/L'),
        chem('Ag⁺ + Cl⁻ → AgCl↓'),
        seq(chem('NH₃ + HCl → NH₄Cl'), '   (Kjeldahl — qayta titrlash)')],
       # 11 — ishlangan hisob

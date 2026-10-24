@@ -14,35 +14,35 @@
 11. **Grokipedia — Hydrochloric acid / Hydrogen chloride (bozor va ko‘rsatkichlar uchun ikkilamchi manba).** Suvdagi eruvchanlik 720 g/L (20 °C); navlar va bozor ulushlari; pK_a ≈ −6…−8 diapazoni.
 12. **6.1-bo‘limdagi guruh ma’lumotlari (kitob ichki manbai).** D(H–Cl) = 432 kJ/mol; r = 1,2746 Å; μ = 1,08 D; χ(Cl) = 3,16 (Pauling); pK_a(suv) −5,9, pK_a(DMSO) −2,0; ΔH_hyd(Cl⁻) = −364 kJ/mol; azeotrope jadvali (HCl 20,2 % / 108,6 °C); qaynash/suyuqlash haroratlari: HCl −85,1 / −114,2 °C, HBr −66,8 / −86,9 °C, HI −35,4 / −50,8 °C.
 
-## Model va hisoblar (barchasi ochiq shartli, o‘lchov ma’lumoti emas)
-- **Model A — suvli HCl spetsiatsiyasi** (ideal erituvchi modeli; K_a = 7,9×10⁵ (pK_a −5,9), HCl + Cl⁻ ⇌ HCl₂⁻ lgK = 0,7; zaryad h = [Cl⁻] + [HCl₂⁻] va massa c = [HCl] + [Cl⁻] + 2[HCl₂⁻] bo‘yicha sonikli yechim):
+## Hisoblar va shartli taxminlar (barchasi ochiq shartli, o‘lchov ma’lumoti emas)
+- **Taxmin A — suvli HCl spetsiatsiyasi** (ideal erituvchi sharoiti; K_a = 7,9×10⁵ (pK_a −5,9), HCl + Cl⁻ ⇌ HCl₂⁻ lgK = 0,7; zaryad h = [Cl⁻] + [HCl₂⁻] va massa c = [HCl] + [Cl⁻] + 2[HCl₂⁻] bo‘yicha sonikli yechim):
   0,100 M → Cl⁻ 100,00 %, HCl₂⁻ 0,00 %, pH 1,000; 0,500 M → pH 0,301; 1,000 M → pH 0,000; 2,000 M → pH −0,301; 4,000 M → pH −0,602, HCl₂⁻ 0,01 %; 6,000 M → pH −0,778; 8,000 M → pH −0,903; 10,000 M → pH −1,000, HCl₂⁻ 0,06 %; 12,000 M → Cl⁻ 99,82 %, HCl₂⁻ 0,09 %, pH −1,079.
-  Model chegarasi: faolik koeffitsiyentlar, suv faolligi va vodorod bog‘langan gidronium agregatlari hisobga olinmaydi. Model pH jadvaldagi «apparent» (titrimetrik) pH ga yaqin (10 % → −0,5; 38 % → −1,1) — bu yaqinlik suvda HCl dissotsiatsiyasining to‘liqligini ko‘rsatadi.
-- **Model B — Mannheim usuli** (2NaCl + H₂SO₄ → Na₂SO₄ + 2HCl): 1000 kg HCl uchun NaCl 1602,8 kg, H₂SO₄ 1345,0 kg, Na₂SO₄ 1947,8 kg (kirish 2947,8 kg = chiqish 2947,8 kg); ΔrH = +884,8 MJ, ya’ni +32,3 kJ/mol HCl (endotermik).
-- **Model C — sintetik usul** (H₂ + Cl₂ → 2HCl): 1000 kg HCl uchun H₂ 27,6 kg, Cl₂ 972,4 kg; ΔrH = −2531,7 MJ (eksotermik).
-- **Model D — metall yemirilishi** (1 g metall): Fe → FeCl₂ 2,270 g, HCl 1,306 g, H₂ 0,036 g; Zn → ZnCl₂ 2,084 g, HCl 1,115 g, H₂ 0,031 g; Al → AlCl₃ 4,942 g, HCl 4,054 g, H₂ 0,112 g; Mg → MgCl₂ 3,917 g, HCl 3,000 g, H₂ 0,083 g; Cu → CuCl₂ 2,116 g, HCl 1,148 g, O₂ 0,252 g (2Cu + O₂ + 4HCl → 2CuCl₂ + 2H₂O).
-- **Model E — neytralizatsiya** (1000 kg 10 % li HCl): Na₂CO₃ bilan Na₂CO₃ 145,3 kg, NaCl 160,3 kg, CO₂ 60,4 kg, H₂O 24,7 kg (kirish 245,3 kg = chiqish 245,3 kg); Ca(OH)₂ bilan Ca(OH)₂ 101,6 kg, CaCl₂ 152,2 kg, H₂O 49,4 kg (kirish 201,6 kg = chiqish 201,6 kg).
-- **Model F — pickling va tiklash**: 1 t po‘lat → HCl 7,6 kg, Fe 5,8 kg, Cl⁻ 7,4 kg, FeCl₂ 13,2 kg; spray roasting: 1000 kg FeCl₂ → Fe₂O₃ 629,9 kg, HCl 575,3 kg, H₂O 142,1 kg, O₂ 63,1 kg (kirish 1205,2 kg ≈ chiqish 1205,2 kg).
-- **Model G — titrimetrik standartlash**: 0,2500 g Na₂CO₃ + 24,85 mL HCl → C(HCl) = 0,18984 mol/L (pH 0,722).
+  Shartli hisob chegarasi: faolik koeffitsiyentlar, suv faolligi va vodorod bog‘langan gidronium agregatlari hisobga olinmaydi. Taxminiy hisob pH jadvaldagi «apparent» (titrimetrik) pH ga yaqin (10 % → −0,5; 38 % → −1,1) — bu yaqinlik suvda HCl dissotsiatsiyasining to‘liqligini ko‘rsatadi.
+- **Taxmin B — Mannheim usuli** (2NaCl + H₂SO₄ → Na₂SO₄ + 2HCl): 1000 kg HCl uchun NaCl 1602,8 kg, H₂SO₄ 1345,0 kg, Na₂SO₄ 1947,8 kg (kirish 2947,8 kg = chiqish 2947,8 kg); ΔrH = +884,8 MJ, ya’ni +32,3 kJ/mol HCl (endotermik).
+- **Taxmin C — sintetik usul** (H₂ + Cl₂ → 2HCl): 1000 kg HCl uchun H₂ 27,6 kg, Cl₂ 972,4 kg; ΔrH = −2531,7 MJ (eksotermik).
+- **Taxmin D — metall yemirilishi** (1 g metall): Fe → FeCl₂ 2,270 g, HCl 1,306 g, H₂ 0,036 g; Zn → ZnCl₂ 2,084 g, HCl 1,115 g, H₂ 0,031 g; Al → AlCl₃ 4,942 g, HCl 4,054 g, H₂ 0,112 g; Mg → MgCl₂ 3,917 g, HCl 3,000 g, H₂ 0,083 g; Cu → CuCl₂ 2,116 g, HCl 1,148 g, O₂ 0,252 g (2Cu + O₂ + 4HCl → 2CuCl₂ + 2H₂O).
+- **Taxmin E — neytralizatsiya** (1000 kg 10 % li HCl): Na₂CO₃ bilan Na₂CO₃ 145,3 kg, NaCl 160,3 kg, CO₂ 60,4 kg, H₂O 24,7 kg (kirish 245,3 kg = chiqish 245,3 kg); Ca(OH)₂ bilan Ca(OH)₂ 101,6 kg, CaCl₂ 152,2 kg, H₂O 49,4 kg (kirish 201,6 kg = chiqish 201,6 kg).
+- **Taxmin F — pickling va tiklash**: 1 t po‘lat → HCl 7,6 kg, Fe 5,8 kg, Cl⁻ 7,4 kg, FeCl₂ 13,2 kg; spray roasting: 1000 kg FeCl₂ → Fe₂O₃ 629,9 kg, HCl 575,3 kg, H₂O 142,1 kg, O₂ 63,1 kg (kirish 1205,2 kg ≈ chiqish 1205,2 kg).
+- **Taxmin G — titrimetrik standartlash**: 0,2500 g Na₂CO₃ + 24,85 mL HCl → C(HCl) = 0,18984 mol/L (pH 0,722).
 - **Fizik konstantalar**: M 36,461 g/mol; Tb −85,05 °C; Tm −114,22 °C; T_k 51,4 °C; p_k 83,1 bar; ρ_k 450,14 kg/m³; ρ_gaz(0 °C, 1 atm) 1,627 kg/m³; ρ_gaz(15 °C, 1 bar) 1,534 kg/m³; d_gaz/havo 1,2702; S°(g) 186,90 J/(mol·K); ΔfH°(g) −92,31 kJ/mol; suvdagi eruvchanlik 720 g/L (20 °C); azeotrop 20,2 % / 108,6 °C.
 
-## Grafiklar (5 ta — jadval ma’lumotlari va model chizig‘i; tajriba ma’lumoti EMAS)
-1. `spetsiatsiya.png` / `spetsiatsiya.csv` — suvli HCl: model pH (log o‘q, 9 ta konsentratsiya) va jadvalning apparent pH nuqtalari (7 ta).
+## Grafiklar (5 ta — jadval ma’lumotlari va taxminiy chiziq; tajriba ma’lumoti EMAS)
+1. `spetsiatsiya.png` / `spetsiatsiya.csv` — suvli HCl: shartli hisob pH (log o‘q, 9 ta konsentratsiya) va jadvalning apparent pH nuqtalari (7 ta).
 2. `eritma.png` / `eritma.csv` — yuqori panel: qaynash harorati (10–38 %); pastki panel: bug‘ bosimi (ustun) va zichlik (yozuv ostida).
 3. `ishlabchiqarish.png` / `ishlabchiqarish.csv` — 1000 kg HCl uchun mass oqimi: NaCl 1602,8, H₂SO₄ 1345,0, Na₂SO₄ 1947,8 kg; sintetik usul qatorlari.
 4. `metallar.png` / `metallar.csv` — 1 g metallga to‘g‘ri kelgan HCl sarfi (Fe, Zn, Al, Mg, Cu).
 5. `chiqindi.png` / `chiqindi.csv` — yuqori panel: neytralizatsiya mass balansi; pastki panel: tiklash sikli (FeCl₂ → Fe₂O₃ + HCl).
-Qo‘shimcha ma’lumot fayli: `fizik_hcl.csv` (16 qator — HCl fizik konstantalari). Har bir grafikda «model egri chizig‘i; o‘lchov ma’lumoti emas» yoki «jadval ma’lumotlari» belgisi bor.
+Qo‘shimcha ma’lumot fayli: `fizik_hcl.csv` (16 qator — HCl fizik konstantalari). Har bir grafikda «taxminiy egri chiziq; o‘lchov ma’lumoti emas» yoki «jadval ma’lumotlari» belgisi bor.
 
 ## Sxemalar (7 ta, original o‘quv ishlari)
 `fizikx.png` (gaz holati, kritik nuqta, eritma, azeotrop, gidronium tuzlari), `olishsx.png` (Mannheim va sintetik usul, tozalash, yig‘ish, navlar), `kloridlarsx.png` (oddiy xloridlar, kislota muhitidagi tuzlar, xloro-komplekslar, tuz hosil qilish, analitik ahamiyati), `metalsx.png` (passivatsiya yo‘qligi, mis istisnosi, vodorod embrittlementi, teshik korroziya), `suvsizsx.png` (suvsiz dissotsiatsiya, Lewis kislota, ion suyuqligi, H₀ qiymatlari, HF bilan taqqoslash), `qollanishsx.png` (pickling, VCM, dezinfectsiya, ion almashinuv, oziq-ovqat va dori), `tahlilsx.png` (standartlash, dead-stop, Kjeldahl, argentometriya, zamonaviy usullar).
 
 ## Illyustratsiyalar (5 ta, original; mikrofoto/atom tuzilmasi emas)
-`molekulax.png` (HCl molekulalari va dipol–dipol ta’sir; vodorod bog‘i yo‘qligi), `korroziyax.png` (po‘latni tozalash: oksid qatlamining erishi va H₂ ajralishi), `teshikx.png` (teshik (pitting) korroziya: Cl⁻ ning himoya qatlamini buzishi), `idishx.png` (saqlash va transport: idish tanlash mezonlari), `hisob.png` (Model A — ishlab chiqarish; B — neytralizatsiya; C — metall; D — tiklash). Rang, o‘lcham va geometriya shartli.
+`molekulax.png` (HCl molekulalari va dipol–dipol ta’sir; vodorod bog‘i yo‘qligi), `korroziyax.png` (po‘latni tozalash: oksid qatlamining erishi va H₂ ajralishi), `teshikx.png` (teshik (pitting) korroziya: Cl⁻ ning himoya qatlamini buzishi), `idishx.png` (saqlash va transport: idish tanlash mezonlari), `hisob.png` (Taxmin A — ishlab chiqarish; B — neytralizatsiya; C — metall; D — tiklash). Rang, o‘lcham va geometriya shartli.
 
 ## Cheklovlar
-- Sonli egri chiziqlar, massalar va energetik ko‘rsatkichlar — ochiq shartli model hisoblari; real o‘lchov yoki reyting emas.
-- Spetsiatsiya modeli faolik koeffitsiyentlarni, suv faolligini va gidronium agregatlarini hisobga olmaydi; jadvaldagi pH — titrimetrik (apparent) ko‘rsatkich.
+- Sonli egri chiziqlar, massalar va energetik ko‘rsatkichlar — ochiq shartli hisoblar; real o‘lchov yoki reyting emas.
+- Spetsiatsiya shartli hisobi faolik koeffitsiyentlarni, suv faolligini va gidronium agregatlarini hisobga olmaydi; jadvaldagi pH — titrimetrik (apparent) ko‘rsatkich.
 - Pickling koeffitsiyentlari va tiklash natijalari o‘rtacha sanoat qiymatlari; aniq zavod ma’lumotlari emas.
 - Sifat mezonlari (Fe, Pb, As, suv, erkin/total HCl) umumiy tavsif sifatida berilgan; spetsifikatsiya chegaralari keltirilmagan.
 - Qurilma, texnologik parametrlar, konsentratsiya va idish materiali tanlash hamda tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.

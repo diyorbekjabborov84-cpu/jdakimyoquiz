@@ -27,7 +27,7 @@ panels = [
  (2, 'anidrsx.png', 'sxema', 'Anhidr HF erituvchi tizimi.',
   '6.2.3-sxema. Proton holati, Lewis kislotalar va superkislota hosil bo‘lishi (sxematik).'),
  (3, 'spetsiatsiya.png', 'grafik', 'Suvli HF: zarrachalarning ulushi.',
-  '6.2.4-grafik. HF, F⁻ va HF₂⁻ ulushlari konsentratsiyaga bog‘liqligi (model egri chizig‘i).'),
+  '6.2.4-grafik. HF, F⁻ va HF₂⁻ ulushlari konsentratsiyaga bog‘liqligi (taxminiy egri chiziq).'),
  (4, 'olishsx.png', 'sxema', 'Ishlab chiqarish va qayta foydalanish.',
   '6.2.5-sxema. Fluoritdan HF gacha, quruq tozalash va CaF₂ cho‘qmasini tiklash (sxematik).'),
  (5, 'shishasx.png', 'sxema', 'Shishani yemirish mexanizmi.',
@@ -40,16 +40,16 @@ panels = [
   '6.2.9-rasm. SiO₂ qatlami va substrat: HF faqat qatlamni eritadi (sxematik, original).'),
  (9, 'xavfsizliksx.png', 'sxema', 'Xavfsizlik zanjiri.',
   '6.2.10-sxema. Oldini olish, aniqlash, javob va chiqindini boshqarish (sxematik).'),
- (10, 'hisob.png', 'rasm', 'Ishlangan hisob: to‘rt model.',
-  '6.2.11-rasm. Model A — spetsiatsiya; B — yemirish; C — chiqindi; D — kaltsiy.')]
+ (10, 'hisob.png', 'rasm', 'Ishlangan hisob: to‘rt shartli hisob.',
+  '6.2.11-rasm. Taxmin A — spetsiatsiya; B — yemirish; C — chiqindi; D — kaltsiy.')]
 
 extra = {
- 2: [('kalsiy.png', '6.2.3-grafik. Fluorid ionining kationlar bilan kuchli bog‘lanishi: Ca²⁺ talabi (model egri chizig‘i).')],
+ 2: [('kalsiy.png', '6.2.3-grafik. Fluorid ionining kationlar bilan kuchli bog‘lanishi: Ca²⁺ talabi (taxminiy egri chiziq).')],
  4: [('idishx.png', '6.2.5-rasm. Saqlash va transport: idish tanlash (sxematik, original).')],
- 5: [('yemirish.png', '6.2.6-grafik. SiO₂ yemirish tezligi va zarrachalarning hissi (model egri chizig‘i).')],
+ 5: [('yemirish.png', '6.2.6-grafik. SiO₂ yemirish tezligi va zarrachalarning hissi (taxminiy egri chiziq).')],
  6: [('qatlamx.png', '6.2.7-rasm. Fluorid qatlami: metall sirtidagi himoya plyonkasi (sxematik, original).')],
- 7: [('passivatsiya.png', '6.2.8-grafik. Metallning fluoridga aylanishi (model egri chizig‘i).')],
- 9: [('chiqindi.png', '6.2.10-grafik. Neytralizatsiya mass balansi va qoldiq fluorid (model egri chizig‘i).')]}
+ 7: [('passivatsiya.png', '6.2.8-grafik. Metallning fluoridga aylanishi (taxminiy egri chiziq).')],
+ 9: [('chiqindi.png', '6.2.10-grafik. Neytralizatsiya mass balansi va qoldiq fluorid (taxminiy egri chiziq).')]}
 
 LABEL = {'grafik': 'HISOBIY GRAFIK', 'sxema': 'TUSHUNTIRUVCHI SXEMA', 'rasm': 'CHIZMA VA IZOH'}
 
@@ -245,7 +245,7 @@ for idx, ((title, paras), (pidx, pic, kind, panel, note)) in enumerate(zip(secti
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

@@ -3,7 +3,7 @@
     "caption": "3.6.1-jadval. Bir xil muvozanat, turli vaqt o‘lchovi",
     "headers": [
       "Kattalik",
-      "Dastlabki model",
+      "Dastlabki taxminiy hisob",
       "Ikkala k ni 10× oshirish"
     ],
     "widths": [
@@ -47,7 +47,7 @@
   "orders": {
     "caption": "3.6.2-jadval. Tezlik qonuni va birliklar",
     "headers": [
-      "Model",
+      "Taxminiy hisob",
       "k ning birligi",
       "Muhim shart"
     ],
@@ -80,7 +80,7 @@
       [
         "ln([S]_t/[S]_0)",
         "−k_obs t",
-        "Qaytmas / mos psevdobirinchi model"
+        "Qaytmas / mos psevdobirinchi taxminiy hisob"
       ],
       [
         "Umumiy tenglama",
@@ -128,14 +128,14 @@
         "Ikkala yo‘l uchun bir xil"
       ],
       [
-        "1-bo‘limdagi model",
+        "1-bo‘limdagi shartli hisob",
         "Boshqa sonli parametrlar",
         "Bu profil K=4 ga moslashtirilmagan"
       ]
     ]
   },
   "temperature": {
-    "caption": "3.6.4-jadval. E_a=50,0 kJ mol⁻¹ shartli Arrhenius modeli",
+    "caption": "3.6.4-jadval. E_a=50,0 kJ mol⁻¹ shartli Arrhenius nazariyasi",
     "headers": [
       "T, K",
       "k, s⁻¹",
@@ -200,7 +200,7 @@
       [
         "6,5",
         "0,0000163246",
-        "Ayni model minimumi"
+        "Ayni shartli hisob minimumi"
       ],
       [
         "9,0",
@@ -359,7 +359,7 @@
     "rows": [
       [
         "Eksponenta",
-        "Mos k_obs bilan ishchi model",
+        "Mos k_obs bilan ishchi shartli hisob",
         "Barcha bosqichlar birinchi tartibli"
       ],
       [

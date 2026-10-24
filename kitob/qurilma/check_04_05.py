@@ -1,4 +1,4 @@
-"""QA: model identities, native mathematics, layout and figure inventory for 4.5."""
+"""QA: taxminiy hisob identities, native mathematics, layout and figure inventory for 4.5."""
 from pathlib import Path
 from collections import Counter
 from zipfile import ZipFile
@@ -63,7 +63,7 @@ for T, val in ((600, 2.2e-3), (700, 9.8e-2), (900, 15.0), (1000, 90.0), (1200, 1
     assert math.isclose(k, val, rel_tol=0.12), (T, k, val)
 near(math.exp(lnK(dH(*RX_H2SO4), dS(*RX_H2SO4), 780.0)), 1.0, 1e-2)
 
-# Kinetik model nuqtalari
+# Kinetik shartli hisob nuqtalari
 near(arrhenius_k(298.15), 3.0200e-05, 1e-3); near(half_life(298.15), 2.2956e04, 1e-3)
 near(arrhenius_k(320.0), 4.7413e-04, 1e-3); near(half_life(320.0), 1461.4, 1e-3)
 near(arrhenius_k(350.0), 1.1886e-02, 1e-3); near(half_life(350.0), 58.30, 1e-3)
@@ -178,7 +178,7 @@ notes = json.loads((D / 'matn/04_05_yonlavhalar.json').read_text())
 assert sum(map(len, notes)) == 22 and len(notes) == 11
 tables = json.loads((D / 'matn/04_05_jadvallar.json').read_text())
 assert len(tables) == 11
-print(f'PASS: {points} model nuqtasi; termodinamik, kinetik va sulfit identifikatsiyalari; '
+print(f'PASS: {points} taxminiy hisob nuqtasi; termodinamik, kinetik va sulfit identifikatsiyalari; '
       f'{len(rx)} atom/zarjad balansi; {omml} OMML qator / {fracs} kasr / {subs} pastki / {sups} yuqori; '
       f'11 jadval, 16 rasm, 22 yon lavha, 3:1 tuzilma.')
 print('Words with math:', len(alltext.split()), 'Bytes:', p.stat().st_size)

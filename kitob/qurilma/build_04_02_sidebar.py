@@ -175,7 +175,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     runs(p,'HISOBIY GRAFIK' if idx in [1,2,5,7] else 'TUSHUNTIRUVCHI SXEMA',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
     extra_models={
-      0:[('nitrat_model.png','4.2.1-rasm. NO₃⁻ ning tekis ulanish modeli; N(+5), O(−2), umumiy zaryad −1.')],
+      0:[('nitrat_model.png','4.2.1-rasm. NO₃⁻ ning tekis ulanish tasviri; N(+5), O(−2), umumiy zaryad −1.')],
       6:[('fosfit_yon.png','4.2.2-rasm. H₃PO₃ da bitta P–H va ikkita O–H.'),('gipofosfit_yon.png','4.2.3-rasm. H₃PO₂ da ikkita P–H va bitta O–H.')],
       7:[('peroksid_model.png','4.2.4-rasm. H₂O₂: peroksidning O–O ulanishi; O(−1).')]}
     for image,caption in extra_models.get(idx,[]):
@@ -209,7 +209,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[4] OpenStax. Chemistry 2e. Appendix L: Standard Electrode (Half-Cell) Potentials. https://openstax.org/books/chemistry-2e/pages/l-standard-electrode-half-cell-potentials . 25 °C qiymatlari: Cu²⁺/Cu +0,337 V, Fe³⁺/Fe²⁺ +0,771 V, nitrat/NO +0,957 V, permanganat/Mn²⁺ +1,507 V va peroksid juftlari.',
         '[5] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018. N, P va S birikmalariga umumiy bibliografik tayanch; aniq sahifalar tekshirilmagan.',
         '[6] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. OUP, 2018. Faollik, elektrokimyo va termodinamik potensialga bibliografik tayanch; aniq sahifalar tekshirilmagan.',
-        'Grafiklar va sxemalar original hisobiy ishlanma; tajriba emas. Rasmlar ulanish modellari, atom koordinatalari yoki elektron zichlik tasviri emas. Nazariy redoks tenglamalari zaharli gazlarni olish tajribasiga ko‘rsatma emas.'
+        'Grafiklar va sxemalar original hisobiy ishlanma; tajriba emas. Rasmlar ulanish taxminiy hisoblari, atom koordinatalari yoki elektron zichlik tasviri emas. Nazariy redoks tenglamalari zaharli gazlarni olish tajribasiga ko‘rsatma emas.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

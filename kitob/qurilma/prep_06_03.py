@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""6.3 "HCl — xlorid kislota" — model ma'lumotlari va CSV jadvallar.
+"""6.3 "HCl — xlorid kislota" — taxminiy hisob ma'lumotlari va CSV jadvallar.
 
-Barcha sonli natijalar ochiq shartli model hisoblari (o'lchov ma'lumoti emas).
+Barcha sonli natijalar ochiq shartli hisoblar (o'lchov ma'lumoti emas).
 Manbalar: Wikipedia (Hydrochloric acid — fizik jadval, ishlab chiqarish, qo'llanish),
 Air Liquide / Messer / Cheméo (kritik nuqta), OSHA va NIOSH (chegaralar),
 IPSI-2021 (spray roasting), Unipa (pickling koeffitsiyentlari), JACS (xloroaluminat).
@@ -36,7 +36,7 @@ M_NA2CO3_H2O = 226.0   # kristall soda (ikkilanma)
 # --- kislota konstantalari --------------------------------------------------
 PKA_HCL = -5.9                 # suvda, nazariy baho (Wikipedia/Trummal)
 KA_HCL = 10 ** (-PKA_HCL)      # 7,9·10^5
-LOG_K_CL2 = 0.7                # HCl + Cl- ⇌ HCl2- (model; HF2- ga o'xshash)
+LOG_K_CL2 = 0.7                # HCl + Cl- ⇌ HCl2- (taxminiy hisob; HF2- ga o'xshash)
 K_CL2 = 10 ** LOG_K_CL2
 
 # --- fizik konstantalar (nashr ma'lumotlari) --------------------------------
@@ -70,7 +70,7 @@ METALS = [
 
 # ---------------------------------------------------------------- spetsiatsiya
 def speciation(c, ka=KA_HCL, kf=K_CL2):
-    """Suvli HCl: [H3O+], [Cl-], [HCl], [HCl2-] — ideal erituvchi modeli.
+    """Suvli HCl: [H3O+], [Cl-], [HCl], [HCl2-] — ideal erituvchi sharoiti.
 
     Ka = h*cl/[HCl];  HCl + Cl- ⇌ HCl2- (Kf);  zaryad h = cl + [HCl2-].
     """
@@ -105,7 +105,7 @@ def speciation_series(cs=(0.10, 0.50, 1.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0)):
 
 # ---------------------------------------------------------------- ishlab chiqarish
 def mannheim(m_hcl=1000.0, yield_pct=0.98):
-    """2NaCl + H2SO4 -> Na2SO4 + 2HCl (Mannheim/so'k usuli) — model."""
+    """2NaCl + H2SO4 -> Na2SO4 + 2HCl (Mannheim/so'k usuli) — taxminiy hisob."""
     n_hcl = m_hcl / M_HCL                      # kmol
     m_nacl = n_hcl * M_NACL                    # kg  (n(NaCl) = n(HCl))
     m_h2so4 = 0.5 * n_hcl * M_H2SO4            # kg
@@ -121,7 +121,7 @@ def mannheim(m_hcl=1000.0, yield_pct=0.98):
 
 
 def synthesis(m_hcl=1000.0):
-    """H2 + Cl2 -> 2HCl (HCl pechi) — model: xom ashyosiz yo'l."""
+    """H2 + Cl2 -> 2HCl (HCl pechi) — taxminiy hisob: xom ashyosiz yo'l."""
     n_hcl = m_hcl / M_HCL                      # kmol
     return dict(m_hcl=m_hcl, n_hcl=n_hcl,
                 m_h2=0.5 * n_hcl * 2.016,       # kg
@@ -141,7 +141,7 @@ def pickling_balance(m_steel=1.0):
 
 
 def regeneration(m_fecl2=1000.0):
-    """4FeCl2 + 4H2O + O2 -> 2Fe2O3 + 8HCl (spray roasting) — model."""
+    """4FeCl2 + 4H2O + O2 -> 2Fe2O3 + 8HCl (spray roasting) — taxminiy hisob."""
     n = m_fecl2 / M_FECL2                    # kmol
     m_fe2o3 = 0.5 * n * M_FE2O3
     m_hcl = 2.0 * n * M_HCL
@@ -155,7 +155,7 @@ def regeneration(m_fecl2=1000.0):
 
 # ---------------------------------------------------------------- neytralizatsiya
 def neutralisation(m_solution=1000.0, pct=10.0, agent='Na2CO3'):
-    """Chiqindini neytralizatsiya qilish mass balansi (model)."""
+    """Chiqindini neytralizatsiya qilish mass balansi (shartli hisob)."""
     m_hcl = m_solution * pct / 100.0
     n_hcl = m_hcl / M_HCL                     # kmol
     if agent == 'Na2CO3':
@@ -179,12 +179,12 @@ def neutralisation(m_solution=1000.0, pct=10.0, agent='Na2CO3'):
 
 
 def residual_chloride(na_free=0.050):
-    """Neytralizatsiyadan keyingi qoldiq Cl- (mg/L) — model: 1 L da."""
+    """Neytralizatsiyadan keyingi qoldiq Cl- (mg/L) — taxminiy hisob: 1 L da."""
     return dict(na=na_free, cl_mg=na_free * 35.453 * 1000.0)
 
 
 def titration_standardisation(m_naco3=0.2500, v_hcl_ml=24.85):
-    """Na2CO3 bilan HCl titrlash (standartlash) modeli."""
+    """Na2CO3 bilan HCl titrlash (standartlash) taxminiy hisobi."""
     n_naco3 = m_naco3 / M_NA2CO3
     n_hcl = 2.0 * n_naco3
     v_l = v_hcl_ml / 1000.0
@@ -195,7 +195,7 @@ def titration_standardisation(m_naco3=0.2500, v_hcl_ml=24.85):
 
 # ---------------------------------------------------------------- metall yemirilishi
 def metal_dissolution(m_metal=1.0):
-    """1 g metallning HCl bilan erishi (model)."""
+    """1 g metallning HCl bilan erishi (shartli hisob)."""
     out = []
     for mt in METALS:
         n_metal = m_metal / mt['m']
@@ -302,7 +302,7 @@ def build_csvs():
 
 def main():
     build_csvs()
-    print('— suvli HCl spetsiatsiyasi (model) —')
+    print('— suvli HCl spetsiatsiyasi (shartli hisob) —')
     for s in speciation_series():
         print('  c=%5.2f M  h=%.4f  Cl-=%.4f  HCl=%.4f  HCl2-=%.4f  pH=%6.3f  ulushlar: HCl %5.2f %% Cl- %5.2f %% HCl2- %5.2f %%'
               % (s['c'], s['h'], s['cl'], s['hcl'], s['cl2'], s['ph'],

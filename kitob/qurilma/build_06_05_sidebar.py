@@ -25,7 +25,7 @@ panels = [
  (1, 'fizikx.png', 'sxema', 'HI: fizik xossalar.',
   '6.5.2-sxema. Gaz holati, kritik nuqta, eritma, azeotrop va eruvchanlik (sxematik).'),
  (2, 'guruh.png', 'grafik', 'Guruh bo‘yicha kislotalik.',
-  '6.5.3-grafik. Bog‘ energiyasi hamda suv va DMSOdagi pK_a (model egri chizig‘i).'),
+  '6.5.3-grafik. Bog‘ energiyasi hamda suv va DMSOdagi pK_a (taxminiy egri chiziq).'),
  (3, 'olishsx.png', 'sxema', 'Ishlab chiqarish usullari.',
   '6.5.4-sxema. To‘g‘ridan-to‘g‘ri, gidrazin, fosfor usullari va yod sikli (sxematik).'),
  (4, 'triiodidsx.png', 'sxema', 'Yodidlar va yod komplekslari.',
@@ -33,23 +33,23 @@ panels = [
  (5, 'metalsx.png', 'sxema', 'Metallarga ta’sir.',
   '6.5.6-sxema. Passivatsiya yo‘qligi, mis istisnosi, kumush yodidi (sxematik).'),
  (6, 'redoks.png', 'grafik', 'Redoks: yod olishi.',
-  '6.5.7-grafik. I₃⁻ ulushi va HI → I₂ yo‘llari (model egri chizig‘i).'),
+  '6.5.7-grafik. I₃⁻ ulushi va HI → I₂ yo‘llari (taxminiy egri chiziq).'),
  (7, 'organiksx.png', 'sxema', 'Organik kimyoga ta’sir.',
   '6.5.8-sxema. Alkil iodidlari, Markerovnikov qoidasi va Cativa sikli (sxematik).'),
  (8, 'qollanishsx.png', 'sxema', 'Qo‘llanish sohalari.',
   '6.5.9-sxema. Sirya ishlab chiqarish, yodlangan tuz, tibbiyot va elektronika (sxematik).'),
  (9, 'tahlilsx.png', 'sxema', 'Tahlil usullari.',
   '6.5.10-sxema. Standartlash, dead-stop titr, yodometriya va zamonaviy usullar (sxematik).'),
- (10, 'hisob.png', 'rasm', 'Ishlangan hisob: besh model.',
-  '6.5.11-rasm. Model A — ishlab chiqarish; B — yod sikli; C — metall; D — neytralizatsiya; E — yodometriya.', 3.15)]
+ (10, 'hisob.png', 'rasm', 'Ishlangan hisob: besh shartli hisob.',
+  '6.5.11-rasm. Taxmin A — ishlab chiqarish; B — yod sikli; C — metall; D — neytralizatsiya; E — yodometriya.', 3.15)]
 
 extra = {
- 3: [('ishlabchiqarish.png', '6.5.4-grafik. Sintetik usullar va yod sikli mass oqimi (model egri chizig‘i).')],
- 5: [('metallar.png', '6.5.6-grafik. Metall yemirilishida HI sarfi (model egri chizig‘i).', 2.80)],
+ 3: [('ishlabchiqarish.png', '6.5.4-grafik. Sintetik usullar va yod sikli mass oqimi (taxminiy egri chiziq).')],
+ 5: [('metallar.png', '6.5.6-grafik. Metall yemirilishida HI sarfi (taxminiy egri chiziq).', 2.80)],
  6: [('yodradio.png', '6.5.7-rasm. Radioyod: tabiiy va sun’iy manbalar (sxematik, original).')],
  8: [('idishx.png', '6.5.9-rasm. Saqlash va transport: idish tanlash mezonlari (sxematik, original).', 2.80),
      ('teshikx.png', '6.5.9-rasm. HI bilan korroziya: yuzada ulanish (sxematik, original).', 2.80)],
- 10: [('chiqindi.png', '6.5.11-grafik. Neytralizatsiya mass balansi (model).', 2.55)]}
+ 10: [('chiqindi.png', '6.5.11-grafik. Neytralizatsiya mass balansi (shartli hisob).', 2.55)]}
 
 LABEL = {'grafik': 'HISOBIY GRAFIK', 'sxema': 'TUSHUNTIRUVCHI SXEMA', 'rasm': 'CHIZMA VA IZOH'}
 
@@ -185,8 +185,8 @@ for idx, ((title, paras), pan) in enumerate(zip(sections, panels)):
         band('6.5. HI — yodid kislota', PALE, NAVY, 18, True)
     else:
         band('6.5  /  HI — YODID KISLOTA', PALE, NAVY, 11, True)
-    p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(6)
-    p.paragraph_format.space_after = Pt(9); p.paragraph_format.keep_with_next = True
+    p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(3)
+    p.paragraph_format.space_after = Pt(6); p.paragraph_format.keep_with_next = True
     runs(p, title, 14, True, NAVY)
     table = doc.add_table(rows=1, cols=2); table.alignment = WD_TABLE_ALIGNMENT.CENTER; table.autofit = False
     table.columns[0].width = Cm(13.5); table.columns[1].width = Cm(4.5)
@@ -246,7 +246,7 @@ for idx, ((title, paras), pan) in enumerate(zip(sections, panels)):
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

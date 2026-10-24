@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Original conceptual diagrams and illustrative model graphs, not measured data."""
+"""Original conceptual diagrams and illustrative taxminiy hisob grafiklari, not measured data."""
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 import math,csv
@@ -29,7 +29,7 @@ def axes(d,xlabel,ylabel,lo,hi,ylo,yhi):
  line(d,(x0,y0),(x0,y1),GRAY,3);line(d,(x0,y1),(x1,y1),GRAY,3)
  text(d,(80,110),ylabel,27);text(d,(170,770),xlabel,27)
  return pos
-im,d=canvas('Bog‘ energiyasi modeli');pos=axes(d,'r / rₑ','V / Dₑ',.6,3,-1.2,2.2)
+im,d=canvas('Bog‘ energiyasi hisobi');pos=axes(d,'r / rₑ','V / Dₑ',.6,3,-1.2,2.2)
 rows=[]
 for i in range(241):
  r=.6+i*.01;v=(1-math.exp(-2*(r-1)))**2-1;rows.append((r,v))
@@ -59,7 +59,7 @@ im,d=canvas('Ikki dipolning yig‘indisi');pos=axes(d,'θ, gradus','μ / μᵦ',
 rows=[(i,2*math.cos(math.radians(i/2))) for i in range(181)];d.line([pos(x,y) for x,y in rows],fill=BRONZE,width=6)
 for x in [0,60,120,180]:text(d,(pos(x,0)[0]-18,715),str(x),26)
 for y in [0,1,2]:text(d,(70,pos(0,y)[1]-15),str(y),26)
-text(d,(65,835),'Teng bog‘ dipollari modeli',26,GRAY);save(im,'dipol')
+text(d,(65,835),'Teng bog‘ dipollari hisobi',26,GRAY);save(im,'dipol')
 with (OUT/'dipol.csv').open('w') as f:w=csv.writer(f);w.writerow(['theta_degrees','mu_over_mu_b']);w.writerows(rows)
 im,d=canvas('Kislotalik — umumiy natija')
 for y,title,body in [(160,'1. Reagent','HA va erituvchi'),(365,'2. Elektronlar','Bog‘ va zaryad taqsimoti'),(570,'3. Mahsulotlar','A⁻ va protonlangan suv')]:

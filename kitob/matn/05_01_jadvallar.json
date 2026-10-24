@@ -148,7 +148,7 @@
         "25 °C standart qiymatlar"
       ],
       [
-        "Model",
+        "Taxminiy hisob",
         "ΔH° va ΔS° doimiy",
         "Issiqlik sig‘imi hisobga olinmagan"
       ],
@@ -203,7 +203,7 @@
         "300 → 400 K: K 255 marta"
       ],
       [
-        "Model",
+        "Taxminiy hisob",
         "N₂O₄ ⇌ 2NO₂; ideal gaz",
         "1, 10 va 100 bar egri chiziqlari"
       ],
@@ -345,7 +345,7 @@
       [
         "Konversiya X",
         "Reagentning mahsulotga ulushi",
-        "Model: SO₂ → SO₃: 0,96"
+        "Taxminiy hisob: SO₂ → SO₃: 0,96"
       ],
       [
         "Selektivlik S",
@@ -355,7 +355,7 @@
       [
         "Unum η",
         "Haqiqiy va nazariy miqdor nisbati",
-        "Modelda η = 0,9408 (94,08 %)"
+        "Taxminiy hisobda η = 0,9408 (94,08 %)"
       ],
       [
         "Nazariy miqdor",
@@ -379,7 +379,7 @@
       ],
       [
         "Chegara",
-        "Model sodda",
+        "Shartli hisob sodda",
         "Issiqlik sig‘imi va faza o‘zgarishi yo‘q"
       ]
     ]
@@ -600,7 +600,7 @@
       [
         "Unum va chiqindi",
         "94,08 %; 0,4604 kg/kg",
-        "Chiqindi omili model bo‘yicha"
+        "Chiqindi omili bo‘yicha shartli hisob"
       ],
       [
         "Suv balansi",

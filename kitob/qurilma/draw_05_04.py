@@ -1,5 +1,5 @@
 """Original teaching figures for 5.4 "Sanoat prinsiplari".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -82,10 +82,10 @@ for name, v, col in items:
     txt(d, 30, y + 6, name, 23, INK)
     txt(d, 258 + v / mx * 400, y + 8, '%.2f kg' % v, 22, col)
     y += 62
-txt(d, 45, 655, 'Model: 1000 kg 68 % li HNO₃ eritmasi asosida', 24, N)
+txt(d, 45, 655, 'Taxminiy hisob: 1000 kg 68 % li HNO₃ eritmasi asosida', 24, N)
 txt(d, 45, 700, 'HNO₃ 680,00 kg; NH₃ 183,80; O₂ 690,68; suv chiqarilgan 306,12 kg', 22, B)
 txt(d, 45, 745, 'Konsentratsiya: distillat 1546,07 kg, toluen 1239,95 kg (aylanadi)', 22, G)
-txt(d, 45, 790, 'Massa oqimi modeli; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 790, 'Massa oqimi taxminiy hisobi; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'oqim')
 
 # --- Graph 2: bug' darajalari --------------------------------------------
@@ -102,7 +102,7 @@ for pp, tt, hh in STEAM:
     txt(d, x + 14, y + 8, 'h_fg = %.0f kJ/kg' % hh, 20, G)
 txt(d, 45, 865, 'Issiqlik integratsiyasi: yuqori daraja qizdiradi, past daraja bug‘latadi', 22, N)
 txt(d, 45, 910, 'Bug‘latish entalpiyasi daraja oshganda kamayadi: 2257,5 → 1441,0 kJ/kg', 22, B)
-txt(d, 45, 955, 'Bug‘ jadvali qiymatlari; model sxemasida ishlatiladi', 22, G)
+txt(d, 45, 955, 'Bug‘ jadvali qiymatlari; taxminiy hisob sxemasida ishlatiladi', 22, G)
 txt(d, 45, 1010, 'Bug‘ jadvali, CRC; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'bug')
 
@@ -119,10 +119,10 @@ for i, (name, pct) in enumerate(OPEX_MIX):
     txt(d, x0 + 6, y + 20, name, 22, '#FFFFFF' if pct > 10 else INK)
     txt(d, x1 + 8, y + 22, '%d %%' % pct, 22, cols[i % len(cols)])
     y += 58
-txt(d, 45, 640, 'Model: umumiy ekspluatatsiya xarajati 420 USD/t (100 000 t/y zavod)', 22, N)
+txt(d, 45, 640, 'Taxminiy hisob: umumiy ekspluatatsiya xarajati 420 USD/t (100 000 t/y zavod)', 22, N)
 txt(d, 45, 690, 'Xom ashyo 42 %; energiya 26 %; ish kuchi 8 %; ta’minot 9 %', 22, B)
 txt(d, 45, 735, 'Qurilma va IT 5 %; ekologik xarajatlar 6 %; boshqa 4 %', 22, G)
-txt(d, 45, 790, 'Ular ulushi modeldan; real zavod ko‘rsatkichlari emas', 23, G)
+txt(d, 45, 790, 'Ular ulushi taxminiy hisobdan; real zavod ko‘rsatkichlari emas', 23, G)
 save(im, 'opex')
 
 # --- Graph 4: issiqlik integratsiyasi ------------------------------------
@@ -167,7 +167,7 @@ for i, (name, t) in enumerate(stream):
     d.ellipse((x, y + 4, x + 18, y + 22), fill=B)
     txt(d, x + 6, y + 5, str(i + 1), 15, '#FFFFFF')
     txt(d, x + 26, y + 2, '%s — %d °C' % (short.get(name, name), t), 20)
-txt(d, 40, 940, 'Model: oqim harorat profili va bug‘ darajalari; pinch nuqtasi sxema bo‘yicha', 21, B)
+txt(d, 40, 940, 'Taxminiy hisob: oqim harorat profili va bug‘ darajalari; pinch nuqtasi sxema bo‘yicha', 21, B)
 txt(d, 40, 985, 'Issiqlik integratsiyasi: yuqori daraja qizdiradi, past daraja bug‘latadi', 21, N)
 txt(d, 40, 1030, 'O‘lchov ma’lumoti emas', 22, G)
 save(im, 'issiqlik')
@@ -185,12 +185,12 @@ for x, y in line:
     d.ellipse((px - 6, py - 6, px + 6, py + 6), fill=B)
 yp = p(0, 560)[1]
 d.line((120, yp, 680, yp), fill=RED, width=3)
-txt(d, 470, yp - 34, 'bozor narxi 560 USD/t (model)', 21, RED)
+txt(d, 470, yp - 34, 'bozor narxi 560 USD/t (shartli hisob)', 21, RED)
 e = economics()
 txt(d, 45, 830, 'c(V) = c_o‘z + FOA/V;  c_o‘z = 324 USD/t;  FOA = 9,60 mln USD/y', 23, N)
 txt(d, 45, 875, '50 000 t/y → 516 USD/t;  100 000 → 420;  200 000 → 372 USD/t', 22, B)
-txt(d, 45, 920, 'OEE = 0,92 × 0,95 × 0,99 = 0,8653 → savdo 86 526 t/y (model)', 22, G)
-txt(d, 45, 970, 'Model egri chizig‘i; real narxlar emas', 23, G)
+txt(d, 45, 920, 'OEE = 0,92 × 0,95 × 0,99 = 0,8653 → savdo 86 526 t/y (shartli hisob)', 22, G)
+txt(d, 45, 970, 'Shartli hisob egri chizig‘i; real narxlar emas', 23, G)
 save(im, 'birlikqiymat')
 
 
@@ -214,7 +214,7 @@ scheme('sxematurlari', 'Texnologik sxemaning uch turi', [
     ('Oraliq mahsulotli', 'Avval oraliq modda ajratiladi', '5.2 tozalash bosqichi'),
     ('Yopiq (qaytma oqimli)', 'Modda mahsulotga yaqin qaytariladi', 'Reagent sarfi kamayadi'),
     ('Darajalar', 'Birinchi → ikkinchi → oxirgi', 'Boshqaruv hisoboti uchun'),
-    ('Sxema — hujjat', 'Har bir oqim: nomi, miqdori, holati', 'Model asosi')])
+    ('Sxema — hujjat', 'Har bir oqim: nomi, miqdori, holati', 'Taxminiy hisob asosi')])
 
 scheme('oqsxemasi', 'Oqim sxemasi: apparat va oqimlar (sxematik)', [
     ('Oksidlash reaktori', 'NH₃ + O₂ → NO + H₂O', 'Reaksion issig‘i qaytariladi'),
@@ -248,7 +248,7 @@ scheme('chiqindisx', 'Chiqindilarni boshqarish sxemasi', [
     ('Gazlar', 'NOₓ, SO₂, HCl, VOC', 'Skrubber, katalitik redoks'),
     ('Suyuqlar', 'Kislotali quyimlar, og‘ir metallar', 'Neytralizatsiya, qayta ishlatish'),
     ('Qattiq', 'Katalizator, sital adsorbat', 'Regeneratsiya, qoldiq'),
-    ('Miqdor kamaytirish', 'Qayta ishlatish → uzatish → yo‘qotish', 'Omil: 0,012 (model)'),
+    ('Miqdor kamaytirish', 'Qayta ishlatish → uzatish → yo‘qotish', 'Omil: 0,012 (shartli hisob)'),
     ('Hisobot', 'CO₂e, chiqindi omili, suv sarfi', 'ISO 14001')])
 
 scheme('raqamlisx', 'Raqamli boshqaruv zanjiri', [
@@ -276,7 +276,7 @@ txt(d, 130, 315, 'konstruktsiya po‘lati (karkas)', 22, '#FFFFFF')
 d.rectangle((90, 360, 670, 400), fill='#EDE3D2')
 txt(d, 140, 368, 'izolyatsiya', 22, INK)
 txt(d, 35, 470, 'Sxematik kesim; material tanlash sharoitga bog‘liq', 22, G)
-txt(d, 35, 520, 'Model: korroziya tezligi 0,0012 g/(m²·soat) — o‘lchilgan qiymat', 21, G)
+txt(d, 35, 520, 'Taxminiy hisob: korroziya tezligi 0,0012 g/(m²·soat) — o‘lchilgan qiymat', 21, G)
 save(im, 'materiallar')
 
 im, d = base('Xotira: tank park va uzluksizlik (sxematik)')
@@ -290,7 +290,7 @@ d.line((390, 120, 390, 195), fill=G, width=5)
 d.polygon([(390, 195), (376, 170), (404, 170)], fill=G)
 txt(d, 405, 120, 'xom ashyo', 22, G)
 txt(d, 35, 510, 'Sxematik: xotira — uzluksiz ishlash va xavf zaxirasi', 22, G)
-txt(d, 35, 555, 'Model: quvvat 100 000 t/y; OEE 0,8653 → savdo 86 526 t/y', 21, G)
+txt(d, 35, 555, 'Taxminiy hisob: quvvat 100 000 t/y; OEE 0,8653 → savdo 86 526 t/y', 21, G)
 save(im, 'xotira')
 
 im, d = base('Xavf boshqaruv zanjiri (sxematik)')
@@ -302,7 +302,7 @@ for i, (s, col) in enumerate([('Oldini olish', N), ('Aniqlash', B), ('Hamkorlikd
         txt(d, x + 205, 258, '→', 30, G)
 txt(d, 40, 165, 'Xavf boshqaruv: uch qatlam', 26, N)
 txt(d, 40, 390, 'Har bir qatlam alohida tekshiriladi; tizim butun sifatida baholanadi', 22, INK)
-txt(d, 40, 440, 'Model: oqibat × ehtimollik ro‘yxati; har o‘zgarishda qayta ko‘riladi', 21, G)
+txt(d, 40, 440, 'Taxminiy hisob: oqibat × ehtimollik ro‘yxati; har o‘zgarishda qayta ko‘riladi', 21, G)
 txt(d, 40, 495, 'Texnologik parametrlar berilmaydi', 22, RED)
 save(im, 'xavf')
 
@@ -322,19 +322,19 @@ for i, (s, col) in enumerate(labels):
 txt(d, 40, 175, 'Elektron izchillik: xom ashyodan tayyor mahsulotgacha', 25, N)
 txt(d, 40, 395, 'Muvaffaqiyatsizlik aniqlansa, butun partiya emas — tegishli partiya qaytariladi', 22, INK)
 txt(d, 40, 450, 'Farmatsevtik xom ashyo uchun majburiy; reagent va elektron darajasida iqtisodiy ustuvorlik', 21, G)
-txt(d, 40, 505, 'Model sxema; tizimning aniq arxitekturasi korxonaga bog‘liq', 22, G)
+txt(d, 40, 505, 'Taxminiy hisob sxema; tizimning aniq arxitekturasi korxonaga bog‘liq', 22, G)
 save(im, 'izchillik')
 
 im, d = base('Ishlangan hisob: zanjir va iqtisodiyot', 640)
 c = chain_balance(); e = economics()
 d.rounded_rectangle((30, 140, 350, 320), radius=12, outline=N, width=4)
-txt(d, 55, 160, 'Model A: zanjir balansi', 25, N)
+txt(d, 55, 160, 'Taxmin A: zanjir balansi', 25, N)
 txt(d, 55, 200, 'NH₃ 183,80 kg → HNO₃ 680,00 kg', 21, INK)
 txt(d, 55, 232, 'Suv chiqarilgan 306,12 kg', 21, INK)
 txt(d, 55, 264, 'Mahsulot 693,88 kg (98 %)', 21, INK)
 txt(d, 55, 294, 'Reaksiya −4468,2 MJ; quritish 1203,1 MJ', 20, G)
 d.rounded_rectangle((410, 140, 730, 320), radius=12, outline=B, width=4)
-txt(d, 435, 160, 'Model B: iqtisodiyot', 25, B)
+txt(d, 435, 160, 'Taxmin B: iqtisodiyot', 25, B)
 txt(d, 435, 200, 'CAPEX 120,0 mln USD; FOA 96 USD/t', 21, INK)
 txt(d, 435, 232, 'c_o‘z = 324 USD/t; c = 420 USD/t', 21, INK)
 txt(d, 435, 264, 'OEE 0,8653 → 86 526 t/y', 21, INK)
@@ -345,7 +345,7 @@ txt(d, 60, 420, 'Birlik narx hajmga bog‘liq', 21, INK)
 d.rounded_rectangle((410, 360, 730, 490), radius=12, outline=TEAL, width=4)
 txt(d, 440, 380, 'Chiqindi omili, samaradorlik', 21, TEAL)
 txt(d, 440, 420, 'To‘rt o‘lchak birga baholanadi', 21, INK)
-txt(d, 40, 525, 'Model zanjiri; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 40, 525, 'Shartli hisob zanjiri; o‘lchov ma’lumoti emas', 23, G)
 txt(d, 40, 570, 'Texnologik parametrlar va texnologik retseptlar berilmaydi', 23, G)
 save(im, 'hisob')
 

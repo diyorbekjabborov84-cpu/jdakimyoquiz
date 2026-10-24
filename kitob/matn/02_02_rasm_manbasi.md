@@ -18,7 +18,7 @@ Barcha 11 tasvir `qurilma/draw_02_02.py` orqali original chizildi; tashqi fotosu
 - `nitrat_model.png`: N ko‘k, O qizil; trigonal tekis proyeksiya. Tayoqchalar bog‘ yo‘nalishlari, yakka bog‘lar haqidagi mutlaq da’vo emas.
 - `karbonat_model.png`: C kulrang, O qizil; trigonal tekis proyeksiya.
 - `dimer_model.png`: ikki neytral suv molekulasi; O–H uzluksiz, H···O bronza uzuq chiziq; masshtabsiz.
-- `gidroksoniy_model.png`: H₃O⁺ piramidal ko‘rinishining o‘quv modeli; eritmadagi yagona proton holati emas.
+- `gidroksoniy_model.png`: H₃O⁺ piramidal ko‘rinishining o‘quv tasviri; eritmadagi yagona proton holati emas.
 
 ## Maket va tekshiruv
-3+1 ustun nisbati saqlandi. Qo‘shimcha to‘rtta molekulyar rasm aynan chetki 25% ustunga, nitrat/delokallashuv/vodorod bog‘i/proton solvatlanishi bo‘limlariga kiritildi. Yonlavhalar soni 14 taga tushirilib, rasm uchun joy ko‘paytirildi. 7 bo‘lim, 7 jadval, 6 sxema, 1 model grafik, 4 molekulyar rasm, 2 raqamlangan formula. ZIP yaxlitligi, TNR, indekslar, eski markerlar yo‘qligi tekshirildi; dimer, rezonans va IR tasvirlari ko‘rildi. Word/PDF sahifalari rendererda tekshirilmagan.
+3+1 ustun nisbati saqlandi. Qo‘shimcha to‘rtta molekulyar rasm aynan chetki 25% ustunga, nitrat/delokallashuv/vodorod bog‘i/proton solvatlanishi bo‘limlariga kiritildi. Yonlavhalar soni 14 taga tushirilib, rasm uchun joy ko‘paytirildi. 7 bo‘lim, 7 jadval, 6 sxema, 1 hisobiy grafik, 4 molekulyar rasm, 2 raqamlangan formula. ZIP yaxlitligi, TNR, indekslar, eski markerlar yo‘qligi tekshirildi; dimer, rezonans va IR tasvirlari ko‘rildi. Word/PDF sahifalari rendererda tekshirilmagan.

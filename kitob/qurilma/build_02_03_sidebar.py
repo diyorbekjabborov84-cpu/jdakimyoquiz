@@ -52,7 +52,7 @@ panels=[
 ('Mustaqil mezonlar',[],'2.3.1-sxema. Bir modda bir nechta mustaqil mezon bo‘yicha tavsiflanadi.'),
 ('Tarkibiy guruhlar',[],'2.3.2-sxema. Kislorodli va kislorodsiz guruhlar kuch shkalasi emas.'),
 ('Tuzilish va asoslilik',[],'2.3.3-sxema. Fosfor kislotalarida O–H va P–H joylarini ajratish; an’anaviy P=O notatsiyasi.'),
-('Kuch va ulush',[],'2.3.1-grafik. Ideal bir bosqichli modelda α ning Kₐ/c ga bog‘liqligi; c normallangan konsentratsiya.'),
+('Kuch va ulush',[],'2.3.1-grafik. Ideal bir bosqichli hisobda α ning Kₐ/c ga bog‘liqligi; c normallangan konsentratsiya.'),
 ('Ko‘prik va perokso bog‘',[],'2.3.4-sxema. P–O–P va S–O–O fragmentlari; boshqa atomlar tashlab ketilgan.'),
 ('Xavfni alohida baholang',[],'2.3.5-sxema. HF misolida suvdagi kuch bilan xavflilik orasidagi farq.'),
 ('Ko‘p mezonli pasport',[],'2.3.6-sxema. Obyekt va sharoitdan boshlab xossalargacha tekshirish tartibi.')
@@ -198,7 +198,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'HISOBIY GRAFIK' if idx == 3 else 'TUZILISH SXEMASI',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={0:('hf_model.png','2.3.1-rasm. HF ning shar–tayoqcha modeli.'),1:('fosfat_model.png','2.3.2-rasm. H₃PO₄: uch O–H guruhi.'),2:('fosfit_model.png','2.3.3-rasm. H₃PO₃: ikki O–H va bir P–H.'),4:('borat_model.png','2.3.4-rasm. B(OH)₃ ning tekis modeli.')}
+    extra_models={0:('hf_model.png','2.3.1-rasm. HF ning shar–tayoqcha tasviri.'),1:('fosfat_model.png','2.3.2-rasm. H₃PO₄: uch O–H guruhi.'),2:('fosfit_model.png','2.3.3-rasm. H₃PO₃: ikki O–H va bir P–H.'),4:('borat_model.png','2.3.4-rasm. B(OH)₃ ning tekis tasviri.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -226,7 +226,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         refs=[
         '[1] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018. Oksokislotalar, bor va fosfor birikmalari.',
         '[2] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018. Faollik va eritmadagi kislota–asos muvozanatlari.',
-        'Barcha sxema va molekulyar rasmlar mavzu uchun yaratilgan o‘quv tasvirlari. α grafigi ideal hisobiy model, tajribaviy natija emas. Xavfsizlikka oid izohlar SDS o‘rnini bosmaydi.'
+        'Barcha sxema va molekulyar rasmlar mavzu uchun yaratilgan o‘quv tasvirlari. α grafigi ideal shartli hisob, tajribaviy natija emas. Xavfsizlikka oid izohlar SDS o‘rnini bosmaydi.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)
@@ -243,4 +243,4 @@ assert counter==6
 assert comparison_count==7
 assert sum(len(notes) for notes in side_notes)==14
 print(OUT)
-print('7 sections; 7 tables; 6 diagrams; 1 model graph; 4 molecular renders; 6 equations; 14 margin notes.')
+print('7 sections; 7 tables; 6 diagrams; 1 taxminiy hisob grafigi; 4 molecular renders; 6 equations; 14 margin notes.')

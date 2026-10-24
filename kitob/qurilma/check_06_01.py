@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""6.1 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""6.1 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json
 from docx import Document
@@ -23,7 +23,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: molekulyar o‘lchamlar')
+print('1) Taxminiy hisob: molekulyar o‘lchamlar')
 a_hf, a_hcl, a_hbr, a_hi = (M.acid(k) for k in ('HF', 'HCl', 'HBr', 'HI'))
 ck(close(a_hf['m'], 20.006), 'M(HF) = 20,006 g/mol')
 ck(close(a_hcl['m'], 36.461), 'M(HCl) = 36,461 g/mol')
@@ -44,22 +44,22 @@ ck(close(a_hf['tm'], -83.6) and close(a_hcl['tm'], -114.2)
 ck(close(a_hf['azeo'], 37.0) and close(a_hcl['azeo'], 20.2)
    and close(a_hbr['azeo'], 47.6) and close(a_hi['azeo'], 56.9), 'azeotrop: 37 / 20,2 / 47,6 / 56,9 %')
 
-print('2) Model: kislotalik, gidratatsiya, termik barqarorlik')
+print('2) Taxminiy hisob: kislotalik, gidratatsiya, termik barqarorlik')
 ck(close(a_hf['pka'], 3.17) and close(a_hcl['pka'], -5.9)
    and close(a_hbr['pka'], -8.8) and close(a_hi['pka'], -9.5), 'pKa (suv): 3,17 / −5,9 / −8,8 / −9,5')
 ck(close(a_hf['pka_dmso'], 15.0) and close(a_hi['pka_dmso'], -10.9), 'pKa (DMSO): 15 … −10,9')
 g_hcl, g_hi = M.gas_to_ion('HCl'), M.gas_to_ion('HI')
 ck(close(g_hcl['dg'], -35.901, 1e-3), 'ΔG°(HCl, gaz→ion) = −35,90 kJ/mol')
 ck(close(g_hi['dg'], -53.27, 1e-3), 'ΔG°(HI, gaz→ion) = −53,27 kJ/mol')
-ck(1.9e6 < g_hcl['k'] < 2.0e6, 'K(model, HCl) ≈ 1,95×10⁶')
-ck(2.1e9 < g_hi['k'] < 2.2e9, 'K(model, HI) ≈ 2,15×10⁹')
+ck(1.9e6 < g_hcl['k'] < 2.0e6, 'K(taxminiy hisoblar, HCl) ≈ 1,95×10⁶')
+ck(2.1e9 < g_hi['k'] < 2.2e9, 'K(taxminiy hisoblar, HI) ≈ 2,15×10⁹')
 t_hf, t_hi = M.thermal_decomposition('HF'), M.thermal_decomposition('HI')
 ck(close(t_hf['dg'], 550.8, 1e-3) and close(t_hi['dg'], 15.9, 1e-3), 'ΔG° dekompozitsiya: 550,8 … 15,9 kJ/mol')
 ck(close(t_hf['log10k'], -96.4959, 1e-3) and close(t_hi['log10k'], -2.7856, 1e-3), 'lgK: −96,50 … −2,79')
 ck(close(M.oxidising_balance('HF'), -754.6, 0.05) and close(M.oxidising_balance('HI'), -481.16, 0.05),
    'oksidlovchi balans: −754,6 … −481,2 kJ/mol')
 
-print('3) Model: muvozanat, shisha, neytralizatsiya, redoks, azeotrop')
+print('3) Taxminiy hisob: muvozanat, shisha, neytralizatsiya, redoks, azeotrop')
 s = M.hf_ionisation_series()
 ck(close(s[0]['x'], 0.0022898, 1e-6) and close(s[0]['pct'], 22.8975, 1e-3) and close(s[0]['ph'], 2.6402, 1e-3),
    'HF 0,010 M: x = 0,002290 M; 22,90 %; pH 2,640')
@@ -94,7 +94,7 @@ for name, n in [('kislotalik', 4), ('energiya', 4), ('fizik', 4), ('azeotrop', 4
 pngs = sorted(p.stem for p in ASSETS.glob('*.png'))
 ck(len(pngs) == 17, 'rasmlar soni: %d' % len(pngs))
 
-print('5) Matn: model raqamlari matnda bor')
+print('5) Matn: taxminiy hisob raqamlari matnda bor')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '06_01_jadvallar.json').read_text()), ensure_ascii=False)
 notes_txt = json.dumps(json.loads((ROOT / 'matn' / '06_01_yonlavhalar.json').read_text()), ensure_ascii=False)
@@ -116,7 +116,7 @@ for s in need:
     ck(s in ms_all, 'matnda «%s» bor' % s)
 ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va 11 jadval belgisi')
 ck('amaliyot tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
-ck('o‘lchov ma’lumotlari emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
+ck('o‘lchov ma’lumotlari emas' in ms, 'taxminiy hisob cheklovi matnda ko‘rsatilgan')
 ck('CaF₂' in ms and 'H₂S' in ms and 'SO₂' in ms, 'olish reaksiyalari matnda')
 ck('SiO₂' in ms and 'PTFE' in ms, 'materiallar bo‘limi kalit tushunchalari matnda')
 

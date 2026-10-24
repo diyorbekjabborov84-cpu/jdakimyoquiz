@@ -43,7 +43,7 @@ def render(name,title,atoms,bonds):
   a,b=atoms[i],atoms[j];line(d,(a[1],a[2]),(b[1],b[2]),'#8F9DA6',17);line(d,(a[1]-3,a[2]-3),(b[1]-3,b[2]-3),'#CAD5DD',5)
  colors={'Cl':(65,170,115),'S':(205,170,45),'Si':(150,140,170),'N':(70,125,205),'O':(225,80,75),'P':(215,145,55),'B':(180,115,160),'F':(65,170,115),'H':(245,246,249)}
  for label,x,y in atoms:sphere(d,x,y,44 if label!='H' else 27,colors[label],label)
- text(d,(38,595),'Idealizatsiyalangan o‘quv modeli',24,G);save(im,name)
+ text(d,(38,595),'Idealizatsiyalangan o‘quv tasviri',24,G);save(im,name)
 im,d=canvas('Bufer tarkibi o‘zgarib javob beradi',1000)
 for i,(a,b) in enumerate([('Kislota qo‘shildi','A⁻ + H₃O⁺ → HA + H₂O'),('Asos qo‘shildi','HA + OH⁻ → A⁻ + H₂O'),('Nisbat o‘zgardi','pH ham cheklangan darajada siljidi'),('Zaxira cheklangan','Bir shakl kamaygach ta’sir ortadi')]):box(d,150+i*180,a,b)
 save(im,'mexanizm')
@@ -101,10 +101,10 @@ for k,col in [(3,B),(2,N)]:d.line([p(r[0],r[k]) for r in rows],fill=col,width=5)
 text(d,(45,855),'Ko‘k: ikki oila + suv balansi',26,N);text(d,(45,915),'Bronza: suvni tashlagan taqrib',25,B)
 text(d,(45,975),'HF: K_c=6,4×10⁻⁴ M',26,G)
 text(d,(45,1040),'NH₄⁺: K_c=5,6×10⁻¹⁰ M',25,G);save(im,'ikkala');csvout('ikkala',['log_C','C_M','pH_full','pH_approx'],rows)
-im,d=canvas('Birlashtiruvchi muvozanat modeli',1100)
-for i,(a,b) in enumerate([('1. Tarkib','HA, tuz, BH⁺ yoki poliprotik'),('2. Oilalar','Har biri uchun moddiy balans'),('3. Elektr neytrallik','Kuzatuvchi ionlar ham qatnashadi'),('4. Konstantalar','Bir xil T, birlik va model'),('5. Nazorat','Suv, ulush, cho‘kma va gaz')]):box(d,130+i*185,a,b)
+im,d=canvas('Birlashtiruvchi muvozanat taxminiy hisobi',1100)
+for i,(a,b) in enumerate([('1. Tarkib','HA, tuz, BH⁺ yoki poliprotik'),('2. Oilalar','Har biri uchun moddiy balans'),('3. Elektr neytrallik','Kuzatuvchi ionlar ham qatnashadi'),('4. Konstantalar','Bir xil T, birlik va taxminiy hisob'),('5. Nazorat','Suv, ulush, cho‘kma va gaz')]):box(d,130+i*185,a,b)
 save(im,'nazorat')
-# Structural illustrations. Sticks show connectivity, not a complete bond-order model.
+# Structural illustrations. Sticks show connectivity, not a complete bond-order taxminiy hisob.
 render('h2po4_model','H₂PO₄⁻: ikki O–H ulanishi',[('P',370,285),('O',370,130),('O',195,315),('O',545,315),('O',370,440),('H',150,410),('H',620,265)],[(0,1),(0,2),(0,3),(0,4),(2,5),(3,6)])
 render('hpo4_model','HPO₄²⁻: bitta O–H ulanishi',[('P',370,285),('O',370,130),('O',195,315),('O',545,315),('O',370,440),('H',150,410)],[(0,1),(0,2),(0,3),(0,4),(2,5)])
 render('nh4_model','NH₄⁺: ammoniy ioni',[('N',370,315),('H',370,135),('H',200,350),('H',540,350),('H',370,480)],[(0,1),(0,2),(0,3),(0,4)])

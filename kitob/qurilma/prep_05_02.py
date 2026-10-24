@@ -1,4 +1,4 @@
-"""5.2 "Kislotalarni tozalash" — tozalash modeli va ma'lumotlar.
+"""5.2 "Kislotalarni tozalash" — tozalash taxminiy hisobi va ma'lumotlar.
 
 Barcha sonli egri chiziqlar shu modulda hisoblanadi: ular tajriba yoki
 o'lchov ma'lumotlari EMAS. Ksp va Kf — OpenStax Chemistry 2e, Appendix J
@@ -156,7 +156,7 @@ def thomas(c0, q_max=50.0, K=0.5, m_ads=2.0, v_void=0.2, v_end=None,
            steps=4000):
     """Ion almashinuv kolonkasining fronti kiring egri chizig'i.
 
-    Plug-flow model: dq/dV = C0 - C(q), C = q/[K(q_max - q)] (Langmuir
+    Plug-flow taxminiy hisob: dq/dV = C0 - C(q), C = q/[K(q_max - q)] (Langmuir
     izotermasi, darhol muvozanat). V - adsorbent massi (g).
     Qaytaradi: {'points': [(bed hajmi, C/C0), ...], 'q_end': ..., 'area': ...}
     """

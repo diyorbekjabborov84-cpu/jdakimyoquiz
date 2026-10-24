@@ -16,12 +16,12 @@
     ],
     [
       "k_obs shartli",
-      "pH yoki katalizatorning aktiv shakli vaqt davomida o‘zgarsa, doimiy k_obs modeli buzilishi mumkin."
+      "pH yoki katalizatorning aktiv shakli vaqt davomida o‘zgarsa, doimiy k_obs taxminiy hisobi buzilishi mumkin."
     ]
   ],
   [
     [
-      "Profil mustaqil model",
+      "Profil mustaqil taxminiy hisob",
       "80/55/45/−20 qiymatlari o‘quv sonlari. Ular 1-bo‘limdagi K=4 ga yoki real kislota tajribasiga tegishli emas."
     ],
     [
@@ -72,7 +72,7 @@
   [
     [
       "NO₂ radikal",
-      "Neytral NO₂ toq elektronli zarracha. Yon shar–tayoqcha tasviri to‘liq Lewis yoki elektron zichlik modeli emas."
+      "Neytral NO₂ toq elektronli zarracha. Yon shar–tayoqcha tasviri to‘liq Lewis yoki elektron zichlik taxminiy hisobi emas."
     ],
     [
       "NOₓ xavfi",

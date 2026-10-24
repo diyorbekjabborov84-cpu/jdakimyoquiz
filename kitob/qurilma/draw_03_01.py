@@ -61,7 +61,7 @@ for i in range(321):
  x=-10+i*.025;c=10**x;h,a=with_water(c);hq=quadratic(c);rows.append((x,c,-math.log10(h),-math.log10(hq),h,a))
 for k,col in [(2,N),(3,B)]:d.line([p(row[0],row[k]) for row in rows],fill=col,width=5)
 line(d,p(-10,7),p(-2,7),G,2)
-text(d,(40,850),'Ko‘k: suv bilan ideal hisob',27,N);text(d,(40,905),'Bronza: suvsiz kvadrat model',26,B);save(im,'suv_tasiri');csvout('suv_tasiri',['log10_C_over_c0','C_mol_L','pH_with_water','pH_quadratic','h_mol_L','alpha_with_water'],rows)
+text(d,(40,850),'Ko‘k: suv bilan ideal hisob',27,N);text(d,(40,905),'Bronza: suvsiz kvadrat yechim',26,B);save(im,'suv_tasiri');csvout('suv_tasiri',['log10_C_over_c0','C_mol_L','pH_with_water','pH_quadratic','h_mol_L','alpha_with_water'],rows)
 im,d=canvas('Umumiy ionni unutmang')
 for i,(a,b) in enumerate([('HA + NaA','A⁻ ning ikki manbasi bor'),('Zaryad balansi','h + [Na⁺] = [A⁻] + [OH⁻]'),('Moddiy balans','C_T = [HA] + [A⁻]'),('α_A','Shakl ulushi; h/C_T emas')]):box(d,150+i*180,a,b)
 save(im,'umumiy_ion')
@@ -73,7 +73,7 @@ for k,col in [(1,N),(2,B),(3,'#2A8C80')]:d.line([p(row[0],row[k]) for row in row
 for j,(lab,col) in enumerate([('H₂A',N),('HA⁻',B),('A²⁻','#2A8C80')]):text(d,(45+j*235,855),lab,31,col)
 text(d,(40,925),'K₁ = 10⁻³; K₂ = 10⁻⁷ mol L⁻¹',26,G);text(d,(40,1000),'Shartli ideal tizim; o‘lchov emas',25,G);save(im,'diprotik');csvout('diprotik',['pH','alpha_H2A','alpha_HA','alpha_A'],rows)
 im,d=canvas('Hisobni tekshirish tartibi',1100)
-for i,(a,b) in enumerate([('1. Obyekt va tarkib','HA / tuz / ko‘p protonli tizim'),('2. Model','Faollik va suv hissasi'),('3. Tenglamalar','Moddiy + zaryad + muvozanat'),('4. Yechim','Aniq yoki tekshirilgan taqrib'),('5. Qayta tekshirish','Ulushlar, birliklar, balanslar')]):box(d,130+i*185,a,b)
+for i,(a,b) in enumerate([('1. Obyekt va tarkib','HA / tuz / ko‘p protonli tizim'),('2. Taxminiy hisob','Faollik va suv hissasi'),('3. Tenglamalar','Moddiy + zaryad + muvozanat'),('4. Yechim','Aniq yoki tekshirilgan taqrib'),('5. Qayta tekshirish','Ulushlar, birliklar, balanslar')]):box(d,130+i*185,a,b)
 save(im,'algoritm')
 def sphere(d,x,y,r,color,label):
  for rr in range(r,0,-1):
@@ -86,7 +86,7 @@ def render(name,title,atoms,bonds):
   a,b=atoms[i],atoms[j];line(d,(a[1],a[2]),(b[1],b[2]),'#8F9DA6',17);line(d,(a[1]-3,a[2]-3),(b[1]-3,b[2]-3),'#CAD5DD',5)
  colors={'Cl':(65,170,115),'S':(205,170,45),'Si':(150,140,170),'N':(70,125,205),'O':(225,80,75),'P':(215,145,55),'B':(180,115,160),'F':(65,170,115),'H':(245,246,249)}
  for label,x,y in atoms:sphere(d,x,y,44 if label!='H' else 27,colors[label],label)
- text(d,(38,595),'Idealizatsiyalangan o‘quv modeli',24,G);save(im,name)
+ text(d,(38,595),'Idealizatsiyalangan o‘quv tasviri',24,G);save(im,name)
 render('suv_model','H₂O: proton akseptori',[('O',380,290),('H',230,410),('H',530,410)],[(0,1),(0,2)])
 render('hf_model','HF: bitta protonli molekula',[('H',265,325),('F',460,325)],[(0,1)])
 render('gidroksoniy_model','H₃O⁺: suvdagi qisqartma',[('O',380,290),('H',220,365),('H',540,365),('H',380,470)],[(0,1),(0,2),(0,3)])

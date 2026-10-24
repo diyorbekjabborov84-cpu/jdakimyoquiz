@@ -15,4 +15,4 @@
 - Hisob: x = 2Kₐc / (sqrt(Kₐ²+4Kₐc)+Kₐ); α=x/c; pH=−lg(x/(1 mol/L)).
 - Kuchli kislota taqqoslash chizig‘i: x=c.
 - Ideal suyultirilgan eritma; faollik koeffitsiyentlari bir; suv avtoionlanishi tashlab ketilgan.
-- Bu tajriba ma’lumotlari emas, muayyan kislotaga mansub deb berilmagan hisobiy modellar.
+- Bu tajriba ma’lumotlari emas, muayyan kislotaga mansub deb berilmagan hisobiy taxminiy hisoblar.

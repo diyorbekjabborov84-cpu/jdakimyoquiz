@@ -14,7 +14,7 @@ s=s[:a]+'''panels=[
 ('Anionning proton olishi',[],'3.5.2-sxema. Elektrolitik dissotsiatsiya va gidrolizni ajratish; muvozanatni balanslar bilan yopish.'),
 ('Kation kislotaligi',[],'3.5.3-sxema. Ammoniydagi va metall akvakompleksidagi proton donorni ajratish.'),
 ('Ikki ion va suv',[],'3.5.5-grafik. NH₄F ning ideal pH i: to‘liq balans va suvni tashlagan taqrib. 25 °C, γ≈1.'),
-('Modelni qayta tiklang',[],'3.5.4-sxema. Bufer va gidroliz uchun bir xil oilalar/balanslar usulini qo‘llash.')
+('Uni qayta tiklang',[],'3.5.4-sxema. Bufer va gidroliz uchun bir xil oilalar/balanslar usulini qo‘llash.')
 ]'''+s[b:]
 s=s.replace("variables={\n","variables={\n'β_juft,max':('β','juft,max'),'β_juft':('β','juft'),'β_suv':('β','suv'),'γ_h':('γ','h'),'n_tuz':('n','tuz'),'n_kislota':('n','kislota'),'Kₐ,j+1':('K','a,j+1'),'Kₐ,j':('K','a,j'),\n")
 a=s.index('    extra_models=');b=s.index('\n    if idx in extra_models:',a)

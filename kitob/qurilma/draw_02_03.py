@@ -36,7 +36,7 @@ d.line([pos(x,a) for x,q,a in rows],fill=N,width=6)
 for x in [-5,-3,-1,1,3]:text(d,(pos(x,0)[0]-13,724),str(x),26)
 for y,s in [(0,'0'),(.5,'0,5'),(1,'1')]:text(d,(48,pos(0,y)[1]-18),s,27)
 text(d,(55,110),'α',34);text(d,(215,785),'lg(Kₐ / c)',31)
-text(d,(45,860),'Ideal bir bosqichli model',28,G);text(d,(45,910),'Q = Kₐ / c = α²/(1−α)',27,B);save(im,'ulush')
+text(d,(45,860),'Ideal bir bosqichli hisob',28,G);text(d,(45,910),'Q = Kₐ / c = α²/(1−α)',27,B);save(im,'ulush')
 with (OUT/'ulush.csv').open('w') as ff:w=csv.writer(ff);w.writerow(['log10_Ka_over_c','Ka_over_c','alpha']);w.writerows(rows)
 im,d=canvas('Bog‘ turi — alohida mezon')
 for y,title,a,b,c in [(200,'Kondensatsiyalangan skelet','P','O','P'),(530,'Perokso fragment','S','O','O')]:
@@ -61,12 +61,12 @@ def render(name,title,atoms,bonds):
   a,b=atoms[i],atoms[j];line(d,(a[1],a[2]),(b[1],b[2]),'#8F9DA6',17);line(d,(a[1]-3,a[2]-3),(b[1]-3,b[2]-3),'#CAD5DD',5)
  colors={'O':(225,80,75),'P':(215,145,55),'B':(180,115,160),'F':(65,170,115),'H':(245,246,249)}
  for label,x,y in atoms:sphere(d,x,y,44 if label!='H' else 27,colors[label],label)
- text(d,(38,595),'Idealizatsiyalangan o‘quv modeli',24,G);save(im,name)
+ text(d,(38,595),'Idealizatsiyalangan o‘quv tasviri',24,G);save(im,name)
 render('hf_model','HF: qutbli molekula',[('H',265,325),('F',460,325)],[(0,1)])
 for name,title,lower in [('fosfat_model','H₃PO₄: uchta O–H','O'),('fosfit_model','H₃PO₃: bitta P–H','H')]:
  atoms=[('P',370,285),('O',370,130),('O',195,315),('O',545,315),(lower,370,440),('H',150,410),('H',620,265)]
  bonds=[(0,1),(0,2),(0,3),(0,4),(2,5),(3,6)]
  if lower=='O':atoms.append(('H',450,500));bonds.append((4,7))
  render(name,title,atoms,bonds)
-render('borat_model','B(OH)₃: tekis model',[('B',380,310),('O',380,155),('O',220,402),('O',540,402),('H',465,110),('H',130,355),('H',555,500)],[(0,1),(0,2),(0,3),(1,4),(2,5),(3,6)])
-print('11 original images; 1 model CSV:',OUT)
+render('borat_model','B(OH)₃: tekis tasvir',[('B',380,310),('O',380,155),('O',220,402),('O',540,402),('H',465,110),('H',130,355),('H',555,500)],[(0,1),(0,2),(0,3),(1,4),(2,5),(3,6)])
+print('11 original images; 1 taxminiy hisob CSV:',OUT)

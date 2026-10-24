@@ -18,15 +18,15 @@ NAVY = '0B2C4A'; BRONZE = 'C28E3B'; PALE = 'EDF3F7'; INK = '243746'
 panels = [
  ('Tanlash mezonlari', [], '5.1.1-sxema. Termodinamik, kinetik, texnologik va xavfsizlik mezonlari zanjiri.'),
  ('Olish usullari', [], '5.1.2-sxema. To‘g‘ridan-to‘g‘ri birikish, oksidlash zanjiri, tuzdan siqish, gidroliz va elektrokimyaviy usul.'),
- ('Gibbs energiyasi', [], '5.1.3-grafik. Standart Gibbs energiyasining haroratga bog‘liqligi; model egri chizig‘i.'),
+ ('Gibbs energiyasi', [], '5.1.3-grafik. Standart Gibbs energiyasining haroratga bog‘liqligi; taxminiy egri chiziq.'),
  ('Muvozanatni boshqarish', [], '5.1.4-grafik. N₂O₄ ⇌ 2NO₂ dissotsiatsiyasi konversiyasining harorat va bosimga bog‘liqligi.'),
  ('Kinetik to‘siqlar', [], '5.1.5-sxema. Reagent donadorligi, qalqon usuli, fazalararo mass transfer va harorat profili.'),
- ('Kaskad va bloklar', [], '5.1.6-grafik. Kaskadda umumiy konversiyaning bosqichlar soniga bog‘liqligi; model egri chizig‘i.'),
- ('Resurs samaradorligi', [], '5.1.7-grafik. Chiqindi omilining konversiyaga bog‘liqligi; 1000 t pyrit modeli.'),
+ ('Kaskad va bloklar', [], '5.1.6-grafik. Kaskadda umumiy konversiyaning bosqichlar soniga bog‘liqligi; taxminiy egri chiziq.'),
+ ('Resurs samaradorligi', [], '5.1.7-grafik. Chiqindi omilining konversiyaga bog‘liqligi; 1000 t pyrit bo‘yicha shartli hisob.'),
  ('Ajratish qiyinligi', [], '5.1.8-grafik. Minimal pog‘onalar soni nisbiy uchuvchanlikka bog‘liq (Fenske formulasi).'),
  ('Chiqindini ushlash', [], '5.1.9-sxema. Chiqindini yig‘ish, yutish va tiklash sikli.'),
  ('Sifat nazorati', [], '5.1.10-sxema. Titrlash, zichlik, rang, metallar, suv miqdori va hujjatlashtirish.'),
- ('Model zanjiri', [], '5.1.11-sxema. Pyritdan sulfat kislotagacha material oqimi modeli.')]
+ ('Shartli hisob zanjiri', [], '5.1.11-sxema. Pyritdan sulfat kislotagacha material oqimi taxminiy hisobi.')]
 
 extra = {
  1: [('oqim.png', '5.1.1-rasm. Material oqimi: kirish, mahsulot va chiqindi.')],
@@ -233,10 +233,10 @@ for idx, ((title, paras), (panel, nodes, note)) in enumerate(zip(sections, panel
         ]
         for ref in refs:
             p = left.add_paragraph(); p.paragraph_format.line_spacing = 1.0
-            p.paragraph_format.space_after = Pt(2); runs(p, ref, 8.5)
+            p.paragraph_format.space_after = Pt(2); runs(p, ref, 8)
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(2)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Konsentratsiya, harorat va pH oralig‘i eksperiment uchun ko‘rsatma emas; xavfli kislotalarning tayyorlanishi va saqlanishi bo‘yicha amaliyot tavsiyalari berilmaydi.', 8.5)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Konsentratsiya, harorat va pH oralig‘i ko‘rsatma emas; xavfli kislotalar bo‘yicha amaliyot tavsiyalari berilmaydi.', 8.5)
 
 p = sec.header.paragraphs[0]; runs(p, 'NOORGANIK KISLOTALAR', 8, False, NAVY)
 p = sec.footer.paragraphs[0]; p.alignment = WD_ALIGN_PARAGRAPH.RIGHT

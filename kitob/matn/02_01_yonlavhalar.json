@@ -16,7 +16,7 @@
   [
     [
       "Grafik sharti",
-      "Morse modeli: V/Dₑ = [1 − exp(−2(r/rₑ − 1))]² − 1. Parametrlar faraziy, tajriba emas."
+      "Morse funksiyasi: V/Dₑ = [1 − exp(−2(r/rₑ − 1))]² − 1. Parametrlar faraziy, tajriba emas."
     ],
     [
       "Nol qayerda?",
@@ -57,7 +57,7 @@
   ],
   [
     [
-      "Vektor modeli",
+      "Vektor yig‘indisi",
       "Grafik: μ/μᵦ = 2 cos(θ/2). Ikki teng bog‘ dipoli faraz qilingan; elektron zichlikning to‘liq hisobi emas."
     ],
     [

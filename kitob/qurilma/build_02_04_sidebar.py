@@ -198,7 +198,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'NOMLASH SXEMASI',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={1:('hcl_model.png','2.4.1-rasm. HCl ning shar–tayoqcha modeli.'),2:('sulfat_model.png','2.4.2-rasm. Sulfat ionining ideal modeli.'),3:('sulfat_kislota_model.png','2.4.3-rasm. H₂SO₄ dagi ikki OH guruhi.'),5:('sif6_model.png','2.4.4-rasm. [SiF₆]²⁻ ning oktaedrik proyeksiyasi.')}
+    extra_models={1:('hcl_model.png','2.4.1-rasm. HCl ning shar–tayoqcha tasviri.'),2:('sulfat_model.png','2.4.2-rasm. Sulfat ionining ideal sharoiti.'),3:('sulfat_kislota_model.png','2.4.3-rasm. H₂SO₄ dagi ikki OH guruhi.'),5:('sif6_model.png','2.4.4-rasm. [SiF₆]²⁻ ning oktaedrik proyeksiyasi.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -226,7 +226,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         refs=[
         '[1] Hartshorn, R. M.; Hellwich, K.-H.; Yerin, A.; Damhus, T.; Hutton, A. T. Brief guide to the nomenclature of inorganic chemistry. Pure Appl. Chem. 87 (2015), 1039–1049. DOI: 10.1515/pac-2014-0718. Veb matn: https://iupac.qmul.ac.uk/BriefGuide/inorganic.html (ayniqsa 2.8-bo‘lim).',
         '[2] Connelly, N. G.; Damhus, T.; Hartshorn, R. M.; Hutton, A. T. (tahr.). Nomenclature of Inorganic Chemistry: IUPAC Recommendations 2005. RSC, 2005. IR-8 va IR-9 boblari — chuqurlashtirish uchun.',
-        'O‘zbekcha muqobillar kitobning ishchi terminlari; xalqaro additiv nomlar inglizcha saqlandi. Barcha rasmlar original, idealizatsiyalangan o‘quv modellari; tajribaviy koordinatalar emas.'
+        'O‘zbekcha muqobillar kitobning ishchi terminlari; xalqaro additiv nomlar inglizcha saqlandi. Barcha rasmlar original, idealizatsiyalangan o‘quv taxminiy hisoblari; tajribaviy koordinatalar emas.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

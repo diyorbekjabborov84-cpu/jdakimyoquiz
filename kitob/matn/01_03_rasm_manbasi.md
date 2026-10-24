@@ -1,4 +1,4 @@
-# 1.3-mavzu — vizual manbalar va hisobiy modellar
+# 1.3-mavzu — vizual manbalar va hisobiy taxminiy hisoblar
 
 ## Brønsted portreti
 - Fayl: `rasmlar/bronsted_lowry/bronsted.jpg`.
@@ -14,7 +14,7 @@
 - Rasm qidiruvidagi birinchi WordPress portreti va nomi o‘xshash Johannes Brahms tasviri ishlatilmadi.
 
 ## Grafiklar
-- Mualliflik hisobiy modellar, tajriba nuqtalari emas.
+- Mualliflik hisobiy taxminiy hisoblar, tajriba nuqtalari emas.
 - `qurilma/draw_01_03.py`; grafiklar bilan birga CSV hisob jadvallari saqlanadi.
 - 1.3.1: K=10^(ΔpKa); dastlab HA va B teng miqdorda, mahsulotlar yo‘q, faqat bitta ideal muvozanat. f=sqrt(K)/(1+sqrt(K)). ΔpKa=−6…6.
 - 1.3.2: ideal ikki shaklli HA/A− tizimi. α(HA)=1/(1+10^d); α(A−)=10^d/(1+10^d), d=pH−pKa. d=−3…3. Bu titrlash egri chizig‘i emas.

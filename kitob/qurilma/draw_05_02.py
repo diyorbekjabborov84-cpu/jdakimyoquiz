@@ -1,5 +1,5 @@
 """Original teaching figures for 5.2 "Kislotalarni tozalash".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -87,7 +87,7 @@ txt(d, 300, p(1, -6)[1] - 34, 'reagent darajasi: 10⁻⁶', 24, G)
 txt(d, 45, 865, 'c/c₀ = (1/Φ)ᴺ — ajratish faktori Φ ga bog‘liq pasayish', 25, N)
 txt(d, 45, 920, 'ko‘k: Φ = 10;  bronza: 100;  teal: 1000;  kul: 10000', 25, B)
 txt(d, 45, 975, '10⁻⁶ gacha: Φ = 10 → 6 bosqich;  100 → 3;  1000 → 2', 24, G)
-txt(d, 45, 1030, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 24, G)
+txt(d, 45, 1030, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 24, G)
 save(im, 'kaskad')
 
 # --- Graph 1: cho'ktirish — metall qoldig'i pH ga bog'liqligi -------------
@@ -131,7 +131,7 @@ txt(d, 45, 865, '[Mⁿ⁺] = Ksp / [OH⁻]ⁿ;  lg[M] = lg Ksp − n·lg[OH⁻]'
 txt(d, 45, 920, 'ko‘k: Fe(OH)₃;  bronza: Cu(OH)₂;  teal: Ni(OH)₂;  kul: Cd(OH)₂', 23, B)
 txt(d, 45, 975, 'binafsha: Pb(OH)₂;  qizil punktli: Cu²⁺ + 4NH₃ (1,0 M)', 23, PURPLE)
 txt(d, 45, 1030, 'pH 2: Fe³⁺ 4,0×10⁻² M;  pH 7: Cu²⁺ 2,2×10⁻⁶ M;  pH 8: Cd²⁺ 5,9×10⁻³ M', 22, G)
-txt(d, 45, 1080, 'Ksp: OpenStax App. J;  model egri chizig‘i — o‘lchov ma’lumoti emas', 22, G)
+txt(d, 45, 1080, 'Ksp: OpenStax App. J;  taxminiy egri chiziq — o‘lchov ma’lumoti emas', 22, G)
 save(im, 'choqish')
 
 # --- Graph 2: rektifikatsiya — x-y diagrammasi ----------------------------
@@ -158,10 +158,10 @@ for i in range(len(pts) - 1):
 d.ellipse((p(0.95, 0.95)[0] - 6, p(0.95, 0.95)[1] - 6,
            p(0.95, 0.95)[0] + 6, p(0.95, 0.95)[1] + 6), fill=N)
 txt(d, 45, 865, 'Muvozanat: y = αx/(1 + (α−1)x);  diagonal: y = x', 25, N)
-txt(d, 45, 920, 'kul: α = 1,5;  bronza: 2,0;  teal: 3,0  (model, doimiy α)', 24, B)
+txt(d, 45, 920, 'kul: α = 1,5;  bronza: 2,0;  teal: 3,0  (taxminiy hisoblar, doimiy α)', 24, B)
 txt(d, 45, 975, 'α = 2,0: N = 16 pog‘ona (q = 1, R = 2,0, xF = 0,50)', 24, INK)
 txt(d, 45, 1030, 'R_min = 1,70;  α = 1,5: R_min = 3,50 > R (mumkin emas)', 23, G)
-txt(d, 45, 1080, 'Model: real kislota–suv tizimi ideal emas', 23, G)
+txt(d, 45, 1080, 'Taxminiy hisob: real kislota–suv tizimi ideal emas', 23, G)
 save(im, 'rektifikatsiya')
 
 # --- Graph 3: suvni olib tashlash ----------------------------------------
@@ -181,7 +181,7 @@ txt(d, 45, 865, 'Mass balansi: m(suv) = 100 − 100·w₀/w₁ (kislota yo‘qot
 txt(d, 45, 920, 'ko‘k: w₁ = 0,99;  bronza: 0,98;  teal: 0,90;  kul: 0,68', 24, B)
 txt(d, 45, 975, '0,50 → 0,98: 48,98 kg suv;  0,68 → 0,98: 30,61 kg;  0,75: 23,47 kg', 23, G)
 txt(d, 45, 1030, 'Azeotrop chegarasidan o‘tib bo‘lmaydi (oddiy bug‘lash)', 23, G)
-txt(d, 45, 1080, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1080, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'buglash')
 
 # --- Graph 4: ion almashinuv — fronti kiring ------------------------------
@@ -198,11 +198,11 @@ for c0, col in ((50, N), (100, B), (200, TEAL)):
     bv = breakthrough_bv(float(c0))
     x, y = p(bv, 0.5)
     d.ellipse((x - 7, y - 7, x + 7, y + 7), fill=col)
-txt(d, 45, 865, 'Plug-flow model, Langmuir izotermasi; q_max = 50 mg/g', 24, N)
+txt(d, 45, 865, 'Plug-flow taxminiy hisoblar, Langmuir izotermasi; q_max = 50 mg/g', 24, N)
 txt(d, 45, 915, 'ko‘k: 50 mg/L;  bronza: 100 mg/L;  teal: 200 mg/L', 24, B)
 txt(d, 45, 965, 'fronti kiring BV:  4,96  /  1,28  /  0,34', 24, INK)
 txt(d, 45, 1015, 'Massa balansi: yig‘ilgan miqdor 48,08 mg/g ≈ q_max', 23, G)
-txt(d, 45, 1065, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1065, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'front')
 
 
@@ -240,11 +240,11 @@ scheme('choqirish', 'Cho‘ktirish: reagent tanlash va chiqindi', [
     ('Ksp asosida tanlov', '[M] = Ksp/[OH⁻]ⁿ', 'pH — asosiy dastak'),
     ('Ortiqcha reagent qo‘shish', 'CaO, CuO, Ba(OH)₂', 'Kislota saqlanadi'),
     ('Cho‘kma ajratish', 'Filtratsiya', 'Reagent to‘liq chiqariladi'),
-    ('Chiqqindini baholash', 'E = m(chiqindi)/m(mahsulot)', 'Model: 0,00167 kg/kg'),
+    ('Chiqqindini baholash', 'E = m(chiqindi)/m(mahsulot)', 'Taxminiy hisob: 0,00167 kg/kg'),
     ('Resursni tiklash', 'Cu, Ag, Ni qaytariladi', 'Fe — yo‘qotish ma’qul')])
 
 scheme('ionsxema', 'Ion almashinuv kolonkasi va regeneratsiya', [
-    ('Kirish eritmasi', 'C₀ — ifloslik konsentratsiyasi', 'Model: 50–200 mg/L'),
+    ('Kirish eritmasi', 'C₀ — ifloslik konsentratsiyasi', 'Taxminiy hisob: 50–200 mg/L'),
     ('Smola qatlami', 'Kationit (H⁺ shakli)', 'Metall kationlari ushlanadi'),
     ('Fronti kiring', 'C/C₀ = 0,5 nuqtasi', 'Kolonka to‘lganini bildiradi'),
     ('Regeneratsiya', 'Reagent yuboriladi', 'Smola tiklanadi'),
@@ -343,7 +343,7 @@ txt(d, 180, 395, 'retentat', 24, B)
 txt(d, 35, 500, 'Sxematik; materiallar va parametrlar berilmaydi', 22, G)
 save(im, 'membrana')
 
-im, d = base('Model zanjiri: rangli HNO₃ va sulfat kislotadagi Fe', 620)
+im, d = base('Shartli hisob zanjiri: rangli HNO₃ va sulfat kislotadagi Fe', 620)
 h = no2_to_hno3(1000.0, 0.68, 4.0)
 f = fe_precipitation(1000.0, 0.0003)
 steps = [('NO₂ 4,0 t', 'rang beruvchi', N), ('O₂ 0,6955 t', 'kislotaga aylanadi', N),
@@ -362,7 +362,7 @@ txt(d, 80, 395, 'CaSO₄ 1,0969 t — chiqindi', 21, INK)
 d.rounded_rectangle((380, 330, 700, 440), radius=12, outline=TEAL, width=4)
 txt(d, 415, 350, 'E = 0,00167 kg/kg', 25, TEAL)
 txt(d, 405, 395, 'CaCO₃ yo‘lida: 0,7903 t yo‘qotish', 21, INK)
-txt(d, 40, 490, 'Model zanjiri; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 40, 490, 'Shartli hisob zanjiri; o‘lchov ma’lumoti emas', 23, G)
 txt(d, 40, 545, 'Texnologik parametrlar va retseptlar berilmaydi', 23, G)
 save(im, 'hisob')
 

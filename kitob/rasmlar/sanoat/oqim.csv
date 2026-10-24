@@ -1,11 +1,11 @@
 bosqich,ogilma,kirish_kg,chiqish_kg,izoh
 Absorbsiya (kirish),NH3,183.80,0,Katalitik oksidlashdan keyin
 Absorbsiya (kirish),O2,690.68,0,Havo tarkibida
-Absorbsiya (kirish),N2 (ortiqcha),2596.97,0,"Model: N2/O2 = 3,76"
+Absorbsiya (kirish),N2 (ortiqcha),2596.97,0,"Taxminiy hisob: N2/O2 = 3,76"
 Absorbsiya (kirish),H2O,222.79,0,Havo namligi va kislot qaytishi hisobiga
 68 % li eritma,HNO3,680.00,680.00,Absorbsiya natijasi
-68 % li eritma,H2O,320.00,320.00,Model
+68 % li eritma,H2O,320.00,320.00,Taxminiy hisob
 Konsentratsiya,H2O (chiqarilgan),306.12,0,Azeotrop yoki konsentratsiya
-Konsentratsiya,Toluen,1239.95,1239.95,Aylanadi; yo‘qotish model
+Konsentratsiya,Toluen,1239.95,1239.95,Aylanadi; yo‘qotish taxminiy hisob
 98 % li mahsulot,HNO3,680.00,680.00,Tayyor mahsulot
 98 % li mahsulot,H2O,13.88,13.88,Tayyor mahsulot

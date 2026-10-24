@@ -25,28 +25,28 @@ panels = [
  (1, 'gibridlanishx.png', 'sxema', 'H–X bog‘i va dipol moment.',
   '6.1.2-sxema. Elektron bulutining siljishi, σ bog‘ quyuqligi va vodorod bog‘i (sxematik).'),
  (2, 'kislotalik.png', 'grafik', 'Suvda tekislash va DMSOdagi farq.',
-  '6.1.3-grafik. pK_a qiymatlari suvda va DMSO da (model egri chizig‘i).'),
+  '6.1.3-grafik. pK_a qiymatlari suvda va DMSO da (taxminiy egri chiziq).'),
  (3, 'energiya.png', 'grafik', 'Energetik balans: bog‘ va gidratatsiya.',
-  '6.1.4-grafik. D(H–X), ΔH_hyd(X⁻) va ular yig‘indisi (model egri chizig‘i).'),
+  '6.1.4-grafik. D(H–X), ΔH_hyd(X⁻) va ular yig‘indisi (taxminiy egri chiziq).'),
  (4, 'termik.png', 'grafik', 'Termik barqarorlik: dekompozitsiya.',
-  '6.1.5-grafik. 2HX ⇌ H₂ + X₂ reaksiyasi uchun ΔG° va lgK (model egri chizig‘i).'),
+  '6.1.5-grafik. 2HX ⇌ H₂ + X₂ reaksiyasi uchun ΔG° va lgK (taxminiy egri chiziq).'),
  (5, 'olishsx.png', 'sxema', 'Olish usullari: bitta mantiq, to‘rt reagent.',
   '6.1.6-sxema. HF, HCl, HBr va HI olishining sxematik yo‘llari.'),
  (6, 'xossalarsx.png', 'sxema', 'Kislota xossalari: metallar, oksidlar, tuzlar.',
-  '6.1.7-sxema. Namoyonlar va neytralizatsiya mass balansi (model).'),
+  '6.1.7-sxema. Namoyonlar va neytralizatsiya mass balansi (shartli hisob).'),
  (7, 'redokssx.png', 'sxema', 'Redoks xossalari: qaytaruvchi xarakter.',
   '6.1.8-sxema. HBr va HI ning oksidlanishi hamda halogenning o‘zining oksidlovchi xarakteri.'),
  (8, 'materiallarx.png', 'sxema', 'Materiallar bilan munosabat.',
   '6.1.9-sxema. HF va shisha, metallarga ta’sir, idish tanlash mezonlari (sxematik).'),
  (9, 'xavfsizliksx.png', 'sxema', 'Xavfsizlik, ekologiya va logistika.',
   '6.1.10-sxema. HF ning tizimli toksikligi, neytralizatsiya va saqlash tashimoti.'),
- (10, 'hisob.png', 'rasm', 'Ishlangan hisob: uch model.',
-  '6.1.11-rasm. Model A — HF muvozanati; Model B — azeotrop; Model C — energiya balansi.')]
+ (10, 'hisob.png', 'rasm', 'Ishlangan hisob: uch shartli hisob.',
+  '6.1.11-rasm. Taxmin A — HF muvozanati; Taxmin B — azeotrop; Taxmin C — energiya balansi.')]
 
 extra = {
  0: [('guruhx.png', '6.1.1-rasm. To‘rt molekula va ularning o‘lchamlari (sxematik).')],
- 1: [('fizik.png', '6.1.2-grafik. Bog‘ uzunligi va dipol moment (model egri chizig‘i).')],
- 2: [('dissotsiatsiya.png', '6.1.3-grafik. HF dissotsiatsiyasi: konsentratsiya va ionizatsiya (model).')],
+ 1: [('fizik.png', '6.1.2-grafik. Bog‘ uzunligi va dipol moment (taxminiy egri chiziq).')],
+ 2: [('dissotsiatsiya.png', '6.1.3-grafik. HF dissotsiatsiyasi: konsentratsiya va ionizatsiya (shartli hisob).')],
  3: [('speciatsiyax.png', '6.1.4-rasm. HF eritmasida spetsiatsiya: HF, HF₂⁻ va H₂F⁺ (sxematik).')],
  8: [('sishax.png', '6.1.9-rasm. Shishani HF yemirishi: sxematik kesim.')],
  9: [('logistikax.png', '6.1.10-rasm. Saqlash va transport: idish tanlash (sxematik).')]}
@@ -246,7 +246,7 @@ for idx, ((title, paras), (pidx, pic, kind, panel, note)) in enumerate(zip(secti
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Qurilma, texnologik parametrlar, konsentratsiya va idish materiali tanlash bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Qurilma, texnologik parametrlar, konsentratsiya va idish materiali tanlash bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

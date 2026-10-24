@@ -13,12 +13,12 @@ def drying_equations():
       [seq(var('X', ''), ' = ', frac('m(suv)', 'm(namuna)'), ';   ',
            var('w', ''), ' = ', frac('m(suv)', 'm(quruq modda)')),
        seq(var('X', ''), ' = ', frac(var('w', ''), seq('1 + ', var('w', ''))),
-           '   (model: 0,35 kg / 1,00 kg → 0,2593)'),
+           '   (taxminiy hisob: 0,35 kg / 1,00 kg → 0,2593)'),
        seq('Quruq qoldig‘ (2.2.32):  ',
            frac(seq('m₀ − m₁'), 'm₀'), ' × 100 %  →  0,50 %')],
       # 2 — higroskopiklik
       [seq('Δm = ', frac(seq('m₃ − m₂'), seq('m₂ − m₁')), ' × 100 %'),
-       seq('Model: (15,35 − 15,00)/(15,00 − 5,00) = 3,50 %'),
+       seq('Taxminiy hisob: (15,35 − 15,00)/(15,00 − 5,00) = 3,50 %'),
        seq('Sinflar:  deliquescent;  ≥ 15 %;  2–15 %;  0,2–2 %'),
        seq('Sharoit:  25 ± 1 °C,  80 ± 2 % RH,  24 h')],
       # 3 — usul tanlash va umumiy balans
@@ -29,7 +29,7 @@ def drying_equations():
       # 4 — vakuum va bug'lanish
       [seq('Δ', sup('fH', '°'), '(g) − Δ', sup('fH', '°'), '(l) = 44,01 kJ/mol (25 °C)'),
        seq('ln(p₂/p₁) = −(', _hvap, '/R)(1/T₂ − 1/T₁);  ', sup('p', '°'), ' = 101,325 kPa'),
-       seq('Model:  1,5 kPa → 9,22 °C;  0,1 kPa → −28,96 °C'),
+       seq('Taxminiy hisob:  1,5 kPa → 9,22 °C;  0,1 kPa → −28,96 °C'),
        seq(_weq, ' = ', frac(seq(_wm, '·C·x'), seq('1 + (C − 1)x')),
            ';   x = p/p₀,  w_m = 0,05,  C = 10')],
       # 5 — azeotropik quritish
@@ -61,7 +61,7 @@ def drying_equations():
       # 10 — energetika
       [seq('Q = m(H₂O)·', _hvap, '/M = m × 2,2568 MJ/kg'),
        seq('1 kg suv → 2,2568 MJ = 0,6269 kWh'),
-       seq('Model (kWh/kg suv):  sital 0,18;  vakuum 0,85;  shkaf 1,05;  azeotrop 1,55'),
+       seq('Taxminiy hisob (kWh/kg suv):  sital 0,18;  vakuum 0,85;  shkaf 1,05;  azeotrop 1,55'),
        seq(var('E', 'chiq'), ' = ', frac('m(chiqindi)', 'm(mahsulot)'))],
       # 11 — ishlangan hisob
       [seq('A: n = 4,0051 kmol;  m(H₂O) = 288,60 kg;  m = 711,40 kg'),

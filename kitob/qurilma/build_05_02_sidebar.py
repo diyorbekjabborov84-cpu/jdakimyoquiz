@@ -28,26 +28,26 @@ panels = [
  (2, 'usullar.png', 'sxema', 'Tozalash usullarining beshta oilasi.',
   '5.2.3-sxema. Mexanik, fizik-kimyoviy, kimyoviy, membranaviy va kombinatsiyalangan usullar.'),
  (3, 'rektifikatsiya.png', 'grafik', 'Rektifikatsiya: x–y diagrammasi.',
-  '5.2.4-grafik. Muvozanat egri chizig‘i, diagonal va McCabe-Thiele bosqichlari (model).'),
+  '5.2.4-grafik. Muvozanat egri chizig‘i, diagonal va McCabe-Thiele bosqichlari (shartli hisob).'),
  (4, 'choqish.png', 'grafik', 'Cho‘ktirish: metall qoldig‘i va pH.',
-  '5.2.5-grafik. Metall gidroksiidlarining eruvchanligi pH ga bog‘liqligi (model egri chizig‘i).'),
+  '5.2.5-grafik. Metall gidroksiidlarining eruvchanligi pH ga bog‘liqligi (taxminiy egri chiziq).'),
  (5, 'chiqindi.png', 'sxema', 'Chiqindini ushlash va resursni tiklash.',
   '5.2.6-sxema. Kimyoviy tozalashda chiqindi: yig‘ish, baholash, tiklash va yo‘qotish.'),
  (6, 'front.png', 'grafik', 'Ion almashinuv: fronti kiring.',
-  '5.2.7-grafik. Kolonkadagi «fronti kiring» egri chizig‘i (plug-flow model).'),
+  '5.2.7-grafik. Kolonkadagi «fronti kiring» egri chizig‘i (plug-flow shartli hisob).'),
  (7, 'xarita.png', 'sxema', 'Kislota oilalari bo‘yicha tozalash xaritasi.',
   '5.2.8-sxema. HCl, HNO₃, H₂SO₄, H₃PO₄ va HF uchun asosiy ifloslik va usul.'),
  (8, 'kaskad.png', 'grafik', 'Tozalash zanjiri: kaskad.',
-  '5.2.9-grafik. Ifloslik pasayishining bosqichlar soniga bog‘liqligi (model egri chizig‘i).'),
+  '5.2.9-grafik. Ifloslik pasayishining bosqichlar soniga bog‘liqligi (taxminiy egri chiziq).'),
  (9, 'sifat.png', 'sxema', 'Sifat nazorati: tekshiruv nuqtalari.',
   '5.2.10-sxema. Titrlash, rang, xloridlar, metallar, suv va hujjatlashtirish.'),
- (10, 'hisob.png', 'rasm', 'Ishlangan hisob: model zanjiri.',
-  '5.2.11-rasm. Rangli HNO₃ va sulfat kislotadagi temirning tozalash yo‘li (model).')]
+ (10, 'hisob.png', 'rasm', 'Ishlangan hisob: shartli hisob zanjiri.',
+  '5.2.11-rasm. Rangli HNO₃ va sulfat kislotadagi temirning tozalash yo‘li (shartli hisob).')]
 
 extra = {
  1: [('azeotrop.png', '5.2.2-rasm. Azeotrop: t–x diagrammasi (sxematik).')],
  2: [('membrana.png', '5.2.3-rasm. Membrana ajratish: sxematik kesim.')],
- 3: [('buglash.png', '5.2.4-grafik. Konsentratsiyalashda olib tashlanadigan suv (model).')],
+ 3: [('buglash.png', '5.2.4-grafik. Konsentratsiyalashda olib tashlanadigan suv (shartli hisob).')],
  4: [('choqirish.png', '5.2.5-sxema. Cho‘ktirish: reagent tanlash, ajratish va chiqindi.')],
  6: [('ionsxema.png', '5.2.7-sxema. Ion almashinuv kolonkasi va regeneratsiya sikli.')],
  8: [('zanjir.png', '5.2.9-sxema. Tozalash zanjiri: umumiy material oqimi.')]}
@@ -246,7 +246,7 @@ for idx, ((title, paras), (pidx, pic, kind, panel, note)) in enumerate(zip(secti
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Konsentratsiya, harorat va pH oralig‘i eksperiment uchun ko‘rsatma emas; xavfli kislotalarning tayyorlanishi, idish materiali va saqlanishi bo‘yicha amaliyot tavsiyalari berilmaydi.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Konsentratsiya, harorat va pH oralig‘i eksperiment uchun ko‘rsatma emas; xavfli kislotalarning tayyorlanishi, idish materiali va saqlanishi bo‘yicha amaliyot tavsiyalari berilmaydi.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

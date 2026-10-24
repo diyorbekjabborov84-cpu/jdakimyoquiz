@@ -14,11 +14,11 @@
 - Bu titrlash egri chizig‘i ham, HSAB qattiqlik grafigi ham emas.
 - Ion kuchi/faollik koeffitsiyentlari uchun idealga yaqinlik qabul qilingan; boshqa kimyoviy shakllar yo‘q.
 
-## Grafik 2: boshlang‘ich shartlari boshqa ikki model
+## Grafik 2: boshlang‘ich shartlari boshqa ikki yondashuv
 - x=lg q, x=−4…4.
 - Ko‘k: teng miqdorli A+B⇌C+D ideal almashinuvi; boshlang‘ich mahsulotlar yo‘q; q=K; f=√q/(1+√q).
 - Bronza: ideal A+L⇌AL va erkin ligand faolligi tashqaridan berilgan; q=K·a(L); θ=q/(1+q).
-- K har ikki yozuvda o‘lchamsiz termodinamik konstantadir, ammo q ning fizik ma’nosi har bir modelda boshqa. Grafik sonli funksiyalar qiyosi, bir xil reaksiya uchun zid bashorat emas.
+- K har ikki yozuvda o‘lchamsiz termodinamik konstantadir, ammo q ning fizik ma’nosi har bir yondashuvda boshqa. Grafik sonli funksiyalar qiyosi, bir xil reaksiya uchun zid bashorat emas.
 - q=100 da ko‘k: 90,91%; bronza: 99,01%.
 - Barcha hisob nuqtalari rasm papkasida CSV fayllarda saqlanadi.
 

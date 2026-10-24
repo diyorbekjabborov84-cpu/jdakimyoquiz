@@ -244,7 +244,7 @@
       ],
       [
         "Chegara",
-        "Model α doimiy",
+        "Taxminiy hisob α doimiy",
         "Real tizim ideal emas"
       ]
     ]
@@ -390,7 +390,7 @@
       [
         "Langmuir izotermasi",
         "q = q_max·K·C/(1 + K·C)",
-        "Model: q_max = 50 mg/g"
+        "Taxminiy hisob: q_max = 50 mg/g"
       ],
       [
         "Kationit (H⁺ shakli)",
@@ -545,7 +545,7 @@
       [
         "Chiqindi omili",
         "m(chiqindi)/m(mahsulot)",
-        "Model: 0,00167 kg/kg"
+        "Taxminiy hisob: 0,00167 kg/kg"
       ],
       [
         "Chegara",
@@ -633,53 +633,53 @@
     ],
     "rows": [
       [
-        "Model A: boshlang‘ich",
+        "Taxmin A: boshlang‘ich",
         "1000 t; HNO₃ 68 %; NO₂ 4,0 t",
         "4NO₂ + O₂ + 2H₂O → 4HNO₃"
       ],
       [
-        "Model A: n(NO₂)",
+        "Taxmin A: n(NO₂)",
         "86,938 kmol",
         "4000 kg / 46,01 kg/kmol"
       ],
       [
-        "Model A: suv va O₂",
+        "Taxmin A: suv va O₂",
         "0,7831 t; 0,6955 t",
         "43,469 va 21,734 kmol"
       ],
       [
-        "Model A: HNO₃",
+        "Taxmin A: HNO₃",
         "+5,4779 t",
         "Moliyar massa 63,01 kg/kmol"
       ],
       [
-        "Model A: natija",
+        "Taxmin A: natija",
         "999,91 t; w = 68,55 %",
         "Rang butunlay yo‘qoladi"
       ],
       [
-        "Model B: boshlang‘ich",
+        "Taxmin B: boshlang‘ich",
         "1000 t; H₂SO₄ 96 %; Fe 0,03 %",
         "Fe₂(SO₄)₃ + 3CaO + 3H₂O"
       ],
       [
-        "Model B: cho‘kma",
+        "Taxmin B: cho‘kma",
         "Fe(OH)₃ 0,5741 t",
         "n(Fe) = 5,3715 kmol"
       ],
       [
-        "Model B: chiqindi",
+        "Taxmin B: chiqindi",
         "CaSO₄ 1,0969 t; CaO 0,4519 t",
         "Chiqindi omili 0,00167 kg/kg"
       ],
       [
-        "Model B: CaCO₃ yo‘li",
+        "Taxmin B: CaCO₃ yo‘li",
         "0,8065 t; H₂SO₄ yo‘qotish 0,7903 t",
         "Mahsulotning 0,079 % i"
       ],
       [
         "Chegara",
-        "Model: faollik va yo‘qotishlar hisobga olinmagan",
+        "Taxminiy hisob: faollik va yo‘qotishlar hisobga olinmagan",
         "Tajriba ma’lumoti emas"
       ]
     ]

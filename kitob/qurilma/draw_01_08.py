@@ -38,7 +38,7 @@ stack('tanlash_yoli.png',[
 ('03 · NATIJA','Tasnifmi yoki sonli hisobmi?'),
 ('04 · TEKSHIRUV','Balans, faollik va yon reaksiyalar')])
 stack('boblar_koprik.png',[
-('1-BOB','Ta’rif, mezon va model'),
+('1-BOB','Ta’rif, mezon va yondashuv'),
 ('2-BOB','Bog‘lanish va tuzilish'),
 ('3-BOB','Kuch va muvozanat'),
 ('KEYINGI TAHLIL','Aniq kislotalarning xossalari')])

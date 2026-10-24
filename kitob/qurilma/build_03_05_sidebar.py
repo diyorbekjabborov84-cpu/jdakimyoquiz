@@ -30,7 +30,7 @@ panels=[
 ('Anionning proton olishi',[],'3.5.2-sxema. Elektrolitik dissotsiatsiya va gidrolizni ajratish; muvozanatni balanslar bilan yopish.'),
 ('Kation kislotaligi',[],'3.5.3-sxema. Ammoniydagi va metall akvakompleksidagi proton donorni ajratish.'),
 ('Ikki ion va suv',[],'3.5.5-grafik. NH₄F ning ideal pH i: to‘liq balans va suvni tashlagan taqrib. 25 °C, γ≈1.'),
-('Modelni qayta tiklang',[],'3.5.4-sxema. Bufer va gidroliz uchun bir xil oilalar/balanslar usulini qo‘llash.')
+('Uni qayta tiklang',[],'3.5.4-sxema. Bufer va gidroliz uchun bir xil oilalar/balanslar usulini qo‘llash.')
 ]
 
 doc=Document();sec=doc.sections[0]

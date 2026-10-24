@@ -23,15 +23,15 @@ def scheme(index,nodes):
     return ROOT/'rasmlar'/'kinetika_kataliz'/special[index]
 
 panels=[
-('Bir xil oxirgi holat',[],'3.6.1-grafik. Qaytar S⇌P modelida ikkala tezlik konstantasini 10 marta oshirish. K=4 saqlanadi.'),
+('Bir xil oxirgi holat',[],'3.6.1-grafik. Qaytar S⇌P tizimida ikkala tezlik konstantasini 10 marta oshirish. K=4 saqlanadi.'),
 ('Tenglama va kuzatuv',[],'3.6.1-sxema. Signal, tezlik qonuni, tajribaviy tartiblar va psevdotartib shartlari.'),
-('To‘siq va ΔG°',[],'3.6.2-grafik. Mustaqil shartli erkin energiya profillari. Boshlanish va oxir bir xil; 1-bo‘lim K=4 modeli emas.'),
-('Haroratning hissasi',[],'3.6.3-grafik. E_a=50,0 kJ mol⁻¹ uchun shartli Arrhenius modeli; o‘lchangan qiymatlar emas.'),
+('To‘siq va ΔG°',[],'3.6.2-grafik. Mustaqil shartli erkin energiya profillari. Boshlanish va oxir bir xil; 1-bo‘lim K=4 shartli hisobi emas.'),
+('Haroratning hissasi',[],'3.6.3-grafik. E_a=50,0 kJ mol⁻¹ uchun shartli Arrhenius nazariyasi; o‘lchangan qiymatlar emas.'),
 ('Maxsus kanallar',[],'3.6.4-grafik. Shartli H⁺/OH⁻ va fon yo‘llarining jami. Ideal konsentratsion pH; 25 °C.'),
-('Buferning kinetik roli',[],'3.6.5-grafik. Bir xil pH=5 da oldindan berilgan umumiy HA kanali. k_A=0 — model farazi.'),
+('Buferning kinetik roli',[],'3.6.5-grafik. Bir xil pH=5 da oldindan berilgan umumiy HA kanali. k_A=0 — shartli faraz.'),
 ('Protonning aylanishi',[],'3.6.2-sxema. Formal qaytar protonlanish–qayta tuzilish–deprotonlanish sikli.'),
 ('Redoks vositachilik',[],'3.6.3-sxema. NO/NO₂ ning muvozanatlangan formal sikli; elementar yoki to‘liq sanoat mexanizmi emas.'),
-('Dalillarni birlashtiring',[],'3.6.4-sxema. Kinetik modelni dalil, nazorat va muqobil yo‘llar bilan tekshirish.')
+('Dalillarni birlashtiring',[],'3.6.4-sxema. Kinetik shartli hisobni dalil, nazorat va muqobil yo‘llar bilan tekshirish.')
 ]
 
 doc=Document();sec=doc.sections[0]
@@ -176,7 +176,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'HISOBIY GRAFIK' if idx in [0,2,3,4,5] else 'TUSHUNTIRUVCHI SXEMA',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={4:('gidroksoniy_model.png','3.6.1-rasm. H₃O⁺ — suvli proton tashuvchisi.'),5:('fosfat_model.png','3.6.2-rasm. H₂PO₄⁻ — proton donorining ulanish misoli. Grafikdagi pKₐ=5 shu ionniki emas.'),6:('ammiak_model.png','3.6.3-rasm. NH₃ — proton akseptorining ulanish misoli.'),7:('no2_model.png','3.6.4-rasm. Neytral NO₂ radikalining ulanish tasviri; to‘liq Lewis modeli emas.')}
+    extra_models={4:('gidroksoniy_model.png','3.6.1-rasm. H₃O⁺ — suvli proton tashuvchisi.'),5:('fosfat_model.png','3.6.2-rasm. H₂PO₄⁻ — proton donorining ulanish misoli. Grafikdagi pKₐ=5 shu ionniki emas.'),6:('ammiak_model.png','3.6.3-rasm. NH₃ — proton akseptorining ulanish misoli.'),7:('no2_model.png','3.6.4-rasm. Neytral NO₂ radikalining ulanish tasviri; to‘liq Lewis nazariyasi emas.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -208,7 +208,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[4] IUPAC Gold Book. Gibbs energy of activation. DOI: 10.1351/goldbook.G02631. https://goldbook.iupac.org/terms/view/G02631 . To‘siq, tezlik konstantasi birliklari va standart holat.',
         '[5] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018. Kimyoviy kinetika va o‘tish holati nazariyasi.',
         '[6] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018. Noorganik kataliz, koordinatsiya va sanoat kimyosiga umumiy bibliografik tayanch.',
-        'IUPAC atamalari mazmuni mustaqil o‘zbekcha bayon qilindi. Barcha grafiklar original shartli modellar; real kislota/katalizator uchun tajribaviy ma’lumotlar emas. Molekulalar sxematik ulanish tasvirlari; optimallashtirilgan koordinatalar yoki elektron zichlik emas.'
+        'IUPAC atamalari mazmuni mustaqil o‘zbekcha bayon qilindi. Barcha grafiklar original shartli hisoblar; real kislota/katalizator uchun tajribaviy ma’lumotlar emas. Molekulalar sxematik ulanish tasvirlari; optimallashtirilgan koordinatalar yoki elektron zichlik emas.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

@@ -35,12 +35,12 @@
       [
         "X (nam asos) va w (quruq asos)",
         "m(suv)/m(namuna); m(suv)/m(quruq modda)",
-        "Model: 0,35 kg / 1,00 kg → 0,2593; w = 0,350"
+        "Taxminiy hisob: 0,35 kg / 1,00 kg → 0,2593; w = 0,350"
       ],
       [
         "Quruq qoldig‘ (2.2.32)",
         "Massa yo‘qotishi, m/m %",
-        "Model: 10,00 g → 9,95 g → 0,50 %"
+        "Taxminiy hisob: 10,00 g → 9,95 g → 0,50 %"
       ],
       [
         "Karl Fischer (2.5.12) va TGA (2.2.34)",
@@ -80,7 +80,7 @@
       [
         "Massa o‘sishi",
         "(m₃ − m₂)/(m₂ − m₁) × 100 %",
-        "Model: 3,50 %"
+        "Taxminiy hisob: 3,50 %"
       ],
       [
         "Deliquescent",
@@ -95,7 +95,7 @@
       [
         "Higroskopik",
         "2 % ≤ o‘sish < 15 %",
-        "Model misoli shu sinfda"
+        "Shartli hisob misoli shu sinfda"
       ],
       [
         "Biroz higroskopik",
@@ -210,17 +210,17 @@
       [
         "p_sat (25 °C)",
         "2,858 kPa",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "101,325 kPa",
         "T = 100,0 °C",
-        "Model nuqtasi"
+        "Shartli hisob nuqtasi"
       ],
       [
         "10,0 kPa",
         "T = 43,96 °C",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "2,5 kPa",
@@ -245,7 +245,7 @@
       [
         "Muvozanat namligi",
         "20 % RH → 0,0357; 80 % → 0,0488 kg/kg",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -283,17 +283,17 @@
         "Heteroazeotrop"
       ],
       [
-        "Model: suv chiqishi",
+        "Taxminiy hisob: suv chiqishi",
         "1000 kg 68 % HNO₃ → 0,5 %: 316,58 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: distillat",
+        "Taxminiy hisob: distillat",
         "1598,90 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: toluen",
+        "Taxminiy hisob: toluen",
         "1282,32 kg; yo‘qotish 0,158 kg",
         "Entrainer qaytadi"
       ],
@@ -358,9 +358,9 @@
         "CO₂ va katta molekulalar"
       ],
       [
-        "Model: sital massasi",
+        "Taxminiy hisob: sital massasi",
         "100,0 kg suv uchun 487,8 kg (4A)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Regeneratsiya",
@@ -400,7 +400,7 @@
       [
         "CuSO₄·H₂O",
         "M = 177,62 g/mol",
-        "Model maqsadi"
+        "Shartli hisob maqsadi"
       ],
       [
         "CuSO₄",
@@ -408,24 +408,24 @@
         "Anhiddrid"
       ],
       [
-        "Model: suv chiqishi",
+        "Taxminiy hisob: suv chiqishi",
         "288,60 kg (1000 kg pentahidratdan)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: mahsulot",
+        "Taxminiy hisob: mahsulot",
         "711,40 kg monohidrat",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: anhiddrid",
+        "Taxminiy hisob: anhiddrid",
         "360,75 kg suv; 639,25 kg mahsulot",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Suv ulushi",
         "36,08 % → 10,14 %",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Qayta namlanish",
@@ -460,7 +460,7 @@
       [
         "Taqsimot koeffitsienti",
         "D = c_organik/c_suv",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Adsorbsiya",
@@ -485,7 +485,7 @@
       [
         "Osmotik bosim",
         "Π = cRT",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Chegara",
@@ -518,7 +518,7 @@
         "1:1 stixiometriya (EPA 9000)"
       ],
       [
-        "Model hisob",
+        "Taxminiy hisob",
         "2,000 g namuna; 0,50 mol/L; 22,2 mL",
         "m(H₂O) = 0,2000 g → 10,00 %"
       ],
@@ -580,36 +580,36 @@
       [
         "Gidrat quritish",
         "288,60 kg suv → 651,3 MJ (180,9 kWh)",
-        "Model A"
+        "Taxmin A"
       ],
       [
         "Azeotrop",
         "316,58 kg suv → 714,5 MJ",
-        "Model B"
+        "Taxmin B"
       ],
       [
         "Azeotrop + toluen",
         "1282,32 kg → 529,7 MJ; jami 1244,2 MJ",
-        "Model B"
+        "Taxmin B"
       ],
       [
         "Sital bilan",
-        "0,18 kWh/kg suv (model)",
+        "0,18 kWh/kg suv (shartli hisob)",
         "Regeneratsiya yashirin"
       ],
       [
         "Vakuum bilan",
-        "0,85 kWh/kg suv (model)",
+        "0,85 kWh/kg suv (shartli hisob)",
         "Nisbiy qiymat"
       ],
       [
         "Shkaf bilan",
-        "1,05 kWh/kg suv (model)",
+        "1,05 kWh/kg suv (shartli hisob)",
         "Nisbiy qiymat"
       ],
       [
         "Azeotrop bilan",
-        "1,55 kWh/kg suv (model)",
+        "1,55 kWh/kg suv (shartli hisob)",
         "Entrainer aylanishi"
       ],
       [
@@ -619,7 +619,7 @@
       ],
       [
         "Chegara",
-        "Model qiymatlari — reyting emas",
+        "Taxminiy qiymatlar — reyting emas",
         "5.4-bo‘lim iqtisodiyoti"
       ]
     ]
@@ -638,47 +638,47 @@
     ],
     "rows": [
       [
-        "Model A: boshlang‘ich",
+        "Taxmin A: boshlang‘ich",
         "1000,0 kg CuSO₄·5H₂O",
         "M = 249,68 g/mol"
       ],
       [
-        "Model A: miqdor",
+        "Taxmin A: miqdor",
         "n = 4,0051 kmol",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model A: suv",
+        "Taxmin A: suv",
         "288,60 kg",
         "4 mol H₂O / mol"
       ],
       [
-        "Model A: mahsulot",
+        "Taxmin A: mahsulot",
         "711,40 kg CuSO₄·H₂O",
         "Nazorat: 1000,0 − 288,60"
       ],
       [
-        "Model A: namlik",
+        "Taxmin A: namlik",
         "36,08 % → 10,14 %",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model A: energiya",
+        "Taxmin A: energiya",
         "651,3 MJ = 180,9 kWh",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model B: boshlang‘ich",
+        "Taxmin B: boshlang‘ich",
         "1000,0 kg 68 % li HNO₃",
         "HNO₃ 680,0 kg"
       ],
       [
-        "Model B: suv",
+        "Taxmin B: suv",
         "316,58 kg; distillat 1598,90 kg",
         "Toluen bilan"
       ],
       [
-        "Model B: yo‘qotish",
+        "Taxmin B: yo‘qotish",
         "Toluen 0,158 kg",
         "Entrainer qaytadi"
       ],

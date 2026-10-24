@@ -40,7 +40,7 @@
     ]
   },
   "direction": {
-    "caption": "4.1.2-jadval. Teng boshlang‘ich HA va B; ideal cheklangan model",
+    "caption": "4.1.2-jadval. Teng boshlang‘ich HA va B; ideal cheklangan taxminiy hisob",
     "headers": [
       "ΔpKₐ",
       "K",
@@ -130,7 +130,7 @@
     ]
   },
   "phosphate": {
-    "caption": "4.1.4-jadval. C_P=0,0100 mol L⁻¹; ideal suvli fosfat modeli",
+    "caption": "4.1.4-jadval. C_P=0,0100 mol L⁻¹; ideal suvli fosfat taxminiy hisobi",
     "headers": [
       "r=n(NaOH)/n(P)",
       "Ustun ionlar ulushi",
@@ -172,7 +172,7 @@
   "saltph": {
     "caption": "4.1.5-jadval. Ekvivalent tarkib va yakuniy pH; C=0,0100 M",
     "headers": [
-      "Tuz modeli",
+      "Tuz bo‘yicha shartli hisob",
       "Ideal pH; 25 °C",
       "Muvozanat sababi"
     ],
@@ -225,7 +225,7 @@
       [
         "ΔH_neut",
         "−57,0 kJ mol⁻¹",
-        "Model uchun berilgan doimiy"
+        "Taxminiy hisob uchun berilgan doimiy"
       ],
       [
         "ξ",

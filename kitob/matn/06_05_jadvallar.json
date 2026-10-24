@@ -64,7 +64,7 @@
       ],
       [
         "Chegara",
-        "Barcha sonlar ochiq shartli model",
+        "Barcha sonlar ochiq shartli hisob",
         "O‘lchov ma’lumoti emas"
       ]
     ]
@@ -140,12 +140,12 @@
       [
         "Chegara",
         "Parametrlar qurilma bo‘yicha berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
   "dissotsiatsiya": {
-    "caption": "6.5.3-jadval. Suvli HI: kislotalik, model va guruh taqqoslash",
+    "caption": "6.5.3-jadval. Suvli HI: kislotalik, taxminiy hisob va guruh taqqoslash",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -168,23 +168,23 @@
         "Kuchli kislota"
       ],
       [
-        "Model: 0,100 M",
+        "Taxminiy hisob: 0,100 M",
         "I⁻ 100,000 %; pH 1,000",
-        "Ideal erituvchi modeli"
+        "Ideal erituvchi shartli hisobi"
       ],
       [
-        "Model: 7,560 M",
+        "Taxminiy hisob: 7,560 M",
         "I⁻ 100,000 %; pH −0,879",
         "Azeotrop konsentratsiyasi"
       ],
       [
-        "Model: 12,000 M",
+        "Taxminiy hisob: 12,000 M",
         "I⁻ 100,000 %; pH −1,079",
-        "Model chegarasi"
+        "Taxminiy hisob chegarasi"
       ],
       [
         "HI₂⁻ hosil bo‘lishi",
-        "HI + I⁻ ⇌ HI₂⁻; lgK = 0,7 (model)",
+        "HI + I⁻ ⇌ HI₂⁻; lgK = 0,7 (shartli hisob)",
         "Amalda nolga yaqin"
       ],
       [
@@ -209,8 +209,8 @@
       ],
       [
         "Chegara",
-        "Model faolik koeffitsiyentlarni hisobga olmaydi",
-        "Model"
+        "Shartli hisob faolik koeffitsiyentlarni hisobga olmaydi",
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -233,12 +233,12 @@
         "Muvozanat salbiy"
       ],
       [
-        "Model: to‘g‘ridan-to‘g‘ri",
+        "Taxminiy hisob: to‘g‘ridan-to‘g‘ri",
         "1000 kg HI → H₂ 7,88 kg; I₂ 992,1 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: muvozanat",
+        "Taxminiy hisob: muvozanat",
         "ΔrH = −9,44 kJ (2 mol HI); K(298 K) = 0,254",
         "Termoneutral yaqin"
       ],
@@ -248,9 +248,9 @@
         "Sanoat usuli"
       ],
       [
-        "Model: gidrazin",
+        "Taxminiy hisob: gidrazin",
         "I₂ 992,1 kg; N₂H₄ 62,6 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Fosfor usuli",
@@ -258,13 +258,13 @@
         "Laboratoriya usuli"
       ],
       [
-        "Model: fosfor",
+        "Taxminiy hisob: fosfor",
         "I₂ 992,1 kg; P 80,7 kg; H₂O 140,8 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "H₂S usuli",
-        "H₂S + I₂ → 2HI + S; model: I₂ 992,1 kg, H₂S 133,2 kg, S 125,3 kg",
+        "H₂S + I₂ → 2HI + S; taxminiy hisob: I₂ 992,1 kg, H₂S 133,2 kg, S 125,3 kg",
         "Tarixiy usul"
       ],
       [
@@ -273,7 +273,7 @@
         "Brindan yod olish"
       ],
       [
-        "Model: yod sikli",
+        "Taxminiy hisob: yod sikli",
         "1000 kg NaI + Cl₂ 236,5 kg → I₂ 846,6 + NaCl 389,9 kg",
         "Kirish 1236,5 = chiqish 1236,5 kg"
       ],
@@ -338,9 +338,9 @@
         "Manba"
       ],
       [
-        "Model: triiodid",
+        "Taxminiy hisob: triiodid",
         "0,10 M da I₃⁻ ulushi 98,54 %; 7,56 M da 99,98 %",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Tuz hosil qilish",
@@ -355,7 +355,7 @@
       [
         "Chegara",
         "Doza va texnologiya parametrlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -375,22 +375,22 @@
       [
         "Temir",
         "Fe + 2HI → FeI₂ + H₂",
-        "Model: 1 g Fe → 4,581 g HI"
+        "Taxminiy hisob: 1 g Fe → 4,581 g HI"
       ],
       [
         "Alumin",
         "2Al + 6HI → 2AlI₃ + 3H₂",
-        "Model: 1 g Al → 14,222 g HI"
+        "Taxminiy hisob: 1 g Al → 14,222 g HI"
       ],
       [
         "Rux",
         "Zn + 2HI → ZnI₂ + H₂",
-        "Model: 1 g Zn → 3,913 g HI"
+        "Taxminiy hisob: 1 g Zn → 3,913 g HI"
       ],
       [
         "Magniy",
         "Mg + 2HI → MgI₂ + H₂",
-        "Model: 1 g Mg → 10,526 g HI"
+        "Taxminiy hisob: 1 g Mg → 10,526 g HI"
       ],
       [
         "Mis",
@@ -398,9 +398,9 @@
         "2Cu + O₂ + 4HI → 2CuI₂ + 2H₂O"
       ],
       [
-        "Mis modeli",
+        "Mis bo‘yicha shartli hisob",
         "1 g Cu → 4,026 g HI va 0,252 g O₂ kerak",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Kumush",
@@ -448,9 +448,9 @@
         "Eski namunalar qorayadi"
       ],
       [
-        "Model: O₂ bilan",
+        "Taxminiy hisob: O₂ bilan",
         "1000 kg HI → I₂ 992,1 kg; O₂ 62,5 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Nitrat kislota bilan",
@@ -458,9 +458,9 @@
         "HCl va HBr oksidlanmaydi"
       ],
       [
-        "Model: HNO₃ bilan",
+        "Taxminiy hisob: HNO₃ bilan",
         "1000 kg HI → I₂ 992,1 kg; HNO₃ 164,2 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Iodat bilan",
@@ -485,7 +485,7 @@
       [
         "Chegara",
         "Reaksiya sharoitlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -545,7 +545,7 @@
       [
         "Chegara",
         "Dozalar va sharoitlar berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -610,7 +610,7 @@
       [
         "Chegara",
         "Dozalar va texnologiya parametrlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -633,9 +633,9 @@
         "Birlamchi standart"
       ],
       [
-        "Model: standartlash",
+        "Taxminiy hisob: standartlash",
         "0,2000 g Na₂CO₃; 30,00 mL → 0,12580 mol/L",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "“Dead-stop” titr",
@@ -648,9 +648,9 @@
         "Eng muhim usul"
       ],
       [
-        "Model: yodometriya",
+        "Taxminiy hisob: yodometriya",
         "1,000 g KIO₃ → 0,712 g I₂; 0,887 g tiosulfat",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Gravimetriya",
@@ -675,7 +675,7 @@
       [
         "Chegara",
         "Metod parametrlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -723,33 +723,33 @@
         "Manba"
       ],
       [
-        "Model A: ishlab chiqarish",
+        "Taxmin A: ishlab chiqarish",
         "1000 kg HI → H₂ 7,88 kg; I₂ 992,1 kg; K(298 K) = 0,254",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model B: metall",
+        "Taxmin B: metall",
         "1 g Fe → FeI₂ 5,545 g; HI 4,581 g; H₂ 0,036 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model C: neytralizatsiya",
+        "Taxmin C: neytralizatsiya",
         "Na₂CO₃ 41,4 kg; NaI 117,2 kg; CO₂ 17,2 kg",
         "Kirish = chiqish 141,4 kg"
       ],
       [
-        "Model D: yodometriya",
+        "Taxmin D: yodometriya",
         "1,000 g KIO₃ → I₂ 0,712 g; tiosulfat 0,887 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model E: yodlangan tuz",
+        "Taxmin E: yodlangan tuz",
         "1 t tuz + 30 g I → KI 39,2 g yoki KIO₃ 50,6 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Chegara",
-        "Barcha natijalar ochiq shartli modeldan",
+        "Barcha natijalar ochiq shartli hisoblardan",
         "O‘lchov ma’lumoti emas"
       ]
     ]

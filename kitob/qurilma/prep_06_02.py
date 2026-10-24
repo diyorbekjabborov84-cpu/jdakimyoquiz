@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""6.2 "HF — ftorid kislota" — model ma'lumotlari va CSV jadvallar.
+"""6.2 "HF — ftorid kislota" — taxminiy hisob ma'lumotlari va CSV jadvallar.
 
-Barcha sonli natijalar ochiq shartli model hisoblari (o'lchov ma'lumoti emas).
+Barcha sonli natijalar ochiq shartli hisoblar (o'lchov ma'lumoti emas).
 Manbalar: Housecroft (Liquid HF, self-ionization), Barron's (Compounds of Fluorine),
 Kim et al. 2024 (SiO2 etch rate law), WHO/EPA (fluoride limits), NIST/CRC.
 """
@@ -29,7 +29,7 @@ AHF = dict(tb=19.5, tm=-83.6, eps_273=84.0, eps_200=175.0, k_self_273=2.0e-12,
            liq_lo=190.0, liq_hi=292.5, cond=1.4e-5, mu=1.9, dHvap=30.7,
            rho=0.99, visc=0.26, surface_tension=10.0, h0=-15.1, h0_sbF5=-21.0)
 
-# SiO2 yemirish tezligi modeli: r (Angstrom/min) = 510[F-] + 610[HF] + 2890[HF2-]
+# SiO2 yemirish tezligi shartli hisobi: r (Angstrom/min) = 510[F-] + 610[HF] + 2890[HF2-]
 ETCH_K = dict(f=510.0, hf=610.0, hf2=2890.0)
 
 METALS = [
@@ -42,7 +42,7 @@ METALS = [
 
 # ---------------------------------------------------------------- spetsiatsiya
 def speciation(c, ka=KA_HF, kf=KF):
-    """Suvli HF: [H+], [F-], [HF], [HF2-] — ideal erituvchi modeli.
+    """Suvli HF: [H+], [F-], [HF], [HF2-] — ideal erituvchi sharoiti.
 
     Ka = h*f/[HF];  HF + F- ⇌ HF2- (Kf);  zaryad balansi h = f + [HF2-].
     """
@@ -75,7 +75,7 @@ def speciation_series(cs=(0.01, 0.05, 0.10, 0.50, 1.0, 2.0, 5.0, 10.0)):
 
 
 def etch_rate(c, spec=None):
-    """SiO2 yemirish tezligi modeli (Angstrom/min)."""
+    """SiO2 yemirish tezligi shartli hisobi (Angstrom/min)."""
     s = spec or speciation(c)
     r_f = ETCH_K['f'] * s['f']
     r_hf = ETCH_K['hf'] * s['hf']
@@ -86,7 +86,7 @@ def etch_rate(c, spec=None):
 
 
 def passivation(metal=1.0):
-    """Metal -> fluorid: 1 g metall qancha fluorid hosil qiladi (model)."""
+    """Metal -> fluorid: 1 g metall qancha fluorid hosil qiladi (shartli hisob)."""
     out = []
     for mt in METALS:
         n_metal = metal / mt['m']
@@ -119,7 +119,7 @@ def residual_fluoride(ca_free=0.010):
 
 
 def calcium_requirement(m_hf=20.0):
-    """Kaltsiy bog'lash stoxiometriyasi (xavfsizlik modeli)."""
+    """Kaltsiy bog'lash stoxiometriyasi (xavfsizlik taxminiy hisobi)."""
     n_hf = m_hf / M_HF
     n_ca = n_hf / 2.0
     return dict(m_hf=m_hf, n_hf=n_hf, n_ca=n_ca,
@@ -128,7 +128,7 @@ def calcium_requirement(m_hf=20.0):
 
 
 def production_model(m_fluorspar=1000.0, purity=0.97, yield_pct=0.92):
-    """CaF2 + H2SO4 -> 2HF + CaSO4: HF miqdori (model)."""
+    """CaF2 + H2SO4 -> 2HF + CaSO4: HF miqdori (shartli hisob)."""
     m_f2 = m_fluorspar * purity
     n_f2 = m_f2 * 1000.0 / 78.074
     return dict(m_fluorspar=m_fluorspar, purity=purity, yield_pct=yield_pct,
@@ -138,7 +138,7 @@ def production_model(m_fluorspar=1000.0, purity=0.97, yield_pct=0.92):
 
 
 def glass_model(m_sio2=1.0, hf_pct=48.0):
-    """SiO2 + 6HF -> H2SiF6 + 2H2O (model)."""
+    """SiO2 + 6HF -> H2SiF6 + 2H2O (shartli hisob)."""
     n_sio2 = m_sio2 * 1000.0 / 60.084
     n_hf = 6 * n_sio2
     return dict(m_sio2=m_sio2, n_sio2=n_sio2, n_hf=n_hf,
@@ -218,11 +218,11 @@ def build_csvs():
 
 def main():
     build_csvs()
-    print('— spetsiatsiya (suvli HF modeli) —')
+    print('— spetsiatsiya (suvli HF taxminiy hisobi) —')
     for s in speciation_series():
         print('  c=%5.2f M  h=%.3e  F-=%.4f  HF=%.4f  HF2-=%.4f  pH=%6.3f  ulushlar: HF %.1f %% F- %.1f %% HF2- %.1f %%'
               % (s['c'], s['h'], s['f'], s['hf'], s['hf2'], s['ph'], s['w_hf'], s['w_f'], s['w_hf2']))
-    print('— yemirish tezligi modeli —')
+    print('— yemirish tezligi shartli hisobi —')
     for c in (0.10, 0.50, 1.0, 4.0, 8.0):
         e = etch_rate(c)
         print('  c=%4.2f M  r=%7.1f Angstrom/min = %6.1f nm/min (HF2- ulushi %.0f %%)'
@@ -231,7 +231,7 @@ def main():
     for p in passivation(1.0):
         print('  %-3s -> %-5s %6.3f g  (HF kerak %6.3f g, H2 %5.3f g)'
               % (p['metal'], p['salt'], p['m_salt'], p['m_hf'], p['m_h2']))
-    print('— chiqindi modeli —')
+    print('— chiqindi taxminiy hisobi —')
     w = waste_model(1000.0, 10.0)
     print('  1000 kg 10 %% HF: Ca(OH)2 %.1f kg, CaF2 %.1f kg, H2O %.1f kg (kirish %.1f = chiqish %.1f)'
           % (w['m_caoh2'], w['m_caf2'], w['m_h2o'], w['m_input'], w['m_output']))
@@ -243,12 +243,12 @@ def main():
         c = calcium_requirement(m)
         print('  %5.1f g HF -> n(Ca2+) %.3f mol, Ca %.2f g, kalsiy glyukonat %.1f g'
               % (m, c['n_ca'], c['m_ca'], c['m_caglu']))
-    print('— olish modeli —')
+    print('— olish taxminiy hisobi —')
     p = production_model(1000.0, 0.97, 0.92)
     print('  1000 kg fluorit (97 %%, unum 92 %%): HF %.1f kg, H2SO4 %.1f kg, CaSO4 %.1f kg'
           % (p['m_hf'], p['m_h2so4'], p['m_caso4']))
     g = glass_model(1.0, 48.0)
-    print('— shisha modeli —')
+    print('— shisha taxminiy hisobi —')
     print('  1 kg SiO2: HF %.1f g (48 %% da %.1f g), H2SiF6 %.1f g'
           % (g['m_hf'], g['m_solution'], g['m_h2siof6']))
     print('CSV fayllar yozildi:', ', '.join(sorted(p.name for p in ASSETS.glob('*.csv'))))

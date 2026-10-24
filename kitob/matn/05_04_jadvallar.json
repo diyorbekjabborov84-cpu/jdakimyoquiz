@@ -114,13 +114,13 @@
       ],
       [
         "Uzluksiz/davriy",
-        "Model: OEE = 0,92 × 0,95 × 0,99 = 0,8653",
+        "Taxminiy hisob: OEE = 0,92 × 0,95 × 0,99 = 0,8653",
         "ISO 22400-2:2014"
       ],
       [
         "Chegara",
         "Apparat o‘lchamlari hisoblanadi",
-        "Model sxemasi asosida"
+        "Shartli hisob sxemasi asosida"
       ]
     ]
   },
@@ -145,17 +145,17 @@
       [
         "NH₃ kirish",
         "183,80 kg",
-        "To‘liq konversiya modeli"
+        "To‘liq konversiya taxminiy hisobi"
       ],
       [
         "O₂ kirish",
         "690,68 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "N₂ (ortiqcha)",
         "2596,97 kg",
-        "N₂/O₂ = 3,76 (model)"
+        "N₂/O₂ = 3,76 (shartli hisob)"
       ],
       [
         "Suv hosil bo‘lishi",
@@ -208,7 +208,7 @@
         "NH₃ + 2O₂ → HNO₃ + H₂O"
       ],
       [
-        "Model jami",
+        "Taxminiy hisob jami",
         "−4468,2 MJ (≈ −4,47 GJ)",
         "Qaytariladigan issiqlik"
       ],
@@ -250,7 +250,7 @@
       [
         "Chegara",
         "Issiqlik o‘tkazish va elektr ishlashi hisobga olinmagan",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -290,7 +290,7 @@
       [
         "Korroziya o‘lchovi",
         "m = (m₀ − m₁)/(S·τ)",
-        "Model: 0,0012 g/m²·soat"
+        "Taxminiy hisob: 0,0012 g/m²·soat"
       ],
       [
         "Korroziya omillari",
@@ -414,7 +414,7 @@
       ],
       [
         "Chiqindi omili",
-        "m_chiqindi/m_mahsulot; model: 0,012",
+        "m_chiqindi/m_mahsulot; taxminiy hisob: 0,012",
         "Sif emas, sxemaga bog‘liq"
       ],
       [
@@ -435,7 +435,7 @@
       [
         "Chegara",
         "Emission chegaralari mamlakatga bog‘liq",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -484,7 +484,7 @@
       ],
       [
         "Cpk",
-        "Model: 1,39",
+        "Taxminiy hisob: 1,39",
         "Statistik boshqaruv"
       ],
       [
@@ -539,7 +539,7 @@
       ],
       [
         "Soft sensor",
-        "Model asosida bashorat",
+        "Shartli hisob asosida bashorat",
         "Kam o‘lchov kanali"
       ],
       [
@@ -549,7 +549,7 @@
       ],
       [
         "Raqamli egizin",
-        "Jarayonning virtual modeli",
+        "Jarayonning virtual raqamli egizini",
         "Optimallashtirish va trening"
       ],
       [
@@ -585,12 +585,12 @@
       [
         "CAPEX",
         "Qurilish, apparat, montaj",
-        "Model: 120,0 mln USD"
+        "Taxminiy hisob: 120,0 mln USD"
       ],
       [
         "OPEX",
         "Xom ashyo, energiya, ish kuchi, xizmat",
-        "Model: 420 USD/t"
+        "Taxminiy hisob: 420 USD/t"
       ],
       [
         "FOA",
@@ -600,7 +600,7 @@
       [
         "O‘zgaruvchi qism",
         "324 USD/t",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Birlik FOA",
@@ -610,12 +610,12 @@
       [
         "OPEX tarkibi",
         "Xom ashyo 42 %; energiya 26 %; ish kuchi 8 %",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Marja va qaytish",
         "Narx 560 USD/t; marja 140; qaytish 9,9 yil",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Xom ashyo bazasi",
@@ -630,7 +630,7 @@
       [
         "Chegara",
         "Narxlar real bozor ma’lumoti emas",
-        "Usul modeli"
+        "Usul taxminiy hisobi"
       ]
     ]
   },
@@ -650,52 +650,52 @@
       [
         "A: HNO₃",
         "680,00 kg; n = 10,7919 kmol",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "A: NH₃ / O₂ / N₂",
         "183,80 / 690,68 / 2596,97 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "A: suv",
         "Hosil 194,42; bog‘langan 97,21; tashqari 222,79 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "A: oraliq",
         "NO 323,87 kg; NO₂ 496,54 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "A: mahsulot",
         "693,88 kg (98 %); suv chiqarilgan 306,12 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "A: azeotrop",
         "Distillat 1546,07 kg; toluen 1239,95 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "A: energiya",
         "Reaksion −4468,2 MJ; bug‘latish 1203,1 MJ",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "B: CAPEX / FOA",
         "120,0 mln USD; 9,60 mln USD/y (96 USD/t)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "B: OEE va marja",
         "0,8653; 86 526 t/y; marja 140 USD/t",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Chegara",
         "Faollik, integratsiya, narx va sifat hisobga olinmagan",
-        "Model, o‘lchov ma’lumoti emas"
+        "Taxminiy hisob, o‘lchov ma’lumoti emas"
       ]
     ]
   }

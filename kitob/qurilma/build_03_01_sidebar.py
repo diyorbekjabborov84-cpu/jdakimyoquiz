@@ -52,12 +52,12 @@ panels=[
 ('Kₐ, pKₐ va α',[],'3.1.1-sxema. Muvozanat, logarifmik miqyos va tarkib ulushi alohida tushunchalar.'),
 ('Faollikdan hisobga',[],'3.1.2-sxema. Termodinamik Kₐ bilan konsentratsion nisbatning ta’rif va birlik farqi.'),
 ('Miqyosni to‘g‘ri o‘qing',[],'3.1.3-sxema. pKₐ dagi farq konstantalar nisbatiga eksponensial o‘tadi.'),
-('Aniq modeldagi ulush',[],'3.1.1-grafik. Faqat HA modelida α ning K_c/C ga bog‘liqligi. Hisobiy, tajribaviy emas.'),
+('Aniq taxminiy hisobdagi ulush',[],'3.1.1-grafik. Faqat HA tizimida α ning K_c/C ga bog‘liqligi. Hisobiy, tajribaviy emas.'),
 ('Taqrib xatosi',[],'3.1.2-grafik. Ildiz taqribining aniq kvadrat yechimga nisbatan x dagi foiz xatosi.'),
-('Suvning ahamiyati',[],'3.1.3-grafik. Suvli ideal yechim va suv tashlangan kvadrat modelning pH natijalari.'),
+('Suvning ahamiyati',[],'3.1.3-grafik. Suvli ideal yechim va suv tashlangan kvadrat yechimning pH natijalari.'),
 ('Tuz bor tizim',[],'3.1.4-sxema. Na⁺ zaryad balansiga kirganda [H⁺]=[A⁻] soddalashtirishi yo‘qoladi.'),
 ('Shakllar taqsimoti',[],'3.1.4-grafik. Shartli diprotik H₂A ning ideal ulushlari. Haqiqiy modda o‘lchovi emas.'),
-('Modeldan tekshiruvgacha',[],'3.1.5-sxema. Muvozanat masalasini tanlash, yechish va tekshirish tartibi.')
+('Shartli hisobdan tekshiruvgacha',[],'3.1.5-sxema. Muvozanat masalasini tanlash, yechish va tekshirish tartibi.')
 ]
 
 doc=Document();sec=doc.sections[0]
@@ -212,7 +212,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'HISOBIY GRAFIK' if idx in [3,4,5,7] else 'TUSHUNTIRUVCHI SXEMA',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={0:('suv_model.png','3.1.1-rasm. Suvning egik molekulyar modeli.'),2:('hf_model.png','3.1.2-rasm. HF: monoprotik moddaning vizual misoli.'),6:('gidroksoniy_model.png','3.1.3-rasm. H₃O⁺ ning piramidal modeli.'),7:('fosfat_model.png','3.1.4-rasm. H₃PO₄: ko‘p bosqichli kislota misoli.')}
+    extra_models={0:('suv_model.png','3.1.1-rasm. Suvning egik molekulyar tasviri.'),2:('hf_model.png','3.1.2-rasm. HF: monoprotik moddaning vizual misoli.'),6:('gidroksoniy_model.png','3.1.3-rasm. H₃O⁺ ning piramidal tasviri.'),7:('fosfat_model.png','3.1.4-rasm. H₃PO₄: ko‘p bosqichli kislota misoli.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -240,7 +240,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         refs=[
         '[1] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018. Muvozanat termodinamikasi, faollik va kislota–asos tizimlari.',
         '[2] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018. Suvli eritmalarda kislota–asos muvozanatlari.',
-        'Barcha sonli misollardagi HA va H₂A — shartli modellar. Kₐ=10⁻⁵ va diprotik K₁/K₂ haqiqiy rasmda ko‘rsatilgan moddalarning o‘lchangan konstantalari emas. 25 °C dagi K_w,c=10⁻¹⁴ (mol L⁻¹)² ideal yaqinlashuvda ishlatildi.',
+        'Barcha sonli misollardagi HA va H₂A — shartli hisoblar. Kₐ=10⁻⁵ va diprotik K₁/K₂ haqiqiy rasmda ko‘rsatilgan moddalarning o‘lchangan konstantalari emas. 25 °C dagi K_w,c=10⁻¹⁴ (mol L⁻¹)² ideal yaqinlashuvda ishlatildi.',
         'Chizma va molekulyar rasmlar original o‘quv tasvirlari. To‘rt grafik mustaqil matematik hisoblar; tajribaviy grafik yoki titrlash egri chiziqlari emas.'
         ]
         for ref in refs:

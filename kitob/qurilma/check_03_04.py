@@ -1,4 +1,4 @@
-"""Scientific model and DOCX integrity checks for titration topic 3.4."""
+"""Scientific taxminiy hisob and DOCX integrity checks for titration topic 3.4."""
 from pathlib import Path
 import math,csv,zipfile,json
 from docx import Document

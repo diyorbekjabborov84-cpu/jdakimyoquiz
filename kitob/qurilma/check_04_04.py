@@ -1,4 +1,4 @@
-"""QA: model identities, native mathematics, layout and figure inventory for 4.4."""
+"""QA: taxminiy hisob identities, native mathematics, layout and figure inventory for 4.4."""
 from pathlib import Path
 from collections import Counter
 from zipfile import ZipFile
@@ -32,14 +32,14 @@ for name,n in [('species',401),('proton',401),('solubility',401),('amph',401)]:
         else:
             near(r['Csat_M'],amph_csat(r['pH']));near(r['log_Csat'],math.log10(r['Csat_M']))
             near(r['Cdiss_M'],min(r['Csat_M'],CM0))
-# Model identities that the prose asserts.
+# Taxminiy hisob identities that the prose asserts.
 near(math.sqrt(KSP),1.2649110640673517e-05)
 near(saturation_s(1e-2),5.216895625628197e-04)
 near(complex_fraction(1/math.sqrt(BETA2)),0.5)
 x,pH,cs=amph_minimum();near(pH,5.619280313679916);near(cs,5.549055267050422e-05)
 near(BETA4*x**4,3.0)
 near(alpha_nh3(9.25),0.5);near(alpha_nh3(7.25),0.009900990099009901);near(alpha_nh3(11.25),0.99009901)
-# Separation model quoted in the text and tables.
+# Separation taxminiy hisob quoted in the text and tables.
 near(separation_onset(1e-18,0.010),6.0)
 near(separation_onset(1e-12,0.010),9.0)
 near(separation_quantitative(1e-18,0.010,fraction=0.999),7.5)
@@ -110,7 +110,7 @@ for key in ['K_sp','Q_sp','α_L','C_M,0','β_2','F_M','n_s','C_sat','K_a,c']:
 assert 'β 6 =7×10' in alltext and 'AlF 6' in alltext
 notes=json.loads((D/'matn/04_04_yonlavhalar.json').read_text());assert sum(map(len,notes))==22
 tables=json.loads((D/'matn/04_04_jadvallar.json').read_text());assert len(tables)==11
-print(f'PASS: {points} model points; speciation, protonation, solubility, amphoteric minimum, separation and ligand-balance identities; {len(rx)} atom/charge balances; {omml} OMML lines / {fracs} fractions; 11 tables, 16 figures, 22 notes, 3:1 layout.')
+print(f'PASS: {points} taxminiy hisob points; speciation, protonation, solubility, amphoteric minimum, separation and ligand-balance identities; {len(rx)} atom/charge balances; {omml} OMML lines / {fracs} fractions; 11 tables, 16 figures, 22 notes, 3:1 layout.')
 print('Words with math:',len(alltext.split()),'Bytes:',p.stat().st_size)
 rt=D.parent/'google_drive/Noorganik kislotalar — 4.4. Kompleks va cho‘kma hosil qilish — tekshirilgan.roundtrip.docx'
 if rt.exists():

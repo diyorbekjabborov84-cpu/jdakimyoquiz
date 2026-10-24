@@ -170,7 +170,7 @@
       [
         "Ikki mustaqil ekvivalent joy",
         "Kₐ₁=2k; Kₐ₂=k/2",
-        "Faqat shu ideal statistik model"
+        "Faqat shu ideal statistik tasvir"
       ],
       [
         "Akvakompleks",
@@ -208,7 +208,7 @@
         "Anionning o‘zi bilan xulosa qilmang"
       ],
       [
-        "Born grafik modeli",
+        "Born kontinuum grafigi",
         "B=(1−1/εᵣ)/ρ; z=1",
         "εᵣ=2 va 80 — shartli muhitlar"
       ],
@@ -258,8 +258,8 @@
     "caption": "3.2.8-jadval. Harorat bo‘yicha shartli hisob",
     "headers": [
       "Harorat / shart",
-      "Endotermik model yoki izoh",
-      "Ekzotermik model yoki cheklov"
+      "Endotermik taxminiy hisob yoki izoh",
+      "Ekzotermik taxminiy hisob yoki cheklov"
     ],
     "widths": [
       3.0,
@@ -274,7 +274,7 @@
       ],
       [
         "298,15 K",
-        "Ikkala model pKₐ=5,00000",
+        "Ikkala shartli hisob pKₐ=5,00000",
         "Taqqoslashning tayanch nuqtasi"
       ],
       [
@@ -288,7 +288,7 @@
         "pKₐ(−ΔH)=5,18405"
       ],
       [
-        "Model parametrlari",
+        "Shartli hisob parametrlari",
         "ΔH°=±10,0 kJ mol⁻¹",
         "Doimiy ΔH°; haqiqiy modda o‘lchovi emas"
       ]

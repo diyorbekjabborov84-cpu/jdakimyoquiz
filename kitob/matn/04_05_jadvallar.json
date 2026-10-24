@@ -95,7 +95,7 @@
       [
         "H₂SO₄ uchun T*",
         "779,7 K ≈ 507 °C",
-        "Standart holat modeli"
+        "Standart holat shartli hisobi"
       ],
       [
         "HNO₃ uchun T*",
@@ -170,7 +170,7 @@
     ]
   },
   "kinetics": {
-    "caption": "4.5.4-jadval. Kinetik model: haroratga bog‘liq tezlik va yarim vaqt",
+    "caption": "4.5.4-jadval. Kinetik shartli hisob: haroratga bog‘liq tezlik va yarim vaqt",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -183,14 +183,14 @@
     ],
     "rows": [
       [
-        "Model prefaktori A",
+        "Shartli hisob prefaktori A",
         "1,0×10¹³ s⁻¹",
         "Aniq kislotga tegishli emas"
       ],
       [
-        "Model aktivatsiya energiyasi E_a",
+        "Shartli hisob aktivatsiya energiyasi E_a",
         "100 kJ/mol",
-        "O‘quv modeli"
+        "O‘quv tasviri"
       ],
       [
         "298,15 K",
@@ -219,7 +219,7 @@
       ],
       [
         "Chegara",
-        "Model emas, o‘quv taxmini",
+        "Bu shartli hisob emas, o‘quv taxmini",
         "Saqlash muddatini aniqlab bermaydi"
       ]
     ]
@@ -424,7 +424,7 @@
       ],
       [
         "Konsentratsiya",
-        "Birinchi tartibli model",
+        "Birinchi tartibli shartli hisob",
         "Ion kuchi buzadi"
       ]
     ]
@@ -588,7 +588,7 @@
         "lg K ≈ 27,2; T* = −305 K"
       ],
       [
-        "Kinetik model",
+        "Kinetik shartli hisob",
         "298 K → 6,4 soat; 320 K → 24 daqiqa",
         "A=1,0×10¹³ s⁻¹; E_a=100 kJ/mol"
       ]

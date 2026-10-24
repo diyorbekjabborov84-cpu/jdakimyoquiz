@@ -26,10 +26,10 @@ panels=[
 ('Kuchli juftlik',[],'3.4.1-grafik. Kuchli bir asosli kislota–NaOH. Bronza chiziq: 25,00 mL ekvivalent hajm.'),
 ('Kuchsiz kislota',[],'3.4.2-grafik. Shartli HA–NaOH. K_c=10⁻⁵ mol L⁻¹; suv va barcha muvozanat hissalari saqlangan.'),
 ('Ko‘p bosqichli egri chiziq',[],'3.4.3-grafik. Ideal H₃PO₄–NaOH. Bronza chiziqlar uchta stexiometrik hajm, uchta teng keskin sakrash emas.'),
-('Indikator ulushlari',[],'3.4.4-grafik. pK_In=7 bo‘lgan shartli ikki shaklli model; real spektr yoki nitrofenol o‘lchovi emas.'),
+('Indikator ulushlari',[],'3.4.4-grafik. pK_In=7 bo‘lgan shartli ikki shaklli tizim; real spektr yoki nitrofenol o‘lchovi emas.'),
 ('Rang o‘tish intervali',[],'3.4.2-sxema. Uch indikatorning odatiy intervallari [2]. Chiziqlar rang intensivligi o‘lchovi emas.'),
 ('Hajmdagi og‘ish',[],'3.4.3-sxema. Oxirgi nuqta siljishi va hisoblangan kislota miqdorining ishorali og‘ishi.'),
-('Sonli hosila',[],'3.4.5-grafik. Kuchli juftlikning ideal modelidan hisoblangan hosila; haqiqiy asbob signali emas.'),
+('Sonli hosila',[],'3.4.5-grafik. Kuchli juftlikning ideal sharoitidan hisoblangan hosila; haqiqiy asbob signali emas.'),
 ('Natijaning zanjiri',[],'3.4.4-sxema. Reaksiya, standartlash, signal, tuzatish va noaniqlikni birga nazorat qilish.')
 ]
 
@@ -174,7 +174,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'HISOBIY GRAFIK' if idx in [1,2,3,4,7] else 'TUSHUNTIRUVCHI SXEMA',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={0:('qurilma.png','3.4.1-rasm. Byuretka–kolba qurilmasining original sxematik tasviri.'),3:('fosfat_model.png','3.4.2-rasm. H₃PO₄ da uch O–H ulanishi.'),4:('hin_tuzilish.png','3.4.3-rasm. para-Nitrofenol ulanish modeli.'),5:('in_tuzilish.png','3.4.4-rasm. para-Nitrofenolyat ulanish modeli. Nitro guruhining bitta rezonans yozuvi.')}
+    extra_models={0:('qurilma.png','3.4.1-rasm. Byuretka–kolba qurilmasining original sxematik tasviri.'),3:('fosfat_model.png','3.4.2-rasm. H₃PO₄ da uch O–H ulanishi.'),4:('hin_tuzilish.png','3.4.3-rasm. para-Nitrofenol ulanish tasviri.'),5:('in_tuzilish.png','3.4.4-rasm. para-Nitrofenolyat ulanish tasviri. Nitro guruhining bitta rezonans yozuvi.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -200,7 +200,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     if idx==8:
         p=left.add_paragraph();p.paragraph_format.space_before=Pt(8);runs(p,'Adabiyotlar',10,True,NAVY)
         refs=[
-        '[1] OpenStax. Chemistry 2e. 14.7: Acid-Base Titrations. https://openstax.org/books/chemistry-2e/pages/14-7-acid-base-titrations . Egri chiziqlar, indikatorning ikki shaklli modeli va o‘tish intervali nazariyasi.',
+        '[1] OpenStax. Chemistry 2e. 14.7: Acid-Base Titrations. https://openstax.org/books/chemistry-2e/pages/14-7-acid-base-titrations . Egri chiziqlar, indikatorning ikki shaklli tizimi va o‘tish intervali nazariyasi.',
         '[2] Harvey, D. Analytical Chemistry 2.1. Chapter 9: Titrimetric Methods. https://www.asdlib.org/onlineArticles/ecourseware/Text_Files_files/Chapter9.pdf . Indikator tanlash, hajm og‘ishi, instrumental aniqlash; jadvaldagi odatiy indikator intervallari.',
         '[3] OpenStax. Chemistry 2e. Appendix H: Ionization Constants of Weak Acids. https://openstax.org/books/chemistry-2e/pages/h-ionization-constants-of-weak-acids . H₃PO₄ uchun 25 °C dagi konstantalar.',
         'Barcha tasvirlar original o‘quv ishlanmalari. Grafiklar ideal konsentratsion muvozanat hisoblari; tajriba emas. Strukturaviy tasvirlar optimallashtirilgan koordinatalar emas. Nitrofenol tasvirlari shartli indikator grafigining moddasini belgilamaydi.'

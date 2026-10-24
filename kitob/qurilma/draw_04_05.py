@@ -1,5 +1,5 @@
 """Original teaching figures for 4.5 "Parchalanish".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -84,8 +84,8 @@ txt(d, 140, 290, 'T* ≈ 780 K', 25, TEAL)
 txt(d, 140, 330, 'bu nuqtada K = 1', 24, TEAL)
 txt(d, 45, 865, 'HNO₃ → NO₂ + H₂O + ½O₂ — ko‘k egri chiziq', 26, N)
 txt(d, 45, 925, 'H₂SO₄ → SO₃ + H₂O — bronza egri chiziq', 26, B)
-txt(d, 45, 985, 'ΔH°, ΔS° doimiy; standart holat modeli', 25, G)
-txt(d, 45, 1045, 'Model egri chizig‘i; tajriba ma’lumoti emas', 25, G)
+txt(d, 45, 985, 'ΔH°, ΔS° doimiy; standart holat taxminiy hisobi', 25, G)
+txt(d, 45, 1045, 'Shartli hisob egri chizig‘i; tajriba ma’lumoti emas', 25, G)
 save(im, 'dG')
 
 # --- Graph 2: equilibrium constant versus temperature ------------------------
@@ -101,10 +101,10 @@ txt(d, x - 130, 640, 'K = 1', 25, B)
 txt(d, 45, 865, 'H₂SO₄(l) → SO₃(g) + H₂O(l)', 28, N)
 txt(d, 45, 925, 'ln K = −ΔH°/RT + ΔS°/R (van ’t Hoff)', 26, G)
 txt(d, 45, 985, 'K(298 K) ≈ 4,8×10⁻¹⁵;  K(1000 K) ≈ 90', 25, G)
-txt(d, 45, 1045, 'Model egri chizig‘i; tajriba ma’lumoti emas', 25, G)
+txt(d, 45, 1045, 'Shartli hisob egri chizig‘i; tajriba ma’lumoti emas', 25, G)
 save(im, 'K')
 
-# --- Graph 3: Arrhenius model ------------------------------------------------
+# --- Graph 3: Arrhenius taxminiy hisob ------------------------------------------------
 im, d = canvas('Kinetika: harorat parchalanishni tezlashtiradi', 1180)
 p = axes(d, 250, 450, -6, 2, 'T, K', 'lg k, s⁻¹',
          [(250, '250'), (300, '300'), (350, '350'), (400, '400'), (450, '450')],
@@ -115,9 +115,9 @@ for T in (298.15, 320, 350, 400):
     x, y = p(T, math.log10(arrhenius_k(T)))
     d.ellipse((x - 7, y - 7, x + 7, y + 7), fill=B)
 txt(d, 45, 865, 'k = A·exp(−Ea/RT)', 28, N)
-txt(d, 45, 925, 'Model: A = 1,0×10¹³ s⁻¹, Ea = 100 kJ/mol', 26, G)
+txt(d, 45, 925, 'Taxminiy hisob: A = 1,0×10¹³ s⁻¹, Ea = 100 kJ/mol', 26, G)
 txt(d, 45, 985, 't½: 298 K ≈ 6,4 soat;  350 K ≈ 58 s', 25, G)
-txt(d, 45, 1045, 'Model egri chizig‘i; aniq kislotga tegishli emas', 25, G)
+txt(d, 45, 1045, 'Shartli hisob egri chizig‘i; aniq kislotga tegishli emas', 25, G)
 save(im, 'kinetics')
 
 # --- Graph 4: sulfite speciation versus pH ----------------------------------
@@ -193,7 +193,7 @@ scheme('hisob', 'Hisob natijasi: termodinamik va kinetik', [
     ('ΔS°', '169,86 J/(mol·K)', 'Entropiya ortadi'),
     ('ΔG°(298,15)', '+81,80 kJ/mol', '298 K da qulay emas'),
     ('T*', '779,7 K ≈ 507 °C', 'K = 1 bo‘lgan nuqta'),
-    ('Kinetik model', '298 K → 6,4 soat; 350 K → 58 s', 'Saqlash cheklovi kinetik')])
+    ('Kinetik shartli hisob', '298 K → 6,4 soat; 350 K → 58 s', 'Saqlash cheklovi kinetik')])
 
 # --- Original schematic illustrations ---------------------------------------
 def base(t, h=590):

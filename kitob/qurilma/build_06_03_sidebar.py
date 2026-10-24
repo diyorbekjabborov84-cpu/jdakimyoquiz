@@ -24,8 +24,8 @@ panels = [
   '6.3.1-rasm. HCl molekulasi: r = 1,2746 Å, D = 432 kJ/mol, μ = 1,08 D (sxematik, original).'),
  (1, 'fizikx.png', 'sxema', 'HCl: fizik xossalar.',
   '6.3.2-sxema. Gaz holati, kritik nuqta, eritma, azeotrop va gidronium tuzlari (sxematik).'),
- (2, 'spetsiatsiya.png', 'grafik', 'Suvli HCl: model pH va jadval pH.',
-  '6.3.3-grafik. Ideal model (−lg c) va jadvalning apparent pH qiymatlari (model egri chizig‘i).'),
+ (2, 'spetsiatsiya.png', 'grafik', 'Suvli HCl: shartli hisob pH va jadval pH.',
+  '6.3.3-grafik. Ideal shartli hisob (−lg c) va jadvalning apparent pH qiymatlari (taxminiy egri chiziq).'),
  (3, 'olishsx.png', 'sxema', 'Ishlab chiqarish va tozalash.',
   '6.3.4-sxema. Mannheim va sintetik usullar, quruq tozalash, yig‘ish va navlar (sxematik).'),
  (4, 'kloridlarsx.png', 'sxema', 'Tuzlar va xloro-komplekslar.',
@@ -40,16 +40,16 @@ panels = [
   '6.3.9-sxema. Pickling, PVC, dezinfectsiya, ion almashinuv, oziq-ovqat va dori (sxematik).'),
  (9, 'tahlilsx.png', 'sxema', 'Tahlil usullari.',
   '6.3.10-sxema. Standartlash, dead-stop titr, Kjeldahl, argentometriya va zamonaviy usullar (sxematik).'),
- (10, 'hisob.png', 'rasm', 'Ishlangan hisob: to‘rt model.',
-  '6.3.11-rasm. Model A — ishlab chiqarish; B — neytralizatsiya; C — metall; D — tiklash.')]
+ (10, 'hisob.png', 'rasm', 'Ishlangan hisob: to‘rt shartli hisob.',
+  '6.3.11-rasm. Taxmin A — ishlab chiqarish; B — neytralizatsiya; C — metall; D — tiklash.')]
 
 extra = {
  1: [('eritma.png', '6.3.2-grafik. Eritmaning qaynash harorati, bug‘ bosimi va zichligi (jadval ma’lumotlari).')],
- 3: [('ishlabchiqarish.png', '6.3.4-grafik. 1000 kg HCl uchun mass oqimi: Mannheim va sintetik usul (model).')],
- 4: [('metallar.png', '6.3.5-grafik. Metall yemirilishida HCl sarfi (model egri chizig‘i).')],
+ 3: [('ishlabchiqarish.png', '6.3.4-grafik. 1000 kg HCl uchun mass oqimi: Mannheim va sintetik usul (shartli hisob).')],
+ 4: [('metallar.png', '6.3.5-grafik. Metall yemirilishida HCl sarfi (taxminiy egri chiziq).')],
  5: [('teshikx.png', '6.3.6-rasm. Teshik (pitting) korroziya: Cl⁻ ionlarining ta’siri (sxematik, original).')],
  6: [('idishx.png', '6.3.7-rasm. Saqlash va transport: idish tanlash mezonlari (sxematik, original).')],
- 9: [('chiqindi.png', '6.3.10-grafik. Neytralizatsiya mass balansi va kislotani tiklash sikli (model egri chizig‘i).')]}
+ 9: [('chiqindi.png', '6.3.10-grafik. Neytralizatsiya mass balansi va kislotani tiklash sikli (taxminiy egri chiziq).')]}
 
 LABEL = {'grafik': 'HISOBIY GRAFIK', 'sxema': 'TUSHUNTIRUVCHI SXEMA', 'rasm': 'CHIZMA VA IZOH'}
 
@@ -245,7 +245,7 @@ for idx, ((title, paras), (pidx, pic, kind, panel, note)) in enumerate(zip(secti
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

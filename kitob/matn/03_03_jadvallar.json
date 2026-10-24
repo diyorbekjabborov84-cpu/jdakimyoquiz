@@ -40,7 +40,7 @@
     ]
   },
   "balances": {
-    "caption": "3.3.2-jadval. Modelni yopadigan tenglamalar",
+    "caption": "3.3.2-jadval. Uni yopadigan tenglamalar",
     "headers": [
       "Tayanch",
       "HA uchun yozuv",
@@ -65,7 +65,7 @@
       [
         "Kislota muvozanati",
         "K_c=h[A⁻]/[HA]",
-        "Ideal konsentratsion model"
+        "Ideal konsentratsion hisob"
       ],
       [
         "Suv muvozanati",
@@ -80,7 +80,7 @@
     ]
   },
   "strong": {
-    "caption": "3.3.3-jadval. Kuchli bir asosli kislota; 25 °C ideal model",
+    "caption": "3.3.3-jadval. Kuchli bir asosli kislota; 25 °C ideal sharoit",
     "headers": [
       "C, mol L⁻¹",
       "Suv bilan pH",
@@ -122,7 +122,7 @@
   "weak": {
     "caption": "3.3.4-jadval. HA uchun hisob bosqichlari",
     "headers": [
-      "Model",
+      "Taxminiy hisob",
       "Tenglama / natija",
       "Qachon yaroqli?"
     ],
@@ -155,7 +155,7 @@
       [
         "C=10⁻⁴; K_c=10⁻⁵",
         "Ideal pH≈4,56838",
-        "α≈27,02%; kvadrat model kerak"
+        "α≈27,02%; kvadrat yechim kerak"
       ],
       [
         "C=10⁻⁸; K_c=10⁻⁵",
@@ -329,7 +329,7 @@
       ],
       [
         "Ko‘p hisobiy raqam",
-        "Model ildizining yozilishi",
+        "Shartli hisob ildizining yozilishi",
         "Tajriba aniqligi bilan teng emas"
       ]
     ]
@@ -373,7 +373,7 @@
         "Har doim h=nC"
       ],
       [
-        "Har qanday model",
+        "Har qanday yondashuv",
         "Qayta qo‘yish va birlik nazorati",
         "Balans yoki K tiklanmaydi"
       ]

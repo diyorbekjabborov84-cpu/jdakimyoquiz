@@ -1,6 +1,6 @@
-"""5.3 «QuRITish va suvsizlantirish» — model zaxirasi.
+"""5.3 «QuRITish va suvsizlantirish» — taxminiy hisob zaxirasi.
 
-Barcha sonli natijalar ochiq shartli modeldan olingan; tajriba ma’lumoti emas.
+Barcha sonli natijalar ochiq shartli hisoblardan olingan; tajriba ma’lumoti emas.
 Manbalar: OpenStax App. G (ΔfH°), CRC (ΔvapH, molar massalar),
 Ph. Eur. 6.0 (2.2.32, 2.5.12, 5.11), USP <731>, EPA Method 9000,
 IUPAC Gold Book (D01582, E01909, D01618).
@@ -100,10 +100,10 @@ def equilibrium_moisture(rh, wm=0.05, C=10.0):
 
 
 # ======================================================================
-# 3. quritish kinetikasi modeli
+# 3. quritish kinetikasi taxminiy hisobi
 # ======================================================================
 def drying_curve(t, X0=0.35, Xc=0.20, Xe=0.02, k1=0.015, k2=0.080):
-    """Ikki bosqichli model: doimiy tezlik + birinchi pasayish bosqichi."""
+    """Ikki bosqichli shartli hisob: doimiy tezlik + birinchi pasayish bosqichi."""
     if t <= 0:
         return X0
     tc = (X0 - Xc) / k1
@@ -113,7 +113,7 @@ def drying_curve(t, X0=0.35, Xc=0.20, Xe=0.02, k1=0.015, k2=0.080):
 
 
 def drying_at_temperature(T, t, T_ref=373.15, Ea=30.0, **kw):
-    """Arrhenius koeffitsienti bilan kinetik tezlikni haroratga bog'lash (model)."""
+    """Arrhenius koeffitsienti bilan kinetik tezlikni haroratga bog'lash (shartli hisob)."""
     f = math.exp(-Ea * 1000.0 / R * (1.0 / T - 1.0 / T_ref))
     p = dict(kw)
     p['k1'] = kw.get('k1', 0.015) * f
@@ -203,7 +203,7 @@ def energy_kwh(m_water, dHvap=DVAP_H2O_100):
 
 
 def equivalent_heat(m_water, q_MJ):
-    """Isitish + bug'latish: model (q_MJ — jami)."""
+    """Isitish + bug'latish: taxminiy hisob (q_MJ — jami)."""
     return {'Q_MJ': q_MJ, 'kWh': q_MJ * 1000.0 / 3.6}
 
 
@@ -286,6 +286,6 @@ if __name__ == '__main__':
     e = evaporation_energy(316.58)
     print(' ', e)
     print(' kWh/kg suv:', round(energy_kwh(1.0), 4))
-    print(' azeotrop Model B energiya: suv', round(316.5829*2.25684, 1),
+    print(' azeotrop Taxmin B energiya: suv', round(316.5829*2.25684, 1),
           'MJ + tol', round(1282.3207*0.4131, 1), 'MJ')
     print(' CSV yozildi:', sorted(p.name for p in ASSETS.glob('*.csv')))

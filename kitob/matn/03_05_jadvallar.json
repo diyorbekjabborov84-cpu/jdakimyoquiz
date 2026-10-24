@@ -268,7 +268,7 @@
         "Cho‘kma, komplekslar, polimerlar"
       ],
       [
-        "Na⁺ modeli",
+        "Na⁺ bo‘yicha shartli hisob",
         "Sezilarli proton almashinuvi yo‘q",
         "Barcha metallarga umumlashtirmang"
       ]
@@ -315,7 +315,7 @@
     ]
   },
   "checks": {
-    "caption": "3.5.9-jadval. Formula o‘rniga modelni tanlash",
+    "caption": "3.5.9-jadval. Formula o‘rniga yondashuvni tanlash",
     "headers": [
       "Savol",
       "Tayanch",
@@ -348,9 +348,9 @@
         "Faqat boshlang‘ich pH ga qaralgan"
       ],
       [
-        "Model yopiqmi?",
+        "Taxminiy hisob yopiqmi?",
         "CO₂, NH₃, cho‘kma, kompleks",
-        "Bir fazali model shartsiz ishlatilgan"
+        "Bir fazali shartli hisob shartsiz ishlatilgan"
       ],
       [
         "Yechim to‘g‘rimi?",

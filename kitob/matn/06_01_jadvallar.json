@@ -45,7 +45,7 @@
       [
         "Trend: termik barqarorlik",
         "ΔG° dekompozitsiya: 550,8 → 190,6 → 110,0 → 15,9 kJ/mol",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Trend: qaytaruvchilik",
@@ -59,7 +59,7 @@
       ],
       [
         "Chegara",
-        "Barcha sonlar ochiq shartli model",
+        "Barcha sonlar ochiq shartli hisob",
         "O‘lchov ma’lumoti emas"
       ]
     ]
@@ -90,7 +90,7 @@
       [
         "Farq (r_sum − r_exp)",
         "+0,037 / −0,055 / −0,096 / −0,091 Å",
-        "Model: bog‘ quyuqligi"
+        "Taxminiy hisob: bog‘ quyuqligi"
       ],
       [
         "Dipol moment",
@@ -125,7 +125,7 @@
       [
         "Chegara",
         "Qiymatlar nashr jadvalidan",
-        "Model hisob emas"
+        "Bu shartli hisob emas"
       ]
     ]
   },
@@ -165,10 +165,10 @@
       [
         "ΔG°: HX(g) → H⁺(aq) + X⁻(aq)",
         "−3,4 / −35,9 / −49,4 / −53,3 kJ/mol",
-        "Model (OpenStax App. G)"
+        "Taxminiy hisob (OpenStax App. G)"
       ],
       [
-        "K (model)",
+        "K (shartli hisob)",
         "3,9 / 1,95×10⁶ / 4,50×10⁸ / 2,15×10⁹",
         "Kuchli kislotalarda Ka ga yaqin"
       ],
@@ -210,17 +210,17 @@
       [
         "D + ΔH_hyd",
         "63 / 68 / 35 / 2 kJ/mol",
-        "Model: kislotalik balansi"
+        "Taxminiy hisob: kislotalik balansi"
       ],
       [
         "Tushuntirish",
         "HF da katta bog‘ energiyasi katta gidratatsiya bilan kompensatsiya qilinadi",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Konjugat asos barqarorligi",
         "F⁻ > Cl⁻ > Br⁻ > I⁻ (gidratatsiya bo‘yicha)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "HF spetsiatsiyasi",
@@ -238,14 +238,14 @@
         "Xavf ham kuchli"
       ],
       [
-        "Model: HF ionizatsiyasi",
+        "Taxminiy hisob: HF ionizatsiyasi",
         "0,010 M → 22,90 %; 0,100 M → 7,91 %; 1,000 M → 2,57 %",
         "Ka = 6,8×10⁻⁴"
       ],
       [
         "Chegara",
-        "Faqat suvda; boshqa erituvchilar modeli emas",
-        "Model"
+        "Faqat suvda; boshqa erituvchilar taxminiy hisobi emas",
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -270,12 +270,12 @@
       [
         "ΔG° dekompozitsiya",
         "550,8 / 190,6 / 110,0 / 15,9 kJ/mol",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "lgK",
         "−96,50 / −33,39 / −19,27 / −2,79",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "ΔfH°(g)",
@@ -295,7 +295,7 @@
       [
         "Teskari yo‘nalish",
         "H₂ + I₂ → 2HI (Pt katalizatori)",
-        "Model tavsifi"
+        "Shartli hisob tavsifi"
       ],
       [
         "Xulosa",
@@ -305,12 +305,12 @@
       [
         "Chegara",
         "Faqat gaz holati uchun hisoblangan",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
   "olish": {
-    "caption": "6.1.6-jadval. Olish usullari va stöchiometrik model",
+    "caption": "6.1.6-jadval. Olish usullari va stöchiometrik taxminiy hisob",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -328,14 +328,14 @@
         "Fluorit + kislota"
       ],
       [
-        "Model: HF miqdori",
+        "Taxminiy hisob: HF miqdori",
         "1000 kg fluorit (97 %) → 447,4 kg HF (unum 90 %)",
-        "Ochiq shartli model"
+        "Ochiq shartli hisob"
       ],
       [
-        "Model: yon mahsulot",
+        "Taxminiy hisob: yon mahsulot",
         "H₂SO₄ 1218,6 kg; CaSO₄ 1691,4 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "HCl",
@@ -345,7 +345,7 @@
       [
         "HCl yotqizish",
         "Sanoatda gaz suvga yotqiziladi → 32–37 % li kislota",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "HBr",
@@ -370,7 +370,7 @@
     ]
   },
   "xossalar": {
-    "caption": "6.1.7-jadval. Kislota xossalari: shartlar, namoyonlar va model",
+    "caption": "6.1.7-jadval. Kislota xossalari: shartlar, namoyonlar va taxminiy hisob",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -385,7 +385,7 @@
       [
         "Uch shart",
         "Proton berish + konjugat asos barqarorligi + termodinamik imkon",
-        "Model ta’rifi"
+        "Shartli hisob ta’rifi"
       ],
       [
         "Metall bilan",
@@ -403,19 +403,19 @@
         "CO₂ ajralishi tug‘diradi"
       ],
       [
-        "Model: neytralizatsiya",
+        "Taxminiy hisob: neytralizatsiya",
         "1000 kg 10 % HCl → CaCO₃ 137,3 kg; CaCl₂ 152,2 kg; CO₂ 60,4 kg; H₂O 24,7 kg",
         "Kirish 237,3 = chiqish 237,2 kg"
       ],
       [
         "Kislota kuchi va metall",
         "HF kam, HCl keng, HBr va HI yanada kuchli",
-        "Model mantiqi"
+        "Shartli hisob mantiqi"
       ],
       [
         "Anion ta’siri",
         "Kattaroq X⁻ kuchsiz kompleks hosil qiladi",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Passivatsiya",
@@ -445,7 +445,7 @@
       [
         "Qaytaruvchilik tartibi",
         "HF < HCl < HBr < HI",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Elektron affiniti",
@@ -463,19 +463,19 @@
         "Sxematik"
       ],
       [
-        "Model: Br₂",
+        "Taxminiy hisob: Br₂",
         "1,00 kg HBr → 987,5 g Br₂",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: I₂",
+        "Taxminiy hisob: I₂",
         "1,00 kg HI → 992,1 g I₂",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "HI + O₂",
         "4HI + O₂ → 2I₂ + 2H₂O (62,54 g O₂ / kg HI)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Oksidlovchi balans",
@@ -485,7 +485,7 @@
       [
         "Xulosa",
         "Qaytaruvchilik va oksidlovchilik teskari",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Chegara",
@@ -513,14 +513,14 @@
         "Shishani yemiradi"
       ],
       [
-        "Model: HF sarfi",
+        "Taxminiy hisob: HF sarfi",
         "1 kg SiO₂ → 1997,9 g HF (48 % li eritmada 4162,4 g)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: mahsulot",
+        "Taxminiy hisob: mahsulot",
         "H₂SiF₆ 2398,3 g; H₂O 599,6 g",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "HF idishi",
@@ -535,12 +535,12 @@
       [
         "Metallarga ta’sir",
         "Oddiy po‘lat HCl da yemiriladi; passivatsiya sharoitga bog‘liq",
-        "Model mantiqi"
+        "Shartli hisob mantiqi"
       ],
       [
         "316L va Ni legirlari",
         "HCl ga chidamliroq; HBr va HI da tezlashadi",
-        "Model mantiqi"
+        "Shartli hisob mantiqi"
       ],
       [
         "Polimerlar",
@@ -555,7 +555,7 @@
       [
         "Chegara",
         "Material tanlash bo‘yicha amaliyot tavsiyalari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -600,17 +600,17 @@
       [
         "HI qo‘shimcha xavfi",
         "Havo bilan reaksiyada rangi qorayadi",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Neytralizatsiya",
         "CaCO₃ bilan; CO₂ ajralishi reaksiyani tug‘diradi",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: CO₂",
+        "Taxminiy hisob: CO₂",
         "1000 kg 10 % li HCl → 60,4 kg CO₂",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Logistika",
@@ -638,53 +638,53 @@
     ],
     "rows": [
       [
-        "Model A: 0,010 M",
+        "Taxmin A: 0,010 M",
         "[H₃O⁺] = 0,002290 M; 22,90 %; pH 2,640",
         "Ka = 6,8×10⁻⁴"
       ],
       [
-        "Model A: 0,100 M",
+        "Taxmin A: 0,100 M",
         "[H₃O⁺] = 0,007913 M; 7,91 %; pH 2,102",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model A: 1,000 M",
+        "Taxmin A: 1,000 M",
         "[H₃O⁺] = 0,025739 M; 2,57 %; pH 1,589",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model B: 10 % li HCl",
+        "Taxmin B: 10 % li HCl",
         "Qoldiq 495,0 kg; haydalgan suv 505,0 kg",
         "Azeotrop 20,2 %"
       ],
       [
-        "Model B: 37 % li HCl",
+        "Taxmin B: 37 % li HCl",
         "1831,7 kg qoldiq kerak > 1000 kg → imkonsiz",
         "Gaz yotqizish yo‘li"
       ],
       [
-        "Model B: yotqizish issig‘i",
+        "Taxmin B: yotqizish issig‘i",
         "−74,8 kJ/mol = −2052 kJ/kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model C: D + ΔH_hyd",
+        "Taxmin C: D + ΔH_hyd",
         "63 / 68 / 35 / 2 kJ/mol",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model C: ΔG° gaz → ion",
+        "Taxmin C: ΔG° gaz → ion",
         "−3,4 / −35,9 / −49,4 / −53,3 kJ/mol",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model C: dekompozitsiya",
+        "Taxmin C: dekompozitsiya",
         "550,8 / 190,6 / 110,0 / 15,9 kJ/mol",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Chegara",
-        "Barcha natijalar ochiq shartli model",
+        "Barcha natijalar ochiq shartli hisob",
         "O‘lchov ma’lumoti emas"
       ]
     ]

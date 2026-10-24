@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""6.1 "Guruhning umumiy tavsifi" — model ma'lumotlari va CSV jadvallar.
+"""6.1 "Guruhning umumiy tavsifi" — taxminiy hisob ma'lumotlari va CSV jadvallar.
 
-Barcha sonli natijalar ochiq shartli model hisoblaridir (o'lchov ma'lumoti emas).
+Barcha sonli natijalar ochiq shartli hisoblardir (o'lchov ma'lumoti emas).
 Manbalar: OpenStax Chemistry 2e (7.5, 8.1, App. G), ChemGuide (gidratatsiya),
 IUPAC/Gold Book va nashr jadvalari (S°, azeotroplar).
 """
@@ -67,7 +67,7 @@ DH_SOLN_HCL = -74.8          # kJ/mol (suvga yotqizish)
 KA_HF = 6.8e-4
 
 
-# ---------------------------------------------------------------- model funksiyalari
+# ---------------------------------------------------------------- taxminiy hisob funksiyalari
 def acid(key):
     return BY_KEY[key]
 
@@ -116,7 +116,7 @@ def thermal_decomposition(key):
 
 
 def glass_model(m_sio2=1.0, hf_pct=48.0):
-    """SiO2 + 6HF -> H2SiF6 + 2H2O — shishani eritish uchun HF miqdori (model)."""
+    """SiO2 + 6HF -> H2SiF6 + 2H2O — shishani eritish uchun HF miqdori (shartli hisob)."""
     n_sio2 = m_sio2 * 1000.0 / M_SIO2
     n_hf = 6 * n_sio2
     m_hf = n_hf * BY_KEY['HF']['m']
@@ -141,7 +141,7 @@ def neutralisation_model(m_solution=1000.0, pct=10.0):
 
 
 def redox_model(m_hbr=1.0, m_hi=1.0):
-    """2HBr + H2SO4 -> Br2 + SO2 + 2H2O;  4HI + O2 -> 2I2 + 2H2O (model)."""
+    """2HBr + H2SO4 -> Br2 + SO2 + 2H2O;  4HI + O2 -> 2I2 + 2H2O (shartli hisob)."""
     n_hbr = m_hbr * 1000.0 / BY_KEY['HBr']['m']
     n_hi = m_hi * 1000.0 / BY_KEY['HI']['m']
     return dict(m_br2=n_hbr / 2 * M_BR2, m_i2=n_hi / 2 * M_I2,
@@ -171,7 +171,7 @@ def absorption_heat():
 
 
 def production_model(m_fluorspar=1000.0, purity=0.97, yield_pct=0.90):
-    """CaF2 + H2SO4 -> 2HF + CaSO4: HF miqdori (model)."""
+    """CaF2 + H2SO4 -> 2HF + CaSO4: HF miqdori (shartli hisob)."""
     a = acid('HF')
     m_f2 = m_fluorspar * purity
     n_f2 = m_f2 * 1000.0 / M_CAF2
@@ -249,7 +249,7 @@ def main():
     for a in ACIDS:
         t = thermal_decomposition(a['key'])
         print('  %-4s dG=%8.2f kJ/mol  lgK=%8.2f' % (a['key'], t['dg'], t['log10k']))
-    print('— shisha modeli —')
+    print('— shisha taxminiy hisobi —')
     g = glass_model(1.0, 48.0)
     print('  1 kg SiO2 uchun HF: %.1f g (48 %% li eritmada %.1f g); H2SiF6 %.1f g'
           % (g['m_hf'], g['m_solution'], g['m_h2siof6']))
@@ -269,7 +269,7 @@ def main():
     print('— yotqizish issig‘i —')
     ab = absorption_heat()
     print('  HCl: %.1f kJ/mol = %.0f kJ/kg' % (ab['dh_mol'], ab['dh_kg']))
-    print('— olish modeli —')
+    print('— olish taxminiy hisobi —')
     pr = production_model(1000.0, 0.97, 0.90)
     print('  1000 kg fluorit (97 %%): HF %.1f kg, H2SO4 %.1f kg, CaSO4 %.1f kg'
           % (pr['m_hf'], pr['m_h2so4'], pr['m_caso4']))

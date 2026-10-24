@@ -13,37 +13,37 @@
 10. **Britannica — Hydrobromic acid va Hydrogen bromide; Merriam-Webster.** HBr — kuchli kislota va kuchsiz qaytaruvchi vosita; bromidlarni olishda ishlatiladi; HBr — organik reaksiyalarda katalizator va rudalarni yishish (ekstruksiya) vositasi.
 11. **6.1-bo‘limdagi guruh ma’lumotlari (kitob ichki manbai).** D(H–X) = 569 / 432 / 366 / 295 kJ/mol; pK_a(suv) = 3,17 / −5,9 / −8,8 / −9,5; pK_a(DMSO) = 15 / −2,0 / −6,8 / −10,9; azeotroplar: HF 37 % / 120 °C, HCl 20,2 % / 108,6 °C, HBr 47,6 % / 124,3 °C, HI 56,9 % / 127 °C; qaynash haroratlari: HF 19,5, HCl −85,1, HBr −66,8, HI −35,4 °C.
 
-## Model va hisoblar (barchasi ochiq shartli, o‘lchov ma’lumoti emas)
-- **Model A — suvli HBr spetsiatsiyasi** (ideal erituvchi modeli; K_a = 6,3×10⁸ (pK_a −8,8), HBr + Br⁻ ⇌ HBr₂⁻ lgK = 0,7; zaryad h = [Br⁻] + [HBr₂⁻] va massa c = [HBr] + [Br⁻] + 2[HBr₂⁻] bo‘yicha sonikli yechim):
+## Hisoblar va shartli taxminlar (barchasi ochiq shartli, o‘lchov ma’lumoti emas)
+- **Taxmin A — suvli HBr spetsiatsiyasi** (ideal erituvchi sharoiti; K_a = 6,3×10⁸ (pK_a −8,8), HBr + Br⁻ ⇌ HBr₂⁻ lgK = 0,7; zaryad h = [Br⁻] + [HBr₂⁻] va massa c = [HBr] + [Br⁻] + 2[HBr₂⁻] bo‘yicha sonikli yechim):
   0,100 M → Br⁻ 100,000 %, pH 1,000; 0,500 M → pH 0,301; 1,000 M → pH 0,000; 2,000 M → pH −0,301; 4,000 M → pH −0,602; 6,000 M → pH −0,778; 8,000 M → pH −0,903; 8,770 M (azeotrop) → pH −0,943; 10,000 M → pH −1,000; 12,000 M → pH −1,079, HBr₂⁻ ulushi 0,0001 %.
-  Model chegarasi: faolik koeffitsiyentlar, suv faolligi va gidronium agregatlari hisobga olinmaydi; konsentratsiyalangan eritmada termodinamik pH modeldan farq qiladi.
-- **Model B — sintetik usul** (H₂ + Br₂ → 2HBr, ΔfH°(HBr g) = −36,29 kJ/mol, ΔfH°(Br₂ g) = 30,91 kJ/mol → ΔrH = −103,49 kJ / 2 mol HBr): 1000 kg HBr → 12,46 kg H₂ va 987,5 kg Br₂; ΔrH = −639,5 MJ (51,7 kJ/mol HBr).
-- **Model C — laboratoriya usuli** (Br₂ + SO₂ + 2H₂O → H₂SO₄ + 2HBr): 1000 kg HBr uchun 987,5 kg Br₂, 395,9 kg SO₂, 606,1 kg H₂SO₄.
-- **Model D — bromin sikli** (2NaBr + Cl₂ → 2NaCl + Br₂): 1000 kg NaBr + 344,6 kg Cl₂ → 776,6 kg Br₂ + 568,0 kg NaCl (kirish 1344,6 kg ≈ chiqish 1344,5 kg).
-- **Model E — bromin olishining ikki yo‘li**: H₂O₂ bilan 2HBr + H₂O₂ → Br₂ + 2H₂O (1000 kg HBr uchun 210,2 kg H₂O₂ va 987,5 kg Br₂); O₂ bilan 4HBr + O₂ → 2Br₂ + 2H₂O (98,9 kg O₂ va 987,5 kg Br₂).
-- **Model F — tribromid ion** (Br₂ + Br⁻ ⇌ Br₃⁻, lgK = 1,2; 1 L eritmada 1 g Br₂ eritilganda): Br₃⁻ ulushi — 0,10 M: 60,40 %; 0,50 M: 88,68 %; 1,00 M: 94,03 %; 2,00 M: 96,93 %; 4,00 M: 98,44 %; 6,00 M: 98,96 %; 8,77 M: 99,29 %; 10,0 M: 99,37 %; 12,0 M: 99,48 %.
-- **Model G — metall yemirilishi** (1 g metall): Fe → FeBr₂ 3,862 g, HBr 2,898 g, H₂ 0,036 g; Zn → ZnBr₂ 3,444 g, HBr 2,475 g, H₂ 0,031 g; Al → AlBr₃ 9,884 g, HBr 8,996 g, H₂ 0,112 g; Mg → MgBr₂ 7,575 g, HBr 6,658 g, H₂ 0,083 g; Cu → CuBr₂ 3,515 g, HBr 2,547 g, O₂ 0,252 g (2Cu + O₂ + 4HBr → 2CuBr₂ + 2H₂O).
-- **Model H — neytralizatsiya** (1000 kg 10 % li HBr): Na₂CO₃ bilan Na₂CO₃ 65,5 kg, NaBr 127,2 kg, CO₂ 27,2 kg, H₂O 11,1 kg (kirish 165,5 kg = chiqish 165,5 kg); Ca(OH)₂ bilan Ca(OH)₂ 45,8 kg, CaBr₂ 123,5 kg, H₂O 22,3 kg (kirish 145,8 kg = chiqish 145,8 kg).
-- **Model I — titrimetrik standartlash**: 0,2000 g Na₂CO₃ + 30,00 mL HBr → C(HBr) = 0,12580 mol/L (pH 0,900).
+  Shartli hisob chegarasi: faolik koeffitsiyentlar, suv faolligi va gidronium agregatlari hisobga olinmaydi; konsentratsiyalangan eritmada termodinamik pH taxminiy hisobdan farq qiladi.
+- **Taxmin B — sintetik usul** (H₂ + Br₂ → 2HBr, ΔfH°(HBr g) = −36,29 kJ/mol, ΔfH°(Br₂ g) = 30,91 kJ/mol → ΔrH = −103,49 kJ / 2 mol HBr): 1000 kg HBr → 12,46 kg H₂ va 987,5 kg Br₂; ΔrH = −639,5 MJ (51,7 kJ/mol HBr).
+- **Taxmin C — laboratoriya usuli** (Br₂ + SO₂ + 2H₂O → H₂SO₄ + 2HBr): 1000 kg HBr uchun 987,5 kg Br₂, 395,9 kg SO₂, 606,1 kg H₂SO₄.
+- **Taxmin D — bromin sikli** (2NaBr + Cl₂ → 2NaCl + Br₂): 1000 kg NaBr + 344,6 kg Cl₂ → 776,6 kg Br₂ + 568,0 kg NaCl (kirish 1344,6 kg ≈ chiqish 1344,5 kg).
+- **Taxmin E — bromin olishining ikki yo‘li**: H₂O₂ bilan 2HBr + H₂O₂ → Br₂ + 2H₂O (1000 kg HBr uchun 210,2 kg H₂O₂ va 987,5 kg Br₂); O₂ bilan 4HBr + O₂ → 2Br₂ + 2H₂O (98,9 kg O₂ va 987,5 kg Br₂).
+- **Taxmin F — tribromid ion** (Br₂ + Br⁻ ⇌ Br₃⁻, lgK = 1,2; 1 L eritmada 1 g Br₂ eritilganda): Br₃⁻ ulushi — 0,10 M: 60,40 %; 0,50 M: 88,68 %; 1,00 M: 94,03 %; 2,00 M: 96,93 %; 4,00 M: 98,44 %; 6,00 M: 98,96 %; 8,77 M: 99,29 %; 10,0 M: 99,37 %; 12,0 M: 99,48 %.
+- **Taxmin G — metall yemirilishi** (1 g metall): Fe → FeBr₂ 3,862 g, HBr 2,898 g, H₂ 0,036 g; Zn → ZnBr₂ 3,444 g, HBr 2,475 g, H₂ 0,031 g; Al → AlBr₃ 9,884 g, HBr 8,996 g, H₂ 0,112 g; Mg → MgBr₂ 7,575 g, HBr 6,658 g, H₂ 0,083 g; Cu → CuBr₂ 3,515 g, HBr 2,547 g, O₂ 0,252 g (2Cu + O₂ + 4HBr → 2CuBr₂ + 2H₂O).
+- **Taxmin H — neytralizatsiya** (1000 kg 10 % li HBr): Na₂CO₃ bilan Na₂CO₃ 65,5 kg, NaBr 127,2 kg, CO₂ 27,2 kg, H₂O 11,1 kg (kirish 165,5 kg = chiqish 165,5 kg); Ca(OH)₂ bilan Ca(OH)₂ 45,8 kg, CaBr₂ 123,5 kg, H₂O 22,3 kg (kirish 145,8 kg = chiqish 145,8 kg).
+- **Taxmin I — titrimetrik standartlash**: 0,2000 g Na₂CO₃ + 30,00 mL HBr → C(HBr) = 0,12580 mol/L (pH 0,900).
 - **Fizik konstantalar**: M 80,912 g/mol; Tb −66,8 °C; Tm −86,9 °C; T_k 89,8 °C; p_k 85,0 bar; ρ_k 807 kg/m³; ρ_gaz(25 °C) 3,307 g/L; d_gaz/havo 2,71; r(H–Br) 1,414 Å; D 366 kJ/mol; μ 0,8272 D; χ(Br) 2,96; IE 11,66 eV; S°(g) 198,70 J/(mol·K); eruvchanlik 221 / 204 / 130 g/100 mL; to‘yingan eritma 68,85 %; azeotrop 47,6 % / 124,3 °C / 8,77 mol/L.
 
-## Grafiklar (5 ta — jadval ma’lumotlari va model chizig‘i; tajriba ma’lumoti EMAS)
+## Grafiklar (5 ta — jadval ma’lumotlari va taxminiy chiziq; tajriba ma’lumoti EMAS)
 1. `guruh.png` / `guruh.csv` — yuqori panel: bog‘ energiyasi D(H–X) (569 / 432 / 366 / 295 kJ/mol); pastki panel: pK_a (suv) va pK_a (DMSO) chiziqlari (4 ta kislota).
 2. `ishlabchiqarish.png` / `ishlabchiqarish.csv` — yuqori panel: sintetik va laboratoriya usullari mass oqimi; pastki panel: bromin sikli (NaBr, Cl₂, Br₂, NaCl).
-3. `redoks.png` / `spetsiatsiya.csv`, `tribromid.csv` — yuqori panel: Br₃⁻ ulushi [Br⁻] ga bog‘liqligi (model); pastki panel: HBr → Br₂ (H₂O₂ va O₂ yo‘llari).
+3. `redoks.png` / `spetsiatsiya.csv`, `tribromid.csv` — yuqori panel: Br₃⁻ ulushi [Br⁻] ga bog‘liqligi (shartli hisob); pastki panel: HBr → Br₂ (H₂O₂ va O₂ yo‘llari).
 4. `metallar.png` / `metallar.csv` — 1 g metallga to‘g‘ri kelgan HBr sarfi (Fe, Zn, Al, Mg, Cu).
-5. `chiqindi.png` / `chiqindi.csv` — neytralizatsiya mass balansi (Na₂CO₃ va Ca(OH)₂ variantlari) va standartlash modeli.
-Qo‘shimcha ma’lumot fayllari: `fizik_hbr.csv` (22 qator), `eritma.csv` (4 qator), `spetsiatsiya.csv` (10 qator), `guruh.csv` (4 qator), `tribromid.csv` (9 qator). Har bir grafikda «model egri chizig‘i; o‘lchov ma’lumoti emas» yoki «jadval ma’lumotlari» belgisi bor.
+5. `chiqindi.png` / `chiqindi.csv` — neytralizatsiya mass balansi (Na₂CO₃ va Ca(OH)₂ variantlari) va standartlash bo‘yicha shartli hisob.
+Qo‘shimcha ma’lumot fayllari: `fizik_hbr.csv` (22 qator), `eritma.csv` (4 qator), `spetsiatsiya.csv` (10 qator), `guruh.csv` (4 qator), `tribromid.csv` (9 qator). Har bir grafikda «taxminiy egri chiziq; o‘lchov ma’lumoti emas» yoki «jadval ma’lumotlari» belgisi bor.
 
 ## Sxemalar (7 ta, original o‘quv ishlari)
 `fizikx.png` (gaz holati, kritik nuqta, eritma, azeotrop, gidratlar), `olishsx.png` (sintetik, laboratoriya, bromid + kislota, bromin sikli, brom manbalari), `bromokomplekssx.png` (oddiy bromidlar, AlBr₃ dimeri, bromokomplekslar, [PdBr₄]²⁻, tribromid), `metalsx.png` (passivatsiya yo‘qligi, mis istisnosi, kumush bromidi, embrittlement), `organiksx.png` (alkil bromidlari, Markerovnikov, anti-Markerovnikov, bromlanish, muhim mahsulotlar), `qollanishsx.png` (bromidlar, organobromin moddalari, foto va dori, clear brine, metallurgiya), `tahlilsx.png` (standartlash, dead-stop, argentometriya, zamonaviy usullar, spesifikasiya).
 
 ## Illyustratsiyalar (5 ta, original; mikrofoto/atom tuzilmasi emas)
-`molekulax.png` (HBr molekulalari, dipol momenti va guruh trendi), `bromsx.png` (bromin va stratosfera ozoni: BrO katalizatori), `teshikx.png` (HBr bilan korroziya: yuzada ulanish), `idishx.png` (saqlash va transport: idish tanlash mezonlari), `hisob.png` (Model A — ishlab chiqarish; B — bromin sikli; C — metall; D — neytralizatsiya; E — bromlanish). Rang, o‘lcham va geometriya shartli.
+`molekulax.png` (HBr molekulalari, dipol momenti va guruh trendi), `bromsx.png` (bromin va stratosfera ozoni: BrO katalizatori), `teshikx.png` (HBr bilan korroziya: yuzada ulanish), `idishx.png` (saqlash va transport: idish tanlash mezonlari), `hisob.png` (Taxmin A — ishlab chiqarish; B — bromin sikli; C — metall; D — neytralizatsiya; E — bromlanish). Rang, o‘lcham va geometriya shartli.
 
 ## Cheklovlar
-- Sonli egri chiziqlar, massalar va energetik ko‘rsatkichlar — ochiq shartli model hisoblari; real o‘lchov yoki reyting emas.
-- Spetsiatsiya modeli faolik koeffitsiyentlarni hisobga olmaydi; konsentratsiyalangan eritmalarda apparent pH termodinamik pH dan farq qiladi.
+- Sonli egri chiziqlar, massalar va energetik ko‘rsatkichlar — ochiq shartli hisoblar; real o‘lchov yoki reyting emas.
+- Spetsiatsiya shartli hisobi faolik koeffitsiyentlarni hisobga olmaydi; konsentratsiyalangan eritmalarda apparent pH termodinamik pH dan farq qiladi.
 - Bromin ishlab chiqarish ko‘rsatkichlari (davlatlar kesimidagi ulushlar ✓, 2024 yili) — bozor statistikasi; aniq zavod ma’lumotlari emas.
 - Ekologik ko‘rsatkichlar (ODP 0,6, stratosferadagi Br/Cl nisbati) — global baholashlar; mahalliy sharoitga bog‘liq emas.
 - Qurilma, texnologik parametrlar, konsentratsiya va idish materiali tanlash hamda tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.

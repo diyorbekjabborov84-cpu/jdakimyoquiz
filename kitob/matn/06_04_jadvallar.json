@@ -59,7 +59,7 @@
       ],
       [
         "Chegara",
-        "Barcha sonlar ochiq shartli model",
+        "Barcha sonlar ochiq shartli hisob",
         "O‘lchov ma’lumoti emas"
       ]
     ]
@@ -135,12 +135,12 @@
       [
         "Chegara",
         "Parametrlar qurilma va boshqaruv bo‘yicha berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
   "dissotsiatsiya": {
-    "caption": "6.4.3-jadval. Suvli HBr: kislotalik, model va guruh taqqoslash",
+    "caption": "6.4.3-jadval. Suvli HBr: kislotalik, taxminiy hisob va guruh taqqoslash",
     "headers": [
       "Obyekt / parametr",
       "Mazmun / qiymat",
@@ -160,7 +160,7 @@
       [
         "DMSO dagi pK_a",
         "−6,8",
-        "Erta model"
+        "Erta shartli hisob"
       ],
       [
         "Dissotsiatsiya",
@@ -168,23 +168,23 @@
         "Kuchli kislota"
       ],
       [
-        "Model: 0,100 M",
+        "Taxminiy hisob: 0,100 M",
         "Br⁻ 100,000 %; pH 1,000",
-        "Ideal erituvchi modeli"
+        "Ideal erituvchi shartli hisobi"
       ],
       [
-        "Model: 8,770 M",
+        "Taxminiy hisob: 8,770 M",
         "Br⁻ 100,000 %; pH −0,943",
         "Azeotrop konsentratsiyasi"
       ],
       [
-        "Model: 12,000 M",
+        "Taxminiy hisob: 12,000 M",
         "Br⁻ 100,000 %; pH −1,079",
-        "Model chegarasi"
+        "Taxminiy hisob chegarasi"
       ],
       [
         "HBr₂⁻ hosil bo‘lishi",
-        "HBr + Br⁻ ⇌ HBr₂⁻; lgK = 0,7 (model)",
+        "HBr + Br⁻ ⇌ HBr₂⁻; lgK = 0,7 (shartli hisob)",
         "HCl dan ancha kam"
       ],
       [
@@ -204,8 +204,8 @@
       ],
       [
         "Chegara",
-        "Model faolik koeffitsiyentlarni hisobga olmaydi",
-        "Model"
+        "Shartli hisob faolik koeffitsiyentlarni hisobga olmaydi",
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -228,12 +228,12 @@
         "Asosiy sanoat yo‘li"
       ],
       [
-        "Model: sintetik",
+        "Taxminiy hisob: sintetik",
         "1000 kg HBr → H₂ 12,46 kg; Br₂ 987,5 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model: termiya",
+        "Taxminiy hisob: termiya",
         "Δ_rH −639,5 MJ (51,7 kJ/mol HBr)",
         "Eksotermik"
       ],
@@ -243,9 +243,9 @@
         "Laboratoriyada"
       ],
       [
-        "Model: laboratoriya",
+        "Taxminiy hisob: laboratoriya",
         "Br₂ 987,5 kg; SO₂ 395,9 kg; H₂SO₄ 606,1 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Bromid + H₂SO₄",
@@ -258,7 +258,7 @@
         "Brinlardan bromin olish"
       ],
       [
-        "Model: bromin sikli",
+        "Taxminiy hisob: bromin sikli",
         "1000 kg NaBr + Cl₂ 344,6 kg → Br₂ 776,6 + NaCl 568,0 kg",
         "Kirish 1344,6 ≈ chiqish 1344,5 kg"
       ],
@@ -328,9 +328,9 @@
         "Br₂ ning eritilishi"
       ],
       [
-        "Model: tribromid",
+        "Taxminiy hisob: tribromid",
         "8,77 M da Br₃⁻ ulushi 99,29 %",
-        "Model (lgK = 1,2)"
+        "Shartli hisob (lgK = 1,2)"
       ],
       [
         "Tuz hosil qilish",
@@ -340,7 +340,7 @@
       [
         "Chegara",
         "Doza va texnologiya parametrlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -360,22 +360,22 @@
       [
         "Temir",
         "Fe + 2HBr → FeBr₂ + H₂",
-        "Model: 1 g Fe → 2,898 g HBr"
+        "Taxminiy hisob: 1 g Fe → 2,898 g HBr"
       ],
       [
         "Alumin",
         "2Al + 6HBr → 2AlBr₃ + 3H₂",
-        "Model: 1 g Al → 8,996 g HBr"
+        "Taxminiy hisob: 1 g Al → 8,996 g HBr"
       ],
       [
         "Rux",
         "Zn + 2HBr → ZnBr₂ + H₂",
-        "Model: 1 g Zn → 2,475 g HBr"
+        "Taxminiy hisob: 1 g Zn → 2,475 g HBr"
       ],
       [
         "Magniy",
         "Mg + 2HBr → MgBr₂ + H₂",
-        "Model: 1 g Mg → 6,658 g HBr"
+        "Taxminiy hisob: 1 g Mg → 6,658 g HBr"
       ],
       [
         "Kumush",
@@ -418,9 +418,9 @@
         "Termofil/katalitik"
       ],
       [
-        "Model: O₂ bilan",
+        "Taxminiy hisob: O₂ bilan",
         "1000 kg HBr → Br₂ 987,5 kg; O₂ 98,9 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "H₂O₂ bilan",
@@ -428,9 +428,9 @@
         "Xavfsiz bromlanish"
       ],
       [
-        "Model: H₂O₂ bilan",
+        "Taxminiy hisob: H₂O₂ bilan",
         "1000 kg HBr → H₂O₂ 210,2 kg; Br₂ 987,5 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Aromatik bromlanish",
@@ -455,7 +455,7 @@
       [
         "Chegara",
         "Reaksiya sharoitlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -520,7 +520,7 @@
       [
         "Chegara",
         "Dozalar va sharoitlar berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -585,7 +585,7 @@
       [
         "Chegara",
         "Dozalar va texnologiya parametrlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -608,9 +608,9 @@
         "Birlamchi standart"
       ],
       [
-        "Model: standartlash",
+        "Taxminiy hisob: standartlash",
         "0,2000 g Na₂CO₃; 30,00 mL → 0,12580 mol/L",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "“Dead-stop” titr",
@@ -650,7 +650,7 @@
       [
         "Chegara",
         "Metod parametrlari berilmaydi",
-        "Model"
+        "Taxminiy hisob"
       ]
     ]
   },
@@ -693,18 +693,18 @@
         "NOAA/UNEP"
       ],
       [
-        "Model D: neytralizatsiya",
+        "Taxmin D: neytralizatsiya",
         "Na₂CO₃ 65,5 kg; NaBr 127,2 kg; CO₂ 27,2 kg; H₂O 11,1 kg (kirish = chiqish 165,5 kg); Ca(OH)₂ 45,8 kg → CaBr₂ 123,5 kg, H₂O 22,3 kg (145,8 kg)",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
-        "Model E: bromlanish",
+        "Taxmin E: bromlanish",
         "1000 kg HBr + H₂O₂ 210,2 kg → Br₂ 987,5 kg",
-        "Model"
+        "Taxminiy hisob"
       ],
       [
         "Chegara",
-        "Barcha natijalar ochiq shartli modeldan",
+        "Barcha natijalar ochiq shartli hisoblardan",
         "O‘lchov ma’lumoti emas"
       ]
     ]

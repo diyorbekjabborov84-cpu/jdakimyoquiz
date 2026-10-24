@@ -1,4 +1,4 @@
-# 4.3. Passivlanish — manbalar, model chegaralari va tasvirlar
+# 4.3. Passivlanish — manbalar, taxminiy chegaralar va tasvirlar
 
 ## Tekshirilgan manbalar (2026-10-22)
 1. IUPAC Gold Book, Passivation, https://goldbook.iupac.org/terms/view/P04443/plain , DOI 10.1351/goldbook.P04443. Joriy to‘liq plain matn o‘qildi: faol holatdan passiv parda bilan o‘tish; tashqi anod tok yoki qaytariluvchi oksidlovchi yordamida passivlanish. Ta’rif mustaqil qayta bayon qilingan.
@@ -10,7 +10,7 @@
 Izlanishda avval xato topilgan Gold Book P04440 aslida partition ratio bo‘lib chiqqan: bu mavzu dalili sifatida ishlatilmagan. OSU arxiv PDFiga to‘liq kirish 403 qaytargan, u to‘liq o‘qilgan manba yoki bevosita bibliografik dalil deb berilmagan. Qidiruvdagi tijorat saytlarining universal xavfsiz konsentratsiya/temperatura da’volari olinmagan.
 
 ## Asosiy ilmiy cheklovlar
-- Immunlik termodinamik, passivlik kinetik sirt holati. Ochiq zanjirdagi barqaror metall oksidlanish modeli uchun i_a+i_c=0, ammo qisman toklar musbat moduli noldan farqli bo‘lishi mumkin.
+- Immunlik termodinamik, passivlik kinetik sirt holati. Ochiq zanjirdagi barqaror metall oksidlanish shartli hisobi uchun i_a+i_c=0, ammo qisman toklar musbat moduli noldan farqli bo‘lishi mumkin.
 - Real parda mutlaq sof Cr₂O₃ yoki bitta Fe oksidi deb olinmagan; gidratlanish, nuqson, tashqi/ichki qatlam va transport muhim. Zanglamas po‘latning hajmi emas, sirt holati nazarda tutilgan.
 - Sovuq konsentrlangan HNO₃ misollari metall navi, harorat va sirt tarixisiz universal qilinmagan. Konsentrlangan H₂SO₄ dagi sekin erishning barcha mexanizmlari sof oksidli elektrokimyoviy passivlik bilan aynanlashtirilmagan. Tajriba/ishlov retsepti, kislota foizi yoki material tanlash jadvali yo‘q.
 - Yuqori anod tok metall erishi, parda o‘sishi va O₂ ajralishining ayni biri emas. Cr(VI) xavfi aniq qayd etilgan.
@@ -20,9 +20,9 @@ Izlanishda avval xato topilgan Gold Book P04440 aslida partition ratio bo‘lib 
 ## Original hisobiy grafiklar
 `qurilma/passive_04_03.py`; rasmlar `qurilma/draw_04_03.py` orqali chizilgan. Tayyor tashqi tasvir yoki o‘lchov egri chizig‘i ishlatilmagan.
 
-1. `qutblanish.png` + CSV, 501 nuqta. E_rel=E−E_ref, ixtiyoriy model etaloni (SHE yoki SCE emas). i°=1 A/cm²; lg(i/i°) ning bo‘lakli modeli: E≤0.300 da −6+10E; 0.300…0.450 da 3−20E; 0.450…0.800 da −6; yuqorida −6+20(E−0.800). i_crit=10⁻³, i_pass=10⁻⁶ A/cm² shartli qiymatlar. Oxirgi ortish bir metallning aniq transpassiv kinetikasi deb berilmagan.
+1. `qutblanish.png` + CSV, 501 nuqta. E_rel=E−E_ref, ixtiyoriy shartli etalon (SHE yoki SCE emas). i°=1 A/cm²; lg(i/i°) ning bo‘lakli taxminiy qiymati: E≤0.300 da −6+10E; 0.300…0.450 da 3−20E; 0.450…0.800 da −6; yuqorida −6+20(E−0.800). i_crit=10⁻³, i_pass=10⁻⁶ A/cm² shartli qiymatlar. Oxirgi ortish bir metallning aniq transpassiv kinetikasi deb berilmagan.
 2. `aralash.png` + CSV, 501 nuqta. O‘sha anod egri chizig‘i; katod modulining sun’iy lg(|i_c|/i°) qiymatlari −3−10E va 1−10E. Kesishishlar E_rel=0.150 V / i=3.16227766×10⁻⁵ A/cm² va E_rel=0.700 V / i=10⁻⁶ A/cm². Real oksidlovchi faolligi bilan kalibrlanmagan yoki barcha potensialdagi haqiqiy transport tezligi deb olinmagan.
-3. `qalinlik.png` + CSV, 301 nuqta (0…300 s). dL/dt=k_g(L_lim−L)−v_diss; L₀=0.500 nm, L_lim=4.00 nm, k_g=0.0200 s⁻¹. v_diss=0.0200/0.0600/0.0800 nm/s bilan limitlar 3/1/0 nm. Musbat limit himoya sifatini o‘zi tasdiqlamaydi. Atom ko‘lamidan kichik L da kontinuum model ekstrapolyatsiyasi real uzluksiz qatlam deb olinmagan.
+3. `qalinlik.png` + CSV, 301 nuqta (0…300 s). dL/dt=k_g(L_lim−L)−v_diss; L₀=0.500 nm, L_lim=4.00 nm, k_g=0.0200 s⁻¹. v_diss=0.0200/0.0600/0.0800 nm/s bilan limitlar 3/1/0 nm. Musbat limit himoya sifatini o‘zi tasdiqlamaydi. Atom ko‘lamidan kichik L da kontinuum yaqinlashuvi ekstrapolyatsiyasi real uzluksiz qatlam deb olinmagan.
 4. `xlorid.png` + CSV, 301 nuqta; lg a(Cl⁻)=−3…0. E_pit,ref=0.650 V, E_rp,ref=0.350 V, a_ref=0.0100, qiyalik −0.0800 V/dekada. Mustaqil shartli etalon; 1–2 grafik etaloni bilan sonli birlashtirilmaydi. Materialning xavfsiz ishlash chegarasi, xizmat muddati yoki real o‘lchov emas.
 
 Jami 1604 CSV satri. Grafiklardagi logarifmlar o‘lchamsiz i/i° yoki faollikka tegishli.
@@ -38,7 +38,7 @@ Faraday: Al→Al³⁺, F=96485.33212 C/mol, M=26.9815385 g/mol, ρ=2.70 g/cm³. 
 Rang va qalinliklar shartli; mikrofoto, masshtabli material kesimi yoki atom koordinatasi emas. Xavfli kislota ichidagi metallni tirnash tavsiyasi berilmagan. Word matni Times New Roman, native Equation Cambria Math, raster yozuv DejaVu Serif. Bob kirish rasmi mavzu DOCXiga qo‘shilmagan.
 
 ## QA
-`check_04_03.py` PASS: 1604 model satri, anod funksiya chegaralarida uzluksizlik, ikkita katod kesishishining yagonaligi, qalinlik ODE sini sonli differensial tekshirish, log-xlorid modeli, Stern va Faraday birlik-identiklari, 8 ta aniq atom/zaryad balansi. DOCX: 9 bo‘lim, 9 jadval, 8 raqamlangan tenglama (18 OMML qatori / 8 strukturali kasr), 13 tasvir, 18 yonlavha, aniq 13.5:4.5 cm ustun. Xom underscore faqat qonuniy URL fayl nomida qolishi mumkin; matematik yozuvlarda yo‘q. Asosiy grafik va pit kesimi ochib ko‘rildi.
+`check_04_03.py` PASS: 1604 ta shartli hisob satri, anod funksiya chegaralarida uzluksizlik, ikkita katod kesishishining yagonaligi, qalinlik ODE sini sonli differensial tekshirish, log-xlorid taxminiy hisobi, Stern va Faraday birlik-identiklari, 8 ta aniq atom/zaryad balansi. DOCX: 9 bo‘lim, 9 jadval, 8 raqamlangan tenglama (18 OMML qatori / 8 strukturali kasr), 13 tasvir, 18 yonlavha, aniq 13.5:4.5 cm ustun. Xom underscore faqat qonuniy URL fayl nomida qolishi mumkin; matematik yozuvlarda yo‘q. Asosiy grafik va pit kesimi ochib ko‘rildi.
 
 Google Docs roundtrip/sahifa renderi yetkazish tekshiruvida qayd etiladi. Lokal MS Word/LibreOffice renderer yo‘q; bo‘lim soni sahifa soni emas.
 

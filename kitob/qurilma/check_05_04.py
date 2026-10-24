@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""5.4 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""5.4 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json
 from docx import Document
@@ -23,7 +23,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: zanjir mass balansi')
+print('1) Taxminiy hisob: zanjir mass balansi')
 c = M.chain_balance()
 ck(close(c['m_hno3'], 680.0, 1e-9), 'HNO₃: 680,00 kg')
 ck(close(c['n_hno3'], 10.7919, 5e-4), 'n(HNO₃) = 10,7919 kmol')
@@ -44,7 +44,7 @@ ck(close(c['m_no2'], 496.54, 5e-2), 'NO₂: 496,54 kg')
 ck(close(c['m_hno3'] + c['m_w0'], 1000.0, 1e-6), 'kirish: HNO₃ + suv = 1000,00 kg')
 ck(close(c['m_final'] + c['m_water_removed'], 1000.0, 1e-6), 'chiqish: mahsulot + chiqarilgan suv = 1000,00 kg')
 
-print('2) Model: energiya')
+print('2) Taxminiy hisob: energiya')
 ck(close(M.DH_OVERALL, -414.03, 1e-9), 'ΔH = −414,03 kJ/mol')
 ck(close(M.oxidation_heat(c['n_hno3']), -4.4682, 1e-3), 'reaksion issig‘i: −4,47 GJ (= −4468,2 MJ)')
 d = M.drying_heat(c['m_water_removed'], c['m_toluene'])
@@ -56,7 +56,7 @@ ck(len(M.STEAM) == 7 and close(M.STEAM[2][1], 179.89, 1e-9) and close(M.STEAM[6]
 ck(close(M.STEAM[0][2], 2257.5, 1e-9) and close(M.STEAM[6][2], 1441.0, 1e-9),
    'bug‘latish entalpiyasi: 2257,5 → 1441,0 kJ/kg')
 
-print('3) Model: iqtisodiyot va OEE')
+print('3) Taxminiy hisob: iqtisodiyot va OEE')
 e = M.economics()
 ck(close(e['capex'], 120000000.0, 1e-6), 'CAPEX: 120,0 mln USD')
 ck(close(e['foa'], 9600000.0, 1e-6), 'FOA: 9,60 mln USD/y')
@@ -71,14 +71,14 @@ ck(close(M.unit_cost(50000), 516.0, 1e-6) and close(M.unit_cost(100000), 420.0, 
    and close(M.unit_cost(200000), 372.0, 1e-6), 'birlik FOA: 50k→516; 100k→420; 200k→372')
 ck(close(M.oee(0.92, 0.95, 0.99), 0.8653, 5e-5), 'OEE formulasi (ISO 22400-2)')
 
-print('4) Model: CSV fayllar')
+print('4) Taxminiy hisob: CSV fayllar')
 for name, n in [('oqim', 10), ('bug', 7), ('opex', 7), ('birlik_qiymat', 8), ('issiqlik', 16)]:
     rows = list(csv.DictReader((ASSETS / (name + '.csv')).open()))
     ck(len(rows) == n, '%s.csv: %d qator' % (name, len(rows)))
 opex_sum = sum(float(r['ulush_%']) for r in csv.DictReader((ASSETS / 'opex.csv').open()))
 ck(close(opex_sum, 100.0, 1e-9), 'OPEX ulushlari yig‘indisi: 100 %')
 
-print('5) Matn: model raqamlari matnda bor')
+print('5) Matn: taxminiy hisob raqamlari matnda bor')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '05_04_jadvallar.json').read_text()), ensure_ascii=False)
 notes_txt = json.dumps(json.loads((ROOT / 'matn' / '05_04_yonlavhalar.json').read_text()), ensure_ascii=False)
@@ -96,7 +96,7 @@ for s in need:
     ck(s in ms_all, 'matnda «%s» bor' % s)
 ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va 11 jadval belgisi')
 ck('tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
-ck('o‘lchov ma’lumoti emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
+ck('o‘lchov ma’lumoti emas' in ms, 'taxminiy hisob cheklovi matnda ko‘rsatilgan')
 
 print('6) DOCX tuzilmasi')
 doc = Document(DOCX)

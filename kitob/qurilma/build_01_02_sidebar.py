@@ -51,8 +51,8 @@ def scheme(index,nodes):
 panels=[
 ('Svante Arrhenius',[('ELEKTROLIT','Ionlar eritmada mavjud'),('MAYDON','Ionlarning tartibli ko‘chishi'),('NATIJA','Eritma tok o‘tkazadi')],'Tarixiy portret. Transocean; Smithsonian Institution Libraries, SIL14-A7-07; Wikimedia Commons. No restrictions. Skan hoshiyasi kesilgan.'),
 ('Suvning ishtiroki',[('KISLOTA','HCl suvga proton beradi'),('ASOS','NaOH eritmaga OH⁻ beradi'),('SUV','H₃O⁺ va OH⁻ muvozanati')],'H₃O⁺ — gidratlangan protonning eng sodda ifodasi.'),
-('Suyultirish va α',[],'1.2.1-grafik. Dissotsiatsiya darajasi konsentratsiyaga qanday bog‘liq? Kₐ = 10⁻⁵ modeli.'),
-('Bir xil c, turli pH',[],'1.2.2-grafik. To‘liq ionlangan va kuchsiz bir asosli kislota modellarini taqqoslash.'),
+('Suyultirish va α',[],'1.2.1-grafik. Dissotsiatsiya darajasi konsentratsiyaga qanday bog‘liq? Kₐ = 10⁻⁵ bo‘yicha shartli hisob.'),
+('Bir xil c, turli pH',[],'1.2.2-grafik. To‘liq ionlangan va kuchsiz bir asosli kislota taxminiy hisoblarini taqqoslash.'),
 ('Neytrallanish',[('BOSHLANISH','H₃O⁺ va OH⁻ ionlari'),('O‘ZARO TA’SIR','Protonning qabul qilinishi'),('NATIJA','Suv hosil bo‘lishi')],'Kuzatuvchi ionlar eritmada qoladi.'),
 ('O‘lchov va talqin',[('INDIKATOR','Kislotali muhit belgisi'),('TITRLASH','Modda miqdori'),('O‘TKAZUVCHANLIK','Ionlar va harakatchanlik')],'Uch usul bir-birini to‘ldiradi, ammo aynan bir kattalikni o‘lchamaydi.'),
 ('Mezonni kengaytirish',[('ARRHENIUS','Suvdagi H₃O⁺ va OH⁻'),('BRØNSTED–LOWRY','Proton berish va qabul qilish'),('LEWIS','Elektron jufti ishtiroki')],'Nazariya hodisaning sharoiti va mazmuniga qarab tanlanadi.')
@@ -168,7 +168,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[2] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018.',
         '[3] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018.',
         'Portret: Transocean / Smithsonian Institution Libraries, Wikimedia Commons. No restrictions. Manba: commons.wikimedia.org/wiki/File:Portrait_of_Svante_Arrhenius_(1859-1927),_Chemist_and_Physicist_(2536015089).jpg',
-        'Grafiklar: Kₐ = 10⁻⁵ uchun mualliflik hisobiy modeli; eksperimental ma’lumot emas. Farazlar grafiklar yonida ko‘rsatilgan.'
+        'Grafiklar: Kₐ = 10⁻⁵ uchun mualliflik hisobiy shartli hisobi; eksperimental ma’lumot emas. Farazlar grafiklar yonida ko‘rsatilgan.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

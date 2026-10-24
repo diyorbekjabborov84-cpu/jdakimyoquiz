@@ -14,7 +14,7 @@ s=s[:a]+'''panels=[
 ('Yo‘nalish va to‘liqlik',[],'4.1.1-grafik. Teng boshlang‘ich HA va B uchun ideal o‘zgarish ulushi; suv va yon muvozanatlar tashlangan.'),
 ('Nishon proton bosqichi',[],'4.1.2-sxema. Bir mol kislota uchun OH⁻ ekvivalentlari tanlangan nishonga bog‘liq.'),
 ('Formal formula va turlar',[],'4.1.2-grafik. Yakuniy C_P=0,0100 M saqlangan fosfat eritmalari qatori; suv va barcha shakllar hisoblangan.'),
-('Mahsulotning pH i',[],'4.1.3-grafik. Tuzlarning 25 °C dagi ideal pH qiyosi. NaA va BH⁺A⁻ shartli modellar.'),
+('Mahsulotning pH i',[],'4.1.3-grafik. Tuzlarning 25 °C dagi ideal pH qiyosi. NaA va BH⁺A⁻ shartli hisoblar.'),
 ('Entalpiya va issiqlik',[],'4.1.4-grafik. Shartli −57 va −42 kJ mol⁻¹ uchun ajralgan issiqlik. Real kislota o‘lchovi yoki universal konstanta emas.'),
 ('Turli tuz hosil bo‘lishlar',[],'4.1.3-sxema. Gidroksid, ammiak, qattiq oksid va gidrokarbonat ishtirokidagi yo‘llar.'),
 ('Qaysi faza tasvirlangan?',[],'4.1.4-sxema. Tuz formulasi, kristall va suvli eritmadagi ionlarni ajratish.'),
@@ -31,7 +31,7 @@ s=s[:a]+'''variables={
 '''+s[b:]
 s=s.replace('idx in [0,2,3,4,5]','idx in [1,3,4,5]')
 a=s.index('    extra_models=');b=s.index('\n    if idx in extra_models:',a)
-s=s[:a]+'''    extra_models={0:('gidroksoniy_model.png','4.1.1-rasm. H₃O⁺ — suvdagi proton tashuvchisi.'),3:('fosfat_model.png','4.1.2-rasm. HPO₄²⁻: ikkinchi formal bosqichdagi ionning ulanish modeli.'),6:('ammoniy_model.png','4.1.3-rasm. NH₄⁺: NH₃ ning proton olgan tutash shakli.'),7:('panjara_model.png','4.1.4-rasm. NaCl panjarasining cheklangan bo‘lagi; ranglar shartli, chiziqlar qo‘shnichilikni ko‘rsatadi.')}'''+s[b:]
+s=s[:a]+'''    extra_models={0:('gidroksoniy_model.png','4.1.1-rasm. H₃O⁺ — suvdagi proton tashuvchisi.'),3:('fosfat_model.png','4.1.2-rasm. HPO₄²⁻: ikkinchi formal bosqichdagi ionning ulanish tasviri.'),6:('ammoniy_model.png','4.1.3-rasm. NH₄⁺: NH₃ ning proton olgan tutash shakli.'),7:('panjara_model.png','4.1.4-rasm. NaCl panjarasining cheklangan bo‘lagi; ranglar shartli, chiziqlar qo‘shnichilikni ko‘rsatadi.')}'''+s[b:]
 a=s.index('        refs=[');b=s.index('\n        for ref in refs:',a)
 s=s[:a]+'''        refs=[
         '[1] OpenStax. Chemistry 2e. 4.2: Classifying Chemical Reactions. https://openstax.org/books/chemistry-2e/pages/4-2-classifying-chemical-reactions . Kislota–asos jarayoni va ionli tenglamalar; matn mustaqil bayon qilindi.',
@@ -39,7 +39,7 @@ s=s[:a]+'''        refs=[
         '[3] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018. Proton almashinuvi termodinamikasi, Hess qonuni va kalorimetriyaga umumiy bibliografik tayanch.',
         '[4] OpenStax. Chemistry 2e. Appendix H: Ionization Constants of Weak Acids. https://openstax.org/books/chemistry-2e/pages/h-ionization-constants-of-weak-acids . Fosfat konstantalari; 25 °C.',
         '[5] IUPAC Gold Book. Salt. DOI: 10.1351/goldbook.S05447. https://goldbook.iupac.org/terms/view/S05447 . Kation va anionlardan tuzilgan birikma tushunchasi.',
-        'Barcha tasvirlar original o‘quv ishlanmalari; grafiklar tajriba emas. Tuzilishlar sxematik, optimallashtirilgan koordinatalar emas. −57/−42 kJ mol⁻¹ qiymatlari shartli issiqlik modellari; HF yoki universal neytrallanish entalpiyasiga biriktirilmagan.'
+        'Barcha tasvirlar original o‘quv ishlanmalari; grafiklar tajriba emas. Tuzilishlar sxematik, optimallashtirilgan koordinatalar emas. −57/−42 kJ mol⁻¹ qiymatlari shartli issiqlik taxminiy hisoblari; HF yoki universal neytrallanish entalpiyasiga biriktirilmagan.'
         ]'''+s[b:]
 s=s.replace('4 schemes; 5 calculated graphs','5 schemes; 4 calculated graphs')
 Path(__file__).with_name('build_04_01_sidebar.py').write_text(s)

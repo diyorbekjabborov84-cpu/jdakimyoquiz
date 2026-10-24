@@ -8,10 +8,10 @@
 
 Differensial β formulasi matndagi konsentratsion balansdan mustaqil chiqarilgan va sonli hosila bilan tekshirilgan. IUPACning alohida buffer-capacity ta’rifi topilgani yoki o‘qilgani da’vo qilinmaydi. Mavzu β ni aniq operatsion ta’riflaydi: doimiy C_T va yakuniy hajmda kuchli asos ekvivalentlari konsentratsiyasining pH bo‘yicha hosilasi. Bu katta ΔpH uchun o‘rtacha sig‘im bilan aynanlashtirilmagan.
 
-## Hisob modeli
+## Hisob usuli
 `qurilma/buffer_03_05.py`: monoprotik/poliprotik neytral ota-kislotaning oilalari, BH⁺/B oilalari, suv va kuzatuvchi ionlar farqi D=[Na⁺]−[Cl⁻]. Log pH oralig‘ida monoton zaryad tenglamasi yechiladi. Poliprotik ulushlar log-vaznlar bilan normallanadi. Musbat konsentratsiyalar, barcha moddiy balanslar va ion zaryadlari tekshiriladi.
 
-25 °C ideal konsentratsion model: Kw,c=10⁻¹⁴ (mol/L)²; Kc lar mol/L. Termodinamik Kₐ larning ideal konsentratsion moslari qabul qilingan; noideal eritma pH i da’vo qilinmagan. Kc=10⁻⁵ shartli HA; bu HF emas. HF faqat NH₄F misolida o‘z qiymati bilan ishlatiladi. Molallikdagi IUPAC pH ta’rifi o‘rniga molyar konsentratsiya exact ta’rif sifatida berilmagan.
+25 °C ideal konsentratsion hisob: Kw,c=10⁻¹⁴ (mol/L)²; Kc lar mol/L. Termodinamik Kₐ larning ideal konsentratsion moslari qabul qilingan; noideal eritma pH i da’vo qilinmagan. Kc=10⁻⁵ shartli HA; bu HF emas. HF faqat NH₄F misolida o‘z qiymati bilan ishlatiladi. Molallikdagi IUPAC pH ta’rifi o‘rniga molyar konsentratsiya exact ta’rif sifatida berilmagan.
 
 ## Original rasmlar
 Barcha PNGlar `qurilma/draw_03_05.py` orqali Pillow da original chizildi. Tashqi kitob rasmi, fotosurat yoki o‘lchangan koordinata ishlatilmadi. Word matni Times New Roman, raster belgilar DejaVu Serif.

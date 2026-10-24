@@ -1,6 +1,6 @@
-"""5.4 «Sanoat prinsiplari» — model zaxirasi.
+"""5.4 «Sanoat prinsiplari» — taxminiy hisob zaxirasi.
 
-Barcha sonli natijalar ochiq shartli modeldan olingan; real zavod ko'rsatkichlari emas.
+Barcha sonli natijalar ochiq shartli hisoblardan olingan; real zavod ko'rsatkichlari emas.
 Manbalar: OpenStax App. G (ΔfH°), CRC (bug' jadvali), ISO 22400-2:2014 (OEE),
 OPC UA OPC-40501-1 C.2.4, IUPAC Gold Book, Ph. Eur. 6.0.
 """
@@ -38,15 +38,15 @@ STEAM = [   # (p, MPa), T (°C), h_fg (kJ/kg)
     (2.00, 212.42, 1888.7), (4.00, 250.40, 1713.0), (6.00, 275.64, 1565.8),
     (8.00, 295.06, 1441.0)]
 
-# --- iqtisodiyot modeli ---------------------------------------------------
+# --- iqtisodiyot taxminiy hisobi ---------------------------------------------------
 PLANT_TPY = 100000.0         # t/y (98 % li HNO3)
 CAPEX_USD_PT = 1200.0        # USD / (t/y) quvvat
 FOA_RATE = 0.08              # FOA = 8 % CAPEX / y
 OPEX_USD_PT = 420.0          # umumiy ekspluatatsiya xarajati, USD/t
-PRICE_USD_PT = 560.0         # model bozor narxi, USD/t
+PRICE_USD_PT = 560.0         # taxminiy hisob bozor narxi, USD/t
 OEE_A, OEE_P, OEE_Q = 0.92, 0.95, 0.99
 
-# --- OPEX tarkibi (model, %) ---------------------------------------------
+# --- OPEX tarkibi (taxminiy hisoblar, %) ---------------------------------------------
 OPEX_MIX = [('Xom ashyo', 42), ('Energiya', 26), ('Ish kuchi', 8),
             ('Ta’minot va xizmatlar', 9), ('Qurilma va IT', 5),
             ('Ekologik xarajatlar', 6), ('Boshqa', 4)]
@@ -119,7 +119,7 @@ def steam_duty(m_steam, level='2.00'):
 
 
 def pinch_profile():
-    """Issiqlik integratsiyasi modeli: oqim haroratlari (°C) va bug' darajalari."""
+    """Issiqlik integratsiyasi shartli hisobi: oqim haroratlari (°C) va bug' darajalari."""
     stream = [('NH3 kirish', 25), ('Oksidlash reaktori', 880), ('Issiq gaz', 400),
               ('SO2/N2 tozalash', 120), ('Absorbsiya', 60), ('Konsentratsiya', 84),
               ('Azeotrop reabiler', 84), ('Kondenser', 40), ('Mahsulot', 25)]
@@ -127,8 +127,8 @@ def pinch_profile():
 
 
 def whr_recovery(fraction=0.35):
-    """Issiqlikni qayta foydalanish ulushi (model); qaytariladigan bug' massasi."""
-    return {'fraction': fraction, 'note': 'model'}
+    """Issiqlikni qayta foydalanish ulushi (shartli hisob); qaytariladigan bug' massasi."""
+    return {'fraction': fraction, 'note': 'taxminiy hisob'}
 
 
 # ======================================================================
@@ -169,7 +169,7 @@ def cpk(cp, cpl, cpu, mean, spec_l, spec_u):
 
 
 # ======================================================================
-# 6. Ekologiya (model)
+# 6. Ekologiya (shartli hisob)
 # ======================================================================
 def waste_factor(m_waste, m_product):
     return m_waste / m_product
@@ -189,17 +189,17 @@ def save_data():
         w.writerow(['Absorbsiya (kirish)', 'NH3', f'{c["m_nh3"]:.2f}', '0',
                     'Katalitik oksidlashdan keyin'])
         w.writerow(['Absorbsiya (kirish)', 'O2', f'{c["m_o2"]:.2f}', '0', 'Havo tarkibida'])
-        w.writerow(['Absorbsiya (kirish)', 'N2 (ortiqcha)', f'{c["m_n2"]:.2f}', '0', 'Model: N2/O2 = 3,76'])
+        w.writerow(['Absorbsiya (kirish)', 'N2 (ortiqcha)', f'{c["m_n2"]:.2f}', '0', 'Taxminiy hisob: N2/O2 = 3,76'])
         w.writerow(['Absorbsiya (kirish)', 'H2O', f'{c["m_water_external"]:.2f}', '0',
                     'Havo namligi va kislot qaytishi hisobiga'])
         w.writerow(['68 % li eritma', 'HNO3', f'{c["m_hno3"]:.2f}', f'{c["m_hno3"]:.2f}',
                     'Absorbsiya natijasi'])
         w.writerow(['68 % li eritma', 'H2O', f'{c["m_water_final"] + c["m_water_removed"]:.2f}',
-                    f'{c["m_w0"]:.2f}', 'Model'])
+                    f'{c["m_w0"]:.2f}', 'Taxminiy hisob'])
         w.writerow(['Konsentratsiya', 'H2O (chiqarilgan)', f'{c["m_water_removed"]:.2f}', '0',
                     'Azeotrop yoki konsentratsiya'])
         w.writerow(['Konsentratsiya', 'Toluen', f'{c["m_toluene"]:.2f}', f'{c["m_toluene"]:.2f}',
-                    'Aylanadi; yo‘qotish model'])
+                    'Aylanadi; yo‘qotish taxminiy hisob'])
         w.writerow(['98 % li mahsulot', 'HNO3', f'{c["m_hno3"]:.2f}', f'{c["m_hno3"]:.2f}', 'Tayyor mahsulot'])
         w.writerow(['98 % li mahsulot', 'H2O', f'{c["m_water_final"]:.2f}',
                     f'{c["m_water_final"]:.2f}', 'Tayyor mahsulot'])
@@ -210,7 +210,7 @@ def save_data():
     with (ASSETS / 'opex.csv').open('w', newline='') as f:
         w = csv.writer(f); w.writerow(['element', 'ulush_%', 'izoh'])
         for name, pct in OPEX_MIX:
-            w.writerow([name, f'{pct}', 'model'])
+            w.writerow([name, f'{pct}', 'taxminiy hisob'])
     with (ASSETS / 'birlik_qiymat.csv').open('w', newline='') as f:
         w = csv.writer(f); w.writerow(['V_tpy', 'c_var', 'c_FOA', 'c_total'])
         e = economics()

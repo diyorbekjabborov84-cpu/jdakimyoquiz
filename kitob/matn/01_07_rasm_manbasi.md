@@ -1,4 +1,4 @@
-# 1.7. Superkislotalar — manbalar va vizual modellar
+# 1.7. Superkislotalar — manbalar va vizual taxminiy hisoblar
 
 ## Tekshirilgan ilmiy manbalar
 - IUPAC Gold Book, «superacid»: https://goldbook.iupac.org/terms/view/S06135/plain ; DOI 10.1351/goldbook.S06135. 100 massa foizli sulfat kislotaga nisbatan muhit kislotaliligi, Brønsted–Lewis tizimlariga misollar. Mazmun qayta bayon qilingan, uzun iqtibos olinmagan.

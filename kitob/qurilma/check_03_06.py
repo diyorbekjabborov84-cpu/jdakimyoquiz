@@ -70,5 +70,5 @@ with zipfile.ZipFile(p) as z:
  assert z.testzip() is None
  xml=z.read('word/document.xml').decode();assert xml.count('w:tblHeader')==9
  assert 'subscript' in xml and 'superscript' in xml
-print('PASS: 2425 model points, mass/equilibrium, Arrhenius slope, Eyring ratio, pH minimum, buffer slope, atom balance and DOCX.')
+print('PASS: 2425 taxminiy hisob points, mass/equilibrium, Arrhenius slope, Eyring ratio, pH minimum, buffer slope, atom balance and DOCX.')
 print('Words:',len(txt.split()),'Bytes:',p.stat().st_size)

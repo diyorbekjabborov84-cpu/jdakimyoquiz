@@ -9,8 +9,8 @@
 
 ## Hisoblar va chegaralar
 `qurilma/neutral_04_01.py`, avvalgi `buffer_03_05.py` dagi log-pH ildiz va poliprotik taqsimot yordamchilaridan foydalanadi.
-- pH hisoblari ideal konsentratsion 25 °C, γ≈1, Kw,c=10⁻¹⁴ (mol/L)² modelidir; aniq termodinamik pH ta’rifi molyar konsentratsiya bilan almashtirilmagan.
-- Proton ko‘chishi: K=10^ΔpKa; teng boshlang‘ich HA/B, mahsulotlar yo‘q, suv/yon jarayonlar tashlangan modelda x/C=√K/(1+√K). Grafik tajribaviy titrlash yoki muayyan HA uchun o‘lchov emas. K o‘lchamsiz; ΔG°=−RT ln K.
+- pH hisoblari ideal konsentratsion 25 °C, γ≈1, Kw,c=10⁻¹⁴ (mol/L)² sharoitidir; aniq termodinamik pH ta’rifi molyar konsentratsiya bilan almashtirilmagan.
+- Proton ko‘chishi: K=10^ΔpKa; teng boshlang‘ich HA/B, mahsulotlar yo‘q, suv/yon jarayonlar tashlangan taxminiy hisobda x/C=√K/(1+√K). Grafik tajribaviy titrlash yoki muayyan HA uchun o‘lchov emas. K o‘lchamsiz; ΔG°=−RT ln K.
 - Fosfat: yakuniy C_P=0.0100 mol/L saqlanadi, [Na⁺]=rC_P. Turli yakuniy eritmalar qatori, bir idishga o‘zgarmas hajmda quyish tajribasi emas. Barcha to‘rt shakl va suv saqlangan. r=3 da PO₄³⁻ ulushi 0.2415826733, HPO₄²⁻ 0.7584011983; formal Na₃PO₄ tarkibi bitta tur 100% ekanini bildirmaydi.
 - Tuz pH qiyosi: 0.0100 mol/L NaCl (kuzatuvchi ionlar), shartli NaA (HA Kc=10⁻⁵), NH₄Cl va shartli BH⁺A⁻ (HA Kc=10⁻⁵; BH⁺ Kc=10⁻⁹). Shartli HA HF emas. Oxirgi juftlik neytral pH bersa ham, har bir neytral shaklning ulushi 1/101.
 - Kalorimetriya: −57.0 va −42.0 kJ/mol **berilgan shartli** doimiylar. Ular real tajriba natijasi, universal standart qiymat yoki HF ga oid ma’lumot sifatida berilmagan. Ikkinchisi −57+15 Hess yig‘indisi. Grafikda ajralgan issiqlik musbat; q_rxn manfiy. 0.0100 mol, 200 g, cp=4.18 J/g/K, Ccal=20 J/K bilan ΔT=0.6658878505 K.
@@ -25,11 +25,11 @@
 ### 4 grafik va CSV
 - `yonalish.png` / `yonalish.csv`: 481 nuqta, ΔpKa=−6…+6; K, x/C va ΔG° ochiq saqlangan.
 - `fosfat.png` / `fosfat.csv`: 301 nuqta, r=0…3; barcha ulushlar va pH saqlangan.
-- `tuz_ph.png` / `tuz_ph.csv`: 4 modelning ustunli pH qiyosi, 25 °C ideal hisob.
+- `tuz_ph.png` / `tuz_ph.csv`: 4 taxminiy hisobning ustunli pH qiyosi, 25 °C ideal hisob.
 - `issiqlik.png` / `issiqlik.csv`: 201 nuqta, ξ=0…10 mmol, ikki shartli entalpiya bilan issiqlik qiyosi.
 
 ### 4 qo‘shimcha tuzilish tasviri
-- `gidroksoniy_model.png`: H₃O⁺ ulanish modeli.
+- `gidroksoniy_model.png`: H₃O⁺ ulanish tasviri.
 - `fosfat_model.png`: HPO₄²⁻, bitta O–H ulanishi. Tayoqchalar to‘liq bog‘ tartibi yoki rezonans tasviri emas.
 - `ammoniy_model.png`: NH₄⁺, to‘rtta N–H ulanishi.
 - `panjara_model.png`: NaCl panjarasining 3×3×2 tugunli cheklangan bo‘lagi, 9 Na va 9 Cl ion tuguni. Ranglar shartli, chiziqlar qo‘shnichilikni ko‘rsatadi; alohida NaCl molekulalari, neytral atomlar aralashmasi yoki to‘liq elementar yacheyka deb olinmagan.

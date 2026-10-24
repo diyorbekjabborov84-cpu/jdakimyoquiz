@@ -1,5 +1,5 @@
 """Original teaching figures for 6.1 "Guruhning umumiy tavsifi".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -76,8 +76,8 @@ d.rectangle((430, 128, 456, 150), fill=N); txt(d, 464, 128, 'suvda', 21, N)
 d.rectangle((560, 128, 586, 150), fill=TEAL); txt(d, 594, 128, 'DMSOda', 21, TEAL)
 txt(d, 45, 790, 'Suvda HCl = HBr = HI: kislotalar H₃O⁺ darajasiga tekislanadi (leveling effect)', 22, N)
 txt(d, 45, 840, 'DMSOda pK_a: HF 15 · HCl −2,0 · HBr −6,8 · HI −10,9 — tartib ochiladi', 22, B)
-txt(d, 45, 890, 'Model qiymatlar; suvdagi pK_a baholari ±0,4–1,0 aniqlikda', 22, G)
-txt(d, 45, 975, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 890, 'Taxminiy hisob qiymatlar; suvdagi pK_a baholari ±0,4–1,0 aniqlikda', 22, G)
+txt(d, 45, 975, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'kislotalik')
 
 # --- Graph 2: energiya balansi --------------------------------------------
@@ -102,11 +102,11 @@ d.rectangle((430, 164, 456, 186), fill=B); txt(d, 464, 164, 'D + ΔH_hyd', 21, B
 txt(d, 45, 790, 'HF: 569 − 506 = 63 kJ/mol — kuchli bog‘ kuchli gidratatsiya bilan kompensatsiya qilinadi', 22, N)
 txt(d, 45, 840, 'HCl: 432 − 364 = 68 · HBr: 370 − 335 = 35 · HI: 295 − 293 = 2 kJ/mol', 22, B)
 txt(d, 45, 890, 'Net qiymat kamaygan sayin kislotalik kuchayadi', 22, G)
-txt(d, 45, 975, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 975, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'energiya')
 
 # --- Graph 3: molekulyar o'lchamlar ----------------------------------------
-im, d = canvas('Bog‘ uzunligi va dipol moment (model)', 1180)
+im, d = canvas('Bog‘ uzunligi va dipol moment (shartli hisob)', 1180)
 # yuqori panel: bog' uzunligi
 p = axes(d, 0, 4, 0, 1.9, '', 'r(H–X), Å',
          [], [(0, '0'), (0.5, '0,5'), (1.0, '1,0'), (1.5, '1,5'), (1.9, '1,9')],
@@ -132,7 +132,7 @@ for i, a in enumerate(ACIDS):
 txt(d, 45, 790, 'Dipol moment: HF 1,82 → HI 0,44 D — elektronegativlik farqining kamayishi', 22, N)
 txt(d, 45, 840, 'Bog‘ uzunligi: 0,917 → 1,609 Å; radiuslar yig‘indisi har doim katta', 22, B)
 txt(d, 45, 890, 'Suyuqlash harorati: −83,6 / −114,2 / −86,9 / −50,8 °C', 22, G)
-txt(d, 45, 975, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 975, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'fizik')
 
 # --- Graph 4: termik barqarorlik ------------------------------------------
@@ -148,10 +148,10 @@ for i, a in enumerate(ACIDS):
     txt(d, x - 46, 755, 'lgK = %.2f' % t['log10k'], 20, G)
 d.rectangle((430, 128, 456, 150), fill=N); txt(d, 464, 128, 'barchasi', 21, N)
 d.rectangle((575, 128, 601, 150), fill=RED); txt(d, 609, 128, 'HI: eng zaif', 21, RED)
-txt(d, 45, 830, 'Model: ΔG° 550,8 / 190,6 / 110,0 / 15,9 kJ/mol;  lgK −96,50 / −33,39 / −19,27 / −2,79', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: ΔG° 550,8 / 190,6 / 110,0 / 15,9 kJ/mol;  lgK −96,50 / −33,39 / −19,27 / −2,79', 22, N)
 txt(d, 45, 880, 'Termodinamik imkoniyat — kinetika emas: HI xona haroratida barqaror qoladi', 22, B)
 txt(d, 45, 930, 'Tezlash uchun 300–500 °C (H₂ + I₂ → 2HI, Pt katalizatori)', 22, G)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'termik')
 
 # --- Graph 5: HF dissotsiatsiyasi -----------------------------------------
@@ -171,7 +171,7 @@ d.line(pts, fill=N, width=5)
 txt(d, 45, 830, 'Ka = 6,8×10⁻⁴: 0,010 M → 22,90 % (pH 2,640);  1,000 M → 2,57 % (pH 1,589)', 22, N)
 txt(d, 45, 880, 'Konsentratsiya 100 barobar oshsa, ionizatsiya 9 barobar kamayadi', 22, B)
 txt(d, 45, 930, 'pH baribir 1 birlikka yaqin tushadi — kislota kuchi konsentratsiyada emas', 22, G)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'dissotsiatsiya')
 
 
@@ -202,10 +202,10 @@ scheme('gibridlanishx', 'H–X bog‘i va dipol moment (sxematik)', [
     ('σ bog‘ quyuqligi', 'H 1s va X np orbitalalari qo‘shiladi', 'Uzunlik 0,917 → 1,609 Å'),
     ('Nishon quyuqligi', 'F da eng kuchli, I da eng kuchsiz', 'HF da qisman ion xarakter'),
     ('Hydrogen bog‘i', 'HF molekulalari orasida zanjir hosil qiladi', 'HF qaynash harorati 19,5 °C'),
-    ('Xulosa', 'Kislotalik va barqarorlik — bir xil tuzilmaning ikki yuzasi', 'Model sxemasi')])
+    ('Xulosa', 'Kislotalik va barqarorlik — bir xil tuzilmaning ikki yuzasi', 'Shartli hisob sxemasi')])
 
 scheme('olishsx', 'Olish usullari: bitta mantiq, to‘rt reagent', [
-    ('HF: CaF₂ + H₂SO₄', 'Fluorit + kislota → 2HF + CaSO₄', 'Model: 1000 kg fluorit → 447,4 kg HF'),
+    ('HF: CaF₂ + H₂SO₄', 'Fluorit + kislota → 2HF + CaSO₄', 'Taxminiy hisob: 1000 kg fluorit → 447,4 kg HF'),
     ('HCl: Cl₂ + H₂', 'Xlor-alkali yoki NaCl + H₂SO₄', 'Gaz suvga yotqiziladi → 32–37 %'),
     ('HBr: Br₂ + SO₂ + 2H₂O', 'Brom sulfit bilan qaytariladi', '2HBr + H₂SO₄'),
     ('HI: I₂ + H₂S', 'Yod sulfid bilan qaytariladi', 'Cho‘kma filtrlanadi, distillatsiya qilinadi'),
@@ -215,15 +215,15 @@ scheme('xossalarsx', 'Kislota xossalari: metallar, oksidlar, tuzlar (sxematik)',
     ('Metall bilan', '2HX + M → MX₂ + H₂↑', 'Kislota kuchi yetarli bo‘lishi kerak'),
     ('Metall oksidi bilan', 'MO + 2HX → MX₂ + H₂O', 'Kislota + asos'),
     ('Karbonat bilan', 'CaCO₃ + 2HX → CaX₂ + CO₂↑ + H₂O', 'CO₂ ajralishi tug‘diradi'),
-    ('Model: neytralizatsiya', '1000 kg 10 % HCl → CaCO₃ 137,3 kg; CaCl₂ 152,2 kg; CO₂ 60,4 kg', 'Kirish 237,3 = chiqish 237,2 kg'),
-    ('Xulosa', 'Uch shart: proton berish + konjugat asos + termodinamik imkon', 'Model mantiqi')])
+    ('Taxminiy hisob: neytralizatsiya', '1000 kg 10 % HCl → CaCO₃ 137,3 kg; CaCl₂ 152,2 kg; CO₂ 60,4 kg', 'Kirish 237,3 = chiqish 237,2 kg'),
+    ('Xulosa', 'Uch shart: proton berish + konjugat asos + termodinamik imkon', 'Shartli hisob mantiqi')])
 
 scheme('redokssx', 'Redoks xossalari: qaytaruvchilik (sxematik)', [
     ('HBr + H₂SO₄ → Br₂', 'Brom ajraladi: 1 kg HBr → 987,5 g Br₂', 'Sulfit kislotasi qaytaradi'),
     ('HI + H₂SO₄ → I₂', 'Yod ajraladi: 1 kg HI → 992,1 g I₂', 'Eng kuchli qaytaruvchi'),
     ('4HI + O₂ → 2I₂ + 2H₂O', 'Havo bilan reaksiya: 62,54 g O₂ / kg HI', 'Eritma qorayadi — saqlash chegarasi'),
     ('Halogenning o‘zi', 'F₂ eng kuchli oksidlovchi: balans −754,6 kJ/mol', 'I₂ eng kuchsiz: −481,2 kJ/mol'),
-    ('Xulosa', 'Qaytaruvchilik va oksidlovchilik teskari', 'Model balansi')])
+    ('Xulosa', 'Qaytaruvchilik va oksidlovchilik teskari', 'Taxminiy hisob balansi')])
 
 scheme('materiallarx', 'Materiallar bilan munosabat (sxematik)', [
     ('HF + SiO₂ → H₂SiF₆ + 2H₂O', 'Shishani yemiradi', '1 kg SiO₂ uchun 1997,9 g HF'),
@@ -272,7 +272,7 @@ for x in (200, 420):
     d.line((x, 250, x + 50, 250), fill=B, width=5)
 txt(d, 40, 380, 'Suvda: HF + H₂O ⇌ H₃O⁺ + F⁻;  konsentratsiya oshganda HF₂⁻ va H₂F⁺ paydo bo‘ladi', 21, N)
 txt(d, 40, 425, 'Konsentratsiyalangan HF — kuchsiz kislota emas, kuchli to‘xtatuvchi.', 21, B)
-txt(d, 40, 470, 'Model: 0,010 M → 22,90 %;  1,000 M → 2,57 % ionizatsiya (Ka = 6,8×10⁻⁴).', 21, G)
+txt(d, 40, 470, 'Taxminiy hisob: 0,010 M → 22,90 %;  1,000 M → 2,57 % ionizatsiya (Ka = 6,8×10⁻⁴).', 21, G)
 txt(d, 40, 535, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'speciatsiyax')
 
@@ -290,7 +290,7 @@ for x in (290, 330, 370):
 txt(d, 250, 90, 'HF eritmasi', 24, N)
 d.line((300, 140, 300, 245), fill=B, width=4)
 txt(d, 60, 440, 'SiO₂ + 6HF → H₂SiF₆ + 2H₂O', 26, N)
-txt(d, 60, 485, 'Model: 1 kg SiO₂ uchun 1997,9 g HF (48 % li eritmada 4162,4 g)', 21, B)
+txt(d, 60, 485, 'Taxminiy hisob: 1 kg SiO₂ uchun 1997,9 g HF (48 % li eritmada 4162,4 g)', 21, B)
 txt(d, 60, 530, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'sishax')
 
@@ -309,11 +309,11 @@ for i, (a, b, c, col) in enumerate(boxes):
         d.line((x + 160, 240, x + 178, 240), fill=G, width=4)
 txt(d, 40, 350, 'Tanlov uch uchta mezon: reaktivlik, nam va temperatura, ifloslanish.', 21, N)
 txt(d, 40, 395, 'HF — ayniqsa xavfli: fluorid ioni Ca²⁺ va Mg²⁺ ni ushlab qoladi.', 21, B)
-txt(d, 40, 440, 'Model: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
+txt(d, 40, 440, 'Taxminiy hisob: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
 txt(d, 40, 500, 'Original sxematik chizma; idish turlari shartli.', 21, G)
 save(im, 'logistikax')
 
-im, d = canvas('Ishlangan hisob: uch model (sxematik)', 660)
+im, d = canvas('Ishlangan hisob: uch shartli hisob (sxematik)', 660)
 g = glass_model(1.0, 48.0)
 n = neutralisation_model(1000.0, 10.0)
 blocks = [('A — HF muvozanati', 'Ka = 6,8×10⁻⁴', '0,010 M → 22,90 %; 1,000 M → 2,57 %', N),
@@ -326,14 +326,14 @@ for i, (a, b, c, col) in enumerate(blocks):
     txt(d, 70, y + 52, b, 22, INK)
     txt(d, 70, y + 82, c, 21, G)
 d.rounded_rectangle((470, 150, 710, 470), radius=12, outline=PURPLE, width=4)
-txt(d, 490, 170, 'Model natijalari', 26, PURPLE)
+txt(d, 490, 170, 'Taxminiy hisob natijalari', 26, PURPLE)
 txt(d, 490, 220, 'g‘ = 1997,9 g HF', 21, INK)
 txt(d, 490, 255, '(1 kg SiO₂)', 20, G)
 txt(d, 490, 300, 'CaCO₃ 137,3 kg', 21, INK)
 txt(d, 490, 335, 'CO₂ 60,4 kg', 21, INK)
 txt(d, 490, 380, 'H₂SiF₆ 2398,3 g', 21, INK)
 txt(d, 490, 425, 'kirish = chiqish', 21, N)
-txt(d, 50, 540, 'Barcha sonlar ochiq shartli model; o‘lchov ma’lumoti emas.', 21, G)
+txt(d, 50, 540, 'Barcha sonlar ochiq shartli hisoblar; o‘lchov ma’lumoti emas.', 21, G)
 txt(d, 50, 585, 'Original sxematik chizma.', 21, G)
 save(im, 'hisob')
 print('5 grafik + CSV; 7 sxema; 5 original illustration.')

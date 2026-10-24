@@ -27,7 +27,7 @@ data = [
  ['N₂O₄ ⇌ 2NO₂', 'ΔH°=+55,30; ΔS°=+175,80', 'ΔG°=+2,89 kJ/mol; lg K=−0,506'],
  ['H₂ + Cl₂ → 2HCl', 'ΔH°=−184,61; ΔS°=+20,00', 'ΔG°=−190,58 kJ/mol; lg K=33,39'],
  ['Manba', 'OpenStax Appendix G', '25 °C standart qiymatlar'],
- ['Model', 'ΔH° va ΔS° doimiy', 'Issiqlik sig‘imi hisobga olinmagan'],
+ ['Taxminiy hisob', 'ΔH° va ΔS° doimiy', 'Issiqlik sig‘imi hisobga olinmagan'],
  ['Chegara', 'ΔG° ≠ tezlik', 'K faqat standart holatda'],
  ['Xulosa', 'Termodinamik mezon — birinchi filtr', 'Tezlik va texnologiya alohida']]),
 ('muvozanat', 'Muvozanatni boshqarishning to‘rt dastagi', [
@@ -36,7 +36,7 @@ data = [
  ['Konsentratsiya', 'Reagent qo‘shilsa orqaga suriladi', 'Ortiqcha suv sulfatni bo‘shaydi'],
  ['Mahsulotni chiqarish', 'Suv yoki gaz chiqishi suradi', 'SO₃ ning suv bilan birikishi'],
  ['van ’t Hoff', 'ln(K₂/K₁)=−ΔH°/R(1/T₂−1/T₁)', '300 → 400 K: K 255 marta'],
- ['Model', 'N₂O₄ ⇌ 2NO₂; ideal gaz', '1, 10 va 100 bar egri chiziqlari'],
+ ['Taxminiy hisob', 'N₂O₄ ⇌ 2NO₂; ideal gaz', '1, 10 va 100 bar egri chiziqlari'],
  ['Chegara', 'Faollik va issiqlik sig‘imi', 'Real tizimda natijani siljitadi'],
  ['Amaliy natija', 'Dastakni tanlash', 'Har bir usul uchun alohida hisob']]),
 ('kinetika', 'Kinetik to‘siqlar va ularning yechimi', [
@@ -58,14 +58,14 @@ data = [
  ['Chiqindini tiklash', 'Resursni qaytarish', 'Chiqindi omili'],
  ['Chegara', 'Parametrlar berilmaydi', 'Faqat tamoyil va o‘lchov ko‘rsatiladi']]),
 ('unum', 'Unum, konversiya, selektivlik va chiqindi omili', [
- ['Konversiya X', 'Reagentning mahsulotga ulushi', 'Model: SO₂ → SO₃: 0,96'],
+ ['Konversiya X', 'Reagentning mahsulotga ulushi', 'Taxminiy hisob: SO₂ → SO₃: 0,96'],
  ['Selektivlik S', 'Kerakli mahsulotning ulushi', 'Yon mahsulot kam bo‘lishi kerak'],
- ['Unum η', 'Haqiqiy va nazariy miqdor nisbati', 'Modelda η = 0,9408 (94,08 %)'],
+ ['Unum η', 'Haqiqiy va nazariy miqdor nisbati', 'Taxminiy hisobda η = 0,9408 (94,08 %)'],
  ['Nazariy miqdor', 'FeS₂ dan H₂SO₄', '1000 t pyrit → 1634,94 t'],
  ['Chiqindi omili', '1 kg mahsulotga chiqindi massasi', '0,46 kg/kg (X = 0,96)'],
  ['Cho‘kma qoldig‘i', 'Fe₂O₃ ulushi', '665,49 t'],
  ['Reagent qaytarish', 'Siklga qaytarish', 'Begona modda chegarasi'],
- ['Chegara', 'Model sodda', 'Issiqlik sig‘imi va faza o‘zgarishi yo‘q']]),
+ ['Chegara', 'Shartli hisob sodda', 'Issiqlik sig‘imi va faza o‘zgarishi yo‘q']]),
 ('ajratish', 'Ajratish usullari va ularning imkoniyatlari', [
  ['Bug‘lash (rektifikatsiya)', 'Uchuvchanlik farqi', 'Nisbiy uchuvchanlik α'],
  ['Ekstraksiya', 'Erituvchi tanlanish', 'Kam uchuvchi moddalar uchun'],
@@ -101,7 +101,7 @@ data = [
  ['n(H₂SO₄)', '15 682,61 kmol', 'Yutilish unumi 0,98'],
  ['m(H₂SO₄)', '1538,15 t', 'Nazariy 1634,94 t'],
  ['Fe₂O₃ qoldig‘i', '665,49 t', '4167,36 kmol'],
- ['Unum va chiqindi', '94,08 %; 0,4604 kg/kg', 'Chiqindi omili model bo‘yicha'],
+ ['Unum va chiqindi', '94,08 %; 0,4604 kg/kg', 'Chiqindi omili bo‘yicha shartli hisob'],
  ['Suv balansi', '346,61 t', '282,52 + 64,09 t (96 % kislota)']])]
 
 out = {}
@@ -120,7 +120,7 @@ notes = [
  [['Standart holat', '1 bar, 298,15 K, birlik faollik.'],
   ['K ≠ tezlik', 'K katta bo‘lishi tez borishni bildirmaydi.']],
  [['To‘rt dastak', 'Harorat, bosim, konsentratsiya, mahsulot chiqarish.'],
-  ['Model', 'N₂O₄ ⇌ 2NO₂; ideal gaz, doimiy ΔH° va ΔS°.']],
+  ['Taxminiy hisob', 'N₂O₄ ⇌ 2NO₂; ideal gaz, doimiy ΔH° va ΔS°.']],
  [['Reagent usuli', 'Donador reagent yuzasi asta-sekin mayinadi.'],
   ['Qalqon usuli', 'Reaksiya qalqonning ochilishi bilan boshqariladi.']],
  [['Absorbsiya', 'Gazni suyuq fazaga o‘tkazish — muvozanatni surish vositasi.'],
@@ -133,7 +133,7 @@ notes = [
   ['Chegara', 'Texnologik parametrlar va retseptlar berilmaydi.']],
  [['Titrlash', 'Kislota miqdorining universal usuli.'],
   ['Sifat hujjati', 'Partiya, metod, natija, sana va mas’ul shaxs.']],
- [['Model', 'Barcha natijalar ochiq shartli modeldan olingan.'],
+ [['Taxminiy hisob', 'Barcha natijalar ochiq shartli hisoblardan olingan.'],
   ['Chegara', 'Issiqlik sig‘imi va faza o‘zgarishi hisobga olinmagan.']]]
 (R / '05_01_yonlavhalar.json').write_text(json.dumps(notes, ensure_ascii=False, indent=2))
 print(f'11 jadval, {sum(len(n) for n in notes)} yon lavha.')

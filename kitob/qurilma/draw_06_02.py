@@ -1,5 +1,5 @@
 """Original teaching figures for 6.2 "HF — ftorid kislota".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -75,10 +75,10 @@ for i, s in enumerate(spec):
 d.rectangle((430, 128, 456, 150), fill=N); txt(d, 464, 128, 'HF', 21, N)
 d.rectangle((520, 128, 546, 150), fill=TEAL); txt(d, 554, 128, 'F⁻', 21, TEAL)
 d.rectangle((610, 128, 636, 150), fill=B); txt(d, 644, 128, 'HF₂⁻', 21, B)
-txt(d, 45, 830, 'Model: Ka = 6,8×10⁻⁴; lgK(HF + F⁻ ⇌ HF₂⁻) = 0,7; ideal erituvchi modeli', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: Ka = 6,8×10⁻⁴; lgK(HF + F⁻ ⇌ HF₂⁻) = 0,7; ideal erituvchi sharoiti', 22, N)
 txt(d, 45, 880, 'pH: 2,635 (0,01 M) → 1,238 (1,0 M) → 0,277 (10 M)', 22, B)
-txt(d, 45, 930, 'Model faolik koeffitsiyentlarni hisobga olmaydi; real eritmada HF₂⁻ ulushi kattaroq', 22, G)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 930, 'Shartli hisob faolik koeffitsiyentlarni hisobga olmaydi; real eritmada HF₂⁻ ulushi kattaroq', 22, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'spetsiatsiya')
 
 # --- Graph 2: yemirish tezligi --------------------------------------------
@@ -98,10 +98,10 @@ for i, e in enumerate(er):
 d.rectangle((430, 128, 456, 150), fill=TEAL); txt(d, 464, 128, 'F⁻ ulushi', 21, TEAL)
 d.rectangle((570, 128, 596, 150), fill=N); txt(d, 604, 128, 'HF', 21, N)
 d.rectangle((430, 164, 456, 186), fill=B); txt(d, 464, 164, 'HF₂⁻', 21, B)
-txt(d, 45, 830, 'Model: r = 510[F⁻] + 610[HF] + 2890[HF₂⁻] (Å/min) — empirik kinetik qonun', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: r = 510[F⁻] + 610[HF] + 2890[HF₂⁻] (Å/min) — empirik kinetik qonun', 22, N)
 txt(d, 45, 880, '0,10 M → 65,1 Å/min;  1,00 M → 687,8;  4,00 M → 2778,7;  8,00 M → 5567,7 Å/min', 22, B)
 txt(d, 45, 930, 'HF₂⁻ ulushi 13 % dan 21 % gacha; qolgani HF va F⁻ hissiga', 22, G)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'yemirish')
 
 # --- Graph 3: passivatsiya -------------------------------------------------
@@ -117,10 +117,10 @@ for i, mt in enumerate(passivation(1.0)):
     txt(d, x - 44, 755, mt['salt'], 20, G)
 d.rectangle((430, 128, 456, 150), fill=N); txt(d, 464, 128, 'Al va Fe: mustahkam qatlam', 21, N)
 d.rectangle((430, 164, 456, 186), fill=TEAL); txt(d, 464, 164, 'Ni va Cu: zaifroq', 21, TEAL)
-txt(d, 45, 830, 'Model: 1 g Al → 3,113 g AlF₃ (HF 1,483 g, H₂ 0,112 g);  1 g Fe → 2,326 g FeF₃', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: 1 g Al → 3,113 g AlF₃ (HF 1,483 g, H₂ 0,112 g);  1 g Fe → 2,326 g FeF₃', 22, N)
 txt(d, 45, 880, '1 g Ni → 1,647 g NiF₂ (HF 0,682 g);  1 g Cu → 1,598 g CuF₂ (HF 0,630 g)', 22, B)
 txt(d, 45, 930, 'Qatlam reaksiyani to‘xtatadi — bu passivatsiya, emas, oddiy yemirish emas', 22, G)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'passivatsiya')
 
 # --- Graph 4: chiqindi boshqaruv -------------------------------------------
@@ -151,10 +151,10 @@ for k, ca in enumerate(cas):
 yl = 700 - 1.5 / 4.2 * 220
 d.line((130, yl, 680, yl), fill=RED, width=3)
 txt(d, 480, yl - 30, 'chegara 1,5 mg/L', 19, RED)
-txt(d, 45, 830, 'Model: 2HF + Ca(OH)₂ → CaF₂ + 2H₂O; 1000 kg 10 % li HF uchun Ca(OH)₂ 185,2 kg kerak', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: 2HF + Ca(OH)₂ → CaF₂ + 2H₂O; 1000 kg 10 % li HF uchun Ca(OH)₂ 185,2 kg kerak', 22, N)
 txt(d, 45, 880, 'CaF₂ 195,1 kg va H₂O 90,0 kg hosil bo‘ladi; kirish 285,2 kg = chiqish 285,2 kg', 22, B)
-txt(d, 45, 930, 'Qoldiq F⁻: K_sp(CaF₂) = 3,9×10⁻¹¹ bo‘yicha model — ohak ortiqchasi kerak', 22, G)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 930, 'Qoldiq F⁻: K_sp(CaF₂) = 3,9×10⁻¹¹ bo‘yicha taxminiy hisob — ohak ortiqchasi kerak', 22, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'chiqindi')
 
 # --- Graph 5: kaltsiy talabi ------------------------------------------------
@@ -171,10 +171,10 @@ for i, m in enumerate(xs):
     d.ellipse((x - 9, y - 9, x + 9, y + 9), fill=B, outline='#FFFFFF', width=2)
     txt(d, x - 44, y - 36, '%.0f' % c['m_caglu'], 19, B)
 d.line(pts, fill=N, width=5)
-txt(d, 45, 830, 'Model: 20 g HF → 0,500 mol Ca²⁺ → 224,1 g kalsiy glyukonat (yoki 55,5 g CaCl₂)', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: 20 g HF → 0,500 mol Ca²⁺ → 224,1 g kalsiy glyukonat (yoki 55,5 g CaCl₂)', 22, N)
 txt(d, 45, 880, '100 g HF → 2,499 mol Ca²⁺ → 1120,6 g kalsiy glyukonat', 22, B)
 txt(d, 45, 930, 'Stoksiometrik hisob — tibbiy doza bo‘yicha tavsiya emas', 22, G)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'kalsiy')
 
 
@@ -194,8 +194,8 @@ def scheme(name, title, boxes, h=None):
 
 
 scheme('olishsx', 'Ishlab chiqarish, tozalash va qayta foydalanish (sxematik)', [
-    ('Xom ashyo', 'Fluorit CaF₂ (97 % model)', 'Yagona tabiiy manba'),
-    ('Reaksiya', 'CaF₂ + H₂SO₄ → 2HF + CaSO₄', 'Model: HF 457,3 kg / 1000 kg fluorit'),
+    ('Xom ashyo', 'Fluorit CaF₂ (97 % taxminiy hisob)', 'Yagona tabiiy manba'),
+    ('Reaksiya', 'CaF₂ + H₂SO₄ → 2HF + CaSO₄', 'Taxminiy hisob: HF 457,3 kg / 1000 kg fluorit'),
     ('Ajratish va tozalash', 'Quruq holda distillatsiya', 'Suv bilan tozalash mumkin emas'),
     ('Mahsulot', '48–50 % li eritma; yupqa HF 99,99 %+', 'Yarim o‘tkazgich darajasi'),
     ('Qayta tiklash', 'Skrubber → CaF₂ cho‘kma → kalsinatsiya → HF', 'CaF₂ — kriyolit kabi xom ashyo')])
@@ -209,14 +209,14 @@ scheme('anidrsx', 'Anhidr HF erituvchi tizimi (sxematik)', [
 
 scheme('shishasx', 'Shishani yemirish mexanizmi (sxematik)', [
     ('Sirtda', 'Si–O–Si bog‘i HF bilan zaiflanadi', 'Suv katalitik ishtirok qiladi'),
-    ('Asosiy tenglik', 'SiO₂ + 6HF → H₂SiF₆ + 2H₂O', 'Model: 1 kg SiO₂ → 1997,8 g HF'),
+    ('Asosiy tenglik', 'SiO₂ + 6HF → H₂SiF₆ + 2H₂O', 'Taxminiy hisob: 1 kg SiO₂ → 1997,8 g HF'),
     ('Gaz fazasida', 'SiO₂ + 4HF → SiF₄↑ + 2H₂O', 'SiF₄ + 2HF → H₂SiF₆'),
     ('Tezlik qonuni', 'r = 510[F⁻] + 610[HF] + 2890[HF₂⁻] Å/min', 'Chiziqli bog‘liqlik'),
     ('Kamchilik', 'H₂SiF₆ to‘planishi yemirishni sekinlashtiradi', 'Nazorat talab qiladi')])
 
 scheme('passivatsiyasx', 'Metallarning fluoridli passivatsiyasi (sxematik)', [
     ('Boshlang‘ich sirt', 'Metall + oksid qatlami', 'HF oksidni eritadi'),
-    ('Reaksiya', '2Al + 6HF → 2AlF₃ + 3H₂↑', 'Model: 1 g Al → 3,113 g AlF₃'),
+    ('Reaksiya', '2Al + 6HF → 2AlF₃ + 3H₂↑', 'Taxminiy hisob: 1 g Al → 3,113 g AlF₃'),
     ('Qatlam', 'Zich, uzluksiz, yopuvchi', 'Reaksiyani to‘xtatadi'),
     ('Barqarorlik farqi', 'Al va Fe — mustahkam; Ni va Cu — zaif', 'Cu qatlami teshikli bo‘lishi mumkin'),
     ('Sanoat maqsadi', 'Aniq profil va toza sirt', 'Yakuniy himoya — boshqa usul')])
@@ -259,7 +259,7 @@ d.rectangle((60, 320, 700, 372), fill='#EAF2F8')
 txt(d, 80, 333, 'zanjir:  F–H···F–H···F–H   (H-bond orqali)', 25, N)
 txt(d, 60, 410, 'Suyuq HF da molekulalar zanjirlar hosil qiladi — shuning uchun qaynash harorati 19,5 °C.', 21, N)
 txt(d, 60, 455, 'Guruhdagi boshqa a’zolar: HCl −85,1 °C, HBr −66,8 °C, HI −35,4 °C.', 21, B)
-txt(d, 60, 500, 'Model: r(H–F) = 0,917 Å; D = 569 kJ/mol; χ(F) = 3,98; μ = 1,8–1,9 D.', 21, G)
+txt(d, 60, 500, 'Taxminiy hisob: r(H–F) = 0,917 Å; D = 569 kJ/mol; χ(F) = 3,98; μ = 1,8–1,9 D.', 21, G)
 txt(d, 60, 565, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'molekulax')
 
@@ -276,7 +276,7 @@ d.rectangle((430, 288, 560, 308), fill=TEAL)
 txt(d, 470, 290, 'FeF₃', 22, '#FFFFFF')
 d.ellipse((150, 282, 166, 298), fill=RED)
 d.ellipse((600, 282, 616, 298), fill=RED)
-txt(d, 60, 505, 'Model: 1 g Al → 3,113 g AlF₃; 1 g Fe → 2,326 g FeF₃ (qatlam zichligi shartli).', 21, N)
+txt(d, 60, 505, 'Taxminiy hisob: 1 g Al → 3,113 g AlF₃; 1 g Fe → 2,326 g FeF₃ (qatlam zichligi shartli).', 21, N)
 txt(d, 60, 545, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'qatlamx')
 
@@ -313,11 +313,11 @@ for i, (a, b, c, col) in enumerate(boxes):
         d.line((x + 160, 250, x + 178, 250), fill=G, width=4)
 txt(d, 40, 370, 'Tanlov mezonlari: reaktivlik (shisha mos emas), nam, temperatura, ifloslanish.', 21, N)
 txt(d, 40, 410, 'HF gaz holatida ham ajratiladi — ventilyatsiya va gaz monitori talab qiladi.', 21, B)
-txt(d, 40, 450, 'Model: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
+txt(d, 40, 450, 'Taxminiy hisob: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 21, G)
 txt(d, 40, 520, 'Original sxematik chizma; idish turlari shartli.', 21, G)
 save(im, 'idishx')
 
-im, d = canvas('Ishlangan hisob: to‘rt model (sxematik)', 660)
+im, d = canvas('Ishlangan hisob: to‘rt shartli hisob (sxematik)', 660)
 g = glass_model(1.0, 48.0)
 w = waste_model(1000.0, 10.0)
 c = calcium_requirement(20.0)
@@ -332,7 +332,7 @@ for i, (a, b, cc, col) in enumerate(blocks):
     txt(d, 60, y + 44, b, 21, INK)
     txt(d, 60, y + 70, cc, 20, G)
 d.rounded_rectangle((460, 140, 710, 540), radius=12, outline=GREEN, width=4)
-txt(d, 480, 158, 'Model natijalari', 24, GREEN)
+txt(d, 480, 158, 'Taxminiy hisob natijalari', 24, GREEN)
 txt(d, 480, 205, 'pH 1,238 (1,0 M)', 20, INK)
 txt(d, 480, 240, 'r = 687,8 Å/min', 20, INK)
 txt(d, 480, 275, '(1,00 M HF)', 19, G)
@@ -341,6 +341,6 @@ txt(d, 480, 355, 'F⁻ 1,186 mg/L', 20, INK)
 txt(d, 480, 390, '(Ca²⁺ 0,010 M)', 19, G)
 txt(d, 480, 435, 'Ca²⁺ 0,500 mol', 20, INK)
 txt(d, 480, 470, 'kalsiy glyukonat', 19, G)
-txt(d, 40, 585, 'Barcha sonlar ochiq shartli model; o‘lchov ma’lumoti emas.', 21, G)
+txt(d, 40, 585, 'Barcha sonlar ochiq shartli hisoblar; o‘lchov ma’lumoti emas.', 21, G)
 save(im, 'hisob')
 print('5 grafik + CSV; 7 sxema; 5 original illustration.')

@@ -9,7 +9,7 @@ ASSETS=ROOT/'rasmlar'/'kompleks';ASSETS.mkdir(parents=True,exist_ok=True)
 
 # AgCl / Ag(NH3)2+ (25 C, tabulated values used inside explicit models).
 KSP=1.6e-10;BETA2=1.7e7;PKA_NH4=9.25
-# Hypothetical M(OH)3 / M(OH)4- model for the amphoteric U-curve.
+# Hypothetical M(OH)3 / M(OH)4- taxminiy hisob for the amphoteric U-curve.
 KSP_M=1.0e-30;BETA4=1.0e34;CM0=1.0e-3
 
 def alpha_nh3(pH):
@@ -28,7 +28,7 @@ def saturation_s(L):
     return math.sqrt(KSP*(1.0+BETA2*L*L))
 
 def amph_csat(pH):
-    """Saturated solubility of the hypothetical M(OH)3 amphoteric model."""
+    """Saturated solubility of the hypothetical M(OH)3 amphoteric taxminiy hisob."""
     x=10**(pH-14.0)
     return KSP_M*(x**-3+BETA4*x)
 

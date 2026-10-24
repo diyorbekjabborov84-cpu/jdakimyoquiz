@@ -67,7 +67,7 @@ def render(name,title,atoms,bonds):
   a,b=atoms[i],atoms[j];line(d,(a[1],a[2]),(b[1],b[2]),'#8F9DA6',17);line(d,(a[1]-3,a[2]-3),(b[1]-3,b[2]-3),'#CAD5DD',5)
  colors={'Cl':(65,170,115),'S':(205,170,45),'Si':(150,140,170),'N':(70,125,205),'O':(225,80,75),'P':(215,145,55),'B':(180,115,160),'F':(65,170,115),'H':(245,246,249)}
  for label,x,y in atoms:sphere(d,x,y,44 if label!='H' else 27,colors[label],label)
- text(d,(38,595),'Idealizatsiyalangan o‘quv modeli',24,G);save(im,name)
+ text(d,(38,595),'Idealizatsiyalangan o‘quv tasviri',24,G);save(im,name)
 render('hclo4_model','HClO₄: O–O bog‘i yo‘q',[('Cl',380,295),('O',380,130),('O',200,315),('O',560,315),('O',380,475),('H',135,405)],[(0,1),(0,2),(0,3),(0,4),(2,5)])
 render('h2so5_model','H₂SO₅: perokso zanjir',[('S',350,300),('O',350,130),('O',350,470),('O',180,300),('O',490,300),('O',620,300),('H',140,400),('H',670,390)],[(0,1),(0,2),(0,3),(0,4),(4,5),(3,6),(5,7)])
 render('ph_model','HP(O)(OH)₂: P–H',[('P',370,285),('O',370,130),('O',195,315),('O',545,315),('H',370,440),('H',150,410),('H',620,265)],[(0,1),(0,2),(0,3),(0,4),(2,5),(3,6)])

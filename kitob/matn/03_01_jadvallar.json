@@ -3,7 +3,7 @@
     "caption": "3.1.1-jadval. Kuch, ulush va tarkib",
     "headers": [
       "Kattalik / holat",
-      "Ta’rif / model",
+      "Ta’rif / taxminiy hisob",
       "Muhim cheklov"
     ],
     "widths": [
@@ -38,7 +38,7 @@
     "caption": "3.1.2-jadval. Ta’rif va birliklarni ajratish",
     "headers": [
       "Kattalik / holat",
-      "Ta’rif / model",
+      "Ta’rif / taxminiy hisob",
       "Muhim cheklov"
     ],
     "widths": [
@@ -73,7 +73,7 @@
     "caption": "3.1.3-jadval. Logarifmik miqyosni o‘qish",
     "headers": [
       "Kattalik / holat",
-      "Ta’rif / model",
+      "Ta’rif / taxminiy hisob",
       "Muhim cheklov"
     ],
     "widths": [
@@ -108,7 +108,7 @@
     "caption": "3.1.4-jadval. Faqat HA uchun boshlang‘ich–o‘zgarish–muvozanat",
     "headers": [
       "Kattalik / holat",
-      "Ta’rif / model",
+      "Ta’rif / taxminiy hisob",
       "Muhim cheklov"
     ],
     "widths": [
@@ -175,10 +175,10 @@
     ]
   },
   "water": {
-    "caption": "3.1.6-jadval. C=10⁻⁸ mol L⁻¹ dagi model farqi",
+    "caption": "3.1.6-jadval. C=10⁻⁸ mol L⁻¹ dagi taxminiy hisob farqi",
     "headers": [
       "Kattalik / holat",
-      "Ta’rif / model",
+      "Ta’rif / taxminiy hisob",
       "Muhim cheklov"
     ],
     "widths": [
@@ -213,7 +213,7 @@
     "caption": "3.1.7-jadval. HA + NaA tizimi",
     "headers": [
       "Kattalik / holat",
-      "Ta’rif / model",
+      "Ta’rif / taxminiy hisob",
       "Muhim cheklov"
     ],
     "widths": [
@@ -245,7 +245,7 @@
     ]
   },
   "poly": {
-    "caption": "3.1.8-jadval. Diprotik model: K₁=10⁻³, K₂=10⁻⁷ mol L⁻¹",
+    "caption": "3.1.8-jadval. Diprotik taxminiy hisob: K₁=10⁻³, K₂=10⁻⁷ mol L⁻¹",
     "headers": [
       "Shakl / kattalik",
       "Hisobiy natija",
@@ -280,10 +280,10 @@
     ]
   },
   "checks": {
-    "caption": "3.1.9-jadval. Model tanlash va nazorat",
+    "caption": "3.1.9-jadval. Taxminiy hisob tanlash va nazorat",
     "headers": [
       "Kattalik / holat",
-      "Ta’rif / model",
+      "Ta’rif / taxminiy hisob",
       "Muhim cheklov"
     ],
     "widths": [

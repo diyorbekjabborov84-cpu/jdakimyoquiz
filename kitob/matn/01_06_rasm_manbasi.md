@@ -1,4 +1,4 @@
-# 1.6-mavzu: Pearson HSAB — vizual manbalar va modellar
+# 1.6-mavzu: Pearson HSAB — vizual manbalar va taxminiy hisoblar
 
 ## Pearson fotografiyasi va biografik manba
 - Rasm olingan sahifa: https://chem.ucsb.edu/people/ralph-g-pearson
@@ -15,7 +15,7 @@
 ## 1.6.1-grafik: lokal energetik egrilik
 - η=(I−A)/2 konvensiyasi. χ=5 eV bo‘lgan ikkita faraziy zarracha; η=4 eV (ko‘k) va η=1 eV (bronza).
 - ΔN=−0,5…0,5; y=η(ΔN)². Chiziqli −χΔN hissasi olib tashlangan.
-- Lokal kvadratik konseptual model; aniq energiyaning bo‘lakli chiziqliligi yoki hosila uzilishlarining to‘liq modeli emas.
+- Lokal kvadratik konseptual tasvir; aniq energiyaning bo‘lakli chiziqliligi yoki hosila uzilishlarining to‘liq tasviri emas.
 - Qattiqlik grafigidan kompleks foizi yoki pH chiqarilmaydi.
 
 ## 1.6.2-grafik: raqobatli komplekslanish

@@ -347,7 +347,7 @@ add_styled_table(doc,
         ["Til", "O'zbekcha (lotin) — atamalar uch tilda: UZ / RU / EN"],
         ["Auditoriya", "Universitet 1–2-kurs, abituriyent-olimpiada, kimyo o'qituvchisi"],
         ["Hajm", "25 bob (5 qism) + 7 ilova  •  ~240–280 sahifa (A4)"],
-        ["Vizual", "120+ chizma/grafik/sxema  •  45 jadval  •  25 ta 3D model"],
+        ["Vizual", "120+ chizma/grafik/sxema  •  45 jadval  •  25 ta 3D tasvir"],
         ["Har bob", "4–8 sahifa  •  2–4 chizma  •  5 toifada mashqlar  •  xulosa va adabiyot"],
         ["Ilmiy daraja", "Bakalavr + olimpiada chuqurligi, magistraturaga ko'prik"],
         ["Uslub", "Sodda o'zbekcha, aniq ilmiy til — «mumkin» emas, «bo'ladi»"],
@@ -376,7 +376,7 @@ add_info_box(doc,
         "•  Formula raqami (masalan (4.2)) — matnda qayta murojaat uchun. Muhim formulalar hoshiyada takrorlanadi.",
         "•  Moviy bloklar — nazariya; sariq — muhim; yashil — maslahat; qizil — diqqat/xavfsizlik.",
         "•  Har bob oxirida 5 toifa mashq: nazariy → hisob → mantiqiy zanjir → laboratoriya → test. Javoblar Ilova C2 da.",
-        "•  QR-kodlar orqali tajriba videosi va 3D modelni ko'ring."
+        "•  QR-kodlar orqali tajriba videosi va 3D taxminiy hisobni ko'ring."
     ],
     bg_hex="FFF8E1", border_hex=BRONZE_HEX, icon="☑"
 )
@@ -469,7 +469,7 @@ add_chapter_block(doc, 3, "Tuzilish va kimyoviy bog'lanish", "Nega H₂SO₄ kuc
         ("3.5", "Vodorod bog'i va assotsiatsiya: HF zanjiri, H₃PO₄ tarmog'i"),
         ("3.6", "Rentgen va neytron difraksiya — real tuzilmalar"),
     ],
-    ["O–H energiyasi vs pKa sochilma grafigi", "3D modellar: H₂SO₄, HNO₃, H₃PO₄, HClO₄", "Rezonans tuzilmalari (H₂SO₄ 3 ta, HNO₃ 2 ta)", "HF vodorod zanjiri sxemasi + kristall qatlami"],
+    ["O–H energiyasi vs pKa sochilma grafigi", "3D tasvirlar: H₂SO₄, HNO₃, H₃PO₄, HClO₄", "Rezonans tuzilmalari (H₂SO₄ 3 ta, HNO₃ 2 ta)", "HF vodorod zanjiri sxemasi + kristall qatlami"],
     key_concepts="VSEPR, rezonans, delokalizatsiya, vodorod bog'i, gibridlanish",
     practical="Tuzilishdan kuchni bashorat qilish — 5 ta noma'lum kislota"
 )
@@ -510,7 +510,7 @@ add_paragraph(doc, "Maqsad: kislotalarni alohida yodlash emas, umumiy qonuniyatl
 add_chapter_block(doc, 6, "Suvda o'zini tutish: dissotsiatsiya, pH, titrlash", "pH 0 dan 14 gacha — barcha hisoblar",
     [
         ("6.1", "Bir va ko'p bosqichli dissotsiatsiya: H₂SO₄, H₃PO₄, H₂CO₃, Ka₁/Ka₂/Ka₃"),
-        ("6.2", "Kuchli vs kuchsiz: [H⁺] hisoblashning 4 modeli (aniq → taqribiy)"),
+        ("6.2", "Kuchli vs kuchsiz: [H⁺] hisoblashning 4 sharti (aniq → taqribiy)"),
         ("6.3", "pH, pOH, ion kuchi, faollik (Debye–Hückel chegarasi)"),
         ("6.4", "Titrlash: 3 tur egri chiziq — kuchli/kuchli, kuchli/kuchsiz, poliprotik"),
         ("6.5", "Indikatorlar: rang o'tish oraliqi, tanlash qoidasi (pKa ±1)"),
@@ -682,7 +682,7 @@ add_chapter_block(doc, 18, "Suvsiz va noan'anaviy muhitda kislotalar", "Suvsiz h
         ("18.3", "Qattiq kislotalar: seolit H-ZSM-5, sulfatlangan ZrO₂ — neft krekingi"),
         ("18.4", "Gaz faza: proton affinligi (PA), eng kuchli gaz kislotasi — H(CHB₁₁Cl₁₁)"),
     ],
-    ["Superkislotalar kuchi shkalasi (H₂SO₄ dan HSbF₆ gacha, 10¹⁵ marta)", "Seolit g'ovagi modeli (kanallar kesimi)", "Hammett H₀ o'lchash sxemasi"],
+    ["Superkislotalar kuchi shkalasi (H₂SO₄ dan HSbF₆ gacha, 10¹⁵ marta)", "Seolit g'ovagi taxminiy hisobi (kanallar kesimi)", "Hammett H₀ o'lchash sxemasi"],
     key_concepts="Superkislota, Hammett H₀, seolit, proton affinligi",
     practical="Superkislota plastik idishni eritadimi — PTFE nega chidaydi?"
 )
@@ -804,7 +804,7 @@ add_styled_table(doc,
     ["Turi", "Soni", "Uslub", "Misollar"],
     [
         ["Tuzilish & Lewis", "~40", "Ko'k bog'lar, qizil O, sariq S, yashil N, oq fon", "H₂SO₄ (3 rezonans), HNO₃, HClO₄, H₃PO₄ zanjiri"],
-        ["3D modellar", "~20", "Shaffof sferalar, yumshoq soya, 30° perspektiva", "SO₄ tetraedr, PO₄, SiO₆ oktaedr, HF zanjiri"],
+        ["3D tasvirlar", "~20", "Shaffof sferalar, yumshoq soya, 30° perspektiva", "SO₄ tetraedr, PO₄, SiO₆ oktaedr, HF zanjiri"],
         ["Grafiklar", "~35", "Ko'k chiziq, bronza aksent, och kulrang panjara", "pKa shkalasi, titrlash, korroziya, Hammett"],
         ["Blok-sxemalar", "~18", "Yumaloq to'rtburchak, bronza strelka, ko'k ramka", "Kontakt usuli, Ostvald, fosfat ekstraksiyasi"],
         ["Jadvallar", "~45", "Ko'k sarlavha, zebra qator, yupqa chegara", "Tasnif, taqqoslash, termodinamika, xavfsizlik"],
@@ -817,7 +817,7 @@ add_info_box(doc,
     "CHIZMA NAMUNASI — QANDAY KO'RINADI",
     [
         "•  Barcha formulalar Wordda yoziladi (H₂SO₄, SO₄²⁻) — rastr emas, masshtab buzilmaydi.",
-        "•  3D modellar — maxsus dasturda (Avogadro/VESTA uslubida) render qilinadi, keyin Wordga joylanadi.",
+        "•  3D tasvirlar — maxsus dasturda (Avogadro/VESTA uslubida) render qilinadi, keyin Wordga joylanadi.",
         "•  Grafiklar — toza chiziqli, raqamlar o'zbekcha (1,5 emas 1.5 — xalqaro standart).",
         "•  Har rasm ostida: «1.3-rasm. H₂SO₄ ning rezonans tuzilmalari» va kerak bo'lsa manba (masalan: «Rentgen ma'lumoti: Smith, 2019»)."
     ],

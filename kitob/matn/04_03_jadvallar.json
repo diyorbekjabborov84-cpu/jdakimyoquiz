@@ -80,7 +80,7 @@
     ]
   },
   "polarization": {
-    "caption": "4.3.3-jadval. Sun’iy anod modelining to‘rt hududi",
+    "caption": "4.3.3-jadval. Sun’iy anod taxminiy hisobining to‘rt hududi",
     "headers": [
       "Obyekt / bosqich",
       "Mazmun / hisob",
@@ -110,7 +110,7 @@
       [
         "Yuqori potensial",
         "E_rel>0,800 V",
-        "Qo‘shimcha anod tok ortishi modeli"
+        "Qo‘shimcha anod tok ortishi taxminiy hisobi"
       ],
       [
         "Muhim cheklov",
@@ -153,7 +153,7 @@
         "Idish materiali nazariy qoidadan tanlanmaydi"
       ],
       [
-        "Sun’iy ikki katod modeli",
+        "Sun’iy ikki katod shartli hisobi",
         "Faol: E_rel=0,150 V; passiv: 0,700 V",
         "i mos ravishda 3,162×10⁻⁵ va 10⁻⁶ A cm⁻²"
       ]
@@ -185,12 +185,12 @@
       [
         "v_diss=0,0800 nm s⁻¹",
         "L_inf=0",
-        "Parda kamayadigan chegaraviy model"
+        "Parda kamayadigan chegaraviy taxminiy hisob"
       ],
       [
         "1/k_g",
         "50,0 s",
-        "Modelning relaksatsiya vaqt ko‘lami"
+        "Yechimning relaksatsiya vaqt ko‘lami"
       ],
       [
         "L_inf>0",
@@ -299,7 +299,7 @@
       ],
       [
         "R_p / kichik-signal",
-        "Mos modelda i_corr bahosi",
+        "Mos shartli hisobda i_corr bahosi",
         "Tafel qiyaligi yoki B kerak"
       ],
       [

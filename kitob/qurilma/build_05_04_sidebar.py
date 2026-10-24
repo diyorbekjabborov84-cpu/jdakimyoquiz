@@ -25,7 +25,7 @@ panels = [
  (1, 'bugtizimi.png', 'sxema', 'Bug‘ va energiya tizimi.',
   '5.4.2-sxema. Kotlovana, turbogenerator, issiqlikni qayta foydalanish va sarflash o‘lchagichi.'),
  (2, 'oqim.png', 'grafik', 'Zanjir bo‘yicha materiallar oqimi.',
-  '5.4.3-grafik. Kiruvchi va chiquvchi oqimlar, 1000 kg 68 % li HNO₃ asosida (model).'),
+  '5.4.3-grafik. Kiruvchi va chiquvchi oqimlar, 1000 kg 68 % li HNO₃ asosida (shartli hisob).'),
  (3, 'bug.png', 'grafik', 'Bug‘ darajalari: bosim va harorat.',
   '5.4.4-grafik. Qatnoq bug‘ jadvali qiymatlari va ularning izchilligi.'),
  (4, 'materiallar.png', 'rasm', 'Materiallar: qoplama va korroziya qatlami.',
@@ -39,17 +39,17 @@ panels = [
  (8, 'raqamlisx.png', 'sxema', 'Raqamli boshqaruv zanjiri.',
   '5.4.9-sxema. Maydon → boshqaruv → yuqori pog‘ona va ma’lumot tahlili.'),
  (9, 'opex.png', 'grafik', 'Ekspluatatsiya xarajatlarining tarkibi.',
-  '5.4.10-grafik. OPEX tarkibi (model ulushlar).'),
+  '5.4.10-grafik. OPEX tarkibi (shartli hisob ulushlar).'),
  (10, 'hisob.png', 'rasm', 'Ishlangan hisob: zanjir va iqtisodiyot.',
-  '5.4.11-rasm. Model A — zanjir mass balansi; Model B — iqtisodiyot.')]
+  '5.4.11-rasm. Taxmin A — zanjir mass balansi; Taxmin B — iqtisodiyot.')]
 
 extra = {
  0: [('oqsxemasi.png', '5.4.1-sxema. Apparat va oqimlar ketma-ketligi (sxematik).')],
  1: [('logistikax.png', '5.4.2-sxema. Xom ashyodan tayyor mahsulotgacha logistika zanjiri.')],
  2: [('xotira.png', '5.4.3-rasm. Tank park va uzluksizlik: xotira — xavf zaxirasi (sxematik).')],
- 3: [('issiqlik.png', '5.4.4-grafik. Jarayon oqimi harorat profili va bug‘ darajalari (model).')],
+ 3: [('issiqlik.png', '5.4.4-grafik. Jarayon oqimi harorat profili va bug‘ darajalari (shartli hisob).')],
  5: [('xavf.png', '5.4.6-rasm. Xavf boshqaruvning uch qatlami (sxematik).')],
- 9: [('birlikqiymat.png', '5.4.10-grafik. Birlik FOA va quvvat bog‘liqligi (model egri chizig‘i).')]}
+ 9: [('birlikqiymat.png', '5.4.10-grafik. Birlik FOA va quvvat bog‘liqligi (taxminiy egri chiziq).')]}
 
 LABEL = {'grafik': 'HISOBIY GRAFIK', 'sxema': 'TUSHUNTIRUVCHI SXEMA', 'rasm': 'CHIZMA VA IZOH'}
 
@@ -247,7 +247,7 @@ for idx, ((title, paras), (pidx, pic, kind, panel, note)) in enumerate(zip(secti
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, apparat va texnologik parametrlar, xom ashyo nisbatlari, mahsulot narxi va ishlab chiqarish retsepti bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalarning tayyorlanishi va saqlanishi bo‘yicha ko‘rsatmalar 7, 8 va 12-bo‘limlarda.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, apparat va texnologik parametrlar, xom ashyo nisbatlari, mahsulot narxi va ishlab chiqarish retsepti bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalarning tayyorlanishi va saqlanishi bo‘yicha ko‘rsatmalar 7, 8 va 12-bo‘limlarda.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

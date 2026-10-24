@@ -38,7 +38,7 @@ panels=[
 ('Na va Cl₂ misoli',[('Na · DONOR','Elektron beradi: qaytaruvchi'),('Cl₂ · AKSEPTOR','Elektron oladi: oksidlovchi'),('USANOVICH TILI','Asos va kislota vazifalari')],'Keng tasnif redoks balansini almashtirmaydi.'),
 ('Mos vositani tanlash',[('PROTON','Tutash juft va pKₐ'),('ELEKTRON','Redoks juft va potensial'),('KOMPLEKS','Donor–akseptor va hosil bo‘lish K')],'Bitta umumiy nom barcha miqdoriy usullar o‘rniga o‘tmaydi.'),
 ('Silikat tarmog‘i',[],'1.5.1-chizma. Oksid qo‘shilganda lokal Si–O–Si ko‘prigining ikki ko‘priksiz uchga o‘tish eskizi; to‘liq kristall tuzilishi emas.'),
-('Oksid faolligi va tarkib',[],'1.5.1-grafik. A + O²⁻ ⇌ B ideal modeli; K = 100. Muayyan shlakning tajriba grafigi emas.'),
+('Oksid faolligi va tarkib',[],'1.5.1-grafik. A + O²⁻ ⇌ B ideal sharoiti; K = 100. Muayyan shlakning tajriba grafigi emas.'),
 ('Harorat ta’siri',[],'1.5.2-grafik. Faraziy ekzotermik muvozanat uchun lg K ning haroratga bog‘liqligi.'),
 ('Tahlil ketma-ketligi',[('01 · MUHIT','Suvmi yoki oksidli suyuqlanma?'),('02 · ZARRACHA','H⁺, O²⁻ yoki elektronmi?'),('03 · MAQSAD','Tasnif, tarkib yoki tezlikmi?')],'Mezonni tanlashdan oldin fizik-kimyoviy sharoitni belgilang.')
 ]
@@ -167,7 +167,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[2] Chemistry LibreTexts. 2.3: Acid-Base Theories and Concepts. Northern Michigan University, CH 215, 2023. Bo‘limlar: Lux–Flood va Usanovich.',
         '[3] Acid–Base Properties of Oxides Derived from Oxide Melt Solution Calorimetry (2023). Ochiq manba: PMC10304485.',
         'Qo‘shimcha o‘qish: Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018.',
-        'Grafik va chizmalar shu mavzu uchun mualliflik hisobiy modellari sifatida tayyorlangan. Tajriba ma’lumotlari emas; farazlar matn va yon lavhalarda ko‘rsatilgan.'
+        'Grafik va chizmalar shu mavzu uchun mualliflik hisobiy shartli hisoblari sifatida tayyorlangan. Tajriba ma’lumotlari emas; farazlar matn va yon lavhalarda ko‘rsatilgan.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

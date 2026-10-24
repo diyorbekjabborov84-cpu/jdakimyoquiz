@@ -37,7 +37,7 @@ curve(d,p,rows('qutblanish'),'E_relative_V','log_i_anodic',N)
 x,y=p(.3,-3);d.ellipse((x-7,y-7,x+7,y+7),fill=B);txt(d,x-75,y-58,'kritik',28,B)
 txt(d,45,865,'i°=1 A cm⁻²; logarifmik o‘q',27,G)
 txt(d,45,930,'i kritik = 10⁻³; i passiv = 10⁻⁶',27,N)
-txt(d,45,995,'Sun’iy anod model; real qotishma emas',25,G);save(im,'qutblanish')
+txt(d,45,995,'Sun’iy anod shartli hisob; real qotishma emas',25,G);save(im,'qutblanish')
 im,d=canvas('Katod yo‘li o‘zgarsa sirt holati o‘zgaradi',1180)
 p=axes(d,0,1,-7,1,'E nisbiy, V','lg(|i| / i°)',[(0,'0'),(.3,'0,3'),(.7,'0,7'),(1,'1')],[(-7,'−7'),(-6,'−6'),(-3,'−3'),(1,'1')])
 rr=rows('aralash')
@@ -46,19 +46,19 @@ for e,s,c in [(.15,'faol',B),(.7,'passiv',TEAL)]:
  x,y=p(e,log_anodic(e));d.ellipse((x-7,y-7,x+7,y+7),fill=c);txt(d,x+8,y-43,s,26,c)
 for y,s,c in [(865,'Anod yo‘li — ko‘k',N),(925,'Kuchsiz katod yo‘li — bronza',B),(985,'Kuchli katod yo‘li — ko‘kimtir',TEAL)]:txt(d,45,y,s,27,c)
 txt(d,45,1060,'i°=1 A cm⁻²; bir xil shartli anod egri',25,G)
-txt(d,45,1115,'Kesishishlar modelga tegishli',25,G);save(im,'aralash')
+txt(d,45,1115,'Kesishishlar shartli hisobga tegishli',25,G);save(im,'aralash')
 im,d=canvas('Parda o‘sishi va erishining shartli balansi',1190)
 p=axes(d,0,300,0,3.5,'Vaqt, s','Qalinlik L, nm',[(0,'0'),(100,'100'),(200,'200'),(300,'300')],[(0,'0'),(1,'1'),(2,'2'),(3.5,'3,5')])
 for col,c in [('L_v002_nm',N),('L_v006_nm',B),('L_v008_nm',TEAL)]:curve(d,p,rows('qalinlik'),'time_s',col,c)
 for y,s,c in [(865,'Erish 0,0200 nm/s → 3,00 nm',N),(925,'Erish 0,0600 nm/s → 1,00 nm',B),(985,'Erish 0,0800 nm/s → 0 nm',TEAL)]:txt(d,45,y,s,27,c)
 txt(d,45,1060,'L₀=0,500 nm; vaqt ko‘lami 50,0 s',26,G)
-txt(d,45,1120,'Ideal model; o‘lchangan parda emas',26,G);save(im,'qalinlik')
+txt(d,45,1120,'Ideal shartli hisob; o‘lchangan parda emas',26,G);save(im,'qalinlik')
 im,d=canvas('Xlorid faolligi: ikki shartli chegara',1140)
 p=axes(d,-3,0,0,.85,'lg a(Cl⁻)','E, V (shartli etalon)',[(-3,'−3'),(-2,'−2'),(-1,'−1'),(0,'0')],[(0,'0'),(.35,'0,35'),(.65,'0,65'),(.85,'0,85')])
 for col,c in [('E_pit_model_V',N),('E_rp_model_V',B)]:curve(d,p,rows('xlorid'),'log_a_Cl',col,c)
 txt(d,45,865,'Boshlanish chegarasi — ko‘k',28,N)
 txt(d,45,925,'Qayta passivlanish — bronza',28,B)
-txt(d,45,995,'b=0,0800 V / dekada; shartli model',25,G)
+txt(d,45,995,'b=0,0800 V / dekada; shartli hisob',25,G)
 txt(d,45,1060,'Real materialning xavfsiz chegarasi emas',24,G);save(im,'xlorid')
 
 def scheme(name,title,boxes):
@@ -90,7 +90,7 @@ scheme('dalil','Passivlikni bir nechta dalil bilan tekshiring',[
  ('Metall yo‘qotilishi','Massa / eritmadagi metall','Kichik o‘rtacha son pitni yashirishi mumkin')])
 scheme('hisob','Bir xil massa, boshqa mahalliy xavf',[
  ('Metallga tegishli tok','10,00 μA; 24,00 soat','Al³⁺ nishoni; Q=0,8640 C'),
- ('Massa ekvivalenti','0,08054 mg','Faraday qonuni; berilgan model'),
+ ('Massa ekvivalenti','0,08054 mg','Faraday qonuni; berilgan shartli hisob'),
  ('Bir tekis erish','10,00 cm² da 0,02983 μm','Butun yuzaga keltirilgan qalinlik'),
  ('f=0,001000','0,01000 cm² da 29,83 μm','Mahalliy o‘rtacha; maksimal pit emas')])
 # Original explanatory cross-sections, not micrographs or atomic structures.

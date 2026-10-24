@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""6.5 "HI — yodid kislota" — model ma'lumotlari va CSV jadvallar.
+"""6.5 "HI — yodid kislota" — taxminiy hisob ma'lumotlari va CSV jadvallar.
 
-Barcha sonli natijalar ochiq shartli model hisoblari (o'lchov ma'lumoti emas).
+Barcha sonli natijalar ochiq shartli hisoblar (o'lchov ma'lumoti emas).
 Manbalar: Wikipedia (Hydroiodic acid, Hydrogen iodide, Iodine, Iodine compounds),
 ICSC 1326 (ILO/WHO), NOAA/NIOSH (IDLH 2025-109, AEGL), USGS/ATSDR (yod ishlab chiqarish).
 """
@@ -49,7 +49,7 @@ M_O2 = 31.998
 # --- kislota konstantalari --------------------------------------------------
 PKA_HI = -9.5                  # suvda (6.1-bo'lim guruh jadvali)
 KA_HI = 10 ** (-PKA_HI)        # 3,16·10^9
-LOG_K_HI2 = 0.7                # HI + I- ⇌ HI2- (model)
+LOG_K_HI2 = 0.7                # HI + I- ⇌ HI2- (shartli hisob)
 K_HI2 = 10 ** LOG_K_HI2
 LOG_K_I3 = 2.845               # I2 + I- ⇌ I3- (K ≈ 700, 20 °C — manba)
 K_I3 = 10 ** LOG_K_I3
@@ -66,7 +66,7 @@ SOLUTIONS = [
     (48.0, 1.60, None, None, None, 'konsentratsiyalangan kislota chegarasi'),
     (56.7, 1.70, 7.56, 126.7, None, 'azeotrop (doimiy qaynash)'),
     (57.0, 1.70, None, 127.0, None, 'sanoat navi (Ullmann)'),
-    (10.0, 1.07, 1.24, None, None, 'model: 10 % li eritma'),
+    (10.0, 1.07, 1.24, None, None, 'taxminiy hisob: 10 % li eritma'),
 ]
 
 # guruh bo‘yicha ma’lumot (6.1-bo‘lim jadvali + o‘lchangan qo‘shimchalar)
@@ -90,7 +90,7 @@ METALS = [
 
 # ---------------------------------------------------------------- spetsiatsiya
 def speciation(c, ka=KA_HI, kf=K_HI2):
-    """Suvli HI: [H3O+], [I-], [HI], [HI2-] — ideal erituvchi modeli."""
+    """Suvli HI: [H3O+], [I-], [HI], [HI2-] — ideal erituvchi sharoiti."""
     def cl_of_h(h):
         a = kf * h / ka
         return 2.0 * h / (1.0 + math.sqrt(1.0 + 4.0 * a * h))
@@ -147,7 +147,7 @@ def triiodide_series(cs=(0.1, 0.5, 1.0, 2.0, 4.0, 6.0, 7.56, 10.0, 12.0), m_i2=1
 
 # ---------------------------------------------------------------- ishlab chiqarish
 def direct_synthesis(m_hi=1000.0):
-    """H2 + I2 ⇌ 2HI (qaytariluvchi, deyarli termoneutral) — model."""
+    """H2 + I2 ⇌ 2HI (qaytariluvchi, deyarli termoneutral) — taxminiy hisob."""
     n_hi = m_hi / M_HI
     dh = 2 * 26.5 - 62.44                      # kJ / 2 mol HI
     dg = 2 * 1.7 - 0.0                        # kJ / 2 mol HI
@@ -159,7 +159,7 @@ def direct_synthesis(m_hi=1000.0):
 
 
 def hydrazine_method(m_hi=1000.0):
-    """2I2 + N2H4 -> 4HI + N2 — sanoat usuli (model)."""
+    """2I2 + N2H4 -> 4HI + N2 — sanoat usuli (shartli hisob)."""
     n_hi = m_hi / M_HI
     return dict(m_hi=m_hi, n_hi=n_hi,
                 m_i2=0.5 * n_hi * M_I2, m_n2h4=0.25 * n_hi * M_N2H4,
@@ -167,7 +167,7 @@ def hydrazine_method(m_hi=1000.0):
 
 
 def phosphorus_method(m_hi=1000.0):
-    """3I2 + 2P + 6H2O -> 6HI + 2H3PO3 — laboratoriya usuli (model)."""
+    """3I2 + 2P + 6H2O -> 6HI + 2H3PO3 — laboratoriya usuli (shartli hisob)."""
     n_hi = m_hi / M_HI
     return dict(m_hi=m_hi, n_hi=n_hi,
                 m_i2=0.5 * n_hi * M_I2, m_p=(1.0 / 3.0) * n_hi * M_P,
@@ -175,7 +175,7 @@ def phosphorus_method(m_hi=1000.0):
 
 
 def h2s_method(m_hi=1000.0):
-    """H2S + I2 -> 2HI + S — tarixiy usul (model)."""
+    """H2S + I2 -> 2HI + S — tarixiy usul (shartli hisob)."""
     n_hi = m_hi / M_HI
     return dict(m_hi=m_hi, n_hi=n_hi,
                 m_i2=0.5 * n_hi * M_I2, m_h2s=0.5 * n_hi * M_H2S,
@@ -183,7 +183,7 @@ def h2s_method(m_hi=1000.0):
 
 
 def iodine_from_iodide(m_nai=1000.0):
-    """2NaI + Cl2 -> 2NaCl + I2 (brindan yod olish) — model."""
+    """2NaI + Cl2 -> 2NaCl + I2 (brindan yod olish) — taxminiy hisob."""
     n = m_nai / M_NAI
     return dict(m_nai=m_nai, n=n,
                 m_cl2=0.5 * n * M_CL2, m_i2=0.5 * n * M_I2, m_nacl=n * M_NACL,
@@ -192,7 +192,7 @@ def iodine_from_iodide(m_nai=1000.0):
 
 
 def oxidation_by_oxygen(m_hi=1000.0):
-    """4HI + O2 -> 2I2 + 2H2O — model (havo bilan oksidlanish)."""
+    """4HI + O2 -> 2I2 + 2H2O — taxminiy hisob (havo bilan oksidlanish)."""
     n_hi = m_hi / M_HI
     return dict(m_hi=m_hi, n_hi=n_hi,
                 m_i2=0.5 * n_hi * M_I2, m_h2o=0.5 * n_hi * M_H2O,
@@ -200,7 +200,7 @@ def oxidation_by_oxygen(m_hi=1000.0):
 
 
 def oxidation_by_nitric(m_hi=1000.0):
-    """6HI + 2HNO3 -> 3I2 + 2NO + 4H2O — model (kislota bilan oksidlanish)."""
+    """6HI + 2HNO3 -> 3I2 + 2NO + 4H2O — taxminiy hisob (kislota bilan oksidlanish)."""
     n_hi = m_hi / M_HI
     return dict(m_hi=m_hi, n_hi=n_hi,
                 m_i2=0.5 * n_hi * M_I2, m_hno3=(1.0 / 3.0) * n_hi * M_HNO3,
@@ -227,7 +227,7 @@ def neutralisation(m_solution=1000.0, pct=10.0, agent='Na2CO3'):
 
 
 def iodometry_sample(m_kio3=1.0):
-    """IO3- + 5I- + 6H+ -> 3I2 + 3H2O: 1 g KIO3 dan ajraladigan I2 (model)."""
+    """IO3- + 5I- + 6H+ -> 3I2 + 3H2O: 1 g KIO3 dan ajraladigan I2 (shartli hisob)."""
     n = m_kio3 / M_KIO3
     n_i2 = 0.6 * n
     return dict(m_kio3=m_kio3, n=n, n_i2=n_i2, m_i2=n_i2 * M_I2,
@@ -235,7 +235,7 @@ def iodometry_sample(m_kio3=1.0):
 
 
 def iodized_salt(m_salt=1000.0, mg_i_per_kg=30.0):
-    """Yodlangan tuz: 1 t tuzga qo'shiladigan KI / KIO3 (model)."""
+    """Yodlangan tuz: 1 t tuzga qo'shiladigan KI / KIO3 (shartli hisob)."""
     m_i_g = m_salt * mg_i_per_kg / 1000.0     # g I (1000 kg × 30 mg/kg = 30 g)
     return dict(m_salt=m_salt, mg_i_per_kg=mg_i_per_kg, m_i=m_i_g,
                 m_ki=m_i_g * M_KI / M_I, m_kio3=m_i_g * M_KIO3 / M_I)
@@ -384,7 +384,7 @@ def build_csvs():
 
 def main():
     build_csvs()
-    print('— suvli HI spetsiatsiyasi (model) —')
+    print('— suvli HI spetsiatsiyasi (shartli hisob) —')
     for s in speciation_series():
         print('  c=%5.2f M  h=%.4f  I-=%.4f  HI=%.8f  HI2-=%.8f  pH=%7.3f  ulushlar: I- %6.3f %% HI2- %6.5f %%'
               % (s['c'], s['h'], s['cl'], s['hcl'], s['cl2'], s['ph'], s['w_i'], s['w_hi2']))
@@ -419,7 +419,7 @@ def main():
     io = iodometry_sample(1.0); iz = iodized_salt(1000.0, 30.0)
     print('— yodometriya: 1 g KIO3 -> I2 %.3f g; tiosulfat %.3f g' % (io['m_i2'], io['m_thio']))
     print('— yodlangan tuz: 1 t tuz + %.0f g I -> KI %.1f g yoki KIO3 %.1f g' % (iz['m_i'], iz['m_ki'], iz['m_kio3']))
-    print('— triiodid (model) —')
+    print('— triiodid (shartli hisob) —')
     for tb in triiodide_series():
         print('  [I-]=%5.2f M: I3- ulushi %6.2f %%' % (tb['c_i'], tb['w_i3']))
     print('CSV:', ', '.join(sorted(p.name for p in ASSETS.glob('*.csv'))))

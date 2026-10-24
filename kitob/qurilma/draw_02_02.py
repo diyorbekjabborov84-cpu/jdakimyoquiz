@@ -59,7 +59,7 @@ for x in range(2800,4001,3):
 for idx,col in [(1,N),(2,B)]:d.line([pos(r[0],r[idx]) for r in rows],fill=col,width=5)
 for x in [4000,3600,3200,2800]:text(d,(pos(x,0)[0]-30,710),str(x),25)
 text(d,(45,115),'Shartli absorbans',28);text(d,(150,770),'To‘lqin soni, cm⁻¹',29)
-text(d,(45,835),'Ko‘k: erkin X–H modeli',27,N);text(d,(45,883),'Bronza: bog‘langan model',27,B);save(im,'ir_model')
+text(d,(45,835),'Ko‘k: erkin X–H hisobi',27,N);text(d,(45,883),'Bronza: bog‘langan hisob',27,B);save(im,'ir_model')
 with (OUT/'ir_model.csv').open('w') as ff:w=csv.writer(ff);w.writerow(['wavenumber_cm-1','free_model','bonded_model']);w.writerows(rows)
 im,d=canvas('Proton almashinuvi')
 for y,after in [(270,False),(625,True)]:
@@ -89,9 +89,9 @@ def render(name,title,atoms,bonds,contacts=()):
  for i,j in contacts:dashed(d,(atoms[i][1],atoms[i][2]),(atoms[j][1],atoms[j][2]))
  colors={'O':(225,80,75),'N':(70,125,205),'C':(100,110,123),'H':(245,246,249)}
  for label,x,y in atoms:sphere(d,x,y,48 if label!='H' else 30,colors[label],label)
- text(d,(38,595),'O‘quv modeli; masshtabsiz',26,G);save(im,name)
-for name,title,center in [('nitrat_model','Nitrat: tekis model','N'),('karbonat_model','Karbonat: tekis model','C')]:
+ text(d,(38,595),'O‘quv tasviri; masshtabsiz',26,G);save(im,name)
+for name,title,center in [('nitrat_model','Nitrat: tekis tasvir','N'),('karbonat_model','Karbonat: tekis tasvir','C')]:
  render(name,title,[(center,380,340),('O',380,155),('O',220,432),('O',540,432)],[(0,1),(0,2),(0,3)])
 render('dimer_model','Suv dimeri: O–H···O',[('O',185,350),('H',290,350),('H',159,249),('O',510,350),('H',592,286),('H',552,445)],[(0,1),(0,2),(3,4),(3,5)],[(1,3)])
-render('gidroksoniy_model','H₃O⁺: piramidal model',[('O',380,290),('H',220,365),('H',540,365),('H',380,470)],[(0,1),(0,2),(0,3)])
+render('gidroksoniy_model','H₃O⁺: piramidal tasvir',[('O',380,290),('H',220,365),('H',540,365),('H',380,470)],[(0,1),(0,2),(0,3)])
 print('11 original visuals; 1 illustrative spectrum CSV:',OUT)

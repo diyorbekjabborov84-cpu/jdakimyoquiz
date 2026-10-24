@@ -44,7 +44,7 @@ data = [
  ['Minimal qaytish', 'α = 2,0 → R_min = 1,70', 'α = 1,5 da R_min = 3,50'],
  ['Suv olib tashlash', '0,50 → 0,98: 48,98 kg suv', '100 kg asosda'],
  ['Suv olib tashlash', '0,68 → 0,98: 30,61 kg suv', 'Azeotrop chegarasiga yaqin'],
- ['Chegara', 'Model α doimiy', 'Real tizim ideal emas']]),
+ ['Chegara', 'Taxminiy hisob α doimiy', 'Real tizim ideal emas']]),
 ('choqish', 'Cho‘ktirish: Ksp, reagent tanlash va selektivlik', [
  ['Fe(OH)₃', 'Ksp = 4×10⁻³⁸', 'pH 2 da [Fe³⁺] = 4,0×10⁻² M'],
  ['Cu(OH)₂', 'Ksp = 2,2×10⁻²⁰', 'pH 7 da [Cu²⁺] = 2,2×10⁻⁶ M'],
@@ -67,7 +67,7 @@ data = [
 ('adsorbsiya', 'Adsorbsiya, ion almashinuv va membranaviy usullar', [
  ['Aktiv ug, koks', 'Organik moddalar va rang', 'Katalizator qaytariladi'],
  ['Bentonit, gil', 'Cho‘kma doni va og‘ir metallar', 'Suspenziya ushlash'],
- ['Langmuir izotermasi', 'q = q_max·K·C/(1 + K·C)', 'Model: q_max = 50 mg/g'],
+ ['Langmuir izotermasi', 'q = q_max·K·C/(1 + K·C)', 'Taxminiy hisob: q_max = 50 mg/g'],
  ['Kationit (H⁺ shakli)', 'Metall kationlari', 'Kislota H⁺ bilan qaytadi'],
  ['Anionit', 'Cl⁻, SO₄²⁻', 'Shaklga qarab'],
  ['Selektivlik', 'k(Mg/Ca) = [Mg]S/[Ca]S ÷ [Mg]M/[Ca]M', 'Gold Book S05566'],
@@ -94,7 +94,7 @@ data = [
  ['Yakuniy filtratsiya', 'Qoldiq zarracha', 'Sifat nazoratidan oldin'],
  ['Qadoqlash', 'Partiya raqami va hujjat', 'Ishlatish muddati'],
  ['Ajratish faktori Φ', 'N bosqichdan keyin Φ⁻ⁿ', 'Φ = 1000 → 10⁻⁶ gacha 2 bosqich'],
- ['Chiqindi omili', 'm(chiqindi)/m(mahsulot)', 'Model: 0,00167 kg/kg'],
+ ['Chiqindi omili', 'm(chiqindi)/m(mahsulot)', 'Taxminiy hisob: 0,00167 kg/kg'],
  ['Chegara', 'Amaliyot ko‘rsatmasi', 'Bu bobda berilmaydi']]),
 ('sifat', 'Sifat ko‘rsatkichlari, tahlil usullari va chegaralar', [
  ['Kislota miqdori', 'Titrlash (potensiometrik)', 'Ph. Eur.: 68,0–70,0 % m/m'],
@@ -108,16 +108,16 @@ data = [
  ['Suv', 'Karl Fischer usuli', 'Ishlatish muddati bilan bog‘liq'],
  ['Hujjat', 'Partiya, metod, natija, sana', 'Izchillik; mas’ul shaxs']]),
 ('hisob', 'Ishlangan hisob natijalari va ularning taqqoslanishi', [
- ['Model A: boshlang‘ich', '1000 t; HNO₃ 68 %; NO₂ 4,0 t', '4NO₂ + O₂ + 2H₂O → 4HNO₃'],
- ['Model A: n(NO₂)', '86,938 kmol', '4000 kg / 46,01 kg/kmol'],
- ['Model A: suv va O₂', '0,7831 t; 0,6955 t', '43,469 va 21,734 kmol'],
- ['Model A: HNO₃', '+5,4779 t', 'Moliyar massa 63,01 kg/kmol'],
- ['Model A: natija', '999,91 t; w = 68,55 %', 'Rang butunlay yo‘qoladi'],
- ['Model B: boshlang‘ich', '1000 t; H₂SO₄ 96 %; Fe 0,03 %', 'Fe₂(SO₄)₃ + 3CaO + 3H₂O'],
- ['Model B: cho‘kma', 'Fe(OH)₃ 0,5741 t', 'n(Fe) = 5,3715 kmol'],
- ['Model B: chiqindi', 'CaSO₄ 1,0969 t; CaO 0,4519 t', 'Chiqindi omili 0,00167 kg/kg'],
- ['Model B: CaCO₃ yo‘li', '0,8065 t; H₂SO₄ yo‘qotish 0,7903 t', 'Mahsulotning 0,079 % i'],
- ['Chegara', 'Model: faollik va yo‘qotishlar hisobga olinmagan', 'Tajriba ma’lumoti emas']])]
+ ['Taxmin A: boshlang‘ich', '1000 t; HNO₃ 68 %; NO₂ 4,0 t', '4NO₂ + O₂ + 2H₂O → 4HNO₃'],
+ ['Taxmin A: n(NO₂)', '86,938 kmol', '4000 kg / 46,01 kg/kmol'],
+ ['Taxmin A: suv va O₂', '0,7831 t; 0,6955 t', '43,469 va 21,734 kmol'],
+ ['Taxmin A: HNO₃', '+5,4779 t', 'Moliyar massa 63,01 kg/kmol'],
+ ['Taxmin A: natija', '999,91 t; w = 68,55 %', 'Rang butunlay yo‘qoladi'],
+ ['Taxmin B: boshlang‘ich', '1000 t; H₂SO₄ 96 %; Fe 0,03 %', 'Fe₂(SO₄)₃ + 3CaO + 3H₂O'],
+ ['Taxmin B: cho‘kma', 'Fe(OH)₃ 0,5741 t', 'n(Fe) = 5,3715 kmol'],
+ ['Taxmin B: chiqindi', 'CaSO₄ 1,0969 t; CaO 0,4519 t', 'Chiqindi omili 0,00167 kg/kg'],
+ ['Taxmin B: CaCO₃ yo‘li', '0,8065 t; H₂SO₄ yo‘qotish 0,7903 t', 'Mahsulotning 0,079 % i'],
+ ['Chegara', 'Taxminiy hisob: faollik va yo‘qotishlar hisobga olinmagan', 'Tajriba ma’lumoti emas']])]
 
 out = {}
 for i, (key, title, rows) in enumerate(data, 1):
@@ -148,7 +148,7 @@ notes = [
   ['Chegara', 'Texnologik parametrlar berilmaydi.']],
  [['Ph. Eur.', 'Monografiya — sifatning tuzilma namunasi.'],
   ['Izchillik', 'Natija mahsulot partiyasiga bog‘lanadi.']],
- [['Model', 'Barcha natijalar ochiq shartli modeldan.'],
+ [['Taxminiy hisob', 'Barcha natijalar ochiq shartli hisoblardan.'],
   ['Chegara', 'Issiqlik sig‘imi va faollik hisobga olinmagan.']]]
 (R / '05_02_yonlavhalar.json').write_text(json.dumps(notes, ensure_ascii=False, indent=2))
 print(f'11 jadval, {sum(len(n) for n in notes)} yon lavha.')

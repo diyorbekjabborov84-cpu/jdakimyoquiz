@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""6.4 "HBr — bromid kislota" — model ma'lumotlari va CSV jadvallar.
+"""6.4 "HBr — bromid kislota" — taxminiy hisob ma'lumotlari va CSV jadvallar.
 
-Barcha sonli natijalar ochiq shartli model hisoblari (o'lchov ma'lumoti emas).
+Barcha sonli natijalar ochiq shartli hisoblar (o'lchov ma'lumoti emas).
 Manbalar: Wikipedia (Hydrobromic acid, Hydrogen bromide, Bromine), Air Liquide/NOAA/NIOSH
 (kritik nuqta, chegara va IDLH), Cheméo (NIST termokimyoviy ma'lumot), USGS (bromin ishlab chiqarish).
 """
@@ -34,9 +34,9 @@ M_BR = 79.904
 # --- kislota konstantalari --------------------------------------------------
 PKA_HBR = -8.8                  # suvda (6.1-bo'lim jadvali)
 KA_HBR = 10 ** (-PKA_HBR)        # 6,31·10^8
-LOG_K_HBR2 = 0.7                # HBr + Br- ⇌ HBr2- (model)
+LOG_K_HBR2 = 0.7                # HBr + Br- ⇌ HBr2- (shartli hisob)
 K_HBR2 = 10 ** LOG_K_HBR2
-LOG_K_BR3 = 1.2                 # Br2 + Br- ⇌ Br3- (model)
+LOG_K_BR3 = 1.2                 # Br2 + Br- ⇌ Br3- (shartli hisob)
 K_BR3 = 10 ** LOG_K_BR3
 
 # --- fizik konstantalar (nashr ma'lumotlari) --------------------------------
@@ -77,7 +77,7 @@ METALS = [
 
 # ---------------------------------------------------------------- spetsiatsiya
 def speciation(c, ka=KA_HBR, kf=K_HBR2):
-    """Suvli HBr: [H3O+], [Br-], [HBr], [HBr2-] — ideal erituvchi modeli."""
+    """Suvli HBr: [H3O+], [Br-], [HBr], [HBr2-] — ideal erituvchi sharoiti."""
     def cl_of_h(h):
         a = kf * h / ka
         return 2.0 * h / (1.0 + math.sqrt(1.0 + 4.0 * a * h))
@@ -108,7 +108,7 @@ def speciation_series(cs=(0.10, 0.50, 1.0, 2.0, 4.0, 6.0, 8.0, 8.77, 10.0, 12.0)
 
 # ---------------------------------------------------------------- tribromid
 def tribromide(c_br=8.77, m_br2=1.0, kf=K_BR3):
-    """Br2 + Br- ⇌ Br3- (model): eritilgan Br2 ning Br3- ulushi.
+    """Br2 + Br- ⇌ Br3- (shartli hisob): eritilgan Br2 ning Br3- ulushi.
 
     Balans: x + y = v (eritilgan Br2), y = kf·x·(c_br − y).
     y ∈ [0, v] oralig‘ida bisеksiya bilan yechiladi.
@@ -138,7 +138,7 @@ def tribromide_series(cs=(0.1, 0.5, 1.0, 2.0, 4.0, 6.0, 8.77, 10.0, 12.0), m_br2
 
 # ---------------------------------------------------------------- ishlab chiqarish
 def synthesis(m_hbr=1000.0):
-    """H2 + Br2 -> 2HBr (200-400 °C, Pt katalizatori) — model."""
+    """H2 + Br2 -> 2HBr (200-400 °C, Pt katalizatori) — taxminiy hisob."""
     n_hbr = m_hbr / M_HBR                      # kmol
     return dict(m_hbr=m_hbr, n_hbr=n_hbr,
                 m_h2=0.5 * n_hbr * M_H2,          # kg
@@ -147,7 +147,7 @@ def synthesis(m_hbr=1000.0):
 
 
 def lab_method(m_hbr=1000.0):
-    """Br2 + SO2 + 2H2O -> H2SO4 + 2HBr — model."""
+    """Br2 + SO2 + 2H2O -> H2SO4 + 2HBr — taxminiy hisob."""
     n_hbr = m_hbr / M_HBR
     n_br2 = 0.5 * n_hbr
     return dict(m_hbr=m_hbr, n_hbr=n_hbr,
@@ -156,7 +156,7 @@ def lab_method(m_hbr=1000.0):
 
 
 def bromide_oxidation(m_nabr=1000.0):
-    """2NaBr + Cl2 -> 2NaCl + Br2 (bromin ishlab chiqarish) — model."""
+    """2NaBr + Cl2 -> 2NaCl + Br2 (bromin ishlab chiqarish) — taxminiy hisob."""
     n = m_nabr / M_NABR                       # kmol
     m_br2 = 0.5 * n * M_BR2
     m_cl2 = 0.5 * n * M_CL2
@@ -166,7 +166,7 @@ def bromide_oxidation(m_nabr=1000.0):
 
 
 def h2o2_bromination(m_hbr=1000.0):
-    """2HBr + H2O2 -> Br2 + 2H2O — model (aromatik bromlanish uchun)."""
+    """2HBr + H2O2 -> Br2 + 2H2O — taxminiy hisob (aromatik bromlanish uchun)."""
     n_hbr = m_hbr / M_HBR
     n_h2o2 = 0.5 * n_hbr
     return dict(m_hbr=m_hbr, n_hbr=n_hbr,
@@ -175,7 +175,7 @@ def h2o2_bromination(m_hbr=1000.0):
 
 
 def oxidation_by_oxygen(m_hbr=1000.0):
-    """4HBr + O2 -> 2Br2 + 2H2O — model (termofil/katalitik yo'l)."""
+    """4HBr + O2 -> 2Br2 + 2H2O — taxminiy hisob (termofil/katalitik yo'l)."""
     n_hbr = m_hbr / M_HBR
     return dict(m_hbr=m_hbr, n_hbr=n_hbr,
                 m_br2=0.5 * n_hbr * M_BR2, m_h2o=0.5 * n_hbr * M_H2O,
@@ -323,7 +323,7 @@ def build_csvs():
 
 def main():
     build_csvs()
-    print('— suvli HBr spetsiatsiyasi (model) —')
+    print('— suvli HBr spetsiatsiyasi (shartli hisob) —')
     for s in speciation_series():
         print('  c=%5.2f M  h=%.4f  Br-=%.4f  HBr=%.6f  HBr2-=%.6f  pH=%7.3f  ulushlar: Br- %6.3f %% HBr2- %6.4f %%'
               % (s['c'], s['h'], s['cl'], s['hcl'], s['cl2'], s['ph'], s['w_br'], s['w_hbr2']))
@@ -351,7 +351,7 @@ def main():
           % (n2['m_agent'], n2['m_salt'], n2['m_h2o'], n2['m_input'], n2['m_output']))
     t = titration_standardisation(0.2000, 30.00)
     print('— standartlash: %.4f g Na2CO3, V(HBr) %.2f mL -> C(HBr) = %.5f mol/L' % (t['m_naco3'], t['v_hbr_ml'], t['c_hbr']))
-    print('— tribromid (model) —')
+    print('— tribromid (shartli hisob) —')
     for tb in tribromide_series():
         print('  [Br-]=%5.2f M: Br3- ulushi %6.2f %%' % (tb['c_br'], tb['w_br3']))
     print('CSV:', ', '.join(sorted(p.name for p in ASSETS.glob('*.csv'))))

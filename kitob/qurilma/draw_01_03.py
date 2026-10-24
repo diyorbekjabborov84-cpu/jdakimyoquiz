@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Muvozanat modellari: barcha farazlar grafik izohlarida beriladi."""
+"""Muvozanat taxminiy hisoblari: barcha farazlar grafik izohlarida beriladi."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import csv, shutil

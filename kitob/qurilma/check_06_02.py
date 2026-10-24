@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""6.2 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""6.2 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json
 from docx import Document
@@ -23,7 +23,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: spetsiatsiya')
+print('1) Taxminiy hisob: spetsiatsiya')
 s = M.speciation_series()
 ck(close(s[0]['ph'], 2.635, 1e-3) and close(s[0]['w_hf'], 76.0, 0.1)
    and close(s[0]['w_f'], 22.3, 0.1) and close(s[0]['w_hf2'], 0.8, 0.1),
@@ -35,7 +35,7 @@ ck(close(s[4]['w_hf'], 89.5, 0.1) and close(s[4]['w_f'], 1.1, 0.1) and close(s[4
 ck(close(s[7]['w_hf2'], 5.2, 0.1) and close(s[7]['ph'], 0.277, 1e-3), '10,000 M: HF₂⁻ 5,2 %; pH 0,277')
 ck(close(M.KA_HF, 6.8e-4) and close(M.KF, 10 ** 0.7, 1e-6), 'Ka = 6,8×10⁻⁴; lgK(HF₂⁻) = 0,7')
 
-print('2) Model: yemirish, passivatsiya, chiqindi, kaltsiy, olish')
+print('2) Taxminiy hisob: yemirish, passivatsiya, chiqindi, kaltsiy, olish')
 e = M.etch_rate(1.0); ck(close(e['r'], 687.8, 0.5), '1,000 M da tezlik: 687,8 Å/min')
 e4 = M.etch_rate(4.0); ck(close(e4['r'], 2778.7, 1.0), '4,000 M da tezlik: 2778,7 Å/min')
 e8 = M.etch_rate(8.0); ck(close(e8['r'], 5567.7, 1.0), '8,000 M da tezlik: 5567,7 Å/min')
@@ -74,7 +74,7 @@ for name, n in [('spetsiatsiya', 8), ('yemirish', 8), ('passivatsiya', 4),
 pngs = sorted(p.stem for p in ASSETS.glob('*.png'))
 ck(len(pngs) == 17, 'rasmlar soni: %d' % len(pngs))
 
-print('4) Matn: model raqamlari va atamalar')
+print('4) Matn: taxminiy hisob raqamlari va atamalar')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '06_02_jadvallar.json').read_text()), ensure_ascii=False)
 notes_txt = json.dumps(json.loads((ROOT / 'matn' / '06_02_yonlavhalar.json').read_text()), ensure_ascii=False)
@@ -94,7 +94,7 @@ for s in need:
     ck(s in ms_all, 'matnda «%s» bor' % s)
 ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va 11 jadval belgisi')
 ck('amaliyot tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
-ck('o‘lchov ma’lumotlari emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
+ck('o‘lchov ma’lumotlari emas' in ms, 'taxminiy hisob cheklovi matnda ko‘rsatilgan')
 ck('CaF₂ + H₂SO₄' in ms and 'SiO₂ + 6HF' in ms, 'asosiy tengliklar matnda')
 ck('vodorod bog‘i' in ms and 'passivatsiya' in ms, 'mavzu kalit tushunchalari matnda')
 

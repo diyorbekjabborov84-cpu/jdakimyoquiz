@@ -17,11 +17,11 @@ Tasdiqlanmagan olim tasvirlari ishlatilmadi. Usanovich nomi bo‘yicha rasm qidi
 ## Hisobiy grafiklar
 
 `qurilma/draw_01_05.py`:
-- Oksid-ion faolligi: A + O²⁻ ⇌ B, K=100, ideal ikki shaklli tizim. f=K·a/(1+K·a). lg a=−6…0. Faollik o‘lchamsiz. Bu xromat yoki real shlakning tajribaviy modeli emas.
+- Oksid-ion faolligi: A + O²⁻ ⇌ B, K=100, ideal ikki shaklli tizim. f=K·a/(1+K·a). lg a=−6…0. Faollik o‘lchamsiz. Bu xromat yoki real shlakning tajribaviy hisobi emas.
 - Harorat: ΔH°=−50 kJ/mol, ΔS°=−20 J/(mol·K); 800–1600 K; R=8,314462618 J/(mol·K); qiymatlar haroratdan mustaqil deb olingan. lg K=−(ΔH°−TΔS°)/(RT ln10). Muayyan mineralga nisbat berilmagan.
 - 1000 K: ΔG°=−30 kJ/mol; lg K≈1,567; K≈36,9.
 - Sonli nuqtalar rasmlar bilan yonma-yon CSV sifatida saqlanadi.
 
 ## Silikat eskizi
 
-Si–O–Si ko‘prigi + O²⁻ → ikkita Si–O⁻ uchining hosil bo‘lishini ko‘rsatuvchi lokal bog‘lanish eskizi. Uch nuqtalar qolgan silikat tarmog‘ini bildiradi. To‘liq molekula yoki muayyan kristall fazaning struktura modeli emas. Atom va zaryadlar formal lokal hisobda saqlanadi.
+Si–O–Si ko‘prigi + O²⁻ → ikkita Si–O⁻ uchining hosil bo‘lishini ko‘rsatuvchi lokal bog‘lanish eskizi. Uch nuqtalar qolgan silikat tarmog‘ini bildiradi. To‘liq molekula yoki muayyan kristall fazaning tuzilmasi emas. Atom va zaryadlar formal lokal hisobda saqlanadi.

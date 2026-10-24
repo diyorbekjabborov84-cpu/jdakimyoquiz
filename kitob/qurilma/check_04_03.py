@@ -1,4 +1,4 @@
-"""QA: model identities, stoichiometry, native mathematics and 3:1 layout."""
+"""QA: taxminiy hisob identities, stoichiometry, native mathematics and 3:1 layout."""
 from pathlib import Path
 from collections import Counter
 from zipfile import ZipFile
@@ -76,7 +76,7 @@ without_urls=re.sub(r'https?://\S+','',alltext)
 assert '_' not in without_urls
 assert len(tree.xpath('//m:sSub',namespaces=ns))>20 and len(tree.xpath('//m:sSup',namespaces=ns))>10
 notes=json.loads((D/'matn/04_03_yonlavhalar.json').read_text());assert sum(map(len,notes))==18
-print(f'PASS: {points} model points; roots, continuity, film ODE, Faraday/area/Stern identities, {len(rx)} atom/charge balances; 18 OMML lines / 8 fractions; 9 tables, 13 figures, 18 notes, 3:1 layout.')
+print(f'PASS: {points} taxminiy hisob points; roots, continuity, film ODE, Faraday/area/Stern identities, {len(rx)} atom/charge balances; 18 OMML lines / 8 fractions; 9 tables, 13 figures, 18 notes, 3:1 layout.')
 print('Words with math:',len(alltext.split()),'Bytes:',p.stat().st_size)
 rt=D.parent/'google_drive/Noorganik kislotalar — 4.3. Passivlanish — tekshirilgan.roundtrip.docx'
 if rt.exists():

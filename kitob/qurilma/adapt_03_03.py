@@ -8,10 +8,10 @@ p=p[:a]+'''panels=[
 ('Logarifm va faollik',[],'3.3.1-sxema. Faolliklar nisbati: bir pH birligi — o‘n karra farq.'),
 ('Balanslar bir tizim',[],'3.3.2-sxema. Faqat HA va suv uchun konsentratsion ideal tenglamalar.'),
 ('Suv chegarasiga yaqin',[],'3.3.1-grafik. Kuchli bir asosli kislota: suvli yechim va suvni tashlagan ifoda; 25 °C.'),
-('Bir xil C, turli ajralish',[],'3.3.2-grafik. Shartli HA va to‘liq ajralgan HX; ikkala ideal model suvni saqlaydi.'),
+('Bir xil C, turli ajralish',[],'3.3.2-grafik. Shartli HA va to‘liq ajralgan HX; ikkala ideal sharoit suvni saqlaydi.'),
 ('Miqdor va yakuniy hajm',[],'3.3.3-sxema. Ikki kuchli bir asosli kislota aralashmasining hisob yo‘li.'),
 ('Umumiy H⁺ ta’siri',[],'3.3.3-grafik. Kuchli kislota C_s ortganda shartli HA ning deprotonlangan ulushi.'),
-('Ikkinchi proton',[],'3.3.4-grafik. H₂SO₄ ning birinchi bosqichi to‘liq deb olingan ideal model. K₂,c≈0,012 mol L⁻¹; 25 °C.'),
+('Ikkinchi proton',[],'3.3.4-grafik. H₂SO₄ ning birinchi bosqichi to‘liq deb olingan ideal sharoit. K₂,c≈0,012 mol L⁻¹; 25 °C.'),
 ('Faollikni ajrating',[],'3.3.4-sxema. Shartli molal misol: γ koeffitsiyentining pH ga hissasi.'),
 ('Yechimning nazorati',[],'3.3.5-sxema. Tarkibdan fizik ildiz va balanslarni qayta tekshirishga o‘tish.')
 ]'''+p[b:]
@@ -40,7 +40,7 @@ p=p[:a]+'''        refs=[
         '[1] IUPAC Gold Book. pH. DOI: 10.1351/goldbook.P04524. https://goldbook.iupac.org/terms/view/P04524 . Molal faollik ta’rifi va yakka ion konvensiyasi; mazmun mustaqil o‘zbekcha bayon qilindi.',
         '[2] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018. Kimyoviy muvozanat, faollik va elektrokimyo asoslari.',
         '[3] OpenStax. Chemistry 2e. Appendix H: Ionization Constants of Weak Acids. https://openstax.org/books/chemistry-2e/pages/h-ionization-constants-of-weak-acids . HSO₄⁻ uchun 25 °C dagi Kₐ₂=1,2×10⁻² qiymati.',
-        'Barcha grafiklar ideal konsentratsion modellar; tajriba natijalari emas. Tuzilish tasvirlari original sxematik o‘quv modellari, optimallashtirilgan koordinatalar emas. K_c=10⁻⁵ shartli HA uchun, HF uchun emas.'
+        'Barcha grafiklar ideal konsentratsion hisoblar; tajriba natijalari emas. Tuzilish tasvirlari original sxematik o‘quv taxminiy hisoblari, optimallashtirilgan koordinatalar emas. K_c=10⁻⁵ shartli HA uchun, HF uchun emas.'
         ]'''+p[b:]
 p=p.replace('assert counter==8','assert counter==9').replace('7 schemes; 2 illustrative graphs; 4 molecular renders; 8 equations','5 schemes; 4 calculated graphs; 4 molecular renders; 9 equations')
 Path(__file__).with_name('build_03_03_sidebar.py').write_text(p)

@@ -1,4 +1,4 @@
-# 1.4-mavzu: Lewis — tasvirlar va modellar
+# 1.4-mavzu: Lewis — tasvirlar va taxminiy hisoblar
 
 ## Tarixiy portret
 - Manba: https://calisphere.org/item/ark:/13030/tf3x0nb39q/

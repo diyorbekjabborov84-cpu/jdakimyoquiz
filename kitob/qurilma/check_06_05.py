@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""6.5 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""6.5 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json
 from docx import Document
@@ -23,7 +23,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: spetsiatsiya va triiodid')
+print('1) Taxminiy hisob: spetsiatsiya va triiodid')
 s = M.speciation_series()
 ck(close(s[0]['ph'], 1.000, 1e-3) and close(s[0]['w_i'], 100.0, 0.001),
    '0,100 M: I⁻ 100,000 %; pH 1,000')
@@ -38,7 +38,7 @@ ck(close(tb[0]['w_i3'], 98.54, 0.05), '0,10 M I⁻: I₃⁻ ulushi 98,54 %')
 ck(close(tb[6]['w_i3'], 99.98, 0.01), '7,56 M I⁻: I₃⁻ ulushi 99,98 %')
 ck(close(tb[8]['w_i3'], 99.99, 0.01), '12,0 M I⁻: I₃⁻ ulushi 99,99 %')
 
-print('2) Model: ishlab chiqarish, redoks, metallar, chiqindi')
+print('2) Taxminiy hisob: ishlab chiqarish, redoks, metallar, chiqindi')
 ds = M.direct_synthesis(1000.0)
 ck(close(ds['m_h2'], 7.88, 0.01) and close(ds['m_i2'], 992.1, 0.5)
    and close(ds['dh_kj'], -9.44, 0.01) and close(ds['k_eq'], 0.254, 1e-3),
@@ -113,7 +113,7 @@ for n in ['molekulax', 'fizikx', 'guruh', 'olishsx', 'triiodidsx', 'metalsx',
           'ishlabchiqarish', 'metallar', 'teshikx', 'yodradio', 'idishx', 'chiqindi']:
     ck(n in pngs, 'rasm %s.png bor' % n)
 
-print('4) Matn: model raqamlari va atamalar')
+print('4) Matn: taxminiy hisob raqamlari va atamalar')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '06_05_jadvallar.json').read_text()), ensure_ascii=False)
 notes_txt = json.dumps(json.loads((ROOT / 'matn' / '06_05_yonlavhalar.json').read_text()), ensure_ascii=False)
@@ -136,7 +136,7 @@ for x in need:
     ck(x in ms_all, 'matnda «%s» bor' % x)
 ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va 11 jadval belgisi')
 ck('amaliyot tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
-ck('o‘lchov ma’lumoti emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
+ck('o‘lchov ma’lumoti emas' in ms, 'taxminiy hisob cheklovi matnda ko‘rsatilgan')
 ck('H₂ + I₂' in ms and 'N₂H₄' in ms and '2NaI + Cl₂' in ms, 'asosiy tengliklar matnda')
 ck('4HI + O₂' in ms and 'HNO₃' in ms and 'IO₃⁻' in ms, 'redoks tengliklari matnda')
 ck('vodorod bog‘i' in ms and 'passivatsiya' in ms and 'embrittlement' in ms,

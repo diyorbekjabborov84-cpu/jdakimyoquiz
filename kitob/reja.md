@@ -37,7 +37,7 @@
 | 13 | Oksokislotalar: HNO₃, H₂SO₄, H₃PO₄, H₂SO₃, H₂CO₃ | Tuzilish, kislotalik, molekulyar mexanizm, spektroskopiya |
 | 14 | Kislotlarning konsentrlangan shakllari | HNO₃, H₂SO₄, HCl: passivlanish, katalitik faollik, tuzatish |
 | 15 | Kislotlarning hosil bo'lishi va reaksiyalanishi | Qaytariladigan/qaaytarilmaydigan, oksidlovchi-ta'kidlovchi xossalar |
-| 16 | Kislotalarning molekulyar modellari | PM3, GUMO/AM1, GIAO hisoblar; kislotalikning kompyuter bashorati |
+| 16 | Kislotalarning molekulyar taxminiy hisoblari | PM3, GUMO/AM1, GIAO hisoblar; kislotalikning kompyuter bashorati |
 | 17 | Kislotalikning molekulyar asoslari | O–H quvvati, EVT, zarraning radiusiga ta'sir, rejalar |
 
 ## Qism IV. Kislotalar atrofidagi muhit (18–21)

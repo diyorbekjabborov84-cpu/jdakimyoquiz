@@ -27,7 +27,7 @@ panels = [
  (2, 'usullarsxema.png', 'sxema', 'QuRITish usullarining beshta oilasi.',
   '5.3.3-sxema. Mexanik, fizik, kimyoviy, fizik-kimyoviy va maxsus usullar.'),
  (3, 'vakuum.png', 'grafik', 'Vakuum: suvning qaynash harorati.',
-  '5.3.4-grafik. Klausius–Klapeiron modeli: P va T bog‘liqligi (model egri chizig‘i).'),
+  '5.3.4-grafik. Klausius–Klapeiron shartli hisobi: P va T bog‘liqligi (taxminiy egri chiziq).'),
  (4, 'azeotrop.png', 'grafik', 'Azeotrop: entrainer va suv sig‘imi.',
   '5.3.5-grafik. Entrainerlarning azeotrop harorati va bug fazasidagi suv ulushi.'),
  (5, 'sitalsxema.png', 'sxema', 'Molekulyar sital kolonkasi va regeneratsiya.',
@@ -39,17 +39,17 @@ panels = [
  (8, 'nazoratsxema.png', 'sxema', 'Suv miqdori nazorati va hujjatlashtirish.',
   '5.3.9-sxema. Namuna olishdan hujjatgacha bo‘lgan nazorat zanjiri.'),
  (9, 'energiya.png', 'grafik', 'QuRITish usullarining energetik sarfi.',
-  '5.3.10-grafik. 1 kg suvni olib tashlash uchun model energiyasi (kWh/kg).'),
- (10, 'hisob.png', 'rasm', 'Ishlangan hisob: ikki modelning modda oqimi.',
-  '5.3.11-rasm. Model A — gidrat quritish; Model B — azeotropik suv chiqarish.')]
+  '5.3.10-grafik. 1 kg suvni olib tashlash uchun shartli hisob energiyasi (kWh/kg).'),
+ (10, 'hisob.png', 'rasm', 'Ishlangan hisob: ikki taxminiy hisobning modda oqimi.',
+  '5.3.11-rasm. Taxmin A — gidrat quritish; Taxmin B — azeotropik suv chiqarish.')]
 
 extra = {
- 0: [('kinetika.png', '5.3.1-grafik. Quritish kinetikasi: namlik va vaqt (model egri chizig‘i).')],
+ 0: [('kinetika.png', '5.3.1-grafik. Quritish kinetikasi: namlik va vaqt (taxminiy egri chiziq).')],
  1: [('quritishegri.png', '5.3.2-rasm. Quritish egri chizig‘ining bosqichlari (sxematik).')],
  2: [('shkaf.png', '5.3.3-rasm. Quritish uskonasining kesimi (sxematik).')],
  3: [('shkafsxema.png', '5.3.4-sxema. Shkaf, vakuum desikatori va chuqur vakuum variantlari.')],
  4: [('azeotropsxema.png', '5.3.5-sxema. Azeotropik quritishning umumiy oqimi.')],
- 5: [('adsorbsiya.png', '5.3.6-grafik. Muvozanat namligi va nisbiy namlik (model egri chizig‘i).')]}
+ 5: [('adsorbsiya.png', '5.3.6-grafik. Muvozanat namligi va nisbiy namlik (taxminiy egri chiziq).')]}
 
 LABEL = {'grafik': 'HISOBIY GRAFIK', 'sxema': 'TUSHUNTIRUVCHI SXEMA', 'rasm': 'CHIZMA VA IZOH'}
 
@@ -247,7 +247,7 @@ for idx, ((title, paras), (pidx, pic, kind, panel, note)) in enumerate(zip(secti
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Konsentratsiya, harorat, bosim va vaqt oralig‘i eksperiment uchun ko‘rsatma emas; xavfli kislotalarning tayyorlanishi, quritish rejasi va saqlanishi bo‘yicha amaliyot tavsiyalari berilmaydi.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Konsentratsiya, harorat, bosim va vaqt oralig‘i eksperiment uchun ko‘rsatma emas; xavfli kislotalarning tayyorlanishi, quritish rejasi va saqlanishi bo‘yicha amaliyot tavsiyalari berilmaydi.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

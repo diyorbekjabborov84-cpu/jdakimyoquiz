@@ -19,7 +19,7 @@ def industry_equations():
        seq('Darajalar:  birinchi → ikkinchi → oxirgi')],
       # 2 — apparatlar va OEE
       [seq(_oee, ' = ', var('A', ''), ' × ', var('P', ''), ' × ', var('Q', '')),
-       seq('Model:  0,92 × 0,95 × 0,99 = 0,8653'),
+       seq('Taxminiy hisob:  0,92 × 0,95 × 0,99 = 0,8653'),
        seq('Savdo hajmi = ', var('V', 'reja'), ' × ', _oee, ' = 86 526 t/y'),
        seq('Sahifalash', 'A = 0,92;  P = 0,95;  Q = 0,99', ' (ISO 22400-2:2014)')],
       # 3 — mass balansi
@@ -30,23 +30,23 @@ def industry_equations():
       # 4 — energiya
       [chem('NH₃ + 2O₂ → HNO₃ + H₂O'),
        seq('Δ', sup('fH', '°'), ' = Δ', sup('fH', '°'), '(l) − Δ', sup('fH', '°'), '(g) = −414,03 kJ/mol'),
-       seq('Model: 10,7919 kmol → −4468,2 MJ (≈ −4,47 GJ)'),
+       seq('Taxminiy hisob: 10,7919 kmol → −4468,2 MJ (≈ −4,47 GJ)'),
        seq('Bug‘latish: 306,12 kg → 690,9 MJ;  toluen 1239,95 kg → 512,2 MJ'),
        seq('Qatnoq bug‘: 0,10→99,63 °C;  2,00→212,42 °C;  8,00→295,06 °C')],
       # 5 — materiallar va korroziya
       [seq('m = ', frac(seq('m₀ − m₁'), seq('S·τ')), '   (korroziya mass yo‘qotishi)'),
-       seq('Model: ', frac('0,12', seq('100 × 0,100 m² × 1000 s')), ' = 0,0012 g/(m²·soat)'),
+       seq('Taxminiy hisob: ', frac('0,12', seq('100 × 0,100 m² × 1000 s')), ' = 0,0012 g/(m²·soat)'),
        seq('Ierarxiya:  po‘lat → 316L → Hastelloy → PTFE/grafit'),
        seq('Loyihada material va sharoit birga baholanadi'),
        seq('S — namuna yuzasi (m', sup('2', ''), ');  τ — vaqt (soat)')],
       # 6 — xavfsizlik
       [seq('O₂ (jarayonda) < ', var('O', '2 krit'), '  →  yonish chegarasi'),
        seq('Inertlash:  havo chiqariladi,  N₂ suriladi'),
-       seq('Xavf baholash:  oqibat × ehtimollik  (model)'),
+       seq('Xavf baholash:  oqibat × ehtimollik  (shartli hisob)'),
        seq('Kuzatuv:  hodisa chastotasi,  to‘xtash davomiyligi,  bajarilgan harakat')],
       # 7 — ekologiya
-      [seq('Chiqindi omili = ', frac(var('m', 'chiqindi'), var('m', 'mahsulot')), '   (model: 0,012)'),
-       seq('CO₂e = faolitet × emissiya koeffitsienti  (model)'),
+      [seq('Chiqindi omili = ', frac(var('m', 'chiqindi'), var('m', 'mahsulot')), '   (taxminiy hisob: 0,012)'),
+       seq('CO₂e = faolitet × emissiya koeffitsienti  (shartli hisob)'),
        seq('Suv sarfi = ', frac(var('m', 'suv'), var('m', 'mahsulot')), '  (qaytish bilan kamayadi)'),
        seq('NOₓ kamaytirish:  4NH₃ + 4NO + O₂ → 4N₂ + 6H₂O')],
       # 8 — sifat
@@ -54,17 +54,17 @@ def industry_equations():
            frac(seq(var('t', 'ideal'), ' × ', var('N', '')), var('t', 'ish')), ' × ',
            frac(var('N', 'yaxshi'), var('N', ''))),
        seq('Cpk = min[', frac(seq('x̄ − ', var('L', 'spec')), seq('3', var('σ', 'L'))), '; ',
-           frac(seq(var('U', 'spec'), ' − x̄'), seq('3', var('σ', 'U'))), ']  (model: 1,39)'),
+           frac(seq(var('U', 'spec'), ' − x̄'), seq('3', var('σ', 'U'))), ']  (taxminiy hisob: 1,39)'),
        seq('Izchillik:  xom ashyo → reaktiv → apparat → operator → natija')],
       # 9 — raqamli boshqaruv
       [seq('Sensor → PLC/DCS → MES/ERP → reja'),
-       seq('Soft sensor:  ŷ = f(x₁, x₂, …)  + model xatosi'),
+       seq('Soft sensor:  ŷ = f(x₁, x₂, …)  + taxminiy hisob xatosi'),
        seq('PI:  birlik amallar soni ↓,  apparat hajmi ↓,  xotira ↓'),
        seq('Ramshaw (1995):  zavod hajmini va amallar sonini kamaytirish strategiyasi')],
       # 10 — iqtisodiyot
       [seq('CAPEX = 120,0 mln USD;  FOA = 0,08 · CAPEX = 9,60 mln USD/y'),
-       seq(_cfoa, ' = ', frac(_foa, var('V', 'yil')), '  (model: 96 USD/t)'),
-       seq('c(V) = ', _cvar, ' + ', frac(_foa, var('V', 'yil')), '  (model: 324 + FOA/V)'),
+       seq(_cfoa, ' = ', frac(_foa, var('V', 'yil')), '  (taxminiy hisob: 96 USD/t)'),
+       seq('c(V) = ', _cvar, ' + ', frac(_foa, var('V', 'yil')), '  (taxminiy hisob: 324 + FOA/V)'),
        seq('50 000→516;  100 000→420;  200 000→372 USD/t')],
       # 11 — ishlangan hisob
       [seq('A:  HNO₃ 680,00 kg;  n = 10,7919 kmol;  NH₃ 183,80 kg'),

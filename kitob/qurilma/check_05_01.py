@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""5.1 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""5.1 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json, zipfile
 from docx import Document
@@ -24,7 +24,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: termodinamik mezon')
+print('1) Taxminiy hisob: termodinamik mezon')
 dh_so2, ds_so2 = M.dH(*M.RX_SO2), M.dS(*M.RX_SO2)
 ck(close(dh_so2, -98.89, 1e-6), 'SO₂ oksidlanishi ΔH° = −98,89 kJ/mol')
 ck(close(ds_so2, -94.04, 1e-6), 'SO₂ oksidlanishi ΔS° = −94,04 J/(mol·K)')
@@ -45,7 +45,7 @@ ck(close(dh_n, -1170.38, 1e-2) and close(ds_n, -534.00, 1e-6), 'NH₃ oksidlanis
 ck(close(M.dG(dh_n, ds_n), -1011.17, 1e-1) and close(M.lgK(dh_n, ds_n), 177.15, 1e-1),
    'NH₃ oksidlanishi: ΔG° = −1011,17; lg K = 177,15')
 
-print('2) Model: muvozanat, van ’t Hoff, kaskad, Fenske')
+print('2) Taxminiy hisob: muvozanat, van ’t Hoff, kaskad, Fenske')
 for T, x1, x10, x100 in [(250.0, 0.0326, 0.0103, 0.0033), (298.15, 0.2691, 0.0880, 0.0279),
                          (350.0, 0.8247, 0.4188, 0.1443), (400.0, 0.9788, 0.8341, 0.4314)]:
     ck(close(M.eq_conversion(T, 1.0), x1, 2e-3) and close(M.eq_conversion(T, 10.0), x10, 2e-3)
@@ -58,7 +58,7 @@ for n, x in [(1, 0.60), (2, 0.84), (5, 0.9898), (10, 0.9999)]:
 for a, nmin in [(1.1, 61.79), (1.5, 14.52), (2.0, 8.50), (3.0, 5.36), (5.0, 3.66)]:
     ck(close(M.fenske(a), nmin, 5e-3), 'Fenske α = %.1f → %.2f pog‘ona' % (a, nmin))
 
-print('3) Model: pyrit zanjiri va resurs ko‘rsatkichlari')
+print('3) Taxminiy hisob: pyrit zanjiri va resurs ko‘rsatkichlari')
 r = M.pyrite_chain(1000.0, 0.96, 0.98)
 for k, v, tol in [('n_fes2', 8334.7225, 1e-3), ('n_so2', 16669.4449, 1e-3),
                   ('n_so3', 16002.6671, 1e-3), ('n_so2_left', 666.7778, 1e-3),
@@ -74,12 +74,12 @@ ck(close(w['m_solution'], 1602.24, 1e-2) and close(w['m_water_in_product'], 64.0
 ck(close(M.efactor(0.90), 0.5355, 1e-4) and close(M.efactor(0.99), 0.4263, 1e-4),
    'Chiqindi omili: X = 0,90 → 0,5355; X = 0,99 → 0,4263')
 
-print('4) Model: CSV fayllar')
+print('4) Taxminiy hisob: CSV fayllar')
 for name, n in [('mivozanat', 401), ('kaskad', 401), ('chiqindi', 401), ('buglanish', 401), ('dG', 251)]:
     rows = list(csv.DictReader((ASSETS / (name + '.csv')).open()))
     ck(len(rows) == n, '%s.csv: %d qator' % (name, n))
 
-print('5) Matn: model raqamlari matnda bor')
+print('5) Matn: taxminiy hisob raqamlari matnda bor')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '05_01_jadvallar.json').read_text()), ensure_ascii=False)
 ms_all = ms + tables_txt

@@ -1,6 +1,6 @@
-"""Termodinamik va kinetik o'quv modellari — 4.5 "Parchalanish".
+"""Termodinamik va kinetik o'quv taxminiy hisoblari — 4.5 "Parchalanish".
 Qiymatlar: OpenStax Chemistry 2e, Appendix G (standart termodinamik xossalar)
-va Appendix H (kislotalik konstantalari). Har bir egri chiziq model hisobidir,
+va Appendix H (kislotalik konstantalari). Har bir egri chiziq taxminiy hisobidir,
 tajriba ma'lumoti emas.
 """
 import math, csv
@@ -39,7 +39,7 @@ DATA = {
 KA1 = 1.6e-2      # H2SO3 ⇌ H+ + HSO3-
 KA2 = 6.4e-8      # HSO3- ⇌ H+ + SO3^2-
 
-# Kinetik model (faqat o'quv uchun): A va Ea — real bir kislotga tegishli emas
+# Kinetik shartli hisob (faqat o'quv uchun): A va Ea — real bir kislotga tegishli emas
 A_MODEL = 1.0e13      # s^-1
 EA_MODEL = 100.0e3    # J/mol
 
@@ -79,7 +79,7 @@ def t_star(dh, ds):
 
 
 def arrhenius_k(T, Ea=EA_MODEL, A=A_MODEL):
-    """Birinchi tartibli parchalanish uchun model tezlik konstantasi, s^-1."""
+    """Birinchi tartibli parchalanish uchun taxminiy hisob tezlik konstantasi, s^-1."""
     return A * math.exp(-Ea / (R * T))
 
 

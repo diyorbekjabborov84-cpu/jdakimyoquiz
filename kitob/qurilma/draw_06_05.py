@@ -1,5 +1,5 @@
 """Original teaching figures for 6.5 "HI — yodid kislota".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -78,11 +78,11 @@ d.line(pts2, fill=TEAL, width=4)
 d.ellipse((430, 634, 446, 650), fill=RED); txt(d, 454, 628, 'pK_a (suv)', 21, RED)
 d.ellipse((430, 672, 446, 688), fill=TEAL); txt(d, 454, 666, 'pK_a (DMSO)', 21, TEAL)
 txt(d, 45, 950, 'Guruh: D(H–X) 569 / 432 / 366 / 295 kJ/mol;  pK_a (suv) 3,17 / −5,9 / −8,8 / −9,5', 22, N)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'guruh')
 
 # --- Graph 2: ishlab chiqarish ----------------------------------------------
-im, d = canvas('Ishlab chiqarish va yod sikli (model)', 1180)
+im, d = canvas('Ishlab chiqarish va yod sikli (shartli hisob)', 1180)
 ds = direct_synthesis(1000.0); hz = hydrazine_method(1000.0)
 ph = phosphorus_method(1000.0); ii = iodine_from_iodide(1000.0)
 d.line((120, 175, 120, 500, 680, 500), fill=G, width=3)
@@ -113,13 +113,13 @@ for i, (name, v, col) in enumerate([('NaI (kirish)', ii['m_nai'], N), ('Cl₂ (k
     d.rectangle((x - 30, 800 - h, x + 30, 800), fill=col)
     txt(d, x - 38, 800 - h - 26, num('%.1f' % v), 18, col)
     txt(d, x - 52, 812, name, 17, G)
-txt(d, 45, 880, 'Model: 1000 kg HI → H₂ 7,88 kg, I₂ 992,1 kg (ΔrH −9,44 kJ; K(298 K) = 0,254)', 22, N)
-txt(d, 45, 930, 'Model: 1000 kg NaI + Cl₂ 236,5 kg → I₂ 846,6 kg + NaCl 389,9 kg (kirish 1236,5 = chiqish)', 22, B)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 880, 'Taxminiy hisob: 1000 kg HI → H₂ 7,88 kg, I₂ 992,1 kg (ΔrH −9,44 kJ; K(298 K) = 0,254)', 22, N)
+txt(d, 45, 930, 'Taxminiy hisob: 1000 kg NaI + Cl₂ 236,5 kg → I₂ 846,6 kg + NaCl 389,9 kg (kirish 1236,5 = chiqish)', 22, B)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'ishlabchiqarish')
 
 # --- Graph 3: redoks ---------------------------------------------------------
-im, d = canvas('Redoks: yod olishi va triiodid ion (model)', 1180)
+im, d = canvas('Redoks: yod olishi va triiodid ion (shartli hisob)', 1180)
 d.line((120, 175, 120, 470, 680, 470), fill=G, width=3)
 for v, s in [(0, '0'), (25, '25'), (50, '50'), (75, '75'), (100, '100')]:
     txt(d, 12, 470 - v / 100.0 * 295 - 16, s, 23)
@@ -149,12 +149,12 @@ for i, (name, v, col) in enumerate([('O₂ (O₂ bilan)', o2['m_o2'], TEAL), ('H
     d.rectangle((x - 40, 880 - h, x + 40, 880), fill=col)
     txt(d, x - 46, 880 - h - 28, '%s kg' % num('%.1f' % v), 20, col)
     txt(d, x - 56, 892, name, 18, G)
-txt(d, 45, 950, 'Model: 4HI + O₂ → 2I₂ + 2H₂O (62,5 kg O₂);  6HI + 2HNO₃ → 3I₂ + 2NO + 4H₂O (164,2 kg)', 22, N)
-txt(d, 45, 1000, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 950, 'Taxminiy hisob: 4HI + O₂ → 2I₂ + 2H₂O (62,5 kg O₂);  6HI + 2HNO₃ → 3I₂ + 2NO + 4H₂O (164,2 kg)', 22, N)
+txt(d, 45, 1000, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'redoks')
 
 # --- Graph 4: metallar ------------------------------------------------------
-im, d = canvas('Metall yemirilishi: 1 g metallga to‘g‘ri kelgan HI (model)', 1180)
+im, d = canvas('Metall yemirilishi: 1 g metallga to‘g‘ri kelgan HI (shartli hisob)', 1180)
 md = metal_dissolution(1.0)
 d.line((120, 175, 120, 700, 680, 700), fill=G, width=3)
 for v, s in [(0, '0'), (4, '4'), (8, '8'), (12, '12'), (16, '16')]:
@@ -168,14 +168,14 @@ for i, m in enumerate(md):
     txt(d, x - 44, 700 - h - 30, '%s g' % num('%.3f' % m['m_hi']), 20, col)
     txt(d, x - 30, 718, m['metal'], 24, G)
     txt(d, x - 50, 748, '%s g tuz' % num('%.3f' % m['m_salt']), 18, G)
-txt(d, 45, 830, 'Model: 1 g Fe → 5,545 g FeI₂ + 4,581 g HI;  1 g Zn → 4,882 g ZnI₂ + 3,913 g HI', 22, N)
+txt(d, 45, 830, 'Taxminiy hisob: 1 g Fe → 5,545 g FeI₂ + 4,581 g HI;  1 g Zn → 4,882 g ZnI₂ + 3,913 g HI', 22, N)
 txt(d, 45, 880, '1 g Al → 15,110 g AlI₃ + 14,222 g HI;  1 g Mg → 11,443 g MgI₂ + 10,526 g HI', 22, B)
 txt(d, 45, 930, 'Mis: 1 g Cu → 4,026 g HI va 0,252 g O₂ — o‘z-o‘zidan eritilmaydi', 22, G)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'metallar')
 
 # --- Graph 5: chiqindi ------------------------------------------------------
-im, d = canvas('Chiqindi: neytralizatsiya va yod ajratish (model)', 1180)
+im, d = canvas('Chiqindi: neytralizatsiya va yod ajratish (shartli hisob)', 1180)
 n1 = neutralisation(1000.0, 10.0, 'Na2CO3'); n2 = neutralisation(1000.0, 10.0, 'Ca(OH)2')
 d.line((120, 175, 120, 560, 680, 560), fill=G, width=3)
 for v, s in [(0, '0'), (40, '40'), (80, '80'), (120, '120'), (160, '160')]:
@@ -198,9 +198,9 @@ for i, (name, v, col) in enumerate([('Ca(OH)₂', n2['m_agent'], TEAL), ('CaI₂
     d.rectangle((x - 34, 820 - h, x + 34, 820), fill=col)
     txt(d, x - 38, 820 - h - 26, num('%.1f' % v), 19, col)
     txt(d, x - 30, 832, name, 19, G)
-txt(d, 45, 880, 'Model: 1000 kg 10 % HI → Na₂CO₃ 41,4 kg, NaI 117,2 kg, CO₂ 17,2 kg, H₂O 7,0 kg', 22, N)
+txt(d, 45, 880, 'Taxminiy hisob: 1000 kg 10 % HI → Na₂CO₃ 41,4 kg, NaI 117,2 kg, CO₂ 17,2 kg, H₂O 7,0 kg', 22, N)
 txt(d, 45, 930, 'Ca(OH)₂ bilan: 29,0 kg Ca(OH)₂, 114,9 kg CaI₂, 14,1 kg H₂O (kirish 129,0 = chiqish 129,0 kg)', 22, B)
-txt(d, 45, 1000, 'Model chizig‘i; o‘lchov ma’lumoti emas', 23, G)
+txt(d, 45, 1000, 'Taxminiy hisob chizig‘i; o‘lchov ma’lumoti emas', 23, G)
 save(im, 'chiqindi')
 
 
@@ -227,9 +227,9 @@ scheme('fizikx', 'HI: fizik xossalar (sxematik)', [
     ('Eruvchanlik', '42 g/100 mL (20 °C); 234 g/100 mL (10 °C)', 'Sovuqda ancha yaxshi eriydi')])
 
 scheme('olishsx', 'HI ishlab chiqarish (sxematik)', [
-    ('To‘g‘ridan-to‘g‘ri usul', 'H₂ + I₂ ⇌ 2HI (Pt katalizator)', 'Model: H₂ 7,88 kg / I₂ 992,1 kg; K = 0,254'),
-    ('Gidrazin usuli', '2I₂ + N₂H₄ → 4HI + N₂', 'Model: N₂H₄ 62,6 kg / 1000 kg HI'),
-    ('Fosfor usuli', '3I₂ + 2P + 6H₂O → 6HI + 2H₃PO₃', 'Model: P 80,7 kg; H₂O 140,8 kg'),
+    ('To‘g‘ridan-to‘g‘ri usul', 'H₂ + I₂ ⇌ 2HI (Pt katalizator)', 'Taxminiy hisob: H₂ 7,88 kg / I₂ 992,1 kg; K = 0,254'),
+    ('Gidrazin usuli', '2I₂ + N₂H₄ → 4HI + N₂', 'Taxminiy hisob: N₂H₄ 62,6 kg / 1000 kg HI'),
+    ('Fosfor usuli', '3I₂ + 2P + 6H₂O → 6HI + 2H₃PO₃', 'Taxminiy hisob: P 80,7 kg; H₂O 140,8 kg'),
     ('H₂S usuli', 'H₂S + I₂ → 2HI + S', 'Tarixiy usul; I₂ 992,1 kg, H₂S 133,2 kg'),
     ('Yod olish sikli', '2NaI + Cl₂ → 2NaCl + I₂', 'Jahon yodi ≈30 000 t/y; brindan olinadi')])
 
@@ -238,11 +238,11 @@ scheme('triiodidsx', 'Yodidlar va yod komplekslari (sxematik)', [
     ('Dimer', 'AlI₃ ⇌ ½Al₂I₆', 'Kuchli kovalent o‘zaro ta’sir'),
     ('Yod komplekslari', '[HgI₄]²⁻, [PbI₄]²⁻, [BiI₄]⁻, [AgI₂]⁻', 'I⁻ kuchli ligand'),
     ('Kumush yodidi', 'Ag⁺ + I⁻ → AgI↓ (sariq)', 'Ksp ≈ 8×10⁻¹⁷ — eng oz eriydi'),
-    ('Triiodid ion', 'I₂ + I⁻ ⇌ I₃⁻ (K ≈ 700)', 'Model: 7,56 M da 99,98 %')])
+    ('Triiodid ion', 'I₂ + I⁻ ⇌ I₃⁻ (K ≈ 700)', 'Taxminiy hisob: 7,56 M da 99,98 %')])
 
 scheme('metalsx', 'Metallarga ta’sir: passivatsiya yo‘qligi (sxematik)', [
     ('Sirtda himoya qatlami yo‘q', 'Reaksiya to‘xtamaydi', 'HF dan asosiy farq'),
-    ('Fe, Zn, Al, Mg', 'M + 2HI → MI₂ + H₂↑', 'Model: 1 g Al → 14,222 g HI'),
+    ('Fe, Zn, Al, Mg', 'M + 2HI → MI₂ + H₂↑', 'Taxminiy hisob: 1 g Al → 14,222 g HI'),
     ('Mis istisnosi', 'HI o‘z-o‘zidan eritmaydi', '2Cu + O₂ + 4HI → 2CuI₂ + 2H₂O'),
     ('Kumush', 'Ag⁺ + I⁻ → AgI↓ (sariq cho‘kma)', 'Gravimetrik tahlil usuli'),
     ('Vodorod embrittlementi', 'H₂ po‘lat ichiga sing‘adi', 'Mustahkamlik pasayadi')])
@@ -262,9 +262,9 @@ scheme('qollanishsx', 'HI qo‘llanish sohalari (sxematik)', [
     ('Dezinfectant', 'Yod moddalari va iodoforlar', 'Tibbiyot va sanitariya')])
 
 scheme('tahlilsx', 'HI tahlil usullari (sxematik)', [
-    ('Standartlash', 'Na₂CO₃ yoki boraks bilan titrlash', 'Model: 0,2000 g → 0,12580 mol/L'),
+    ('Standartlash', 'Na₂CO₃ yoki boraks bilan titrlash', 'Taxminiy hisob: 0,2000 g → 0,12580 mol/L'),
     ('Dead-stop titr', 'Pt elektrod; rang indikatori kerak emas', 'HI uchun klassik usul'),
-    ('Yodometriya', 'IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O', 'Model: 1,000 g KIO₃ → 0,712 g I₂'),
+    ('Yodometriya', 'IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O', 'Taxminiy hisob: 1,000 g KIO₃ → 0,712 g I₂'),
     ('Gravimetriya', 'AgI cho‘kmasi quritilib o‘lchanadi', 'I⁻ aniqlash'),
     ('Zamonaviy usullar', 'Ion xromatografiya; ISE; ICP-MS', 'I, Hg, Pb izotoplari')])
 
@@ -286,7 +286,7 @@ txt(d, 260, 305, 'dipol momenti 0,45 D', 24, RED)
 d.rectangle((60, 360, 700, 414), fill='#EAF2F8')
 txt(d, 80, 374, 'vodorod bog‘i yo‘q — yodning katta elektron buluti faqat dispersiya kuchini kuchaytiradi', 21, N)
 txt(d, 60, 455, 'Shuning uchun HI qaynash harorati −35,4 °C: HF (19,5 °C) dan ancha tez bug‘laydi.', 21, N)
-txt(d, 60, 500, 'Model: r(H–I) = 1,609 Å;  D = 295 kJ/mol;  χ(I) = 2,66.', 21, B)
+txt(d, 60, 500, 'Taxminiy hisob: r(H–I) = 1,609 Å;  D = 295 kJ/mol;  χ(I) = 2,66.', 21, B)
 txt(d, 60, 570, 'Original sxematik chizma; rang va o‘lcham shartli.', 21, G)
 save(im, 'molekulax')
 
@@ -341,11 +341,11 @@ for i, (a, b, c, col) in enumerate(boxes):
         d.line((x + 160, 245, x + 178, 245), fill=G, width=4)
 txt(d, 40, 370, 'Tanlov mezonlari: reaktivlik, namlik, ifloslanish, idishning zichlikka chidami.', 21, N)
 txt(d, 40, 415, 'HI bug‘lari havoga to‘planadi va teri uchun ayniqsa xavfli — idish yopiq bo‘lishi shart.', 20, B)
-txt(d, 40, 460, 'Model: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 20, G)
+txt(d, 40, 460, 'Taxminiy hisob: saqlash shartlari konsentratsiya, miqdor va mahalliy qoidalarga bog‘liq.', 20, G)
 txt(d, 40, 535, 'Original sxematik chizma; idish turlari shartli.', 20, G)
 save(im, 'idishx')
 
-im, d = canvas('Ishlangan hisob: besh model (sxematik)', 830)
+im, d = canvas('Ishlangan hisob: besh shartli hisob (sxematik)', 830)
 ds = direct_synthesis(1000.0); ii = iodine_from_iodide(1000.0)
 n1 = neutralisation(1000.0, 10.0, 'Na2CO3'); io = iodometry_sample(1.0)
 blocks = [('A — Ishlab chiqarish', 'H₂ + I₂ ⇌ 2HI', 'H₂ 7,88 kg; I₂ 992,1 kg; K = 0,254', N),
@@ -360,7 +360,7 @@ for i, (a, b, cc, col) in enumerate(blocks):
     txt(d, 60, y + 40, b, 20, INK)
     txt(d, 60, y + 66, cc, 18, G)
 d.rounded_rectangle((488, 130, 716, 560), radius=12, outline=G, width=4)
-txt(d, 506, 148, 'Model natijalari', 24, GREEN)
+txt(d, 506, 148, 'Taxminiy hisob natijalari', 24, GREEN)
 txt(d, 506, 200, 'I₂ 992,1 kg', 20, INK)
 txt(d, 506, 235, '(1000 kg HI dan)', 19, G)
 txt(d, 506, 285, 'I₂ 846,6 kg', 20, INK)
@@ -368,9 +368,9 @@ txt(d, 506, 320, '(yod sikli)', 19, G)
 txt(d, 506, 370, 'NaI 117,2 kg', 20, INK)
 txt(d, 506, 405, '(neytralizatsiya)', 19, G)
 txt(d, 506, 455, 'I₃⁻ 99,98 %', 20, INK)
-txt(d, 506, 490, '(7,56 M da, model)', 19, G)
+txt(d, 506, 490, '(7,56 M da, taxminiy hisob)', 19, G)
 txt(d, 506, 530, 'pH −0,879', 20, INK)
-txt(d, 40, 740, 'Barcha sonlar ochiq shartli model; o‘lchov ma’lumoti emas.', 21, G)
-txt(d, 40, 785, 'Model chegarasi: faolik koeffitsiyentlar hisobga olinmagan.', 21, G)
+txt(d, 40, 740, 'Barcha sonlar ochiq shartli hisoblar; o‘lchov ma’lumoti emas.', 21, G)
+txt(d, 40, 785, 'Shartli hisob chegarasi: faolik koeffitsiyentlar hisobga olinmagan.', 21, G)
 save(im, 'hisob')
 print('5 grafik; 7 sxema; 5 original illustration.')

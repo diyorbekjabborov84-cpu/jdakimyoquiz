@@ -54,7 +54,7 @@ panels=[
 ('Protonsiz jarayonlar',[],'1.8.3-sxema. Elektron jufti, oksid ioni va redoks elektronini ajrating. Uch holat bitta mexanizm emas.'),
 ('Shakllarning nisbati',[],'1.8.1-grafik. Ideal HA/A⁻ tizimi: pH − pKₐ ga bog‘liq ulushlar. Sonlar haqiqiy kislota tajribasiga nisbat berilmagan.'),
 ('Boshlang‘ich shartlar',[],'1.8.2-grafik. Teng miqdorli almashinish va erkin ligand berilgan bog‘lanishning hisobiy qiyosi.'),
-('Model tanlash yo‘li',[],'1.8.4-sxema. Hodisadan modelga va miqdoriy hisobga o‘tishning tavsiya etilgan tartibi.'),
+('Yondashuv tanlash yo‘li',[],'1.8.4-sxema. Hodisadan yondashuvga va miqdoriy hisobga o‘tishning tavsiya etilgan tartibi.'),
 ('Boblar orasidagi ko‘prik',[],'1.8.5-sxema. Nazariy mezonlardan tuzilish, kuch va aniq kislotalar tahliliga o‘tish.')
 ]
 
@@ -221,7 +221,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[2] Pearson, R. G. Hard and Soft Acids and Bases. JACS 85 (1963), 3533–3539.',
         '[3] IUPAC Gold Book: acidity function, DOI 10.1351/goldbook.A00081; superacid, DOI 10.1351/goldbook.S06135.',
         '[4] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018.',
-        'Sxema va grafiklar mazkur mavzu uchun yaratilgan. Grafiklar ideal hisobiy modellar; tajribaviy ma’lumot emas.'
+        'Sxema va grafiklar mazkur mavzu uchun yaratilgan. Grafiklar ideal hisobiy taxminiy hisoblar; tajribaviy ma’lumot emas.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

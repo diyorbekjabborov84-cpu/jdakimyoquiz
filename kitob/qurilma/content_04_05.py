@@ -18,7 +18,7 @@ data = [
  ['H₂SO₄ → SO₃ + H₂O', 'ΔH°=+132,44; ΔS°=169,86', 'ΔG°(298,15)=+81,80 kJ/mol'],
  ['H₂O₂ → H₂O + ½O₂', 'ΔH°=−98,05; ΔS°=63,00', 'ΔG°(298,15)=−116,83 kJ/mol'],
  ['T* = ΔH°/ΔS°', 'ΔG(T)=0 bo‘lgan harorat', 'Ishoralar bir xil bo‘lishi kerak'],
- ['H₂SO₄ uchun T*', '779,7 K ≈ 507 °C', 'Standart holat modeli'],
+ ['H₂SO₄ uchun T*', '779,7 K ≈ 507 °C', 'Standart holat shartli hisobi'],
  ['HNO₃ uchun T*', '−305 K', 'Barcha T da qulay'],
  ['Manba', 'OpenStax Chemistry 2e, Appendix G', '25 °C uchun standart qiymatlar'],
  ['Chegara', 'ΔH° va ΔS° doimiy deb olindi', 'ΔC_p hisobga olinmagan']]),
@@ -31,15 +31,15 @@ data = [
  ['K(1200 K)', '1,3×10³', 'Amaliyotda ancha parchalanadi'],
  ['Amaliy kuzatuv', '610 K da qaynab chiqadi', '573 K dan yuqorida sekin parchalanadi'],
  ['Chegara', 'K_p va K_c farqi hisoblanmagan', 'Faollik tuzatmalari kiritilmagan']]),
-('kinetics', 'Kinetik model: haroratga bog‘liq tezlik va yarim vaqt', [
- ['Model prefaktori A', '1,0×10¹³ s⁻¹', 'Aniq kislotga tegishli emas'],
- ['Model aktivatsiya energiyasi E_a', '100 kJ/mol', 'O‘quv modeli'],
+('kinetics', 'Kinetik shartli hisob: haroratga bog‘liq tezlik va yarim vaqt', [
+ ['Shartli hisob prefaktori A', '1,0×10¹³ s⁻¹', 'Aniq kislotga tegishli emas'],
+ ['Shartli hisob aktivatsiya energiyasi E_a', '100 kJ/mol', 'O‘quv tasviri'],
  ['298,15 K', 'k=3,02×10⁻⁵ s⁻¹', 't½=2,30×10⁴ s ≈ 6,4 soat'],
  ['320 K', 'k=4,74×10⁻⁴ s⁻¹', 't½=1,46×10³ s ≈ 24 daqiqa'],
  ['350 K', 'k=1,19×10⁻² s⁻¹', 't½=58,3 s'],
  ['400 K', 'k=0,873 s⁻¹', 't½=0,79 s'],
  ['Tezlashtiruvchilar', 'Metall iflosligi, chang', 'Sirt katalizi va avtokataliz'],
- ['Chegara', 'Model emas, o‘quv taxmini', 'Saqlash muddatini aniqlab bermaydi']]),
+ ['Chegara', 'Bu shartli hisob emas, o‘quv taxmini', 'Saqlash muddatini aniqlab bermaydi']]),
 ('photo', 'Fotokimyoviy parchalanishning mexanizm qismlari', [
  ['Yutilish sharti', 'Foton faqat yutilganda ta’sir qiladi', 'Spektrlar kesishgan qism'],
  ['Kvant unumi Φ', 'Mol mahsulot / mol yutilgan foton', 'Zanjirda birdan dan katta bo‘lishi mumkin'],
@@ -72,7 +72,7 @@ data = [
  ['pH = 7,00', 'α(SO₂·H₂O)=3,8×10⁻⁶', 'α(HSO₃⁻)=0,610; α(SO₃²⁻)=0,390'],
  ['pH = 12,00', 'α(SO₃²⁻)=0,999984', 'Gaz holatiga chiqish to‘siqlanadi'],
  ['Muqobilat qoidasi', 'H⁺ iste’moli yoki ajralishi', 'pH muvozanatni siljitadi'],
- ['Konsentratsiya', 'Birinchi tartibli model', 'Ion kuchi buzadi']]),
+ ['Konsentratsiya', 'Birinchi tartibli shartli hisob', 'Ion kuchi buzadi']]),
 ('storage', 'Barqarorlik guruhlari va saqlash tamoyillari', [
  ['Nitrik kislota', 'Termodinamik beqaror, kinetik barqaror', 'Sovuq, qorong‘i sharoit'],
  ['Sulfur kislota', 'Gigroskopik; 573 K dan yuqorida parchalanadi', 'Suv bilan aralashganda qizishadi'],
@@ -99,7 +99,7 @@ data = [
  ['T*', '779,7 K ≈ 507 °C', 'ΔH°/ΔS°'],
  ['K(700 K) va K(900 K)', '9,8×10⁻² va 15', 'van ’t Hoff qoidasi'],
  ['Nitrik kislota solishtiruvi', 'ΔG°=−155,18 kJ/mol', 'lg K ≈ 27,2; T* = −305 K'],
- ['Kinetik model', '298 K → 6,4 soat; 320 K → 24 daqiqa', 'A=1,0×10¹³ s⁻¹; E_a=100 kJ/mol']])]
+ ['Kinetik shartli hisob', '298 K → 6,4 soat; 320 K → 24 daqiqa', 'A=1,0×10¹³ s⁻¹; E_a=100 kJ/mol']])]
 
 out = {}
 for i, (key, title, rows) in enumerate(data, 1):
@@ -116,7 +116,7 @@ notes = [
   ['Barqarorlik xarakteri', 'Ba’zi kislotalar termodinamik beqaror, lekin saqlanadigan.']],
  [['Standart sharoit', 'Standart holat — birlik faollik, 1 bar bosim, 298,15 K.'],
   ['K ≠ tezlik', 'K katta bo‘lishi tez borishni bildirmaydi.']],
- [['Model chegarasi', 'A va E_a — o‘quv uchun tanlangan qiymatlar.'],
+ [['Taxminiy hisob chegarasi', 'A va E_a — o‘quv uchun tanlangan qiymatlar.'],
   ['Real tizim', 'Aniq kislot uchun E_a tajribada aniqlanadi.']],
  [['Radikal zanjiri', 'Boshlanish — davom — tarmoqlanish — tugatish.'],
   ['Faqat yutilgan foton', 'Yutilmagan nur spektri o‘zgarishni kuchaytirmaydi.']],
@@ -129,8 +129,8 @@ notes = [
  [['Saqlash — kinetik qaror', 'Harorat, yorug‘lik va ifloslik nazorati.'],
   ['Mas’uliyat chegarasi', 'Ishlab chiqarish va xavfsizlik 5- va 12-boblarda.']],
  [['O‘lchash obyekti', 'Qolgan kislota, mahsulot yoki ajralgan gaz — aniq tanlanadi.'],
-  ['Ekstrapolatsiya', 'Tezlashtirilgan saqlash sinovi model doirasida qoladi.']],
- [['Natija faqat model ichida', 'Termodinamik chegara va kinetik blok birga baholanadi.'],
+  ['Ekstrapolatsiya', 'Tezlashtirilgan saqlash sinovi taxminiy hisob doirasida qoladi.']],
+ [['Natija faqat yondashuv ichida', 'Termodinamik chegara va kinetik blok birga baholanadi.'],
   ['Yakuniy xulosa', 'O‘lchash usuli noma’lum bo‘lsa, xulosa ham noma’lum.']]]
 (R / '04_05_yonlavhalar.json').write_text(json.dumps(notes, ensure_ascii=False, indent=2))
 print(f'11 jadval, {sum(len(n) for n in notes)} yon lavha.')

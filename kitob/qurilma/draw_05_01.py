@@ -1,5 +1,5 @@
 """Original teaching figures for 5.1 "Olishning umumiy usullari".
-All curves are model outputs computed from tabulated standard data, not measurements.
+All curves are taxminiy hisob outputs computed from tabulated standard data, not measurements.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -78,7 +78,7 @@ curve(d, p, rr, 'T_K', 'dG_N2O4_kJ', TEAL)
 txt(d, 45, 865, 'Ko‘k: SO₂ + ½O₂ → SO₃;  bronza: H₂ + Cl₂ → 2HCl', 25, N)
 txt(d, 45, 925, 'Teal: N₂O₄ ⇌ 2NO₂;  chiziq ΔG° = 0 — T ≈ 315 K', 25, G)
 txt(d, 45, 985, '4NH₃ + 5O₂ → 4NO + 6H₂O: ΔG° ≈ −1011 kJ/mol', 25, G)
-txt(d, 45, 1045, 'Model egri chizig‘i; tajriba ma’lumoti emas', 25, G)
+txt(d, 45, 1045, 'Shartli hisob egri chizig‘i; tajriba ma’lumoti emas', 25, G)
 save(im, 'dG')
 
 # --- Graph 1: N2O4 ⇌ 2 NO2 muvozanat konversiyasi -------------------------
@@ -91,7 +91,7 @@ rr = rows('mivozanat')
 curve(d, p, rr, 'T_K', 'X_1bar', N)
 curve(d, p, rr, 'T_K', 'X_10bar', B)
 curve(d, p, rr, 'T_K', 'X_100bar', TEAL)
-txt(d, 45, 865, 'N₂O₄ ⇌ 2 NO₂ dissotsiatsiyasi; model egri chizig‘i', 26, N)
+txt(d, 45, 865, 'N₂O₄ ⇌ 2 NO₂ dissotsiatsiyasi; taxminiy egri chiziq', 26, N)
 txt(d, 45, 925, '1 bar — ko‘k;  10 bar — bronza;  100 bar — teal', 26, B)
 txt(d, 45, 985, '298,15 K: X = 0,269 / 0,088 / 0,028 (1 / 10 / 100 bar)', 25, G)
 txt(d, 45, 1045, 'Ideal gaz; ΔH°, ΔS° doimiy; tajriba ma’lumoti emas', 25, G)
@@ -109,7 +109,7 @@ curve(d, p, rr, 'N', 'X_umumiy_x0.8', B)
 txt(d, 45, 865, 'X umumiy = 1 − (1 − x₁)^N', 27, N)
 txt(d, 45, 925, 'x₁ = 0,4 — teal;  0,6 — ko‘k;  0,8 — bronza', 26, B)
 txt(d, 45, 985, 'x₁ = 0,60: N = 1 → 0,60;  N = 2 → 0,84;  N = 5 → 0,990', 25, G)
-txt(d, 45, 1045, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 25, G)
+txt(d, 45, 1045, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 25, G)
 save(im, 'kaskad')
 
 # --- Graph 3: ajratish — minimal pog‘onalar soni ---------------------------
@@ -123,7 +123,7 @@ curve(d, p, rr, 'alpha', 'N_min_xD99', B, ylo=0, yhi=130)
 txt(d, 45, 865, 'Fenske: N min = lg[(xD/(1−xD))·((1−xB)/xB)] / lg α', 26, N)
 txt(d, 45, 925, 'xD = 0,95 (ko‘k);  xD = 0,99 (bronza)', 25, B)
 txt(d, 45, 985, 'α = 1,1 → 61,8 pog‘ona;  α = 2,0 → 8,5;  α = 5,0 → 3,7', 25, G)
-txt(d, 45, 1045, 'Model egri chizig‘i; tajriba ma’lumoti emas', 25, G)
+txt(d, 45, 1045, 'Shartli hisob egri chizig‘i; tajriba ma’lumoti emas', 25, G)
 save(im, 'buglanish')
 
 # --- Graph 4: resurs samaradorligi — chiqindi omili ------------------------
@@ -137,10 +137,10 @@ curve(d, p, rr, 'X_SO3', 'E_factor', N, ylo=0.40, yhi=1.60)
 x, y = p(0.96, efactor(0.96))
 d.ellipse((x - 8, y - 8, x + 8, y + 8), fill=B)
 txt(d, x - 210, y - 52, 'X = 0,96 → 0,46 kg/kg', 25, B)
-txt(d, 45, 865, 'E = m(chiqindi) / m(mahsulot);  1000 t pyrit modeli', 26, N)
+txt(d, 45, 865, 'E = m(chiqindi) / m(mahsulot);  1000 t pyrit bo‘yicha shartli hisob', 26, N)
 txt(d, 45, 925, 'Chiqqindi: Fe₂O₃ qoldig‘i va qolgan SO₂', 26, G)
 txt(d, 45, 985, 'X = 0,90 → 0,54;  0,96 → 0,46;  0,99 → 0,43 kg/kg', 25, G)
-txt(d, 45, 1045, 'Model egri chizig‘i; o‘lchov ma’lumoti emas', 25, G)
+txt(d, 45, 1045, 'Shartli hisob egri chizig‘i; o‘lchov ma’lumoti emas', 25, G)
 save(im, 'resurs')
 
 
@@ -223,7 +223,7 @@ d.polygon([(530, 190), (510, 182), (516, 204)], fill=TEAL)
 d.line((470, 260, 530, 310), fill=B, width=4)
 d.polygon([(530, 310), (510, 302), (516, 324)], fill=B)
 txt(d, 35, 430, 'Har bir oqim miqdori bilan hisoblanadi: kirish = mahsulot + chiqindi', 23, G)
-txt(d, 35, 480, 'Sxematik; mass oqimi modeli', 23, G)
+txt(d, 35, 480, 'Sxematik; mass oqimi taxminiy hisobi', 23, G)
 save(im, 'oqim')
 
 im, d = base('Reagent donador qatlami va diffuziya qatlami')
@@ -281,8 +281,8 @@ txt(d, 165, 60, 'Ikkilamchi to‘siq', 25, B)
 txt(d, 35, 525, 'Sxematik; idish materiali va hajm hisoblanmaydi', 23, G)
 save(im, 'zaxira')
 
-# --- Model zanjiri: pyritdan sulfat kislotagacha --------------------------
-im, d = base('Model zanjiri: pyritdan sulfat kislotagacha', 620)
+# --- Shartli hisob zanjiri: pyritdan sulfat kislotagacha --------------------------
+im, d = base('Shartli hisob zanjiri: pyritdan sulfat kislotagacha', 620)
 steps = [('FeS₂', '1000 t', N), ('SO₂', '16 669 kmol', N),
          ('SO₃', '16 003 kmol', N), ('H₂SO₄', '1538,15 t', TEAL)]
 x0 = 40
@@ -301,7 +301,7 @@ d.line((115, 300, 115, 340), fill=B, width=4)
 d.polygon([(115, 340), (104, 318), (126, 318)], fill=B)
 txt(d, 360, 360, 'Unum 94,08 %', 26, N)
 txt(d, 360, 405, 'Chiqindi omili 0,46 kg/kg', 22, INK)
-txt(d, 40, 490, 'Model zanjir; ΔH° va ΔS° doimiy, tajriba ma’lumoti emas', 23, G)
+txt(d, 40, 490, 'Taxminiy hisob zanjir; ΔH° va ΔS° doimiy, tajriba ma’lumoti emas', 23, G)
 txt(d, 40, 545, 'Harorat, bosim va reaktorni yig‘ish ko‘rsatmalari berilmaydi', 23, G)
 save(im, 'hisob')
 

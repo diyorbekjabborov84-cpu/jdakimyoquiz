@@ -25,7 +25,7 @@ panels = [
  (1, 'fizikx.png', 'sxema', 'HBr: fizik xossalar.',
   '6.4.2-sxema. Gaz holati, kritik nuqta, eritma, azeotrop va gidratlar (sxematik).'),
  (2, 'guruh.png', 'grafik', 'Guruh bo‘yicha kislotalik.',
-  '6.4.3-grafik. Bog‘ energiyasi hamda suv va DMSOdagi pK_a (model egri chizig‘i).'),
+  '6.4.3-grafik. Bog‘ energiyasi hamda suv va DMSOdagi pK_a (taxminiy egri chiziq).'),
  (3, 'olishsx.png', 'sxema', 'Ishlab chiqarish usullari.',
   '6.4.4-sxema. Sintetik, laboratoriya, bromid + kislota va bromin sikli (sxematik).'),
  (4, 'bromokomplekssx.png', 'sxema', 'Bromidlar va bromokomplekslar.',
@@ -33,23 +33,23 @@ panels = [
  (5, 'metalsx.png', 'sxema', 'Metallarga ta’sir.',
   '6.4.6-sxema. Passivatsiya yo‘qligi, mis istisnosi, kumush bromidi (sxematik).'),
  (6, 'redoks.png', 'grafik', 'Redoks: bromin olishi.',
-  '6.4.7-grafik. Br₃⁻ ulushi va HBr → Br₂ yo‘llari (model egri chizig‘i).'),
+  '6.4.7-grafik. Br₃⁻ ulushi va HBr → Br₂ yo‘llari (taxminiy egri chiziq).'),
  (7, 'organiksx.png', 'sxema', 'Organik kimyoga ta’sir.',
   '6.4.8-sxema. Alkil bromidlari, Markerovnikov qoidasi va bromlanish (sxematik).'),
  (8, 'qollanishsx.png', 'sxema', 'Qo‘llanish sohalari.',
   '6.4.9-sxema. Bromidlar, foto, dori, clear brine va metallurgiya (sxematik).'),
  (9, 'tahlilsx.png', 'sxema', 'Tahlil usullari.',
   '6.4.10-sxema. Standartlash, dead-stop titr, argentometriya va zamonaviy usullar (sxematik).'),
- (10, 'hisob.png', 'rasm', 'Ishlangan hisob: besh model.',
-  '6.4.11-rasm. Model A — ishlab chiqarish; B — bromin sikli; C — metall; D — neytralizatsiya; E — bromlanish.', 3.15)]
+ (10, 'hisob.png', 'rasm', 'Ishlangan hisob: besh shartli hisob.',
+  '6.4.11-rasm. Taxmin A — ishlab chiqarish; B — bromin sikli; C — metall; D — neytralizatsiya; E — bromlanish.', 3.15)]
 
 extra = {
- 3: [('ishlabchiqarish.png', '6.4.4-grafik. Sintetik, laboratoriya usullari va bromin sikli mass oqimi (model egri chizig‘i).')],
- 5: [('metallar.png', '6.4.6-grafik. Metall yemirilishida HBr sarfi (model egri chizig‘i).', 2.80)],
+ 3: [('ishlabchiqarish.png', '6.4.4-grafik. Sintetik, laboratoriya usullari va bromin sikli mass oqimi (taxminiy egri chiziq).')],
+ 5: [('metallar.png', '6.4.6-grafik. Metall yemirilishida HBr sarfi (taxminiy egri chiziq).', 2.80)],
  6: [('bromsx.png', '6.4.7-rasm. Bromin va stratosfera ozoni: BrO katalizatori (sxematik, original).')],
  8: [('idishx.png', '6.4.9-rasm. Saqlash va transport: idish tanlash mezonlari (sxematik, original).', 2.80),
      ('teshikx.png', '6.4.9-rasm. HBr bilan korroziya: yuzada ulanish (sxematik, original).', 2.80)],
- 10: [('chiqindi.png', '6.4.11-grafik. Neytralizatsiya mass balansi (model).', 2.55)]}
+ 10: [('chiqindi.png', '6.4.11-grafik. Neytralizatsiya mass balansi (shartli hisob).', 2.55)]}
 
 LABEL = {'grafik': 'HISOBIY GRAFIK', 'sxema': 'TUSHUNTIRUVCHI SXEMA', 'rasm': 'CHIZMA VA IZOH'}
 
@@ -246,7 +246,7 @@ for idx, ((title, paras), pan) in enumerate(zip(sections, panels)):
     if idx == 10:
         p = left.add_paragraph(); p.paragraph_format.space_before = Pt(4)
         p.paragraph_format.line_spacing = 1.0; p.paragraph_format.space_after = Pt(0)
-        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar model hisoblari (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
+        runs(p, 'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari; sonli egri chiziqlar taxminiy hisoblar (o‘lchov ma’lumotlari emas). Rasmlar mikrofoto yoki atom tuzilmasi tasviri emas. Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari va tibbiy dozalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.', 8)
         p = right.add_paragraph(); p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(3); p.paragraph_format.keep_with_next = True
         pp = p._p.get_or_add_pPr(); bd = OxmlElement('w:pBdr')

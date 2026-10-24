@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""6.4 moduli uchun QA: model hisoblarining matn va hujjat bilan mosligi."""
+"""6.4 moduli uchun QA: taxminiy hisoblarning matn va hujjat bilan mosligi."""
 from pathlib import Path
 import csv, math, re, json
 from docx import Document
@@ -23,7 +23,7 @@ def close(a, b, tol=1e-6):
     return abs(a - b) <= tol
 
 
-print('1) Model: spetsiatsiya va tribromid')
+print('1) Taxminiy hisob: spetsiatsiya va tribromid')
 s = M.speciation_series()
 ck(close(s[0]['ph'], 1.000, 1e-3) and close(s[0]['w_br'], 100.0, 0.001),
    '0,100 M: Br⁻ 100,000 %; pH 1,000')
@@ -38,7 +38,7 @@ ck(close(tb[0]['w_br3'], 60.40, 0.05), '0,10 M Br⁻: Br₃⁻ ulushi 60,40 %')
 ck(close(tb[6]['w_br3'], 99.29, 0.05), '8,77 M Br⁻: Br₃⁻ ulushi 99,29 %')
 ck(close(tb[8]['w_br3'], 99.48, 0.05), '12,0 M Br⁻: Br₃⁻ ulushi 99,48 %')
 
-print('2) Model: ishlab chiqarish, redoks, metallar, chiqindi')
+print('2) Taxminiy hisob: ishlab chiqarish, redoks, metallar, chiqindi')
 sy = M.synthesis(1000.0)
 ck(close(sy['m_h2'], 12.46, 0.01) and close(sy['m_br2'], 987.5, 0.5)
    and close(sy['dh_mj'], 639.5, 0.5), 'sintetik: H₂ 12,46 kg; Br₂ 987,5 kg; ΔrH −639,5 MJ')
@@ -97,7 +97,7 @@ for n in ['molekulax', 'fizikx', 'guruh', 'olishsx', 'bromokomplekssx', 'metalsx
           'ishlabchiqarish', 'metallar', 'teshikx', 'bromsx', 'idishx', 'chiqindi']:
     ck(n in pngs, 'rasm %s.png bor' % n)
 
-print('4) Matn: model raqamlari va atamalar')
+print('4) Matn: taxminiy hisob raqamlari va atamalar')
 ms = MS.read_text()
 tables_txt = json.dumps(json.loads((ROOT / 'matn' / '06_04_jadvallar.json').read_text()), ensure_ascii=False)
 notes_txt = json.dumps(json.loads((ROOT / 'matn' / '06_04_yonlavhalar.json').read_text()), ensure_ascii=False)
@@ -118,7 +118,7 @@ for x in need:
     ck(x in ms_all, 'matnda «%s» bor' % x)
 ck(ms.count('[[EQ:') == 11 and ms.count('[[TABLE:') == 11, 'matnda 11 formula va 11 jadval belgisi')
 ck('amaliyot tavsiyalari berilmaydi' in ms, 'xavfsizlik chegarasi matnda bayon qilindi')
-ck('o‘lchov ma’lumoti emas' in ms, 'model cheklovi matnda ko‘rsatilgan')
+ck('o‘lchov ma’lumoti emas' in ms, 'taxminiy hisob cheklovi matnda ko‘rsatilgan')
 ck('H₂ + Br₂' in ms and 'SO₂ + 2H₂O' in ms and '2NaBr + Cl₂' in ms, 'asosiy tengliklar matnda')
 ck('4HBr + O₂' in ms and 'H₂O₂' in ms, 'redoks tengliklari matnda')
 ck('vodorod bog‘i' in ms and 'passivatsiya' in ms and 'embrittlement' in ms,

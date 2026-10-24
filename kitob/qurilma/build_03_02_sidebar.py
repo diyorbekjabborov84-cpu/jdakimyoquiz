@@ -54,9 +54,9 @@ panels=[
 ('Oksokislotalar oilasi',[],'3.2.3-sxema. Markaz saqlanadigan va markaz almashadigan ikki qiyos turi.'),
 ('Nisbiy barqarorlashuv',[],'3.2.4-sxema. HA va A⁻ ning elektron tuzilishlarini birga tekshirish.'),
 ('Zaryadning o‘zgarishi',[],'3.2.5-sxema. Ketma-ket proton berishda zaryad muhiti almashadi, P darajasi saqlanadi.'),
-('Kontinuum modeli',[],'3.2.1-grafik. Bir zaryadli sferik ion uchun B=(1−1/εᵣ)/ρ omili. Shartli elektrostatik model; pKₐ grafigi emas.'),
+('Kontinuum hisobi',[],'3.2.1-grafik. Bir zaryadli sferik ion uchun B=(1−1/εᵣ)/ρ omili. Shartli elektrostatik taxminiy hisob; pKₐ grafigi emas.'),
 ('Mahalliy muhit',[],'3.2.6-sxema. Vodorod bog‘i, assotsiatsiya va ion juftlanishini ajratish.'),
-('Harorat va entalpiya',[],'3.2.2-grafik. ΔH° ning qarama-qarshi ishoralari uchun doimiy entalpiya modeli. O‘lchangan egri chiziqlar emas.'),
+('Harorat va entalpiya',[],'3.2.2-grafik. ΔH° ning qarama-qarshi ishoralari uchun doimiy entalpiya bo‘yicha shartli hisob. O‘lchangan egri chiziqlar emas.'),
 ('Qiyosning ishchi tartibi',[],'3.2.7-sxema. Tuzilish, muhit va nisbiy hissalardan cheklovli ilmiy xulosaga o‘tish.')
 ]
 
@@ -212,7 +212,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
     p=right.add_paragraph();p.paragraph_format.space_after=Pt(10)
     runs(p,'HISOBIY GRAFIK' if idx in [5,7] else 'TUSHUNTIRUVCHI SXEMA',9,True,NAVY)
     p=right.add_paragraph();runs(p,note,9)
-    extra_models={1:('hf_model.png','3.2.1-rasm. HF ning shar–tayoqcha modeli.'),2:('hocl_model.png','3.2.2-rasm. H–O–Cl ulanishi.'),3:('nitrat_model.png','3.2.3-rasm. Ideal nitratning tekis modeli.'),4:('fosfat_model.png','3.2.4-rasm. H₃PO₄ dagi uch OH guruhi.')}
+    extra_models={1:('hf_model.png','3.2.1-rasm. HF ning shar–tayoqcha tasviri.'),2:('hocl_model.png','3.2.2-rasm. H–O–Cl ulanishi.'),3:('nitrat_model.png','3.2.3-rasm. Ideal nitratning tekis tasviri.'),4:('fosfat_model.png','3.2.4-rasm. H₃PO₄ dagi uch OH guruhi.')}
     if idx in extra_models:
         image,caption=extra_models[idx]
         p=right.add_paragraph();p.paragraph_format.space_before=Pt(10)
@@ -241,7 +241,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[1] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018. Solvatlanish, termodinamik sikllar va muvozanatning haroratga bog‘liqligi.',
         '[2] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018. Kislota–asos xossalari, oksokislotalar va suvli eritmalar.',
         '[3] IUPAC Gold Book. Levelling effect. DOI: 10.1351/goldbook.L03506. https://goldbook.iupac.org/terms/view/L03506 . Atamaning mazmuni mustaqil bayon qilindi.',
-        'Ikkala grafik shartli matematik modellar; aniq kislotalarning tajribaviy pKₐ lari yoki solvatlanish o‘lchovlari emas. Barcha rasmlar original o‘quv tasvirlari.'
+        'Ikkala grafik shartli matematik hisoblar; aniq kislotalarning tajribaviy pKₐ lari yoki solvatlanish o‘lchovlari emas. Barcha rasmlar original o‘quv tasvirlari.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

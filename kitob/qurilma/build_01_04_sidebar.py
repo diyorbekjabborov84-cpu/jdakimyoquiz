@@ -182,7 +182,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[2] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018.',
         '[3] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018.',
         'Portret: J. H. (Johan) Hagemeyer; UC Berkeley, Bancroft Library, California Faces; Calisphere, ark:/13030/tf3x0nb39q. Kutubxonaning foydalanish shartlari qo‘llanadi.',
-        'Grafik va chizmalar mazkur mavzu uchun hisoblangan va chizilgan. Grafiklar tajriba nuqtalari emas; model farazlari matn va yon lavhalarda ko‘rsatilgan.'
+        'Grafik va chizmalar mazkur mavzu uchun hisoblangan va chizilgan. Grafiklar tajriba nuqtalari emas; shartli farazlar matn va yon lavhalarda ko‘rsatilgan.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

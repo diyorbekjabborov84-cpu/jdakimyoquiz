@@ -52,8 +52,8 @@ panels=[
 ('Johannes N. Brønsted',[],'Tarixiy portret. Fotograf: Peter Elfelt. Wikimedia Commons; public domain.'),
 ('Thomas M. Lowry',[],'Tarixiy fotografiya. Smith Collection, University of Pennsylvania; Wikimedia Commons. Manba ko‘rsatilishi sharti bilan foydalanish mumkin.'),
 ('Suvning ikki vazifasi',[('HCl BILAN','H₂O proton qabul qiladi: asos'),('NH₃ BILAN','H₂O proton beradi: kislota'),('XULOSA','H₂O — amfiprot zarracha')],'Vazifa reaksiyadagi sherikka bog‘liq.'),
-('Muvozanat va ΔpKₐ',[],'1.3.1-grafik. Teng boshlang‘ich miqdorli ideal modelda reaksiyaga kirishgan ulush.'),
-('HA va A⁻ taqsimoti',[],'1.3.2-grafik. Bitta protonli ideal ikki shakl modelida HA va A⁻ ulushlari.'),
+('Muvozanat va ΔpKₐ',[],'1.3.1-grafik. Teng boshlang‘ich miqdorli ideal sharoitda reaksiyaga kirishgan ulush.'),
+('HA va A⁻ taqsimoti',[],'1.3.2-grafik. Bitta protonli ideal ikki shaklli tizimda HA va A⁻ ulushlari.'),
 ('Fosfat bosqichlari',[('BIRINCHI JUFT','H₃PO₄ / H₂PO₄⁻'),('IKKINCHI JUFT','H₂PO₄⁻ / HPO₄²⁻'),('UCHINCHI JUFT','HPO₄²⁻ / PO₄³⁻')],'Har bir tutash juft aynan bitta proton bilan farqlanadi.'),
 ('Reaksiyani tahlil qilish',[('01 · DONOR','Protonni kim beradi?'),('02 · AKSEPTOR','Protonni kim oladi?'),('03 · SHAROIT','Qaysi erituvchi va muvozanat?')],'Proton ko‘chmasa, kengroq mezon zarur bo‘lishi mumkin.')
 ]
@@ -176,7 +176,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[3] Housecroft, C. E.; Sharpe, A. G. Inorganic Chemistry. 5-nashr. Pearson, 2018.',
         '[4] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018.',
         'Portretlar: Brønsted — Peter Elfelt, public domain, commons.wikimedia.org/wiki/File:Johannes_Brønsted.jpg; Lowry — Smith Collection, University of Pennsylvania, attribution talab etiladi, commons.wikimedia.org/wiki/File:Thomas_Martin_Lowry.jpg.',
-        'Grafiklar mualliflik hisobiy modellari; tajribaviy ma’lumotlar emas. Boshlang‘ich shartlar va farazlar grafiklar yonida berilgan.'
+        'Grafiklar mualliflik hisobiy shartli hisoblari; tajribaviy ma’lumotlar emas. Boshlang‘ich shartlar va farazlar grafiklar yonida berilgan.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

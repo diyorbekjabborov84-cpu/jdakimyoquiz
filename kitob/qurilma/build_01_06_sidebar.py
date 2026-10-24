@@ -53,8 +53,8 @@ panels=[
 ('Kislotalarning uch guruhi',[('QATTIQ','Li⁺, Mg²⁺, Al³⁺, Fe³⁺'),('CHEGARAVIY','Fe²⁺, Ni²⁺, Cu²⁺, Zn²⁺'),('YUMSHOQ','Cu⁺, Ag⁺, Hg²⁺, Pd²⁺')],'Sifat tasnifi; oksidlanish holati va muhitni ko‘rsating.'),
 ('Elektron buluti',[],'1.6.1-chizma. Tashqi ta’sirda qutblanishning sifat eskizi. Radiuslar va elektron zichligi miqdoriy berilmagan.'),
 ('Moslik mezoni',[],'1.6.2-chizma. Qattiq–qattiq va yumshoq–yumshoq juftlarga nisbiy moyillik. Bu sonli barqarorlik shkalasi emas.'),
-('Energetik egrilik',[],'1.6.1-grafik. Ikki faraziy zarracha uchun η(ΔN)² hissasi. Lokal kvadratik model, tajribaviy ma’lumot emas.'),
-('Ligandlar raqobati',[],'1.6.2-grafik. Erkin L₂/L₁ nisbati o‘zgarganda 1:1 komplekslar ulushlari. Ideal hisobiy model.'),
+('Energetik egrilik',[],'1.6.1-grafik. Ikki faraziy zarracha uchun η(ΔN)² hissasi. Lokal kvadratik shartli hisob, tajribaviy ma’lumot emas.'),
+('Ligandlar raqobati',[],'1.6.2-grafik. Erkin L₂/L₁ nisbati o‘zgarganda 1:1 komplekslar ulushlari. Ideal shartli hisob.'),
 ('Tahlil yo‘li',[('01 · MARKAZ','Ion va oksidlanish holati'),('02 · DONOR','Aynan qaysi atom?'),('03 · SHAROIT','Muhit, miqdor, yon reaksiyalar')],'Miqdoriy natija uchun tegishli muvozanat ma’lumoti kerak.')
 ]
 
@@ -183,7 +183,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[3] Parr, R. G.; Pearson, R. G. Absolute hardness: companion parameter to absolute electronegativity. Journal of the American Chemical Society, 105 (1983), 7512–7516.',
         '[4] Atkins, P.; de Paula, J.; Keeler, J. Atkins’ Physical Chemistry. 11-nashr. Oxford University Press, 2018.',
         'Portret va biografik ma’lumot: UC Santa Barbara, Department of Chemistry & Biochemistry, chem.ucsb.edu/people/ralph-g-pearson. Fotosurat generativ tasvir emas; universitet sahifasidagi asl tasvir.',
-        'Grafiklar: faraziy parametrlarga asoslangan mualliflik hisoblari. Tajribaviy HSAB qatori emas. Model shartlari asosiy matn va yonlavhalarda berilgan.'
+        'Grafiklar: faraziy parametrlarga asoslangan mualliflik hisoblari. Tajribaviy HSAB qatori emas. Shartli hisob shartlari asosiy matn va yonlavhalarda berilgan.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

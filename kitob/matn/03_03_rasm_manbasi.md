@@ -13,21 +13,21 @@
 - `balans.png`: faqat HA va suv uchun moddiy/zaryad balanslari hamda konsentratsion konstantalar.
 - `miqdor.png`: kuchli bir asosli kislotalar aralashmasida miqdorlarni qo‘shish va yakuniy hajmga bo‘lish.
 - `faollik.png`: berilgan shartli molal γₘ=0.75 misoli. Bu koeffitsiyent real namuna uchun o‘lchangan qiymat emas.
-- `nazorat.png`: model va natijani qayta tekshirish ish tartibi.
+- `nazorat.png`: taxminiy hisob va natijani qayta tekshirish ish tartibi.
 
 ### 4 hisobiy grafik va ochiq CSV
 - `kuchli.png` / `kuchli.csv`: 321 nuqta, log₁₀(C/c°)=−10…−2. h=(C+sqrt(C²+4Kw))/2 va suvni tashlagan −lg(C/c°) qiyosi.
 - `kuchsiz.png` / `kuchsiz.csv`: 321 nuqta; shartli HA, Kc=10⁻⁵ mol/L va ayni C dagi to‘liq ajralgan HX. Ikkala hisobda ham suv bor. HA HF emas.
 - `umumiy_ion.png` / `umumiy_ion.csv`: 281 nuqta; HA ning yakuniy C=0.0100 mol/L, Kc=10⁻⁵ mol/L, kuchli kislotaning yakuniy Cs=10⁻⁸…10⁻¹ mol/L. α=Kc/(Kc+h).
-- `sulfat.png` / `sulfat.csv`: 321 nuqta; birinchi bosqich to‘liq, ikkinchi bosqich K₂,c=0.012 mol/L bilan muvozanatda. C=10⁻⁵…10⁻¹ mol/L. Suv balansda saqlangan. h≈C va h≈2C chiziqlari faqat taqqoslash; haqiqiy faolliklar yoki o‘lchangan pH emas. Yuqori C da ideal modelning real eritmaga cheklovi matnda ochiq aytilgan.
+- `sulfat.png` / `sulfat.csv`: 321 nuqta; birinchi bosqich to‘liq, ikkinchi bosqich K₂,c=0.012 mol/L bilan muvozanatda. C=10⁻⁵…10⁻¹ mol/L. Suv balansda saqlangan. h≈C va h≈2C chiziqlari faqat taqqoslash; haqiqiy faolliklar yoki o‘lchangan pH emas. Yuqori C da ideal sharoitning real eritmaga cheklovi matnda ochiq aytilgan.
 
-Barcha hisoblar 25 °C dagi ideal konsentratsion o‘quv modelida; Kw,c=10⁻¹⁴ (mol/L)². Modul: `qurilma/ph_03_03.py`. Faollik koeffitsiyentlari bilan to‘liq noideal muvozanat hisoblanmagan. γₘ=0.75 alohida faollik misoli bo‘lib, ideal muvozanatga yashirin qo‘shilmagan.
+Barcha hisoblar 25 °C dagi ideal konsentratsion o‘quv tasvirida; Kw,c=10⁻¹⁴ (mol/L)². Modul: `qurilma/ph_03_03.py`. Faollik koeffitsiyentlari bilan to‘liq noideal muvozanat hisoblanmagan. γₘ=0.75 alohida faollik misoli bo‘lib, ideal muvozanatga yashirin qo‘shilmagan.
 
 ### 4 molekulyar/ion tasviri
 - `gidroksoniy_model.png`: H₃O⁺ ning sxematik shar–tayoqcha tasviri, aniq fazoviy geometriya yoki gidrat qobig‘i emas.
 - `hcl_model.png`: neytral H–Cl molekulasining ulanishi; suyultirilgan suvdagi asosiy zarracha sifatida ko‘rsatilmagan.
 - `hf_model.png`: H–F ulanishi. Grafikdagi shartli Kc qiymati HF ga tegishli emas.
-- `sulfat_model.png`: neytral H₂SO₄ molekulasidagi ikki O–H ulanishi; yon grafikdagi eritma tarkibi bilan aynanlashtirilmagan. Tayoqchalar to‘liq bog‘ tartibi modeli emas.
+- `sulfat_model.png`: neytral H₂SO₄ molekulasidagi ikki O–H ulanishi; yon grafikdagi eritma tarkibi bilan aynanlashtirilmagan. Tayoqchalar to‘liq bog‘ tartibini aks ettirmaydi.
 
 ## Tekshiruv
 `check_03_03.py`: 1244 grafik nuqtasi uchun musbatlik, moddiy balans, elektr zaryad balansi, K ifodasini qayta tiklash va tegishli logarifmlar; grafikdan tashqari 15 ikki-kuchsiz-kislota aralashmasi; sonli misollar; DOCX ZIP, 13 tasvir, 9 jadval, 9 tenglama, shriftlar va yuqori/pastki indekslar tekshirildi. Asosiy grafiklarning tasvirlari ham ochib ko‘rildi.

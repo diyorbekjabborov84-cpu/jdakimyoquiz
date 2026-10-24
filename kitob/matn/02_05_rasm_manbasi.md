@@ -17,7 +17,7 @@ Flowers va boshqalar. Chemistry 2e, OpenStax (2019), H ilova: https://openstax.o
 
 OpenStaxning tayyor matni, jadval dizayni yoki rasm fayli ko‘chirilmagan; faqat uchta sonli faktga tayangan mustaqil grafik chizilgan. Ochilgan sahifada 2026-yilgi CC-BY-NC-SA qaydi ko‘rindi — uning rasmlarini butunlay erkin/CC-BY deb faraz qilish mumkin emas. Shu sahifadagi fosfit strukturasi tasvir izohi ham asos sifatida olinmadi; HP(O)(OH)₂ ulanishi IUPAC manbalari bilan izchil saqlandi.
 
-## Grafik modeli va tekshiruv
+## Grafik hisobi va tekshiruv
 h=10^(−pH); D=h³+K₁h²+K₁K₂h+K₁K₂K₃.
 α₀=h³/D; α₁=K₁h²/D; α₂=K₁K₂h/D; α₃=K₁K₂K₃/D.
 pH=0…14, qadam 0,025; 561 qator CSV. Berilgan pH dagi ideal ulushlar; massa/zaryad balansi orqali titrlash hisoblanmagan. Faollik koeffitsiyentlari, ion juftlanish, komplekslar va cho‘kma tashlab ketilgan. O‘lchangan egri chiziq emas.
@@ -31,7 +31,7 @@ Har qatorda α yig‘indisi 1 va uchala hαᵢ₊₁/αᵢ=Kᵢ munosabati sonli
 
 Barcha tasvirlar original o‘quv chizmalari; tashqi fotosurat yoki tajribaviy koordinatalar ishlatilmagan. Ekran uchun qo‘lda idealizatsiyalangan proyeksiyalar. Tayoqcha atom ulanishini ko‘rsatadi, bog‘ tartibi yoki o‘lchangan elektron zichlikni emas. Rang: H oq, O qizil, P bronza, S sariq-bronza, Cl yashil. Rastrlar DejaVu Serif; Word matni, formulalari va jadvallari TNR.
 
-Muhim strukturalar faqat rastrda emas: asosiy matn va tahrirlanadigan Word jadvallarida HO–S(=O)₂–O–OH; HO–S(=O)₂–O–O–S(=O)₂–OH; HP(=O)(OH)₂; ⁻O–S(=O)₂–S⁻; xlor oksokislotalari va nitrat yozuvlari ham berildi. S=O/P=O an’anaviy notatsiyasi d-orbital bog‘lanishning to‘liq fizik modeli deb ko‘rsatilmagan.
+Muhim strukturalar faqat rastrda emas: asosiy matn va tahrirlanadigan Word jadvallarida HO–S(=O)₂–O–OH; HO–S(=O)₂–O–O–S(=O)₂–OH; HP(=O)(OH)₂; ⁻O–S(=O)₂–S⁻; xlor oksokislotalari va nitrat yozuvlari ham berildi. S=O/P=O an’anaviy notatsiyasi d-orbital bog‘lanishning to‘liq fizik tasviri deb ko‘rsatilmagan.
 
 ## Hujjat nazorati
-9 mazmuniy bo‘lim, 9 jadval, 13 yon vizual, 18 yonlavha, 6 raqamlangan ifoda/muvozanat. Rekursiv DOCX matni 3233 so‘z; 464448 bayt. ZIP yaxlitligi, TNR, indekslar, rasm/jadval soni va eski mavzu markerlari tekshirildi. H₂SO₅ modeli, fosfat grafik va tiosulfat sxemasi alohida ko‘rildi. Word/PDF sahifalari render qilinmagan; bo‘limlar soni sahifalar soni deb da’vo qilinmaydi.
+9 mazmuniy bo‘lim, 9 jadval, 13 yon vizual, 18 yonlavha, 6 raqamlangan ifoda/muvozanat. Rekursiv DOCX matni 3233 so‘z; 464448 bayt. ZIP yaxlitligi, TNR, indekslar, rasm/jadval soni va eski mavzu markerlari tekshirildi. H₂SO₅ tasviri, fosfat grafik va tiosulfat sxemasi alohida ko‘rildi. Word/PDF sahifalari render qilinmagan; bo‘limlar soni sahifalar soni deb da’vo qilinmaydi.

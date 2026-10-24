@@ -18,12 +18,12 @@ NAVY='0B2C4A'; BRONZE='C28E3B'; PALE='EDF3F7'; INK='243746'
 panels=[
 ('Metall turlarini ajrating',[],'4.4.1-sxema. Erkin akva-ion, oddiy kompleks, gidroksokompleks va qattiq faza; modda balansiga kirish xususiyatlari.'),
 ('Q_sp va K_sp farqi',[],'4.4.2-sxema. Ion ko‘paytmasi holatlari, to‘yinganlik sharti va nukleatsiya to‘sig‘i.'),
-('Turlar taqsimotini o‘qing',[],'4.4.3-grafik. Erkin Ag⁺ va [Ag(NH₃)₂]⁺ ulushlari erkin ligand konsentratsiyasiga bog‘liq; β₂,c=1,7×10⁷ modeli.'),
-('Protonlanish ta’siri',[],'4.4.4-grafik. Erkin NH₃ ulushi va shartli hosil bo‘lish konstantasi; pK_a,c=9,25. Model egri chizig‘i.'),
+('Turlar taqsimotini o‘qing',[],'4.4.3-grafik. Erkin Ag⁺ va [Ag(NH₃)₂]⁺ ulushlari erkin ligand konsentratsiyasiga bog‘liq; β₂,c=1,7×10⁷ taxminiy hisobi.'),
+('Protonlanish ta’siri',[],'4.4.4-grafik. Erkin NH₃ ulushi va shartli hosil bo‘lish konstantasi; pK_a,c=9,25. Taxminiy hisob egri chizig‘i.'),
 ('Anionning uch roli',[],'4.4.5-sxema. Kuzatuvchi ion, cho‘ktiruvchi anion va kuchli ligand; protonlanish bilan o‘zgaruvchi holat.'),
-('Erishning o‘sishi',[],'4.4.6-grafik. To‘yinganlik sig‘imining erkin ligand konsentratsiyasiga bog‘liqligi; K_sp,c=1,6×10⁻¹⁰ modeli.'),
+('Erishning o‘sishi',[],'4.4.6-grafik. To‘yinganlik sig‘imining erkin ligand konsentratsiyasiga bog‘liqligi; K_sp,c=1,6×10⁻¹⁰ bo‘yicha shartli hisob.'),
 ('Tanlab cho‘ktirish',[],'4.4.7-sxema. K_sp farqi, protonlanish, komplekslanish va maskalashning selektiv ajratishga ta’siri.'),
-('Amfoterlik minimumi',[],'4.4.8-grafik. To‘yinganlik sig‘imining U shakli; K_sp,c=10⁻³⁰, β₄,c=10³⁴ xayoliy model. Real Al uchun emas.'),
+('Amfoterlik minimumi',[],'4.4.8-grafik. To‘yinganlik sig‘imining U shakli; K_sp,c=10⁻³⁰, β₄,c=10³⁴ xayoliy shartli hisob. Real Al uchun emas.'),
 ('Kislota ta’siri',[],'4.4.9-sxema. Protonlanish, cho‘ktiruvchi anion va komplekslanishning eruvchanlikka qarama-qarshi ta’siri.'),
 ('Yechim tartibi',[],'4.4.10-sxema. Turlar ro‘yxati, balanslar, yechim va qattiq faza tekshiruvi; manfiy n_s — qayta yechish.'),
 ('Hisob natijasi',[],'4.4.11-sxema. AgCl–ammiak tizimida ligand balansining yechimi va yaxlitlash xatosi.')]
@@ -204,7 +204,7 @@ for idx,((title,paras),(panel,nodes,note)) in enumerate(zip(sections,panels)):
         '[4] IUPAC Gold Book. Complex (C01203). DOI: 10.1351/goldbook.C01203. https://goldbook.iupac.org/terms/view/C01203 . Noorganik kimyoda «coordination entity» atamasining tavsiya etilishi.',
         '[5] OpenStax. Chemistry 2e. Appendices H, J, K. https://openstax.org/books/chemistry-2e/pages/j-solubility-products ; https://openstax.org/books/chemistry-2e/pages/k-formation-constants-for-complex-ions ; https://openstax.org/books/chemistry-2e/pages/h-ionization-constants-of-weak-acids . K_a, K_sp va β_f qiymatlarining jadvallari.',
         '[6] IUPAC Gold Book. Equilibrium constant (E02177). DOI: 10.1351/goldbook.E02177. https://goldbook.iupac.org/terms/view/E02177 . Muvozanat konstantasi tushunchasi va standart holat.',
-        'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari. Sonli egri chiziqlar model hisoblaridir, tajriba yoki o‘lchov ma’lumotlari emas. Rasmlar mikrofoto, atom tuzilmasi yoki masshtabli tuzilma tasviri emas. Moddalar konsentratsiyasi va pH oralig‘i real eksperiment yoki idish materiali tanlash uchun ko‘rsatma emas; tsianid va sulfid bilan bog‘liq xavfli jarayonlar muhokama qilinadi.'
+        'Barcha grafik, sxema va rasmlar original o‘quv ishlanmalari. Sonli egri chiziqlar taxminiy hisoblardir, tajriba yoki o‘lchov ma’lumotlari emas. Rasmlar mikrofoto, atom tuzilmasi yoki masshtabli tuzilma tasviri emas. Moddalar konsentratsiyasi va pH oralig‘i real eksperiment yoki idish materiali tanlash uchun ko‘rsatma emas; tsianid va sulfid bilan bog‘liq xavfli jarayonlar muhokama qilinadi.'
         ]
         for ref in refs:
             p=left.add_paragraph();p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3);runs(p,ref,9)

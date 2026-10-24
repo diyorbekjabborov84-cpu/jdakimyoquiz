@@ -1,4 +1,4 @@
-"""Original teaching figures for 4.4. Numerical curves are model outputs, not data."""
+"""Original teaching figures for 4.4. Numerical curves are taxminiy hisob outputs, not data."""
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 import csv,math
@@ -40,7 +40,7 @@ x,y=p(-3.615224460689137,.5);d.ellipse((x-7,y-7,x+7,y+7),fill=TEAL)
 txt(d,45,865,'Erkin Ag⁺ ulushi — ko‘k',28,N)
 txt(d,45,925,'[Ag(NH₃)₂]⁺ ulushi — bronza',28,B)
 txt(d,45,995,'β₂,c = 1,7×10⁷; teng ulush nuqtasi lg[NH₃] ≈ −3,62',25,G)
-txt(d,45,1060,'Model egri chizig‘i; tajriba ma’lumoti emas',25,G);save(im,'species')
+txt(d,45,1060,'Shartli hisob egri chizig‘i; tajriba ma’lumoti emas',25,G);save(im,'species')
 # Graph 2 — protonation and conditional constant.
 im,d=canvas('Protonlanish va shartli hosil bo‘lish konstantasi',1180)
 p=axes(d,2,12,0,1,'pH','α_L (chap o‘q) va lg β′₂,c (o‘ng o‘q)',[(2,'2'),(5,'5'),(7.25,'7,25'),(9.25,'9,25'),(11.25,'11,25')],[(0,'0'),(.25,'0,25'),(.5,'0,5'),(.75,'0,75'),(1,'1')])
@@ -55,7 +55,7 @@ for v,lab in [(8,'8'),(0,'0'),(-8,'−8')]:
 txt(d,45,865,'α_L (erkin NH₃ ulushi) — ko‘k egri chiziq',28,N)
 txt(d,45,925,'lg β′₂,c — bronza nuqtalar, o‘ng o‘q −8…8',28,B)
 txt(d,45,995,'pK_a,c = 9,25; β′₂,c = β₂,c·α_L²',25,G)
-txt(d,45,1060,'Model egri chizig‘i; tajriba ma’lumoti emas',25,G);save(im,'proton')
+txt(d,45,1060,'Shartli hisob egri chizig‘i; tajriba ma’lumoti emas',25,G);save(im,'proton')
 # Graph 3 — solubility promoted by complexation.
 im,d=canvas('Komplekslanish cho‘kmaning eruvchanligini oshiradi',1180)
 p=axes(d,-7,-2,-6,-3,'lg[NH₃], mol L⁻¹','lg s, mol L⁻¹',[(-7,'−7'),(-5,'−5'),(-4,'−4'),(-3,'−3'),(-2,'−2')],[(-6,'−6'),(-5,'−5'),(-4,'−4'),(-3,'−3')])
@@ -65,7 +65,7 @@ x,y=p(-2,math.log10(saturation_s(1e-2)));d.ellipse((x-7,y-7,x+7,y+7),fill=B)
 txt(d,45,865,'S ≈ √(K_sp,c(1 + β₂,c[NH₃]²))',28,N)
 txt(d,45,925,'K_sp,c = 1,6×10⁻¹⁰; β₂,c = 1,7×10⁷',26,G)
 txt(d,45,995,'Erkin ligand, ortiqcha AgCl bilan',26,G)
-txt(d,45,1060,'Model egri chizig‘i; tajriba ma’lumoti emas',25,G);save(im,'solubility')
+txt(d,45,1060,'Shartli hisob egri chizig‘i; tajriba ma’lumoti emas',25,G);save(im,'solubility')
 # Graph 4 — amphoteric U-curve.
 im,d=canvas('Amfoterlik: to‘yinganlik sig‘imining U shakli',1200)
 p=axes(d,4.5,7.5,-5,-1,'pH','lg C_sat, mol L⁻¹',[(4.5,'4,5'),(5.5,'5,5'),(6.5,'6,5'),(7.5,'7,5')],[(-5,'−5'),(-4,'−4'),(-3,'−3'),(-2,'−2'),(-1,'−1')])
@@ -75,9 +75,9 @@ x,y=p(5.6193,math.log10(amph_csat(5.6193)));d.ellipse((x-7,y-7,x+7,y+7),fill=B)
 d.line((x,700,x,y),fill=TEAL,width=3)
 txt(d,x-118,648,'minimum pH ≈ 5,619',25,TEAL)
 txt(d,45,865,'C_sat = K_sp,c(x⁻³ + β₄,c·x);  x = [OH⁻]',28,N)
-txt(d,45,925,'K_sp,c = 10⁻³⁰; β₄,c = 10³⁴ (xayoliy model)',26,G)
+txt(d,45,925,'K_sp,c = 10⁻³⁰; β₄,c = 10³⁴ (xayoliy taxminiy hisob)',26,G)
 txt(d,45,995,'C_M,0 = 10⁻³ mol L⁻¹;  C_diss = min(C_sat, C_M,0)',25,G)
-txt(d,45,1060,'Model egri chizig‘i; real Al uchun emas',25,G);save(im,'amph')
+txt(d,45,1060,'Shartli hisob egri chizig‘i; real Al uchun emas',25,G);save(im,'amph')
 
 def scheme(name,title,boxes,h=1050):
  im,d=canvas(title,h)
@@ -125,7 +125,7 @@ scheme('hisob','AgCl va ammiak tizimi: balansli yechim',[
  ('Ligand balansi','l/α_L + 2(s − K_sp,c/s) = C_B,0','Bu tengsizlik yechiladi'),
  ('Topilgan ildiz','l ≈ 0,00779980; s ≈ 0,000406984','mol L⁻¹'),
  ('Yaxlitlash xatosi','Ligand sarfi e’tiborsiz qoldirilsa','s ≈ 0,000442976 (+8,84%)'),
- ('Xulosa','Balans har doim qayta tekshiriladi','Natija faqat model ichida')])
+ ('Xulosa','Balans har doim qayta tekshiriladi','Natija faqat yondashuv ichida')])
 # Original schematic illustrations, not micrographs or atomic structures.
 def base(t,h=590):return canvas(t,h)
 im,d=base('Cho‘kma sirti va eritma: diffuziya qatlami')
@@ -151,7 +151,7 @@ for i,(dx,dy) in enumerate([(-120,-90),(120,-90),(-150,60),(150,60),(0,-130),(0,
  txt(d,x-26,y-16,'L',30,TEAL)
  d.line((380,310,x,y),fill=G,width=3)
 txt(d,120,455,'Ligandlar soni va turi metallga bog‘liq',27)
-txt(d,35,505,'Sxematik; atom masshtabi va orbital model emas',23,G);save(im,'gidroksokompleks')
+txt(d,35,505,'Sxematik; atom masshtabi va orbital taxminiy hisob emas',23,G);save(im,'gidroksokompleks')
 im,d=base('Protonlanish faollikni o‘zgartiradi')
 d.rectangle((60,150,330,400),fill='#DCEBF4');txt(d,95,185,'Kislotali muhit',29,N)
 txt(d,120,265,'NH₃',34);txt(d,95,330,'NH₄⁺ — ligand emas',26)
