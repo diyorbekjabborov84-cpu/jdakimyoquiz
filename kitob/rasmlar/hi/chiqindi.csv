@@ -1,0 +1,21 @@
+element,miqdor,izoh
+HI (kirish),100.0,kg
+Na₂CO₃ (neytralizator),41.430665493990034,kg
+NaI (chiqish),117.18479429297372,kg
+CO₂ (chiqish),17.202775334701457,kg
+H₂O (chiqish),7.041923189680446,kg
+Ca(OH)₂ (neytralizator),28.962376624645756,kg
+CaI₂ (chiqish),114.8781393530734,kg
+H₂O (Ca(OH)₂ bilan),14.083846379360892,kg
+kirish (Na₂CO₃ bilan),141.43066549399003,kg
+chiqish (Na₂CO₃ bilan),141.42949281735565,kg
+standartlash: Na₂CO₃,0.2,g
+standartlash: V(HI),30.0,mL
+standartlash: C(HI),0.1257980312608108,mol/L
+yodometriya: KIO₃ namuni,1.0,g
+yodometriya: ajralgan I₂,0.7116106934079747,g
+yodometriya: tiosulfat,0.8871379105705113,g
+yodlangan tuz (1 t),1000.0,kg
+yodlangan tuz: I miqdori,30.0,g
+yodlangan tuz: KI,39.24281644858929,g
+yodlangan tuz: KIO₃,50.58945900263584,g

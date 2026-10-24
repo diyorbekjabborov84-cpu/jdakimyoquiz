@@ -592,3 +592,16 @@ Hamma yangi nusxalar reader/discovery=false. Oldingi Drive fayllari o‘chirilma
 - Yakuniy DOCX: https://drive.google.com/uc?id=1Rd0_6i3l0_7hlcNN9ZuTI1yXZkco5cPd&export=download
 - Yakuniy Google Docs: https://docs.google.com/document/d/1jbL2UpO601HOV-P9ST3PA7gBHGy4tVn91aAEI368x34/edit
 - Ikkala yakuniy nusxa reader/discovery=false. Keyingi mavzu: 6.5 — HI, yodid kislota.
+
+### 6.5 — HI, yodid kislota (2026-10-24)
+- Mavzu hujjati: `kitob/chiqish/Noorganik-kislotalar-6.5-HI-yodid-kislota.docx` (949 633 B) — 11 sahifa, har bir bo‘lim bitta sahifada.
+- Tuzilma: 11 bo‘lim / 11 jadval (3 ustun) / 22 yon lavha / 5 hisoblangan grafik + 7 sxema + 5 original illyustratsiya (jami 17 PNG) / 11 ta native OMML formula guruhi (66 qator, Cambria Math) / 4 manba + to‘liq ro‘yxat `matn/06_05_rasm_manbasi.md` da.
+- Layout: A4, asosiy matn 13,5 sm + vizual yon ustun 4,5 sm; matn 10 pt TNR (qator oralig‘i 1,03), jadval 8 pt; to‘q ko‘k `#0B2C4A` / bronza `#B37C2D`; sarlavha «6-BOB / VODOROD GALOGENIDLARI» bandi bilan.
+- Generatorlar: `qurilma/prep_06_05.py` (model + 8 CSV), `content_06_05.py` (11 jadval, 22 yon lavha → JSON), `equations_06_05.py` (11 formula guruhi), `draw_06_05.py` (17 PNG), `build_06_05_sidebar.py` (DOCX; panel va qo‘shimcha rasm kengligi ixtiyoriy parametr), `check_06_05.py` (QA — PASS; ichki jadvallar matni ham tekshiriladi).
+- `qurilma/book_equations.py` ga `'6.5'` varianti qo‘shildi.
+- Asosiy model natijalari: to‘g‘ridan-to‘g‘ri usul 1000 kg HI → H₂ 7,88 kg, I₂ 992,1 kg (ΔrH −9,44 kJ, K(298 K) = 0,254); gidrazin usuli → N₂H₄ 62,6 kg; fosfor usuli → P 80,7 kg, H₂O 140,8 kg, H₃PO₃ 213,7 kg; H₂S usuli → H₂S 133,2 kg, S 125,3 kg; yod sikli 1000 kg NaI + Cl₂ 236,5 kg → I₂ 846,6 + NaCl 389,9 kg (1236,5 = 1236,5); spetsiatsiya 0,1 M → pH 1,000, 7,560 M → pH −0,879, 12 M → pH −1,079 (HI₂⁻ 0,00002 %); triiodid 0,10 M → 98,54 %, 7,56 M → 99,98 %; metall: 1 g Fe → FeI₂ 5,545 g / HI 4,581 g, 1 g Al → AlI₃ 15,110 g / 14,222 g HI, 1 g Cu → HI 4,026 g + O₂ 0,252 g; neytralizatsiya Na₂CO₃ 41,4 kg (kirish = chiqish 141,4 kg), Ca(OH)₂ 29,0 kg (129,0 kg); yodometriya 1,000 g KIO₃ → I₂ 0,712 g, tiosulfat 0,887 g; standartlash 0,2000 g Na₂CO₃ va 30,00 mL → 0,12580 mol/L; yodlangan tuz 1 t + 30 g I → KI 39,2 g yoki KIO₃ 50,6 g.
+- Manbalar: Wikipedia (Hydroiodic acid / Hydrogen iodide / Iodine compounds / Iodine — fizik ma’lumot, azeotrop 56,7 % / 126,7 °C / 7,56 mol/L, sintez usullari, Cativa jarayoni, DEA I ro‘yxati, jahon yod ishlab chiqarishi ≈30 000 t/y), ICSC 1326 (ILO/WHO: DANGER, TLV 0,01 ppm, teri absorbsiyasi), NIOSH IDLH 2025-109 (35 ppm / 183 mg/m³; AEGL 1 / 150 / 740 ppm), OSHA/NIOSH yod chegaralari (0,1 ppm; ACGIH 0,01 ppm; IDLH 2 ppm), Cheméo/NIST (r 1,609 Å, D 299 kJ/mol, μ 0,45 D, IE 10,39 eV), USGS/ATSDR (yod ishlab chiqarishi, radioyod).
+- PDF: `google_drive/6.5 qoralamalar/6.5 final.pdf` (1 378 708 B, 11 sahifa).
+- Yakuniy DOCX: https://drive.google.com/uc?id=1GrOUsrR2E4fFH6JFfcUgBMFaPmirx_uL&export=download
+- Yakuniy Google Docs: https://docs.google.com/document/d/1PgL2upJnPfdKfqZWbrNxkomzPJmf69mfGWwFxbTnMhg/edit
+- Ikkala yakuniy nusxa reader/discovery=false. Keyingi mavzu: 6.6 — Taqqoslash.

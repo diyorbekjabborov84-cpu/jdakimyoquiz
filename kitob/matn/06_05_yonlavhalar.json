@@ -1,0 +1,112 @@
+[
+  [
+    [
+      "Molekula",
+      "r = 1,609 Å; D = 295 kJ/mol; μ = 0,45 D."
+    ],
+    [
+      "Guruhda o‘rni",
+      "Qaynash −35,36 °C; suyuqlash −50,80 °C; pK_a −9,5."
+    ]
+  ],
+  [
+    [
+      "Kritik nuqta",
+      "151 °C; 8,31 MPa; suyuqda 2,85 g/cm³ (−47 °C)."
+    ],
+    [
+      "Azeotrop",
+      "56,7 % HI; 126,7 °C; ρ 1,70; 7,56 M."
+    ]
+  ],
+  [
+    [
+      "Kislotalik",
+      "pK_a: suvda −9,5; DMSO da −10,9."
+    ],
+    [
+      "Model",
+      "7,560 M → I⁻ 100,000 %, pH −0,879; HI₂⁻ 0,00001 %."
+    ]
+  ],
+  [
+    [
+      "Ishlab chiqarish",
+      "H₂ + I₂ ⇌ 2HI: ΔrH −9,44 kJ; K(298 K) = 0,254."
+    ],
+    [
+      "Yod sikli",
+      "1000 kg NaI + Cl₂ 236,5 kg → I₂ 846,6 kg + NaCl 389,9 kg."
+    ]
+  ],
+  [
+    [
+      "Komplekslar",
+      "[HgI₄]²⁻, [PbI₄]²⁻, [BiI₄]⁻, [AgI₂]⁻."
+    ],
+    [
+      "Triiodid",
+      "I₂ + I⁻ ⇌ I₃⁻ (K ≈ 700); 7,56 M da 99,98 % (model)."
+    ]
+  ],
+  [
+    [
+      "Metallar",
+      "1 g Fe → 4,581 g HI; 1 g Al → 14,222 g HI."
+    ],
+    [
+      "Mis",
+      "HI o‘z-o‘zidan eritmaydi — havo (O₂) kerak."
+    ]
+  ],
+  [
+    [
+      "Redoks",
+      "4HI + O₂ → 2I₂ + 2H₂O; 6HI + 2HNO₃ → 3I₂ + 2NO + 4H₂O."
+    ],
+    [
+      "Model",
+      "1000 kg HI → I₂ 992,1 kg (O₂ 62,5 kg yoki HNO₃ 164,2 kg)."
+    ]
+  ],
+  [
+    [
+      "Organik",
+      "R–OH + HI → R–I + H₂O; eter kesish; nitroaromatik qaytarish."
+    ],
+    [
+      "Sanoat",
+      "Cativa jarayoni: HI — metanoldan siryaga katalizatori."
+    ]
+  ],
+  [
+    [
+      "Qo‘llanish",
+      "Yodlangan tuz, KI, kontrast moddalari, LCM, dezinfectant."
+    ],
+    [
+      "Ekologiya",
+      "Yod sikli; radioyod I-131 va I-129 — maxsus nazorat."
+    ]
+  ],
+  [
+    [
+      "Tahlil",
+      "Na₂CO₃ bilan standartlash; dead-stop titr; yodometriya."
+    ],
+    [
+      "Zamonaviy",
+      "Ion xromatografiya, ISE, ICP-MS."
+    ]
+  ],
+  [
+    [
+      "Xavfsizlik",
+      "ICSC: DANGER; TLV 0,01 ppm; IDLH 35 ppm (2025)."
+    ],
+    [
+      "Model",
+      "A: ishlab chiqarish; B: metall; C: neytralizatsiya; D: yodometriya; E: yodlangan tuz."
+    ]
+  ]
+]
