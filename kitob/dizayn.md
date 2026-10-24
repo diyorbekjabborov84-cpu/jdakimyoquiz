@@ -670,6 +670,18 @@ Texnik identifikatorlar va fayl nomlari (`rasmlar/arrhenius/model_hisob.csv`, `*
 | 6.5 HI — yodid kislota | `1cuuT5llUUI6nsJ2uQThFmYU7nF7OMnpAMWYJQb_53CU` | `1T8rFW1IgBSPWHO1to2JCcGY2O3ai6kU9` | 11 |
 | 6.6 Taqqoslash | `1C9sud6g_k1bvmREhLC_Te45l6SNfZq_kp55CRxFJw0E` | `1BBhmei29uhpVzZLkzKfSI9unWcZivyKe` | 11 |
 
+## 7-bob kirish vizuali (2026-10-24)
+
+- `rasmlar/7-bob-kirish-sarlavhali.png` (1664×2496, A4 150 dpi): 6-bob vizuali uslubiy referens sifatida ishlatilib yaratilgan 7-bob (Oltingugurt kislotalari) kirish rasmi. Alohida saqlanadi, mavzu DOCXlariga kiritilmaydi.
+- Kompozitsiya: yuqorida «III QISM · ALOHIDA KISLOTALAR» (bronza, letter-spacing 7,5 px), ostida ingichka qo‘ng‘iroq chizig‘i va olmos; «7-BOB»; katta to‘q ko‘k sarlavha «Oltingugurt / kislotalari» (Playfair Display 162 px, ikki qator, 192 px qator oralig‘i, oq soya konturi); chiziq + olmos; «BOB MAVZULARI»; **7 ta mavzu** (7.1 H₂S — vodorod sulfid, 7.2 H₂SO₃ — sulfit kislota, 7.3 H₂SO₄ — sulfat kislota (tuzilishi), 7.4 H₂SO₄ — xossalari, 7.5 Kontakt usuli, 7.6 Oleum va pirosulfat, 7.7 Tiosulfat va peroksokislotalar) — raqamlar bronza, nomlar to‘q ko‘k, har biri ostida ingichka qo‘ng‘iroq chizig‘i.
+- Fon: `rasmlar/7-bob-fon.png` — AI konsept-art: bronza armaturali gaz generatori (rangsiz gaz tumani bilan), krem va amber rangli shisha idishlar, platina spiral kontakt quvuri, qora marmar taxta ustidagi oltingugurt (sariq rombil kristallar); krem/navy/bronza palitra, oltin nur va bokeh. AI rasmga matn joylanmagan: barcha yozuvlar dasturiy tipografiya bilan qo‘shilgan, shuning uchun o‘zbekcha imlo aniq.
+- Fon kompozitsiyasi: chap va yuqori ikki uch qismi bo‘sh krem (matn maydoni), jihozlar pastki o‘ng burchakda; 1024×1536 → 1664×2496 (proportsiya saqlangan), yuqoriga yumshoq krem parda (620 px to‘liq, 1300 px gacha yumshoq tushish) va mavzular ro‘yxati uchun yumshoq krem dog‘ (GaussianBlur 115 px, alpha 118) qo‘llandi.
+- Shriftlar: `rasmlar/shriftlar/` — Playfair Display 500 (sarlavha) va Libre Baskerville 400 (qism, bob raqami, mavzular) latin TTF; SIL OFL 1.1.
+- Generator: `qurilma/kirish_7_bob.py` (Pillow; deterministik, qayta ishga tushirilsa bir xil natija).
+- QA: birinchi renderda Libre Baskerville’da pastki indeks belgilari (₂, ₃, ₄) yo‘qligi uchun «H□S» holatda to‘r (tofu) chiqdi — `draw_chem()`/`measure_chem()`/`fit_chem()` yordamchi funksiyalari qo‘shildi: indeks raqamlari kichik (0,62×) shrift bilan bazal chiziqdan pastda chiziladi va en uzun yorliq (7.3) sig‘ishi uchun shrift avtomatik moslashtiriladi. Fon birinchi generatsiyada markazda to‘plangan edi — ikkinchi generatsiya bilan jihozlar pastki o‘ng burchakka surildi.
+- AI konsept-art; tajribaviy foto yoki mexanizmning ilmiy dalili emas.
+- Yakuniy fayl: https://drive.google.com/uc?id=16A3fylPkomSZOTCo9XYb7suT0zvocr-J&export=download (reader, allow_file_discovery=false).
+
 ## 6.6. Taqqoslash — yozildi va yetkazildi (2026-10-24)
 
 6-bobning yakuniy mavzusi: HF / HCl / HBr / HI kislotalarini bitta tizimda qiyoslash.
