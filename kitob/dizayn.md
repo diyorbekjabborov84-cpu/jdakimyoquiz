@@ -666,8 +666,38 @@ Texnik identifikatorlar va fayl nomlari (`rasmlar/arrhenius/model_hisob.csv`, `*
 | 6.1 Guruhning umumiy tavsifi | `1LDCEK2Wj87JjnY9sAuDTaiV1zJD4xoKx6zjUQeJEduw` | `1Rql-nTqAG20QiPRz1jPMcPuyGL9dhLwW` | 11 |
 | 6.2 HF — ftorid kislota | `1uu033EIWlukrdHHLWEgZb6jYPTLhsnMSS5es52-GCv0` | `1hnU6qkYVWxahZr485xUE3D0EGOT-6Szj` | 11 |
 | 6.3 HCl — xlorid kislota | `1AJizleAvkT1cI9gOEuzxQwyhmtte8RWo6Q-2Ygs3MP8` | `1y6vyd_tdgi7WoXqMfcKZnqXAPFBjU7mV` | 11 |
-| 6.4 HBr — bromid kislota | `1HCWubjibAZ5T6ohJQPWiMsGF4yafU6P7lW-RrorUhWM` | `1_klnbLxJ7j-GIUC_Si3ollS1fZpjJpAT` | 11 |
-| 6.5 HI — yodid kislota | `1UaJXLPGLIOSXWIkwvY6mh2xWujB3H8qqGCme4Dhxnic` | `1HKO2M_v3WQXQDwU3ed0znF0q5xRgIprH` | 11 |
+| 6.4 HBr — bromid kislota | `1Ng5eM97eBOww3dgc-CU5Flbfa9oRytwgWqi6wxiy8Eg` | `1MY_4oK9UiZvokFnItAcXMK3NMi18zNYx` | 11 |
+| 6.5 HI — yodid kislota | `1cuuT5llUUI6nsJ2uQThFmYU7nF7OMnpAMWYJQb_53CU` | `1T8rFW1IgBSPWHO1to2JCcGY2O3ai6kU9` | 11 |
+| 6.6 Taqqoslash | `1C9sud6g_k1bvmREhLC_Te45l6SNfZq_kp55CRxFJw0E` | `1BBhmei29uhpVzZLkzKfSI9unWcZivyKe` | 11 |
+
+## 6.6. Taqqoslash — yozildi va yetkazildi (2026-10-24)
+
+6-bobning yakuniy mavzusi: HF / HCl / HBr / HI kislotalarini bitta tizimda qiyoslash.
+
+### Tuzilma (boshqa mavzular bilan bir xil standart)
+- **11 bo‘lim = 11 sahifa** (Google Docs PDF eksporti bilan tekshirilgan, bo‘sh sahifa yo‘q);
+- **11 jadval**, **22 yon lavha** (har bo‘limda 2 ta);
+- **5 hisoblangan grafik** + **7 sxema** + **5 original illyustratsiya** = 17 rasm;
+- **11 raqamlangan native formula guruhi** (6.6.1–6.6.11, OMML, Cambria Math);
+- A4, chapda 75 % asosiy matn / o‘ngda 25 % vizual panel, ko‘k/bronza ramkalar, jadval 8 pt, matn 10 pt TNR.
+
+### Manba va terminologiya
+- **NIST WebBook** gaz fazidagi deprotonatsiya entalpiyalari: HF 1555, HCl 1395, HBr 1349, HI 1313 kJ/mol → tartib **HI > HBr > HCl > HF** (suv va DMSO bilan bir xil). Bu ma’lumot **6.4 va 6.5 bo‘limlaridagi noto‘g‘ri «gaz fazida tartib teskari» bayonotlarini tuzatish uchun** ishlatildi: 6.4 va 6.5 qayta qurildi, qayta yuklandi, 11 sahifa saqlandi.
+- Sonli egri chiziqlar, massalar va ekvivalentlar — **«taxminiy hisob»** (Taxmin A–E) deb belgilangan, o‘lchov ma’lumoti emas; «model» so‘zi ishlatilmadi.
+- Xavfsizlik chegaralari (OSHA/NIOSH/ACGIH/IDLH/AEGL, WHO fluorid, AQSh MCL) va amaliyot chegaralari saqlangan: Qurilma, texnologik parametrlar, konsentratsiya/idish tanlash hamda tibbiy dozalar bo‘yicha tavsiya berilmaydi.
+
+### Fayllar
+`kitob/matn/06_06.md`, `06_06_jadvallar.json`, `06_06_yonlavhalar.json`, `06_06_rasm_manbasi.md`;
+`kitob/qurilma/prep_06_06.py`, `content_06_06.py`, `equations_06_06.py`, `draw_06_06.py`,
+`build_06_06_sidebar.py`, `check_06_06.py`; `kitob/rasmlar/taqqoslash/` (17 PNG + 9 CSV);
+`kitob/chiqish/Noorganik-kislotalar-6.6-Taqqoslash.docx`.
+
+### QA va sahifalash
+`check_06_06.py` — barcha tekshiruvlar o‘tdi (taxminiy hisoblar, 9 CSV, 17 PNG, 17 inline shakl,
+62 OMML satri, 11/7/5/5 sarlavha, 11 formula raqami, «_» yo‘q, TNR/Cambria).
+Google Docs PDF eksportida 6.6 birinchi ikki iteratsiyada 12 sahifa bo‘ldi (adabiyotlar bloki va
+tugun paragrafi yangi sahifaga to‘shdi) — adabiyotlar matni qisqartirildi va bo‘sh vertikal joy
+yaratildi; natija **11 sahifa**.
 
 Havola shakli: `https://docs.google.com/document/d/<Doc-ID>/edit` va `https://drive.google.com/uc?id=<DOCX-ID>&export=download`.
 Mahalliy PDF eksportlari: `google_drive/Noorganik kislotalar — <X.Y. Nomi>` (kengaytmasiz fayllar, PyMuPDF bilan tekshirilgan).

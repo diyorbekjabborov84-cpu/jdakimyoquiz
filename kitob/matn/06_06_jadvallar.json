@@ -1,0 +1,772 @@
+{
+  "guruh": {
+    "caption": "6.6.1-jadval. To‘rt kislotaning umumiy ko‘rinishi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Molar mass",
+        "HF 20,006;  HCl 36,461;  HBr 80,912;  HI 127,912 g/mol",
+        "Manba (6.1 guruh jadvali)"
+      ],
+      [
+        "Elektronegativlik (Pauling)",
+        "F 3,98;  Cl 3,16;  Br 2,96;  I 2,66",
+        "Guruh bo‘ylab pasayadi"
+      ],
+      [
+        "Bog‘ uzunligi r(H–X)",
+        "0,917;  1,2746;  1,414;  1,609 Å",
+        "O‘lchangan qiymat"
+      ],
+      [
+        "Bog‘ energiyasi D(H–X)",
+        "569;  432;  370;  295 kJ/mol",
+        "Asosiy trend"
+      ],
+      [
+        "Dipol moment μ",
+        "1,82;  1,08;  0,82;  0,44 D",
+        "Alohida o‘lchashlarda ±0,01 D"
+      ],
+      [
+        "Ionlanish potensiali",
+        "F 17,42;  Cl 12,97;  Br 11,81;  I 10,39 eV",
+        "Manba"
+      ],
+      [
+        "Termik barqarorlik",
+        "ΔfH°(g): −273,3; −92,3; −36,3; +26,5 kJ/mol",
+        "Manba"
+      ],
+      [
+        "Suvdagi kislotalik",
+        "pK_a 3,17;  −5,9;  −8,8;  −9,5",
+        "HF — kuchsiz, qolganlari kuchli"
+      ],
+      [
+        "Gaz fazidagi kislotalik",
+        "ΔH_acid 1555;  1395;  1349;  1313 kJ/mol",
+        "NIST WebBook"
+      ],
+      [
+        "X⁻ ning gidratatsiyasi",
+        "−506;  −364;  −335;  −293 kJ/mol",
+        "Manba (6.1)"
+      ],
+      [
+        "Chegara",
+        "Barcha sonlar ochiq shartli hisob",
+        "O‘lchov ma’lumoti emas"
+      ]
+    ]
+  },
+  "kislotalik": {
+    "caption": "6.6.2-jadval. Kislotalik: suv, DMSO va gaz fazida",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "pK_a (suv)",
+        "HF 3,17;  HCl −5,9;  HBr −8,8;  HI −9,5",
+        "Manba"
+      ],
+      [
+        "K_a (suv)",
+        "6,8×10⁻⁴;  1,3×10⁶;  6,3×10⁸;  3,2×10⁹",
+        "Manba"
+      ],
+      [
+        "pK_a (DMSO)",
+        "HF 15;  HCl −2,0;  HBr −6,8;  HI −10,9",
+        "Suvdagi tekislashdan tashqarida"
+      ],
+      [
+        "Tartib (kuchli → kuchsiz)",
+        "HI > HBr > HCl > HF",
+        "Barcha uchta muhitda bir xil"
+      ],
+      [
+        "Suvdagi tekislash",
+        "HCl, HBr, HI to‘liq dissotsiatsiyalangan",
+        "H₃O⁺ kuchli donor bo‘lgani uchun"
+      ],
+      [
+        "Taxminiy hisob: 0,010 M",
+        "pH: HF 2,640;  HCl/HBr/HI 2,000",
+        "HF dissotsiyasi 22,90 %"
+      ],
+      [
+        "Taxminiy hisob: 0,100 M",
+        "pH: HF 2,102;  HCl/HBr/HI 1,000",
+        "HF dissotsiyasi 7,91 %"
+      ],
+      [
+        "Taxminiy hisob: 1,000 M",
+        "pH: HF 1,589;  HCl/HBr/HI 0,000",
+        "HF dissotsiyasi 2,57 %"
+      ],
+      [
+        "Gaz fazi: deprotonatsiya",
+        "ΔH_acid 1555;  1395;  1349;  1313 kJ/mol",
+        "Faqat bog‘ energiyasi hisobga olinadi"
+      ],
+      [
+        "Gaz fazi: ΔG_acid",
+        "1530;  1377;  1328;  1297 kJ/mol",
+        "NIST WebBook"
+      ],
+      [
+        "Chegara",
+        "Faolik koeffitsiyentlar hisobga olinmagan",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "fizik": {
+    "caption": "6.6.3-jadval. Fizik xossalar: agregat holatlari va eritmalar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Qaynash harorati",
+        "HF 19,5;  HCl −85,1;  HBr −66,8;  HI −35,4 °C",
+        "HF xona haroratida suyuq"
+      ],
+      [
+        "Suyuqlash harorati",
+        "HF −83,6;  HCl −114,2;  HBr −86,9;  HI −50,8 °C",
+        "Manba"
+      ],
+      [
+        "Azeotrop (w%)",
+        "HF 37,0;  HCl 20,2;  HBr 47,6;  HI 56,9 %",
+        "Doimiy qaynash nuqtasi"
+      ],
+      [
+        "Azeotrop harorati",
+        "HF 120;  HCl 108,6;  HBr 124,3;  HI 127,0 °C",
+        "Manba"
+      ],
+      [
+        "Azeotrop zichligi",
+        "1,15;  1,102;  1,49;  1,70 g/cm³",
+        "Manba"
+      ],
+      [
+        "Taxminiy hisob: azeotrop c",
+        "21,27;  6,11;  8,77;  7,56 mol/L",
+        "c = w·ρ/M"
+      ],
+      [
+        "Konsentratsiyalangan nav",
+        "HF 48 %;  HCl 37 %;  HBr 47,6 %;  HI 48–57 %",
+        "Sanoat mahsuloti"
+      ],
+      [
+        "Suvdagi eruvchanlik",
+        "HF juda yaxshi;  HCl va HBr juda yaxshi;  HI o‘ta yaxshi",
+        "Manba (6.2–6.5)"
+      ],
+      [
+        "Taxminiy hisob: 1 L azeotrop",
+        "m: HF 426,0;  HCl 222,8;  HBr 710,0;  HI 965,2 g",
+        "c·M"
+      ],
+      [
+        "Qaynash xarakteri",
+        "Faqat HF uchun mo‘ljallangan",
+        "Manba"
+      ],
+      [
+        "Chegara",
+        "Parametrlar qurilma bo‘yicha berilmaydi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "eritma": {
+    "caption": "6.6.4-jadval. Suvli eritmalar: dissotsiatsiya, pH va konsentratsiya",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "HF dissotsiatsiyasi",
+        "HF + H₂O ⇌ H₃O⁺ + F⁻;  K_a = 6,8×10⁻⁴",
+        "Kuchsiz kislota"
+      ],
+      [
+        "HF dissotsiatsiya darajasi",
+        "0,010 M da 22,90 %;  0,100 M da 7,91 %;  1,000 M da 2,57 %",
+        "Taxminiy hisob"
+      ],
+      [
+        "Kuchli kislotalar",
+        "HCl, HBr, HI: [H₃O⁺] ≈ c",
+        "Leveling effekti"
+      ],
+      [
+        "pH farqi (0,100 M)",
+        "HF 2,102;  HCl/HBr/HI 1,000",
+        "Taxminiy hisob"
+      ],
+      [
+        "Konsentratsiyalangan HF spetsiatsiyasi",
+        "HF₂⁻ va H₂F⁺ hosil bo‘ladi",
+        "6.1-bo‘lim"
+      ],
+      [
+        "Konsentratsiyalangan HCl",
+        "Apparent pH termodinamik pH dan farq qiladi",
+        "Faolik koeffitsiyentlar"
+      ],
+      [
+        "Konsentratsiyalangan HBr/HI",
+        "X⁻ konsentratsiyasi katta; ion kuchi katta",
+        "Taxminiy hisob chegarasi"
+      ],
+      [
+        "Eritmadagi proton manbai",
+        "H₃O⁺, lekin konsentratsiyalangan eritmada — solvatsiyalangan proton",
+        "Nazariy jihat"
+      ],
+      [
+        "Indikator tanlash",
+        "HF uchun metil zaytun (3,1–4,4); kuchli kislotalar uchun to‘q zona",
+        "3.4-bo‘lim"
+      ],
+      [
+        "Titrlash nuqtasi",
+        "HF da aniq ekvivalent nuqtasi bor; kuchli kislotalarda pH sakrashi juda tor",
+        "3.4-bo‘lim"
+      ],
+      [
+        "Chegara",
+        "Bufer tashkil etuvchi HF₂⁻ taqsimoti taxminiy hisob bilan berilgan",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "metallar": {
+    "caption": "6.6.5-jadval. Metallarga ta’sir: passivatsiya va korroziya",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Fe + 2HX → FeX₂ + H₂",
+        "Barcha to‘rt kislota uchun",
+        "Oddiy taqqoslash"
+      ],
+      [
+        "Taxminiy hisob: 1 g Fe",
+        "kislota: HF 0,716;  HCl 1,306;  HBr 2,898;  HI 4,581 g",
+        "Taxminiy hisob"
+      ],
+      [
+        "Taxminiy hisob: 1 g Fe",
+        "tuz: FeF₂ 1,680;  FeCl₂ 2,270;  FeBr₂ 3,861;  FeI₂ 5,545 g",
+        "Taxminiy hisob"
+      ],
+      [
+        "Ajraladigan vodorod",
+        "1 g Fe dan 0,036 g H₂ — barcha kislotalarda bir xil",
+        "Massa qat’iy saqlanadi"
+      ],
+      [
+        "Passivatsiya",
+        "HF da FeF₃ va CaF₂ qatlami; boshqa kislotalarda yo‘q",
+        "Eng muhim farq"
+      ],
+      [
+        "Shisha bilan ishlash",
+        "HF shishani eritadi (H₂SiF₆); HCl, HBr, HI eritmaydi",
+        "6.2-bo‘lim"
+      ],
+      [
+        "Mis",
+        "HCl, HBr, HI: havo kisloridi kerak; HF: passivatsiya",
+        "Oksidlanish bilan"
+      ],
+      [
+        "Kumush",
+        "Ag⁺ + X⁻ → AgX↓ — rangi X ga bog‘liq",
+        "Gravimetrik usul"
+      ],
+      [
+        "Korroziya tezligi",
+        "I⁻ eng kuchli qaytaruvchi — korroziya tezroq",
+        "Guruh trendi"
+      ],
+      [
+        "Vodorod embrittlementi",
+        "Barcha kislotalarda; passivatsiya bo‘lmasa kuchliroq",
+        "12-bo‘lim"
+      ],
+      [
+        "Chegara",
+        "Amaliyot tavsiyalari berilmaydi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "redoks": {
+    "caption": "6.6.6-jadval. Qaytaruvchi xossalar va termik barqarorlik",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "E°(X₂/2X⁻)",
+        "F 2,87;  Cl 1,36;  Br 1,07;  I 0,54 V",
+        "Standart elektrod potensiali"
+      ],
+      [
+        "Qaytaruvchilik tartibi",
+        "F⁻ < Cl⁻ < Br⁻ < I⁻",
+        "I⁻ eng kuchli"
+      ],
+      [
+        "F⁻ ning holati",
+        "Oksidlanmaydi — HF dan F₂ olish mumkin emas",
+        "Asosiy farq"
+      ],
+      [
+        "Taxminiy hisob: 1000 kg kislota",
+        "Cl₂ 972,4;  Br₂ 987,5;  I₂ 992,1 kg;  HF uchun 0",
+        "Taxminiy hisob"
+      ],
+      [
+        "Havodan oksidlanish",
+        "Faqat HI: 4HI + O₂ → 2I₂ + 2H₂O",
+        "Taxminiy hisob: O₂ 62,5 kg"
+      ],
+      [
+        "Kuchli oksidlovchi talabi",
+        "HCl va HBr uchun MnO₂, KClO₃ kabi",
+        "Manba"
+      ],
+      [
+        "Termik dekompozitsiya",
+        "2HX ⇌ H₂ + X₂:  ΔG° +550,8; +190,6; +110,0; +15,9 kJ/mol",
+        "6.1-bo‘lim"
+      ],
+      [
+        "Taxminiy hisob: lgK(dekomp.)",
+        "−96,50;  −33,39;  −19,27;  −2,79",
+        "Taxminiy hisob"
+      ],
+      [
+        "Anion barqarorligi",
+        "Energetik balans: −754,6; −591,7; −547,1; −481,2 kJ/mol",
+        "Taxminiy hisob"
+      ],
+      [
+        "Oksidlovchi xarakter",
+        "Kontrast: F⁻ kuchli oksidlovchi, I⁻ kuchli qaytaruvchi",
+        "Manba"
+      ],
+      [
+        "Chegara",
+        "Reaksiya sharoitlari berilmaydi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "tuzlar": {
+    "caption": "6.6.7-jadval. Tuzlar, eruvchanlik va komplekslar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "AgF",
+        "Yaxshi eriydi: ≈1,8 kg/L (20 °C); Ksp ko‘pincha keltirilmaydi",
+        "Manba"
+      ],
+      [
+        "AgCl / AgBr / AgI",
+        "Ksp: 1,8×10⁻¹⁰;  5,4×10⁻¹³;  8,3×10⁻¹⁷",
+        "Oq / och sariq / sariq"
+      ],
+      [
+        "PbF₂ / PbCl₂ / PbBr₂ / PbI₂",
+        "Ksp: 3,7×10⁻⁸;  1,6×10⁻⁵;  4,6×10⁻⁶;  7,9×10⁻⁹",
+        "Manba"
+      ],
+      [
+        "BaF₂ / CaF₂",
+        "Ksp: 1,7×10⁻⁶;  3,9×10⁻¹¹",
+        "CaF₂ deyarli erimaydi"
+      ],
+      [
+        "CaF₂ hosil bo‘lishi",
+        "CaCO₃ + 2HF → CaF₂↓ + CO₂ + H₂O",
+        "HF neytralizatsiyasi"
+      ],
+      [
+        "X⁻ kuchli ligandligi",
+        "F⁻ < Cl⁻ < Br⁻ < I⁻",
+        "Taxminiy reyting 1 → 5"
+      ],
+      [
+        "Tipik komplekslar",
+        "[AgX₂]⁻;  [CuCl₄]²⁻;  [PtCl₆]²⁻;  [HgI₄]²⁻",
+        "Manba"
+      ],
+      [
+        "AlX₃ ko‘rinishi",
+        "AlF₃ — ionli;  AlCl₃ — dimer;  AlBr₃ va AlI₃ — kuchli dimer",
+        "6.1-bo‘lim"
+      ],
+      [
+        "Kislota tuzlari",
+        "NaX, CaX₂, MgX₂ — barchasi eriydi (HF dan tashqari CaF₂ chiqishi bilan)",
+        "Taxminiy hisob"
+      ],
+      [
+        "Cho‘kma bilan ajratish",
+        "AgCl, AgBr, AgI — gravimetrik tahlil uchun",
+        "Tahlil usuli"
+      ],
+      [
+        "Chegara",
+        "Tuz parametrlari va idish materiallari tanlanmaydi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "organik": {
+    "caption": "6.6.8-jadval. Organik kimyoga ta’sir",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Alkil galogenidlari",
+        "R–OH + HX → R–X + H₂O",
+        "Tartib: HI > HBr > HCl >> HF"
+      ],
+      [
+        "Alkil iodidi",
+        "R–OH + HI → R–I + H₂O — eng oson",
+        "6.5-bo‘lim"
+      ],
+      [
+        "Alkil bromidi",
+        "R–OH + HBr → R–Br + H₂O",
+        "Kuchli reagent"
+      ],
+      [
+        "Alkil xloridi",
+        "R–OH + HCl → R–Cl + H₂O — faqat katalizator bilan",
+        "Zararli gaz ajraladi"
+      ],
+      [
+        "Alkil fluoridi",
+        "R–OH + HF → R–F — amalda bajarilmaydi",
+        "F⁻ yaxshi qaytaruvchi emas"
+      ],
+      [
+        "Eter kesish",
+        "R–O–R′ + HX → R–X + R′–OH",
+        "Faqat HI va HBr uchun"
+      ],
+      [
+        "Nitroaromatik qaytarish",
+        "ArNO₂ → ArNH₂ (HI + qizil fosfor)",
+        "6.5-bo‘lim"
+      ],
+      [
+        "Markerovnikov qoidasi",
+        "R–CH=CH₂ + HI → R–CHI–CH₃",
+        "Manba"
+      ],
+      [
+        "Cativa jarayoni",
+        "HI — metanoldan siryaga katalizator",
+        "6.5-bo‘lim"
+      ],
+      [
+        "Ishlatilishi",
+        "Alkil bromid va iodid — laboratoriya va sanoat",
+        "Manba"
+      ],
+      [
+        "Chegara",
+        "Dozalar va sharoitlar berilmaydi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "tahlil": {
+    "caption": "6.6.9-jadval. Tahlil usullari: har bir kislota uchun",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Standartlash",
+        "Na₂CO₃ yoki boraks bilan titrlash",
+        "1.3 va 6.3-bo‘lim"
+      ],
+      [
+        "HF aniqlash",
+        "NaOH bilan titrlash; Ca(NO₃)₂ bilan gravimetriya",
+        "6.2-bo‘lim"
+      ],
+      [
+        "HCl aniqlash",
+        "Na₂CO₃ bilan titrlash; AgCl gravimetriya",
+        "6.3-bo‘lim"
+      ],
+      [
+        "HBr aniqlash",
+        "Titr; AgBr gravimetriya",
+        "6.4-bo‘lim"
+      ],
+      [
+        "HI aniqlash",
+        "Na₂CO₃ bilan titrlash; yodometriya",
+        "6.5-bo‘lim"
+      ],
+      [
+        "Yodometriya",
+        "IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O",
+        "Arxiv usul"
+      ],
+      [
+        "AgX gravimetriyasi",
+        "AgX cho‘kmasi quritilib o‘lchanadi",
+        "0,1 g miqdorda"
+      ],
+      [
+        "Ion-elektrod",
+        "F⁻ uchun fluorid elektrod;  Cl⁻ uchun elektrod",
+        "Zamonaviy"
+      ],
+      [
+        "Element izotoplari",
+        "ICP-OES / ICP-MS: F, Cl, Br, I",
+        "Yuqori sezgirlik"
+      ],
+      [
+        "Suv miqdori",
+        "Karl Fischer usuli",
+        "5.3-bo‘lim"
+      ],
+      [
+        "Chegara",
+        "Metod parametrlari berilmaydi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "xavfsizlik": {
+    "caption": "6.6.10-jadval. Xavfsizlik, ekologiya va iqtisodiy taqqoslash",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "HF xavfsizlik",
+        "OSHA TWA 3 ppm;  ACGIH 0,5 ppm;  yuqori chegar 2 ppm;  IDLH 30 ppm",
+        "Manba"
+      ],
+      [
+        "HCl xavfsizlik",
+        "OSHA 5 ppm (yuqori chegar);  ACGIH 2,98 ppm;  IDLH 50 ppm (tarixiy)",
+        "Manba"
+      ],
+      [
+        "HBr xavfsizlik",
+        "OSHA 3 ppm;  ACGIH 2 ppm;  IDLH 35 ppm (2025, 116 mg/m³)",
+        "Manba"
+      ],
+      [
+        "HI xavfsizlik",
+        "ICSC 1326 DANGER;  ACGIH 0,01 ppm;  IDLH 35 ppm (183 mg/m³)",
+        "Manba"
+      ],
+      [
+        "AEGL (HI, 10 daqiqa)",
+        "1 / 150 / 740 ppm",
+        "EPA/ORNL"
+      ],
+      [
+        "Fluorid va ekologiya",
+        "WHO tavsiyasi 1,5 mg/L;  AQSh MCL 4,0 mg/L",
+        "Manba"
+      ],
+      [
+        "Taxminiy hisob: neytralizatsiya",
+        "1000 kg 10 % li eritmaga Na₂CO₃: 264,9; 145,3; 65,5; 41,4 kg",
+        "Taxminiy hisob"
+      ],
+      [
+        "Taxminiy hisob: Ca(OH)₂",
+        "185,2;  101,6;  45,8;  29,0 kg",
+        "Taxminiy hisob"
+      ],
+      [
+        "Taxminiy hisob: ekvivalent",
+        "H+ ekvivalenti 1 kg da: HF 49,985;  HCl 27,427;  HBr 12,359;  HI 7,818 mol",
+        "Taxminiy hisob"
+      ],
+      [
+        "Ekvivalent massa",
+        "HF 20,01;  HCl 36,46;  HBr 80,91;  HI 127,91 g/eq",
+        "Barchasi bir protonli"
+      ],
+      [
+        "Chegara",
+        "Narx va doza tavsiyalari berilmaydi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "hisob": {
+    "caption": "6.6.11-jadval. Xulosa va ishlangan hisob",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      4.4,
+      4.6
+    ],
+    "rows": [
+      [
+        "Asosiy xulosa 1",
+        "Bog‘ energiyasi kichiklashgani sayin kislotalik kuchayadi",
+        "D: 569 → 295 kJ/mol"
+      ],
+      [
+        "Asosiy xulosa 2",
+        "Suvda kislotalik gidratatsiya bilan cheklangan; DMSO tartibni ochadi",
+        "pK_a(DMSO) 15 → −10,9"
+      ],
+      [
+        "Asosiy xulosa 3",
+        "Qaytaruvchilik teskari: I⁻ eng kuchli, F⁻ umuman qaytaruvchi emas",
+        "E° 0,54 → 2,87 V"
+      ],
+      [
+        "Asosiy xulosa 4",
+        "Tuzlar: eruvchanlik ketma-ket pasayadi (AgF → AgI)",
+        "Ksp 1,8×10⁻¹⁰ → 8,3×10⁻¹⁷"
+      ],
+      [
+        "Asosiy xulosa 5",
+        "Har bir kislotaning o‘z sohasi bor: HF — shisha, HI — yodometriya",
+        "Amaliy xulosa"
+      ],
+      [
+        "Taxmin A: metall",
+        "1 g Fe → HF 0,716 g;  HCl 1,306 g;  HBr 2,898 g;  HI 4,581 g",
+        "Taxminiy hisob"
+      ],
+      [
+        "Taxmin B: neytralizatsiya",
+        "1000 kg 10 % li eritma + Na₂CO₃ (kirish = chiqish)",
+        "Taxminiy hisob"
+      ],
+      [
+        "Taxmin C: ekvivalent",
+        "1 kg kislotada H+ ekvivalenti: 49,985;  27,427;  12,359;  7,818 mol",
+        "Taxminiy hisob"
+      ],
+      [
+        "Taxmin D: halogen",
+        "1000 kg kislotadan Cl₂ 972,4;  Br₂ 987,5;  I₂ 992,1 kg;  HF uchun 0",
+        "Taxminiy hisob"
+      ],
+      [
+        "Taxmin E: eritma",
+        "0,100 M: pH HF 2,102;  HCl/HBr/HI 1,000",
+        "Taxminiy hisob"
+      ],
+      [
+        "Chegara",
+        "Barcha natijalar ochiq shartli hisoblardan",
+        "O‘lchov ma’lumoti emas"
+      ]
+    ]
+  }
+}

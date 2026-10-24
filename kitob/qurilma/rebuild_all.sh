@@ -20,7 +20,7 @@ echo "=== 1. MA'LUMOT SKRIPTLARI ==="
 for s in equilibria_03_01 effects_03_02 ph_03_03 titration_03_04 buffer_03_05 \
          kinetics_03_06 redox_04_02 neutral_04_01 passive_04_03 complex_04_04 \
          decomp_04_05 prep_05_01 prep_05_02 prep_05_03 prep_05_04 \
-         prep_06_01 prep_06_02 prep_06_03 prep_06_04 prep_06_05; do
+         prep_06_01 prep_06_02 prep_06_03 prep_06_04 prep_06_05 prep_06_06; do
   [ -f "$s.py" ] && run "$s" "$s.py"
 done
 

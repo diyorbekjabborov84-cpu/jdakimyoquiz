@@ -1,0 +1,112 @@
+[
+  [
+    [
+      "Molekula",
+      "r: 0,917; 1,2746; 1,414; 1,609 Å. D: 569; 432; 370; 295 kJ/mol."
+    ],
+    [
+      "Og‘irlik",
+      "M: 20,006; 36,461; 80,912; 127,912 g/mol."
+    ]
+  ],
+  [
+    [
+      "Tartib",
+      "HI > HBr > HCl > HF — suv, DMSO va gaz fazida bir xil."
+    ],
+    [
+      "Leveling",
+      "Suvda HCl, HBr, HI bir-biriga teng: pH = −lg c."
+    ]
+  ],
+  [
+    [
+      "Qaynash",
+      "19,5; −85,1; −66,8; −35,4 °C — faqat HF suyuq."
+    ],
+    [
+      "Azeotrop",
+      "37,0; 20,2; 47,6; 56,9 %; c: 21,27; 6,11; 8,77; 7,56 mol/L."
+    ]
+  ],
+  [
+    [
+      "HF chetlanishi",
+      "0,100 M: pH 2,102 va dissotsiatsiya 7,91 %."
+    ],
+    [
+      "Kuchli kislotalar",
+      "0,100 M: pH 1,000; [H₃O⁺] ≈ c (taxminiy hisob)."
+    ]
+  ],
+  [
+    [
+      "Metall",
+      "1 g Fe uchun kislota: HF 0,716; HCl 1,306; HBr 2,898; HI 4,581 g."
+    ],
+    [
+      "Passivatsiya",
+      "Faqat HF da: FeF₃ va CaF₂ qatlami himoya beradi."
+    ]
+  ],
+  [
+    [
+      "Redoks",
+      "E°: 2,87; 1,36; 1,07; 0,54 V. F⁻ umuman oksidlanmaydi."
+    ],
+    [
+      "Taxminiy hisob",
+      "1000 kg kislotadan Cl₂ 972,4; Br₂ 987,5; I₂ 992,1 kg."
+    ]
+  ],
+  [
+    [
+      "Er",
+      "AgF eriydi (≈1,8 kg/L). AgCl 1,8×10⁻¹⁰; AgBr 5,4×10⁻¹³; AgI 8,3×10⁻¹⁷."
+    ],
+    [
+      "Kompleks",
+      "F⁻ < Cl⁻ < Br⁻ < I⁻ ligandlik; [HgI₄]²⁻, [PtCl₆]²⁻."
+    ]
+  ],
+  [
+    [
+      "Organik",
+      "R–OH + HX: tartib HI > HBr > HCl >> HF."
+    ],
+    [
+      "Eter",
+      "Faqat HI va HBr eter kesadi; HF amalda ishlamaydi."
+    ]
+  ],
+  [
+    [
+      "Tahlil",
+      "Na₂CO₃ standartlash; AgX gravimetriya; yodometriya; ISE; ICP-MS."
+    ],
+    [
+      "Chegara",
+      "Metod parametrlari va qabul chegaralari berilmaydi."
+    ]
+  ],
+  [
+    [
+      "Xavfsizlik",
+      "HF: IDLH 30 ppm. HCl: 50 ppm (tarixiy). HBr va HI: 35 ppm."
+    ],
+    [
+      "Taxminiy hisob",
+      "1 kg kislotada H+ ekvivalenti: 49,985; 27,427; 12,359; 7,818 mol."
+    ]
+  ],
+  [
+    [
+      "Xulosa",
+      "Bog‘ kuchi, gidratatsiya va qaytaruvchilik — uch xil o‘lchov."
+    ],
+    [
+      "Taxminiy hisob",
+      "A: metall; B: neytralizatsiya; C: ekvivalent; D: halogen; E: eritma."
+    ]
+  ]
+]
