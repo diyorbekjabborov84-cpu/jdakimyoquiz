@@ -1,0 +1,112 @@
+[
+  [
+    [
+      "Tanim",
+      "CAS 7783-06-4;  M = 34,081 g/mol;  UN 1053."
+    ],
+    [
+      "Manbalar",
+      "Vulkan gazlari, neft konlari, anerobik sulfat-reduksiya."
+    ]
+  ],
+  [
+    [
+      "Tuzilish",
+      "AX₂E₂, C₂ᵥ;  r = 1,3356 Å;  burchak 92,11°;  μ = 0,97 D."
+    ],
+    [
+      "Energetika",
+      "D(H–S) ≈ 347 kJ/mol;  IE 10,46 eV;  PA 705 kJ/mol."
+    ]
+  ],
+  [
+    [
+      "Fazalar",
+      "Tf 190,85 K;  Tb 212,87 K;  Pc 89,63 bar;  Tc 373,3 K."
+    ],
+    [
+      "Bug‘lanish",
+      "25 °C da 15 600 mmHg;  o‘z-o‘zidan alish 232 °C;  yong‘inuvchanlik 4–44 %."
+    ]
+  ],
+  [
+    [
+      "Eruvchanlik",
+      "3,98 g/L (20 °C);  to‘yingan eritma 0,1168 mol/L, pH ≈ 3,99 (taxminiy hisob)."
+    ],
+    [
+      "Henry",
+      "H = p/c ≈ 17 800 kPa·L/mol — H₂S suvda yaxshi eriydi."
+    ]
+  ],
+  [
+    [
+      "Kislotalik",
+      "pK_a1 = 7,04;  pK_a2 = 11,96 (manbada 12–19);  K_b(S²⁻) ≈ 8,3×10⁻³."
+    ],
+    [
+      "Spetsiatsiya",
+      "pH 7,4: H₂S 30,4 %, HS⁻ 69,6 %, S²⁻ 0,0021 % (taxminiy hisob)."
+    ]
+  ],
+  [
+    [
+      "Hosilalish",
+      "FeS + 2HCl → FeCl₂ + H₂S↑ (Kipp);  Al₂S₃ gidrolizi."
+    ],
+    [
+      "Chegara",
+      "Apparat parametrlari va konsentratsiyalar berilmaydi."
+    ]
+  ],
+  [
+    [
+      "Redoks",
+      "E°(H₂S/S) = +0,14 V;  E°(S²⁻/S) = −0,407 V — sulfid ion kuchli qaytaruvchi."
+    ],
+    [
+      "Cho‘qma",
+      "Cu²⁺ + H₂S → CuS↓;  2Ag + H₂S + ½O₂ → Ag₂S + H₂O."
+    ]
+  ],
+  [
+    [
+      "Ksp",
+      "ZnS 2,0×10⁻²⁵;  PbS 3,2×10⁻²⁸;  CuS 7,9×10⁻³⁷;  HgS 2×10⁻⁵³."
+    ],
+    [
+      "Ranglar",
+      "ZnS oq, CdS sariq, CuS qora, Sb₂S₃ zaytun, Bi₂S₃ jigarrang."
+    ]
+  ],
+  [
+    [
+      "Chegaralar",
+      "OSHA 20 ppm;  NIOSH 10 ppm;  ACGIH 1/5 ppm;  IDLH 100 ppm."
+    ],
+    [
+      "Taxminiy hisob",
+      "1 ppm ≈ 1,40 mg/m³;  1 m³ da 20 ppm → 28 mg."
+    ]
+  ],
+  [
+    [
+      "Claus",
+      "2H₂S + SO₂ ⇌ 3S + 2H₂O;  Al₂O₃;  200–330 °C;  qaytarish 95–97 %."
+    ],
+    [
+      "Taxminiy hisob",
+      "1000 kg H₂S → 940,7 kg S;  528,6 kg H₂O;  469,4 kg O₂."
+    ]
+  ],
+  [
+    [
+      "Xulosa",
+      "Zaif bog‘, kuchsiz kislota, kuchli qaytaruvchi — uch xil o‘lchov."
+    ],
+    [
+      "Taxminiy hisob",
+      "A: yodometriya; B: cho‘qma; C: Claus; D: neytralizatsiya; E: ekvivalent."
+    ]
+  ]
+]

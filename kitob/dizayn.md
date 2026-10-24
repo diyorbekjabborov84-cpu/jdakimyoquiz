@@ -713,3 +713,64 @@ yaratildi; natija **11 sahifa**.
 
 Havola shakli: `https://docs.google.com/document/d/<Doc-ID>/edit` va `https://drive.google.com/uc?id=<DOCX-ID>&export=download`.
 Mahalliy PDF eksportlari: `google_drive/Noorganik kislotalar — <X.Y. Nomi>` (kengaytmasiz fayllar, PyMuPDF bilan tekshirilgan).
+
+
+## 7.1. Vodorod sulfid (H₂S) — yozildi va yetkazildi (2026-10-24)
+
+7-bobning birinchi mavzusi: oltingugurt guruhining eng oddiy vodorod gidridi — mustahil manbalar
+(NIST WebBook, EPA/IRIS, ATSDR, OSHA/NIOSH, ICSC 1326, USGS) asosida, «taxminiy hisob» terminologiyasi
+saqlangan holda.
+
+### Tuzilma (oldingi mavzular bilan bir xil standart)
+- **11 bo‘lim = 11 sahifa** (Google Docs PDF eksporti bilan tekshirilgan, bo‘sh sahifa yo‘q);
+- **11 jadval**, **22 yon lavha** (har bo‘limda 2 ta);
+- **5 hisoblangan grafik** (kislotalik/spetsiatsiya, fizik, eritma, metall sulfidlar, ekvivalent) +
+  **7 sxema** (fizikx, eritmax, metallx, redoksx, tuzlarx, tahlilx, xavfsizlikx) +
+  **5 original illyustratsiya** (molekulax, hosilax, idishx, tabiiy, clausx) = 17 rasm;
+- **11 raqamlangan native formula guruhi** (7.1.1–7.1.11, OMML, Cambria Math);
+- A4, chapda 75 % asosiy matn / o‘ngda 25 % vizual panel, ko‘k/bronza ramkalar, matn 10 pt TNR,
+  jadval 7,5 pt, formula 18 pt.
+
+### Kanonik raqamlar (NIST / EPA IRIS / ATSDR / OSHA-NIOSH / K_sp jadvallari)
+- Molekula: M 34,081 g/mol;  AX₂E₂, C₂v;  ∠HSH 92,11°;  r(H–S) 1,3356 Å;  D 347 kJ/mol;  μ 0,97 D;
+  IE 10,46 eV;  PA 705 kJ/mol;  ΔfH°(g) −20,6 kJ/mol;  S° 205,81 J/(mol·K);  ΔfG° −37,28 kJ/mol;  Cp 34,25 J/(mol·K).
+- Agregat: Tb 212,87 K (−60,28 °C);  Tf 190,85 K;  Tt 187,66 K;  Tc 373,3 K;  Pc 89,63 bar;  ρc 10,2 mol/L;
+  ΔvapH 19,5 kJ/mol (200 K);  autoignition 232 °C;  yong‘inuvchanlik 4–44 %;  1 ppm = 1,40 mg/m³.
+- Kislotalik: pK_a1 7,04 (K_a1 9,1×10⁻⁸);  pK_a2 11,96 (K_a2 ≈1,2×10⁻¹²);  K_b(S²⁻) ≈ 8,3×10⁻³;
+  pH 7,4 da H₂S 30,4 % / HS⁻ 69,6 % / S²⁻ 0,0021 %;  pH 10 da HS⁻ 98,7 %.
+- K_sp: CaS 8×10⁻⁶;  MnS 5,1×10⁻¹⁵;  FeS 4,9×10⁻¹⁸;  CoS 5,9×10⁻²¹;  NiS 3,0×10⁻²¹;  ZnS 2,0×10⁻²⁵;
+  CdS 1,0×10⁻²⁸;  PbS 3,2×10⁻²⁸;  CuS 7,9×10⁻³⁷;  Ag₂S 1,0×10⁻⁴⁹;  HgS 2×10⁻⁵³.
+- Xavfsizlik: OSHA PEL 20 ppm (50 ppm — 10 daqiqa);  NIOSH REL 10 ppm;  ACGIH TWA 1 / STEL 5 ppm;
+  IDLH 100 ppm;  ERPG 0,1 / 30 / 100 ppm;  PAC 0,51 / 27 / 50 ppm.
+- Taxminiy hisob natijalari: to‘yingan eritma c 0,1168 M, pH 3,99;  [S²⁻] pH 1 da 1,09×10⁻¹⁸,
+  pH 7 da 1,09×10⁻⁶ mol/L;  PbS chegarasi 2,93×10⁻¹⁰ / 2,93×10⁻²² mol/L;  yodometriya 0,00500 mol,
+  I₂ 1,2690 g, tiosulfat 2,4818 g;  neytralizatsiya NaOH 117,4 / 234,7 kg, Ca(OH)₂ 217,4 kg;
+  ekvivalent 17,041 g/eq;  Claus 1000 kg H₂S → S 940,7 kg, H₂O 528,6 kg, O₂ 469,4 kg (balans 0,15 kg);
+  Henry H ≈ 17 800 kPa·L/mol;  C–C p(25 °C) 23,68 bar (jadval 20,80 bar, +13,8 %).
+
+### Chegaralar
+- Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari, dozalar va tibbiy
+  tavsiyalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli gazlar bilan ishlash tartibi 12-bo‘limda.
+- Barcha sonli egri chiziqlar «taxminiy hisob» deb belgilangan (o‘lchov ma’lumoti emas);
+  «model» so‘zi ishlatilmadi; «vodorod bog‘i» terminologiyasi saqlangan.
+
+### Fayllar
+`kitob/matn/07_01.md`, `07_01_jadvallar.json`, `07_01_yonlavhalar.json`;
+`kitob/qurilma/prep_07_01.py` (10 CSV), `content_07_01.py`, `equations_07_01.py`, `draw_07_01.py`,
+`build_07_01_sidebar.py`, `check_07_01.py`; `kitob/rasmlar/h2s/` (17 PNG + 10 CSV);
+`kitob/chiqish/Noorganik-kislotalar-7.1-Vodorod-sulfid.docx` (1 158 388 bayt).
+
+### QA va sahifalash
+`check_07_01.py` — barcha tekshiruvlar o‘tdi (taxminiy hisoblar, 10 CSV, 17 PNG, 17 inline shakl,
+OMML satrlari, 11/7/5/5 sarlavha, 11 formula raqami, «_» yo‘q, TNR/Cambria, kirill/CJK yo‘q).
+Google Docs PDF eksportida 7.1 uch iteratsiya kerak bo‘ldi: 14 sahifa (3 bo‘lim toshdi) → tipografiya
+qisqartirildi → 12 sahifa (bo‘sh oxirgi sahifa) → oxirgi bo‘lim matni va jadval qatori qisqartirildi →
+**11 sahifa**, har bir bo‘lim aynan bitta sahifada. Shuningdek 11-forma guruhidagi uzun qator
+bo‘linib, ustunga chiqib ketish tuzatildi.
+
+### Drive
+- Native Google Docs: `1dfyTcUVfbIQpKOBJsJUz566Sn4h6d_SfEvKNvGjzZx8`
+  → https://docs.google.com/document/d/1dfyTcUVfbIQpKOBJsJUz566Sn4h6d_SfEvKNvGjzZx8/edit
+- DOCX: `1vwTXwBxO_9668ogF6sIiEeDJNj5Jsfow`
+  → https://drive.google.com/uc?id=1vwTXwBxO_9668ogF6sIiEeDJNj5Jsfow&export=download
+- Ikkalasi ham `anyone/reader` (discovery=false). 3 iteratsiya nusxasi trash qilindi.

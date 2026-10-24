@@ -45,6 +45,9 @@ def chem(s):
     return result
 
 def equations(topic):
+    if topic=='7.1':
+        from equations_07_01 import h2s_equations
+        return h2s_equations()
     if topic=='6.6':
         from equations_06_06 import comparison_equations
         return comparison_equations()
