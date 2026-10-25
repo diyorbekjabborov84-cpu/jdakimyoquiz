@@ -1,0 +1,7 @@
+Gidrat,Formula,"M, g/mol","H₂SO₄, % (hisob)","H₂SO₄, % (jadval)",Tuzilma,"T_erish, °C"
+Monogidrat (SAM),H₂SO₄·H₂O,"116,09","84,48","84,5",H₃O⁺HSO₄⁻,"8,5"
+Digidrat (SAD),H₂SO₄·2H₂O,"134,11","73,13","73,1",H₃O⁺HSO₄⁻·H₂O,"-39,5"
+Trigidrat (SATri),H₂SO₄·3H₂O,"152,12","64,47","64,5",H₃O⁺HSO₄⁻·2H₂O,"-26,0"
+Tetragidrat (SAT),H₂SO₄·4H₂O,"170,14","57,65","57,6",[H₅O₂⁺]₂SO₄²⁻,"-28,2"
+Yarimtriskaidekagidrat (SAH),"H₂SO₄·6,5H₂O","215,18","45,58","45,6","H₃O⁺ + SO₄²⁻·5,5H₂O","-54,0"
+Oktagidrat (SAO),H₂SO₄·8H₂O,"242,20","40,49","40,5",H₃O⁺ + SO₄²⁻·7H₂O,"-3,4"

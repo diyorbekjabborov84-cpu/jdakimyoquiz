@@ -842,3 +842,68 @@ pastki indeksga aylantirildi (oxirgi iteratsiya).
 - DOCX: `1qt92ajxywohRMGNsO-LSLpIUJYs1ckOa`
   → https://drive.google.com/uc?id=1qt92ajxywohRMGNsO-LSLpIUJYs1ckOa&export=download
 - Ikkalasi ham `anyone/reader` (discovery=false). 5 iteratsiya nusxasi trash qilindi.
+
+
+## 7.3. Sulfat kislota (H₂SO₄) — tuzilishi (2026-10-25)
+
+7-bobning uchinchi mavzusi: oltingugurtning +VI darajasidagi kuchli ikki protonli kislota — mustahil
+manbalar (NIST WebBook/CCCBDB, NIST-JANAF, Myhre/Attaia spektroskopiya, RSC superkislotalik,
+Gold Book kislotalik, IUCr kristallografiya, OSHA/NIOSH/ACGIH/AIHA xavfsizlik, USGS/SP Global
+sanoat statistikasi) asosida, «taxminiy hisob» terminologiyasi saqlangan holda.
+
+### Tuzilma (oldingi mavzular bilan bir xil standart)
+- **11 bo‘lim = 11 sahifa** (Google Docs PDF eksporti bilan tekshirilgan, bo‘sh sahifa yo‘q);
+- **11 jadval**, **45 yon lavha** (o‘ng ustun to‘ldirilgani uchun ko‘paytirilgan);
+- **5 hisoblangan grafik** (spektr, kislotalik/spetsiatsiya, dissotsiatsiya, gidratlar, sanoat) +
+  **7 sxema** (rezonansx, sufmax, kristalx, ionlarx, gidratx, gidratilx, xavfsizlikx) +
+  **5 original illyustratsiya** (tabiiyx, molekulax, tuzlarilx, gidratilx, zavodx) = 17 rasm;
+- **11 raqamlangan native formula guruhi** (7.3.1–7.3.11, OMML, Cambria Math);
+- A4, chapda 75 % asosiy matn / o‘ngda 25 % vizual panel, ko‘k/bronza ramkalar, matn 10 pt TNR,
+  jadval 7,5 pt, formula 18 pt.
+
+### Kanonik raqamlar (NIST / CCCBDB / JANAF / IUCr / OSHA-NIOSH-ACGIH / USGS)
+- Molekula: M(H₂SO₄) 98,078 g/mol;  CAS 7664-93-9;  C₂ simmetriya, gauche-gauche;  r(O–H) 97,0 pm,
+  r(S–O) 157,4 pm, r(S=O) 142,2 pm;  ∠H–O–S 108,5°;  ∠O–S–O 101,3°/123,3°;  τ 89,1°.
+- Termodinamika: ΔfH°(g) −735,13 kJ/mol;  S°(g) 298,78 J/(mol·K);  PA 699,4 kJ/mol;
+  GB 666,9 kJ/mol;  ΔrG°(deprotonatsiya) 1265 ± 10 kJ/mol.
+- Spektroskopiya: SO₄²⁻ (T_d) ν₁ 981, ν₂ 451, ν₃ 1104, ν₄ 617 sm⁻¹, r(S–O) 147,2 pm;
+  HSO₄⁻ (C_s) 12 chastota, Raman 1055/1030/900 sm⁻¹.
+- Kislotalik: K_a1 ≈ 10³ (pK_a1 ≈ −3);  K_a2 = 1,2×10⁻² (pK_a2 1,99);  H₀ = −12;
+  K_ap ≈ 1,70×10⁻⁴ mol²/kg²;  proton solvatatsiyasi ≈ −995 kJ/mol;  proton zaxirasi 37,3 mol H⁺/L.
+- Gidratlar: SAM 84,5 %, SAD 73,1 %, SATri 64,5 %, SAT 57,6 %, SAH 45,6 %, SAO 40,5 %.
+- Kristal: monoklin C2/c, a 818,1, b 469,60, c 856,3 pm, β 111,39°, Z = 4;  V = 306 313 pm³;
+  V/Z = 76 578 pm³;  ρ ≈ 2,13 g/cm³.
+- Xavfsizlik: OSHA PEL 1 mg/m³;  NIOSH REL 1 mg/m³;  ACGIH TLV-TWA 0,2 mg/m³;  IDLH 15 mg/m³;
+  ERPG 2/10/120 mg/m³;  IARC 1.
+- Sanoat: global ishlab chiqarish 260–290 mln t/yil;  fosfaat o‘g‘itlari 56–60 %;  kontakt
+  konversiyasi 99,7 %.
+
+### Chegaralar
+- Qurilma, texnologik parametrlar, konsentratsiya tanlash, idish materiallari, dozalar va tibbiy
+  tavsiyalar bo‘yicha amaliyot tavsiyalari berilmaydi; xavfli kislotalar bilan ishlash tartibi 12-bo‘limda.
+- Barcha sonli egri chiziqlar «taxminiy hisob» deb belgilangan (o‘lchov ma’lumoti emas);
+  «model» so‘zi ishlatilmadi; «vodorod bog‘i» terminologiyasi saqlangan.
+
+### Fayllar
+`kitob/matn/07_03.md`, `07_03_jadvallar.json`, `07_03_yonlavhalar.json`;
+`kitob/qurilma/prep_07_03.py` (10 CSV), `content_07_03.py`, `equations_07_03.py`, `draw_07_03.py`,
+`build_07_03_sidebar.py`, `check_07_03.py`, `layout_07_03.py`, `predict_07_03.py`;
+`kitob/rasmlar/sulfat/` (17 PNG + 10 CSV);
+`kitob/chiqish/Noorganik-kislotalar-7.3-Sulfat-kislota-tuzilishi.docx` (1 317 069 bayt).
+
+### QA va sahifalash
+`check_07_03.py` — barcha tekshiruvlar o‘tdi (taxminiy hisoblar, 10 CSV qator sonlari, 17 PNG,
+17 inline shakl, OMML formula, 11/7/5/5 sarlavha, 11 formula raqami, «_» va «**» yo‘q,
+TNR/Cambria, kirill/CJK yo‘q, «model» yo‘q, «o‘lchov ma’lumoti emas» iborasi bor).
+Google Docs PDF eksportida 7.3 uch 8 iteratsiya kerak bo‘ldi: 14 sahifa → jadval ustun kengliklari
+individual optimallashtirildi, qatorlar birlashtirildi, formula guruhi 7→6 qator qisqartirildi →
+11 sahifa (iter-2); so‘nggi «final» eksportida 11-bo‘limning o‘ng ustuniga qo‘shilgan «Kontakt usuli»
+yon lavhasi 788,5 pt ga yetib, 12-sahifa (bo‘sh) yuzaga keldi. Yakuniy tuzatish: 11-bo‘limdagi
+asosiy panel 3,40→3,15 sm, `xavfsizlikx`/`zavodx` 2,25→2,10 sm — o‘ng ustun 765,2 pt, **11 sahifa**.
+
+### Drive
+- Native Google Docs: `1zGqWQQqcrSu6PpsNlsogzCGqLproB11Yc1bLRaY34JI`
+  → https://docs.google.com/document/d/1zGqWQQqcrSu6PpsNlsogzCGqLproB11Yc1bLRaY34JI/edit
+- DOCX: `1s_uQvIgG82CaOKNO1lmaBfamijVj7lep`
+  → https://drive.google.com/uc?id=1s_uQvIgG82CaOKNO1lmaBfamijVj7lep&export=download
+- Ikkalasi ham `anyone/reader` (discovery=false). 10 iteratsiya nusxasi trash qilindi.

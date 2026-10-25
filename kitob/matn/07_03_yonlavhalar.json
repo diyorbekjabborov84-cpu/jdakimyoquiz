@@ -1,0 +1,204 @@
+[
+  [
+    [
+      "Tanim",
+      "H₂SO₄ = 98,08 g/mol;  CAS 7664-93-9;  UN 1830/1831/1832."
+    ],
+    [
+      "Holati",
+      "S — +VI;  ikki protonli kislota;  sof holda ajratib olinadi."
+    ],
+    [
+      "Kimyo",
+      "Kuchli elektrolit: 1 mol kislota 2 mol H⁺ beradi;  suvda H₂SO₄ + H₂O → H₃O⁺ + HSO₄⁻."
+    ],
+    [
+      "Tahlil",
+      "Titratsiya va sulfat gravimetriyasi (BaSO₄ cho‘kishi) orqali aniqlanadi."
+    ],
+    [
+      "Solishtirish",
+      "7.2 sulfit kislota suvda faqat dissotsiatsiyalangan holda mavjud;  sulfat kislota alohida molekula."
+    ],
+    [
+      "Nomi",
+      "«Vitriol yog‘i» (oil of vitriol), «dipping acid», «matting acid» — tarixiy nomlar."
+    ]
+  ],
+  [
+    [
+      "Simmetriya",
+      "C₂, gauche-gauche;  τ(H–O–S–O) = 89,1°."
+    ],
+    [
+      "Bog‘lar",
+      "r(S=O) 142,2;  r(S–OH) 157,4;  r(O–H) 97,0 pm."
+    ],
+    [
+      "Konformatsiya",
+      "Gauche-gauche holat termodinamik eng barqaror;  cis va trans shakllar sezilmaydi."
+    ],
+    [
+      "Solishtirish",
+      "7.2 sulfit kislota yassi SO₂ molekulasi;  sulfat kislota C₂ simmetriyali."
+    ]
+  ],
+  [
+    [
+      "Elektron tuzilma",
+      "Gipervalent;  PA 699,4 kJ/mol;  ΔrG° 1265 ± 10 kJ/mol."
+    ],
+    [
+      "Taxminiy hisob",
+      "ΔG(gaz) = 1265 − 691 = +574 kJ/mol;  suvda proton gidratsiyasi ≈ −1091 kJ/mol."
+    ],
+    [
+      "Zamonaviy yondashuv",
+      "S–O bog‘i klassik ikki bog‘ emas, rezonans aralashgan holat;  d-orbitallar ro‘li cheklangan."
+    ],
+    [
+      "Proton affinity",
+      "GA 666,9 kJ/mol (Hunter va Lias, 1998) — kislotalik o‘lchovining ikkinchi yarim moduli."
+    ]
+  ],
+  [
+    [
+      "Spektr",
+      "SO₄²⁻: 981 / 451 / 1104 / 617 sm⁻¹ (T_d)."
+    ],
+    [
+      "Taxminiy hisob",
+      "3N − 6 = 6 = 1 + 2 + 3;  IR’da faol 3 ta;  H₂SO₄ da 15 ta."
+    ],
+    [
+      "Tanlov qoidalari",
+      "T_d da simmetrik moddalar faqat Ramanda, qo‘shma juft moddalar faqat IRda faol."
+    ],
+    [
+      "Moddalar soni",
+      "N atomli molekula uchun 3N − 6:  SO₄²⁻ da 6,  H₂SO₄ da 15 — jadvalga qarang."
+    ]
+  ],
+  [
+    [
+      "Kislotalik",
+      "K_a1 ≈ 10³ (pK_a1 ≈ −3);  K_a2 = 1,2×10⁻² (pK_a2 1,99)."
+    ],
+    [
+      "Taxminiy hisob",
+      "10³ / 1,2×10⁻² = 8,3×10⁴ ≈ 10⁵ (Paulining qoidasi)."
+    ],
+    [
+      "Suv chegarasi",
+      "Suvda H₂SO₄ HCl dan kuchli;  lekin H₃O⁺ da kislotalik chegarasi qo‘yiladi."
+    ],
+    [
+      "Ikki bosqich",
+      "Birinchi dissotsiatsiya deyarli to‘liq, ikkinchisi muvozanatli — 6-bo‘lim."
+    ]
+  ],
+  [
+    [
+      "Dissotsiatsiya",
+      "0,001 M: pH 2,73, SO₄²⁻ 86,55 %;  1,000 M: pH −0,01, 1,17 %."
+    ],
+    [
+      "Chegara",
+      "Faol koeffitsiyent va ion assotsiatsiyasi hisobga olinmagan."
+    ],
+    [
+      "Tekshiruv",
+      "pH va elektr o‘tkazuvchanlik o‘lchovlari;  ¹H NMR — kislorod bilan almashinuvchi proton."
+    ],
+    [
+      "Cheklov",
+      "5 M dan yuqorida faol koeffitsiyent va ion assotsiatsiyasi hisobga olinadi."
+    ]
+  ],
+  [
+    [
+      "Sufma kislota",
+      "H₀ = −12;  K_ap ≈ 10⁻⁴ (taxminiy hisob 1,70×10⁻⁴ mol²/kg²)."
+    ],
+    [
+      "Taxminiy hisob",
+      "100 % kislota: 18,66 mol/L → 37,3 mol H⁺/L."
+    ],
+    [
+      "Proton donori",
+      "H₃SO₄⁺ — kuchli proton donori;  HS₂O₇⁻ — kuchli proton akseptori."
+    ],
+    [
+      "Chegara",
+      "H₀ o‘lchovi suvning proton zaxirasidan tashqarida;  u superkislotalik chegarasini belgilaydi."
+    ]
+  ],
+  [
+    [
+      "Ionlar",
+      "SO₄²⁻ — T_d, r = 147,2 pm;  HSO₄⁻ — C_s, 12 ta chastota."
+    ],
+    [
+      "Taxminiy hisob",
+      "Rezonans shakllari 4!/(2!·2!) = 6;  zaryad −0,5 e / O."
+    ],
+    [
+      "Simmetriya",
+      "SO₄²⁻ — T_d;  HSO₄⁻ — C_s: 12 chastota, 4 ta IR-faol."
+    ],
+    [
+      "Tuzlar",
+      "Ag₂SO₄ va PbSO₄ deyarli erimaydi;  sulfat ion kuchli elektrolit."
+    ]
+  ],
+  [
+    [
+      "Gidratlar",
+      "SAM 84,5 %;  SAD 73,1 %;  SATri 64,5 %;  SAT 57,6 %;  SAH 45,6 %;  SAO 40,5 %."
+    ],
+    [
+      "Taxminiy hisob",
+      "100·98,08/(98,08 + 18,015·n) — hisob jadval bilan mos."
+    ],
+    [
+      "Tuzilma",
+      "SAM: H₃O⁺HSO₄⁻;  SAT: [H₅O₂⁺]₂SO₄²⁻;  SAO: H₃O⁺ + SO₄²⁻·7H₂O."
+    ]
+  ],
+  [
+    [
+      "Kristal",
+      "Monoklin C2/c;  a 818,1, b 469,60, c 856,3 pm;  β 111,39°;  Z = 4."
+    ],
+    [
+      "Taxminiy hisob",
+      "V = 306 313 pm³;  V/Z = 76 578 pm³;  ρ ≈ 2,13 g/cm³."
+    ],
+    [
+      "Vodorod zanjiri",
+      "Bog‘lar zanjiri kristalning mustahkamligini tushuntiradi."
+    ],
+    [
+      "Zichlik",
+      "Kristal zichligi ≈ 2,13 g/cm³ — suyuqdan og‘ir;  V/Z = 76 578 pm³."
+    ],
+    [
+      "Fazalar",
+      "Monogidratdan oktagidratgacha — suv miqdori bilan fazalar."
+    ]
+  ],
+  [
+    [
+      "Sanoat",
+      "260–290 mln t/yil;  fosfat o‘g‘itlari 56–60 %;  metallurgiya 30 mln t."
+    ],
+    [
+      "Chegaralar",
+      "OSHA 1 mg/m³;  NIOSH 1 mg/m³;  ACGIH 0,2 mg/m³;  IDLH 15 mg/m³;  ERPG 2/10/120 mg/m³."
+    ],
+    [
+      "Kontakt usuli",
+      "SO₂ → SO₃ → H₂SO₄:  konversiya 99,7 %."
+    ]
+  ]
+]

@@ -1,0 +1,897 @@
+{
+  "umumiy": {
+    "caption": "7.3.1-jadval. Sulfat kislota: umumiy tavsif, nomlar va identifikatsiya",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.6,
+      5.6,
+      3.8
+    ],
+    "rows": [
+      [
+        "Nomi",
+        "sulfat kislota (sulfuric acid); «vitriol yog‘i» (oil of vitriol)",
+        "Tarixiy nomlar"
+      ],
+      [
+        "Formuladagi massa",
+        "98,08 g/mol",
+        "S 32,06 + O₄ 64,00 + H₂ 2,02"
+      ],
+      [
+        "Moniklik massasi",
+        "97,9674",
+        "Manba"
+      ],
+      [
+        "CAS / RTECS / InChIKey",
+        "7664-93-9  /  WS5600000  /  QAOWNCQODCNURD-UHFFFAOYSA-N",
+        "Manba"
+      ],
+      [
+        "Transport tasnifi",
+        "UN 1830 (oddiy);  UN 1831 (bug‘langan);  UN 1832 (ishlatilgan)",
+        "8-sinf, guruh 1"
+      ],
+      [
+        "Oksidatsion darajasi",
+        "S — +VI",
+        "Eng barqaror kislota holati"
+      ],
+      [
+        "Tipi",
+        "Ikki protonli (diprotik) kislota; 1-bosqich to‘liq, 2-bosqich muvozanatli",
+        "5-bo‘lim"
+      ],
+      [
+        "Termodinamik ma’lumotlar",
+        "ΔfH°(g) −735,13 kJ/mol;  S°(g) 298,78 J/(mol·K)",
+        "NIST WebBook, JANAF"
+      ],
+      [
+        "Ajratib olinishi",
+        "Suyuq holda, qayta kristallizatsiya va distillatsiya yo‘li bilan",
+        "Sof modda olinadi"
+      ],
+      [
+        "Farq (7.2 bilan)",
+        "Sulfit kislota suvda sof holda mavjud emas; sulfat kislota — alohida molekula",
+        "Tuzilma farqi"
+      ],
+      [
+        "Tuzlari",
+        "Ag₂SO₄, PbSO₄ — deyarli erimaydi; Na₂SO₄, K₂SO₄, (NH₄)₂SO₄",
+        "Sanoat"
+      ],
+      [
+        "Amaliyot chegarasi",
+        "Apparat parametrlari, konsentratsiyalar va texnik usullar berilmaydi",
+        "12-bo‘limga qarang"
+      ],
+      [
+        "Chegara",
+        "Bu bobda kislota tuzilmasi, spektri va kislotaligi tahlil qilinadi",
+        "7.4 — xossalar"
+      ]
+    ]
+  },
+  "geometriya": {
+    "caption": "7.3.2-jadval. Molekula geometriyasi va C₂ simmetriya",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.6,
+      5.6,
+      3.6
+    ],
+    "rows": [
+      [
+        "Nuqta guruhi",
+        "C₂ — gauche-gauche konformatsiya",
+        "NIST-JANAF"
+      ],
+      [
+        "C₂ o‘qi",
+        "Oltingugurt atomidan o‘tadi; ikki terminal O va ikki OH guruhini almashtiradi",
+        "Simmetriya"
+      ],
+      [
+        "r(S=O), terminal",
+        "142,2 pm",
+        "Kuchitsu va Sue, 1981"
+      ],
+      [
+        "r(S–OH)",
+        "157,4 pm",
+        "Kuchitsu va Sue, 1981"
+      ],
+      [
+        "r(O–H)",
+        "97,0 pm",
+        "Kuchitsu va Sue, 1981"
+      ],
+      [
+        "∠O=S=O",
+        "123,3°",
+        "Terminal kislorodlar orasida"
+      ],
+      [
+        "∠O=S–OH",
+        "101,3°",
+        "Gidroksil guruhi bilan burchak"
+      ],
+      [
+        "∠H–O–S",
+        "108,5°",
+        "O–H bog‘i egilishi"
+      ],
+      [
+        "τ(H–O–S–O)",
+        "89,1° — gauche-gauche",
+        "Dihedral burchak"
+      ],
+      [
+        "Taxminiy hisob: burchaklar yig‘indisi",
+        "123,3 + 101,3 + 106,4 + 108,7 = 439,7°;  ideal 437,9°;  farq +1,8°",
+        "Tetraedrik taqqoslash"
+      ],
+      [
+        "Ab initio muvozanat",
+        "r(S=O) 140,99 pm;  r(S–OH) 157,51 pm;  τ = −86,66°",
+        "2007"
+      ],
+      [
+        "Sulfat ioni SO₄²⁻",
+        "T_d;  o‘rtacha r(S–O) 147,2 pm;  to‘rtala bog‘ teng",
+        "NIST-JANAF"
+      ],
+      [
+        "Eski/g‘ayri erkin konformatsiya",
+        "Erkin molekulada OH guruhlari yopiq emas;  kristalda vodorod bog‘i bilan zanjir",
+        "10-bo‘lim"
+      ],
+      [
+        "Chegara",
+        "Burchak va bog‘ qiymatlari gaz fazi uchun;  suyuq faza qiymatlari farq qiladi",
+        "Manba"
+      ]
+    ]
+  },
+  "rezonans": {
+    "caption": "7.3.3-jadval. Elektron tuzilma: S–O bog‘lar, rezonans va proton affinity",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.6,
+      5.4,
+      3.6
+    ],
+    "rows": [
+      [
+        "S–O bog‘i tabiati",
+        "Gipervalent (kengaytirilgan oktet);  quyu ion-usuli taqsimot ustuvor",
+        "Zamonaviy kvant-kimyo"
+      ],
+      [
+        "S–O bog‘ uzunligi",
+        "142,2 pm — quyu, lekin qisqa",
+        "NIST-JANAF"
+      ],
+      [
+        "Proton affinity",
+        "699,4 kJ/mol",
+        "NIST (Hunter & Lias, 1998)"
+      ],
+      [
+        "Gaz bazikligi",
+        "666,9 kJ/mol",
+        "NIST"
+      ],
+      [
+        "Taxminiy hisob: gaz fazasi",
+        "ΔrG° 1265 − PA(H₂O) 691 = +574 kJ/mol — endotermik",
+        "NIST + jadval"
+      ],
+      [
+        "Taxminiy hisob: suv fazasi",
+        "Proton gidratsiyasi ≈ −1091 kJ/mol — kamomad qoplanadi",
+        "Standart jadval"
+      ],
+      [
+        "ΔrG°(deprotonatsiya, g)",
+        "1265 ± 10 kJ/mol",
+        "NIST WebBook"
+      ],
+      [
+        "O–H bog‘i xarakteri",
+        "Kislotali, quyu;  vodorod protoni elektrofil",
+        "Tuzilma xulosa"
+      ],
+      [
+        "Rezonans kanonik shakllar",
+        "Sulfat ionida 6 ta;  H₂SO₄ da asosiy ikki shakl",
+        "8-bo‘lim"
+      ],
+      [
+        "π-donatsiya",
+        "S=O π → S–OH σ* uzatilishi;  S–OH bog‘i uzayadi",
+        "Pauling yondashuvi"
+      ],
+      [
+        "Kislotalik va muhit",
+        "«Kuchli kislotalik» — molekula va muhitning birgalikdagi natijasi",
+        "Xulosa"
+      ],
+      [
+        "Chegara",
+        "Proton affinity va ΔrG° gaz fazi uchun;  suv qiymatlari boshqa",
+        "Manba"
+      ]
+    ]
+  },
+  "spektr": {
+    "caption": "7.3.4-jadval. Spektroskopiya: IR, Raman va NMR",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      4.8,
+      4.6,
+      3.4
+    ],
+    "rows": [
+      [
+        "H₂SO₄ (g): O–H cho‘zilishi",
+        "3603 sm⁻¹",
+        "IR"
+      ],
+      [
+        "H₂SO₄ (g): S=O cho‘zilishi",
+        "1248 sm⁻¹",
+        "IR"
+      ],
+      [
+        "H₂SO₄ (g): S–OH cho‘zilishi",
+        "792 sm⁻¹",
+        "IR"
+      ],
+      [
+        "H₂SO₄ (g): SO₃ «shlyapa» deformatsiyasi",
+        "499 sm⁻¹",
+        "IR"
+      ],
+      [
+        "SO₄²⁻: ν₁ (A₁, simmetrik cho‘zilish)",
+        "981 sm⁻¹ — Raman’da eng kuchli",
+        "T_d"
+      ],
+      [
+        "SO₄²⁻: ν₂ (E, egilish) va χ",
+        "451 sm⁻¹;  450 sm⁻¹",
+        "IR / Raman"
+      ],
+      [
+        "SO₄²⁻: ν₃ (F₂, asimmetrik cho‘zilish)",
+        "1104 sm⁻¹ — IR’da faol",
+        "T_d"
+      ],
+      [
+        "SO₄²⁻: ν₄ (F₂, asimmetrik egilish)",
+        "617 sm⁻¹",
+        "T_d"
+      ],
+      [
+        "HSO₄⁻: ν(SOH)",
+        "1055 sm⁻¹",
+        "Raman"
+      ],
+      [
+        "HSO₄⁻: yon cho‘zilish",
+        "1030 sm⁻¹",
+        "Raman"
+      ],
+      [
+        "HSO₄⁻: ν₃′ — ion juftligi",
+        "900 sm⁻¹",
+        "Raman"
+      ],
+      [
+        "Taxminiy hisob: moda sonlari (SO₄²⁻)",
+        "3N − 6 = 6 = 1 (A₁) + 2 (E) + 3 (F₂);  IR’da faol 3 ta",
+        "T_d"
+      ],
+      [
+        "Taxminiy hisob: H₂SO₄ moda sonlari",
+        "3N − 6 = 15;  C₂ da barchasi IR’da faol",
+        "Simmetriya"
+      ],
+      [
+        "HSO₄⁻ simmetriyasi",
+        "C_s;  Γ(vib) = 8a′ + 4a″;  12 ta chastota",
+        "Raman/IR"
+      ],
+      [
+        "¹⁷O va ³³S NMR",
+        "H–OSO₂⁻ va H–SO₃⁻ izomerlarini ajratadi;  sulfat ioni: 328 ppm (suyultirilgan H₂SO₄ ga nisbatan)",
+        "NMR"
+      ],
+      [
+        "Chegara",
+        "Chastotalar muhitga bog‘liq;  suvli eritma va gaz faza qiymatlari farqlanadi",
+        "Manba"
+      ]
+    ]
+  },
+  "kislotalik": {
+    "caption": "7.3.5-jadval. Kislotalik: ikki bosqichli dissotsiatsiya",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      4.2,
+      5.6,
+      3.0
+    ],
+    "rows": [
+      [
+        "Birinchi dissotsiatsiya",
+        "H₂SO₄ + H₂O → H₃O⁺ + HSO₄⁻",
+        "K_a1 ≈ 10³"
+      ],
+      [
+        "pK_a1",
+        "≈ −3 — suyultirilgan eritmada to‘liq",
+        "Manba"
+      ],
+      [
+        "Ikkinchi dissotsiatsiya",
+        "HSO₄⁻ + H₂O ⇌ H₃O⁺ + SO₄²⁻",
+        "K_a2 = 1,2×10⁻²"
+      ],
+      [
+        "pK_a2",
+        "1,99",
+        "Manba"
+      ],
+      [
+        "Taxminiy hisob: Paulining qoidasi",
+        "10³ / 1,2×10⁻² = 8,3×10⁴ ≈ 10⁵",
+        "Konstantalar nisbiy oraliq"
+      ],
+      [
+        "Nima uchun ikkinchisi qiyin",
+        "Anion manfiy zaryadli — qaytarib proton olish qiyin",
+        "Tuzilma asosi"
+      ],
+      [
+        "Taxminiy hisob: pH (0,001 M)",
+        "pH = 2,73;  SO₄²⁻ 86,55 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: pH (0,100 M)",
+        "pH = 0,96;  SO₄²⁻ 9,85 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: pH (1,000 M)",
+        "pH = −0,01;  SO₄²⁻ 1,17 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Solishtirish (7.2 bilan)",
+        "Sulfit kislota: K_a1 1,54×10⁻², K_a2 6,3×10⁻⁸ — konjugat asos ~10⁵ barobar barqarorroq",
+        "7.2-bo‘lim"
+      ],
+      [
+        "Gaz fazidagi kislotalik",
+        "ΔrG° 1265 ± 10 kJ/mol — o‘rtacha kislota",
+        "NIST"
+      ],
+      [
+        "Kislotalik ierarxiyasi",
+        "Oksokislotalarda +VI darajasi kuchli kislota beradi",
+        "8-bo‘lim"
+      ],
+      [
+        "Chegara",
+        "K_a qiymatlari faol koeffitsiyentlarsiz, faqat suvda",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "dissotsiatsiya": {
+    "caption": "7.3.6-jadval. Suvdagi dissotsiatsiya: taxminiy hisob va spektroskopik dalil",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.6,
+      5.0,
+      4.0
+    ],
+    "rows": [
+      [
+        "Yondashuv",
+        "Birinchi bosqich to‘liq:  h = c + x;  [HSO₄⁻] = c − x;  [SO₄²⁻] = x",
+        "Taxminiy hisob"
+      ],
+      [
+        "Tenglama",
+        "K_a2 = h·x/(c − x)  →  x² + (c + K_a2)x − K_a2·c = 0",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: 0,001 M",
+        "h = 0,001865;  pH = 2,73;  SO₄²⁻ 86,55 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: 0,010 M",
+        "h = 0,014524;  pH = 1,84;  SO₄²⁻ 45,24 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: 0,050 M",
+        "h = 0,058509;  pH = 1,23;  SO₄²⁻ 17,02 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: 0,100 M",
+        "h = 0,109848;  pH = 0,96;  SO₄²⁻ 9,85 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: 1,000 M",
+        "h = 1,011722;  pH = −0,01;  SO₄²⁻ 1,17 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Taxminiy hisob: 4,000 M",
+        "h = 4,011929;  pH = −0,60;  SO₄²⁻ 0,30 %",
+        "Kvadrat yechim"
+      ],
+      [
+        "Trend xulosa",
+        "Sulfat ioni ulushi konsentratsiya ortishi bilan monoton kamayadi",
+        "Taxminiy hisob"
+      ],
+      [
+        "Raman dalili",
+        "1055 sm⁻¹ (HSO₄⁻), 980 sm⁻¹ (SO₄²⁻), 900 sm⁻¹",
+        "Tajriba"
+      ],
+      [
+        "Bahs: H₄SO₅",
+        "Suvda «parafsulfat kislota» mavjudligi munozarasi davom etmoqda",
+        "Adabiyot, 2003–2020"
+      ],
+      [
+        "Yondashuv chegarasi",
+        "Ziddiy ma’lumotlar bir xil hajmda;  «tanlangan pozitsiya» berilmaydi",
+        "Metodologiya"
+      ],
+      [
+        "Chegara",
+        "5 M dan yuqorida faol koeffitsiyent va ion assotsiatsiyasi hisobga olinadi",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "sufma": {
+    "caption": "7.3.7-jadval. Sufma sulfat kislota: avtoprotoliz va superkislotalik",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.6,
+      5.6,
+      3.4
+    ],
+    "rows": [
+      [
+        "Avtoprotoliz",
+        "2H₂SO₄ ⇌ H₃SO₄⁺ + HSO₄⁻",
+        "Protonli erituvchi"
+      ],
+      [
+        "Turlar (mmol/kg)",
+        "HSO₄⁻ 15,0;  H₃SO₄⁺ 11,3;  H₃O⁺ 8,0;  HS₂O₇⁻ 4,4;  H₂S₂O₇ 3,6;  H₂O 0,1",
+        "Manba"
+      ],
+      [
+        "Taxminiy hisob: K_ap (molal)",
+        "0,0113 × 0,0150 = 1,70×10⁻⁴ mol²/kg²",
+        "Nashr etilgan turlar miqdori"
+      ],
+      [
+        "Taxminiy hisob: K_ap (mole ulushi)",
+        "1,63×10⁻⁶ (jami 10,196 mol/kg)",
+        "Mole ulushiga o‘tkazish"
+      ],
+      [
+        "Adabiyot qiymati",
+        "K_ap ≈ 2,7×10⁻⁴ mol²/kg² — bir xil tartib",
+        "Manba"
+      ],
+      [
+        "Hammett H₀",
+        "−12 (100 % H₂SO₄) — superkislotalik chegarasi",
+        "Manba"
+      ],
+      [
+        "Proton solvatsiyasi",
+        "Suvga nisbatan ≈85 kJ/mol zaif — proton kimyoviy faol",
+        "Kalazanskiy va Solkan"
+      ],
+      [
+        "Nima uchun superkislota",
+        "Zaif proton solvatsiyasi + kuchli anion solvatsiyasi",
+        "Nazariy asos"
+      ],
+      [
+        "Taxminiy hisob: proton zaxirasi",
+        "ρ 1,8302 g/cm³ → 18,66 mol/L → 37,3 mol H⁺/L",
+        "Zichlik va M"
+      ],
+      [
+        "Solishtirish",
+        "1 M suvli eritma — faqat 2 mol H⁺/L",
+        "Taxminiy hisob"
+      ],
+      [
+        "Elektrolit xossasi",
+        "Yuqori elektr o‘tkazuvchanlik;  viskozitet 26,7 cP",
+        "Fizik xossa"
+      ],
+      [
+        "Dielektrik doimiy",
+        "≈100",
+        "Taxminiy baho"
+      ],
+      [
+        "Chegara",
+        "Sufma kislota — ma’lumotlar to‘plami;  xavfsizlik amaliyoti 12-bo‘limda",
+        "12-bo‘limga qarang"
+      ]
+    ]
+  },
+  "ionlar": {
+    "caption": "7.3.8-jadval. Sulfat va gidrosulfat ionlarining tuzilishi",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      4.4,
+      5.2,
+      3.0
+    ],
+    "rows": [
+      [
+        "SO₄²⁻ simmetriyasi",
+        "T_d — tetraedrik",
+        "NIST-JANAF"
+      ],
+      [
+        "SO₄²⁻: o‘rtacha r(S–O)",
+        "147,2 pm;  to‘rtala bog‘ teng uzun",
+        "NIST-JANAF"
+      ],
+      [
+        "SO₄²⁻: burchak",
+        "∠O–S–O = 109,47°",
+        "Tetraedrik ideal"
+      ],
+      [
+        "Taxminiy hisob: rezonans shakllari",
+        "4! / (2!·2!) = 6 kanonik struktura",
+        "Kombinatorika"
+      ],
+      [
+        "Zaryad taqsimoti",
+        "Sodda yondashuvda −0,5 e har bir kislorodda",
+        "Pauling yondashuvi"
+      ],
+      [
+        "HSO₄⁻ simmetriyasi",
+        "C_s;  protonatsiya bir kislorodda",
+        "Manba"
+      ],
+      [
+        "HSO₄⁻ moda sonlari",
+        "Γ(vib) = 8a′ + 4a″ — 12 ta chastota",
+        "Simmetriya"
+      ],
+      [
+        "Sulfat kislota bilan solishtirish",
+        "r(S–O) 147,2 pm (sulfat)  vs  142,2 pm (terminal S=O)",
+        "NIST-JANAF"
+      ],
+      [
+        "Taxminiy hisob: bog‘ uzunliklari farqi",
+        "Terminal S=O 5,0 pm qisqa;  S–OH 10,2 pm uzun (sulfatga nisbatan)",
+        "π-donatsiya ta’siri"
+      ],
+      [
+        "Pauling yondashuvi izohi",
+        "S=O π → S–OH σ*;  S–OH bog‘i uzayadi va kuchsizlanadi",
+        "Pauling"
+      ],
+      [
+        "Pseudo-C₃ᵥ holati",
+        "SAM kristalida HSO₄⁻ yadrosi 3 ta IR-faol modda beradi",
+        "9-bo‘lim"
+      ],
+      [
+        "Oksokislotalar ierarxiyasi",
+        "+VI darajasi — sulfat kislota sulfitdan ancha kuchli",
+        "5-bo‘lim"
+      ],
+      [
+        "Chegara",
+        "Zaryad taqsimoti — soddalashtirilgan yondashuv;  zamonaviy hisoblar boshqacha",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "gidratlar": {
+    "caption": "7.3.9-jadval. Gidratlar: fazaviy diagramma va tuzilmalar",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      5.6,
+      3.4
+    ],
+    "rows": [
+      [
+        "Monogidrat (SAM)",
+        "H₂SO₄·H₂O;  M = 116,09 g/mol;  84,5 %",
+        "H₃O⁺HSO₄⁻"
+      ],
+      [
+        "Digidrat (SAD)",
+        "H₂SO₄·2H₂O;  M = 134,11 g/mol;  73,1 %",
+        "H₃O⁺HSO₄⁻·H₂O"
+      ],
+      [
+        "Trigidrat (SATri)",
+        "H₂SO₄·3H₂O;  M = 152,12 g/mol;  64,5 %",
+        "H₃O⁺HSO₄⁻·2H₂O"
+      ],
+      [
+        "Tetragidrat (SAT)",
+        "H₂SO₄·4H₂O;  M = 170,14 g/mol;  57,6 %",
+        "[H₅O₂⁺]₂SO₄²⁻"
+      ],
+      [
+        "Yarimtriskaidekagidrat (SAH)",
+        "H₂SO₄·6,5H₂O;  M = 215,18 g/mol;  45,6 %",
+        "H₃O⁺ + SO₄²⁻·5,5H₂O"
+      ],
+      [
+        "Oktagidrat (SAO)",
+        "H₂SO₄·8H₂O;  M = 242,20 g/mol;  40,5 %",
+        "H₃O⁺ + SO₄²⁻·7H₂O"
+      ],
+      [
+        "Taxminiy hisob: massadagi ulush",
+        "100·98,08/(98,08 + 18,015·n);  n = 1 → 84,48 %;  n = 8 → 40,49 %",
+        "Molekulyar tarkibdan"
+      ],
+      [
+        "Taxminiy hisob: 60 % eritma",
+        "n = (98,08/18,015)·(40/60) = 3,63 suv / 1 kislota",
+        "Uzluksiz nisbiy qiymat"
+      ],
+      [
+        "Viskozite maksimumi",
+        "80–90 % oralig‘ida — SAM tuzilmasining shakllanishi",
+        "Fazaviy xossa"
+      ],
+      [
+        "Evteklar",
+        "Muz–SAH 211 K (36 %);  muz–SAT 199 K (38 %)",
+        "Fazaviy diagramma"
+      ],
+      [
+        "Atmosfera va astrofizika",
+        "H₂SO₄ aerozollari quyoshni yansitadi (Pinatubo, 1991);  Yupiter io va Evropada kristallik H₂SO₄ gidratlari",
+        "Atmosfera / astrofizika"
+      ],
+      [
+        "SAT va SAM spektri",
+        "Sulfat yadrosi asimmetrik cho‘zilishi ≈1070 sm⁻¹;  bisulfat yadrosi 3 ta IR-faol modda (2A₁ + E)",
+        "IR"
+      ],
+      [
+        "Chegara",
+        "Gidratlar fazaviy diagrammasi aniq o‘lchovga asoslangan;  tuzilma tavsifi soddalashtirilgan",
+        "IUCr, 2012"
+      ]
+    ]
+  },
+  "kristal": {
+    "caption": "7.3.10-jadval. Kristal tuzilma, vodorod bog‘i va qattiqlik",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      3.8,
+      5.6,
+      3.4
+    ],
+    "rows": [
+      [
+        "Kristal tizimi",
+        "Monoklin C2/c;  Z = 4 formula birligi",
+        "Manba"
+      ],
+      [
+        "Parametrlar",
+        "a = 818,1 pm;  b = 469,60 pm;  c = 856,3 pm;  β = 111,39°",
+        "Manba"
+      ],
+      [
+        "Taxminiy hisob: hujra hajmi",
+        "V = abc·sinβ = 306 313 pm³;  V/Z = 76 578 pm³",
+        "Geometriya"
+      ],
+      [
+        "Taxminiy hisob: kristal zichligi",
+        "ρ ≈ 2,13 g/cm³ (suyuqdan og‘ir)",
+        "M va V dan"
+      ],
+      [
+        "Vodorod bog‘i zanjiri",
+        "Har bir molekula ikkita qo‘shni molekulaga ulanadi",
+        "(010) qatlamlar"
+      ],
+      [
+        "Kristal → suv effekti",
+        "Ekzotermik;  proton vodorod bog‘i orqali uzatiladi",
+        "Ta’limot"
+      ],
+      [
+        "T_erish / T_qaynash",
+        "10,31 °C;  337 °C (SO₃ ajralishi bilan)",
+        "Manba"
+      ],
+      [
+        "ρ (suyuq, 20 °C)",
+        "1,8302 g/cm³",
+        "Manba"
+      ],
+      [
+        "Viskozitet (20 °C)",
+        "26,7 cP",
+        "Manba"
+      ],
+      [
+        "Dielektrik doimiy",
+        "≈100",
+        "Taxminiy baho"
+      ],
+      [
+        "Bug‘ bosimi (20 °C)",
+        "0,001 mmHg — juda past",
+        "Manba"
+      ],
+      [
+        "ΔvapH",
+        "≈69 kJ/mol",
+        "Kondensatsiya entalpisi"
+      ],
+      [
+        "Molekulyar qattiq",
+        "Suyuq va kristal faza ikkalasida yuqori quyuqlik",
+        "Xulosa"
+      ],
+      [
+        "Chegara",
+        "Zichlik bahosi hujra tarkibining ideal ekanligiga asoslangan",
+        "Taxminiy hisob"
+      ]
+    ]
+  },
+  "sanoat": {
+    "caption": "7.3.11-jadval. Sanoat, iqtisodiyot va xavfsizlik",
+    "headers": [
+      "Obyekt / parametr",
+      "Mazmun / qiymat",
+      "Chegara / izoh"
+    ],
+    "widths": [
+      4.0,
+      5.6,
+      3.2
+    ],
+    "rows": [
+      [
+        "Dunyoda ishlab chiqarish",
+        "260–290 mln t/yil;  kontakt usuli ≈90 %",
+        "USGS / bozor ma’lumotlari"
+      ],
+      [
+        "Fosfat o‘g‘itlari",
+        "Jami sarfning 56–60 %",
+        "S&P Global"
+      ],
+      [
+        "Metallurgiya va akkumulatorlar",
+        "≈30 mln t (ruda yig‘ish);  ≈14 mln t",
+        "Manba"
+      ],
+      [
+        "SO₃ konversiyasi (DCDA)",
+        "99,7 %",
+        "Ikkipog‘onali sxema"
+      ],
+      [
+        "Taxminiy hisob: moddiy balans",
+        "S 326,9;  SO₂ 653,2;  O₂ 163,1;  H₂O 183,7 kg",
+        "1000 kg kislot"
+      ],
+      [
+        "Taxminiy hisob: oleum",
+        "1163,3 kg oleum;  erkin SO₃ 14,0 %",
+        "1000 kg + 20 % SO₃"
+      ],
+      [
+        "Taxminiy hisob: ekvivalent",
+        "49,04 g/eq;  192 970 C",
+        "1 mol H₂SO₄ = 2 H⁺"
+      ],
+      [
+        "Kasb chegaralari",
+        "OSHA PEL 1 mg/m³;  NIOSH REL 1 mg/m³;  ACGIH 0,2 mg/m³",
+        "8 / 10 soat TWA"
+      ],
+      [
+        "Hayot uchun xavfli chegaralar",
+        "NIOSH IDLH 15 mg/m³;  AIHA ERPG 2 / 10 / 120 mg/m³",
+        "Favqulodda holat"
+      ],
+      [
+        "Kanserogenlik",
+        "IARC 1 — kuchli noorganik kislota tumanlari",
+        "IARC"
+      ],
+      [
+        "Ta’sir mexanizmi",
+        "Ko‘z va nafas yo‘llarini kuydiradi;  vodorajon ajraladi",
+        "Manba"
+      ],
+      [
+        "Chegara",
+        "Himoya vositalari va tibbiy tavsiyalar berilmaydi",
+        "12-bo‘limga qarang"
+      ]
+    ]
+  }
+}

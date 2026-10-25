@@ -45,6 +45,9 @@ def chem(s):
     return result
 
 def equations(topic):
+    if topic=='7.3':
+        from equations_07_03 import sulfate_equations
+        return sulfate_equations()
     if topic=='7.2':
         from equations_07_02 import sulfite_equations
         return sulfite_equations()
