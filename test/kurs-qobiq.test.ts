@@ -1,10 +1,40 @@
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import http from "node:http";
 import express from "express";
 import { createAdminRouter } from "../src/server/adminRoutes.js";
-import { createAdminSessionToken } from "../src/server/adminAuth.js";
-import { ADMIN_GOOGLE_EMAIL } from "../src/server/googleAuth.js";
+import {
+  createAdminSessionToken,
+  verifyAdminSessionToken,
+  shouldRenewAdminSession,
+  MAX_ADMIN_SESSION_SECONDS,
+} from "../src/server/adminAuth.js";
+import {
+  ADMIN_GOOGLE_EMAIL,
+  verifyGoogleOneTapToken,
+  resetGoogleJwksCache,
+} from "../src/server/googleAuth.js";
 import { getAuditLogs } from "../src/server/auditService.js";
+import { GET as meGet } from "../admin/app/api/auth/me/route.js";
+import { POST as oneTapPost } from "../admin/app/api/auth/google-onetap/route.js";
+import { PATCH as bffGroupModePatch } from "../admin/app/api/groups/[chatId]/mode/route.js";
+import {
+  GET as bffKursPartGet,
+  POST as bffKursPartPost,
+} from "../admin/app/api/kurs/ishtirokchilar/route.js";
+import {
+  PATCH as bffKursPartPatch,
+  DELETE as bffKursPartDelete,
+} from "../admin/app/api/kurs/ishtirokchilar/[userId]/route.js";
+import { GET as bffKursDarslarGet } from "../admin/app/api/kurs/darslar/route.js";
+import { POST as bffKursReloadPost } from "../admin/app/api/kurs/qayta-yuklash/route.js";
+import { PATCH as bffSettingsPatch } from "../admin/app/api/settings/route.js";
+import { middleware as adminMiddleware } from "../admin/middleware.js";
+import {
+  checkExistingSessionAndRedirect,
+  disableGoogleAutoSelectOnLogout,
+  shouldSkipOneTapAutoLogin,
+} from "../admin/lib/google-login.js";
 import {
   setCustomFirestoreDb,
   resetFirestoreState,
@@ -805,6 +835,367 @@ async function runKursQobiqTests() {
   resetFirestoreState();
 
   console.log("  ✅ Barcha Admin API endpointlari, kesh invalidatsiyasi va audit loglar 100% o'tdi!");
+
+  // ============================================================================
+  // 6. Admin kirish yaxshilanishlari (4.1) + Next.js BFF Route testlari (2-bosqich)
+  // ============================================================================
+  console.log("\n▶ 6. Admin kirish (Google One Tap, 30 kunlik sirpanuvchi sessiya) va BFF testlari...");
+
+  // 6.1 RS256 JWK kalit juftligini yaratish va Google One Tap JWT imzolash yordamchisi
+  const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", {
+    modulusLength: 2048,
+  });
+  const publicJwk = publicKey.export({ format: "jwk" }) as JsonWebKey;
+  const testKid = "test-google-kid-1";
+  const clientId = "1234567890-testclient.apps.googleusercontent.com";
+
+  const mockJwkFetcher = async () => [
+    {
+      ...(publicJwk as any),
+      kid: testKid,
+      alg: "RS256",
+      use: "sig",
+    },
+  ];
+
+  const signTestGoogleJwt = (
+    payload: Record<string, any>,
+    headerOverrides?: Record<string, any>
+  ): string => {
+    const header = {
+      alg: "RS256",
+      typ: "JWT",
+      kid: testKid,
+      ...headerOverrides,
+    };
+    const hB64 = Buffer.from(JSON.stringify(header)).toString("base64url");
+    const pB64 = Buffer.from(JSON.stringify(payload)).toString("base64url");
+    const signingInput = `${hB64}.${pB64}`;
+    const sig = crypto
+      .createSign("RSA-SHA256")
+      .update(signingInput)
+      .sign(privateKey)
+      .toString("base64url");
+    return `${signingInput}.${sig}`;
+  };
+
+  resetGoogleJwksCache();
+  const nowSec = Math.floor(Date.now() / 1000);
+  const validClaims = {
+    iss: "https://accounts.google.com",
+    aud: clientId,
+    email: ADMIN_GOOGLE_EMAIL,
+    email_verified: true,
+    iat: nowSec - 10,
+    exp: nowSec + 3600,
+    sub: "google-uid-123",
+  };
+
+  // (1) One Tap token to'g'ri
+  const validOneTapJwt = signTestGoogleJwt(validClaims);
+  const resValid = await verifyGoogleOneTapToken(validOneTapJwt, clientId, {
+    nowSeconds: nowSec,
+    jwksFetcher: mockJwkFetcher,
+  });
+  assert.equal(resValid.valid, true, "To'g'ri One Tap JWT valid=true bo'lishi kerak");
+  assert.equal(resValid.email, ADMIN_GOOGLE_EMAIL);
+
+  // (2) Noto'g'ri aud / iss / begona email ("Bu hisobga ruxsat yo'q")
+  const wrongAudRes = await verifyGoogleOneTapToken(
+    signTestGoogleJwt({ ...validClaims, aud: "wrong-client-id.apps.googleusercontent.com" }),
+    clientId,
+    { nowSeconds: nowSec, jwksFetcher: mockJwkFetcher }
+  );
+  assert.equal(wrongAudRes.valid, false);
+  assert.equal(wrongAudRes.error, "INVALID_AUDIENCE");
+
+  const wrongIssRes = await verifyGoogleOneTapToken(
+    signTestGoogleJwt({ ...validClaims, iss: "https://evil.example.com" }),
+    clientId,
+    { nowSeconds: nowSec, jwksFetcher: mockJwkFetcher }
+  );
+  assert.equal(wrongIssRes.valid, false);
+  assert.equal(wrongIssRes.error, "INVALID_ISSUER");
+
+  const wrongEmailRes = await verifyGoogleOneTapToken(
+    signTestGoogleJwt({ ...validClaims, email: "begona@gmail.com" }),
+    clientId,
+    { nowSeconds: nowSec, jwksFetcher: mockJwkFetcher }
+  );
+  assert.equal(wrongEmailRes.valid, false);
+  assert.equal(wrongEmailRes.error, "UNAUTHORIZED_EMAIL");
+  assert.equal(wrongEmailRes.message, "Bu hisobga ruxsat yo'q");
+
+  // (3) Muddati o'tgan token (exp <= now yoki eski iat)
+  const expiredRes = await verifyGoogleOneTapToken(
+    signTestGoogleJwt({ ...validClaims, exp: nowSec - 5 }),
+    clientId,
+    { nowSeconds: nowSec, jwksFetcher: mockJwkFetcher }
+  );
+  assert.equal(expiredRes.valid, false);
+  assert.equal(expiredRes.error, "TOKEN_EXPIRED");
+
+  const staleIatRes = await verifyGoogleOneTapToken(
+    signTestGoogleJwt({ ...validClaims, iat: nowSec - 600 }),
+    clientId,
+    { nowSeconds: nowSec, jwksFetcher: mockJwkFetcher }
+  );
+  assert.equal(staleIatRes.valid, false);
+  assert.equal(staleIatRes.error, "TOKEN_EXPIRED");
+
+  // (4) email_verified: false
+  const unverifiedRes = await verifyGoogleOneTapToken(
+    signTestGoogleJwt({ ...validClaims, email_verified: false }),
+    clientId,
+    { nowSeconds: nowSec, jwksFetcher: mockJwkFetcher }
+  );
+  assert.equal(unverifiedRes.valid, false);
+  assert.equal(unverifiedRes.error, "EMAIL_NOT_VERIFIED");
+
+  // (5) & (6) 30 kunlik maksimal chegara va sirpanuvchi sessiya yangilanishi (< 7 kun qolganda)
+  assert.equal(MAX_ADMIN_SESSION_SECONDS, 30 * 86400);
+  const thirtyDayToken = createAdminSessionToken(
+    ADMIN_GOOGLE_EMAIL,
+    "admin",
+    secret,
+    MAX_ADMIN_SESSION_SECONDS
+  );
+  const thirtyDayVerified = verifyAdminSessionToken(thirtyDayToken, undefined, secret);
+  assert.equal(thirtyDayVerified.valid, true);
+  assert.equal(
+    shouldRenewAdminSession(thirtyDayVerified.session!),
+    false,
+    "Yangi 30 kunlik sessiya darhol yangilanmasligi kerak"
+  );
+
+  // 30 kundan ortiq (> 30 kun) token rad etilishi
+  const overMaxPayloadB64 = Buffer.from(
+    JSON.stringify({
+      adminId: ADMIN_GOOGLE_EMAIL,
+      username: "admin",
+      iat: nowSec,
+      exp: nowSec + 31 * 86400,
+    })
+  ).toString("base64url");
+  const overMaxHeaderB64 = Buffer.from(JSON.stringify({ alg: "HS256", typ: "JWT" })).toString("base64url");
+  const overMaxSig = crypto
+    .createHmac("sha256", secret)
+    .update(`${overMaxHeaderB64}.${overMaxPayloadB64}`)
+    .digest("base64url");
+  const overMaxToken = `${overMaxHeaderB64}.${overMaxPayloadB64}.${overMaxSig}`;
+  const overMaxVerified = verifyAdminSessionToken(overMaxToken, undefined, secret);
+  assert.equal(overMaxVerified.valid, false);
+  assert.equal(overMaxVerified.error, "TOKEN_INVALID_EXPIRY");
+
+  // < 7 kun (masalan, 5 kun) qolgan token sirpanuvchi yangilanishi kerak
+  const fiveDaysLeftToken = createAdminSessionToken(
+    ADMIN_GOOGLE_EMAIL,
+    "admin",
+    secret,
+    5 * 86400
+  );
+  const fiveDaysVerified = verifyAdminSessionToken(fiveDaysLeftToken, undefined, secret);
+  assert.equal(fiveDaysVerified.valid, true);
+  assert.equal(
+    shouldRenewAdminSession(fiveDaysVerified.session!),
+    true,
+    "5 kun qolgan sessiya yangilanishi kerak"
+  );
+
+  // Express server va Next.js BFF orqali One Tap, /api/admin/me sirpanuvchi yangilanish va BFF route testlari
+  const { mockDb: mockDb6 } = createMockFirestore();
+  setCustomFirestoreDb(mockDb6 as any);
+  await mockDb6.collection(FIRESTORE_COLLECTIONS.GROUPS).doc("-100501").set({
+    chatId: -100501,
+    title: "BFF Test Guruh",
+    titleLower: "bff test guruh",
+    type: "supergroup",
+    status: "active",
+    mode: "asosiy",
+    lastActivity: "2026-04-12T10:00:00.000Z",
+    updatedAt: "2026-04-12T10:00:00.000Z",
+  });
+  populateKursMemory(createFakeKursBank().darslar);
+
+  const app6 = express();
+  app6.use(express.json());
+  app6.use(
+    "/api",
+    createAdminRouter(
+      { ...config, GOOGLE_OAUTH_CLIENT_ID: clientId },
+      api as any,
+      { nowSeconds: nowSec, jwksFetcher: mockJwkFetcher }
+    )
+  );
+  const server6 = http.createServer(app6);
+  await new Promise<void>((resolve) => server6.listen(0, resolve));
+  const port6 = (server6.address() as any).port;
+  process.env.RENDER_API_URL = `http://127.0.0.1:${port6}`;
+
+  const makeBffReq = (url: string, method = "GET", body?: any, tokenOverride?: string | null) => {
+    const cookieToken = tokenOverride === undefined ? thirtyDayToken : tokenOverride;
+    const h = new Headers({
+      origin: "http://localhost:3000",
+      host: "localhost:3000",
+      ...(body ? { "Content-Type": "application/json" } : {}),
+    });
+    return {
+      url,
+      method,
+      headers: h,
+      nextUrl: new URL(url),
+      cookies: {
+        get: (name: string) =>
+          name === "admin_session" && cookieToken ? { value: cookieToken } : undefined,
+      },
+      json: async () => body,
+    } as any;
+  };
+
+  // BFF POST /api/auth/google-onetap -> 200 va 30 kunlik cookie
+  const oneTapReq = makeBffReq(
+    "http://localhost:3000/api/auth/google-onetap",
+    "POST",
+    { credential: validOneTapJwt },
+    null
+  );
+  const oneTapResp = await oneTapPost(oneTapReq);
+  assert.equal(oneTapResp.status, 200);
+  const oneTapSetCookie = oneTapResp.headers.get("set-cookie") || "";
+  assert.ok(oneTapSetCookie.includes("admin_session="));
+  assert.ok(oneTapSetCookie.includes(`Max-Age=${30 * 86400}`), "Cookie Max-Age 30 kun bo'lishi shart");
+
+  // BFF POST /api/auth/google-onetap -> begona email ("Bu hisobga ruxsat yo'q", 403)
+  const badOneTapReq = makeBffReq(
+    "http://localhost:3000/api/auth/google-onetap",
+    "POST",
+    { credential: signTestGoogleJwt({ ...validClaims, email: "other@gmail.com" }) },
+    null
+  );
+  const badOneTapResp = await oneTapPost(badOneTapReq);
+  assert.equal(badOneTapResp.status, 403);
+  const badOneTapData = await badOneTapResp.json();
+  assert.equal(badOneTapData.message, "Bu hisobga ruxsat yo'q");
+
+  // BFF GET /api/auth/me -> 5 kun qolgan sessiyani 30 kunga yangilab Set-Cookie beradi
+  const meSlidingReq = makeBffReq(
+    "http://localhost:3000/api/auth/me",
+    "GET",
+    undefined,
+    fiveDaysLeftToken
+  );
+  const meSlidingResp = await meGet(meSlidingReq);
+  assert.equal(meSlidingResp.status, 200);
+  const meSlidingBody = await meSlidingResp.json();
+  assert.equal(meSlidingBody.ok, true);
+  assert.equal(meSlidingBody.renewed, true);
+  const renewedCookie = meSlidingResp.headers.get("set-cookie") || "";
+  assert.ok(renewedCookie.includes("admin_session="), "Yangilangan sessiya cookie'si o'rnatilishi kerak");
+  assert.ok(renewedCookie.includes(`Max-Age=${30 * 86400}`));
+
+  // (7) /login sahifasiga haqiqiy sessiya bilan kirilganda `/` ga yo'naltirish
+  let redirectedTo: string | null = null;
+  const didRedirect = await checkExistingSessionAndRedirect(
+    (async () => new Response(JSON.stringify({ ok: true }), { status: 200 })) as any,
+    (path: string) => {
+      redirectedTo = path;
+    }
+  );
+  assert.equal(didRedirect, true);
+  assert.equal(redirectedTo, "/");
+
+  // (8) Chiqish (logout) qilganda disableAutoSelect chaqirilishi va auto-login skip bayrog'i
+  let disableAutoSelectCalled = false;
+  const fakeStorageMap = new Map<string, string>();
+  const mockStorage = {
+    setItem: (k: string, v: string) => fakeStorageMap.set(k, v),
+    getItem: (k: string) => fakeStorageMap.get(k) ?? null,
+  };
+  const mockWin = {
+    google: {
+      accounts: {
+        id: {
+          disableAutoSelect: () => {
+            disableAutoSelectCalled = true;
+          },
+          cancel: () => {},
+        },
+      },
+    },
+  };
+  disableGoogleAutoSelectOnLogout(mockWin, mockStorage);
+  assert.equal(disableAutoSelectCalled, true, "Logout vaqtida google.accounts.id.disableAutoSelect() chaqirilishi shart");
+  assert.equal(shouldSkipOneTapAutoLogin("", mockStorage), true, "Logout'dan keyin One Tap avto-kirish to'xtatilishi shart");
+  assert.equal(shouldSkipOneTapAutoLogin("?logout=1"), true, "logout=1 query bo'lganda ham One Tap avto-kirish to'xtatilishi shart");
+
+  // Middleware tekshiruvi: sessiyasiz himoyalangan sahifa /login ga yo'naltiriladi
+  const unauthMwReq = makeBffReq("http://localhost:3000/kurs-testlari", "GET", undefined, null);
+  const unauthMwRes = adminMiddleware(unauthMwReq);
+  assert.equal(unauthMwRes.status, 307);
+  assert.ok(unauthMwRes.headers.get("location")?.includes("/login"));
+
+  const bffModeRes = await bffGroupModePatch(
+    makeBffReq("http://localhost:3000/api/groups/-100501/mode", "PATCH", { mode: "kurs" }),
+    { params: Promise.resolve({ chatId: "-100501" }) }
+  );
+  assert.equal(bffModeRes.status, 200);
+
+  const bffAddPartRes = await bffKursPartPost(
+    makeBffReq("http://localhost:3000/api/kurs/ishtirokchilar", "POST", {
+      userId: 8801,
+      ism: "BFF Ishtirokchi",
+    })
+  );
+  assert.equal(bffAddPartRes.status, 200);
+
+  const bffGetPartRes = await bffKursPartGet(
+    makeBffReq("http://localhost:3000/api/kurs/ishtirokchilar?q=8801")
+  );
+  assert.equal(bffGetPartRes.status, 200);
+  const bffGetPartData = await bffGetPartRes.json();
+  assert.equal(bffGetPartData.items.length, 1);
+
+  const bffPatchPartRes = await bffKursPartPatch(
+    makeBffReq("http://localhost:3000/api/kurs/ishtirokchilar/8801", "PATCH", {
+      bloklangan: true,
+    }),
+    { params: Promise.resolve({ userId: "8801" }) }
+  );
+  assert.equal(bffPatchPartRes.status, 200);
+
+  const bffDelPartRes = await bffKursPartDelete(
+    makeBffReq("http://localhost:3000/api/kurs/ishtirokchilar/8801", "DELETE"),
+    { params: Promise.resolve({ userId: "8801" }) }
+  );
+  assert.equal(bffDelPartRes.status, 200);
+
+  const bffDarslarRes = await bffKursDarslarGet(
+    makeBffReq("http://localhost:3000/api/kurs/darslar")
+  );
+  assert.equal(bffDarslarRes.status, 200);
+  const bffDarslarData = await bffDarslarRes.json();
+  assert.equal(bffDarslarData.darslar.length, 2);
+
+  const bffReloadRes = await bffKursReloadPost(
+    makeBffReq("http://localhost:3000/api/kurs/qayta-yuklash", "POST")
+  );
+  assert.equal(bffReloadRes.status, 200);
+
+  const bffSettingsRes = await bffSettingsPatch(
+    makeBffReq("http://localhost:3000/api/settings", "PATCH", {
+      adminContact: "@Diyorbek_Jabborov",
+      defaultGroupMode: "asosiy",
+    })
+  );
+  assert.equal(bffSettingsRes.status, 200);
+
+  await new Promise<void>((resolve) => server6.close(() => resolve()));
+  clearKursDarslarForTest();
+  resetShellStateForTest();
+  resetBotSettingsState();
+  resetFirestoreState();
+
+  console.log("  ✅ Admin kirish (Google One Tap, 30 kunlik sirpanuvchi sessiya) va BFF route testlari 100% o'tdi!");
   console.log("\n🎉 BARCHA KURS QOBIG'I TESTLARI MUVAFFAQIYATLI YAKUNLANDI!");
 }
 

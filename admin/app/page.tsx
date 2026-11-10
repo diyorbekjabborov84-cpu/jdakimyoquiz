@@ -146,6 +146,12 @@ export default function DashboardPage() {
                   <Link href="/groups" className="btn btn-outline">
                     👥 Guruhlar ro&apos;yxati
                   </Link>
+                  <Link href="/kurs-ishtirokchilari" className="btn btn-outline">
+                    🎓 Kurs ishtirokchilari
+                  </Link>
+                  <Link href="/kurs-testlari" className="btn btn-outline">
+                    📚 Kurs testlari
+                  </Link>
                   <Link href="/users" className="btn btn-outline">
                     👤 Foydalanuvchilar ro&apos;yxati
                   </Link>

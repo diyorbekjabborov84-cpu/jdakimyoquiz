@@ -12,11 +12,13 @@ export async function GET(req: NextRequest) {
   const q = searchParams.get("q") || "";
   const limit = searchParams.get("limit") || "50";
   const cursor = searchParams.get("cursor");
+  const mode = searchParams.get("mode");
 
   try {
     const renderUrl = getRenderApiUrl();
     const params = new URLSearchParams({ q, limit });
     if (cursor) params.set("cursor", cursor);
+    if (mode) params.set("mode", mode);
     const queryStr = params.toString();
     const response = await fetch(`${renderUrl}/api/admin/groups?${queryStr}`, {
       headers: {

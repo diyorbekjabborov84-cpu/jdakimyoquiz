@@ -15,7 +15,8 @@ interface AuditLogItem {
 }
 
 interface BotSettings {
-  subscriptionChannels: Array<{ username: string; title: string }>;
+  adminContact: string;
+  defaultGroupMode: "asosiy" | "ochiq_emas";
   defaultQuestionTimeSeconds: number;
   botUsername: string;
   adminGoogleEmail: string;
@@ -29,9 +30,14 @@ export default function SettingsPage() {
   const [adminUser, setAdminUser] = useState<any>(null);
 
   const [settings, setSettings] = useState<BotSettings | null>(null);
+  const [adminContactInput, setAdminContactInput] = useState("@Diyorbek_Jabborov");
+  const [defaultGroupModeInput, setDefaultGroupModeInput] = useState<"asosiy" | "ochiq_emas">("asosiy");
+  const [saving, setSaving] = useState(false);
+
   const [auditLogs, setAuditLogs] = useState<AuditLogItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -59,8 +65,13 @@ export default function SettingsPage() {
       const settingsData = await settingsRes.json();
       const logsData = await logsRes.json();
 
-      if (settingsRes.ok && settingsData.ok) {
-        setSettings(settingsData.settings);
+      if (settingsRes.ok && settingsData.ok && settingsData.settings) {
+        const s: BotSettings = settingsData.settings;
+        setSettings(s);
+        setAdminContactInput(s.adminContact || "@Diyorbek_Jabborov");
+        setDefaultGroupModeInput(
+          s.defaultGroupMode === "ochiq_emas" ? "ochiq_emas" : "asosiy"
+        );
       }
       if (logsRes.ok && logsData.ok) {
         setAuditLogs(logsData.logs || []);
@@ -69,6 +80,57 @@ export default function SettingsPage() {
       setError("Sozlamalar va audit loglarini yuklashda xatolik yuz berdi.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSaveSettings = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmedContact = adminContactInput.trim();
+    if (!trimmedContact) {
+      setError("Admin aloqa ma'lumoti bo'sh bo'lishi mumkin emas.");
+      return;
+    }
+
+    setSaving(true);
+    setError(null);
+    setSuccessMsg(null);
+
+    try {
+      const res = await fetch("/api/settings", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          adminContact: trimmedContact,
+          defaultGroupMode: defaultGroupModeInput,
+        }),
+      });
+
+      if (res.status === 401) {
+        router.push("/login");
+        return;
+      }
+
+      const data = await res.json();
+      if (res.ok && data.ok) {
+        setSettings((prev) =>
+          prev
+            ? {
+                ...prev,
+                adminContact: data.settings?.adminContact ?? trimmedContact,
+                defaultGroupMode:
+                  data.settings?.defaultGroupMode ?? defaultGroupModeInput,
+              }
+            : prev
+        );
+        setSuccessMsg("Bot qobiq sozlamalari muvaffaqiyatli saqlandi.");
+        fetchSettingsAndLogs();
+      } else {
+        setError(data.message || "Sozlamalarni saqlashda xatolik yuz berdi.");
+      }
+    } catch {
+      setError("Server bilan bog'lanishda xatolik yuz berdi.");
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -87,55 +149,66 @@ export default function SettingsPage() {
           <div style={{ marginBottom: "1.5rem" }}>
             <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>⚙️ Bot Sozlamalari & Audit Jurnali</h1>
             <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
-              Bot konfiguratsiyasi, majburiy kanallar va admin harakatlari xavfsizlik tarixi
+              Ikki qobiqli tizim sozlamalari, yangi guruhlar rejimi va admin harakatlari xavfsizlik tarixi
             </p>
           </div>
 
           {error && <div className="alert alert-danger" style={{ marginBottom: "1.5rem" }}>{error}</div>}
+          {successMsg && <div className="alert alert-success" style={{ marginBottom: "1.5rem" }}>{successMsg}</div>}
 
           {/* 1. Bot konfiguratsiyasi kartochkalari */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem", marginBottom: "1.5rem" }}>
-            {/* Majburiy kanallar */}
+            {/* Ikki qobiqli tizim sozlamalari */}
             <div className="content-card" style={{ marginBottom: 0 }}>
               <div className="card-header">
-                <h3 className="card-title">📢 Majburiy Obuna Kanallari</h3>
-                <span className="badge badge-success">Faol</span>
+                <h3 className="card-title">🛡️ Qobiq va Shaxsiy Chat Sozlamalari</h3>
+                <span className="badge badge-success">Boshqariladigan</span>
               </div>
-              <div style={{ padding: "1.25rem" }}>
-                <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>
-                  Faqat bot bilan shaxsiy chat ochgan a&apos;zolarga tegishli (guruhlardagi quizlarda talab qilinmaydi):
-                </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                  {settings?.subscriptionChannels.map((ch, idx) => (
-                    <div
-                      key={idx}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        background: "var(--bg-card)",
-                        padding: "0.75rem 1rem",
-                        borderRadius: "var(--radius-sm)",
-                        border: "1px solid var(--border-color)",
-                      }}
-                    >
-                      <div>
-                        <div style={{ fontWeight: 600, fontSize: "0.9rem" }}>{ch.title}</div>
-                        <div style={{ fontSize: "0.8rem", color: "var(--primary)" }}>{ch.username}</div>
-                      </div>
-                      <a
-                        href={`https://t.me/${ch.username.replace("@", "")}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn btn-outline"
-                        style={{ fontSize: "0.75rem", padding: "0.3rem 0.65rem" }}
-                      >
-                        Ochish ↗
-                      </a>
-                    </div>
-                  ))}
+              <form onSubmit={handleSaveSettings} style={{ padding: "1.25rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
+                <div>
+                  <label className="form-label" htmlFor="adminContactInput">
+                    Admin aloqa ma&apos;lumoti (shaxsiy chat rad xabarida ko&apos;rsatiladi)
+                  </label>
+                  <input
+                    id="adminContactInput"
+                    type="text"
+                    className="form-input"
+                    value={adminContactInput}
+                    onChange={(e) => setAdminContactInput(e.target.value)}
+                    placeholder="@Diyorbek_Jabborov"
+                    required
+                  />
                 </div>
-              </div>
+
+                <div>
+                  <label className="form-label" htmlFor="defaultGroupModeSelect">
+                    Yangi guruhlar uchun sukut bo&apos;yicha rejim
+                  </label>
+                  <select
+                    id="defaultGroupModeSelect"
+                    className="form-input"
+                    value={defaultGroupModeInput}
+                    onChange={(e) =>
+                      setDefaultGroupModeInput(
+                        e.target.value === "ochiq_emas" ? "ochiq_emas" : "asosiy"
+                      )
+                    }
+                  >
+                    <option value="asosiy">🟢 Asosiy (6 bo&apos;limli umumiy menyu)</option>
+                    <option value="ochiq_emas">⚪ O&apos;chirilgan (admin yoqmaguncha javob bermaydi)</option>
+                  </select>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    disabled={saving}
+                  >
+                    {saving ? "⏳ Saqlanmoqda..." : "💾 Sozlamalarni saqlash"}
+                  </button>
+                </div>
+              </form>
             </div>
 
             {/* Asosiy parametrlar */}
@@ -210,7 +283,7 @@ export default function SettingsPage() {
                             className={
                               log.action.includes("BROADCAST")
                                 ? "badge badge-success"
-                                : log.action.includes("SETTINGS")
+                                : log.action.includes("SETTINGS") || log.action.includes("MODE")
                                 ? "badge badge-warning"
                                 : "badge badge-next"
                             }

@@ -11,6 +11,8 @@ interface SidebarProps {
 const navItems = [
   { href: "/", label: "Bosh sahifa", icon: "📊", available: true },
   { href: "/groups", label: "Guruhlar", icon: "👥", available: true },
+  { href: "/kurs-ishtirokchilari", label: "Kurs ishtirokchilari", icon: "🎓", available: true },
+  { href: "/kurs-testlari", label: "Kurs testlari", icon: "📚", available: true },
   { href: "/users", label: "Foydalanuvchilar", icon: "👤", available: true },
   { href: "/broadcast", label: "Xabarnoma yuborish", icon: "📢", available: true },
   { href: "/results", label: "Natijalar & Reyting", icon: "🏆", available: true },
