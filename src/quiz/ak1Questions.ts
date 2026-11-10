@@ -21,6 +21,7 @@ export const ak1Quiz: Quiz = {
   description: "329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning kimyoviy formulalari bo'yicha interaktiv rasm-quiz",
   groupOnly: true,
   shuffle: true,
+  bolim: "boshqalar",
   source: "329–330-betlardagi 17-jadval",
   questions: [
     {

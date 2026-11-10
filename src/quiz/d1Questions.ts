@@ -406,6 +406,7 @@ export const d1Quiz: Quiz = {
   description: "Dinshunoslik fanining maqsad va vazifalari, din atamasi, funksiyalari va dinlar tasnifi bo'yicha 30 ta savoldan iborat test",
   groupOnly: true,
   shuffle: true,
+  bolim: "dinshunoslik",
   source: "1-mavzu Dinshunoslik ma'ruza slaydlari",
   questions: d1Questions,
 };

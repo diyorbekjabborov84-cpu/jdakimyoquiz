@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "migrate": "tsx src/database/migrate.ts",
+    "kurs:yukla": "tsx src/kurs/yuklaScript.ts",
     "test": "node test/run-tests.mjs"
   },
   "engines": {

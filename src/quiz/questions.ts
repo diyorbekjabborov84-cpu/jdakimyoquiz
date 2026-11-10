@@ -8,6 +8,7 @@ export const aminoAcidsQuiz: Quiz = {
   id: "amino_acids",
   title: "Aminokislotalar — suyuqlanish temperaturasi",
   description: "329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning suyuqlanish temperaturasi bo'yicha interaktiv quiz",
+  bolim: "boshqalar",
   groupOnly: true,
   questions: [
     {
@@ -191,6 +192,7 @@ export const chemistryBasicsQuiz: Quiz = {
   id: "kimyo_asoslari",
   title: "Kimyo asoslari — namuna",
   description: "Elementlar, suv formulasi va asosiy kimyoviy tushunchalar bo'yicha test",
+  bolim: "boshqalar",
   groupOnly: true,
   questions: [
     {

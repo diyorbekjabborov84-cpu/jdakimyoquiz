@@ -14,6 +14,7 @@ export const russianQuiz1: Quiz = {
   source: "Rus tilidan testlar 1-kurslar uchun (PDF)",
   groupOnly: true,
   shuffle: true,
+  bolim: "rus_tili",
   questions: [
     {
       id: "r1_1",
@@ -375,6 +376,7 @@ export const russianQuiz2: Quiz = {
   source: "Rus tilidan testlar 1-kurslar uchun (PDF)",
   groupOnly: true,
   shuffle: true,
+  bolim: "rus_tili",
   questions: [
     {
       id: "r2_1",
@@ -736,6 +738,7 @@ export const russianQuiz3: Quiz = {
   source: "Rus tilidan testlar 1-kurslar uchun (PDF)",
   groupOnly: true,
   shuffle: true,
+  bolim: "rus_tili",
   questions: [
     {
       id: "r3_1",
@@ -1097,6 +1100,7 @@ export const russianQuiz4: Quiz = {
   source: "Rus tilidan testlar 1-kurslar uchun (PDF)",
   groupOnly: true,
   shuffle: true,
+  bolim: "rus_tili",
   questions: [
     {
       id: "r4_1",
@@ -1458,6 +1462,7 @@ export const russianQuiz5: Quiz = {
   source: "Rus tilidan testlar 1-kurslar uchun (PDF)",
   groupOnly: true,
   shuffle: true,
+  bolim: "rus_tili",
   questions: [
     {
       id: "r5_1",
@@ -1819,6 +1824,7 @@ export const russianQuiz6: Quiz = {
   source: "Rus tilidan testlar 1-kurslar uchun (PDF)",
   groupOnly: true,
   shuffle: true,
+  bolim: "rus_tili",
   questions: [
     {
       id: "r6_1",

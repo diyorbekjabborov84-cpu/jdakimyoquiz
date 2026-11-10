@@ -12,6 +12,7 @@ export const kk5Quiz1: Quiz = {
   title: "Kolloid kimyo — 5-mavzu 1-qism (KK5_1)",
   description: "01–20-savollar: Kolloid sistemalar, disperslik va zollarning turlari (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -183,6 +184,7 @@ export const kk5Quiz2: Quiz = {
   title: "Kolloid kimyo — 5-mavzu 2-qism (KK5_2)",
   description: "21–40-savollar: Liofil va liofob sistemalar, mitsellalar va qo'sh elektr qavat (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -354,6 +356,7 @@ export const kk5Quiz3: Quiz = {
   title: "Kolloid kimyo — 5-mavzu 3-qism (KK5_3)",
   description: "41–60-savollar: Zol olish usullari, peptizatsiya va dializ (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -525,6 +528,7 @@ export const kk5Quiz4: Quiz = {
   title: "Kolloid kimyo — 5-mavzu 4-qism (KK5_4)",
   description: "61–82-savollar: Kinetik, optik, elektrokinetik xossalar va koagulyatsiya (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [

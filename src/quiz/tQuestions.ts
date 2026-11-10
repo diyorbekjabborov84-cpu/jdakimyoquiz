@@ -376,6 +376,7 @@ export const t1Quiz: Quiz = {
   description: "01–30-savollar: Mustaqillik arafasi, Orol fojiasi, Axsikent va ilk siyosiy islohotlar (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t1Questions,
 };
@@ -749,6 +750,7 @@ export const t2Quiz: Quiz = {
   description: "31–60-savollar: Taraqqiyot strategiyasi, ta’lim farmonlari, partiyalar va ikki palatali parlament (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t2Questions,
 };
@@ -1122,6 +1124,7 @@ export const t3Quiz: Quiz = {
   description: "61–90-savollar: Ijtimoiy soha, Harakatlar strategiyasi, YUNESKO obidalari va davlat tili (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t3Questions,
 };
@@ -1495,6 +1498,7 @@ export const t4Quiz: Quiz = {
   description: "91–120-savollar: Tarixiy yubileylar, ShHT va MDH sammitlari, BMT tashabbuslari va OAV (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t4Questions,
 };
@@ -1868,6 +1872,7 @@ export const t5Quiz: Quiz = {
   description: "121–150-savollar: Eng yangi tarix davrlari, davlat ramzlari va xalqaro universitetlar (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t5Questions,
 };
@@ -2241,6 +2246,7 @@ export const t6Quiz: Quiz = {
   description: "151–180-savollar: Oliy ta’lim 2030 konsepsiyasi, Saylov kodeksi, qonunchilik va sud islohotlari (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t6Questions,
 };
@@ -2614,6 +2620,7 @@ export const t7Quiz: Quiz = {
   description: "181–210-savollar: Allomalar yubileylari, fuqarolik jamiyati institutlari va O‘zbekiston-2030 (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t7Questions,
 };
@@ -2987,6 +2994,7 @@ export const t8Quiz: Quiz = {
   description: "211–240-savollar: Suv resurslari, ma’naviyat, Yangi O‘zbekiston taraqqiyot strategiyasi 7 yo‘nalishi (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t8Questions,
 };
@@ -3432,6 +3440,7 @@ export const t9Quiz: Quiz = {
   description: "241–276-savollar: O‘zbekiston-2030 strategiyasi, «Bir makon bir yo‘l», ta’lim va xalqaro hamkorlik (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "tarix",
   source: "",
   questions: t9Questions,
 };

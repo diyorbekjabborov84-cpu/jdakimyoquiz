@@ -12,6 +12,7 @@ export const kk2Quiz1: Quiz = {
   title: "Kolloid kimyo — 2-mavzu 1-qism (KK2_1)",
   description: "01–20-savollar: Dispers sistema va asosiy turlari (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -183,6 +184,7 @@ export const kk2Quiz2: Quiz = {
   title: "Kolloid kimyo — 2-mavzu 2-qism (KK2_2)",
   description: "21–40-savollar: Fazalar, barqarorlik va tasnif (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -354,6 +356,7 @@ export const kk2Quiz3: Quiz = {
   title: "Kolloid kimyo — 2-mavzu 3-qism (KK2_3)",
   description: "41–60-savollar: Olinish va tozalash usullari (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [

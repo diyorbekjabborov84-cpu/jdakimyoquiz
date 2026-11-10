@@ -12,6 +12,7 @@ export const kk1Quiz1: Quiz = {
   title: "Kolloid kimyo — 1-qism (KK1_1)",
   description: "01–20-savollar: Kolloid kimyo asoslari, dispers sistemalar va sirt hodisalari (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -183,6 +184,7 @@ export const kk1Quiz2: Quiz = {
   title: "Kolloid kimyo — 2-qism (KK1_2)",
   description: "21–40-savollar: Sirt energiyasi, adsorbsiya va dispers sistemalar xossalari (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -354,6 +356,7 @@ export const kk1Quiz3: Quiz = {
   title: "Kolloid kimyo — 3-qism (KK1_3)",
   description: "41–60-savollar: Zol va gellar, optik va kinetik xossalar, koagulyatsiya (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [

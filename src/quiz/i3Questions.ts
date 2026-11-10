@@ -12,6 +12,7 @@ export const i3Quiz1: Quiz = {
   title: "Alkanlar — 1-qism (I3_1)",
   description: "01–20-savollar: Tuzilish, nomlanish va izomeriya (20s/savol)",
   source: "Abdusalom Saidov slaydlaridan",
+  bolim: "organik",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -183,6 +184,7 @@ export const i3Quiz2: Quiz = {
   title: "Alkanlar — 2-qism (I3_2)",
   description: "21–40-savollar: Tabiiy manbalar, fizik xossalar va olinish (20s/savol)",
   source: "Abdusalom Saidov slaydlaridan",
+  bolim: "organik",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -354,6 +356,7 @@ export const i3Quiz3: Quiz = {
   title: "Alkanlar — 3-qism (I3_3)",
   description: "41–60-savollar: Kimyoviy xossalar va termik o'zgarishlar (20s/savol)",
   source: "Abdusalom Saidov slaydlaridan",
+  bolim: "organik",
   groupOnly: true,
   shuffle: true,
   questions: [

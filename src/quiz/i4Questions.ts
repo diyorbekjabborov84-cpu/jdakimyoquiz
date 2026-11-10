@@ -19,6 +19,7 @@ export const i4Quiz1: Quiz = {
   title: "Alkenlar — 1-qism (I4_1)",
   description: "01–20-savollar: Tuzilish, gomologik qator va gibridlanish (20s/savol)",
   source: "Abdusalom Saidov slaydlaridan",
+  bolim: "organik",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -190,6 +191,7 @@ export const i4Quiz2: Quiz = {
   title: "Alkenlar — 2-qism (I4_2)",
   description: "21–40-savollar: Nomenklatura, izomeriya va olinish usullari (20s/savol)",
   source: "Abdusalom Saidov slaydlaridan",
+  bolim: "organik",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -361,6 +363,7 @@ export const i4Quiz3: Quiz = {
   title: "Alkenlar — 3-qism (I4_3)",
   description: "41–56-savollar: Fizikaviy xossalar va rasmli struktura savollari (20s/savol)",
   source: "Abdusalom Saidov slaydlaridan",
+  bolim: "organik",
   groupOnly: true,
   shuffle: true,
   questions: [

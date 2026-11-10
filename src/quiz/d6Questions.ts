@@ -538,6 +538,7 @@ export const d6Quiz: Quiz = {
   description: "Islom dini tarixi, payg'ambar siyratlari, arkonlari va manbalari bo'yicha 40 ta savoldan iborat test (20s/savol)",
   groupOnly: true,
   shuffle: true,
+  bolim: "dinshunoslik",
   source: "",
   author: "@Dr_xasanov07",
   questions: d6Questions,

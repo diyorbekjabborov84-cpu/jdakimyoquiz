@@ -14,6 +14,9 @@ export const FIRESTORE_COLLECTIONS = {
   QUIZZES: "quizzes",
   BROADCASTS: "broadcast_history",
   AUDIT_LOGS: "admin_audit_logs",
+  SETTINGS: "bot_settings",
+  KURS_PARTICIPANTS: "kurs_ishtirokchilari",
+  KURS_LESSONS: "kurs_darslar",
 } as const;
 
 /**

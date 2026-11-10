@@ -12,6 +12,7 @@ export const kk3Quiz1: Quiz = {
   title: "Kolloid kimyo — 3-mavzu 1-qism (KK3_1)",
   description: "01–20-savollar: Sirt energiyasi va tarangligi (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -183,6 +184,7 @@ export const kk3Quiz2: Quiz = {
   title: "Kolloid kimyo — 3-mavzu 2-qism (KK3_2)",
   description: "21–40-savollar: Adsorbsiya, ho'llanish va kapillyarlik (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [

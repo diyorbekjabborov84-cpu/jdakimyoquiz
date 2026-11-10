@@ -12,6 +12,7 @@ export const kk4Quiz1: Quiz = {
   title: "Kolloid kimyo — 4-mavzu 1-qism (KK4_1)",
   description: "01–20-savollar: Adsorbsiya tushunchasi, adsorbentlar va sirt hodisalari (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -183,6 +184,7 @@ export const kk4Quiz2: Quiz = {
   title: "Kolloid kimyo — 4-mavzu 2-qism (KK4_2)",
   description: "21–40-savollar: Adsorbsiya miqdori, muvozanat va izotermalar (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -354,6 +356,7 @@ export const kk4Quiz3: Quiz = {
   title: "Kolloid kimyo — 4-mavzu 3-qism (KK4_3)",
   description: "41–60-savollar: Lengmyur izotermasi va monoqavat nazariyasi (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
@@ -525,6 +528,7 @@ export const kk4Quiz4: Quiz = {
   title: "Kolloid kimyo — 4-mavzu 4-qism (KK4_4)",
   description: "61–80-savollar: Ko'pqavatli adsorbsiya, ion almashinish va xromatografiya (20s/savol)",
   source: "Bahora Nayimova slaydlaridan",
+  bolim: "kolloid",
   groupOnly: true,
   shuffle: true,
   questions: [
