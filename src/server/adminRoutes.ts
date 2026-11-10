@@ -221,6 +221,7 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
         nextCursor: result.nextCursor,
         hasMore: result.hasMore,
         total: result.total,
+        modeCounts: result.modeCounts,
       });
     } catch (err: any) {
       if (err.name === "InvalidCursorError" || err.message?.includes("INVALID_CURSOR")) {

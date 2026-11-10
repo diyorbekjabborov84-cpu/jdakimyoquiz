@@ -26,15 +26,18 @@ export interface KursParticipantRecord {
 
 const GROUP_MODE_CACHE_TTL_MS = 60_000; // 60 soniya
 const PARTICIPANT_CACHE_TTL_MS = 10 * 60_000; // 10 daqiqa
+const CHECK_ERROR_CACHE_TTL_MS = 30_000; // 30 soniya (vaqtinchalik xatolar uchun)
 
 const groupModeCache = new Map<number, { mode: GroupShellMode; expiresAt: number }>();
 const participantCache = new Map<
   number,
-  { status: "participant" | "not_participant" | "blocked"; expiresAt: number }
+  { status: "participant" | "not_participant" | "blocked" | "check_error"; expiresAt: number }
 >();
 
 // Guruh o'chirilgan (ochiq_emas) bo'lganda faqat bir marta ogohlantirish yuborish uchun
 const disabledNoticeSentGroups = new Set<number>();
+// Ishlamaydigan (o'lik) kurs guruhlarini logga faqat bir marta yozish uchun
+const loggedDeadKursGroups = new Set<number>();
 
 // Lokal/test muhiti uchun xotiradagi zaxira
 const memoryGroupModes = new Map<number, GroupShellMode>();
@@ -44,9 +47,11 @@ export function invalidateGroupModeCache(chatId?: number): void {
   if (chatId !== undefined) {
     groupModeCache.delete(chatId);
     disabledNoticeSentGroups.delete(chatId);
+    loggedDeadKursGroups.delete(chatId);
   } else {
     groupModeCache.clear();
     disabledNoticeSentGroups.clear();
+    loggedDeadKursGroups.clear();
   }
   // Guruh rejimi o'zgarganda kurs guruhlari ro'yxati o'zgarishi mumkin, shuning uchun ishtirokchi keshini ham tozalaymiz
   participantCache.clear();
@@ -64,6 +69,7 @@ export function resetShellStateForTest(): void {
   groupModeCache.clear();
   participantCache.clear();
   disabledNoticeSentGroups.clear();
+  loggedDeadKursGroups.clear();
   memoryGroupModes.clear();
   memoryParticipants.clear();
 }
@@ -148,6 +154,23 @@ function isActiveChatMemberStatus(member: any): boolean {
   return false;
 }
 
+function classifyDeadGroupError(err: any): "kicked" | "left" | "unknown" | null {
+  const desc = String(err?.description || err?.message || "").toLowerCase();
+  if (desc.includes("bot was kicked")) {
+    return "kicked";
+  }
+  if (desc.includes("bot is not a member")) {
+    return "left";
+  }
+  if (
+    desc.includes("chat not found") ||
+    desc.includes("group chat was upgraded to a supergroup")
+  ) {
+    return "unknown";
+  }
+  return null;
+}
+
 async function getKursGroupChatIds(): Promise<number[]> {
   const db = getFirestoreDb();
   if (!db) {
@@ -166,7 +189,7 @@ async function getKursGroupChatIds(): Promise<number[]> {
   const ids: number[] = [];
   for (const doc of snap.docs) {
     const data = doc.data() || {};
-    if (data.status === "kicked" || data.status === "left") {
+    if (data.status === "kicked" || data.status === "left" || data.status === "unknown") {
       continue;
     }
     const id = Number(data.chatId ?? doc.id);
@@ -189,6 +212,10 @@ async function checkPrivateKursParticipation(
 
   const db = getFirestoreDb();
   if (!db && process.env.NODE_ENV === "production") {
+    participantCache.set(userId, {
+      status: "check_error",
+      expiresAt: now + CHECK_ERROR_CACHE_TTL_MS,
+    });
     return "check_error";
   }
 
@@ -232,6 +259,10 @@ async function checkPrivateKursParticipation(
     }
   } catch (err) {
     console.error(`[Shell] kurs_ishtirokchilari tekshirishda xatolik (userId: ${userId}):`, err);
+    participantCache.set(userId, {
+      status: "check_error",
+      expiresAt: now + CHECK_ERROR_CACHE_TTL_MS,
+    });
     return "check_error";
   }
 
@@ -241,6 +272,10 @@ async function checkPrivateKursParticipation(
     kursGroupIds = await getKursGroupChatIds();
   } catch (err) {
     console.error(`[Shell] Kurs guruhlarini olishda xatolik (userId: ${userId}):`, err);
+    participantCache.set(userId, {
+      status: "check_error",
+      expiresAt: now + CHECK_ERROR_CACHE_TTL_MS,
+    });
     return "check_error";
   }
 
@@ -273,6 +308,36 @@ async function checkPrivateKursParticipation(
       if (desc.includes("user not found") || desc.includes("participant_id_invalid")) {
         continue;
       }
+
+      // Guruhga oid doimiy xatolar: bot guruhda yo'q, chiqarilgan yoki guruh o'chgan/ko'chgan
+      const deadStatus = classifyDeadGroupError(err);
+      if (deadStatus) {
+        if (!loggedDeadKursGroups.has(groupChatId)) {
+          loggedDeadKursGroups.add(groupChatId);
+          console.warn(
+            `[Shell] Kurs guruhi (${groupChatId}) faol emas (${deadStatus}): ${err?.description || err?.message || err}`
+          );
+        }
+        if (db) {
+          const nowIso = new Date().toISOString();
+          await db
+            .collection(FIRESTORE_COLLECTIONS.GROUPS)
+            .doc(String(groupChatId))
+            .set(
+              {
+                status: deadStatus,
+                statusUpdatedAt: nowIso,
+                updatedAt: nowIso,
+              },
+              { merge: true }
+            )
+            .catch((updateErr) => {
+              console.warn(`[Shell] Guruh (${groupChatId}) statusini yangilashda xatolik:`, updateErr);
+            });
+        }
+        continue;
+      }
+
       console.error(
         `[Shell] getChatMember xatoligi (group: ${groupChatId}, user: ${userId}):`,
         err
@@ -282,6 +347,10 @@ async function checkPrivateKursParticipation(
   }
 
   if (hadApiError) {
+    participantCache.set(userId, {
+      status: "check_error",
+      expiresAt: now + CHECK_ERROR_CACHE_TTL_MS,
+    });
     return "check_error";
   }
 

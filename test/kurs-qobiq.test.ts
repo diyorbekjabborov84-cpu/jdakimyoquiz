@@ -89,6 +89,107 @@ function createMockFirestore() {
     return collections.get(name)!;
   };
 
+  const executeQuery = (
+    colMap: Map<string, any>,
+    filters: Array<{ field: string; op: string; val: any }>,
+    sorts: Array<{ field: string; dir: "asc" | "desc" }>,
+    cursorVals?: any[],
+    limitCount?: number
+  ) => {
+    let items = Array.from(colMap.entries()).map(([id, d]) => ({
+      id,
+      data: () => JSON.parse(JSON.stringify(d)),
+    }));
+
+    for (const flt of filters) {
+      items = items.filter((item) => {
+        const d = item.data();
+        if (flt.op === "==") return d[flt.field] === flt.val;
+        if (flt.op === ">=") return d[flt.field] >= flt.val;
+        if (flt.op === "<=") return d[flt.field] <= flt.val;
+        return true;
+      });
+    }
+
+    if (sorts.length > 0) {
+      items.sort((a, b) => {
+        for (const s of sorts) {
+          const va = s.field === "__name__" ? String(a.id) : String(a.data()[s.field] ?? "");
+          const vb = s.field === "__name__" ? String(b.id) : String(b.data()[s.field] ?? "");
+          if (va !== vb) {
+            return s.dir === "desc" ? (va < vb ? 1 : -1) : va > vb ? 1 : -1;
+          }
+        }
+        return 0;
+      });
+    }
+
+    if (cursorVals && cursorVals.length > 0) {
+      const idx = items.findIndex((it) => {
+        if (cursorVals.length === 1) {
+          const s = sorts[0] || { field: "__name__" };
+          const val = s.field === "__name__" ? String(it.id) : String(it.data()[s.field] ?? "");
+          return val === String(cursorVals[0]) || String(it.id) === String(cursorVals[0]);
+        }
+        if (cursorVals.length >= 2) {
+          const s0 = sorts[0];
+          const val0 = s0.field === "__name__" ? String(it.id) : String(it.data()[s0.field] ?? "");
+          return val0 === String(cursorVals[0]) && String(it.id) === String(cursorVals[1]);
+        }
+        return false;
+      });
+      if (idx !== -1) {
+        items = items.slice(idx + 1);
+      }
+    }
+
+    if (limitCount !== undefined) {
+      items = items.slice(0, limitCount);
+    }
+
+    return items;
+  };
+
+  const createQueryObject = (
+    colMap: Map<string, any>,
+    filters: Array<{ field: string; op: string; val: any }> = [],
+    sorts: Array<{ field: string; dir: "asc" | "desc" }> = [],
+    cursorVals?: any[]
+  ): any => ({
+    where(field: string, op: string, val: any) {
+      return createQueryObject(colMap, [...filters, { field, op, val }], [...sorts], cursorVals);
+    },
+    orderBy(field: string = "__name__", dir: "asc" | "desc" = "asc") {
+      return createQueryObject(colMap, [...filters], [...sorts, { field, dir }], cursorVals);
+    },
+    startAfter(...vals: any[]) {
+      return createQueryObject(colMap, [...filters], [...sorts], vals);
+    },
+    limit(n: number) {
+      return {
+        async get() {
+          if (shouldThrowError) throw new Error("Simulated Firestore Error");
+          const docs = executeQuery(colMap, filters, sorts, cursorVals, n);
+          return { empty: docs.length === 0, docs };
+        },
+      };
+    },
+    count() {
+      return {
+        async get() {
+          if (shouldThrowError) throw new Error("Simulated Firestore Error");
+          const docs = executeQuery(colMap, filters, sorts);
+          return { data: () => ({ count: docs.length }) };
+        },
+      };
+    },
+    async get() {
+      if (shouldThrowError) throw new Error("Simulated Firestore Error");
+      const docs = executeQuery(colMap, filters, sorts, cursorVals);
+      return { empty: docs.length === 0, docs };
+    },
+  });
+
   const mockDb = {
     setShouldThrow(flag: boolean) {
       shouldThrowError = flag;
@@ -107,6 +208,7 @@ function createMockFirestore() {
     collection(colName: string) {
       const colMap = getCol(colName);
       return {
+        ...createQueryObject(colMap),
         doc(id: string) {
           return {
             id,
@@ -131,71 +233,10 @@ function createMockFirestore() {
             },
           };
         },
-        where(field: string, op: string, val: any) {
-          return {
-            async get() {
-              if (shouldThrowError) throw new Error("Simulated Firestore Error");
-              const filtered = Array.from(colMap.entries()).filter(([_, d]) => {
-                if (op === "==") return d[field] === val;
-                return true;
-              });
-              return {
-                empty: filtered.length === 0,
-                docs: filtered.map(([id, d]) => ({
-                  id,
-                  data: () => JSON.parse(JSON.stringify(d)),
-                })),
-              };
-            },
-            count() {
-              return {
-                async get() {
-                  const count = Array.from(colMap.values()).filter((d) => d[field] === val).length;
-                  return { data: () => ({ count }) };
-                },
-              };
-            },
-          };
-        },
-        orderBy() {
-          return {
-            orderBy() {
-              return this;
-            },
-            limit(n: number) {
-              return {
-                async get() {
-                  const docs = Array.from(colMap.entries())
-                    .slice(0, n)
-                    .map(([id, d]) => ({
-                      id,
-                      data: () => JSON.parse(JSON.stringify(d)),
-                    }));
-                  return { empty: docs.length === 0, docs };
-                },
-              };
-            },
-          };
-        },
-        count() {
-          return {
-            async get() {
-              return { data: () => ({ count: colMap.size }) };
-            },
-          };
-        },
         async add(data: any) {
           const id = `doc_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
           colMap.set(id, JSON.parse(JSON.stringify(data)));
           return { id };
-        },
-        async get() {
-          if (shouldThrowError) throw new Error("Simulated Firestore Error");
-          const docs = Array.from(colMap.entries()).map(([id, d]) => ({
-            id,
-            data: () => JSON.parse(JSON.stringify(d)),
-          }));
-          return { empty: docs.length === 0, docs };
         },
       };
     },
@@ -207,6 +248,8 @@ function createMockFirestore() {
 class KursTestApi implements TelegramApiSender {
   public memberCount = 15;
   public groupMemberships = new Map<string, string>(); // "${chatId}:${userId}" -> status
+  public groupErrors = new Map<number, string>(); // chatId -> error message
+  public getChatMemberCalls = 0;
   public shouldFailGetChatMember = false;
   public sentMessages: Array<{ chatId: number | string; text: string; other?: any }> = [];
   public sentPolls: Array<{
@@ -226,6 +269,11 @@ class KursTestApi implements TelegramApiSender {
   }
 
   async getChatMember(chatId: number | string, userId: number) {
+    this.getChatMemberCalls++;
+    const numChatId = Number(chatId);
+    if (this.groupErrors.has(numChatId)) {
+      throw new Error(this.groupErrors.get(numChatId)!);
+    }
     if (this.shouldFailGetChatMember) {
       throw new Error("Simulated Telegram API network timeout");
     }
@@ -445,8 +493,9 @@ async function runKursQobiqTests() {
   const manualShell = await resolveShell(ctxManualPrivate as any);
   assert.deepEqual(manualShell, { shell: "kurs", context: "private" });
 
-  // 3.4 Fail-closed: Telegram API getChatMember xato berganda reason: "check_error"
+  // 3.4 Fail-closed: Telegram API 429 (vaqtinchalik) xato berganda reason: "check_error" va 30s keshlanishi (T1)
   api.shouldFailGetChatMember = true;
+  const callsBefore429 = api.getChatMemberCalls;
   const ctxErrorPrivate = makeCtx({
     chatId: outsiderUserId,
     chatType: "private",
@@ -456,6 +505,12 @@ async function runKursQobiqTests() {
   await handleStart(ctxErrorPrivate as any);
   assert.equal(ctxErrorPrivate.replies.length, 1);
   assert.ok(ctxErrorPrivate.replies[0].text.includes("Hozir tekshirib bo‘lmadi"));
+  const callsAfterFirst429 = api.getChatMemberCalls;
+  assert.ok(callsAfterFirst429 > callsBefore429, "1-chaqiruv Telegram API ga murojaat qilishi kerak");
+
+  // Ikkinchi chaqiruv 30s keshdan qaytishi va Telegram API ga bormasligi shart!
+  await handleStart(ctxErrorPrivate as any);
+  assert.equal(api.getChatMemberCalls, callsAfterFirst429, "2-chaqiruvda check_error keshdan olinishi va Telegramga bormasligi shart");
   api.shouldFailGetChatMember = false;
 
   // 3.5 Fail-closed: Firestore xato berganda reason: "check_error"
@@ -469,7 +524,49 @@ async function runKursQobiqTests() {
   await handleStart(ctxDbErrPrivate as any);
   assert.ok(ctxDbErrPrivate.replies[0].text.includes("Hozir tekshirib bo‘lmadi"));
   mockDb.setShouldThrow(false);
-  console.log("  ✅ Shaxsiy chat ruxsatlari, bloklash ustunligi va fail-closed tasdiqlandi");
+
+  // 3.6 T1: Bitta guruh o'lik bo'lsa ("chat not found"), oddiy foydalanuvchi admin xabarini oladi va status yangilanadi
+  const deadGroup1 = -1002901;
+  await setGroupShellMode(deadGroup1, "kurs");
+  api.groupErrors.set(deadGroup1, "Bad Request: chat not found");
+
+  const normalUserWithDeadGroup = 5005;
+  const ctxNormalDead = makeCtx({
+    chatId: normalUserWithDeadGroup,
+    chatType: "private",
+    userId: normalUserWithDeadGroup,
+    api,
+  });
+  await handleStart(ctxNormalDead as any);
+  assert.equal(ctxNormalDead.replies.length, 1);
+  assert.ok(
+    ctxNormalDead.replies[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"),
+    "O'lik guruh oddiy foydalanuvchini check_error da qoldirmasligi, admin xabarini berishi kerak"
+  );
+  const deadDoc1 = await mockDb.collection(FIRESTORE_COLLECTIONS.GROUPS).doc(String(deadGroup1)).get();
+  assert.equal(deadDoc1.data()?.status, "unknown", "chat not found bo'lganda guruh statusi unknown ga yangilanishi kerak");
+
+  // 3.7 T1: Bitta guruh o'lik bo'lsa ham ("bot was kicked"), ikkinchi guruh a'zosi ruxsat oladi
+  const deadGroup2 = -1002902;
+  await setGroupShellMode(deadGroup2, "kurs");
+  api.groupErrors.set(deadGroup2, "Forbidden: bot was kicked from the supergroup chat");
+
+  const secondGroupMember = 5006;
+  api.groupMemberships.set(`${kursGroupId}:${secondGroupMember}`, "member");
+  const ctxSecondGroupMember = makeCtx({
+    chatId: secondGroupMember,
+    chatType: "private",
+    userId: secondGroupMember,
+    api,
+  });
+  const secondGroupShell = await resolveShell(ctxSecondGroupMember as any);
+  assert.deepEqual(
+    secondGroupShell,
+    { shell: "kurs", context: "private" },
+    "Bitta kurs guruhi o'lik bo'lsa ham, ikkinchi faol kurs guruhi a'zosi ruxsat olishi shart"
+  );
+  api.groupErrors.clear();
+  console.log("  ✅ Shaxsiy chat ruxsatlari, o'lik guruh himoyasi (T1), bloklash ustunligi va fail-closed tasdiqlandi");
 
   // 4. Inline menyular, <= 64 bayt callback_data, poyga himoyasi va shaxsiy chatda < 9/12 tavsiyasi
   console.log("\n4. Inline menyu oqimi, callback <= 64 bayt va shaxsiy chat yakuniy tavsiyasi...");
@@ -585,6 +682,63 @@ async function runKursQobiqTests() {
     mode: "notogri_rejim",
   });
   assert.equal(badModePatch.status, 400);
+
+  // 5.1b T2: mode maydoni yo'q eski guruhlar migratsiyasi va Firestore mode filtri + sahifalash + modeCounts
+  await mockDb.collection(FIRESTORE_COLLECTIONS.GROUPS).doc("-1009901").set({
+    chatId: -1009901,
+    title: "Eski Guruh 1 (modesiz)",
+    titleLower: "eski guruh 1 (modesiz)",
+    type: "supergroup",
+    status: "active",
+    lastActivity: "2026-04-12T10:01:00.000Z",
+    updatedAt: "2026-04-12T10:01:00.000Z",
+  });
+  await mockDb.collection(FIRESTORE_COLLECTIONS.GROUPS).doc("-1009902").set({
+    chatId: -1009902,
+    title: "Kurs Guruh A",
+    titleLower: "kurs guruh a",
+    type: "supergroup",
+    status: "active",
+    mode: "kurs",
+    lastActivity: "2026-04-12T10:02:00.000Z",
+    updatedAt: "2026-04-12T10:02:00.000Z",
+  });
+  await mockDb.collection(FIRESTORE_COLLECTIONS.GROUPS).doc("-1009903").set({
+    chatId: -1009903,
+    title: "Kurs Guruh B",
+    titleLower: "kurs guruh b",
+    type: "supergroup",
+    status: "active",
+    mode: "kurs",
+    lastActivity: "2026-04-12T10:03:00.000Z",
+    updatedAt: "2026-04-12T10:03:00.000Z",
+  });
+  await mockDb.collection("admin_migrations").doc("group_modes_v1").delete();
+
+  // limit=2 bilan mode=kurs so'ralganda: 1-sahifada aynan 2 ta kurs guruhi chiqishi va hasMore=true bo'lishi shart!
+  const kursGroupsPage1 = await reqApi("GET", "/api/admin/groups?mode=kurs&limit=2");
+  assert.equal(kursGroupsPage1.status, 200);
+  assert.equal(kursGroupsPage1.data.groups.length, 2, "mode=kurs limit=2 da 1-sahifa to'liq 2 ta kurs guruhini qaytarishi kerak");
+  assert.equal(kursGroupsPage1.data.hasMore, true, "2 tadan ko'p kurs guruhi bo'lganda hasMore=true bo'lishi kerak");
+  assert.ok(kursGroupsPage1.data.nextCursor, "nextCursor bo'lishi shart");
+  assert.ok(kursGroupsPage1.data.groups.every((g: any) => g.mode === "kurs"));
+  assert.ok(kursGroupsPage1.data.modeCounts.kurs >= 3);
+  assert.ok(kursGroupsPage1.data.modeCounts.asosiy >= 1, "Eski modesiz guruh asosiy ga migratsiya qilingan bo'lishi kerak");
+
+  // 2-sahifa cursor orqali
+  const kursGroupsPage2 = await reqApi(
+    "GET",
+    `/api/admin/groups?mode=kurs&limit=2&cursor=${encodeURIComponent(kursGroupsPage1.data.nextCursor)}`
+  );
+  assert.equal(kursGroupsPage2.status, 200);
+  assert.ok(kursGroupsPage2.data.groups.length >= 1);
+  assert.ok(kursGroupsPage2.data.groups.every((g: any) => g.mode === "kurs"));
+
+  // Migratsiya markeri yozilgani va modesiz guruhga mode: "asosiy" qo'yilgani tekshiruvi
+  const migratedOldGroup = await mockDb.collection(FIRESTORE_COLLECTIONS.GROUPS).doc("-1009901").get();
+  assert.equal(migratedOldGroup.data()?.mode, "asosiy");
+  const migMarker = await mockDb.collection("admin_migrations").doc("group_modes_v1").get();
+  assert.equal(migMarker.data()?.completed, true);
 
   // 5.2 CRUD /api/admin/kurs/ishtirokchilar
   const postPart = await reqApi("POST", "/api/admin/kurs/ishtirokchilar", {

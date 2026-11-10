@@ -52,11 +52,24 @@ export interface GetGroupsOptions {
   cursor?: string;
 }
 
+export interface GroupModeCounts {
+  asosiy: number;
+  kurs: number;
+  ochiq_emas: number;
+}
+
 export interface GroupsResult {
   groups: GroupRecord[];
   nextCursor: string | null;
   hasMore: boolean;
   total: number;
+  modeCounts: GroupModeCounts;
+}
+
+export interface MigrateGroupModesResult {
+  scanned: number;
+  migrated: number;
+  alreadyCompleted: boolean;
 }
 
 export interface GetUsersOptions {
@@ -170,6 +183,9 @@ export async function trackGroupEvent(chatId: number | string, payload: TrackGro
         if (updateData.memberCount === undefined) updateData.memberCount = null;
         transaction.set(docRef, updateData);
       } else {
+        if (!isValidGroupMode(existing.mode) && !updateData.mode) {
+          updateData.mode = "asosiy";
+        }
         transaction.set(docRef, updateData, { merge: true });
       }
     });
@@ -291,7 +307,55 @@ export async function getOverviewStats(forceRefresh = false): Promise<{
 }
 
 /**
- * Guruhlarning ro'yxatini olish (server qidiruvi, barqaror cursor va limit+1 sahifalash)
+ * Bir martalik, qayta ishga tushirsa ham xavfsiz migratsiya:
+ * `mode` maydoni yo'q `groups` hujjatlariga `mode: "asosiy"` qo'yadi.
+ */
+export async function migrateGroupModes(
+  db: any = getFirestoreDb()
+): Promise<MigrateGroupModesResult> {
+  if (!db) {
+    throw new Error("DATABASE_NOT_INITIALIZED");
+  }
+  const marker = db.collection("admin_migrations").doc("group_modes_v1");
+  const result: MigrateGroupModesResult = {
+    scanned: 0,
+    migrated: 0,
+    alreadyCompleted: false,
+  };
+  if ((await marker.get()).data()?.completed === true) {
+    return { ...result, alreadyCompleted: true };
+  }
+
+  const groupsCol = db.collection(FIRESTORE_COLLECTIONS.GROUPS);
+  let after: string | undefined;
+  while (true) {
+    let query: any = groupsCol.orderBy("__name__").limit(200);
+    if (after && typeof query.startAfter === "function") {
+      query = query.startAfter(after);
+    }
+    const page = await query.get();
+    for (const doc of page.docs) {
+      result.scanned++;
+      const data = doc.data() || {};
+      if (!isValidGroupMode(data.mode)) {
+        await groupsCol.doc(String(doc.id)).set({ mode: "asosiy" }, { merge: true });
+        result.migrated++;
+      }
+    }
+    if (page.docs.length < 200 || typeof query.startAfter !== "function") break;
+    after = page.docs[page.docs.length - 1].id;
+  }
+
+  await marker.set({
+    completed: true,
+    completedAt: new Date().toISOString(),
+    ...result,
+  });
+  return result;
+}
+
+/**
+ * Guruhlarning ro'yxatini olish (server qidiruvi, Firestore mode filtri, barqaror cursor va limit+1 sahifalash)
  */
 export async function getGroupsList(options: GetGroupsOptions = {}): Promise<GroupsResult> {
   const parsedCursor = options.cursor ? decodeCursor(options.cursor) : null;
@@ -301,8 +365,24 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
     throw new Error("DATABASE_NOT_INITIALIZED");
   }
 
+  // Bir martalik mode migratsiyasi (eski guruhlarda mode yo'q bo'lsa mode: "asosiy" qo'yadi)
+  await migrateGroupModes(db);
+
   const limit = Math.min(Math.max(options.limit || 50, 1), 100);
   const groupsCol = db.collection(FIRESTORE_COLLECTIONS.GROUPS);
+  const modeFilter = options.mode && isValidGroupMode(options.mode) ? options.mode : undefined;
+
+  // Har bir rejim bo'yicha guruhlar sonini count() aggregation orqali hisoblash
+  const [asosiyCountSnap, kursCountSnap, ochiqEmasCountSnap] = await Promise.all([
+    groupsCol.where("mode", "==", "asosiy").count().get(),
+    groupsCol.where("mode", "==", "kurs").count().get(),
+    groupsCol.where("mode", "==", "ochiq_emas").count().get(),
+  ]);
+  const modeCounts: GroupModeCounts = {
+    asosiy: asosiyCountSnap.data().count,
+    kurs: kursCountSnap.data().count,
+    ochiq_emas: ochiqEmasCountSnap.data().count,
+  };
 
   const q = options.query?.trim();
 
@@ -311,6 +391,16 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
     const idDoc = await groupsCol.doc(q).get();
     if (idDoc.exists) {
       const data = idDoc.data()!;
+      const docMode: GroupShellMode = isValidGroupMode(data.mode) ? data.mode : "asosiy";
+      if (modeFilter && docMode !== modeFilter) {
+        return {
+          groups: [],
+          nextCursor: null,
+          hasMore: false,
+          total: 0,
+          modeCounts,
+        };
+      }
       return {
         groups: [
           {
@@ -318,7 +408,7 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
             title: data.title || "Nomsiz guruh",
             type: data.type || "group",
             status: data.status || "active",
-            mode: isValidGroupMode(data.mode) ? data.mode : "asosiy",
+            mode: docMode,
             memberCount: data.memberCount ?? null,
             lastActivity: data.lastActivity || data.updatedAt || "",
             updatedAt: data.updatedAt || "",
@@ -329,6 +419,7 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
         nextCursor: null,
         hasMore: false,
         total: 1,
+        modeCounts,
       };
     }
     return {
@@ -336,13 +427,15 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
       nextCursor: null,
       hasMore: false,
       total: 0,
+      modeCounts,
     };
   }
 
-  // 2. Matnli qidiruv (guruh sarlavhasi prefixi)
+  // 2. Matnli qidiruv (guruh sarlavhasi prefixi + ixtiyoriy mode filtri)
   if (q) {
     const qLower = q.toLowerCase();
-    const queryBase = groupsCol
+    let queryBase: any = modeFilter ? groupsCol.where("mode", "==", modeFilter) : groupsCol;
+    queryBase = queryBase
       .where("titleLower", ">=", qLower)
       .where("titleLower", "<=", qLower + "\uf8ff");
 
@@ -355,7 +448,13 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
       .orderBy("__name__", "asc");
 
     if (parsedCursor) {
-      if (parsedCursor.type !== "group_search" || parsedCursor.q !== qLower || !parsedCursor.titleLower || !parsedCursor.id) {
+      if (
+        parsedCursor.type !== "group_search" ||
+        parsedCursor.q !== qLower ||
+        (parsedCursor.mode || undefined) !== modeFilter ||
+        !parsedCursor.titleLower ||
+        !parsedCursor.id
+      ) {
         throw new InvalidCursorError();
       }
       queryRef = queryRef.startAfter(parsedCursor.titleLower, parsedCursor.id);
@@ -388,6 +487,7 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
         ? encodeCursor({
             type: "group_search",
             q: qLower,
+            ...(modeFilter ? { mode: modeFilter } : {}),
             titleLower: lastDoc.data().titleLower,
             id: lastDoc.id,
           })
@@ -398,19 +498,26 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
       nextCursor,
       hasMore,
       total: totalMatching,
+      modeCounts,
     };
   }
 
-  // 3. Standart tartiblangan ro'yxat (lastActivity desc + __name__ desc barqaror tartib)
-  const totalSnap = await groupsCol.count().get();
+  // 3. Standart tartiblangan ro'yxat (Firestore mode filtri + lastActivity desc + __name__ desc)
+  const baseRef: any = modeFilter ? groupsCol.where("mode", "==", modeFilter) : groupsCol;
+  const totalSnap = await baseRef.count().get();
   const totalCount = totalSnap.data().count;
 
-  let queryRef = groupsCol
+  let queryRef = baseRef
     .orderBy("lastActivity", "desc")
     .orderBy("__name__", "desc");
 
   if (parsedCursor) {
-    if (parsedCursor.type !== "group_list" || !parsedCursor.lastActivity || !parsedCursor.id) {
+    if (
+      parsedCursor.type !== "group_list" ||
+      (parsedCursor.mode || undefined) !== modeFilter ||
+      !parsedCursor.lastActivity ||
+      !parsedCursor.id
+    ) {
       throw new InvalidCursorError();
     }
     queryRef = queryRef.startAfter(parsedCursor.lastActivity, parsedCursor.id);
@@ -442,20 +549,18 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
     hasMore && lastDoc
       ? encodeCursor({
           type: "group_list",
+          ...(modeFilter ? { mode: modeFilter } : {}),
           lastActivity: lastDoc.data().lastActivity,
           id: lastDoc.id,
         })
       : null;
 
-  const filteredItems = options.mode && isValidGroupMode(options.mode)
-    ? items.filter((g) => g.mode === options.mode)
-    : items;
-
   return {
-    groups: filteredItems,
+    groups: items,
     nextCursor,
     hasMore,
-    total: options.mode && isValidGroupMode(options.mode) ? filteredItems.length : totalCount,
+    total: totalCount,
+    modeCounts,
   };
 }
 

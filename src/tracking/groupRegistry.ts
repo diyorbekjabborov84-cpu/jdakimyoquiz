@@ -98,6 +98,7 @@ export async function restoreHistoricalGroups(
       if ((await transaction.get(ref)).exists) return false;
       transaction.set(ref, {
         chatId, title, titleLower: title.toLowerCase().trim(), type, status,
+        mode: "asosiy",
         memberCount, lastActivity, updatedAt: now, createdAt: now,
         recoveredFromHistory: true,
         // Historical discovery must not override a subsequent live event.
