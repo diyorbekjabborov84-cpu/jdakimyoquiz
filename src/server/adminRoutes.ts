@@ -12,6 +12,24 @@ import { verifyGoogleAdmin, ADMIN_GOOGLE_EMAIL } from "./googleAuth.js";
 import { executeBroadcast, getBroadcastHistory } from "./broadcastService.js";
 import { getQuizResultsList, getSessionLeaderboard } from "./resultsService.js";
 import { getAuditLogs, recordAuditLog } from "./auditService.js";
+import {
+  getBotSettings,
+  updateBotSettings,
+  isValidGroupMode,
+  isValidDefaultGroupMode,
+  normalizeAdminContact,
+} from "../settings/botSettings.js";
+import {
+  setGroupShellMode,
+  listKursParticipants,
+  addKursParticipant,
+  updateKursParticipantBlockStatus,
+  deleteKursParticipant,
+} from "../shell/shell.js";
+import {
+  getKursDarslarAdminMeta,
+  reloadKursDarslar,
+} from "../kurs/kursRepository.js";
 
 export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router {
   const router = Router();
@@ -46,7 +64,7 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
 
       if (isAllowed) {
         res.setHeader("Access-Control-Allow-Origin", origin);
-        res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS");
         res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
       }
     }
@@ -189,11 +207,14 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
   // 3. Guruhlar ro'yxati
   router.get("/admin/groups", requireAdminAuth, async (req: Request, res: Response) => {
     const q = typeof req.query.q === "string" ? req.query.q : undefined;
+    const mode = typeof req.query.mode === "string" && isValidGroupMode(req.query.mode)
+      ? req.query.mode
+      : undefined;
     const limit = typeof req.query.limit === "string" ? parseInt(req.query.limit, 10) : 50;
     const cursor = typeof req.query.cursor === "string" ? req.query.cursor : undefined;
 
     try {
-      const result = await getGroupsList({ query: q, limit, cursor });
+      const result = await getGroupsList({ query: q, mode, limit, cursor });
       return res.status(200).json({
         ok: true,
         groups: result.groups,
@@ -213,6 +234,46 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
         ok: false,
         error: "DATABASE_UNAVAILABLE",
         message: "Guruhlar ma'lumotini olishda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  // 3.1. Guruh qobig'i rejimini o'zgartirish (asosiy | kurs | ochiq_emas)
+  router.patch("/admin/groups/:chatId/mode", requireAdminAuth, async (req: Request, res: Response) => {
+    const rawChatId = String(req.params.chatId || "").trim();
+    const chatId = Number(rawChatId);
+    if (!rawChatId || !Number.isInteger(chatId)) {
+      return res.status(400).json({
+        ok: false,
+        error: "INVALID_CHAT_ID",
+        message: "Guruh chatId butun son bo'lishi kerak.",
+      });
+    }
+
+    const mode = req.body?.mode;
+    if (!isValidGroupMode(mode)) {
+      return res.status(400).json({
+        ok: false,
+        error: "INVALID_GROUP_MODE",
+        message: "mode faqat 'asosiy', 'kurs' yoki 'ochiq_emas' bo'lishi mumkin.",
+      });
+    }
+
+    try {
+      const updated = await setGroupShellMode(chatId, mode);
+      const adminSession = (req as any).adminSession;
+      const adminName = adminSession?.username || adminSession?.adminId || "admin";
+      await recordAuditLog({
+        admin: adminName,
+        action: "GROUP_MODE_CHANGE",
+        details: { chatId, mode },
+      });
+      return res.status(200).json({ ok: true, ...updated });
+    } catch (err: any) {
+      return res.status(500).json({
+        ok: false,
+        error: "GROUP_MODE_UPDATE_FAILED",
+        message: err?.message || "Guruh rejimini yangilashda xatolik yuz berdi.",
       });
     }
   });
@@ -350,20 +411,243 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
 
   // 9. Sozlamalar
   router.get("/admin/settings", requireAdminAuth, async (_req: Request, res: Response) => {
-    return res.status(200).json({
-      ok: true,
-      settings: {
-        subscriptionChannels: [
-          { username: "@jda_kimyo", title: "JDA Kimyo Asosiy Kanal" },
-          { username: "@jdaquizkod", title: "JDA Quiz Kodlari Kanali" },
-        ],
-        defaultQuestionTimeSeconds: 20,
-        botUsername: "jdakimyoquizbot",
-        adminGoogleEmail: ADMIN_GOOGLE_EMAIL,
-        adminTelegramId: config.ADMIN_TELEGRAM_ID || null,
-        environment: config.NODE_ENV,
-      },
-    });
+    try {
+      const botSettings = await getBotSettings();
+      return res.status(200).json({
+        ok: true,
+        settings: {
+          adminContact: botSettings.adminContact,
+          defaultGroupMode: botSettings.defaultGroupMode,
+          updatedAt: botSettings.updatedAt || null,
+          defaultQuestionTimeSeconds: 20,
+          botUsername: "jdakimyoquizbot",
+          adminGoogleEmail: ADMIN_GOOGLE_EMAIL,
+          adminTelegramId: config.ADMIN_TELEGRAM_ID || null,
+          environment: config.NODE_ENV,
+        },
+      });
+    } catch (err: any) {
+      return res.status(500).json({
+        ok: false,
+        error: "SETTINGS_FETCH_FAILED",
+        message: "Sozlamalarni olishda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  router.patch("/admin/settings", requireAdminAuth, async (req: Request, res: Response) => {
+    const body = req.body || {};
+    const patch: { adminContact?: string; defaultGroupMode?: "asosiy" | "ochiq_emas" } = {};
+
+    if (body.adminContact !== undefined) {
+      const normalized = normalizeAdminContact(body.adminContact);
+      if (!normalized) {
+        return res.status(400).json({
+          ok: false,
+          error: "INVALID_ADMIN_CONTACT",
+          message: "adminContact to'g'ri Telegram username bo'lishi kerak (masalan: @diyorbek_jabborov).",
+        });
+      }
+      patch.adminContact = normalized;
+    }
+
+    if (body.defaultGroupMode !== undefined) {
+      if (!isValidDefaultGroupMode(body.defaultGroupMode)) {
+        return res.status(400).json({
+          ok: false,
+          error: "INVALID_DEFAULT_GROUP_MODE",
+          message: "defaultGroupMode faqat 'asosiy' yoki 'ochiq_emas' bo'lishi mumkin.",
+        });
+      }
+      patch.defaultGroupMode = body.defaultGroupMode;
+    }
+
+    try {
+      const updated = await updateBotSettings(patch);
+      const adminSession = (req as any).adminSession;
+      const adminName = adminSession?.username || adminSession?.adminId || "admin";
+      await recordAuditLog({
+        admin: adminName,
+        action: "BOT_SETTINGS_UPDATE",
+        details: patch,
+      });
+
+      return res.status(200).json({
+        ok: true,
+        settings: {
+          ...updated,
+          defaultQuestionTimeSeconds: 20,
+          botUsername: "jdakimyoquizbot",
+          adminGoogleEmail: ADMIN_GOOGLE_EMAIL,
+          adminTelegramId: config.ADMIN_TELEGRAM_ID || null,
+          environment: config.NODE_ENV,
+        },
+      });
+    } catch (err: any) {
+      return res.status(400).json({
+        ok: false,
+        error: "SETTINGS_UPDATE_FAILED",
+        message: err?.message || "Sozlamalarni yangilashda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  // 9.1. Kurs ishtirokchilari CRUD
+  router.get("/admin/kurs/ishtirokchilar", requireAdminAuth, async (req: Request, res: Response) => {
+    const search = typeof req.query.q === "string"
+      ? req.query.q
+      : typeof req.query.search === "string"
+      ? req.query.search
+      : undefined;
+    const page = typeof req.query.page === "string" ? parseInt(req.query.page, 10) : 1;
+    const limit = typeof req.query.limit === "string" ? parseInt(req.query.limit, 10) : 50;
+
+    try {
+      const data = await listKursParticipants({ search, page, limit });
+      return res.status(200).json({ ok: true, ...data });
+    } catch (err: any) {
+      return res.status(500).json({
+        ok: false,
+        error: "KURS_PARTICIPANTS_FETCH_FAILED",
+        message: "Kurs ishtirokchilarini olishda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  router.post("/admin/kurs/ishtirokchilar", requireAdminAuth, async (req: Request, res: Response) => {
+    const rawUserId = req.body?.userId;
+    const userId = Number(rawUserId);
+    if (!Number.isInteger(userId) || userId <= 0) {
+      return res.status(400).json({
+        ok: false,
+        error: "INVALID_USER_ID",
+        message: "userId musbat butun son bo'lishi kerak.",
+      });
+    }
+
+    const ism = typeof req.body?.ism === "string" ? req.body.ism.trim() : "";
+
+    try {
+      const adminSession = (req as any).adminSession;
+      const adminName = adminSession?.username || adminSession?.adminId || "admin";
+      const participant = await addKursParticipant({
+        userId,
+        ism,
+        qoshgan: "admin",
+      });
+      await recordAuditLog({
+        admin: adminName,
+        action: "KURS_PARTICIPANT_ADD",
+        details: { userId, ism },
+      });
+      return res.status(200).json({ ok: true, participant });
+    } catch (err: any) {
+      return res.status(400).json({
+        ok: false,
+        error: "KURS_PARTICIPANT_ADD_FAILED",
+        message: err?.message || "Ishtirokchini qo'shishda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  router.patch("/admin/kurs/ishtirokchilar/:userId", requireAdminAuth, async (req: Request, res: Response) => {
+    const userId = Number(req.params.userId);
+    if (!Number.isInteger(userId) || userId <= 0) {
+      return res.status(400).json({
+        ok: false,
+        error: "INVALID_USER_ID",
+        message: "userId musbat butun son bo'lishi kerak.",
+      });
+    }
+
+    if (typeof req.body?.bloklangan !== "boolean") {
+      return res.status(400).json({
+        ok: false,
+        error: "INVALID_BLOKLANGAN",
+        message: "bloklangan boolean (true yoki false) bo'lishi shart.",
+      });
+    }
+
+    try {
+      const adminSession = (req as any).adminSession;
+      const adminName = adminSession?.username || adminSession?.adminId || "admin";
+      const participant = await updateKursParticipantBlockStatus(userId, req.body.bloklangan);
+      await recordAuditLog({
+        admin: adminName,
+        action: "KURS_PARTICIPANT_BLOCK_TOGGLE",
+        details: { userId, bloklangan: req.body.bloklangan },
+      });
+      return res.status(200).json({ ok: true, participant });
+    } catch (err: any) {
+      return res.status(500).json({
+        ok: false,
+        error: "KURS_PARTICIPANT_UPDATE_FAILED",
+        message: err?.message || "Ishtirokchi holatini yangilashda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  router.delete("/admin/kurs/ishtirokchilar/:userId", requireAdminAuth, async (req: Request, res: Response) => {
+    const userId = Number(req.params.userId);
+    if (!Number.isInteger(userId) || userId <= 0) {
+      return res.status(400).json({
+        ok: false,
+        error: "INVALID_USER_ID",
+        message: "userId musbat butun son bo'lishi kerak.",
+      });
+    }
+
+    try {
+      const adminSession = (req as any).adminSession;
+      const adminName = adminSession?.username || adminSession?.adminId || "admin";
+      await deleteKursParticipant(userId);
+      await recordAuditLog({
+        admin: adminName,
+        action: "KURS_PARTICIPANT_DELETE",
+        details: { userId },
+      });
+      return res.status(200).json({ ok: true, userId });
+    } catch (err: any) {
+      return res.status(500).json({
+        ok: false,
+        error: "KURS_PARTICIPANT_DELETE_FAILED",
+        message: err?.message || "Ishtirokchini o'chirishda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  // 9.2. Kurs darslar ro'yxati (javob kalitlari aslo qaytarilmaydi!) va qayta yuklash
+  router.get("/admin/kurs/darslar", requireAdminAuth, async (_req: Request, res: Response) => {
+    try {
+      const meta = await getKursDarslarAdminMeta();
+      return res.status(200).json({ ok: true, ...meta });
+    } catch (err: any) {
+      return res.status(500).json({
+        ok: false,
+        error: "KURS_LESSONS_FETCH_FAILED",
+        message: "Kurs darslarini olishda xatolik yuz berdi.",
+      });
+    }
+  });
+
+  router.post("/admin/kurs/qayta-yuklash", requireAdminAuth, async (req: Request, res: Response) => {
+    try {
+      const adminSession = (req as any).adminSession;
+      const adminName = adminSession?.username || adminSession?.adminId || "admin";
+      const result = await reloadKursDarslar();
+      await recordAuditLog({
+        admin: adminName,
+        action: "KURS_LESSONS_RELOAD",
+        details: result,
+      });
+      return res.status(200).json({ ok: true, ...result });
+    } catch (err: any) {
+      return res.status(500).json({
+        ok: false,
+        error: "KURS_RELOAD_FAILED",
+        message: err?.message || "Kurs darslarini qayta yuklashda xatolik yuz berdi.",
+      });
+    }
   });
 
   // 10. Audit loglari

@@ -235,8 +235,8 @@ async function runKK1Tests() {
   await startQuizById(privateCtx as any, "KK1_1");
   assert.strictEqual(quizManager.isQuizRunning(998811), false, "Shaxsiy chatda quiz boshlanmasligi kerak");
   assert.strictEqual(privateCtx.replies.length, 1);
-  assert.ok(privateCtx.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"));
-  assert.ok(privateCtx.replies[0].other?.reply_markup?.inline_keyboard[0][0]?.url.includes("startgroup="));
+  assert.ok(privateCtx.replies[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"));
+  assert.ok(privateCtx.replies[0].other?.reply_markup?.inline_keyboard[0][0]?.url.includes("https://t.me/"));
   console.log("✅ Test 4 muvaffaqiyatli o'tdi (Shaxsiy chatda rad etilib, guruhga qo'shish tugmasi berildi).");
 
   // -------------------------------------------------------------

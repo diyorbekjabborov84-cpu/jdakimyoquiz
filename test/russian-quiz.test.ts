@@ -239,9 +239,9 @@ async function runRussianQuizTests() {
   await handleQuizByIdCommand(privateCtx as any);
   assert.strictEqual(quizManager.isQuizRunning(887766), false, "Shaxsiy chatda quiz boshlanmasligi shart");
   assert.strictEqual(privateCtx.replies.length, 1);
-  assert.ok(privateCtx.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"));
+  assert.ok(privateCtx.replies[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"));
   assert.ok(
-    privateCtx.replies[0].other?.reply_markup?.inline_keyboard[0][0]?.url.includes("startgroup=quiz_R1")
+    privateCtx.replies[0].other?.reply_markup?.inline_keyboard[0][0]?.url.includes("https://t.me/")
   );
   console.log("✅ Test 5 muvaffaqiyatli o'tdi.");
 

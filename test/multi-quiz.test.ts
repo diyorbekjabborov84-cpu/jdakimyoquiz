@@ -144,9 +144,9 @@ async function runMultiQuizTests() {
   console.log("✅ Test 1 muvaffaqiyatli o'tdi.\n");
 
   // ========================================================
-  // TEST 2: /quiz buyrug'i @jdaquizkod kanaliga yo'naltirishi
+  // TEST 2: /quiz buyrug'i Testlar bo'limlari inline menyusini ko'rsatishi
   // ========================================================
-  console.log("Test 2: /quiz buyrug'i @jdaquizkod kanaliga yo'naltiruvchi xabar va tugmani ko'rsatishi...");
+  console.log("Test 2: /quiz buyrug'i Testlar bo'limlari inline menyusini ko'rsatishi...");
   const ctxQuizList = createMockContext({
     chatId: -1001,
     chatType: "supergroup",
@@ -157,13 +157,13 @@ async function runMultiQuizTests() {
   assert.strictEqual(ctxQuizList.replies.length, 1);
   const quizListText = ctxQuizList.replies[0].text;
   assert.ok(
-    quizListText.includes("Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz"),
-    "Kanal xabari bo'lishi kerak"
+    quizListText.includes("Testlar bo‘limlari"),
+    "Bo'limlar menyusi sarlavhasi bo'lishi kerak"
   );
   assert.ok(
-    ctxQuizList.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url ===
-      "https://t.me/jdaquizkod",
-    "Kanalga havola tugmasi bo'lishi kerak"
+    ctxQuizList.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.callback_data ===
+      "m:a:sec:kk",
+    "Kolloid kimyo bo'limi tugmasi bo'lishi kerak"
   );
   console.log("✅ Test 2 muvaffaqiyatli o'tdi.\n");
 
@@ -224,14 +224,14 @@ async function runMultiQuizTests() {
   await startQuizById(ctxPrivate as any, "kimyo_asoslari");
   assert.strictEqual(ctxPrivate.replies.length, 1);
   assert.ok(
-    ctxPrivate.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
-    "Shaxsiy chatda guruhga yo'naltirish xabari chiqishi kerak"
+    ctxPrivate.replies[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"),
+    "Shaxsiy chatda asosiy quiz bloklanishi va kurs xabari chiqishi kerak"
   );
   assert.ok(
-    ctxPrivate.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url.includes(
-      "startgroup=quiz_kimyo_asoslari"
+    ctxPrivate.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url?.includes(
+      "https://t.me/"
     ),
-    "startgroup havolasi bo'lishi kerak"
+    "Adminga yozish havolasi bo'lishi kerak"
   );
 
   // amino_acids shaxsiy chatda
@@ -244,12 +244,12 @@ async function runMultiQuizTests() {
   await startQuizById(ctxPrivate2 as any, "amino_acids");
   assert.strictEqual(ctxPrivate2.replies.length, 1);
   assert.ok(
-    ctxPrivate2.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    ctxPrivate2.replies[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"),
     "amino_acids ham shaxsiy chatda bloklanishi kerak"
   );
   assert.ok(
-    ctxPrivate2.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url.includes(
-      "startgroup=quiz_amino_acids"
+    ctxPrivate2.replies[0].other?.reply_markup?.inline_keyboard?.[0]?.[0]?.url?.includes(
+      "https://t.me/"
     )
   );
 
@@ -355,8 +355,8 @@ async function runMultiQuizTests() {
   await handleStart(ctxDeepLinkPrivate as any);
   assert.strictEqual(ctxDeepLinkPrivate.replies.length, 1);
   assert.ok(
-    ctxDeepLinkPrivate.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
-    "Shaxsiy deep link guruhga yo'naltirishi kerak"
+    ctxDeepLinkPrivate.replies[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"),
+    "Shaxsiy deep link oddiy foydalanuvchiga kurs xabarini ko'rsatishi kerak"
   );
 
   // Guruhda admin deep link orqali ochganda quiz boshlanishi
@@ -437,7 +437,7 @@ async function runMultiQuizTests() {
   await handleQuizByIdCommand(ctxRegexPrivate as any);
   assert.strictEqual(ctxRegexPrivate.replies.length, 1);
   assert.ok(
-    ctxRegexPrivate.replies[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"),
+    ctxRegexPrivate.replies[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"),
     "Shaxsiy chatda /quiz_<ID> rad etilishi kerak"
   );
 

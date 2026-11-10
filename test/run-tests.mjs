@@ -11,6 +11,7 @@ const allTestFiles = [
   "e2e-simulation.test.ts",
   "multi-quiz.test.ts",
   "subscription.test.ts",
+  "kurs-qobiq.test.ts",
   "kk1-quiz.test.ts",
   "kk2-quiz.test.ts",
   "kk3-quiz.test.ts",

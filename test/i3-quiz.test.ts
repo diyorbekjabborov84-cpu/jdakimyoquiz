@@ -266,14 +266,14 @@ async function runI3Tests() {
 
   await handleQuizByIdCommand(privateCtx as any);
   assert.strictEqual(api.sentPolls.length, 0, "Shaxsiy chatda poll yuborilmasligi kerak");
-  assert.strictEqual(api.sentMessages.length, 1, "Guruhga yo'naltirish xabari chiqishi kerak");
+  assert.strictEqual(api.sentMessages.length, 1, "Kurs xabari chiqishi kerak");
   assert.ok(
-    api.sentMessages[0].text.includes("faqat Telegram guruhlarida"),
-    "Guruh xabarnomasi bo'lishi kerak"
+    api.sentMessages[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"),
+    "Kurs xabarnomasi bo'lishi kerak"
   );
   assert.ok(
-    api.sentMessages[0].other?.reply_markup?.inline_keyboard[0][0]?.url?.includes("startgroup=quiz_I3_1"),
-    "startgroup=quiz_I3_1 tugmasi bo'lishi kerak"
+    api.sentMessages[0].other?.reply_markup?.inline_keyboard[0][0]?.url?.includes("https://t.me/"),
+    "Adminga yozish tugmasi bo'lishi kerak"
   );
   console.log("✅ Test 4 muvaffaqiyatli o'tdi.");
 
@@ -293,7 +293,7 @@ async function runI3Tests() {
   await handleStart(deepLinkCtx as any);
   assert.strictEqual(api.sentPolls.length, 0, "Shaxsiy chatda poll boshlanmasligi kerak");
   assert.strictEqual(api.sentMessages.length, 1);
-  assert.ok(api.sentMessages[0].text.includes("faqat Telegram guruhlarida"));
+  assert.ok(api.sentMessages[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"));
   console.log("✅ Test 5 muvaffaqiyatli o'tdi.");
 
   // -------------------------------------------------------------

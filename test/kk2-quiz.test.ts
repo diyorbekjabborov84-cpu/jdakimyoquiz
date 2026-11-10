@@ -243,10 +243,10 @@ async function runKK2Tests() {
   await startQuizById(privateCtx as any, "KK2_1");
   assert.strictEqual(api.sentPolls.length, 0, "Shaxsiy chatda poll yuborilmasligi kerak");
   assert.strictEqual(api.sentMessages.length, 1, "Tushuntirish xabari yuborilishi kerak");
-  assert.ok(api.sentMessages[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"));
+  assert.ok(api.sentMessages[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"));
   assert.ok(
-    api.sentMessages[0].other?.reply_markup?.inline_keyboard[0][0]?.url?.includes("startgroup=quiz_KK2_1"),
-    "Guruhga qo'shish tugmasi bo'lishi kerak"
+    api.sentMessages[0].other?.reply_markup?.inline_keyboard[0][0]?.url?.includes("https://t.me/"),
+    "Adminga yozish tugmasi bo'lishi kerak"
   );
   console.log("✅ Test 4 muvaffaqiyatli o'tdi (Shaxsiy chatda rad etildi va havola berildi).");
 
@@ -266,9 +266,9 @@ async function runKK2Tests() {
   await handleStart(startCtx as any);
   assert.strictEqual(api.sentPolls.length, 0);
   assert.strictEqual(api.sentMessages.length, 1);
-  assert.ok(api.sentMessages[0].text.includes("faqat Telegram guruhlarida o'tkaziladi"));
+  assert.ok(api.sentMessages[0].text.includes("faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"));
   assert.ok(
-    api.sentMessages[0].other?.reply_markup?.inline_keyboard[0][0]?.url?.includes("startgroup=quiz_KK2_2")
+    api.sentMessages[0].other?.reply_markup?.inline_keyboard[0][0]?.url?.includes("https://t.me/")
   );
   console.log("✅ Test 5 muvaffaqiyatli o'tdi.");
 
