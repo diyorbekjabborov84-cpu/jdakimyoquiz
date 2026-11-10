@@ -2,7 +2,10 @@ import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import http from "node:http";
 import express from "express";
-import { createAdminRouter } from "../src/server/adminRoutes.js";
+import {
+  createAdminRouter,
+  extractClientIpForRateLimit,
+} from "../src/server/adminRoutes.js";
 import {
   createAdminSessionToken,
   verifyAdminSessionToken,
@@ -32,6 +35,8 @@ import { PATCH as bffSettingsPatch } from "../admin/app/api/settings/route.js";
 import { middleware as adminMiddleware } from "../admin/middleware.js";
 import {
   checkExistingSessionAndRedirect,
+  checkLoginSessionWithRetry,
+  verifyAdminSessionWithRetry,
   disableGoogleAutoSelectOnLogout,
   shouldSkipOneTapAutoLogin,
 } from "../admin/lib/google-login.js";
@@ -1188,6 +1193,255 @@ async function runKursQobiqTests() {
     })
   );
   assert.equal(bffSettingsRes.status, 200);
+
+  // ============================================================================
+  // 7. Tuzatishlar 2 (T4, T5, T6) testlari
+  // ============================================================================
+  console.log("\n▶ 7. Tuzatishlar 2 (T4: 503 qayta urinish, T5: JWKS kalit almashishi, T6: X-Forwarded-For rate-limit)...");
+
+  // 7.1 (T4-1) 401 bo'lsa, darhol /login ga yo'naltiriladi (qayta urinmasdan)
+  let t4RedirectPath: string | null = null;
+  let t4WakingCalled = false;
+  const t4Res401 = await verifyAdminSessionWithRetry({
+    fetchImpl: (async () =>
+      new Response(JSON.stringify({ ok: false, error: "UNAUTHORIZED" }), {
+        status: 401,
+      })) as any,
+    onRedirectToLogin: (p) => {
+      t4RedirectPath = p;
+    },
+    onWakingChange: (waking) => {
+      if (waking) t4WakingCalled = true;
+    },
+    retryDelaysMs: [10, 20, 30],
+    sleepImpl: async () => {},
+  });
+  assert.equal(t4Res401.status, "unauthenticated");
+  assert.equal(t4Res401.redirectedToLogin, true);
+  assert.equal(t4RedirectPath, "/login", "401 da /login ga yo'naltirilishi shart");
+  assert.equal(t4Res401.attempts, 1, "401 da qayta urinmasligi kerak");
+  assert.equal(t4WakingCalled, false);
+
+  // 7.2 (T4-2 va T4-3) 503 bo'lsa, /login ga yo'naltirilmaydi, qayta urinish boshlanadi va 200 kelganda sahifa ochiladi
+  let t4RetryRedirect: string | null = null;
+  const wakingEvents: Array<{ waking: boolean; attempt: number }> = [];
+  let seqAttempt = 0;
+  const t4Res503Then200 = await verifyAdminSessionWithRetry({
+    fetchImpl: (async () => {
+      seqAttempt++;
+      if (seqAttempt <= 2) {
+        return new Response(JSON.stringify({ ok: false, error: "RENDER_UNAVAILABLE" }), {
+          status: 503,
+        });
+      }
+      return new Response(
+        JSON.stringify({ ok: true, user: { id: ADMIN_GOOGLE_EMAIL, username: "admin" } }),
+        { status: 200 }
+      );
+    }) as any,
+    onRedirectToLogin: (p) => {
+      t4RetryRedirect = p;
+    },
+    onWakingChange: (waking, attempt) => {
+      wakingEvents.push({ waking, attempt });
+    },
+    retryDelaysMs: [5, 5, 5],
+    sleepImpl: async () => {},
+  });
+  assert.equal(t4Res503Then200.status, "authenticated", "Qayta urinishdan so'ng sahifa ochilishi kerak");
+  assert.equal(t4Res503Then200.redirectedToLogin, false, "503 da /login ga yo'naltirilmasligi shart");
+  assert.equal(t4RetryRedirect, null);
+  assert.equal(t4Res503Then200.attempts, 3);
+  assert.ok(
+    wakingEvents.some((e) => e.waking === true && e.attempt === 1),
+    "503 da 'Server uyg'onmoqda' (waking=true) holati yoqilishi kerak"
+  );
+
+  // Barcha urinishlarda 503 bo'lsa ham /login ga yo'naltirilmaydi, status="unavailable" qaytadi ("Qayta urinish" tugmasi uchun)
+  let t4All503Redirect: string | null = null;
+  const t4All503 = await verifyAdminSessionWithRetry({
+    fetchImpl: (async () =>
+      new Response(JSON.stringify({ ok: false, error: "RENDER_UNAVAILABLE" }), {
+        status: 503,
+      })) as any,
+    onRedirectToLogin: (p) => {
+      t4All503Redirect = p;
+    },
+    retryDelaysMs: [5, 5],
+    sleepImpl: async () => {},
+  });
+  assert.equal(t4All503.status, "unavailable");
+  assert.equal(t4All503.redirectedToLogin, false);
+  assert.equal(t4All503Redirect, null, "Barcha urinishlar 503 bo'lsa ham /login ga tashlab yubormasligi shart");
+
+  // 7.3 (T4-4) /login sahifasida 503 bo'lsa, One Tap ishga tushmaydi; faqat 401 da ishga tushadi
+  let login503Redirect: string | null = null;
+  const loginOn503 = await checkLoginSessionWithRetry(
+    (async () =>
+      new Response(JSON.stringify({ ok: false, error: "RENDER_UNAVAILABLE" }), {
+        status: 503,
+      })) as any,
+    (p) => {
+      login503Redirect = p;
+    },
+    {
+      retryDelaysMs: [5, 5],
+      sleepImpl: async () => {},
+      searchStr: "",
+    }
+  );
+  assert.equal(loginOn503.status, "unavailable");
+  assert.equal(loginOn503.redirected, false);
+  assert.equal(loginOn503.shouldStartOneTap, false, "/login da 503 bo'lganda One Tap ishga tushmasligi shart!");
+  assert.equal(login503Redirect, null);
+
+  // /login da 503 -> 200 bo'lsa, "/" ga yo'naltiriladi va One Tap ishga tushmaydi
+  let loginWakeRedirect: string | null = null;
+  let loginWakeCount = 0;
+  const loginWakeRes = await checkLoginSessionWithRetry(
+    (async () => {
+      loginWakeCount++;
+      if (loginWakeCount === 1) {
+        return new Response(JSON.stringify({ ok: false }), { status: 503 });
+      }
+      return new Response(JSON.stringify({ ok: true, user: { id: "admin" } }), { status: 200 });
+    }) as any,
+    (p) => {
+      loginWakeRedirect = p;
+    },
+    {
+      retryDelaysMs: [5, 5],
+      sleepImpl: async () => {},
+      searchStr: "",
+    }
+  );
+  assert.equal(loginWakeRes.status, "authenticated");
+  assert.equal(loginWakeRes.redirected, true);
+  assert.equal(loginWakeRedirect, "/");
+  assert.equal(loginWakeRes.shouldStartOneTap, false);
+
+  // /login da 401 bo'lsa (va logout bayrog'i bo'lmasa), One Tap ishga tushishi mumkin (shouldStartOneTap=true)
+  const emptyStorage = { getItem: () => null };
+  const loginOn401 = await checkLoginSessionWithRetry(
+    (async () => new Response(JSON.stringify({ ok: false }), { status: 401 })) as any,
+    () => {},
+    {
+      retryDelaysMs: [5],
+      sleepImpl: async () => {},
+      searchStr: "",
+      storage: emptyStorage,
+    }
+  );
+  assert.equal(loginOn401.status, "unauthenticated");
+  assert.equal(loginOn401.shouldStartOneTap, true, "/login da aniq 401 bo'lganda One Tap ruxsat oladi");
+
+  // 7.4 (T5) Google JWKS kalitlari almashganda (yangi kid) >=60s oraliq bilan bir marta qayta yuklanishi
+  resetGoogleJwksCache();
+  const rotatedKeyPair = crypto.generateKeyPairSync("rsa", { modulusLength: 2048 });
+  const rotatedPublicJwk = rotatedKeyPair.publicKey.export({ format: "jwk" }) as JsonWebKey;
+  const rotatedKid = "test-google-kid-rotated-2";
+
+  let jwksFetchCount = 0;
+  let currentJwksList: any[] = [
+    {
+      ...(publicJwk as any),
+      kid: testKid,
+      alg: "RS256",
+      use: "sig",
+    },
+  ];
+  const statefulJwksFetcher = async () => {
+    jwksFetchCount++;
+    return currentJwksList;
+  };
+
+  const baseNowMs = nowSec * 1000;
+  // 1-so'rov: eski kalit keshga tushadi (jwksFetchCount = 1)
+  const firstVerify = await verifyGoogleOneTapToken(validOneTapJwt, clientId, {
+    nowSeconds: nowSec,
+    nowMs: baseNowMs,
+    jwksFetcher: statefulJwksFetcher,
+  });
+  assert.equal(firstVerify.valid, true);
+  assert.equal(jwksFetchCount, 1);
+
+  // Google kalitni almashtirdi: serverda yangi rotatedKid paydo bo'ldi
+  currentJwksList = [
+    {
+      ...(rotatedPublicJwk as any),
+      kid: rotatedKid,
+      alg: "RS256",
+      use: "sig",
+    },
+  ];
+  const signRotatedJwt = (kidToUse: string) => {
+    const hB64 = Buffer.from(
+      JSON.stringify({ alg: "RS256", typ: "JWT", kid: kidToUse })
+    ).toString("base64url");
+    const pB64 = Buffer.from(JSON.stringify(validClaims)).toString("base64url");
+    const sig = crypto
+      .createSign("RSA-SHA256")
+      .update(`${hB64}.${pB64}`)
+      .sign(rotatedKeyPair.privateKey)
+      .toString("base64url");
+    return `${hB64}.${pB64}.${sig}`;
+  };
+
+  // 65 soniyadan so'ng yangi kid bilan token kelganda: kesh chetlab o'tilib 1 marta qayta yuklanadi (jwksFetchCount = 2) va valid=true bo'ladi!
+  const rotatedJwt = signRotatedJwt(rotatedKid);
+  const rotatedVerify = await verifyGoogleOneTapToken(rotatedJwt, clientId, {
+    nowSeconds: nowSec,
+    nowMs: baseNowMs + 65_000,
+    jwksFetcher: statefulJwksFetcher,
+  });
+  assert.equal(rotatedVerify.valid, true, "Yangi kid uchun JWKS qayta yuklanib, token tasdiqlanishi shart");
+  assert.equal(jwksFetchCount, 2, "JWKS aynan 1 marta qayta yuklanishi kerak");
+
+  // Oradan atigi 10 soniya (< 60s) o'tganda yana noma'lum kid kelsa: JWKS qayta yuklanmasligi kerak (DoS himoyasi)
+  const unknownKidJwt = signRotatedJwt("unknown-kid-999");
+  const cooldownVerify = await verifyGoogleOneTapToken(unknownKidJwt, clientId, {
+    nowSeconds: nowSec,
+    nowMs: baseNowMs + 75_000,
+    jwksFetcher: statefulJwksFetcher,
+  });
+  assert.equal(cooldownVerify.valid, false);
+  assert.equal(
+    jwksFetchCount,
+    2,
+    "60 soniyalik cooldown ichida JWKS qayta yuklanmasligi shart"
+  );
+
+  // 7.5 (T6) X-Forwarded-For boshiga soxta IP qo'shish orqali login rate-limitni aylanib o'tib bo'lmasligi
+  const spoofReq = {
+    headers: { "x-forwarded-for": "1.1.1.1, 2.2.2.2, 198.51.100.77" },
+    ip: "127.0.0.1",
+  } as any;
+  assert.equal(
+    extractClientIpForRateLimit(spoofReq),
+    "198.51.100.77",
+    "Oxirgi (ishonchli proxy qo'shgan) IP olinishi shart"
+  );
+
+  let rateLimitedStatus = 200;
+  for (let i = 1; i <= 26; i++) {
+    const res = await fetch(`http://127.0.0.1:${port6}/api/auth/google-onetap`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Har safar birinchi IP ni o'zgartirib yuboramiz, lekin Render proxy qo'shgan oxirgi IP bir xil:
+        "X-Forwarded-For": `10.99.0.${i}, 198.51.100.88`,
+      },
+      body: JSON.stringify({ credential: "invalid.jwt.token" }),
+    });
+    rateLimitedStatus = res.status;
+  }
+  assert.equal(
+    rateLimitedStatus,
+    429,
+    "X-Forwarded-For boshidagi IP o'zgartirilsa ham 26-urinishda 429 TOO_MANY_ATTEMPTS qaytishi shart"
+  );
+
+  console.log("  ✅ Tuzatishlar 2 (T4, T5, T6) testlari 100% o'tdi!");
 
   await new Promise<void>((resolve) => server6.close(() => resolve()));
   clearKursDarslarForTest();

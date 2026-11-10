@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 type GroupMode = "asosiy" | "kurs" | "ochiq_emas";
 
@@ -33,7 +35,14 @@ const MODE_LABELS: Record<GroupMode, string> = {
 export default function GroupsPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
   const [groups, setGroups] = useState<GroupItem[]>([]);
   const [totalCount, setTotalCount] = useState<number | null>(null);
   const [modeCounts, setModeCounts] = useState<ModeCounts | null>(null);
@@ -119,23 +128,13 @@ export default function GroupsPage() {
     }
   };
 
+  // Debounced search va rejim filtri (300 ms) — faqat sessiya tasdiqlangandan keyin
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-  }, [router]);
+    if (!isReady) return;
 
-  // Debounced search va rejim filtri (300 ms)
-  useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
-      fetchGroups("", "", null);
+      fetchGroups(searchTerm, modeFilter, null);
       return;
     }
 
@@ -147,7 +146,7 @@ export default function GroupsPage() {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchTerm, modeFilter]);
+  }, [isReady, searchTerm, modeFilter]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     abortControllerRef.current?.abort();
@@ -271,6 +270,12 @@ export default function GroupsPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           <div className="content-card">
             <div className="card-header">
               <div>

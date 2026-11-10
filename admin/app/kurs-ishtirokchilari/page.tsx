@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 interface KursParticipant {
   userId: number | string;
@@ -19,7 +21,14 @@ interface KursParticipant {
 export default function KursIshtirokchilariPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
 
   const [participants, setParticipants] = useState<KursParticipant[]>([]);
   const [totalCount, setTotalCount] = useState<number | null>(null);
@@ -106,21 +115,11 @@ export default function KursIshtirokchilariPage() {
   };
 
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-  }, [router]);
+    if (!isReady) return;
 
-  useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
-      fetchParticipants("", null);
+      fetchParticipants(searchTerm, null);
       return;
     }
 
@@ -132,7 +131,7 @@ export default function KursIshtirokchilariPage() {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchTerm]);
+  }, [isReady, searchTerm]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     abortControllerRef.current?.abort();
@@ -304,6 +303,12 @@ export default function KursIshtirokchilariPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           {/* Izoh va qo'shish formasi */}
           <div className="content-card" style={{ marginBottom: "1.5rem" }}>
             <div className="card-header">

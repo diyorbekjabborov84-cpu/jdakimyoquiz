@@ -37,6 +37,35 @@ import {
   reloadKursDarslar,
 } from "../kurs/kursRepository.js";
 
+/**
+ * Render kabi reverse proxy ortida mijozning haqiqiy IP manzilini xavfsiz olish:
+ * Mijoz X-Forwarded-For boshiga soxta IP qo'shib yuborsa ham, ishonchli proxy
+ * eng oxiriga haqiqiy IP ni yozadi (yoki trust proxy=1 bo'lganda req.ip shu qiymatni oladi).
+ */
+export function extractClientIpForRateLimit(req: Request): string {
+  const xff = req.headers["x-forwarded-for"];
+  if (typeof xff === "string" && xff.trim()) {
+    const parts = xff
+      .split(",")
+      .map((p) => p.trim())
+      .filter(Boolean);
+    if (parts.length > 0) {
+      return parts[parts.length - 1];
+    }
+  } else if (Array.isArray(xff) && xff.length > 0) {
+    const lastHeader = xff[xff.length - 1];
+    const parts = String(lastHeader)
+      .split(",")
+      .map((p) => p.trim())
+      .filter(Boolean);
+    if (parts.length > 0) {
+      return parts[parts.length - 1];
+    }
+  }
+
+  return String(req.ip || req.socket?.remoteAddress || "local").trim();
+}
+
 export function createAdminRouter(
   config: EnvConfig,
   telegramApi?: any,
@@ -46,7 +75,7 @@ export function createAdminRouter(
   const loginAttempts = new Map<string, { count: number; resetAt: number }>();
 
   const checkLoginRateLimit = (req: Request, res: Response): boolean => {
-    const ip = String(req.headers["x-forwarded-for"] || req.ip || "local").split(",")[0].trim();
+    const ip = extractClientIpForRateLimit(req);
     const now = Date.now();
     const entry = loginAttempts.get(ip);
     if (!entry || now >= entry.resetAt) {

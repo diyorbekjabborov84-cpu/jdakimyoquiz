@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 interface KursLessonMeta {
   dars: number;
@@ -18,7 +20,14 @@ interface KursLessonMeta {
 export default function KursTestlariPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
 
   const [darslar, setDarslar] = useState<KursLessonMeta[]>([]);
   const [lastLoadedAt, setLastLoadedAt] = useState<string | null>(null);
@@ -54,18 +63,9 @@ export default function KursTestlariPage() {
   };
 
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-
-    fetchLessons();
-  }, [router]);
+    if (!isReady) return;
+    void fetchLessons();
+  }, [isReady]);
 
   const handleReloadCache = async () => {
     setReloading(true);
@@ -133,6 +133,12 @@ export default function KursTestlariPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           <div className="content-card">
             <div className="card-header">
               <div>

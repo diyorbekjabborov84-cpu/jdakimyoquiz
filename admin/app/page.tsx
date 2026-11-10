@@ -7,6 +7,8 @@ import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import StatCard from "@/components/StatCard";
 import HealthBadge from "@/components/HealthBadge";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 interface DashboardData {
   stats: {
@@ -22,26 +24,30 @@ interface DashboardData {
 export default function DashboardPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<DashboardData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Sessiyani va ma'lumotlarni yuklash
+    if (!isReady) return;
+
     const loadDashboard = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        // 1. Foydalanuvchi sessiyasini tekshirish
-        const meRes = await fetch("/api/auth/me");
-        if (!meRes.ok) {
+        const overviewRes = await fetch("/api/overview");
+        if (overviewRes.status === 401) {
           router.push("/login");
           return;
         }
-        const meData = await meRes.json();
-        setAdminUser(meData.user);
-
-        // 2. Overview ma'lumotlarini yuklash
-        const overviewRes = await fetch("/api/overview");
         if (overviewRes.ok) {
           const overviewData = await overviewRes.json();
           setData(overviewData);
@@ -55,8 +61,8 @@ export default function DashboardPage() {
       }
     };
 
-    loadDashboard();
-  }, [router]);
+    void loadDashboard();
+  }, [isReady, router]);
 
   return (
     <div className="app-layout">
@@ -94,6 +100,13 @@ export default function DashboardPage() {
 
             <HealthBadge />
           </div>
+
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
 
           {error && <div className="alert alert-danger">{error}</div>}
 

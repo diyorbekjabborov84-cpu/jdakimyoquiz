@@ -1,26 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 export default function QuizzesPage() {
-  const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
-
-  useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-  }, [router]);
+  const {
+    adminUser,
+    sessionState,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
 
   return (
     <div className="app-layout">
@@ -34,6 +28,12 @@ export default function QuizzesPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           <div className="content-card">
             <div className="placeholder-box">
               <div className="placeholder-icon">🧪</div>

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 interface BroadcastButton {
   text: string;
@@ -41,7 +43,14 @@ function formatTelegramPreviewHtml(text: string): string {
 export default function BroadcastPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
 
   // Form holati
   const [target, setTarget] = useState<"all_groups" | "private_users" | "selected_groups">("all_groups");
@@ -62,20 +71,11 @@ export default function BroadcastPage() {
   const [history, setHistory] = useState<BroadcastHistoryItem[]>([]);
   const [loadingHistory, setLoadingHistory] = useState(true);
 
-  // Auth va tarixni yuklash
+  // Auth tasdiqlangach tarixni yuklash
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-
-    fetchHistory();
-  }, [router]);
+    if (!isReady) return;
+    void fetchHistory();
+  }, [isReady]);
 
   const fetchHistory = async () => {
     try {
@@ -83,6 +83,10 @@ export default function BroadcastPage() {
       const res = await fetch("/api/broadcast/history", {
         signal: AbortSignal.timeout(10000),
       });
+      if (res.status === 401) {
+        router.push("/login");
+        return;
+      }
       const data = await res.json();
       if (res.ok && data.ok) {
         setHistory(data.history || []);
@@ -168,6 +172,12 @@ export default function BroadcastPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           <div style={{ marginBottom: "1.5rem" }}>
             <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>📢 Umumiy Xabarnoma Yuborish</h1>
             <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>

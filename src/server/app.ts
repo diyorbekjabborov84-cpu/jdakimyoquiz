@@ -12,6 +12,9 @@ export function createApp(
 ): Express {
   const app = express();
 
+  // Render reverse proxy ortida haqiqiy mijoz IP manzilini aniqlash uchun (1 ta ishonchli proxy)
+  app.set("trust proxy", 1);
+
   app.use(express.json());
 
   // Render yoki tashqi monitoring tizimlari uchun Health Check endpointi

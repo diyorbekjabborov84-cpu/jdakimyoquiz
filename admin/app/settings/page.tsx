@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 interface AuditLogItem {
   id?: string;
@@ -27,7 +29,14 @@ interface BotSettings {
 export default function SettingsPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
 
   const [settings, setSettings] = useState<BotSettings | null>(null);
   const [adminContactInput, setAdminContactInput] = useState("@Diyorbek_Jabborov");
@@ -40,18 +49,9 @@ export default function SettingsPage() {
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-
-    fetchSettingsAndLogs();
-  }, [router]);
+    if (!isReady) return;
+    void fetchSettingsAndLogs();
+  }, [isReady]);
 
   const fetchSettingsAndLogs = async () => {
     setLoading(true);
@@ -61,6 +61,11 @@ export default function SettingsPage() {
         fetch("/api/settings", { signal: AbortSignal.timeout(10000) }),
         fetch("/api/audit-logs", { signal: AbortSignal.timeout(10000) }),
       ]);
+
+      if (settingsRes.status === 401 || logsRes.status === 401) {
+        router.push("/login");
+        return;
+      }
 
       const settingsData = await settingsRes.json();
       const logsData = await logsRes.json();
@@ -146,6 +151,12 @@ export default function SettingsPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           <div style={{ marginBottom: "1.5rem" }}>
             <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>⚙️ Bot Sozlamalari & Audit Jurnali</h1>
             <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 interface QuizSessionItem {
   sessionId: string;
@@ -36,7 +38,14 @@ interface LeaderboardEntry {
 export default function ResultsPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
 
   // Ma'lumotlar
   const [sessions, setSessions] = useState<QuizSessionItem[]>([]);
@@ -55,18 +64,9 @@ export default function ResultsPage() {
   const [loadingLeaderboard, setLoadingLeaderboard] = useState(false);
 
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-
-    fetchResults();
-  }, [router]);
+    if (!isReady) return;
+    void fetchResults();
+  }, [isReady]);
 
   const fetchResults = async (quizFilter?: string, chatFilter?: string) => {
     setLoading(true);
@@ -82,6 +82,10 @@ export default function ResultsPage() {
       const res = await fetch(`/api/results?${params.toString()}`, {
         signal: AbortSignal.timeout(15000),
       });
+      if (res.status === 401) {
+        router.push("/login");
+        return;
+      }
       const data = await res.json();
 
       if (res.ok && data.ok) {
@@ -132,6 +136,12 @@ export default function ResultsPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           <div style={{ marginBottom: "1.5rem" }}>
             <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>🏆 O&apos;tkazilgan Quizlar & Natijalar</h1>
             <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>

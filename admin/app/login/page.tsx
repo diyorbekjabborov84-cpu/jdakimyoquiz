@@ -1,18 +1,23 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import {
   getGoogleIdToken,
-  checkExistingSessionAndRedirect,
-  shouldSkipOneTapAutoLogin,
+  checkLoginSessionWithRetry,
   LOGOUT_SESSION_FLAG,
+  DEFAULT_SESSION_RETRY_DELAYS_MS,
 } from "@/lib/google-login";
 
 export default function LoginPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [checkingSession, setCheckingSession] = useState(true);
+  const [sessionState, setSessionState] = useState<
+    "checking" | "waking" | "unauthenticated" | "unavailable"
+  >("checking");
+  const [retryAttempt, setRetryAttempt] = useState(0);
+  const [maxRetries, setMaxRetries] = useState(DEFAULT_SESSION_RETRY_DELAYS_MS.length);
+  const [retryTrigger, setRetryTrigger] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const widgetContainerRef = useRef<HTMLDivElement>(null);
   const oneTapAttemptedRef = useRef(false);
@@ -131,17 +136,44 @@ export default function LoginPage() {
     }
   };
 
+  const handleManualRetry = useCallback(() => {
+    setSessionState("checking");
+    setRetryAttempt(0);
+    setRetryTrigger((prev) => prev + 1);
+  }, []);
+
   useEffect(() => {
     let active = true;
 
     const initSessionAndOneTap = async () => {
-      // 1. Mavjud yaroqli sessiya bo'lsa, darhol "/" ga o'tkazish
-      const redirected = await checkExistingSessionAndRedirect(fetch, (p) => router.replace(p));
-      if (!active || redirected) return;
-      setCheckingSession(false);
+      setSessionState("checking");
+      const checkRes = await checkLoginSessionWithRetry(
+        fetch,
+        (p) => router.replace(p),
+        {
+          shouldAbort: () => !active,
+          onWakingChange: (waking, attempt, max) => {
+            if (!active) return;
+            setMaxRetries(max);
+            if (waking) {
+              setSessionState("waking");
+              setRetryAttempt(attempt);
+            }
+          },
+        }
+      );
 
-      // 2. Agar foydalanuvchi "Chiqish" bosgan bo'lsa, avtomatik One Tap ishga tushmasin
-      if (shouldSkipOneTapAutoLogin()) {
+      if (!active || checkRes.redirected) return;
+
+      if (checkRes.status === "unavailable") {
+        setSessionState("unavailable");
+        return;
+      }
+
+      // Faqat 401 (unauthenticated) bo'lganda login formasi va One Tap faollashadi
+      setSessionState("unauthenticated");
+
+      if (!checkRes.shouldStartOneTap) {
         try {
           (window as any).google?.accounts?.id?.disableAutoSelect?.();
         } catch {
@@ -205,9 +237,11 @@ export default function LoginPage() {
     return () => {
       active = false;
     };
-  }, [router]);
+  }, [router, retryTrigger]);
 
   useEffect(() => {
+    if (sessionState !== "unauthenticated") return;
+
     (window as any).onTelegramAuth = (user: any) => {
       handleTelegramAuth(user);
     };
@@ -227,7 +261,9 @@ export default function LoginPage() {
     return () => {
       delete (window as any).onTelegramAuth;
     };
-  }, [botUsername]);
+  }, [botUsername, sessionState]);
+
+  const isSessionPending = sessionState === "checking" || sessionState === "waking";
 
   return (
     <div className="login-screen">
@@ -240,53 +276,83 @@ export default function LoginPage() {
 
         {error && <div className="alert alert-danger">{error}</div>}
 
+        {sessionState === "waking" && (
+          <div className="alert alert-info" style={{ marginBottom: "1rem" }}>
+            <div style={{ fontWeight: 600 }}>⏳ Server uyg&apos;onmoqda, biroz kuting…</div>
+            <div style={{ fontSize: "0.78rem", marginTop: "4px" }}>
+              Render serveri sovuq holatdan ishga tushmoqda. Mavjud sessiyangiz tekshirilmoqda ({retryAttempt}/{maxRetries})…
+            </div>
+          </div>
+        )}
+
+        {sessionState === "unavailable" && (
+          <div className="alert alert-danger" style={{ marginBottom: "1rem" }}>
+            <div style={{ fontWeight: 600 }}>⚠️ Server hali javob bermadi</div>
+            <div style={{ fontSize: "0.78rem", marginTop: "4px", marginBottom: "0.75rem" }}>
+              Server uyg&apos;onishi uzoqroq davom etdi. Sessiya cookie&apos;si o&apos;chirilmadi.
+            </div>
+            <button
+              type="button"
+              onClick={handleManualRetry}
+              className="btn btn-primary"
+              style={{ width: "100%", padding: "0.5rem 1rem", fontSize: "0.85rem" }}
+            >
+              🔄 Qayta urinish
+            </button>
+          </div>
+        )}
+
         <div style={{ textAlign: "center", marginBottom: "1rem" }}>
           <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-            {checkingSession
+            {isSessionPending
               ? "Mavjud sessiya tekshirilmoqda..."
               : "Google yoki Telegram akkauntingiz orqali kiring."}
           </p>
         </div>
 
-        <button
-          type="button"
-          className="btn btn-primary"
-          disabled={loading}
-          onClick={handleGoogleAuth}
-          style={{
-            width: "100%",
-            marginBottom: "1.25rem",
-            padding: "0.85rem 1.25rem",
-            fontSize: "0.95rem",
-            fontWeight: 600,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.6rem",
-            cursor: loading ? "wait" : "pointer",
-            background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
-            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.25)",
-            border: "none",
-            borderRadius: "8px",
-            color: "#ffffff",
-          }}
-        >
-          <span>🔐</span>
-          <span>
-            {loading ? "Kirish tekshirilmoqda…" : "Google orqali to'g'ridan-to'g'ri kirish"}
-          </span>
-        </button>
-        <div className="widget-container" ref={widgetContainerRef}>
-          {loading ? (
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
-              ⏳ Autentifikatsiya tekshirilmoqda...
-            </p>
-          ) : (
-            <p style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>
-              Telegram Login vidjeti yuklanmoqda...
-            </p>
-          )}
-        </div>
+        {sessionState === "unauthenticated" && (
+          <>
+            <button
+              type="button"
+              className="btn btn-primary"
+              disabled={loading}
+              onClick={handleGoogleAuth}
+              style={{
+                width: "100%",
+                marginBottom: "1.25rem",
+                padding: "0.85rem 1.25rem",
+                fontSize: "0.95rem",
+                fontWeight: 600,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.6rem",
+                cursor: loading ? "wait" : "pointer",
+                background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
+                boxShadow: "0 4px 12px rgba(37, 99, 235, 0.25)",
+                border: "none",
+                borderRadius: "8px",
+                color: "#ffffff",
+              }}
+            >
+              <span>🔐</span>
+              <span>
+                {loading ? "Kirish tekshirilmoqda…" : "Google orqali to'g'ridan-to'g'ri kirish"}
+              </span>
+            </button>
+            <div className="widget-container" ref={widgetContainerRef}>
+              {loading ? (
+                <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
+                  ⏳ Autentifikatsiya tekshirilmoqda...
+                </p>
+              ) : (
+                <p style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>
+                  Telegram Login vidjeti yuklanmoqda...
+                </p>
+              )}
+            </div>
+          </>
+        )}
 
         <div className="alert alert-info" style={{ marginTop: "1.5rem", fontSize: "0.775rem" }}>
           Faqat loyiha administratorining akkauntlariga ruxsat beriladi.

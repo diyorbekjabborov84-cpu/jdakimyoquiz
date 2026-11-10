@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import SessionWarmupBanner from "@/components/SessionWarmupBanner";
+import { useAdminSession } from "@/lib/useAdminSession";
 
 interface BotUserItem {
   userId: number | string;
@@ -18,7 +20,14 @@ interface BotUserItem {
 export default function UsersPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const {
+    adminUser,
+    sessionState,
+    isReady,
+    retryAttempt,
+    maxRetries,
+    retrySession,
+  } = useAdminSession();
   const [users, setUsers] = useState<BotUserItem[]>([]);
   const [totalCount, setTotalCount] = useState<number | null>(null);
   const [nextCursor, setNextCursor] = useState<string | null>(null);
@@ -92,23 +101,13 @@ export default function UsersPage() {
     }
   };
 
+  // Debounced search (300 ms) — faqat sessiya tasdiqlangandan keyin
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) router.push("/login");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.ok) setAdminUser(data.user);
-      })
-      .catch(() => router.push("/login"));
-  }, [router]);
+    if (!isReady) return;
 
-  // Debounced search (300 ms)
-  useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
-      fetchUsers("", null);
+      fetchUsers(searchTerm, null);
       return;
     }
 
@@ -120,7 +119,7 @@ export default function UsersPage() {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchTerm]);
+  }, [isReady, searchTerm]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     abortControllerRef.current?.abort();
@@ -168,6 +167,12 @@ export default function UsersPage() {
         />
 
         <main className="page-container">
+          <SessionWarmupBanner
+            sessionState={sessionState}
+            retryAttempt={retryAttempt}
+            maxRetries={maxRetries}
+            onRetry={retrySession}
+          />
           <div className="content-card">
             <div className="card-header">
               <div>

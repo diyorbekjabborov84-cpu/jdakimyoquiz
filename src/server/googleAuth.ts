@@ -5,6 +5,8 @@ export const ADMIN_GOOGLE_EMAIL = "diyorbekjabborov84@gmail.com";
 const GOOGLE_JWKS_URL = "https://www.googleapis.com/oauth2/v3/certs";
 const ALLOWED_ISSUERS = new Set(["accounts.google.com", "https://accounts.google.com"]);
 const MAX_TOKEN_AGE_SECONDS = 300; // 5 daqiqa
+export const JWKS_CACHE_TTL_MS = 60 * 60_000; // 1 soat
+export const MIN_JWKS_REFRESH_INTERVAL_MS = 60_000; // Majburiy qayta yuklashlar orasida kamida 60 soniya
 
 export interface GoogleJwk {
   kid: string;
@@ -30,18 +32,13 @@ export interface GoogleOneTapVerifyResult {
   email?: string;
 }
 
-let cachedJwks: { keys: GoogleJwk[]; expiresAt: number } | null = null;
+let cachedJwks: { keys: GoogleJwk[]; fetchedAt: number; expiresAt: number } | null = null;
 
 export function resetGoogleJwksCache(): void {
   cachedJwks = null;
 }
 
-async function fetchGoogleJwks(): Promise<GoogleJwk[]> {
-  const now = Date.now();
-  if (cachedJwks && now < cachedJwks.expiresAt) {
-    return cachedJwks.keys;
-  }
-
+async function fetchGoogleJwksFromNetwork(): Promise<GoogleJwk[]> {
   const res = await fetch(GOOGLE_JWKS_URL, {
     headers: { Accept: "application/json" },
     signal: AbortSignal.timeout(8000),
@@ -50,10 +47,34 @@ async function fetchGoogleJwks(): Promise<GoogleJwk[]> {
     throw new Error(`Google JWKS fetch failed: ${res.status}`);
   }
   const data = (await res.json()) as { keys?: GoogleJwk[] };
-  const keys = Array.isArray(data?.keys) ? data.keys : [];
+  return Array.isArray(data?.keys) ? data.keys : [];
+}
+
+async function getGoogleJwks(
+  forceRefresh = false,
+  customFetcher?: () => Promise<GoogleJwk[]>,
+  nowMs = Date.now()
+): Promise<GoogleJwk[]> {
+  if (!forceRefresh && cachedJwks && nowMs < cachedJwks.expiresAt) {
+    return cachedJwks.keys;
+  }
+
+  // Agar kid topilmagani uchun majburiy yangilash so'ralgan bo'lsa,
+  // oxirgi yuklashdan beri kamida 60 soniya o'tgan bo'lishi shart (DoS himoyasi).
+  if (
+    forceRefresh &&
+    cachedJwks &&
+    nowMs - cachedJwks.fetchedAt < MIN_JWKS_REFRESH_INTERVAL_MS
+  ) {
+    return cachedJwks.keys;
+  }
+
+  const fetcher = customFetcher || fetchGoogleJwksFromNetwork;
+  const keys = await fetcher();
   cachedJwks = {
     keys,
-    expiresAt: now + 60 * 60_000, // 1 soat kesh
+    fetchedAt: nowMs,
+    expiresAt: nowMs + JWKS_CACHE_TTL_MS,
   };
   return keys;
 }
@@ -92,6 +113,7 @@ export async function verifyGoogleOneTapToken(
   options?: {
     jwksFetcher?: () => Promise<GoogleJwk[]>;
     nowSeconds?: number;
+    nowMs?: number;
   }
 ): Promise<GoogleOneTapVerifyResult> {
   const clientId = expectedClientId?.trim();
@@ -142,11 +164,17 @@ export async function verifyGoogleOneTapToken(
     };
   }
 
-  // 1. Imzoni Google JWKS bo'yicha tekshirish
+  // 1. Imzoni Google JWKS bo'yicha tekshirish (agar kid keshda topilmasa, >=60s sharti bilan bir marta qayta yuklanadi)
+  const nowMs =
+    options?.nowMs ??
+    (options?.nowSeconds !== undefined ? options.nowSeconds * 1000 : Date.now());
   try {
-    const getKeys = options?.jwksFetcher || fetchGoogleJwks;
-    const keys = await getKeys();
-    const jwk = keys.find((k) => k.kid === header.kid);
+    let keys = await getGoogleJwks(false, options?.jwksFetcher, nowMs);
+    let jwk = keys.find((k) => k.kid === header.kid);
+    if (!jwk) {
+      keys = await getGoogleJwks(true, options?.jwksFetcher, nowMs);
+      jwk = keys.find((k) => k.kid === header.kid);
+    }
     if (!jwk) {
       return {
         valid: false,
