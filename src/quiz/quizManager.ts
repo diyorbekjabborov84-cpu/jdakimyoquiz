@@ -111,6 +111,11 @@ export class QuizManager {
   private resultsCollectionName?: string;
   private chatQueues = new Map<number, Promise<any>>();
 
+  // finishQuiz taymer ichida xato bersa, qayta urinishlar soni (chatId bo'yicha)
+  private finishRetryAttempts = new Map<number, number>();
+  public static readonly FINISH_RETRY_MAX_ATTEMPTS = 5;
+  public static FINISH_RETRY_BASE_DELAY_MS = 5000;
+
   constructor(
     sessionStorage: ISessionStorage = defaultSessionStorage,
     resultsCollectionName?: string
@@ -342,8 +347,8 @@ export class QuizManager {
       );
 
       // 3 soniyadan keyin 1-savol yuboriladi
-      session.timer = setTimeout(async () => {
-        await this.sendNextQuestion(chatId, api);
+      session.timer = setTimeout(() => {
+        this.runTimerTask(chatId, "sendNextQuestion", () => this.sendNextQuestion(chatId, api), api);
       }, 3000);
 
       return { success: true, message: "Quiz muvaffaqiyatli boshlandi!" };
@@ -440,8 +445,8 @@ export class QuizManager {
 
       console.log(`[Quiz] Chat ${chatId} da quiz davom ettirildi (${nextQuestionNumber}/${totalQuestions})`);
 
-      session.timer = setTimeout(async () => {
-        await this.sendNextQuestion(chatId, api);
+      session.timer = setTimeout(() => {
+        this.runTimerTask(chatId, "sendNextQuestion", () => this.sendNextQuestion(chatId, api), api);
       }, 3000);
 
       return { success: true, message: "Quiz muvaffaqiyatli davom ettirildi!" };
@@ -624,8 +629,8 @@ export class QuizManager {
     });
 
     // Vaqt tugagach savolni yopish va keyingisiga o'tish taymerini o'rnatamiz (chunki poll Telegramda faol!)
-    session.timer = setTimeout(async () => {
-      await this.handleQuestionTimeout(chatId, api);
+    session.timer = setTimeout(() => {
+      this.runTimerTask(chatId, "handleQuestionTimeout", () => this.handleQuestionTimeout(chatId, api), api);
     }, (q.timeLimitSeconds + 1) * 1000);
 
     // 3-BOSQICH: Sessiya holatini DBga saqlash
@@ -649,13 +654,8 @@ export class QuizManager {
     const session = this.sessions.get(chatId);
     if (!session || session.status !== "running") return;
 
-    // Ushbu savolni yopilgan deb belgilaymiz (kech kelgan javoblar hisoblanmasligi uchun)
-    if (session.currentPollId) {
-      const pollInfo = this.pollToSession.get(session.currentPollId);
-      if (pollInfo) {
-        pollInfo.isClosed = true;
-      }
-    }
+    // Ushbu savolni yopamiz (kech kelgan javoblar hisoblanmasligi uchun) va xaritadan o'chiramiz
+    this.closePoll(session.currentPollId);
 
     if (session.currentPollMessageId) {
       try {
@@ -686,23 +686,23 @@ export class QuizManager {
     // Oxirgi savoldan keyin savollar tugagan bo'lsa, pauza o'rniga yakuniy natija chiqsin
     const isLastQuestion = session.currentQuestionIndex >= session.quiz.questions.length - 1;
     if (isLastQuestion) {
-      session.timer = setTimeout(async () => {
-        await this.finishQuiz(chatId, api);
+      session.timer = setTimeout(() => {
+        this.runTimerTask(chatId, "finishQuiz", () => this.finishQuiz(chatId, api), api);
       }, 2000);
       return;
     }
 
     // Ketma-ket 3 ta savolga hech kim javob bermasa: Aqlli pauza!
     if (session.consecutiveUnansweredCount >= 3) {
-      session.timer = setTimeout(async () => {
-        await this.pauseQuiz(chatId, api);
+      session.timer = setTimeout(() => {
+        this.runTimerTask(chatId, "pauseQuiz", () => this.pauseQuiz(chatId, api), api);
       }, 2000);
       return;
     }
 
     // 2 soniya pauza (foydalanuvchilar to'g'ri javob va izohni ko'rib olishlari uchun)
-    session.timer = setTimeout(async () => {
-      await this.sendNextQuestion(chatId, api);
+    session.timer = setTimeout(() => {
+      this.runTimerTask(chatId, "sendNextQuestion", () => this.sendNextQuestion(chatId, api), api);
     }, 2000);
   }
 
@@ -1049,13 +1049,8 @@ export class QuizManager {
     session.status = "finishing";
     session.version += 1;
 
-    // Barcha savollarni yopilgan deb belgilaymiz
-    if (session.currentPollId) {
-      const pollInfo = this.pollToSession.get(session.currentPollId);
-      if (pollInfo) {
-        pollInfo.isClosed = true;
-      }
-    }
+    // Joriy savolni yopamiz va xaritadan o'chiramiz
+    this.closePoll(session.currentPollId);
 
     // Finishing holatini bazaga saqlaymiz (xatolik yutilmaydi!)
     await this.sessionStorage.saveSession(session);
@@ -1128,6 +1123,7 @@ export class QuizManager {
     session.status = "completed";
     await this.sessionStorage.deleteSession(chatId);
     this.sessions.delete(chatId);
+    this.finishRetryAttempts.delete(chatId);
   }
 
   /**
@@ -1138,13 +1134,9 @@ export class QuizManager {
     if (!session) return false;
 
     this.clearSessionTimer(session);
+    this.finishRetryAttempts.delete(chatId);
 
-    if (session.currentPollId) {
-      const pollInfo = this.pollToSession.get(session.currentPollId);
-      if (pollInfo) {
-        pollInfo.isClosed = true;
-      }
-    }
+    this.closePoll(session.currentPollId);
 
     if (session.currentPollMessageId && api) {
       try {
@@ -1163,6 +1155,66 @@ export class QuizManager {
     await this.sessionStorage.deleteSession(chatId);
     this.sessions.delete(chatId);
     return true;
+  }
+
+  /**
+   * Pollni yopilgan deb belgilash va pollToSession xaritasidan o'chirish.
+   * isClosed=true ham qo'yiladi: handlePollAnswer navbatda turgan javob uchun
+   * pollInfo obyektini oldinroq olgan bo'lishi mumkin.
+   */
+  private closePoll(pollId: string | null): void {
+    if (!pollId) return;
+    const pollInfo = this.pollToSession.get(pollId);
+    if (pollInfo) {
+      pollInfo.isClosed = true;
+    }
+    this.pollToSession.delete(pollId);
+  }
+
+  /** Xotiradagi ochiq pollar soni (monitoring va testlar uchun). */
+  public getTrackedPollCount(): number {
+    return this.pollToSession.size;
+  }
+
+  /**
+   * setTimeout ichidan ishga tushadigan vazifani xavfsiz bajarish.
+   * Xato yutilmaydi — loglanadi; Promise rad etilishi jarayonni (Node 22) yiqitmaydi.
+   * Agar sessiya "finishing" holatida qolib ketsa, finishQuiz qayta urinib ko'riladi.
+   */
+  private runTimerTask(
+    chatId: number,
+    label: string,
+    task: () => Promise<void>,
+    api: TelegramApiSender
+  ): void {
+    task().catch((err) => {
+      console.error(`[QuizManager] Taymer vazifasi «${label}» xatolik bilan tugadi (chatId: ${chatId}):`, err);
+      this.scheduleFinishRetry(chatId, api);
+    });
+  }
+
+  private scheduleFinishRetry(chatId: number, api: TelegramApiSender): void {
+    const session = this.sessions.get(chatId);
+    if (!session || session.status !== "finishing") return;
+
+    const attempt = (this.finishRetryAttempts.get(chatId) || 0) + 1;
+    if (attempt > QuizManager.FINISH_RETRY_MAX_ATTEMPTS) {
+      this.finishRetryAttempts.delete(chatId);
+      console.error(
+        `[QuizManager] Chat ${chatId}: quizni yakunlash ${QuizManager.FINISH_RETRY_MAX_ATTEMPTS} marta muvaffaqiyatsiz bo'ldi. ` +
+          `Sessiya "finishing" holatida qoldi: server qayta ishga tushganda yoki /stop orqali tozalanadi.`
+      );
+      return;
+    }
+
+    this.finishRetryAttempts.set(chatId, attempt);
+    const delayMs = Math.min(60_000, QuizManager.FINISH_RETRY_BASE_DELAY_MS * 2 ** (attempt - 1));
+    console.warn(`[QuizManager] Chat ${chatId}: quizni yakunlash ${delayMs / 1000}s dan so'ng qayta uriniladi (${attempt}-urinish).`);
+
+    this.clearSessionTimer(session);
+    session.timer = setTimeout(() => {
+      this.runTimerTask(chatId, "finishQuiz (qayta urinish)", () => this.finishQuiz(chatId, api), api);
+    }, delayMs);
   }
 
   private clearSessionTimer(session: QuizSession): void {

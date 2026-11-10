@@ -31,6 +31,7 @@ const allTestFiles = [
   "group-size.test.ts",
   "group-registry.test.ts",
   "admin-modules.test.ts",
+  "timer-safety.test.ts",
 ];
 const requested = process.argv.slice(2);
 const testFiles = requested.length ? requested : allTestFiles;

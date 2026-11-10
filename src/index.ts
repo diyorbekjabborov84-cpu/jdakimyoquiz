@@ -7,6 +7,12 @@ import { initFirestore, checkFirestoreHealth } from "./firebase/firestore.js";
 import { initDatabase, checkDatabaseHealth } from "./database/db.js";
 import { restoreHistoricalGroups } from "./tracking/groupRegistry.js";
 
+// Oxirgi himoya chizig'i: ushlanmagan Promise rad etilishi Node 22 da butun jarayonni
+// (va barcha guruhlardagi quizlarni) yiqitadi. Xatoni loglaymiz, jarayon ishlashda davom etadi.
+process.on("unhandledRejection", (reason) => {
+  console.error("⚠️ [Process] Ushlanmagan Promise xatosi (jarayon to'xtatilmadi):", reason);
+});
+
 async function bootstrap() {
   console.log("🚀 JDA Kimyo Quiz boti ishga tushirilmoqda...");
 
