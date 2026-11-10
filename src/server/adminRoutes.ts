@@ -4,11 +4,17 @@ import {
   verifyTelegramAuth,
   createAdminSessionToken,
   verifyAdminSessionToken,
+  shouldRenewAdminSession,
+  MAX_ADMIN_SESSION_SECONDS,
   TelegramAuthPayload,
   AdminSession,
 } from "./adminAuth.js";
 import { getOverviewStats, getGroupsList, getUsersList } from "../tracking/tracker.js";
-import { verifyGoogleAdmin, ADMIN_GOOGLE_EMAIL } from "./googleAuth.js";
+import {
+  verifyGoogleAdmin,
+  verifyGoogleOneTapToken,
+  ADMIN_GOOGLE_EMAIL,
+} from "./googleAuth.js";
 import { executeBroadcast, getBroadcastHistory } from "./broadcastService.js";
 import { getQuizResultsList, getSessionLeaderboard } from "./resultsService.js";
 import { getAuditLogs, recordAuditLog } from "./auditService.js";
@@ -31,8 +37,33 @@ import {
   reloadKursDarslar,
 } from "../kurs/kursRepository.js";
 
-export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router {
+export function createAdminRouter(
+  config: EnvConfig,
+  telegramApi?: any,
+  oneTapVerifyOptions?: Parameters<typeof verifyGoogleOneTapToken>[2]
+): Router {
   const router = Router();
+  const loginAttempts = new Map<string, { count: number; resetAt: number }>();
+
+  const checkLoginRateLimit = (req: Request, res: Response): boolean => {
+    const ip = String(req.headers["x-forwarded-for"] || req.ip || "local").split(",")[0].trim();
+    const now = Date.now();
+    const entry = loginAttempts.get(ip);
+    if (!entry || now >= entry.resetAt) {
+      loginAttempts.set(ip, { count: 1, resetAt: now + 60_000 });
+      return true;
+    }
+    entry.count += 1;
+    if (entry.count > 25) {
+      res.status(429).json({
+        ok: false,
+        error: "TOO_MANY_ATTEMPTS",
+        message: "Juda ko'p kirish urinishlari. Birozdan so'ng qayta urinib ko'ring.",
+      });
+      return false;
+    }
+    return true;
+  };
 
   // Qat'iy CORS middleware
   router.use((req: Request, res: Response, next: NextFunction) => {
@@ -131,6 +162,7 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
 
   router.post("/auth/google", async (req: Request, res: Response) => {
     res.setHeader("Cache-Control", "no-store");
+    if (!checkLoginRateLimit(req, res)) return;
     if (!config.ADMIN_SESSION_SECRET || config.ADMIN_SESSION_SECRET.length < 32) {
       return res.status(503).json({ ok: false, error: "SECRET_NOT_CONFIGURED" });
     }
@@ -139,12 +171,80 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
       return res.status(400).json({ ok: false, error: "INVALID_PAYLOAD" });
     }
     if (!(await verifyGoogleAdmin(idToken))) {
-      return res.status(403).json({ ok: false, error: "UNAUTHORIZED_ADMIN", message: "Bu Google akkauntga ruxsat berilmagan yoki kirish tasdig‘i eskirgan." });
+      return res.status(403).json({
+        ok: false,
+        error: "UNAUTHORIZED_ADMIN",
+        message: "Bu hisobga ruxsat yo'q",
+      });
     }
     try {
       const adminId = config.ADMIN_TELEGRAM_ID?.trim() || ADMIN_GOOGLE_EMAIL;
-      const token = createAdminSessionToken(adminId, ADMIN_GOOGLE_EMAIL, config.ADMIN_SESSION_SECRET);
-      return res.json({ ok: true, token, user: { id: adminId, username: ADMIN_GOOGLE_EMAIL, firstName: "Diyorbek" } });
+      const token = createAdminSessionToken(
+        adminId,
+        ADMIN_GOOGLE_EMAIL,
+        config.ADMIN_SESSION_SECRET,
+        MAX_ADMIN_SESSION_SECONDS
+      );
+      return res.json({
+        ok: true,
+        token,
+        user: { id: adminId, username: ADMIN_GOOGLE_EMAIL, firstName: "Diyorbek" },
+      });
+    } catch {
+      return res.status(503).json({ ok: false, error: "SECRET_NOT_CONFIGURED" });
+    }
+  });
+
+  // 1.2. Google Identity Services (One Tap / FedCM) ID tokeni orqali avtomatik kirish (4.1)
+  router.post("/auth/google-onetap", async (req: Request, res: Response) => {
+    res.setHeader("Cache-Control", "no-store");
+    if (!checkLoginRateLimit(req, res)) return;
+    if (!config.ADMIN_SESSION_SECRET || config.ADMIN_SESSION_SECRET.length < 32) {
+      return res.status(503).json({ ok: false, error: "SECRET_NOT_CONFIGURED" });
+    }
+
+    const credential = req.body?.credential || req.body?.idToken;
+    if (typeof credential !== "string" || !credential || credential.length > 10000) {
+      return res.status(400).json({
+        ok: false,
+        error: "INVALID_PAYLOAD",
+        message: "Google ID token yuborilmadi.",
+      });
+    }
+
+    const clientId = config.GOOGLE_OAUTH_CLIENT_ID || process.env.GOOGLE_OAUTH_CLIENT_ID;
+    const verifyRes = await verifyGoogleOneTapToken(credential, clientId, oneTapVerifyOptions);
+
+    if (!verifyRes.valid) {
+      const status =
+        verifyRes.error === "CLIENT_ID_NOT_CONFIGURED"
+          ? 503
+          : verifyRes.error === "UNAUTHORIZED_EMAIL"
+          ? 403
+          : 401;
+      return res.status(status).json({
+        ok: false,
+        error: verifyRes.error === "UNAUTHORIZED_EMAIL" ? "UNAUTHORIZED_ADMIN" : verifyRes.error,
+        message:
+          verifyRes.error === "UNAUTHORIZED_EMAIL"
+            ? "Bu hisobga ruxsat yo'q"
+            : verifyRes.message || "Google One Tap tekshiruvidan o'tmadi.",
+      });
+    }
+
+    try {
+      const adminId = config.ADMIN_TELEGRAM_ID?.trim() || ADMIN_GOOGLE_EMAIL;
+      const token = createAdminSessionToken(
+        adminId,
+        ADMIN_GOOGLE_EMAIL,
+        config.ADMIN_SESSION_SECRET,
+        MAX_ADMIN_SESSION_SECONDS
+      );
+      return res.status(200).json({
+        ok: true,
+        token,
+        user: { id: adminId, username: ADMIN_GOOGLE_EMAIL, firstName: "Diyorbek" },
+      });
     } catch {
       return res.status(503).json({ ok: false, error: "SECRET_NOT_CONFIGURED" });
     }
@@ -180,6 +280,36 @@ export function createAdminRouter(config: EnvConfig, telegramApi?: any): Router 
     (req as any).adminSession = result.session as AdminSession;
     next();
   };
+
+  // 1.3. Sessiyani tekshirish va sirpanuvchi (sliding) yangilash (30 kun, < 7 kun qolganda yangilanadi)
+  router.get("/admin/me", requireAdminAuth, (req: Request, res: Response) => {
+    res.setHeader("Cache-Control", "no-store");
+    const session = (req as any).adminSession as AdminSession;
+    let renewedToken: string | undefined;
+
+    if (shouldRenewAdminSession(session)) {
+      try {
+        renewedToken = createAdminSessionToken(
+          session.adminId,
+          session.username,
+          config.ADMIN_SESSION_SECRET,
+          MAX_ADMIN_SESSION_SECONDS
+        );
+      } catch {
+        // ignore renewal failure
+      }
+    }
+
+    return res.status(200).json({
+      ok: true,
+      user: {
+        id: session.adminId,
+        username: session.username,
+      },
+      exp: session.exp,
+      ...(renewedToken ? { renewedToken } : {}),
+    });
+  });
 
   // 2. Bosh sahifa (Overview / KPI)
   router.get("/admin/overview", requireAdminAuth, async (_req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ADMIN_SESSION_COOKIE, getRenderApiUrl } from "@/lib/auth";
+import { ADMIN_SESSION_COOKIE, ADMIN_SESSION_MAX_AGE_SECONDS, getRenderApiUrl } from "@/lib/auth";
 import { verifyMutationOrigin, handleCsrfError } from "@/lib/csrf";
 
 export async function POST(req: NextRequest) {
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
-      maxAge: 7 * 86400, // 7 kun
+      maxAge: ADMIN_SESSION_MAX_AGE_SECONDS, // 30 kun
     });
     res.headers.set("Cache-Control", "no-store");
 

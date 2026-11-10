@@ -2,43 +2,102 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { getGoogleIdToken } from "@/lib/google-login";
+import {
+  getGoogleIdToken,
+  checkExistingSessionAndRedirect,
+  shouldSkipOneTapAutoLogin,
+  LOGOUT_SESSION_FLAG,
+} from "@/lib/google-login";
 
 export default function LoginPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [checkingSession, setCheckingSession] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const widgetContainerRef = useRef<HTMLDivElement>(null);
+  const oneTapAttemptedRef = useRef(false);
+
+  const handleOneTapCredential = async (credential: string) => {
+    if (!credential || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch("/api/auth/google-onetap", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ credential }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.ok) {
+        throw new Error(data.message || "Bu hisobga ruxsat yo'q");
+      }
+      try {
+        sessionStorage.removeItem(LOGOUT_SESSION_FLAG);
+      } catch {
+        // ignore
+      }
+      router.replace("/");
+    } catch (err: any) {
+      setError(err?.message || "Bu hisobga ruxsat yo'q");
+      setLoading(false);
+    }
+  };
 
   const handleGoogleAuth = async () => {
     if (loading) return;
     setLoading(true);
     setError(null);
     try {
+      try {
+        sessionStorage.removeItem(LOGOUT_SESSION_FLAG);
+      } catch {
+        // ignore
+      }
       const idToken = await getGoogleIdToken();
       const response = await fetch("/api/auth/google", {
-        method: "POST", headers: { "Content-Type": "application/json" },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idToken }),
       });
       const data = await response.json();
-      if (!response.ok || !data.ok) throw new Error(data.message || "Google akkauntingizga kirish ruxsati berilmagan.");
+      if (!response.ok || !data.ok) {
+        throw new Error(data.message || "Bu hisobga ruxsat yo'q");
+      }
       router.replace("/");
     } catch (err: any) {
-      if (err.code === "auth/popup-closed-by-user" || err.code === "auth/cancelled-popup-request") setError(null);
-      else if (err.code === "auth/popup-blocked") setError("Brauzerda ochiluvchi oynaga ruxsat bering va qayta urinib ko‘ring.");
-      else if (err.message === "GOOGLE_NOT_CONFIGURED") setError("Google orqali kirish hali sozlanmagan.");
-      else setError(err.code ? "Google orqali kirishda xatolik yuz berdi. Qayta urinib ko‘ring." : err.message);
-    } finally { setLoading(false); }
+      if (
+        err.code === "auth/popup-closed-by-user" ||
+        err.code === "auth/cancelled-popup-request"
+      ) {
+        setError(null);
+      } else if (err.code === "auth/popup-blocked") {
+        setError("Brauzerda ochiluvchi oynaga ruxsat bering va qayta urinib ko‘ring.");
+      } else if (err.message === "GOOGLE_NOT_CONFIGURED") {
+        setError("Google orqali kirish hali sozlanmagan.");
+      } else {
+        setError(
+          err.code
+            ? "Google orqali kirishda xatolik yuz berdi. Qayta urinib ko‘ring."
+            : err.message
+        );
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const botUsername =
-    process.env.NEXT_PUBLIC_BOT_USERNAME || "jdakimyoquizbot";
+  const botUsername = process.env.NEXT_PUBLIC_BOT_USERNAME || "jdakimyoquizbot";
 
   const handleTelegramAuth = async (user: any) => {
     setLoading(true);
     setError(null);
 
     try {
+      try {
+        sessionStorage.removeItem(LOGOUT_SESSION_FLAG);
+      } catch {
+        // ignore
+      }
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -65,21 +124,94 @@ export default function LoginPage() {
         return;
       }
 
-      // Muvaffaqiyatli kirish
-      router.push("/");
-    } catch (err: any) {
+      router.replace("/");
+    } catch {
       setError("Tarmoq yoki server bilan bog'lanishda xatolik yuz berdi.");
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    // Global callback yaratish
+    let active = true;
+
+    const initSessionAndOneTap = async () => {
+      // 1. Mavjud yaroqli sessiya bo'lsa, darhol "/" ga o'tkazish
+      const redirected = await checkExistingSessionAndRedirect(fetch, (p) => router.replace(p));
+      if (!active || redirected) return;
+      setCheckingSession(false);
+
+      // 2. Agar foydalanuvchi "Chiqish" bosgan bo'lsa, avtomatik One Tap ishga tushmasin
+      if (shouldSkipOneTapAutoLogin()) {
+        try {
+          (window as any).google?.accounts?.id?.disableAutoSelect?.();
+        } catch {
+          // ignore
+        }
+        return;
+      }
+
+      if (oneTapAttemptedRef.current) return;
+      oneTapAttemptedRef.current = true;
+
+      try {
+        const cfgRes = await fetch("/api/auth/google/config", { cache: "no-store" });
+        if (!cfgRes.ok) return;
+        const cfg = await cfgRes.json();
+        const clientId = typeof cfg?.googleClientId === "string" ? cfg.googleClientId.trim() : "";
+        if (!clientId || !active) return;
+
+        const startOneTap = () => {
+          if (!active) return;
+          const gsi = (window as any).google?.accounts?.id;
+          if (!gsi) return;
+          gsi.initialize({
+            client_id: clientId,
+            callback: (resp: { credential?: string }) => {
+              if (resp?.credential) {
+                void handleOneTapCredential(resp.credential);
+              }
+            },
+            auto_select: true,
+            use_fedcm_for_prompt: true,
+            cancel_on_tap_outside: false,
+          });
+          gsi.prompt();
+        };
+
+        if ((window as any).google?.accounts?.id) {
+          startOneTap();
+        } else {
+          const existingScript = document.querySelector(
+            'script[src="https://accounts.google.com/gsi/client"]'
+          ) as HTMLScriptElement | null;
+          if (existingScript) {
+            existingScript.addEventListener("load", startOneTap, { once: true });
+          } else {
+            const gsiScript = document.createElement("script");
+            gsiScript.src = "https://accounts.google.com/gsi/client";
+            gsiScript.async = true;
+            gsiScript.defer = true;
+            gsiScript.onload = startOneTap;
+            document.head.appendChild(gsiScript);
+          }
+        }
+      } catch {
+        // One Tap ixtiyoriy; zaxira tugmalar ishlayveradi
+      }
+    };
+
+    void initSessionAndOneTap();
+
+    return () => {
+      active = false;
+    };
+  }, [router]);
+
+  useEffect(() => {
     (window as any).onTelegramAuth = (user: any) => {
       handleTelegramAuth(user);
     };
 
-    // Telegram widget scriptini yuklash
     if (widgetContainerRef.current) {
       widgetContainerRef.current.innerHTML = "";
       const script = document.createElement("script");
@@ -110,7 +242,9 @@ export default function LoginPage() {
 
         <div style={{ textAlign: "center", marginBottom: "1rem" }}>
           <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-            Google yoki Telegram akkauntingiz orqali kiring.
+            {checkingSession
+              ? "Mavjud sessiya tekshirilmoqda..."
+              : "Google yoki Telegram akkauntingiz orqali kiring."}
           </p>
         </div>
 
@@ -138,7 +272,9 @@ export default function LoginPage() {
           }}
         >
           <span>🔐</span>
-          <span>{loading ? "Kirish tekshirilmoqda…" : "Google orqali to'g'ridan-to'g'ri kirish"}</span>
+          <span>
+            {loading ? "Kirish tekshirilmoqda…" : "Google orqali to'g'ridan-to'g'ri kirish"}
+          </span>
         </button>
         <div className="widget-container" ref={widgetContainerRef}>
           {loading ? (

@@ -127,19 +127,22 @@ function getSessionSecret(secret?: string): string {
   return secret.trim();
 }
 
+export const MAX_ADMIN_SESSION_SECONDS = 30 * 86400; // 30 kun
+export const SLIDING_RENEWAL_THRESHOLD_SECONDS = 7 * 86400; // 7 kundan kam qolganda yangilanadi
+
 /**
  * Admin sessiyasi uchun imzolangan xavfsiz token (HMAC-SHA256 JWT) yaratish.
- * Maksimal sessiya umri 7 kundan oshmaydi.
+ * Maksimal sessiya umri 30 kundan oshmaydi.
  */
 export function createAdminSessionToken(
   adminId: string | number,
   username?: string,
   secret?: string,
-  expiresInSeconds = 7 * 86400
+  expiresInSeconds = MAX_ADMIN_SESSION_SECONDS
 ): string {
   const signingKey = getSessionSecret(secret);
   const now = Math.floor(Date.now() / 1000);
-  const clampedExp = Math.min(Math.max(expiresInSeconds, 60), 7 * 86400);
+  const clampedExp = Math.min(Math.max(expiresInSeconds, 60), MAX_ADMIN_SESSION_SECONDS);
 
   const sessionData: AdminSession = {
     adminId: String(adminId),
@@ -158,6 +161,17 @@ export function createAdminSessionToken(
     .digest("base64url");
 
   return `${signingInput}.${signature}`;
+}
+
+/**
+ * Sirpanuvchi (sliding) sessiya: agar qolgan muddat 7 kundan kam bo'lsa, yangi token berish kerakligini aniqlash.
+ */
+export function shouldRenewAdminSession(
+  session: AdminSession,
+  nowSeconds = Math.floor(Date.now() / 1000)
+): boolean {
+  const remaining = session.exp - nowSeconds;
+  return remaining > 0 && remaining < SLIDING_RENEWAL_THRESHOLD_SECONDS;
 }
 
 /**
@@ -245,8 +259,8 @@ export function verifyAdminSessionToken(
     return { valid: false, error: "TOKEN_EXPIRED" };
   }
 
-  // Maksimal umr 7 kundan oshmasligi shart!
-  if (session.exp - session.iat > 7 * 86400) {
+  // Maksimal umr 30 kundan oshmasligi shart!
+  if (session.exp - session.iat > MAX_ADMIN_SESSION_SECONDS) {
     return { valid: false, error: "TOKEN_INVALID_EXPIRY" };
   }
 

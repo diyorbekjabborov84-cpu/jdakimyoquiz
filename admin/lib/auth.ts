@@ -1,4 +1,6 @@
 export const ADMIN_SESSION_COOKIE = "admin_session";
+export const ADMIN_SESSION_MAX_AGE_SECONDS = 30 * 86400; // 30 kun
+export const ADMIN_SLIDING_RENEWAL_SECONDS = 7 * 86400; // 7 kundan kam qolganda yangilanadi
 
 export function getRenderApiUrl(): string {
   const url = process.env.RENDER_API_URL?.trim();

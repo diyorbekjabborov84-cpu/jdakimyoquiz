@@ -24,6 +24,7 @@ const envSchema = z.object({
   ADMIN_TELEGRAM_ID: z.string().optional(),
   ADMIN_SESSION_SECRET: z.string().optional(),
   ADMIN_CORS_ORIGIN: z.string().optional(),
+  GOOGLE_OAUTH_CLIENT_ID: z.string().optional(),
 }).superRefine((data, ctx) => {
   if (data.NODE_ENV === "production") {
     const fs = require("node:fs");

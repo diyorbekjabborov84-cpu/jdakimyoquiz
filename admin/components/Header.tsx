@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { disableGoogleAutoSelectOnLogout } from "@/lib/google-login";
 
 interface HeaderProps {
   title: string;
@@ -12,12 +13,13 @@ export default function Header({ title, adminUser, onMenuToggle }: HeaderProps) 
   const router = useRouter();
 
   const handleLogout = async () => {
+    disableGoogleAutoSelectOnLogout();
     try {
       await fetch("/api/auth/logout", { method: "POST" });
     } catch {
       // ignore
     }
-    router.push("/login");
+    router.push("/login?logout=1");
   };
 
   return (
