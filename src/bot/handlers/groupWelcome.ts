@@ -1,5 +1,7 @@
 import { Context } from "grammy";
 import { trackGroupEvent } from "../../tracking/tracker.js";
+import { getGroupShellMode } from "../../shell/shell.js";
+import { getBotSettings } from "../../settings/botSettings.js";
 
 // Bir xil guruhga qisqa vaqt ichida takroriy yuborilishining oldini oluvchi kesh (chatId -> timestamp)
 const recentlyWelcomed = new Map<number, number>();
@@ -90,6 +92,35 @@ export async function sendGroupWelcomeMessage(ctx: Context, chatId: number): Pro
     return;
   }
   recentlyWelcomed.set(chatId, now);
+
+  const mode = await getGroupShellMode(chatId).catch(() => "asosiy" as const);
+  const settings = await getBotSettings().catch(() => ({
+    adminContact: "@diyorbek_jabborov",
+    defaultGroupMode: "asosiy" as const,
+  }));
+
+  if (mode === "ochiq_emas") {
+    await ctx.api.sendMessage(
+      chatId,
+      `⚠️ Bu guruhda bot faol emas. Adminga murojaat: ${settings.adminContact}`
+    );
+    return;
+  }
+
+  if (mode === "kurs") {
+    const kursText =
+      `📚 <b>JDA QUIZ («Kimyo 0 dan» kursi) guruhga qo‘shildi!</b>\n\n` +
+      `1. Botni guruh administratori qiling.\n` +
+      `2. Guruhda <code>/quiz</code> buyrug‘i orqali darslar ro‘yxatini ochib testni boshlang.\n\n` +
+      `Murojaat uchun: ${settings.adminContact}`;
+    await ctx.api.sendMessage(chatId, kursText, {
+      parse_mode: "HTML",
+      reply_markup: {
+        inline_keyboard: [[{ text: "📚 Darslar ro‘yxati", callback_data: "m:k:list" }]],
+      },
+    });
+    return;
+  }
 
   const text =
     `🧪 <b>JDA QUIZ guruhga qo‘shildi!</b>\n\n` +

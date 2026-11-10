@@ -10,6 +10,7 @@ import {
   handleResumeQuizCallback,
   handleResumeCommand,
 } from "./handlers/quiz.js";
+import { handleMenuCallback } from "./handlers/menu.js";
 import { handlePollAnswer } from "./handlers/pollAnswer.js";
 import { handleMyChatMember, handleNewChatMembers } from "./handlers/groupWelcome.js";
 import { trackGroupUpdate } from "../tracking/groupRegistry.js";
@@ -44,6 +45,9 @@ export function createBot(token: string): Bot {
 
   // Aqlli pauzadan davom ettirish («▶️ Qolgan joyidan davom ettirish» callback query)
   bot.callbackQuery(/^resume_quiz(?:_|$)/, handleResumeQuizCallback);
+
+  // Inline menyu (m:k:... va m:a:...) callback querylari
+  bot.callbackQuery(/^m:(?:k|a):/, handleMenuCallback);
 
   // Telegram Quiz Poll javoblarini eshitish
   bot.on("poll_answer", handlePollAnswer);

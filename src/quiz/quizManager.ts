@@ -969,7 +969,18 @@ export class QuizManager {
     const defaultAuthor = "diyorbek_jabborov";
     const rawAuthor = session.quiz.author ? session.quiz.author.replace(/^@/, "").trim() : defaultAuthor;
     const authorHtml = `<a href="https://t.me/${escapeHtml(rawAuthor)}">@${escapeHtml(rawAuthor)}</a>`;
-    let footer = `\nBarcha ishtirokchilarga qatnashganlari uchun tashakkur! 👏\n\nTest yaratuvchisi: ${authorHtml}`;
+    const kursMatch = session.quiz.id.match(/^KURS_D0*(\d+)$/i);
+    const kursDarsNum = kursMatch ? Number(kursMatch[1]) : null;
+    const isPrivateKurs = session.chatId > 0 && kursDarsNum !== null;
+    const minPassScore = Math.ceil(totalQuestions * 0.75);
+    const topScore = leaderboard.length > 0 ? leaderboard[0].score : 0;
+    const privateKursAdvice = isPrivateKurs
+      ? topScore < minPassScore
+        ? `\n💡 <b>Tavsiya:</b> ${kursDarsNum}-dars videosini qayta ko‘rishni tavsiya qilamiz.\n`
+        : `\n✅ <b>Ajoyib natija!</b> ${kursDarsNum}-dars mavzusini yaxshi o‘zlashtiribsiz.\n`
+      : "";
+
+    let footer = `${privateKursAdvice}\nBarcha ishtirokchilarga qatnashganlari uchun tashakkur! 👏\n\nTest yaratuvchisi: ${authorHtml}`;
     if (session.quiz.source !== undefined) {
       const srcText = escapeHtml(session.quiz.source).trim();
       footer += `\nSavollar manbasi: ${srcText}`.trimEnd();
@@ -978,7 +989,7 @@ export class QuizManager {
     if (leaderboard.length === 0) {
       let text = `🏁 <b>«${escapeHtml(session.quiz.title)}» yakunlandi!</b>\n\n`;
       text += `👥 Qatnashchilar soni: <b>0 ta</b>\n\n`;
-      text += `Afsuski, hech bir ishtirokchi savollarga javob bermadi. 😴\nKeyingi safar faolroq bo'ling!\n\n`;
+      text += `Afsuski, hech bir ishtirokchi savollarga javob bermadi. 😴\nKeyingi safar faolroq bo'ling!${privateKursAdvice}\n\n`;
       text += `Test yaratuvchisi: ${authorHtml}`;
       if (session.quiz.source !== undefined) {
         const srcText = escapeHtml(session.quiz.source).trim();
@@ -1073,13 +1084,19 @@ export class QuizManager {
       const messages = this.formatLeaderboardMessages(session, leaderboard);
 
       // Yakuniy xabar ostidagi tugmalar (faqat oxirgi bo'lakka biriktiriladi)
+      const isKursQuiz = /^KURS_D0*\d+$/i.test(session.quiz.id);
       const replyMarkup = {
         inline_keyboard: [
           [
-            {
-              text: "📢 Quiz kodlari",
-              url: "https://t.me/jdaquizkod",
-            },
+            isKursQuiz
+              ? {
+                  text: "📚 Darslar ro‘yxati",
+                  callback_data: "m:k:list",
+                }
+              : {
+                  text: "📢 Quiz kodlari",
+                  url: "https://t.me/jdaquizkod",
+                },
             {
               text: "🔄 Qayta yechish",
               callback_data: `restart_quiz_${session.quiz.id}`,

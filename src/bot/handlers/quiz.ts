@@ -1,408 +1,391 @@
-import { CommandContext, Context } from "grammy";
-import { isGroupAdmin } from "../guards/adminGuard.js";
-import { checkChannelSubscriptions } from "../guards/subscriptionGuard.js";
-import { checkGroupSize } from "../guards/groupSizeGuard.js";
-import { quizManager, escapeHtml } from "../../quiz/quizManager.js";
+import { Context } from "grammy";
 import { getQuizById } from "../../quiz/questions.js";
-import { trackGroupEvent, trackUserEvent } from "../../tracking/tracker.js";
+import { quizManager } from "../../quiz/quizManager.js";
+import { isGroupAdmin } from "../guards/adminGuard.js";
+import { checkGroupSize } from "../guards/groupSizeGuard.js";
+import { trackGroupEvent } from "../../tracking/tracker.js";
+import {
+  resolveShell,
+  replyGroupDisabledOnce,
+  replyPrivateNotParticipant,
+} from "../../shell/shell.js";
+import { getKursQuizById, isKursQuizId } from "../../kurs/kursRepository.js";
+import { buildAsosiyMenuPayload, buildKursMenuPayload } from "./menu.js";
 
 /**
- * Quizni ID bo'yicha boshlashning umumiy yordamchi funksiyasi
+ * /quiz buyrug'i uchun handler:
+ * - Argumentsiz (/quiz) yuborilsa: joriy qobiqqa mos inline menyuni ochadi
+ * - Argument bilan (/quiz <id>) yuborilsa: o'sha quizni boshlaydi
  */
-export async function startQuizById(ctx: Context, rawId: string): Promise<void> {
-  const quizId = rawId.trim();
-  const quiz = getQuizById(quizId);
-
-  if (!quiz) {
-    await ctx.reply(
-      `❌ <b>Bunday IDga ega quiz topilmadi:</b> <code>${escapeHtml(quizId)}</code>\n\n` +
-        `Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz yoki /quiz buyrug'ini yuboring.`,
-      { parse_mode: "HTML" }
-    );
-    return;
-  }
-
-  const isGroup = ctx.chat?.type === "group" || ctx.chat?.type === "supergroup";
-
-  // Shaxsiy chatda hech qanday quiz boshlanmasin: Barcha quizlar faqat Telegram guruhlari uchun!
-  if (!isGroup) {
-    const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
-    const groupLink = `https://t.me/${botUsername}?startgroup=quiz_${quiz.id}`;
-    await ctx.reply(
-      `ℹ️ <b>«${escapeHtml(quiz.title)}» faqat Telegram guruhlarida o'tkaziladi.</b>\n\n` +
-        `Ushbu test jamoaviy musobaqa formatida tuzilgan bo'lib, uni faqat guruhlarda o'ynash mumkin.\n\n` +
-        `Botni o'z guruhingizga qo'shing va guruhda <code>/quiz_${quiz.id}</code> buyrug'ini yuborib boshlang:`,
-      {
-        parse_mode: "HTML",
-        reply_markup: {
-          inline_keyboard: [
-            [
-              {
-                text: "➕ Guruhga qo'shish va boshlash",
-                url: groupLink,
-              },
-            ],
-          ],
-        },
-      }
-    );
-    return;
-  }
-
-  // Guruhda: istalgan a'zo boshlashi mumkin, kanal obunasi talab qilinmaydi!
-  if (isGroup) {
-    // Guruh va foydalanuvchi faolligini qayd etish
-    if (ctx.chat) {
-      trackGroupEvent(ctx.chat.id, {
-        title: (ctx.chat as any).title,
-        type: ctx.chat.type,
-        status: "active",
-      }).catch(() => {});
+export async function handleQuizCommand(ctx: Context): Promise<void> {
+  const shell = await resolveShell(ctx);
+  if (shell.shell === "yopiq") {
+    if (shell.reason === "group_disabled") {
+      await replyGroupDisabledOnce(ctx);
+    } else {
+      await replyPrivateNotParticipant(ctx, shell.reason);
     }
-    if (ctx.from) {
-      trackUserEvent(ctx.from.id, {
-        firstName: ctx.from.first_name,
-        lastName: ctx.from.last_name,
-        username: ctx.from.username,
-      }).catch(() => {});
-    }
-
-    // Guruhda faol yoki pauzadagi quiz tekshiruvi
-    if (ctx.chat && quizManager.isQuizActive(ctx.chat.id)) {
-      const isPaused = quizManager.isQuizPaused(ctx.chat.id);
-      await ctx.reply(
-        isPaused
-          ? "⚠️ <b>Bu chatda pauza qilingan quiz mavjud.</b>\n\nIltimos, avval uni «▶️ Qolgan joyidan davom ettirish» tugmasi bilan davom ettiring yoki /stop buyrug'i bilan to'xtating."
-          : "⚠️ <b>Bu chatda allaqachon faol quiz davom etmoqda.</b>\n\nIltimos, avval joriy quiz yakunlanishini kuting yoki uni /stop buyrug'i bilan to'xtating.",
-        { parse_mode: "HTML" }
-      );
-      return;
-    }
-
-    const size = await checkGroupSize(ctx);
-    if (!size.allowed) {
-      await ctx.reply(`⚠️ ${size.message}`);
-      return;
-    }
-    trackGroupEvent(ctx.chat!.id, { memberCount: size.peopleCount + 1 }).catch(() => {});
-    await quizManager.startQuiz(ctx.chat!.id, quiz, ctx.api);
     return;
   }
 
-}
+  const matchText = typeof ctx.match === "string" ? ctx.match.trim() : "";
+  const messageText = ctx.message?.text || "";
+  const parts = messageText.trim().split(/\s+/);
+  const arg = matchText || (parts.length > 1 ? parts[1] : "");
 
-/**
- * «✅ A’zo bo‘ldim — tekshirish» callback query hodisasi
- */
-export async function handleCheckSubscriptionCallback(ctx: Context): Promise<void> {
-  const data = ctx.callbackQuery?.data;
-  if (!data || !data.startsWith("check_sub_")) return;
-
-  // Obuna tugmasi faqat shaxsiy chat uchun: guruhga ko'chirilgan tugma admin tekshiruvini chetlab o'tmasin.
-  if (ctx.chat?.type !== "private") {
-    await ctx.answerCallbackQuery({
-      text: "Bu tugma faqat botning shaxsiy chatida ishlaydi.",
-      show_alert: true,
-    });
+  if (arg) {
+    await startQuizById(ctx, arg);
     return;
   }
 
-  const quizId = data.replace(/^check_sub_/, "").trim();
-  const quiz = quizId === "start" ? undefined : getQuizById(quizId);
-  const userId = ctx.from?.id;
-
-  if (quizId !== "start" && !quiz) {
-    await ctx.answerCallbackQuery({
-      text: "❌ Bunday IDga ega quiz topilmadi.",
-      show_alert: true,
-    });
-    return;
-  }
-
-  if (!userId) {
-    await ctx.answerCallbackQuery({ text: "Foydalanuvchi aniqlanmadi." });
-    return;
-  }
-
-  const subResult = await checkChannelSubscriptions(ctx.api, userId);
-
-  if (subResult.status === "error") {
-    await ctx.answerCallbackQuery({
-      text: "Kanal a'zoligini tekshirishda vaqtinchalik xatolik yuz berdi.",
-      show_alert: true,
-    });
-    await ctx.reply(subResult.message, { parse_mode: "HTML" });
-    return;
-  }
-
-  if (subResult.status === "not_subscribed") {
-    await ctx.answerCallbackQuery({
-      text: "❌ Siz hali barcha kanallarga a'zo bo'lmadingiz. Iltimos, ikkala kanalga ham a'zo bo'ling!",
-      show_alert: true,
-    });
-    return;
-  }
-
-  // Obuna tasdiqlandi
-  await ctx.answerCallbackQuery({ text: "✅ Obuna tasdiqlandi!" });
-
-  if (quizId === "start") {
-    await ctx.reply(
-      "✅ <b>Obuna tasdiqlandi!</b> Asosiy quiz kodlarini /quiz orqali @jdaquizkod kanalidan olasiz.",
-      { parse_mode: "HTML" }
-    );
-    return;
-  }
-
-  if (!quiz) return;
-
-  // Shaxsiy chatda hech qanday quiz boshlanmaydi: Barcha quizlar faqat guruhlar uchun!
-  const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
-  const groupLink = `https://t.me/${botUsername}?startgroup=quiz_${quiz.id}`;
-  await ctx.reply(
-    `ℹ️ <b>«${escapeHtml(quiz.title)}» faqat Telegram guruhlarida o'tkaziladi.</b>\n\n` +
-      `Ushbu test jamoaviy musobaqa formatida tuzilgan bo'lib, uni faqat guruhlarda o'ynash mumkin.\n\n` +
-      `Botni o'z guruhingizga qo'shing va guruhda <code>/quiz_${quiz.id}</code> buyrug'ini yuborib boshlang:`,
-    {
+  if (shell.shell === "kurs") {
+    const menu = buildKursMenuPayload(0);
+    await ctx.reply(menu.text, {
       parse_mode: "HTML",
-      reply_markup: {
-        inline_keyboard: [
-          [
-            {
-              text: "➕ Guruhga qo'shish va boshlash",
-              url: groupLink,
-            },
-          ],
-        ],
-      },
-    }
-  );
-}
-
-/**
- * /quiz buyrug'i:
- * - Argumentsiz yoki 'list': «Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz» xabari va kanal tugmasini chiqaradi.
- *   Bu xabar guruhda ham, shaxsiy chatda ham chiqadi; guruhda hech kimdan obuna talab qilinmaydi.
- * - Argument berilgan bo'lsa (masalan: /quiz amino_acids): shu quizni boshlaydi.
- */
-export async function handleQuizCommand(ctx: CommandContext<Context>): Promise<void> {
-  const matchArg = ctx.match?.trim();
-
-  // Agar aniq ID berilgan bo'lsa va u "list" bo'lmasa, o'sha quizni boshlash
-  if (matchArg && matchArg.toLowerCase() !== "list") {
-    await startQuizById(ctx, matchArg);
+      reply_markup: menu.reply_markup,
+    });
     return;
   }
 
-  // /quiz yuborilganda kanalga yo'naltirish
-  const text =
-    `ℹ️ <b>Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz.</b>\n\n` +
-    `Kanalga ulanib, yangi quiz kodlari, testlar va shaxsiy havolalarni kuzatib boring!`;
-
-  await ctx.reply(text, {
+  const menu = buildAsosiyMenuPayload();
+  await ctx.reply(menu.text, {
     parse_mode: "HTML",
-    reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: "📢 @jdaquizkod kanaliga o'tish",
-            url: "https://t.me/jdaquizkod",
-          },
-        ],
-      ],
-    },
+    reply_markup: menu.reply_markup,
   });
 }
 
 /**
- * /quiz_<ID> buyrug'i orqali tanlangan quizni boshlash
+ * /quiz_<ID> yoki /start_<ID> buyruqlari uchun handler
  */
 export async function handleQuizByIdCommand(ctx: Context): Promise<void> {
-  const match = (ctx as any).match;
-  const quizId = Array.isArray(match) ? match[1] : match;
-
-  if (quizId) {
-    await startQuizById(ctx, quizId);
+  const match = ctx.match;
+  let quizId = "";
+  if (Array.isArray(match) && typeof match[1] === "string") {
+    quizId = match[1].trim();
+  } else if (typeof match === "string" && match.trim()) {
+    quizId = match.trim().replace(/^\/?(quiz_|start_)/i, "");
   } else {
-    await handleQuizCommand(ctx as any);
+    const text = ctx.message?.text || "";
+    const command = text.trim().split(/\s+/)[0] || "";
+    const withoutBotName = command.split("@")[0];
+    quizId = withoutBotName.replace(/^\/(quiz_|start_)/i, "");
   }
+
+  await startQuizById(ctx, quizId);
 }
 
 /**
- * /stop va /stopquiz buyrug'i - faol quizni to'xtatish
- * - Guruhda: faqat guruh admini to'xtata oladi
- * - Shaxsiy chatda: foydalanuvchining o'zi to'xtata oladi
+ * Berilgan quizId bo'yicha quizni boshlash yordamchi funksiyasi.
+ * Qobiq izolatsiyasi (asosiy vs kurs) va guruh hajmi (faqat asosiy guruhda >= 12) tekshiriladi.
  */
-export async function handleStopQuizCommand(ctx: CommandContext<Context>): Promise<void> {
-  const isGroup = ctx.chat.type === "group" || ctx.chat.type === "supergroup";
+export async function startQuizById(
+  ctx: Context,
+  quizId: string,
+  options?: { fromCallback?: boolean; callbackSuccessText?: string }
+): Promise<void> {
+  const chatType = ctx.chat?.type;
+  const chatId = ctx.chat?.id;
+  const isCallback = Boolean(options?.fromCallback || ctx.callbackQuery);
 
-  // Guruhda admin huquqini tekshirish
-  if (isGroup) {
-    const isAdmin = await isGroupAdmin(ctx);
-    if (!isAdmin) {
-      await ctx.reply(
-        "⚠️ <b>Kechirasiz!</b> Guruhda quizni to'xtatish huquqi faqat guruh adminlariga berilgan.",
-        { parse_mode: "HTML" }
+  if (!chatId) return;
+
+  if (chatType === "group" || chatType === "supergroup") {
+    void trackGroupEvent(chatId, {
+      title: (ctx.chat as any)?.title || "Guruh",
+      type: chatType,
+      status: "active",
+    });
+  }
+
+  const shell = await resolveShell(ctx);
+  if (shell.shell === "yopiq") {
+    if (shell.reason === "group_disabled") {
+      await replyGroupDisabledOnce(ctx);
+    } else {
+      await replyPrivateNotParticipant(ctx, shell.reason);
+    }
+    return;
+  }
+
+  const sendFeedback = async (msg: string, alert = true) => {
+    if (isCallback) {
+      await ctx.answerCallbackQuery({ text: msg, show_alert: alert }).catch(() => {});
+    } else {
+      await ctx.reply(msg);
+    }
+  };
+
+  // Qobiq bo'yicha qat'iy izolatsiya va quizni topish
+  let quiz;
+  if (shell.shell === "kurs") {
+    if (!isKursQuizId(quizId)) {
+      await sendFeedback("⚠️ Bu chatda faqat «Kimyo 0 dan» kursi testlari ishlaydi.");
+      return;
+    }
+    quiz = getKursQuizById(quizId);
+    if (!quiz) {
+      await sendFeedback(`❌ Bunday kurs testi topilmadi: «${quizId}»`);
+      return;
+    }
+  } else {
+    // shell.shell === "asosiy"
+    if (isKursQuizId(quizId)) {
+      await sendFeedback(
+        "❌ Bu test faqat «Kimyo 0 dan» kursi guruhlari va ishtirokchilari uchun mo‘ljallangan."
       );
+      return;
+    }
+    quiz = getQuizById(quizId);
+    if (!quiz) {
+      await sendFeedback(
+        `❌ Bunday IDga ega quiz topilmadi: «${quizId}»\n\nMavjud quizlarni ko'rish uchun /quiz buyrug'ini yuboring.`
+      );
+      return;
+    }
+
+    // Guruh hajmi (>= 12 kishi) FAQAT asosiy guruhlarga tatbiq etiladi (Q5)
+    const groupSize = await checkGroupSize(ctx);
+    if (!groupSize.allowed) {
+      await sendFeedback(groupSize.message);
       return;
     }
   }
 
-  if (!quizManager.isQuizActive(ctx.chat.id)) {
-    await ctx.reply("ℹ️ Ushbu chatda ayni paytda faol quiz mavjud emas.");
+  if (quizManager.isQuizActive(chatId)) {
+    const isPaused = quizManager.isQuizPaused(chatId);
+    const activeMsg = isPaused
+      ? "⚠️ Bu chatda pauza qilingan quiz mavjud. Iltimos, uni «▶️ Qolgan joyidan davom ettirish» tugmasi yoki /resume buyrug'i bilan davom ettiring, yoki /stop buyrug'i bilan to'xtating."
+      : "⚠️ Bu chatda allaqachon faol quiz davom etmoqda. Iltimos, u yakunlanishini kuting yoki /stop buyrug'i bilan to'xtating.";
+    await sendFeedback(activeMsg);
     return;
   }
 
-  await quizManager.stopQuiz(ctx.chat.id, ctx.api);
+  const result = await quizManager.startQuiz(chatId, quiz, ctx.api as any);
+  if (!result.success) {
+    await sendFeedback(result.message);
+    return;
+  }
+
+  if (isCallback) {
+    await ctx
+      .answerCallbackQuery({ text: options?.callbackSuccessText || "▶️ Test boshlanmoqda!" })
+      .catch(() => {});
+  }
 }
 
 /**
- * «🔄 Qayta yechish» callback query hodisasi
- * - Guruhning istalgan a'zosi bosa oladi (adminlik talab qilinmaydi)
- * - Faol yoki pauzadagi quiz davom etayotgan bo'lsa yangisi boshlanmaydi
- * - Guruhda kanal obunasi talab qilinmaydi
- * - Savollar va variantlar qayta aralashtiriladi
+ * Eski «✅ A’zo bo‘ldim — tekshirish» inline tugmasi uchun handler (3.1):
+ * Eski xabarlardagi tugmalar xato bermasligi uchun saqlanadi.
  */
-export async function handleRestartQuizCallback(ctx: Context): Promise<void> {
-  const data = ctx.callbackQuery?.data;
-  if (!data || !data.startsWith("restart_quiz_")) return;
-
-  const quizId = data.replace(/^restart_quiz_/, "").trim();
-  const quiz = getQuizById(quizId);
-
-  if (!quiz) {
-    await ctx.answerCallbackQuery({
-      text: "❌ Bunday quiz topilmadi.",
-      show_alert: true,
-    });
-    return;
-  }
-
-  const isGroup = ctx.chat?.type === "group" || ctx.chat?.type === "supergroup";
-
-  // Shaxsiy chatda hech qanday quiz qayta boshlanmaydi!
-  if (!isGroup || !ctx.chat) {
-    await ctx.answerCallbackQuery({
-      text: "ℹ️ Quizlar faqat Telegram guruhlarida o'tkaziladi.",
-      show_alert: true,
-    });
-    return;
-  }
-
-  // Boshqa quiz davom etayotgan yoki pauzada bo'lsa, yangisini boshlamasin
-  if (quizManager.isQuizActive(ctx.chat.id)) {
-    const isPaused = quizManager.isQuizPaused(ctx.chat.id);
-    await ctx.answerCallbackQuery({
-      text: isPaused
-        ? "⚠️ Bu chatda pauza qilingan quiz mavjud."
-        : "⚠️ Bu chatda allaqachon faol quiz davom etmoqda.",
-      show_alert: true,
-    });
-    return;
-  }
-
-  const size = await checkGroupSize(ctx);
-  if (!size.allowed) {
-    await ctx.answerCallbackQuery({ text: size.message, show_alert: true });
-    return;
-  }
-
-  const startResult = await quizManager.startQuiz(ctx.chat.id, quiz, ctx.api);
-  if (!startResult.success) {
-    await ctx.answerCallbackQuery({
-      text: startResult.message,
-      show_alert: true,
-    });
-    return;
-  }
-
+export async function handleCheckSubscriptionCallback(ctx: Context): Promise<void> {
   await ctx.answerCallbackQuery({
-    text: "🔄 Quiz qayta boshlanmoqda...",
+    text: "Obuna endi talab qilinmaydi",
   });
 }
 
 /**
- * «▶️ Qolgan joyidan davom ettirish» callback query hodisasi
- * - Guruhning istalgan a'zosi bosa oladi (adminlik talab qilinmaydi)
- * - Takror bosilgan tugma (allaqachon running yoki to'xtatilgan) uchun alert beradi
- * - Sessiya identifikatori (sessionId) mosligini tekshiradi (eski tugmalar yangi sessiyani buzmasligi uchun)
- * - Aynan keyingi savoldan boshlaydi, tartib va ballarni saqlaydi
+ * «🔄 Qayta yechish» inline tugmasi bosilganda (callback_data: restart_quiz_<quizId>)
+ */
+export async function handleRestartQuizCallback(ctx: Context): Promise<void> {
+  const data = ctx.callbackQuery?.data || "";
+  const quizId = data.replace(/^restart_quiz_/, "");
+  await startQuizById(ctx, quizId, {
+    fromCallback: true,
+    callbackSuccessText: "🔄 Quiz qayta boshlanmoqda!",
+  });
+}
+
+/**
+ * /resume buyrug'i — Pauzadagi quizni qolgan joyidan davom ettirish.
+ */
+export async function handleResumeQuizCommand(ctx: Context): Promise<void> {
+  const chatId = ctx.chat?.id;
+  if (!chatId) return;
+
+  const shell = await resolveShell(ctx);
+  if (shell.shell === "yopiq") {
+    if (shell.reason === "group_disabled") {
+      await replyGroupDisabledOnce(ctx);
+    } else {
+      await replyPrivateNotParticipant(ctx, shell.reason);
+    }
+    return;
+  }
+
+  if (!quizManager.isQuizPaused(chatId)) {
+    await ctx.reply("ℹ️ Hozirda pauza qilingan quiz mavjud emas.");
+    return;
+  }
+
+  const session = quizManager.getSession(chatId);
+  if (session) {
+    const isSessionKurs = isKursQuizId(session.quiz.id);
+    if (shell.shell === "kurs" && !isSessionKurs) {
+      await ctx.reply("⚠️ Bu chatda faqat «Kimyo 0 dan» kursi testlari ishlaydi.");
+      return;
+    }
+    if (shell.shell === "asosiy" && isSessionKurs) {
+      await ctx.reply("⚠️ Kurs testini asosiy guruhda davom ettirib bo'lmaydi.");
+      return;
+    }
+  }
+
+  if (shell.shell === "asosiy") {
+    const groupSize = await checkGroupSize(ctx);
+    if (!groupSize.allowed) {
+      await ctx.reply(groupSize.message);
+      return;
+    }
+  }
+
+  const res = await quizManager.resumeQuiz(chatId, ctx.api as any);
+  if (!res.success) {
+    await ctx.reply(res.message);
+  }
+}
+
+export const handleResumeCommand = handleResumeQuizCommand;
+
+/**
+ * «▶️ Qolgan joyidan davom ettirish» inline tugmasi bosilganda
+ * Format: resume_quiz_<chatId>_<sessionId>
  */
 export async function handleResumeQuizCallback(ctx: Context): Promise<void> {
-  const isGroup = ctx.chat?.type === "group" || ctx.chat?.type === "supergroup";
-  if (!isGroup || !ctx.chat) {
+  const chatId = ctx.chat?.id;
+  if (!chatId) {
     await ctx.answerCallbackQuery({
-      text: "ℹ️ Quizlar faqat Telegram guruhlarida o'tkaziladi.",
+      text: "⚠️ Bu tugma faqat tegishli chatda ishlaydi.",
       show_alert: true,
     });
     return;
   }
 
   const data = ctx.callbackQuery?.data || "";
-  const match = data.match(/^resume_quiz_(-?\d+)_([a-zA-Z0-9_-]+)$/);
-  if (!match || Number(match[1]) !== ctx.chat.id) {
+  const match = data.match(/^resume_quiz_(-?\d+)_(.+)$/);
+  if (!match) {
     await ctx.answerCallbackQuery({
-      text: "⚠️ Ushbu tugma bu guruhdagi joriy quizga tegishli emas.",
+      text: "⚠️ Ushbu tugma eski yoki yaroqsiz sessiyaga tegishli.",
       show_alert: true,
     });
     return;
   }
 
-  const size = await checkGroupSize(ctx);
-  if (!size.allowed) {
-    await ctx.answerCallbackQuery({ text: size.message, show_alert: true });
-    return;
-  }
+  const targetChatId = Number(match[1]);
+  const expectedSessionId = match[2];
 
-  const resumeResult = await quizManager.resumeQuiz(ctx.chat.id, ctx.api, match[2]);
-
-  if (!resumeResult.success) {
+  if (targetChatId !== chatId) {
     await ctx.answerCallbackQuery({
-      text: resumeResult.message,
+      text: "⚠️ Bu tugma boshqa chatdagi quizga tegishli.",
       show_alert: true,
     });
     return;
   }
 
-  await ctx.answerCallbackQuery({ text: "▶️ Quiz davom ettirilmoqda!" });
+  const shell = await resolveShell(ctx);
+  if (shell.shell === "yopiq") {
+    if (shell.reason === "group_disabled") {
+      await replyGroupDisabledOnce(ctx);
+    } else {
+      await replyPrivateNotParticipant(ctx, shell.reason);
+    }
+    return;
+  }
+
+  const session = quizManager.getSession(chatId);
+  if (session) {
+    const isSessionKurs = isKursQuizId(session.quiz.id);
+    if (shell.shell === "kurs" && !isSessionKurs) {
+      await ctx.answerCallbackQuery({
+        text: "⚠️ Bu chatda faqat «Kimyo 0 dan» kursi testlari ishlaydi.",
+        show_alert: true,
+      });
+      return;
+    }
+    if (shell.shell === "asosiy" && isSessionKurs) {
+      await ctx.answerCallbackQuery({
+        text: "⚠️ Kurs testini asosiy guruhda davom ettirib bo'lmaydi.",
+        show_alert: true,
+      });
+      return;
+    }
+  }
+
+  if (shell.shell === "asosiy") {
+    const groupSize = await checkGroupSize(ctx);
+    if (!groupSize.allowed) {
+      await ctx.answerCallbackQuery({
+        text: groupSize.message,
+        show_alert: true,
+      });
+      return;
+    }
+  }
+
+  const res = await quizManager.resumeQuiz(chatId, ctx.api as any, expectedSessionId);
+  if (!res.success) {
+    await ctx.answerCallbackQuery({
+      text: res.message,
+      show_alert: true,
+    });
+    return;
+  }
+
+  await ctx.answerCallbackQuery({
+    text: "▶️ Quiz davom ettirilmoqda!",
+  });
 }
 
 /**
- * /resume buyrug'i:
- * - Guruhning istalgan a'zosi yubora oladi (adminlik talab qilinmaydi)
- * - Server qayta tushgandan so'ng yoki aqlli pauzadagi quizni qolgan joyidan davom ettiradi
- * - Eski tugma yo'qolgan yoki xabar yuqorida qolib ketgan holatlarda ham sessiya osilib qolishini oldini oladi
+ * /stop va /stopquiz buyrug'i uchun handler.
+ * Guruhda: faqat guruh administratorlari to'xtata oladi.
+ * Shaxsiy chatda (Q6): foydalanuvchi o'z quizini admin tekshiruvisiz to'xtata oladi.
  */
-export async function handleResumeCommand(ctx: CommandContext<Context>): Promise<void> {
-  const isGroup = ctx.chat.type === "group" || ctx.chat.type === "supergroup";
+export async function handleStopQuizCommand(ctx: Context): Promise<void> {
+  const chatType = ctx.chat?.type;
+  const chatId = ctx.chat?.id;
 
-  if (!isGroup) {
-    await ctx.reply(
-      "ℹ️ Quizlar faqat Telegram guruhlarida o'tkaziladi. Iltimos, botni guruhga qo'shing va u yerda /resume buyrug'idan foydalaning."
-    );
+  if (!chatId) return;
+
+  if (chatType === "private") {
+    if (!quizManager.isQuizActive(chatId)) {
+      const shell = await resolveShell(ctx);
+      if (shell.shell === "yopiq") {
+        if (shell.reason === "group_disabled") {
+          await replyGroupDisabledOnce(ctx);
+        } else {
+          await replyPrivateNotParticipant(ctx, shell.reason);
+        }
+        return;
+      }
+      await ctx.reply("ℹ️ Hozirda faol quiz yo'q.");
+      return;
+    }
+    await quizManager.stopQuiz(chatId, ctx.api as any);
     return;
   }
 
-  if (quizManager.isQuizRunning(ctx.chat.id)) {
-    await ctx.reply("⚠️ Ushbu guruhda quiz allaqachon faol davom etmoqda.");
+  if (chatType !== "group" && chatType !== "supergroup") {
     return;
   }
 
-  if (!quizManager.isQuizPaused(ctx.chat.id)) {
-    await ctx.reply(
-      "ℹ️ Ushbu guruhda hozirda to‘xtatilgan (pauzadagi) quiz mavjud emas. Yangi quiz boshlash uchun /quiz buyrug'i yoki quiz kodini yuboring."
-    );
+  if (!quizManager.isQuizActive(chatId)) {
+    const shell = await resolveShell(ctx);
+    if (shell.shell === "yopiq") {
+      await replyGroupDisabledOnce(ctx);
+      return;
+    }
+  }
+
+  const admin = await isGroupAdmin(ctx);
+  if (!admin) {
+    await ctx.reply("⛔ Quizni to'xtatish huquqi faqat guruh adminlariga berilgan!");
     return;
   }
 
-  const size = await checkGroupSize(ctx);
-  if (!size.allowed) {
-    await ctx.reply(`⚠️ ${size.message}`);
+  if (!quizManager.isQuizActive(chatId)) {
+    await ctx.reply("ℹ️ Hozir bu guruhda faol quiz mavjud emas.");
     return;
   }
 
-  const resumeResult = await quizManager.resumeQuiz(ctx.chat.id, ctx.api);
-  if (!resumeResult.success) {
-    await ctx.reply(resumeResult.message);
-  }
+  await quizManager.stopQuiz(chatId, ctx.api as any);
 }

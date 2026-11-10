@@ -1,10 +1,12 @@
 import { getFirestoreDb, FIRESTORE_COLLECTIONS } from "../firebase/firestore.js";
 import { allQuizzes } from "../quiz/questions.js";
+import { getBotSettings, GroupShellMode, isValidGroupMode } from "../settings/botSettings.js";
 
 export interface TrackGroupPayload {
   title?: string;
   type?: string;
   status?: "active" | "left" | "kicked";
+  mode?: GroupShellMode;
   memberCount?: number | null;
   eventTimestamp?: number;
 }
@@ -22,6 +24,7 @@ export interface GroupRecord {
   title: string;
   type: string;
   status: "active" | "left" | "kicked" | "unknown";
+  mode: GroupShellMode;
   memberCount: number | null;
   lastActivity: string;
   updatedAt: string;
@@ -44,6 +47,7 @@ export interface BotUserRecord {
 
 export interface GetGroupsOptions {
   query?: string;
+  mode?: GroupShellMode;
   limit?: number;
   cursor?: string;
 }
@@ -109,9 +113,10 @@ export async function trackGroupEvent(chatId: number | string, payload: TrackGro
 
   const now = new Date().toISOString();
   const eventTimestamp = payload.eventTimestamp || Date.now();
-  const docRef = db.collection(FIRESTORE_COLLECTIONS.GROUPS).doc(String(chatId));
+  const settings = await getBotSettings().catch(() => ({ defaultGroupMode: "asosiy" as const }));
 
   try {
+    const docRef = db.collection(FIRESTORE_COLLECTIONS.GROUPS).doc(String(chatId));
     await db.runTransaction(async (transaction) => {
       const doc = await transaction.get(docRef);
       const existing = doc.exists ? (doc.data() as Record<string, any>) : null;
@@ -149,6 +154,9 @@ export async function trackGroupEvent(chatId: number | string, payload: TrackGro
         updateData.status = payload.status;
         updateData.statusUpdatedAt = now;
       }
+      if (payload.mode !== undefined && isValidGroupMode(payload.mode)) {
+        updateData.mode = payload.mode;
+      }
       if (payload.memberCount !== undefined) updateData.memberCount = payload.memberCount;
 
       if (!existing) {
@@ -158,6 +166,7 @@ export async function trackGroupEvent(chatId: number | string, payload: TrackGro
           updateData.titleLower = "guruh";
         }
         if (!updateData.status) updateData.status = "active";
+        if (!updateData.mode) updateData.mode = settings.defaultGroupMode || "asosiy";
         if (updateData.memberCount === undefined) updateData.memberCount = null;
         transaction.set(docRef, updateData);
       } else {
@@ -178,9 +187,9 @@ export async function trackUserEvent(userId: number | string, payload: TrackUser
 
   const now = new Date().toISOString();
   const eventTimestamp = payload.eventTimestamp || Date.now();
-  const docRef = db.collection(FIRESTORE_COLLECTIONS.USERS).doc(String(userId));
 
   try {
+    const docRef = db.collection(FIRESTORE_COLLECTIONS.USERS).doc(String(userId));
     await db.runTransaction(async (transaction) => {
       const doc = await transaction.get(docRef);
       const existing = doc.exists ? (doc.data() as Record<string, any>) : null;
@@ -309,6 +318,7 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
             title: data.title || "Nomsiz guruh",
             type: data.type || "group",
             status: data.status || "active",
+            mode: isValidGroupMode(data.mode) ? data.mode : "asosiy",
             memberCount: data.memberCount ?? null,
             lastActivity: data.lastActivity || data.updatedAt || "",
             updatedAt: data.updatedAt || "",
@@ -363,6 +373,7 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
         title: data.title || "Nomsiz guruh",
         type: data.type || "group",
         status: data.status || "active",
+        mode: isValidGroupMode(data.mode) ? data.mode : "asosiy",
         memberCount: data.memberCount ?? null,
         lastActivity: data.lastActivity || data.updatedAt || "",
         updatedAt: data.updatedAt || "",
@@ -417,6 +428,7 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
       title: data.title || "Nomsiz guruh",
       type: data.type || "group",
       status: data.status || "active",
+      mode: isValidGroupMode(data.mode) ? data.mode : "asosiy",
       memberCount: data.memberCount ?? null,
       lastActivity: data.lastActivity || data.updatedAt || "",
       updatedAt: data.updatedAt || "",
@@ -435,11 +447,15 @@ export async function getGroupsList(options: GetGroupsOptions = {}): Promise<Gro
         })
       : null;
 
+  const filteredItems = options.mode && isValidGroupMode(options.mode)
+    ? items.filter((g) => g.mode === options.mode)
+    : items;
+
   return {
-    groups: items,
+    groups: filteredItems,
     nextCursor,
     hasMore,
-    total: totalCount,
+    total: options.mode && isValidGroupMode(options.mode) ? filteredItems.length : totalCount,
   };
 }
 

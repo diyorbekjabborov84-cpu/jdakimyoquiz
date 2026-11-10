@@ -1,4 +1,5 @@
 import { loadConfig } from "./config/env.js";
+import { loadKursDarslarFromFirestore } from "./kurs/kursRepository.js";
 import { createBot } from "./bot/bot.js";
 import { createApp } from "./server/app.js";
 import { quizManager } from "./quiz/quizManager.js";
@@ -41,6 +42,13 @@ async function bootstrap() {
 
   // 3. Telegram Botni yaratish
   const bot = createBot(config.BOT_TOKEN);
+
+  // 3.1. Kurs darslarini Firestore'dan xotiraga yuklash
+  try {
+    await loadKursDarslarFromFirestore();
+  } catch (err) {
+    console.warn("⚠️ [Bootstrap] Kurs darslarini yuklashda xatolik:", err);
+  }
 
   // 4. Avvalgi saqlangan sessiyalarni tiklash (productionda faqat Firestore bazasidan o'qiladi)
   try {

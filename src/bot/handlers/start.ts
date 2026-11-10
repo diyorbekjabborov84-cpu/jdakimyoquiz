@@ -1,107 +1,79 @@
-import { CommandContext, Context } from "grammy";
+import { Context } from "grammy";
+import { escapeHtml } from "../../quiz/quizManager.js";
 import { startQuizById } from "./quiz.js";
-import { getQuizById } from "../../quiz/questions.js";
-import {
-  checkChannelSubscriptions,
-  buildSubscriptionMessageAndKeyboard,
-} from "../guards/subscriptionGuard.js";
 import { trackGroupEvent, trackUserEvent } from "../../tracking/tracker.js";
+import {
+  resolveShell,
+  replyGroupDisabledOnce,
+  replyPrivateNotParticipant,
+} from "../../shell/shell.js";
+import { buildAsosiyMenuPayload, buildKursMenuPayload } from "./menu.js";
 
-export async function handleStart(ctx: CommandContext<Context>): Promise<void> {
-  const isGroup = ctx.chat.type === "group" || ctx.chat.type === "supergroup";
-  const botUsername = ctx.me?.username || process.env.BOT_USERNAME || "jdakimyoquizbot";
-  const payload = ctx.match?.trim();
-
-  // Agar havola orqali quiz ID uzatilgan bo'lsa (masalan: ?start=quiz_KK1_1, ?start=R1, ?startgroup=R1)
-  if (payload) {
-    let rawQuizId = payload.trim();
-    if (rawQuizId.startsWith("quiz_")) {
-      rawQuizId = rawQuizId.replace(/^quiz_/, "").trim();
-    } else if (rawQuizId.startsWith("start_")) {
-      rawQuizId = rawQuizId.replace(/^start_/, "").trim();
-    }
-    if (getQuizById(rawQuizId)) {
-      await startQuizById(ctx, rawQuizId);
-      return;
-    }
-  }
-
-  if (isGroup) {
-    trackGroupEvent(ctx.chat.id, {
-      title: (ctx.chat as any).title,
-      type: ctx.chat.type,
-      status: "active",
-    }).catch(() => {});
-
-    if (ctx.from) {
-      trackUserEvent(ctx.from.id, {
-        firstName: ctx.from.first_name,
-        lastName: ctx.from.last_name,
-        username: ctx.from.username,
-      }).catch(() => {});
-    }
-
-    const text =
-      `🧪 <b>JDA Kimyo Quiz Boti faol!</b>\n\n` +
-      `Salom, guruh a'zolari! Ushbu bot guruhda kimyo fanidan ko'p savolli interaktiv quizlar o'tkazish uchun mo'ljallangan.\n\n` +
-      `📌 <b>Bot imkoniyatlari:</b>\n` +
-      `• Telegramning rasmiy <i>Quiz Poll</i> shaklidagi savollari\n` +
-      `• Haqiqiy vaqt chegarasi (taymer) va avtomatik keyingi savolga o'tish\n` +
-      `• Barcha qatnashchilar uchun avtomatik ball va vaqt hisobi\n` +
-      `• Yakuniy reyting jadvali (eng to'g'ri va tez javob berganlar yuqorida)\n\n` +
-      `Quiz kodlarini olish uchun /quiz buyrug'ini yuboring.\n` +
-      `Batafsil ma'lumot va buyruqlar uchun /help buyrug'ini bosing.`;
-
-    await ctx.reply(text, { parse_mode: "HTML" });
-    return;
-  }
-
-  // Shaxsiy chat (Private)
+/**
+ * /start buyrug'i uchun handler.
+ * Guruhning mode qiymati va foydalanuvchining kurs a'zoligiga qarab
+ * Asosiy qobiq yoki Kurs qobig'i («Kimyo 0 dan») menyusini ochadi.
+ */
+export async function handleStart(ctx: Context): Promise<void> {
+  const firstName = ctx.from?.first_name || "foydalanuvchi";
+  const chatType = ctx.chat?.type;
   const userId = ctx.from?.id;
-  if (!userId) {
-    await ctx.reply("⚠️ Foydalanuvchi aniqlanmadi. Iltimos, qayta urinib ko'ring.");
+
+  // Foydalanuvchi yoki guruh faolligini asinxron qayd etish
+  if (chatType === "private" && userId) {
+    void trackUserEvent(userId, {
+      firstName: ctx.from?.first_name,
+      lastName: ctx.from?.last_name ?? null,
+      username: ctx.from?.username ?? null,
+      privateChatActive: true,
+    });
+  } else if ((chatType === "group" || chatType === "supergroup") && ctx.chat?.id) {
+    void trackGroupEvent(ctx.chat.id, {
+      title: (ctx.chat as any).title || "Guruh",
+      type: chatType,
+      status: "active",
+    });
+  }
+
+  const shell = await resolveShell(ctx);
+  if (shell.shell === "yopiq") {
+    if (shell.reason === "group_disabled") {
+      await replyGroupDisabledOnce(ctx);
+    } else {
+      await replyPrivateNotParticipant(ctx, shell.reason);
+    }
     return;
   }
 
-  // Shaxsiy chat ochgan foydalanuvchini Firestore'da qayd etish
-  trackUserEvent(userId, {
-    firstName: ctx.from?.first_name,
-    lastName: ctx.from?.last_name,
-    username: ctx.from?.username,
-    privateChatActive: true,
-  }).catch(() => {});
+  // Deep link parametrini olish (masalan: /start quiz_KK1_1 yoki /start quiz_KURS_D01)
+  const rawMatch = typeof ctx.match === "string" ? ctx.match.trim() : "";
+  const messageText = ctx.message?.text || "";
+  const textParts = messageText.trim().split(/\s+/);
+  const payload = rawMatch || (textParts.length > 1 ? textParts[1] : "");
 
-  const subscription = await checkChannelSubscriptions(ctx.api, userId);
-  if (subscription.status === "error") {
-    await ctx.reply(subscription.message, { parse_mode: "HTML" });
-    return;
-  }
-  if (subscription.status === "not_subscribed") {
-    const { text, reply_markup } = buildSubscriptionMessageAndKeyboard("start");
-    await ctx.reply(text, { parse_mode: "HTML", reply_markup });
+  if (payload) {
+    const quizId = payload.replace(/^(quiz_|start_)/i, "");
+    await startQuizById(ctx, quizId);
     return;
   }
 
-  const text =
-    `👋 <b>Assalomu alaykum, ${ctx.from?.first_name || "foydalanuvchi"}!</b>\n\n` +
-    `Men <b>JDA Kimyo Quiz</b> botiman — kimyo fanidan interaktiv musobaqalar va testlar o'tkazib beraman.\n\n` +
-    `🚀 <b>Mendan qanday foydalanish mumkin?</b>\n` +
-    `1. /quiz buyrug'i orqali @jdaquizkod kanalidan test kodlarini oling;\n` +
-    `2. Meni o'z Telegram guruhingizga qo'shing va admin huquqini bering;\n` +
-    `3. Guruhda istalgan a'zo /quiz_&lt;ID&gt; buyrug'i orqali jamoaviy quizni boshlashi mumkin.\n\n` +
-    `💡 <i>Savollar Telegramning rasmiy Quiz ko'rinishida beriladi va yakunda barcha ishtirokchilar reytingi e'lon qilinadi.</i>`;
+  if (shell.shell === "kurs") {
+    const greeting =
+      shell.context === "private"
+        ? `👋 <b>Assalomu alaykum, ${escapeHtml(firstName)}!</b>\n«Kimyo 0 dan» kursi testlar bo‘limiga xush kelibsiz.`
+        : `🧪 <b>JDA Kimyo Quiz Boti («Kimyo 0 dan» kursi) faol!</b>`;
+    const menu = buildKursMenuPayload(0, greeting);
+    await ctx.reply(menu.text, {
+      parse_mode: "HTML",
+      reply_markup: menu.reply_markup,
+    });
+    return;
+  }
 
-  await ctx.reply(text, {
+  // Asosiy guruh qobig'i
+  const menu = buildAsosiyMenuPayload("🧪 <b>JDA Kimyo Quiz Boti faol!</b>");
+  await ctx.reply(menu.text, {
     parse_mode: "HTML",
-    reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: "➕ Guruhga qo'shish",
-            url: `https://t.me/${botUsername}?startgroup=true`,
-          },
-        ],
-      ],
-    },
+    reply_markup: menu.reply_markup,
   });
 }

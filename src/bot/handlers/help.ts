@@ -1,24 +1,57 @@
-import { CommandContext, Context } from "grammy";
+import { Context } from "grammy";
+import {
+  resolveShell,
+  replyGroupDisabledOnce,
+  replyPrivateNotParticipant,
+} from "../../shell/shell.js";
 
-export async function handleHelp(ctx: CommandContext<Context>): Promise<void> {
-  const text =
-    `📖 <b>JDA Kimyo Quiz Boti — Qo'llanma</b>\n\n` +
-    `Ushbu bot kimyo quizlarini Telegram guruhlarida o'tkazadi. Shaxsiy chatda test kodlari va guruhga qo'shish havolasini olishingiz mumkin.\n\n` +
-    `🔹 <b>Mavjud buyruqlar:</b>\n` +
-    `• /start — Botni ishga tushirish yoki shaxsiy havola orqali quizni ochish\n` +
-    `• /help — Botdan foydalanish yo'riqnomasi va buyruqlar\n` +
-    `• /quiz — Test kodlarini olish uchun @jdaquizkod kanaliga havola\n` +
-    `• /quiz_&lt;ID&gt; — Tanlangan quizni boshlash (masalan: /quiz_amino_acids)\n` +
-    `• /resume — To'xtatilgan yoki pauzada qolgan quizni qolgan joyidan davom ettirish\n` +
-    `• /stop yoki /stopquiz — Faol quizni to'xtatish (faqat guruh admini)\n\n` +
-    `🔹 <b>Foydalanish tartibi:</b>\n` +
-    `1. <b>Guruhda:</b> Quizni guruhning istalgan a'zosi /quiz_&lt;ID&gt; orqali boshlashi, qayta yechishi yoki davom ettirishi mumkin. Faol quizni to'xtatish (/stop) esa faqat guruh adminiga berilgan.\n` +
-    `   Quizni boshlash yoki davom ettirish uchun guruhda botdan tashqari kamida 12 kishi bo'lishi kerak.\n` +
-    `2. <b>Shaxsiy chatda:</b> /quiz orqali kodlar kanalini oching. Testlar shaxsiy chatda boshlanmaydi.\n` +
-    `3. <b>Guruh havolalari:</b> Har bir quiz uchun guruhga qo'shish havolasi mavjud (masalan: <code>https://t.me/&lt;bot_username&gt;?startgroup=quiz_&lt;ID&gt;</code>).\n` +
-    `4. Savollar rasmiy Telegram <b>Quiz Poll</b> shaklida beriladi, har biriga 20 soniya vaqt ajratiladi.\n` +
-    `5. To'xtatilgan quizning yakuniy natijasi hisoblanmaydi; muvaffaqiyatli yakunlanganda umumiy reyting e'lon qilinadi.\n\n` +
-    `⚠️ <i>Eslatma: Bitta chatda bir vaqtning o'zida faqat bitta faol quiz o'tkazilishi mumkin. Boshqa chatlarning o'yini va natijalari mutlaqo mustaqildir.</i>`;
+/**
+ * /help buyrug'i uchun handler — qobiqqa mos qo'llanmani qaytaradi
+ */
+export async function handleHelp(ctx: Context): Promise<void> {
+  if (ctx.chat?.type) {
+    const shell = await resolveShell(ctx);
+    if (shell.shell === "yopiq") {
+      if (shell.reason === "group_disabled") {
+        await replyGroupDisabledOnce(ctx);
+      } else {
+        await replyPrivateNotParticipant(ctx, shell.reason);
+      }
+      return;
+    }
 
-  await ctx.reply(text, { parse_mode: "HTML" });
+    if (shell.shell === "kurs") {
+      await ctx.reply(
+        `📖 <b>Qo'llanma («Kimyo 0 dan» kursi):</b>\n\n` +
+          `<b>Asosiy buyruqlar:</b>\n` +
+          `/start yoki /quiz — Kurs darslari bo‘yicha testlar menyusi\n` +
+          `/resume — To'xtagan (pauzadagi) testni davom ettirish\n` +
+          `/stop — Faol testni to'xtatish\n` +
+          `/help — Ushbu yordam oynasini ko'rsatish\n\n` +
+          `<b>Qoidalar:</b>\n` +
+          `1. Har bir dars testida savollar va variantlar tasodifiy aralashtiriladi.\n` +
+          `2. Har bir savolga 30 soniya vaqt beriladi.\n` +
+          `3. Shaxsiy chatda 9/12 dan past natija bo‘lsa, dars videosini qayta ko‘rish tavsiya etiladi.`,
+        { parse_mode: "HTML" }
+      );
+      return;
+    }
+  }
+
+  await ctx.reply(
+    `📖 <b>Qo'llanma va Buyruqlar:</b>\n\n` +
+      `<b>Asosiy buyruqlar:</b>\n` +
+      `/start — Bot holatini tekshirish va testlar menyusi\n` +
+      `/quiz — Testlar bo‘limlari menyusini ochish\n` +
+      `/resume — To'xtagan (pauzadagi) quizni davom ettirish\n` +
+      `/stop — Faol quizni majburiy to'xtatish (faqat guruh adminlari)\n` +
+      `/help — Ushbu yordam oynasini ko'rsatish\n\n` +
+      `<b>Qoidalar:</b>\n` +
+      `1. Botni guruhingizga qo'shing va unga <b>Admin</b> huquqini bering.\n` +
+      `2. Guruhda <code>/quiz</code> menyusidan yoki <code>/quiz_KOD</code> orqali testni boshlang.\n` +
+      `3. Guruh a'zolari o'z vaqtida (20 soniya ichida) javob berishlari kerak.\n` +
+      `4. Ketma-ket 3 ta savolga hech kim javob bermasa, quiz vaqtincha to'xtatiladi (Aqlli pauza).\n` +
+      `5. Yakunda eng ko'p to'g'ri va eng tez javob bergan ishtirokchilar reytingi e'lon qilinadi!`,
+    { parse_mode: "HTML" }
+  );
 }
