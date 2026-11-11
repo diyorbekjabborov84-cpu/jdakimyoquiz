@@ -200,7 +200,7 @@ async function getKursGroupChatIds(): Promise<number[]> {
   return ids;
 }
 
-async function checkPrivateKursParticipation(
+export async function checkPrivateKursParticipation(
   ctx: Context,
   userId: number
 ): Promise<"participant" | "not_participant" | "blocked" | "check_error"> {
@@ -359,6 +359,33 @@ async function checkPrivateKursParticipation(
     expiresAt: now + PARTICIPANT_CACHE_TTL_MS,
   });
   return "not_participant";
+}
+
+/**
+ * Inline query uchun (ctx.chat bo'lmaganda) foydalanuvchi kurs kartochkalarini
+ * ko'ra olishini tekshirish. Fail-closed: xatolik bo'lsa false qaytaradi.
+ */
+export async function canUserAccessKursInInlineQuery(
+  ctx: Context,
+  userId?: number,
+  adminTelegramId?: string
+): Promise<boolean> {
+  if (!userId || !Number.isInteger(userId) || userId <= 0) {
+    return false;
+  }
+
+  const configuredAdminId = (adminTelegramId ?? process.env.ADMIN_TELEGRAM_ID ?? "").trim();
+  if (configuredAdminId && String(userId) === configuredAdminId) {
+    return true;
+  }
+
+  try {
+    const status = await checkPrivateKursParticipation(ctx, userId);
+    return status === "participant";
+  } catch (err) {
+    console.error(`[Shell] Inline query ruxsat tekshiruvida xatolik (userId: ${userId}):`, err);
+    return false;
+  }
 }
 
 /**

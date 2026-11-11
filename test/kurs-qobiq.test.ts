@@ -59,6 +59,7 @@ import {
 } from "../src/settings/botSettings.js";
 import {
   validateKursDarslarPayload,
+  normalizeKursMashqlar,
   populateKursMemory,
   clearKursDarslarForTest,
   getKursQuizById,
@@ -71,6 +72,10 @@ import {
   startQuizById,
 } from "../src/bot/handlers/quiz.js";
 import { handleMenuCallback } from "../src/bot/handlers/menu.js";
+import {
+  handleInlineQuery,
+  isValidQuizStartPayload,
+} from "../src/bot/handlers/inlineQuery.js";
 import { quizManager, TelegramApiSender } from "../src/quiz/quizManager.js";
 
 // ============================================================================
@@ -422,10 +427,10 @@ async function runKursQobiqTests() {
   const d1Quiz = getKursQuizById("KURS_D01");
   assert.ok(d1Quiz);
   assert.equal(d1Quiz.questions.length, 12);
-  assert.equal(d1Quiz.questions[0].timeLimitSeconds, 30);
+  assert.equal(d1Quiz.questions[0].timeLimitSeconds, 25);
   assert.ok(d1Quiz.questions[0].explanation?.includes("📺 1-dars:"));
   assert.ok((d1Quiz.questions[0].explanation?.length || 0) <= 200);
-  console.log("  ✅ Yuklash skripti va 30s/izoh formatlash to'g'ri ishladi");
+  console.log("  ✅ Yuklash skripti va 25s/izoh formatlash to'g'ri ishladi");
 
   // 2. Guruh rejimlari: asosiy, kurs, ochiq_emas va qobiq izolatsiyasi
   console.log("\n2. Guruh rejimlari (asosiy, kurs, ochiq_emas) va qobiq izolatsiyasi...");
@@ -615,7 +620,7 @@ async function runKursQobiqTests() {
   });
   await handleMenuCallback(ctxSelectLesson as any);
   assert.equal(ctxSelectLesson.edits.length, 1);
-  assert.ok(ctxSelectLesson.edits[0].text.includes("1-dars bo‘yicha test: 12 savol, har biriga 30 soniya"));
+  assert.ok(ctxSelectLesson.edits[0].text.includes("1-dars bo‘yicha test: 12 savol, har biriga 25 soniya"));
   const confirmBtns = ctxSelectLesson.edits[0].other?.reply_markup?.inline_keyboard?.[0];
   assert.equal(confirmBtns?.[0]?.callback_data, "m:k:go:1");
   assert.equal(confirmBtns?.[1]?.callback_data, "m:k:list");
@@ -1442,6 +1447,360 @@ async function runKursQobiqTests() {
   );
 
   console.log("  ✅ Tuzatishlar 2 (T4, T5, T6) testlari 100% o'tdi!");
+
+  // ============================================================================
+  // 8. 3-bosqich (B1, B2, B3, B5): Inline query, deep-link payload, 20-25s taymer, mashqlar
+  // ============================================================================
+  console.log("\n8. 3-bosqich (B1, B2, B3, B5) testlari...");
+
+  // 8.1 (B5) String massiv va obyekt ko'rinishidagi mashqlar validatsiyasi va normallashtirilishi
+  const dars3WithStrings = {
+    dars: 3,
+    mavzu: "Sinov 3-mavzu (Atom tuzilishi fixture)",
+    papka: "03-dars_sinov",
+    testlar: Array.from({ length: 12 }, (_, idx) => ({
+      id: `FAKE_D03_T${String(idx + 1).padStart(2, "0")}`,
+      savol: `Sinov 3-dars, savol #${idx + 1}?`,
+      variantlar: {
+        A: `A-${idx + 1}`,
+        B: `B-${idx + 1}`,
+        C: `C-${idx + 1}`,
+        D: `D-${idx + 1}`,
+      },
+      javob: (["A", "B", "C", "D"] as const)[idx % 4],
+    })),
+    mashqlar: [
+      "1-sinov ochiq savoli?",
+      "2-sinov ochiq savoli?",
+      { id: "custom_m03", savol: "3-sinov obyekt savoli?", yechim: "Javob" },
+    ],
+  };
+
+  const b5Val = validateKursDarslarPayload([...fakeBank.darslar, dars3WithStrings]);
+  assert.equal(b5Val.valid, true, "String massiv mashqlar bilan validatsiya o'tishi shart");
+  const validatedD3 = b5Val.validated.find((d) => d.dars === 3);
+  assert.ok(validatedD3);
+  assert.equal(validatedD3.mashqlar?.length, 3);
+  assert.deepEqual(validatedD3.mashqlar?.[0], {
+    id: "d03_m01",
+    savol: "1-sinov ochiq savoli?",
+  });
+  assert.deepEqual(validatedD3.mashqlar?.[1], {
+    id: "d03_m02",
+    savol: "2-sinov ochiq savoli?",
+  });
+  assert.deepEqual(validatedD3.mashqlar?.[2], {
+    id: "custom_m03",
+    savol: "3-sinov obyekt savoli?",
+    yechim: "Javob",
+  });
+  assert.equal(normalizeKursMashqlar(["  Savol A  "], 5)[0].id, "d05_m01");
+
+  populateKursMemory(b5Val.validated);
+  await addKursParticipant({ userId: manualUserId, ism: "Bosqich 3 Talaba" });
+  await setGroupShellMode(kursGroupId, "kurs");
+
+  // 8.2 (B1 & B2) Inline query: ishtirokchi, admin, begona, xatolik (fail-closed) va qidiruv
+  const makeInlineCtx = (params: {
+    userId: number;
+    query?: string;
+    botUsername?: string;
+    apiInstance?: KursTestApi;
+  }) => {
+    let answeredResults: any[] = [];
+    let answeredOptions: any = null;
+    return {
+      from: { id: params.userId, first_name: "InlineUser" },
+      inlineQuery: {
+        id: "iq_1",
+        from: { id: params.userId, first_name: "InlineUser" },
+        query: params.query ?? "",
+        offset: "",
+      },
+      me: { id: 999999, username: params.botUsername || "jdakimyoquizbot" },
+      api: params.apiInstance || api,
+      getResults: () => answeredResults,
+      getOptions: () => answeredOptions,
+      answerInlineQuery: async (results: any[], options?: any) => {
+        answeredResults = results;
+        answeredOptions = options;
+        return true;
+      },
+    };
+  };
+
+  // Kurs ishtirokchisi bo'sh so'rov yuborganda: oxirgi dars (KURS_D03) birinchi chiqadi
+  const iqParticipantEmpty = makeInlineCtx({ userId: manualUserId, query: "" });
+  await handleInlineQuery(iqParticipantEmpty as any);
+  const partResults = iqParticipantEmpty.getResults();
+  const partOpts = iqParticipantEmpty.getOptions();
+  assert.equal(partOpts?.is_personal, true, "is_personal: true bo'lishi shart");
+  assert.ok(
+    typeof partOpts?.cache_time === "number" && partOpts.cache_time <= 10,
+    "cache_time <= 10 bo'lishi shart"
+  );
+  assert.ok(partResults.length >= 3);
+  assert.equal(partResults[0].id, "KURS_D03", "Bo'sh so'rovda oxirgi dars (KURS_D03) yuqorida turishi shart");
+  assert.equal(partResults[1].id, "KURS_D02");
+  assert.equal(partResults[2].id, "KURS_D01");
+
+  // B2: Kartochka matni va 3 ta tugma formati tekshiruvi
+  const cardD3 = partResults[0];
+  assert.equal(
+    cardD3.input_message_content.message_text,
+    `🎲 «3-dars: Sinov 3-mavzu (Atom tuzilishi fixture)» testi\n\n🖊 12 ta savol · ⏱ 25 soniya`
+  );
+  const cardKeyboard = cardD3.reply_markup.inline_keyboard;
+  assert.equal(cardKeyboard.length, 3, "3 ta tugma qatori bo'lishi shart");
+  assert.deepEqual(cardKeyboard[0][0], {
+    text: "Bu testni boshlash",
+    url: "https://t.me/jdakimyoquizbot?start=quiz_KURS_D03",
+  });
+  assert.deepEqual(cardKeyboard[1][0], {
+    text: "Guruhda testni boshlash",
+    url: "https://t.me/jdakimyoquizbot?startgroup=quiz_KURS_D03",
+  });
+  assert.deepEqual(cardKeyboard[2][0], {
+    text: "Testni ulashish",
+    switch_inline_query: "KURS_D03",
+  });
+  // callback_data ishlatilmaganligini tekshirish
+  for (const row of cardKeyboard) {
+    for (const btn of row) {
+      assert.equal("callback_data" in btn, false, "Inline kartochka tugmalarida callback_data bo'lmasligi shart");
+    }
+  }
+  assert.equal(isValidQuizStartPayload("quiz_KURS_D03"), true);
+  assert.equal(isValidQuizStartPayload("quiz_bad-char!"), false);
+  assert.equal(isValidQuizStartPayload("quiz_" + "A".repeat(65)), false);
+
+  // Qidiruv: "3" va "atom" -> KURS_D03, "KK1" -> asosiy quiz (KK1_1 va h.k.)
+  const iqSearch3 = makeInlineCtx({ userId: manualUserId, query: "3" });
+  await handleInlineQuery(iqSearch3 as any);
+  assert.equal(iqSearch3.getResults().length, 1);
+  assert.equal(iqSearch3.getResults()[0].id, "KURS_D03");
+
+  const iqSearchAtom = makeInlineCtx({ userId: manualUserId, query: "atom" });
+  await handleInlineQuery(iqSearchAtom as any);
+  assert.equal(iqSearchAtom.getResults().length, 1);
+  assert.equal(iqSearchAtom.getResults()[0].id, "KURS_D03");
+
+  const iqSearchKk1 = makeInlineCtx({ userId: manualUserId, query: "KK1" });
+  await handleInlineQuery(iqSearchKk1 as any);
+  assert.ok(iqSearchKk1.getResults().length >= 1);
+  assert.ok(iqSearchKk1.getResults().every((r: any) => r.id.startsWith("KK1")));
+
+  // Begona foydalanuvchi kurs kartochkasini ASLO ko'rmaydi (faqat asosiy quizlarni ko'radi)
+  const strangerUserId = 8801;
+  const iqStranger = makeInlineCtx({ userId: strangerUserId, query: "" });
+  await handleInlineQuery(iqStranger as any);
+  assert.ok(iqStranger.getResults().length > 0);
+  assert.equal(
+    iqStranger.getResults().some((r: any) => r.id.startsWith("KURS_")),
+    false,
+    "Begona foydalanuvchiga kurs kartochkalari ko'rinmasligi shart"
+  );
+
+  const iqStrangerTryKurs = makeInlineCtx({ userId: strangerUserId, query: "atom" });
+  await handleInlineQuery(iqStrangerTryKurs as any);
+  assert.equal(iqStrangerTryKurs.getResults().length, 0);
+
+  // Tekshiruv xatosida (fail-closed) kurs kartochkalari chiqmasligi shart
+  const errorUserId = 8802;
+  mockDb.setShouldThrow(true);
+  const iqCheckError = makeInlineCtx({ userId: errorUserId, query: "" });
+  await handleInlineQuery(iqCheckError as any);
+  assert.equal(
+    iqCheckError.getResults().some((r: any) => r.id.startsWith("KURS_")),
+    false,
+    "Tekshiruv xatosida (fail-closed) kurs kartochkalari chiqmasligi shart"
+  );
+  mockDb.setShouldThrow(false);
+
+  // Admin (ADMIN_TELEGRAM_ID) ishtirokchi ro'yxatida bo'lmasa ham kurs kartochkasini ko'radi
+  const prevAdminId = process.env.ADMIN_TELEGRAM_ID;
+  process.env.ADMIN_TELEGRAM_ID = "990099";
+  const iqAdmin = makeInlineCtx({ userId: 990099, query: "3" });
+  await handleInlineQuery(iqAdmin as any);
+  assert.equal(iqAdmin.getResults()[0]?.id, "KURS_D03");
+  if (prevAdminId === undefined) {
+    delete process.env.ADMIN_TELEGRAM_ID;
+  } else {
+    process.env.ADMIN_TELEGRAM_ID = prevAdminId;
+  }
+
+  // 8.3 (B2) Payload: start=quiz_KURS_D03 shaxsiy chatda ishtirokchi uchun boshlanadi, begona uchun rad etiladi;
+  // startgroup asosiy guruhda kurs testini rad etadi
+  const ctxStartPayloadParticipant = makeCtx({
+    chatId: manualUserId,
+    chatType: "private",
+    userId: manualUserId,
+    text: "/start quiz_KURS_D03",
+    match: "quiz_KURS_D03",
+    api,
+  });
+  await handleStart(ctxStartPayloadParticipant as any);
+  assert.equal(
+    quizManager.isQuizActive(manualUserId),
+    true,
+    "start=quiz_KURS_D03 shaxsiy chatda kurs ishtirokchisi uchun boshlanishi shart"
+  );
+  assert.equal(quizManager.getSession(manualUserId)?.quiz.id, "KURS_D03");
+
+  // Begona foydalanuvchi shaxsiy chatda /start quiz_KURS_D03 bossa rad etiladi
+  const ctxStartPayloadStranger = makeCtx({
+    chatId: strangerUserId,
+    chatType: "private",
+    userId: strangerUserId,
+    text: "/start quiz_KURS_D03",
+    match: "quiz_KURS_D03",
+    api,
+  });
+  await handleStart(ctxStartPayloadStranger as any);
+  assert.equal(
+    quizManager.isQuizActive(strangerUserId),
+    false,
+    "Begona foydalanuvchi uchun shaxsiy chatda kurs testi boshlanmasligi shart"
+  );
+  assert.ok(
+    ctxStartPayloadStranger.replies[0]?.text.includes(
+      "faqat «Kimyo 0 dan» kursi ishtirokchilari uchun ishlaydi"
+    )
+  );
+
+  // Asosiy guruhda startgroup=quiz_KURS_D03 (/start@jdakimyoquizbot quiz_KURS_D03) rad etiladi
+  const realAsosiyGroupId = -1007701;
+  await setGroupShellMode(realAsosiyGroupId, "asosiy");
+  const ctxStartGroupAsosiy = makeCtx({
+    chatId: realAsosiyGroupId,
+    chatType: "supergroup",
+    userId: manualUserId,
+    text: "/start@jdakimyoquizbot quiz_KURS_D03",
+    match: "quiz_KURS_D03",
+    api,
+  });
+  await handleStart(ctxStartGroupAsosiy as any);
+  assert.equal(
+    quizManager.isQuizActive(realAsosiyGroupId),
+    false,
+    "Asosiy guruhda startgroup=quiz_KURS_D03 rad etilishi shart"
+  );
+  assert.ok(
+    ctxStartGroupAsosiy.replies[0]?.text.includes(
+      "faqat «Kimyo 0 dan» kursi guruhlari va ishtirokchilari uchun"
+    )
+  );
+
+  // 8.4 (B3) Vaqt sozlamasi (kursQuestionTimeSeconds): 19 va 26 rad etiladi, 20 va 25 qabul qilinadi;
+  // yangi sessiya yangi vaqtni oladi, ishlayotgan sessiya eski vaqtni saqlaydi!
+  const runningSessionBeforePatch = quizManager.getSession(manualUserId);
+  assert.ok(runningSessionBeforePatch);
+  assert.equal(
+    runningSessionBeforePatch.quiz.questions[0].timeLimitSeconds,
+    25,
+    "Boshlangan sessiya dastlabki 25 soniya vaqtga ega bo'lishi kerak"
+  );
+
+  const reqApi6 = async (method: string, path: string, body?: any) => {
+    const res = await fetch(`http://127.0.0.1:${port6}${path}`, {
+      method,
+      headers,
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+    return { status: res.status, data: await res.json() };
+  };
+
+  // 19 va 26 rad etilishi
+  const badTime19 = await reqApi6("PATCH", "/api/admin/settings", {
+    kursQuestionTimeSeconds: 19,
+  });
+  assert.equal(badTime19.status, 400);
+  assert.equal(badTime19.data.error, "INVALID_KURS_QUESTION_TIME");
+
+  const badTime26 = await reqApi6("PATCH", "/api/admin/settings", {
+    kursQuestionTimeSeconds: 26,
+  });
+  assert.equal(badTime26.status, 400);
+  assert.equal(badTime26.data.error, "INVALID_KURS_QUESTION_TIME");
+
+  // 20 qabul qilinishi
+  const okTime20 = await reqApi6("PATCH", "/api/admin/settings", {
+    kursQuestionTimeSeconds: 20,
+  });
+  assert.equal(okTime20.status, 200);
+  assert.equal(okTime20.data.settings.kursQuestionTimeSeconds, 20);
+
+  // Ishlayotgan sessiya eski (25s) vaqtini saqlab qolganligini tekshirish
+  assert.equal(
+    quizManager.getSession(manualUserId)?.quiz.questions[0].timeLimitSeconds,
+    25,
+    "Allaqachon ishlayotgan sessiya o'zining eski 25s vaqtini saqlashi shart"
+  );
+
+  // Yangi boshlangan sessiya (masalan kursGroupId da) yangi 20s vaqtni olishini tekshirish
+  const ctxNewKursSession = makeCtx({
+    chatId: kursGroupId,
+    chatType: "supergroup",
+    userId: manualUserId,
+    isAdmin: true,
+    text: "/start@jdakimyoquizbot quiz_KURS_D03",
+    match: "quiz_KURS_D03",
+    api,
+  });
+  await handleStart(ctxNewKursSession as any);
+  assert.equal(quizManager.isQuizActive(kursGroupId), true);
+  assert.equal(
+    quizManager.getSession(kursGroupId)?.quiz.questions[0].timeLimitSeconds,
+    20,
+    "Yangi boshlangan kurs sessiyasi yangi 20s vaqtni olishi shart"
+  );
+
+  // Inline kartochka va dars tasdiqlash menyusi ham 20 soniyani ko'rsatishi
+  const iqAfter20 = makeInlineCtx({ userId: manualUserId, query: "3" });
+  await handleInlineQuery(iqAfter20 as any);
+  assert.ok(
+    iqAfter20.getResults()[0].input_message_content.message_text.includes("⏱ 20 soniya")
+  );
+
+  const ctxConfirmAfter20 = makeCtx({
+    chatId: manualUserId,
+    chatType: "private",
+    userId: manualUserId,
+    callbackData: "m:k:d:3",
+    api,
+  });
+  await handleMenuCallback(ctxConfirmAfter20 as any);
+  assert.ok(
+    ctxConfirmAfter20.edits[0].text.includes("har biriga 20 soniya"),
+    "Dars tasdiqlash menyusi joriy 20 soniyani ko'rsatishi shart"
+  );
+
+  // 25 soniya ham qabul qilinishi
+  const okTime25 = await reqApi6("PATCH", "/api/admin/settings", {
+    kursQuestionTimeSeconds: 25,
+  });
+  assert.equal(okTime25.status, 200);
+  assert.equal(okTime25.data.settings.kursQuestionTimeSeconds, 25);
+
+  await handleStopQuizCommand(
+    makeCtx({
+      chatId: manualUserId,
+      chatType: "private",
+      userId: manualUserId,
+      api,
+    }) as any
+  );
+  await handleStopQuizCommand(
+    makeCtx({
+      chatId: kursGroupId,
+      chatType: "supergroup",
+      userId: manualUserId,
+      isAdmin: true,
+      api,
+    }) as any
+  );
+
+  console.log("  ✅ 3-bosqich (B1, B2, B3, B5) testlari 100% o'tdi!");
 
   await new Promise<void>((resolve) => server6.close(() => resolve()));
   clearKursDarslarForTest();

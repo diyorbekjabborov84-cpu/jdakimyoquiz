@@ -11,6 +11,7 @@ import {
   handleResumeCommand,
 } from "./handlers/quiz.js";
 import { handleMenuCallback } from "./handlers/menu.js";
+import { handleInlineQuery } from "./handlers/inlineQuery.js";
 import { handlePollAnswer } from "./handlers/pollAnswer.js";
 import { handleMyChatMember, handleNewChatMembers } from "./handlers/groupWelcome.js";
 import { trackGroupUpdate } from "../tracking/groupRegistry.js";
@@ -48,6 +49,9 @@ export function createBot(token: string): Bot {
 
   // Inline menyu (m:k:... va m:a:...) callback querylari
   bot.callbackQuery(/^m:(?:k|a):/, handleMenuCallback);
+
+  // Inline query (@jdakimyoquizbot ...) kartochkalari
+  bot.on("inline_query", handleInlineQuery);
 
   // Telegram Quiz Poll javoblarini eshitish
   bot.on("poll_answer", handlePollAnswer);

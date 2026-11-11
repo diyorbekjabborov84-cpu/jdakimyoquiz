@@ -92,6 +92,7 @@ async function bootstrap() {
     "chat_member",
     "my_chat_member",
     "callback_query",
+    "inline_query",
   ] as const;
 
   if (config.NODE_ENV === "production" && config.WEBHOOK_URL) {
