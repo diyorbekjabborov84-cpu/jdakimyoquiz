@@ -13,6 +13,7 @@ export interface KursBankFile {
 export async function uploadKursBankToFirestore(bank: KursBankFile): Promise<{
   uploadedLessons: number;
   totalQuestions: number;
+  totalExercises: number;
   validated: RawKursDars[];
 }> {
   if (!bank || typeof bank !== "object" || !Array.isArray(bank.darslar)) {
@@ -31,10 +32,12 @@ export async function uploadKursBankToFirestore(bank: KursBankFile): Promise<{
 
   const nowIso = new Date().toISOString();
   let totalQuestions = 0;
+  let totalExercises = 0;
 
   for (const dars of validation.validated) {
     const docId = String(dars.dars);
     totalQuestions += dars.testlar.length;
+    totalExercises += dars.mashqlar?.length || 0;
 
     await db
       .collection(FIRESTORE_COLLECTIONS.KURS_LESSONS)
@@ -55,6 +58,7 @@ export async function uploadKursBankToFirestore(bank: KursBankFile): Promise<{
   return {
     uploadedLessons: validation.validated.length,
     totalQuestions,
+    totalExercises,
     validated: validation.validated,
   };
 }
@@ -83,8 +87,9 @@ async function runCli(): Promise<void> {
       throw new Error(`Test banki validatsiyadan o'tmadi:\n- ${validation.errors.join("\n- ")}`);
     }
     const totalQuestions = validation.validated.reduce((sum, d) => sum + d.testlar.length, 0);
+    const totalExercises = validation.validated.reduce((sum, d) => sum + (d.mashqlar?.length || 0), 0);
     console.log(
-      `✅ [DRY-RUN] Kurs test banki tekshiruvdan o'tdi: ${validation.validated.length} ta dars, jami ${totalQuestions} ta savol.`
+      `✅ [DRY-RUN] Kurs test banki tekshiruvdan o'tdi: ${validation.validated.length} ta dars, ${totalQuestions} ta test, ${totalExercises} ta mashq.`
     );
     return;
   }
@@ -93,7 +98,7 @@ async function runCli(): Promise<void> {
   const result = await uploadKursBankToFirestore(parsed);
   console.log(
     `✅ Kurs darslari Firestore (${FIRESTORE_COLLECTIONS.KURS_LESSONS}) ga muvaffaqiyatli yuklandi: ` +
-      `${result.uploadedLessons} ta dars, jami ${result.totalQuestions} ta test savoli.`
+      `${result.uploadedLessons} ta dars, ${result.totalQuestions} ta test, ${result.totalExercises} ta mashq.`
   );
 }
 

@@ -86,6 +86,40 @@ export function formatKursExplanation(dars: number, mavzu: string): string {
   return `${prefix}${cleanMavzu.slice(0, maxMavzuLen).trimEnd()}…${suffix}`;
 }
 
+export function normalizeKursMashqlar(rawMashqlar: unknown, darsNum: number): RawKursMashqItem[] {
+  if (!Array.isArray(rawMashqlar)) return [];
+  const darsPrefix = `d${String(darsNum).padStart(2, "0")}`;
+  const result: RawKursMashqItem[] = [];
+
+  for (let idx = 0; idx < rawMashqlar.length; idx++) {
+    const m = rawMashqlar[idx];
+    const fallbackId = `${darsPrefix}_m${String(idx + 1).padStart(2, "0")}`;
+    if (typeof m === "string") {
+      const trimmed = m.trim();
+      if (trimmed) {
+        result.push({
+          id: fallbackId,
+          savol: trimmed,
+        });
+      }
+    } else if (m && typeof m === "object") {
+      const obj = m as Record<string, unknown>;
+      const savol = typeof obj.savol === "string" ? obj.savol.trim() : "";
+      if (!savol) continue;
+      const id = typeof obj.id === "string" && obj.id.trim() ? obj.id.trim() : fallbackId;
+      result.push({
+        id,
+        savol,
+        ...(typeof obj.yechim === "string" && obj.yechim.trim()
+          ? { yechim: obj.yechim.trim() }
+          : {}),
+      });
+    }
+  }
+
+  return result;
+}
+
 export function validateKursDarslarPayload(darslar: unknown[]): {
   valid: boolean;
   errors: string[];
@@ -184,15 +218,7 @@ export function validateKursDarslarPayload(darslar: unknown[]): {
       });
     }
 
-    const mashqlar: RawKursMashqItem[] = Array.isArray(item.mashqlar)
-      ? item.mashqlar
-          .filter((m: any) => m && typeof m.id === "string" && typeof m.savol === "string")
-          .map((m: any) => ({
-            id: m.id.trim(),
-            savol: m.savol.trim(),
-            yechim: typeof m.yechim === "string" ? m.yechim : undefined,
-          }))
-      : [];
+    const mashqlar = normalizeKursMashqlar(item.mashqlar, darsNum);
 
     validated.push({
       dars: darsNum,
@@ -212,7 +238,7 @@ export function validateKursDarslarPayload(darslar: unknown[]): {
   };
 }
 
-export function buildQuizFromKursDars(darsObj: RawKursDars): Quiz | null {
+export function buildQuizFromKursDars(darsObj: RawKursDars, timeLimitSeconds = 25): Quiz | null {
   if (!Array.isArray(darsObj.testlar) || darsObj.testlar.length === 0) {
     return null;
   }
@@ -231,7 +257,7 @@ export function buildQuizFromKursDars(darsObj: RawKursDars): Quiz | null {
       options: [t.variantlar.A, t.variantlar.B, t.variantlar.C, t.variantlar.D],
       correctOptionId: answerIndex,
       explanation,
-      timeLimitSeconds: 30,
+      timeLimitSeconds,
     });
   }
 
@@ -255,13 +281,14 @@ export function populateKursMemory(rawDarslar: RawKursDars[]): number {
   const sorted = [...rawDarslar].sort((a, b) => a.dars - b.dars);
 
   for (const d of sorted) {
+    const normalizedMashqlar = normalizeKursMashqlar(d.mashqlar, d.dars);
     const quiz = buildQuizFromKursDars(d);
     nextMap.set(d.dars, {
       dars: d.dars,
       mavzu: d.mavzu,
       papka: d.papka,
       testlarSoni: quiz ? quiz.questions.length : 0,
-      mashqlarSoni: Array.isArray(d.mashqlar) ? d.mashqlar.length : 0,
+      mashqlarSoni: normalizedMashqlar.length,
       updatedAt: d.updatedAt || null,
       quiz,
     });
@@ -297,7 +324,7 @@ export async function loadKursDarslarFromFirestore(): Promise<{
       mavzu: data.mavzu,
       papka: typeof data.papka === "string" ? data.papka : undefined,
       testlar: Array.isArray(data.testlar) ? data.testlar : [],
-      mashqlar: Array.isArray(data.mashqlar) ? data.mashqlar : [],
+      mashqlar: normalizeKursMashqlar(data.mashqlar, data.dars),
       updatedAt: typeof data.updatedAt === "string" ? data.updatedAt : undefined,
     });
   }
