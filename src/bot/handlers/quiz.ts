@@ -10,6 +10,7 @@ import {
   replyPrivateNotParticipant,
 } from "../../shell/shell.js";
 import { getKursQuizById, isKursQuizId } from "../../kurs/kursRepository.js";
+import { getBotSettings } from "../../settings/botSettings.js";
 import { buildAsosiyMenuPayload, buildKursMenuPayload } from "./menu.js";
 
 /**
@@ -122,11 +123,20 @@ export async function startQuizById(
       await sendFeedback("⚠️ Bu chatda faqat «Kimyo 0 dan» kursi testlari ishlaydi.");
       return;
     }
-    quiz = getKursQuizById(quizId);
-    if (!quiz) {
+    const baseKursQuiz = getKursQuizById(quizId);
+    if (!baseKursQuiz) {
       await sendFeedback(`❌ Bunday kurs testi topilmadi: «${quizId}»`);
       return;
     }
+    const settings = await getBotSettings();
+    const kursTimeSec = settings.kursQuestionTimeSeconds || 25;
+    quiz = {
+      ...baseKursQuiz,
+      questions: baseKursQuiz.questions.map((q) => ({
+        ...q,
+        timeLimitSeconds: kursTimeSec,
+      })),
+    };
   } else {
     // shell.shell === "asosiy"
     if (isKursQuizId(quizId)) {

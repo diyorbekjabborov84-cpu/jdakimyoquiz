@@ -11,6 +11,7 @@ import {
   replyGroupDisabledOnce,
   replyPrivateNotParticipant,
 } from "../../shell/shell.js";
+import { getBotSettings } from "../../settings/botSettings.js";
 import { startQuizById } from "./quiz.js";
 
 export interface MenuMessagePayload {
@@ -83,13 +84,16 @@ export function buildKursMenuPayload(page = 0, greetingPrefix = ""): MenuMessage
   };
 }
 
-export function buildKursConfirmPayload(darsNum: number): MenuMessagePayload | null {
+export function buildKursConfirmPayload(
+  darsNum: number,
+  timeLimitSeconds?: number
+): MenuMessagePayload | null {
   const lesson = getKursLessonByNumber(darsNum);
   if (!lesson || !lesson.quiz || lesson.testlarSoni === 0) {
     return null;
   }
 
-  const timeSec = lesson.quiz.questions[0]?.timeLimitSeconds || 30;
+  const timeSec = timeLimitSeconds ?? lesson.quiz.questions[0]?.timeLimitSeconds ?? 25;
   const text =
     `📚 <b>${lesson.dars}-dars: ${escapeHtml(lesson.mavzu)}</b>\n\n` +
     `🧪 ${lesson.dars}-dars bo‘yicha test: ${lesson.testlarSoni} savol, har biriga ${timeSec} soniya`;
@@ -265,7 +269,8 @@ export async function handleMenuCallback(ctx: Context): Promise<void> {
 
     if (data.startsWith("m:k:d:")) {
       const darsNum = Number(data.slice("m:k:d:".length));
-      const payload = buildKursConfirmPayload(darsNum);
+      const settings = await getBotSettings();
+      const payload = buildKursConfirmPayload(darsNum, settings.kursQuestionTimeSeconds);
       if (!payload) {
         await ctx.answerCallbackQuery({
           text: "⚠️ Ushbu dars testi topilmadi.",

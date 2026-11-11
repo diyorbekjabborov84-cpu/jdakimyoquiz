@@ -19,6 +19,7 @@ interface AuditLogItem {
 interface BotSettings {
   adminContact: string;
   defaultGroupMode: "asosiy" | "ochiq_emas";
+  kursQuestionTimeSeconds: number;
   defaultQuestionTimeSeconds: number;
   botUsername: string;
   adminGoogleEmail: string;
@@ -41,6 +42,7 @@ export default function SettingsPage() {
   const [settings, setSettings] = useState<BotSettings | null>(null);
   const [adminContactInput, setAdminContactInput] = useState("@Diyorbek_Jabborov");
   const [defaultGroupModeInput, setDefaultGroupModeInput] = useState<"asosiy" | "ochiq_emas">("asosiy");
+  const [kursQuestionTimeInput, setKursQuestionTimeInput] = useState<number>(25);
   const [saving, setSaving] = useState(false);
 
   const [auditLogs, setAuditLogs] = useState<AuditLogItem[]>([]);
@@ -77,6 +79,10 @@ export default function SettingsPage() {
         setDefaultGroupModeInput(
           s.defaultGroupMode === "ochiq_emas" ? "ochiq_emas" : "asosiy"
         );
+        const timeSec = Number(s.kursQuestionTimeSeconds);
+        setKursQuestionTimeInput(
+          Number.isInteger(timeSec) && timeSec >= 20 && timeSec <= 25 ? timeSec : 25
+        );
       }
       if (logsRes.ok && logsData.ok) {
         setAuditLogs(logsData.logs || []);
@@ -107,6 +113,7 @@ export default function SettingsPage() {
         body: JSON.stringify({
           adminContact: trimmedContact,
           defaultGroupMode: defaultGroupModeInput,
+          kursQuestionTimeSeconds: Number(kursQuestionTimeInput),
         }),
       });
 
@@ -124,6 +131,8 @@ export default function SettingsPage() {
                 adminContact: data.settings?.adminContact ?? trimmedContact,
                 defaultGroupMode:
                   data.settings?.defaultGroupMode ?? defaultGroupModeInput,
+                kursQuestionTimeSeconds:
+                  data.settings?.kursQuestionTimeSeconds ?? Number(kursQuestionTimeInput),
               }
             : prev
         );
@@ -210,6 +219,24 @@ export default function SettingsPage() {
                   </select>
                 </div>
 
+                <div>
+                  <label className="form-label" htmlFor="kursQuestionTimeSelect">
+                    Kurs testlari savol vaqti (20–25 soniya)
+                  </label>
+                  <select
+                    id="kursQuestionTimeSelect"
+                    className="form-input"
+                    value={kursQuestionTimeInput}
+                    onChange={(e) => setKursQuestionTimeInput(Number(e.target.value))}
+                  >
+                    {[20, 21, 22, 23, 24, 25].map((sec) => (
+                      <option key={sec} value={sec}>
+                        ⏱ {sec} soniya{sec === 25 ? " (standart)" : ""}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
                 <div style={{ display: "flex", justifyContent: "flex-end" }}>
                   <button
                     type="submit"
@@ -229,8 +256,12 @@ export default function SettingsPage() {
               </div>
               <div style={{ padding: "1.25rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem 0", borderBottom: "1px solid var(--border-color)" }}>
-                  <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>Standart savol taymeri:</span>
+                  <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>Asosiy qobiq savol taymeri:</span>
                   <b style={{ color: "#38bdf8" }}>{settings?.defaultQuestionTimeSeconds ?? 20} soniya</b>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem 0", borderBottom: "1px solid var(--border-color)" }}>
+                  <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>Kurs testlari savol vaqti:</span>
+                  <b style={{ color: "#34d399" }}>{settings?.kursQuestionTimeSeconds ?? 25} soniya</b>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem 0", borderBottom: "1px solid var(--border-color)" }}>
                   <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>Telegram Bot Username:</span>

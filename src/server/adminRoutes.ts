@@ -23,6 +23,7 @@ import {
   updateBotSettings,
   isValidGroupMode,
   isValidDefaultGroupMode,
+  isValidKursQuestionTimeSeconds,
   normalizeAdminContact,
 } from "../settings/botSettings.js";
 import {
@@ -578,6 +579,7 @@ export function createAdminRouter(
         settings: {
           adminContact: botSettings.adminContact,
           defaultGroupMode: botSettings.defaultGroupMode,
+          kursQuestionTimeSeconds: botSettings.kursQuestionTimeSeconds,
           updatedAt: botSettings.updatedAt || null,
           defaultQuestionTimeSeconds: 20,
           botUsername: "jdakimyoquizbot",
@@ -597,7 +599,11 @@ export function createAdminRouter(
 
   router.patch("/admin/settings", requireAdminAuth, async (req: Request, res: Response) => {
     const body = req.body || {};
-    const patch: { adminContact?: string; defaultGroupMode?: "asosiy" | "ochiq_emas" } = {};
+    const patch: {
+      adminContact?: string;
+      defaultGroupMode?: "asosiy" | "ochiq_emas";
+      kursQuestionTimeSeconds?: number;
+    } = {};
 
     if (body.adminContact !== undefined) {
       const normalized = normalizeAdminContact(body.adminContact);
@@ -620,6 +626,24 @@ export function createAdminRouter(
         });
       }
       patch.defaultGroupMode = body.defaultGroupMode;
+    }
+
+    if (body.kursQuestionTimeSeconds !== undefined) {
+      const parsedTime =
+        typeof body.kursQuestionTimeSeconds === "number"
+          ? body.kursQuestionTimeSeconds
+          : typeof body.kursQuestionTimeSeconds === "string" &&
+            body.kursQuestionTimeSeconds.trim() !== ""
+          ? Number(body.kursQuestionTimeSeconds)
+          : NaN;
+      if (!isValidKursQuestionTimeSeconds(parsedTime)) {
+        return res.status(400).json({
+          ok: false,
+          error: "INVALID_KURS_QUESTION_TIME",
+          message: "kursQuestionTimeSeconds 20 dan 25 gacha butun son bo'lishi kerak.",
+        });
+      }
+      patch.kursQuestionTimeSeconds = parsedTime;
     }
 
     try {
