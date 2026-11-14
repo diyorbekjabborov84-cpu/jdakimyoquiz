@@ -28,6 +28,7 @@ export interface AsosiySectionDef {
 }
 
 export const ASOSIY_SECTIONS: AsosiySectionDef[] = [
+  { key: "k8", bolim: "kimyo_8", title: "8-sinf kimyo" },
   { key: "kk", bolim: "kolloid", title: "Kolloid kimyo" },
   { key: "org", bolim: "organik", title: "Organik kimyo (I)" },
   { key: "tar", bolim: "tarix", title: "Tarix" },

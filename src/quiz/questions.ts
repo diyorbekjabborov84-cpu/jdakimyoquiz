@@ -1,4 +1,5 @@
 import { Quiz } from "./types.js";
+import { grade8ChemistryQuizzes } from "./grade8ChemistryQuestions.js";
 
 /**
  * 329–330-betlardagi 17-jadval asosida 21 ta aminokislotaning
@@ -345,6 +346,7 @@ export const allQuizzes: Quiz[] = [
   t7Quiz,
   t8Quiz,
   t9Quiz,
+  ...grade8ChemistryQuizzes,
 ];
 
 /**
