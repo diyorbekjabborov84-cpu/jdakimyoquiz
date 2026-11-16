@@ -360,7 +360,7 @@ export const grade8ChemistryQuizzes: Quiz[] = [
     ["3-davrda tashqi qavati 3s² 3p⁴ bo‘lgan element va uning guruhidagi 2-davr elementi qaysi?", "S va O", "Cl va F", "P va N", "S va Se"],
     ["X⁻ ionida 18 elektron va 20 neytron bor. Y neytral atomida 18 proton va 19 neytron bor. X va Y o‘zaro qanday juftlik?", "Izobarlar", "Izotoplar", "Yadrosi aynan bir xil", "Massa sonlari turlicha"],
     ["Neytral X atomida 3 ta band qavat va 2 ta tashqi elektron bor. X²⁺ ionining band qavatlari va elektronlari soni qancha?", "2 qavat, 10 elektron", "3 qavat, 10 elektron", "2 qavat, 12 elektron", "3 qavat, 12 elektron"],
-  ], 45),
+  ], 30),
   makeQuiz("K8_16", "Kimyoviy bog‘lanish va elektron balans — murakkab", "III bob, 14–20-§", [
     ["MgCl₂ ning bitta formula birligi uchun ion zaryadlari qanday yig‘indi beradi?", "(+2) + 2(−1)", "(+1) + 2(−1)", "(+2) + 2(−2)", "(+3) + 2(−1)"],
     ["X³⁺ va Y²⁻ ionlaridan tuzilgan neytral birikmaning eng sodda formulasi qaysi?", "X₂Y₃", "X₃Y₂", "X₃Y", "XY₃"],
@@ -382,7 +382,7 @@ export const grade8ChemistryQuizzes: Quiz[] = [
     ["Cl₂ + 2KI → 2KCl + I₂ reaksiyasida oksidlovchi va qaytaruvchi zarrachalar qaysi?", "Cl₂ va I⁻", "I⁻ va Cl₂", "Cl⁻ va I₂", "I₂ va Cl⁻"],
     ["Fe₂O₃ + 3CO → 2Fe + 3CO₂ reaksiyasida 0,2 mol Fe₂O₃ to‘liq qaytarilsa, nechta mol elektron almashinadi?", "1,2 mol", "0,4 mol", "0,6 mol", "2,4 mol"],
     ["Fe²⁺ → Fe³⁺ va MnO₄⁻ → Mn²⁺ jarayonlariga ko‘ra ionlarning stexiometrik nisbati Fe²⁺:MnO₄⁻ qanday?", "5:1", "1:5", "3:1", "1:3"],
-  ], 45),
+  ], 30),
   makeQuiz("K8_17", "Gaz qonunlari, ekvivalent va muvozanat — murakkab", "IV–V bob, 25–26-§ va 33–35-§", [
     ["Normal sharoitda 11,2 L O₂ va 5,6 L N₂ aralashmasining massasi qancha? M(O₂)=32, M(N₂)=28 g/mol.", "23 g", "21 g", "22 g", "24 g"],
     ["Normal sharoitda 8,96 L CO₂ namunasida nechta mol kislorod atomi bor?", "0,80 mol", "0,20 mol", "0,40 mol", "1,20 mol"],
@@ -404,5 +404,5 @@ export const grade8ChemistryQuizzes: Quiz[] = [
     ["2SO₂(g) + O₂(g) ⇌ 2SO₃(g). Hajm o‘zgarmaganda SO₃ olib turilsa, muvozanat qayerga siljiydi?", "SO₃ hosil bo‘lishiga", "SO₂ hosil bo‘lishiga", "Siljimaydi", "O₂ hosil bo‘lishiga"],
     ["2SO₂ + O₂ → 2SO₃. Dastlab 3 mol SO₂ va 2 mol O₂ bor. Cheklovchi reagent to‘liq sarflansa, qancha SO₃ hosil bo‘ladi va qancha O₂ ortadi?", "3 mol va 0,5 mol", "3 mol va 1 mol", "4 mol va 0 mol", "2 mol va 1 mol"],
     ["S + O₂ → SO₂ va 2SO₂ + O₂ → 2SO₃. 2 mol S to‘liq SO₃ ga aylansa, ikkala bosqichda jami qancha O₂ sarflanadi?", "3 mol", "2 mol", "2,5 mol", "4 mol"],
-  ], 45),
+  ], 30),
 ];
