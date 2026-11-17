@@ -355,7 +355,9 @@ export class QuizManager {
           parse_mode: "HTML",
           reply_markup: {
             inline_keyboard: [[
-              { text: "📚 Testlar", callback_data: /^KURS_D/i.test(quiz.id) ? "m:k:list" : "m:a:list" },
+              /^KURS_D/i.test(quiz.id)
+                ? { text: "📚 Testlar", callback_data: "m:k:list" }
+                : { text: "📢 Test kodlari", url: "https://t.me/jdaquizkod" },
               { text: "🛑 To‘xtatish", callback_data: `stop_quiz_${sessionId}` },
             ]],
           },
@@ -1110,8 +1112,8 @@ export class QuizManager {
                   callback_data: "m:k:list",
                 }
               : {
-                  text: "📚 Testlar",
-                  callback_data: "m:a:list",
+                  text: "📢 Test kodlari",
+                  url: "https://t.me/jdaquizkod",
                 },
             {
               text: "🔄 Qayta yechish",

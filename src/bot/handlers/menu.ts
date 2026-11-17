@@ -1,5 +1,4 @@
 import { Context } from "grammy";
-import { allQuizzes, getQuizById } from "../../quiz/questions.js";
 import { escapeHtml } from "../../quiz/quizManager.js";
 import {
   formatKursQuizId,
@@ -21,29 +20,7 @@ export interface MenuMessagePayload {
   };
 }
 
-export interface AsosiySectionDef {
-  key: string;
-  bolim: string;
-  title: string;
-}
-
-export const ASOSIY_SECTIONS: AsosiySectionDef[] = [
-  { key: "k8", bolim: "kimyo_8", title: "8-sinf kimyo" },
-  { key: "k9", bolim: "kimyo_9", title: "9-sinf kimyo" },
-  { key: "kk", bolim: "kolloid", title: "Kolloid kimyo" },
-  { key: "org", bolim: "organik", title: "Organik kimyo (I)" },
-  { key: "tar", bolim: "tarix", title: "Tarix" },
-  { key: "din", bolim: "dinshunoslik", title: "Dinshunoslik" },
-  { key: "rus", bolim: "rus_tili", title: "Rus tili" },
-  { key: "bsh", bolim: "boshqalar", title: "Boshqalar" },
-];
-
 const PAGE_SIZE = 8;
-
-export function getSectionKeyByBolim(bolim?: string): string {
-  const found = ASOSIY_SECTIONS.find((s) => s.bolim === bolim);
-  return found ? found.key : "bsh";
-}
 
 export function buildKursMenuPayload(page = 0, greetingPrefix = ""): MenuMessagePayload {
   const lessons = getActiveKursLessons();
@@ -113,95 +90,17 @@ export function buildKursConfirmPayload(
   };
 }
 
-export function buildAsosiyMenuPayload(greetingPrefix = ""): MenuMessagePayload {
-  const bodyText = `🧪 <b>Testlar bo‘limlari</b>\n\nKerakli bo‘limni tanlang:`;
+export const quizCodesButton = { text: "📢 Test kodlari", url: "https://t.me/jdaquizkod" };
+
+export function buildQuizCodesPayload(greetingPrefix = "") {
+  const text = "Test kodlarini @jdaquizkod kanalidan oling.";
   return {
-    text: greetingPrefix ? `${greetingPrefix}\n\n${bodyText}` : bodyText,
-    reply_markup: {
-      inline_keyboard: [
-        [
-          { text: "Kolloid kimyo", callback_data: "m:a:sec:kk" },
-          { text: "Organik kimyo (I)", callback_data: "m:a:sec:org" },
-        ],
-        [
-          { text: "Tarix", callback_data: "m:a:sec:tar" },
-          { text: "Dinshunoslik", callback_data: "m:a:sec:din" },
-        ],
-        [
-          { text: "Rus tili", callback_data: "m:a:sec:rus" },
-          { text: "Boshqalar", callback_data: "m:a:sec:bsh" },
-        ],
-      ],
-    },
+    text: greetingPrefix ? `${greetingPrefix}\n\n${text}` : text,
+    reply_markup: { inline_keyboard: [[quizCodesButton]] },
   };
 }
 
-export function buildAsosiySectionPayload(secKey: string, page = 0): MenuMessagePayload | null {
-  const section = ASOSIY_SECTIONS.find((s) => s.key === secKey);
-  if (!section) return null;
-
-  const quizzes = allQuizzes.filter((q) => (q.bolim || "boshqalar") === section.bolim);
-  const totalPages = Math.max(1, Math.ceil(quizzes.length / PAGE_SIZE));
-  const safePage = Math.min(Math.max(0, page), totalPages - 1);
-  const slice = quizzes.slice(safePage * PAGE_SIZE, (safePage + 1) * PAGE_SIZE);
-
-  const keyboard: Array<Array<{ text: string; callback_data: string }>> = [];
-  for (const q of slice) {
-    keyboard.push([
-      {
-        text: q.title.length > 60 ? `${q.title.slice(0, 57)}...` : q.title,
-        callback_data: `m:a:q:${q.id}`,
-      },
-    ]);
-  }
-
-  if (totalPages > 1) {
-    const navRow: Array<{ text: string; callback_data: string }> = [];
-    if (safePage > 0) {
-      navRow.push({ text: "⬅️ Oldingi", callback_data: `m:a:p:${secKey}:${safePage - 1}` });
-    }
-    if (safePage < totalPages - 1) {
-      navRow.push({ text: "Keyingi ➡️", callback_data: `m:a:p:${secKey}:${safePage + 1}` });
-    }
-    if (navRow.length > 0) {
-      keyboard.push(navRow);
-    }
-  }
-
-  keyboard.push([{ text: "⬅️ Orqaga", callback_data: "m:a:list" }]);
-
-  return {
-    text: `📂 <b>${escapeHtml(section.title)}</b>\n\nKerakli testni tanlang:`,
-    reply_markup: { inline_keyboard: keyboard },
-  };
-}
-
-export function buildAsosiyConfirmPayload(quizId: string): MenuMessagePayload | null {
-  const quiz = getQuizById(quizId);
-  if (!quiz) return null;
-
-  const secKey = getSectionKeyByBolim(quiz.bolim);
-  const timeSec = quiz.questions[0]?.timeLimitSeconds || 20;
-  const text =
-    `🧪 <b>${escapeHtml(quiz.title)}</b>\n\n` +
-    `📝 ${escapeHtml(quiz.description)}\n` +
-    `❓ Savollar soni: <b>${quiz.questions.length} ta</b>\n` +
-    `⏱ Har bir savolga: <b>${timeSec} soniya</b>`;
-
-  return {
-    text,
-    reply_markup: {
-      inline_keyboard: [
-        [
-          { text: "▶️ Boshlash", callback_data: `m:a:go:${quiz.id}` },
-          { text: "⬅️ Orqaga", callback_data: `m:a:sec:${secKey}` },
-        ],
-      ],
-    },
-  };
-}
-
-async function editOrReplyMenu(ctx: Context, payload: MenuMessagePayload): Promise<void> {
+async function editOrReplyMenu(ctx: Context, payload: MenuMessagePayload | ReturnType<typeof buildQuizCodesPayload>): Promise<void> {
   if (typeof (ctx as any).editMessageText === "function") {
     try {
       await ctx.editMessageText(payload.text, {
@@ -292,59 +191,12 @@ export async function handleMenuCallback(ctx: Context): Promise<void> {
     }
   }
 
-  // Asosiy menyu callbacklari: m:a:...
+  // Avval yuborilgan asosiy menyu tugmalari kanal havolasini ochishga yo‘naltiradi.
   if (data.startsWith("m:a:")) {
-    if (shell.shell !== "asosiy") {
-      await ctx.answerCallbackQuery({
-        text: "⚠️ Bu chatda faqat «Kimyo 0 dan» kursi testlari ishlaydi.",
-        show_alert: true,
-      });
-      return;
-    }
-
-    if (data === "m:a:list") {
-      await editOrReplyMenu(ctx, buildAsosiyMenuPayload());
-      return;
-    }
-
-    if (data.startsWith("m:a:sec:")) {
-      const secKey = data.slice("m:a:sec:".length);
-      const payload = buildAsosiySectionPayload(secKey, 0);
-      if (!payload) {
-        await ctx.answerCallbackQuery({ text: "⚠️ Bo'lim topilmadi.", show_alert: true });
-        return;
-      }
-      await editOrReplyMenu(ctx, payload);
-      return;
-    }
-
-    if (data.startsWith("m:a:p:")) {
-      const rest = data.slice("m:a:p:".length);
-      const [secKey, pageStr] = rest.split(":");
-      const payload = buildAsosiySectionPayload(secKey, Number(pageStr) || 0);
-      if (!payload) {
-        await ctx.answerCallbackQuery({ text: "⚠️ Bo'lim topilmadi.", show_alert: true });
-        return;
-      }
-      await editOrReplyMenu(ctx, payload);
-      return;
-    }
-
-    if (data.startsWith("m:a:q:")) {
-      const quizId = data.slice("m:a:q:".length);
-      const payload = buildAsosiyConfirmPayload(quizId);
-      if (!payload) {
-        await ctx.answerCallbackQuery({ text: "⚠️ Test topilmadi.", show_alert: true });
-        return;
-      }
-      await editOrReplyMenu(ctx, payload);
-      return;
-    }
-
-    if (data.startsWith("m:a:go:")) {
-      const quizId = data.slice("m:a:go:".length);
-      await startQuizById(ctx, quizId, { fromCallback: true });
-      return;
+    if (shell.shell === "asosiy") {
+      await editOrReplyMenu(ctx, buildQuizCodesPayload());
+    } else {
+      await ctx.answerCallbackQuery({ text: "Kurs testlarini darslar ro‘yxatidan tanlang." });
     }
   }
 }

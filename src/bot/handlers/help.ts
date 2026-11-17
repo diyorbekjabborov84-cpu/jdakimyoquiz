@@ -41,14 +41,14 @@ export async function handleHelp(ctx: Context): Promise<void> {
   await ctx.reply(
     `📖 <b>Qo'llanma va Buyruqlar:</b>\n\n` +
       `<b>Asosiy buyruqlar:</b>\n` +
-      `/start — Bot holatini tekshirish va testlar menyusi\n` +
-      `/quiz — Testlar bo‘limlari menyusini ochish\n` +
+      `/start — Botni ochish\n` +
+      `/quiz — @jdaquizkod kanaliga havolani olish\n` +
       `/resume — To'xtagan (pauzadagi) quizni davom ettirish\n` +
       `/stop — Faol quizni majburiy to'xtatish (faqat guruh adminlari)\n` +
       `/help — Ushbu yordam oynasini ko'rsatish\n\n` +
       `<b>Qoidalar:</b>\n` +
       `1. Botni guruhingizga qo'shing va unga <b>Admin</b> huquqini bering.\n` +
-      `2. Guruhda <code>/quiz</code> menyusidan yoki <code>/quiz_KOD</code> orqali testni boshlang.\n` +
+      `2. @jdaquizkod kanalidan test kodini oling va guruhda <code>/quiz_KOD</code> orqali testni boshlang.\n` +
       `3. Guruh a'zolari o'z vaqtida (20 soniya ichida) javob berishlari kerak.\n` +
       `4. Ketma-ket 3 ta savolga hech kim javob bermasa, quiz vaqtincha to'xtatiladi (Aqlli pauza).\n` +
       `5. Yakunda eng ko'p to'g'ri va eng tez javob bergan ishtirokchilar reytingi e'lon qilinadi!`,

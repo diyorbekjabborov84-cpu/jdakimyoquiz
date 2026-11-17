@@ -7,7 +7,7 @@ import {
   replyGroupDisabledOnce,
   replyPrivateNotParticipant,
 } from "../../shell/shell.js";
-import { buildAsosiyMenuPayload, buildKursMenuPayload } from "./menu.js";
+import { buildQuizCodesPayload, buildKursMenuPayload } from "./menu.js";
 
 /**
  * /start buyrug'i uchun handler.
@@ -71,7 +71,7 @@ export async function handleStart(ctx: Context): Promise<void> {
   }
 
   // Asosiy guruh qobig'i
-  const menu = buildAsosiyMenuPayload("🧪 <b>JDA Kimyo Quiz Boti faol!</b>");
+  const menu = buildQuizCodesPayload("🧪 <b>JDA Kimyo Quiz Boti faol!</b>");
   await ctx.reply(menu.text, {
     parse_mode: "HTML",
     reply_markup: menu.reply_markup,

@@ -125,14 +125,13 @@ export async function sendGroupWelcomeMessage(ctx: Context, chatId: number): Pro
   const text =
     `🧪 <b>JDA QUIZ guruhga qo‘shildi!</b>\n\n` +
     `1. JDA QUIZ botini guruh administratori qiling.\n` +
-    `2. «Testlar» tugmasidan testni tanlang. Test uchun guruhda botdan tashqari kamida 12 kishi bo‘lishi kerak.\n\n` +
+    `2. Test kodlarini @jdaquizkod kanalidan oling. Test uchun guruhda botdan tashqari kamida 12 kishi bo‘lishi kerak.\n\n` +
     `Muammo, taklif yoki savollar uchun: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`;
 
   await ctx.api.sendMessage(chatId, text, {
     parse_mode: "HTML",
     reply_markup: {
       inline_keyboard: [
-        [{ text: "📚 Testlar", callback_data: "m:a:list" }],
         [
           {
             text: "📢 Test kodlari",

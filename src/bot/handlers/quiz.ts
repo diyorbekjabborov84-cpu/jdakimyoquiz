@@ -11,7 +11,7 @@ import {
 } from "../../shell/shell.js";
 import { getKursQuizById, isKursQuizId } from "../../kurs/kursRepository.js";
 import { getBotSettings } from "../../settings/botSettings.js";
-import { buildAsosiyMenuPayload, buildKursMenuPayload } from "./menu.js";
+import { buildQuizCodesPayload, buildKursMenuPayload } from "./menu.js";
 
 /**
  * /quiz buyrug'i uchun handler:
@@ -48,7 +48,7 @@ export async function handleQuizCommand(ctx: Context): Promise<void> {
     return;
   }
 
-  const menu = buildAsosiyMenuPayload();
+  const menu = buildQuizCodesPayload();
   await ctx.reply(menu.text, {
     parse_mode: "HTML",
     reply_markup: menu.reply_markup,
@@ -148,7 +148,7 @@ export async function startQuizById(
     quiz = getQuizById(quizId);
     if (!quiz) {
       await sendFeedback(
-        `❌ Bunday test topilmadi: «${quizId}». Testlar menyusidan tanlang.`
+        `❌ Bunday test topilmadi: «${quizId}». Test kodlarini @jdaquizkod kanalidan oling.`
       );
       return;
     }
