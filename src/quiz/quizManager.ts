@@ -113,6 +113,7 @@ export class QuizManager {
 
   // finishQuiz taymer ichida xato bersa, qayta urinishlar soni (chatId bo'yicha)
   private finishRetryAttempts = new Map<number, number>();
+  private pendingQuizzes = new Map<number, Quiz[]>();
   public static readonly FINISH_RETRY_MAX_ATTEMPTS = 5;
   public static FINISH_RETRY_BASE_DELAY_MS = 5000;
 
@@ -215,7 +216,7 @@ export class QuizManager {
               `🔄 <b>Bot serveri qayta ishga tushirildi va «${escapeHtml(session.quiz.title)}» sessiyasi saqlab qolindi!</b>\n\n` +
                 `📊 O‘tilgan savollar: <b>${currentQ}/${totalQ}</b>\n` +
                 `👥 Qatnashuvchilar: <b>${session.participants.size} ta</b>\n\n` +
-                `Quizni to‘xtagan joyidan davom ettirish uchun quyidagi tugmani bosing yoki guruhda <b>/resume</b> buyrug‘ini yuboring:`,
+                `Quizni to‘xtagan joyidan davom ettirish uchun quyidagi tugmani bosing:`,
               {
                 parse_mode: "HTML",
                 reply_markup: {
@@ -226,6 +227,7 @@ export class QuizManager {
                         callback_data: `resume_quiz_${session.chatId}_${session.sessionId}`,
                       },
                     ],
+                    [{ text: "🛑 To‘xtatish", callback_data: `stop_quiz_${session.sessionId}` }],
                   ],
                 },
               }
@@ -279,18 +281,28 @@ export class QuizManager {
   public async startQuiz(
     chatId: number,
     quiz: Quiz,
-    api: TelegramApiSender
-  ): Promise<{ success: boolean; message: string }> {
+    api: TelegramApiSender,
+    canQueue = false
+  ): Promise<{ success: boolean; message: string; queued?: boolean }> {
     if (this.chatLocks.has(chatId) || this.isQuizActive(chatId)) {
-      const isPaused = this.isQuizPaused(chatId);
-      const isFinishing = this.sessions.get(chatId)?.status === "finishing";
+      const active = this.sessions.get(chatId);
+      if (canQueue && active && this.isQuizActive(chatId)) {
+        const queue = this.pendingQuizzes.get(chatId) ?? [];
+        const existing = queue.findIndex((pending) => pending.id === quiz.id);
+        if (existing >= 0) {
+          return { success: true, queued: true, message: `Bu test navbatda: ${existing + 1}-o‘rin.` };
+        }
+        if (active.quiz.id !== quiz.id) {
+          queue.push(quiz);
+          this.pendingQuizzes.set(chatId, queue);
+          return { success: true, queued: true, message: `✅ Test navbatga qo‘shildi: ${queue.length}-o‘rin.` };
+        }
+      }
       return {
         success: false,
-        message: isFinishing
-          ? "⚠️ Bu chatda quiz yakunlanmoqda va natijalari bazaga saqlanmoqda. Yangi quiz boshlashdan oldin kuting yoki /stop buyrug'ini bering."
-          : isPaused
-          ? "⚠️ Bu chatda to'xtatilgan (pauza qilingan quiz mavjud). Iltimos, uni «▶️ Qolgan joyidan davom ettirish» tugmasi yoki /resume buyrug'i bilan davom ettiring, yoki /stop buyrug'i bilan to'xtating."
-          : "⚠️ Bu chatda allaqachon faol quiz davom etmoqda. Iltimos, u yakunlanishini kuting yoki /stop buyrug'i bilan to'xtating.",
+        message: active?.status === "paused"
+          ? "⏸ Joriy test pauzada. Davom ettirish tugmasidan foydalaning."
+          : "⏳ Hozir test davom etmoqda. Yakunlanishini kuting.",
       };
     }
 
@@ -339,7 +351,15 @@ export class QuizManager {
           `❓ Savollar soni: <b>${quiz.questions.length} ta</b>\n` +
           `⏱ Har bir savolga: <b>${timePerQuestion} soniya</b>\n\n` +
           `<i>Tayyor turing, 1-savol 3 soniyadan so'ng yuboriladi...</i>`,
-        { parse_mode: "HTML" }
+        {
+          parse_mode: "HTML",
+          reply_markup: {
+            inline_keyboard: [[
+              { text: "📚 Testlar", callback_data: /^KURS_D/i.test(quiz.id) ? "m:k:list" : "m:a:list" },
+              { text: "🛑 To‘xtatish", callback_data: `stop_quiz_${sessionId}` },
+            ]],
+          },
+        }
       );
 
       console.log(
@@ -379,7 +399,7 @@ export class QuizManager {
       `⏸ <b>Quiz vaqtincha to‘xtatildi (Aqlli pauza)</b>\n\n` +
       `Ketma-ket 3 ta savolga hech kim javob bermagani sababli quiz to‘xtatildi.\n` +
       `O‘tilgan savollar: <b>${questionNumber}/${totalQuestions}</b>\n\n` +
-      `Quizni qolgan joyidan davom ettirish uchun quyidagi tugmani bosing yoki guruhda <b>/resume</b> buyrug‘ini yuboring:`;
+      `Quizni qolgan joyidan davom ettirish uchun quyidagi tugmani bosing:`;
 
     await api.sendMessage(chatId, pauseText, {
       parse_mode: "HTML",
@@ -391,6 +411,7 @@ export class QuizManager {
               callback_data: `resume_quiz_${chatId}_${session.sessionId}`,
             },
           ],
+          [{ text: "🛑 To‘xtatish", callback_data: `stop_quiz_${session.sessionId}` }],
         ],
       },
     });
@@ -523,7 +544,7 @@ export class QuizManager {
               `Xatolik sababi: <i>${escapeHtml(errorMessage)}</i>\n` +
               `O‘tilgan savollar holati: <b>${currentProgress}/${totalQuestionsCount}</b>\n` +
               `Ishtirokchilarning barcha ballari va javob vaqtlari to‘liq saqlab qolindi.\n\n` +
-              `Muammo bartaraf etilgach, quyidagi tugma yoki guruhda <b>/resume</b> buyrug'i orqali quizni xavfsiz davom ettirishingiz mumkin:`,
+              `Muammo bartaraf etilgach, quyidagi tugma orqali quizni xavfsiz davom ettirishingiz mumkin:`,
             {
               parse_mode: "HTML",
               reply_markup: {
@@ -587,7 +608,7 @@ export class QuizManager {
             `Xatolik sababi: <i>${escapeHtml(errorMessage)}</i>\n` +
             `O‘tilgan savollar holati: <b>${currentProgress}/${totalQuestionsCount}</b>\n` +
             `Ishtirokchilarning barcha ballari va javob vaqtlari to‘liq saqlab qolindi.\n\n` +
-            `Muammo bartaraf etilgach, quyidagi tugma yoki guruhda <b>/resume</b> buyrug'i orqali quizni xavfsiz davom ettirishingiz mumkin:`,
+            `Muammo bartaraf etilgach, quyidagi tugma orqali quizni xavfsiz davom ettirishingiz mumkin:`,
           {
             parse_mode: "HTML",
             reply_markup: {
@@ -1089,8 +1110,8 @@ export class QuizManager {
                   callback_data: "m:k:list",
                 }
               : {
-                  text: "📢 Quiz kodlari",
-                  url: "https://t.me/jdaquizkod",
+                  text: "📚 Testlar",
+                  callback_data: "m:a:list",
                 },
             {
               text: "🔄 Qayta yechish",
@@ -1120,23 +1141,40 @@ export class QuizManager {
     }
 
     // 3-QADAM: Hammasi muvaffaqiyatli yakunlandi, endi sessiyani tozalaymiz
-    session.status = "completed";
     await this.sessionStorage.deleteSession(chatId);
+    session.status = "completed";
     this.sessions.delete(chatId);
     this.finishRetryAttempts.delete(chatId);
+    const queue = this.pendingQuizzes.get(chatId);
+    const next = queue?.shift();
+    if (!queue?.length) this.pendingQuizzes.delete(chatId);
+    if (next) await this.startQuiz(chatId, next, api);
   }
 
   /**
    * Quizni majburiy to'xtatish (/stopquiz)
    */
-  public async stopQuiz(chatId: number, api?: TelegramApiSender): Promise<boolean> {
+  public async stopQuiz(chatId: number, api?: TelegramApiSender, expectedSessionId?: string): Promise<boolean> {
     const session = this.sessions.get(chatId);
-    if (!session) return false;
+    if (!session || (expectedSessionId && session.sessionId !== expectedSessionId)) return false;
+    if (expectedSessionId && (session.status === "finishing" || this.chatLocks.has(chatId))) return false;
 
     this.clearSessionTimer(session);
     this.finishRetryAttempts.delete(chatId);
-
     this.closePoll(session.currentPollId);
+    session.status = "stopped";
+    session.version += 1;
+    this.chatLocks.add(chatId);
+    try {
+      await this.sessionStorage.deleteSession(chatId);
+      this.sessions.delete(chatId);
+      this.pendingQuizzes.delete(chatId);
+    } catch (err) {
+      session.status = "paused";
+      throw err;
+    } finally {
+      this.chatLocks.delete(chatId);
+    }
 
     if (session.currentPollMessageId && api) {
       try {
@@ -1147,13 +1185,9 @@ export class QuizManager {
     }
 
     if (api) {
-      await api.sendMessage(chatId, "🛑 <b>Quiz to'xtatildi.</b>", { parse_mode: "HTML" });
+      await api.sendMessage(chatId, "🛑 <b>Test to‘xtatildi. Navbat tozalandi.</b>", { parse_mode: "HTML" });
     }
 
-    session.status = "stopped";
-    session.version += 1;
-    await this.sessionStorage.deleteSession(chatId);
-    this.sessions.delete(chatId);
     return true;
   }
 

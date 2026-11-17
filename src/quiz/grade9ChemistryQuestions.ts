@@ -1,0 +1,81 @@
+import type { Quiz } from "./types.js";
+
+const carbonQuestions = [
+  ["Uglerodning davriy jadvaldagi o‘rni qaysi?", "2-davr, 14-guruh", "2-davr, 15-guruh", "3-davr, 14-guruh", "3-davr, 15-guruh"],
+  ["Neytral uglerod atomining asosiy holatdagi elektron konfiguratsiyasi qaysi?", "1s² 2s² 2p²", "1s² 2s¹ 2p³", "1s² 2s² 2p¹", "1s² 2s² 2p³"],
+  ["Uglerodning tashqi qavatida nechta elektron va asosiy holatdagi 2p qavatchasida nechta toq elektron bor?", "4 va 2", "4 va 0", "2 va 2", "6 va 2"],
+  ["CH₄ tarkibidagi uglerodning valentligi va oksidlanish darajasi mos ravishda qanday?", "IV va −4", "IV va +4", "II va −2", "II va +2"],
+  ["CO va CO₂ da uglerodning oksidlanish darajalari mos ravishda qanday?", "+2 va +4", "+4 va +2", "−2 va +4", "+2 va +2"],
+  ["Qaysi qatorda uglerodning faqat allotropik shakllari berilgan?", "Olmos, grafit, fulleren", "Olmos, grafit, dolomit", "Grafit, fulleren, kalsit", "Olmos, fulleren, magnezit"],
+  ["Olmosda har bir uglerod atomi nechta qo‘shni uglerod atomi bilan bevosita bog‘langan?", "4", "2", "3", "6"],
+  ["Nega grafit qog‘ozda iz qoldiradi?", "Qatlamlari bir-biriga nisbatan oson sirpanadi", "Qatlam ichidagi bog‘lar oson uziladi", "Grafit qog‘oz namligida oson eriydi", "Grafit ishqalanishdan oson suyuqlanadi"],
+  ["Qaysi taqqoslash to‘g‘ri?", "Olmos qattiqroq, grafit tokni yaxshiroq o‘tkazadi", "Grafit qattiqroq, olmos tokni yaxshiroq o‘tkazadi", "Olmos qattiqroq, olmos tokni yaxshiroq o‘tkazadi", "Grafit qattiqroq, grafit tokni yaxshiroq o‘tkazadi"],
+  ["Karbinning poliin shaklida qaysi bog‘lar navbatlashadi?", "Yakka va uch bog‘lar", "Yakka va qo‘sh bog‘lar", "Qo‘sh va uch bog‘lar", "Faqat qo‘sh bog‘lar"],
+  ["Qaysi mineral kalsiy va magniyning qo‘sh karbonati hisoblanadi?", "Dolomit", "Kalsit", "Magnezit", "Siderit"],
+  ["Fotosintezda o‘simlik glyukoza hosil qilish uchun uglerodni asosan qaysi moddadan oladi?", "CO₂", "CO", "CH₄", "H₂CO₃"],
+  ["6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. 3 mol CO₂ to‘liq sarflansa, necha mol glyukoza hosil bo‘ladi?", "0,5 mol", "1 mol", "2 mol", "3 mol"],
+  ["Faollashtirilgan ko‘mir eritmadagi bo‘yoqni o‘z sirtida ushlab qoldi. Bu hodisa nima?", "Adsorbsiya", "Absorbsiya", "Desorbsiya", "Kristallanish"],
+  ["Ko‘mir tarkibidagi g‘ovaklar ochilganda nega uning adsorbsiyalash qobiliyati ortadi?", "Yutilish sodir bo‘ladigan sirt kattalashadi", "Yutilish sodir bo‘ladigan sirt kichrayadi", "Ko‘mir sirtidagi g‘ovaklar yopiladi", "Yutilgan moddalar sirtdan ko‘proq chiqadi"],
+  ["Uglerod kislorod yetarli bo‘lgan sharoitda to‘liq yonganda qanday oksid hosil bo‘ladi?", "CO₂", "CO", "C₂O", "C₃O₂"],
+  ["C + CO₂ → 2CO reaksiyasida CO₂ tarkibidagi uglerodning oksidlanish darajasi qanday o‘zgaradi?", "+4 dan +2 ga", "0 dan +2 ga", "+2 dan +4 ga", "+4 dan 0 ga"],
+  ["C + CO₂ → 2CO. 2 mol C va 3 mol CO₂ aralashtirildi. C to‘liq sarflansa, qancha CO hosil bo‘ladi va qancha CO₂ ortadi?", "4 mol CO, 1 mol CO₂", "4 mol CO, 2 mol CO₂", "6 mol CO, 1 mol CO₂", "6 mol CO, 0 mol CO₂"],
+  ["Ar(C)=12 va Ar(O)=16. 6 g uglerod to‘liq yonganda qancha CO₂ hosil bo‘ladi?", "22 g", "14 g", "18 g", "44 g"],
+  ["2CuO + C → 2Cu + CO₂ reaksiyasida uglerodning roli va o‘zgarishi qanday?", "Qaytaruvchi, 0 dan +4 ga", "Oksidlovchi, 0 dan −4 ga", "Qaytaruvchi, 0 dan +2 ga", "Oksidlovchi, 0 dan +4 ga"],
+] as const;
+
+export const grade9CarbonQuiz: Quiz = {
+  id: "K9_2",
+  title: "Uglerod va uning xossalari",
+  description: "9-sinf kimyo · III bob · 20 savol",
+  source: "Kimyo, 9-sinf, 2019-yilgi darslik, 43–49-betlar",
+  bolim: "kimyo_9",
+  groupOnly: true,
+  shuffle: true,
+  questions: carbonQuestions.map(([question, ...options], index) => ({
+    id: `K9_2_${index + 1}`,
+    question,
+    options,
+    correctOptionId: 0,
+    timeLimitSeconds: 30,
+  })),
+};
+
+const ionQuestions = [
+  ["Faqat indikator rangi o‘zgargani aytildi. 7-jadvalga ko‘ra, qaysi ikki ionni shu kuzatuvning o‘zi bilan farqlab bo‘lmaydi?", "H⁺ va OH⁻", "Na⁺ va K⁺", "Fe²⁺ va Fe³⁺", "Cl⁻ va Br⁻"],
+  ["Alangani sariq rangga bo‘yaydigan ion qaysi?", "Na⁺", "K⁺", "Ca²⁺", "Ba²⁺"],
+  ["A namunasi alangani binafsha, B namunasi sariq rangga bo‘yadi. A va B dagi ionlar mos ravishda qaysi?", "K⁺ va Na⁺", "Na⁺ va K⁺", "K⁺ va Ca²⁺", "Ca²⁺ va Na⁺"],
+  ["Ca²⁺ ionini 7-jadval bo‘yicha oq cho‘kma hosil qilib aniqlash uchun qaysi ion qo‘shiladi?", "CO₃²⁻", "NO₃⁻", "Cl⁻", "Br⁻"],
+  ["Ba²⁺ ioniga SO₄²⁻ qo‘shilganda qaysi oq cho‘kma hosil bo‘ladi?", "BaSO₄", "BaSO₃", "BaCO₃", "Ba₃(PO₄)₂"],
+  ["NH₄⁺ ioni OH⁻ bilan ta’sirlashganda qaysi gaz hosil bo‘ladi?", "NH₃", "CO₂", "SO₂", "H₂S"],
+  ["Cu²⁺ ioniga OH⁻ qo‘shilganda hosil bo‘ladigan cho‘kma qanday rangli?", "Ko‘k", "Oq", "Och yashil", "Qo‘ng‘ir"],
+  ["OH⁻ bilan oq cho‘kma tushdi va ortiqcha OH⁻ ta’sirida eridi. Jadvaldagi qaysi ikki ion bu kuzatuvga mos keladi?", "Zn²⁺ va Al³⁺", "Zn²⁺ va Cu²⁺", "Al³⁺ va Fe³⁺", "Cu²⁺ va Fe²⁺"],
+  ["OH⁻ qo‘shilganda dastlab och yashil cho‘kma hosil bo‘lib, vaqt o‘tishi bilan qo‘ng‘ir tusga kirdi. Dastlabki eritmada qaysi ion bo‘lgan?", "Fe²⁺", "Fe³⁺", "Cu²⁺", "Zn²⁺"],
+  ["Fe³⁺ va OH⁻ ionlari o‘zaro ta’sirlashganda qaysi cho‘kma hosil bo‘ladi?", "Fe(OH)₃", "Fe(OH)₂", "Cu(OH)₂", "Al(OH)₃"],
+  ["Al³⁺ + nOH⁻ → Al(OH)₃↓ tenglamasida n nechaga teng?", "3", "1", "2", "4"],
+  ["Ag⁺ qo‘shilganda oq-pag‘a cho‘kma hosil bo‘lib, keyin qoraydi. Qaysi ion aniqlangan?", "Cl⁻", "Br⁻", "I⁻", "PO₄³⁻"],
+  ["Ag⁺ bilan och sarg‘ish cho‘kma beradigan galogenid ioni qaysi?", "Br⁻", "Cl⁻", "I⁻", "F⁻"],
+  ["I⁻ ni aniqlashda Ag⁺ bilan hosil bo‘ladigan cho‘kmaning formulasi qaysi?", "AgI", "AgBr", "AgCl", "AgIO₃"],
+  ["SO₃²⁻ ioniga H⁺ ta’sir etganda ajraladigan gaz qaysi?", "SO₂", "CO₂", "H₂S", "NH₃"],
+  ["Kislota ta’sirida CO₂ ajraldi va ohakli suv loyqalandi. Dastlabki eritmada qaysi ion bo‘lgan?", "CO₃²⁻", "SO₃²⁻", "SO₄²⁻", "PO₄³⁻"],
+  ["SO₄²⁻ ionini 7-jadval bo‘yicha oq cho‘kma orqali aniqlash uchun qaysi reaktiv ioni kerak?", "Ba²⁺", "Na⁺", "K⁺", "NH₄⁺"],
+  ["PO₄³⁻ ionini Ag⁺ bilan aniqlashda hosil bo‘ladigan sariq cho‘kmaning formulasi qaysi?", "Ag₃PO₄", "Ag₃PO₃", "Ag₂CO₃", "Ag₂SO₄"],
+  ["Pb²⁺ + X → PbS↓ tenglamasida X qaysi ion?", "S²⁻", "SO₃²⁻", "SO₄²⁻", "CO₃²⁻"],
+  ["Ag⁺ bilan sariq cho‘kma beradigan ikkita ion 7-jadvalda qaysi qatorda keltirilgan?", "I⁻ va PO₄³⁻", "Cl⁻ va Br⁻", "Cl⁻ va I⁻", "Cl⁻ va PO₄³⁻"],
+] as const;
+
+export const grade9IonPropertiesQuiz: Quiz = {
+  id: "K9_1",
+  title: "Ionlarning o‘ziga xos xossalari",
+  description: "9-sinf kimyo · 7-jadval · 20 savol",
+  source: "Kimyo, 9-sinf, 2019-yilgi darslik, 31-bet, 7-jadval",
+  bolim: "kimyo_9",
+  groupOnly: true,
+  shuffle: true,
+  questions: ionQuestions.map(([question, ...options], index) => ({
+    id: `K9_1_${index + 1}`,
+    question,
+    options,
+    correctOptionId: 0,
+    timeLimitSeconds: 30,
+  })),
+};

@@ -148,7 +148,7 @@ export async function startQuizById(
     quiz = getQuizById(quizId);
     if (!quiz) {
       await sendFeedback(
-        `❌ Bunday IDga ega quiz topilmadi: «${quizId}»\n\nMavjud quizlarni ko'rish uchun /quiz buyrug'ini yuboring.`
+        `❌ Bunday test topilmadi: «${quizId}». Testlar menyusidan tanlang.`
       );
       return;
     }
@@ -161,18 +161,15 @@ export async function startQuizById(
     }
   }
 
-  if (quizManager.isQuizActive(chatId)) {
-    const isPaused = quizManager.isQuizPaused(chatId);
-    const activeMsg = isPaused
-      ? "⚠️ Bu chatda pauza qilingan quiz mavjud. Iltimos, uni «▶️ Qolgan joyidan davom ettirish» tugmasi yoki /resume buyrug'i bilan davom ettiring, yoki /stop buyrug'i bilan to'xtating."
-      : "⚠️ Bu chatda allaqachon faol quiz davom etmoqda. Iltimos, u yakunlanishini kuting yoki /stop buyrug'i bilan to'xtating.";
-    await sendFeedback(activeMsg);
+  const canQueue = quizManager.isQuizActive(chatId) && await isGroupAdmin(ctx);
+  const result = await quizManager.startQuiz(chatId, quiz, ctx.api as any, canQueue);
+  if (!result.success) {
+    await sendFeedback(result.message);
     return;
   }
 
-  const result = await quizManager.startQuiz(chatId, quiz, ctx.api as any);
-  if (!result.success) {
-    await sendFeedback(result.message);
+  if (result.queued) {
+    await sendFeedback(result.message, false);
     return;
   }
 
@@ -181,6 +178,20 @@ export async function startQuizById(
       .answerCallbackQuery({ text: options?.callbackSuccessText || "▶️ Test boshlanmoqda!" })
       .catch(() => {});
   }
+}
+
+export async function handleStopQuizCallback(ctx: Context): Promise<void> {
+  const chatId = ctx.chat?.id;
+  const sessionId = Array.isArray(ctx.match) ? ctx.match[1] : undefined;
+  if (!chatId || !sessionId) return;
+
+  if (ctx.chat?.type !== "private" && !(await isGroupAdmin(ctx))) {
+    await ctx.answerCallbackQuery({ text: "Testni faqat guruh admini to‘xtata oladi.", show_alert: true });
+    return;
+  }
+
+  const stopped = await quizManager.stopQuiz(chatId, ctx.api, sessionId);
+  await ctx.answerCallbackQuery({ text: stopped ? "Test to‘xtatildi." : "Bu test endi faol emas." });
 }
 
 /**

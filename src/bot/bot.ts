@@ -1,10 +1,11 @@
-import { Bot } from "grammy";
+import { Bot, type Context } from "grammy";
 import { handleStart } from "./handlers/start.js";
 import { handleHelp } from "./handlers/help.js";
 import {
   handleQuizCommand,
   handleQuizByIdCommand,
   handleStopQuizCommand,
+  handleStopQuizCallback,
   handleCheckSubscriptionCallback,
   handleRestartQuizCallback,
   handleResumeQuizCallback,
@@ -24,19 +25,29 @@ export function createBot(token: string): Bot {
   bot.on("my_chat_member", handleMyChatMember);
   bot.on(":new_chat_members", handleNewChatMembers);
 
-  // Buyruqlarni ro'yxatdan o'tkazish
-  bot.command("start", handleStart);
-  bot.command("help", handleHelp);
-  bot.command("resume", handleResumeCommand);
+  const cleanGroupCommand = (handler: (ctx: Context) => Promise<void>) =>
+    async (ctx: Context) => {
+      const recipient = ctx.message?.text?.match(/^\/\S+?@(\w+)(?=\s|$)/)?.[1];
+      if (recipient && recipient.toLowerCase() !== ctx.me.username.toLowerCase()) return;
 
-  // /quiz_<ID> va /start_<ID> dinamik buyruqlari (masalan: /quiz_amino_acids, /start_R1)
-  bot.hears(/^\/(?:quiz|start)_([a-zA-Z0-9_]+)(?:@\w+)?(?:\s.*)?$/i, handleQuizByIdCommand);
+      try {
+        await handler(ctx);
+      } finally {
+        if (ctx.chat?.type === "group" || ctx.chat?.type === "supergroup") {
+          await ctx.deleteMessage().catch((err) => {
+            console.warn(`[Bot] Guruhdagi buyruq xabarini o‘chirib bo‘lmadi (${ctx.chat?.id}):`, err);
+          });
+        }
+      }
+    };
 
-  // /quiz (Asosiy quiz kodlarini @jdaquizkod kanalidan olasiz xabari yoki ID bilan boshlash)
-  bot.command("quiz", handleQuizCommand);
-
-  // /stop va /stopquiz (faol yoki pauzadagi quizni to'xtatish)
-  bot.command(["stop", "stopquiz"], handleStopQuizCommand);
+  bot.command("start", cleanGroupCommand(handleStart));
+  bot.command("help", cleanGroupCommand(handleHelp));
+  bot.command("resume", cleanGroupCommand(handleResumeCommand));
+  bot.hears(/^\/(?:quiz|start)_([a-zA-Z0-9_]+)(?:@\w+)?(?:\s.*)?$/i, cleanGroupCommand(handleQuizByIdCommand));
+  bot.command("quiz", cleanGroupCommand(handleQuizCommand));
+  bot.command(["stop", "stopquiz"], cleanGroupCommand(handleStopQuizCommand));
+  bot.callbackQuery(/^stop_quiz_(.+)$/, handleStopQuizCallback);
 
   // Obunani qayta tekshirish («✅ A’zo bo‘ldim — tekshirish» callback query)
   bot.callbackQuery(/^check_sub_(.+)$/, handleCheckSubscriptionCallback);

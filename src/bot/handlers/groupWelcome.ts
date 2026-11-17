@@ -111,7 +111,7 @@ export async function sendGroupWelcomeMessage(ctx: Context, chatId: number): Pro
     const kursText =
       `📚 <b>JDA QUIZ («Kimyo 0 dan» kursi) guruhga qo‘shildi!</b>\n\n` +
       `1. Botni guruh administratori qiling.\n` +
-      `2. Guruhda <code>/quiz</code> buyrug‘i orqali darslar ro‘yxatini ochib testni boshlang.\n\n` +
+      `2. «Darslar ro‘yxati» tugmasidan testni tanlang.\n\n` +
       `Murojaat uchun: ${settings.adminContact}`;
     await ctx.api.sendMessage(chatId, kursText, {
       parse_mode: "HTML",
@@ -125,14 +125,14 @@ export async function sendGroupWelcomeMessage(ctx: Context, chatId: number): Pro
   const text =
     `🧪 <b>JDA QUIZ guruhga qo‘shildi!</b>\n\n` +
     `1. JDA QUIZ botini guruh administratori qiling.\n` +
-    `2. Kerakli test kodlarini @jdaquizkod kanalidan oling.\n` +
-    `3. Test kodini guruhga yuborib quizni boshlang. Quiz uchun guruhda botdan tashqari kamida 12 kishi bo'lishi kerak.\n\n` +
+    `2. «Testlar» tugmasidan testni tanlang. Test uchun guruhda botdan tashqari kamida 12 kishi bo‘lishi kerak.\n\n` +
     `Muammo, taklif yoki savollar uchun: <a href="https://t.me/diyorbek_jabborov">@diyorbek_jabborov</a>`;
 
   await ctx.api.sendMessage(chatId, text, {
     parse_mode: "HTML",
     reply_markup: {
       inline_keyboard: [
+        [{ text: "📚 Testlar", callback_data: "m:a:list" }],
         [
           {
             text: "📢 Test kodlari",

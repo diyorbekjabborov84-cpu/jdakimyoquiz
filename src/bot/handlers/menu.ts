@@ -1,6 +1,6 @@
 import { Context } from "grammy";
 import { allQuizzes, getQuizById } from "../../quiz/questions.js";
-import { escapeHtml, quizManager } from "../../quiz/quizManager.js";
+import { escapeHtml } from "../../quiz/quizManager.js";
 import {
   formatKursQuizId,
   getActiveKursLessons,
@@ -29,6 +29,7 @@ export interface AsosiySectionDef {
 
 export const ASOSIY_SECTIONS: AsosiySectionDef[] = [
   { key: "k8", bolim: "kimyo_8", title: "8-sinf kimyo" },
+  { key: "k9", bolim: "kimyo_9", title: "9-sinf kimyo" },
   { key: "kk", bolim: "kolloid", title: "Kolloid kimyo" },
   { key: "org", bolim: "organik", title: "Organik kimyo (I)" },
   { key: "tar", bolim: "tarix", title: "Tarix" },
@@ -285,16 +286,6 @@ export async function handleMenuCallback(ctx: Context): Promise<void> {
 
     if (data.startsWith("m:k:go:")) {
       const darsNum = Number(data.slice("m:k:go:".length));
-      if (quizManager.isQuizActive(chatId)) {
-        const isPaused = quizManager.isQuizPaused(chatId);
-        await ctx.answerCallbackQuery({
-          text: isPaused
-            ? "⚠️ Bu chatda pauzadagi quiz bor. Uni /resume bilan davom ettiring yoki /stop bilan to'xtating."
-            : "⚠️ Bu chatda allaqachon faol quiz davom etmoqda.",
-          show_alert: true,
-        });
-        return;
-      }
       const quizId = formatKursQuizId(darsNum);
       await startQuizById(ctx, quizId, { fromCallback: true });
       return;
@@ -352,16 +343,6 @@ export async function handleMenuCallback(ctx: Context): Promise<void> {
 
     if (data.startsWith("m:a:go:")) {
       const quizId = data.slice("m:a:go:".length);
-      if (quizManager.isQuizActive(chatId)) {
-        const isPaused = quizManager.isQuizPaused(chatId);
-        await ctx.answerCallbackQuery({
-          text: isPaused
-            ? "⚠️ Bu guruhda pauzadagi quiz bor. Uni /resume bilan davom ettiring yoki /stop bilan to'xtating."
-            : "⚠️ Bu guruhda allaqachon faol quiz davom etmoqda.",
-          show_alert: true,
-        });
-        return;
-      }
       await startQuizById(ctx, quizId, { fromCallback: true });
       return;
     }
