@@ -86,6 +86,41 @@ export function formatKursExplanation(dars: number, mavzu: string): string {
   return `${prefix}${cleanMavzu.slice(0, maxMavzuLen).trimEnd()}…${suffix}`;
 }
 
+const SUBSCRIPT_MAP: Record<string, string> = Object.fromEntries(
+  [..."0123456789+-=()aehijklmnoprstuvx"].map((ch, i) => [ch, [..."₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓ"][i]])
+);
+const SUPERSCRIPT_MAP: Record<string, string> = Object.fromEntries(
+  [..."0123456789+-=()n"].map((ch, i) => [ch, [..."⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ"][i]])
+);
+const HTML_ENTITIES: Record<string, string> = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", minus: "−", middot: "·", rarr: "→",
+};
+
+/**
+ * Qo'llanma HTML'idan kelgan matnni Telegram poll uchun toza matnga aylantiradi:
+ * <sub>/<sup> → Unicode indekslar (H<sub>2</sub>O → H₂O, A<sub>r</sub> → Aᵣ),
+ * qolgan teglar olib tashlanadi, HTML entity'lar ochiladi.
+ * Unicode'da mos belgi bo'lmasa, harf o'zgarishsiz qoladi.
+ */
+export function cleanKursText(raw: string): string {
+  const mapChars = (s: string, map: Record<string, string>) =>
+    [...s].map((ch) => map[ch] ?? ch).join("");
+  return raw
+    .replace(/<sub>([\s\S]*?)<\/sub>/gi, (_, s: string) => mapChars(s, SUBSCRIPT_MAP))
+    .replace(/<sup>([\s\S]*?)<\/sup>/gi, (_, s: string) => mapChars(s, SUPERSCRIPT_MAP))
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<\/?[a-z][^>]*>/gi, "")
+    .replace(/&(#\d+|#x[0-9a-f]+|[a-z]+);/gi, (m, e: string) => {
+      if (e[0] === "#") {
+        const code = e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
+        return Number.isFinite(code) ? String.fromCodePoint(code) : m;
+      }
+      return HTML_ENTITIES[e.toLowerCase()] ?? m;
+    })
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 export function normalizeKursMashqlar(rawMashqlar: unknown, darsNum: number): RawKursMashqItem[] {
   if (!Array.isArray(rawMashqlar)) return [];
   const darsPrefix = `d${String(darsNum).padStart(2, "0")}`;
@@ -95,7 +130,7 @@ export function normalizeKursMashqlar(rawMashqlar: unknown, darsNum: number): Ra
     const m = rawMashqlar[idx];
     const fallbackId = `${darsPrefix}_m${String(idx + 1).padStart(2, "0")}`;
     if (typeof m === "string") {
-      const trimmed = m.trim();
+      const trimmed = cleanKursText(m);
       if (trimmed) {
         result.push({
           id: fallbackId,
@@ -104,15 +139,14 @@ export function normalizeKursMashqlar(rawMashqlar: unknown, darsNum: number): Ra
       }
     } else if (m && typeof m === "object") {
       const obj = m as Record<string, unknown>;
-      const savol = typeof obj.savol === "string" ? obj.savol.trim() : "";
+      const savol = typeof obj.savol === "string" ? cleanKursText(obj.savol) : "";
       if (!savol) continue;
       const id = typeof obj.id === "string" && obj.id.trim() ? obj.id.trim() : fallbackId;
+      const yechim = typeof obj.yechim === "string" ? cleanKursText(obj.yechim) : "";
       result.push({
         id,
         savol,
-        ...(typeof obj.yechim === "string" && obj.yechim.trim()
-          ? { yechim: obj.yechim.trim() }
-          : {}),
+        ...(yechim ? { yechim } : {}),
       });
     }
   }
@@ -153,7 +187,7 @@ export function validateKursDarslarPayload(darslar: unknown[]): {
     }
     seenLessonNumbers.add(darsNum);
 
-    const mavzu = typeof item.mavzu === "string" ? item.mavzu.trim() : "";
+    const mavzu = typeof item.mavzu === "string" ? cleanKursText(item.mavzu) : "";
     if (!mavzu) {
       errors.push(`${darsNum}-dars uchun mavzu bo'sh`);
       continue;
@@ -181,7 +215,7 @@ export function validateKursDarslarPayload(darslar: unknown[]): {
       }
       seenTestIds.add(testId);
 
-      const savol = typeof t.savol === "string" ? t.savol.trim() : "";
+      const savol = typeof t.savol === "string" ? cleanKursText(t.savol) : "";
       if (!savol) {
         errors.push(`${prefix} (${testId}): savol matni bo'sh`);
         continue;
@@ -193,10 +227,10 @@ export function validateKursDarslarPayload(darslar: unknown[]): {
         continue;
       }
 
-      const optA = typeof v.A === "string" ? v.A.trim() : "";
-      const optB = typeof v.B === "string" ? v.B.trim() : "";
-      const optC = typeof v.C === "string" ? v.C.trim() : "";
-      const optD = typeof v.D === "string" ? v.D.trim() : "";
+      const optA = typeof v.A === "string" ? cleanKursText(v.A) : "";
+      const optB = typeof v.B === "string" ? cleanKursText(v.B) : "";
+      const optC = typeof v.C === "string" ? cleanKursText(v.C) : "";
+      const optD = typeof v.D === "string" ? cleanKursText(v.D) : "";
 
       if (!optA || !optB || !optC || !optD) {
         errors.push(`${prefix} (${testId}): 4 ta variant (A, B, C, D) to'liq bo'lishi shart`);
