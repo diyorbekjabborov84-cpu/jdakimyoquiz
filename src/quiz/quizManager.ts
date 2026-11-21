@@ -114,7 +114,11 @@ export class QuizManager {
   // finishQuiz taymer ichida xato bersa, qayta urinishlar soni (chatId bo'yicha)
   private finishRetryAttempts = new Map<number, number>();
   private pendingQuizzes = new Map<number, Quiz[]>();
+  // Joriy savolni yuborgan Telegram API (shaxsiy chatda javobdan keyin darhol keyingi savolga o'tish uchun)
+  private questionApis = new Map<number, TelegramApiSender>();
   public static readonly FINISH_RETRY_MAX_ATTEMPTS = 5;
+  /** Shaxsiy chatda javob berilgach, savol yopilishigacha kutish (to'g'ri javob va izohni ko'rish uchun). */
+  public static PRIVATE_EARLY_ADVANCE_DELAY_MS = 1500;
   public static FINISH_RETRY_BASE_DELAY_MS = 5000;
 
   constructor(
@@ -650,6 +654,7 @@ export class QuizManager {
       startTime: session.questionStartTime,
       isClosed: false,
     });
+    this.questionApis.set(chatId, api);
 
     // Vaqt tugagach savolni yopish va keyingisiga o'tish taymerini o'rnatamiz (chunki poll Telegramda faol!)
     session.timer = setTimeout(() => {
@@ -827,6 +832,17 @@ export class QuizManager {
       console.log(
         `[Quiz] Javob qabul qilindi: ${userDisplay} (chatId: ${pollInfo.chatId}, savol: ${pollInfo.questionIndex + 1}, to'g'ri: ${isCorrect}, vaqt: ${(responseTimeMs / 1000).toFixed(1)}s)`
       );
+
+      // Shaxsiy chatda yagona ishtirokchi javob berdi: savol vaqti tugashini kutmasdan,
+      // qisqa pauzadan so'ng savolni yopib keyingisiga o'tamiz. Guruhlarda vaqt oxirigacha kutiladi.
+      const api = this.questionApis.get(pollInfo.chatId);
+      if (pollInfo.chatId > 0 && api) {
+        const chatId = pollInfo.chatId;
+        this.clearSessionTimer(session);
+        session.timer = setTimeout(() => {
+          this.runTimerTask(chatId, "handleQuestionTimeout (erta)", () => this.handleQuestionTimeout(chatId, api), api);
+        }, QuizManager.PRIVATE_EARLY_ADVANCE_DELAY_MS);
+      }
 
       return true;
     });
@@ -1147,6 +1163,7 @@ export class QuizManager {
     session.status = "completed";
     this.sessions.delete(chatId);
     this.finishRetryAttempts.delete(chatId);
+    this.questionApis.delete(chatId);
     const queue = this.pendingQuizzes.get(chatId);
     const next = queue?.shift();
     if (!queue?.length) this.pendingQuizzes.delete(chatId);
@@ -1171,6 +1188,7 @@ export class QuizManager {
       await this.sessionStorage.deleteSession(chatId);
       this.sessions.delete(chatId);
       this.pendingQuizzes.delete(chatId);
+      this.questionApis.delete(chatId);
     } catch (err) {
       session.status = "paused";
       throw err;

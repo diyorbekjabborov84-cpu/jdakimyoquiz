@@ -33,6 +33,7 @@ const allTestFiles = [
   "admin-modules.test.ts",
   "timer-safety.test.ts",
   "kurs-text-clean.test.ts",
+  "private-early-advance.test.ts",
 ];
 const requested = process.argv.slice(2);
 const testFiles = requested.length ? requested : allTestFiles;
