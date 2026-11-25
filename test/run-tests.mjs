@@ -27,6 +27,7 @@ const allTestFiles = [
   "ak1-quiz.test.ts",
   "d1-quiz.test.ts",
   "d6-quiz.test.ts",
+  "dh-quiz.test.ts",
   "t-quiz.test.ts",
   "group-size.test.ts",
   "group-registry.test.ts",

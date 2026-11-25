@@ -259,6 +259,7 @@ import {
 import { ak1Quiz } from "./ak1Questions.js";
 import { d1Quiz } from "./d1Questions.js";
 import { d6Quiz } from "./d6Questions.js";
+import { dh1Quiz, dh2Quiz, dh3Quiz, dh4Quiz, allDhQuizzes } from "./dhQuestions.js";
 import {
   t1Quiz,
   t2Quiz,
@@ -310,6 +311,11 @@ export {
   ak1Quiz,
   d1Quiz,
   d6Quiz,
+  dh1Quiz,
+  dh2Quiz,
+  dh3Quiz,
+  dh4Quiz,
+  allDhQuizzes,
   t1Quiz,
   t2Quiz,
   t3Quiz,
@@ -338,6 +344,7 @@ export const allQuizzes: Quiz[] = [
   ak1Quiz,
   d1Quiz,
   d6Quiz,
+  ...allDhQuizzes,
   t1Quiz,
   t2Quiz,
   t3Quiz,
@@ -537,6 +544,11 @@ export function getQuizById(id: string): Quiz | undefined {
 
   if (normalized === "d6" || normalized === "d_6" || normalized === "d-6") {
     return d6Quiz;
+  }
+
+  const dhMatch = normalized.match(/^dh[-_]?([1-4])$/);
+  if (dhMatch) {
+    return allDhQuizzes[Number(dhMatch[1]) - 1];
   }
 
   if (normalized === "t1" || normalized === "t_1" || normalized === "t-1") return t1Quiz;

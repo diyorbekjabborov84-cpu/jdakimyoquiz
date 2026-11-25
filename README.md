@@ -74,11 +74,19 @@ Telegram guruhlarida kimyo fanidan interaktiv, ko'p savolli quiz musobaqalarini 
    - `AK1`: «Aminokislotalar — kimyoviy strukturalar (AK1)» (329–330-betlardagi 17-jadval asosida 21 ta moddaning kimyoviy strukturasi rasmi va polli, buyruq: `/quiz_AK1`, 30s/savol)
    - `D1`: «Dinshunoslik — 1-mavzu: Dinshunoslik faniga kirish (D1)» (1-maruza slaydlaridan 30 ta savol, buyruq: `/quiz_D1` yoki `/start_D1`, 20s/savol)
    - `D6`: «Dinshunoslik — 6-mavzu: Islom dini (D6)» (6-maruza matnidan 40 ta savol, buyruq: `/quiz_D6` yoki `/start_D6`, 20s/savol)
+   - `DH1`: «Dinshunoslik — 1-qism (DH1)» (1–20-savollar, Diyorbek Hasanov to‘plami, buyruq: `/quiz_DH1` yoki `/start_DH1`, 20s/savol)
+   - `DH2`: «Dinshunoslik — 2-qism (DH2)» (21–40-savollar, Diyorbek Hasanov to‘plami, buyruq: `/quiz_DH2` yoki `/start_DH2`, 20s/savol)
+   - `DH3`: «Dinshunoslik — 3-qism (DH3)» (41–60-savollar, Diyorbek Hasanov to‘plami, buyruq: `/quiz_DH3` yoki `/start_DH3`, 20s/savol)
+   - `DH4`: «Dinshunoslik — 4-qism (DH4)» (61–80-savollar, Diyorbek Hasanov to‘plami, buyruq: `/quiz_DH4` yoki `/start_DH4`, 20s/savol)
 2. **Guruh Havolalari (Deep Linking)**:
    - **Shaxsiy chatda ochilgan eski havola**: `https://t.me/<bot_username>?start=quiz_<ID>` — test boshlanmaydi, guruhga o'tish tugmasi chiqadi.
    - **Guruhga qo'shish va to'g'ridan-to'g'ri boshlash uchun**: `https://t.me/<bot_username>?startgroup=quiz_<ID>` yoki `?startgroup=start_<ID>`
      - *D1*: `https://t.me/jdakimyoquizbot?startgroup=quiz_D1` (yoki `?startgroup=start_D1`)
      - *D6*: `https://t.me/jdakimyoquizbot?startgroup=quiz_D6` (yoki `?startgroup=start_D6`)
+     - *DH1*: `https://t.me/jdakimyoquizbot?startgroup=quiz_DH1` (yoki `?startgroup=start_DH1`)
+     - *DH2*: `https://t.me/jdakimyoquizbot?startgroup=quiz_DH2` (yoki `?startgroup=start_DH2`)
+     - *DH3*: `https://t.me/jdakimyoquizbot?startgroup=quiz_DH3` (yoki `?startgroup=start_DH3`)
+     - *DH4*: `https://t.me/jdakimyoquizbot?startgroup=quiz_DH4` (yoki `?startgroup=start_DH4`)
      - *AK1*: `https://t.me/jdakimyoquizbot?startgroup=quiz_AK1`
      - *KK2_1*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_1` (yoki `?startgroup=start_KK2_1`)
      - *KK2_2*: `https://t.me/jdakimyoquizbot?startgroup=quiz_KK2_2` (yoki `?startgroup=start_KK2_2`)

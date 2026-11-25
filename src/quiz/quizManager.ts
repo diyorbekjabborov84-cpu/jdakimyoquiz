@@ -14,6 +14,35 @@ export function escapeHtml(text: string): string {
 }
 
 /**
+ * Quiz yaratuvchisini Telegram HTML formatida xavfsiz shakllantiradi:
+ * - "Ism (@username)" -> "Ism (<a href="https://t.me/username">@username</a>)"
+ * - "@username" yoki "username" -> "<a href="https://t.me/username">@username</a>"
+ * - Oddiy ism -> "Ism" (havolasiz)
+ */
+export function formatQuizAuthorHtml(author?: string): string {
+  const defaultAuthor = "diyorbek_jabborov";
+  const trimmed = author?.trim() || "";
+  if (!trimmed) {
+    return `<a href="https://t.me/${defaultAuthor}">@${defaultAuthor}</a>`;
+  }
+
+  const nameWithHandleMatch = trimmed.match(/^(.+?)\s*\(@([A-Za-z0-9_]{3,64})\)$/);
+  if (nameWithHandleMatch) {
+    const displayName = escapeHtml(nameWithHandleMatch[1].trim());
+    const username = escapeHtml(nameWithHandleMatch[2]);
+    return `${displayName} (<a href="https://t.me/${username}">@${username}</a>)`;
+  }
+
+  const handleMatch = trimmed.match(/^@?([A-Za-z0-9_]{3,64})$/);
+  if (handleMatch) {
+    const username = escapeHtml(handleMatch[1]);
+    return `<a href="https://t.me/${username}">@${username}</a>`;
+  }
+
+  return escapeHtml(trimmed);
+}
+
+/**
  * Elementlarni tasodifiy aralashtirish (Fisher-Yates algoritmi)
  */
 export function shuffleArray<T>(array: T[]): T[] {
@@ -1005,9 +1034,7 @@ export class QuizManager {
    */
   public formatLeaderboardMessages(session: QuizSession, leaderboard: ParticipantScore[]): string[] {
     const totalQuestions = session.quiz.questions.length;
-    const defaultAuthor = "diyorbek_jabborov";
-    const rawAuthor = session.quiz.author ? session.quiz.author.replace(/^@/, "").trim() : defaultAuthor;
-    const authorHtml = `<a href="https://t.me/${escapeHtml(rawAuthor)}">@${escapeHtml(rawAuthor)}</a>`;
+    const authorHtml = formatQuizAuthorHtml(session.quiz.author);
     const kursMatch = session.quiz.id.match(/^KURS_D0*(\d+)$/i);
     const kursDarsNum = kursMatch ? Number(kursMatch[1]) : null;
     const isPrivateKurs = session.chatId > 0 && kursDarsNum !== null;

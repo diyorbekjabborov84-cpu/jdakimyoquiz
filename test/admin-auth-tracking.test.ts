@@ -683,10 +683,14 @@ async function runAdminTests() {
   // 6. Mavjud Barcha Quizlar Butunligi
   // -------------------------------------------------------------
   console.log("\n6. Mavjud barcha quizlar butunligi tekshiruvi...");
-  assert.strictEqual(allQuizzes.length, 63);
+  assert.strictEqual(allQuizzes.length, 67);
   assert.ok(allQuizzes.some((q) => q.id === "AK1"));
   assert.ok(allQuizzes.some((q) => q.id === "D1"));
   assert.ok(allQuizzes.some((q) => q.id === "D6"));
+  assert.ok(allQuizzes.some((q) => q.id === "DH1"));
+  assert.ok(allQuizzes.some((q) => q.id === "DH2"));
+  assert.ok(allQuizzes.some((q) => q.id === "DH3"));
+  assert.ok(allQuizzes.some((q) => q.id === "DH4"));
   assert.ok(allQuizzes.some((q) => q.id === "T1"));
   assert.ok(allQuizzes.some((q) => q.id === "T9"));
   assert.ok(allQuizzes.some((q) => q.id === "KK4_1"));
